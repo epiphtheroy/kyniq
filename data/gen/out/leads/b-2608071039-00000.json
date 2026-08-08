@@ -1,0 +1,42 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "margarita-y-el-lobo-1969",
+  "field": "lead",
+  "film_id": "eb2ab9c2-e1b3-404d-93a4-b40fd61c4bc3",
+  "lang": "en",
+  "text": "Lorenzo is handsome, clever, elegant and liberal, and the only thing he asks for is everything. Forty-four minutes is all Cecilia Bartolomé needs for that proposition: short enough to work as a demonstration rather than a story, long enough to show the arithmetic of a couple in which one person's freedom is financed by the other's. Margarita supplies the financing. Spain, 1969, which puts particular weight on that word liberal — the modern man here is progressive about everything except the woman across the table from him. The film sits on Caimán's list of the hundred best Spanish pictures. The trap it lays is that Lorenzo never once sounds unreasonable while he is asking. Nothing he says would look wrong written down.",
+  "model": "claude-opus-5",
+  "source_sha256": "c9fe3d19b63c9bd5ee5e74517b5ea085a94f1c5bf7f9dae8960cbad784e54cfc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "at-dawn-1967",
+  "field": "lead",
+  "film_id": "38c74663-f3e8-4726-affd-b686bc6e1422",
+  "lang": "en",
+  "text": "His first day in the post is the day he learns how the post actually works. Li Han-Hsiang builds a hundred and six minutes out of that plain premise, and the interest is procedural: a newly appointed court official watching a judgment get assembled by people who have assembled many, and having to decide how much of it he will put his name to. Taiwan, 1967. The setting keeps the world small — one court, one case, no authority above the room to appeal to — so the corruption is not a scandal to be exposed but a working method everyone present is fluent in. He is the only one who has not learned it yet, and inexperience is the weakest position from which to object. It appears on the Golden Horse list of the hundred greatest Chinese-language films.",
+  "model": "claude-opus-5",
+  "source_sha256": "a469936181c9a971ef23879f21ffd5fa69d44c0f40a15db1d7288aa531c25065"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "growing-up-1986",
+  "field": "lead",
+  "film_id": "8a5aaca4-8837-4767-90e7-caa5da353a7a",
+  "lang": "en",
+  "text": "Senior year in a Hong Kong secondary school, a new girl in the classroom, and one boy in the group finished the moment he sees her. Nothing in that is unusual, which is the reason to look: comedies made for teenagers are where a city keeps its record of what seventeen-year-olds wore, said, feared and found funny in a given year, and this one is dated 1986. Ninety-seven minutes, quick, pitched at an audience that recognised the uniforms. The premise is arranged around the group rather than the couple — the friends are the standing arrangement, the girl is what disturbs it. It sits on the Golden Horse list of the hundred greatest Chinese-language films, which is not where school comedies usually end up.",
+  "model": "claude-opus-5",
+  "source_sha256": "d94e0ae69c922f71d75b01c5a3dc1746dda737b8bd13acaf58ba1df6c9d8caf3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "champion-without-crown-1945",
+  "field": "lead",
+  "film_id": "b72f2965-2abe-466c-95f1-9faf45277991",
+  "lang": "en",
+  "text": "He is selling ice cream when he steps into a beating and stops it, and a trainer standing nearby sees a career in the way he uses his weight. Mexico, 1945: Alejandro Galindo takes Roberto Terranova through the usual promotion from street corner to professional ring, then declines to make the ring the difficulty. What has to be beaten is nearer than that, and training does not reach it. A hundred and eleven minutes, which is long for a fight picture and about right for one that keeps going back to the neighbourhood he came from. It appears on Somos's hundred best of Mexican cinema. Boxing films usually ask whether a man can win. This one is closer to asking whether winning is something he will be able to carry.",
+  "model": "claude-opus-5",
+  "source_sha256": "f5517d63c7ca8e6666cb18acb723c68304d0f754b47878b7996d2c0da847eca8"
+ }
+]

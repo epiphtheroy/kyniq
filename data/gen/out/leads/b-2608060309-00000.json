@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-lost-weekend-1945",
+  "field": "lead",
+  "film_id": "b51750c4-748f-4cdf-8ea1-dfa5e13b69aa",
+  "lang": "en",
+  "text": "Ten days sober, and the craving has only learned to be quieter. Billy Wilder builds the four days that follow out of small logistics — a country weekend to dodge, a brother and a girlfriend to reassure, hours that have to be got through — so that wanting a drink becomes a matter of planning rather than weather. The lead performance took an Oscar and so did the black-and-white photography, which suggests how much of the film is carried by one face on one street. The country weekend never stood a chance. It runs 101 minutes, and almost none of them is an argument about drinking. Don Birnam has been sober before; he knows precisely how the next part goes, and the method here is simply to stay beside a man carrying out something he settled on days ago.",
+  "model": "claude-opus-5",
+  "source_sha256": "e669b1e77aa65c40b56f154b9e3b6507ef09b14d616caa4ba5ecb59c01c4f57c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "marty-1955",
+  "field": "lead",
+  "film_id": "5fc4534c-dc94-4aa3-a724-902782f155a1",
+  "lang": "en",
+  "text": "A butcher in the Bronx, thirty-four and unmarried, has stopped expecting an evening out to change anything. Ninety minutes was a short film in 1955, and the shortness is the point: nothing gets enlarged. Delbert Mann directs it at roughly the pace of an actual Saturday night. Marty is badgered by his mother, by his friends, by the whole apparatus of people who love him and cannot stop asking. Then he meets a schoolteacher, and the two of them talk; the talk is the event. What is at risk can be stated in a line — a promise to telephone, and a chorus that would rather he did not keep it — and it turns out to be nearly unbearable, because everyone involved is decent. The Oscars went to the lead performance and to sets and photography that are drab on purpose. Ordinary rooms, ordinary hours, one man deciding whether to want something.",
+  "model": "claude-opus-5",
+  "source_sha256": "48d97ba9fb55dc0075dc25b20c30d073c064283f5ee9ead164ffa69c1dc45610"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "la-la-land-2016",
+  "field": "lead",
+  "film_id": "2874f182-7646-412e-9002-b803c7a593b8",
+  "lang": "en",
+  "text": "Two people who serve other people's coffee and play other people's requests decide to take themselves seriously. The city is a workplace first: shifts, auditions, gigs taken for the money. Damien Chazelle puts the fray inside the relationship rather than around it — nobody is keeping Mia and Sebastian apart, and success, once it starts arriving, is what does the damage. That is a harder thing to sustain across 129 minutes than misfortune would be, and much of the work falls to the camera; the cinematography took an Oscar, and it is doing more than decorating. The auditions humiliate in the specific way auditions do. The bars are dingy the way rooms are when nobody is listening. Enormous numbers of people have seen this one, which makes it easy to forget how unsentimental the premise is: two ambitions, one romance, no villain anywhere in it.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d654dcde58b9337d81a1a932a583d23e88e880acd3eb4aeac218d9bc4757241"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-artist-2011",
+  "field": "lead",
+  "film_id": "9044968c-93c5-4bb5-a3f5-6339027f698e",
+  "lang": "en",
+  "text": "Hollywood, 1927: the machinery is about to start talking, and one of its stars suspects it will not be talking about him. George Valentin has the face of an industry and the shelf life of a format. Peppy Miller, a young dancer, arrives exactly as he begins to go, and Michel Hazanavicius puts the two of them in the same frame and lets the timing do the cruelty. The hundred minutes cover a change that gets called a transition afterwards and was lived at the time as a dismissal. Nobody here is punished for being bad at the job, only for being early or late. The costumes and the photography both took Oscars, the right place for money in a picture about surfaces and who gets to keep one; an acting prize went with them. What lasts is the arithmetic of a career.",
+  "model": "claude-opus-5",
+  "source_sha256": "e1a8b7cc8e16982641c3ef95e011d2db651ddf2a2362b12d9c631db470cedf71"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "gandhi-1982",
+  "field": "lead",
+  "film_id": "64fe6a85-bdb5-47db-b4f0-ffa4062efee3",
+  "lang": "en",
+  "text": "Three hours and twelve minutes, and the man at the centre of them declines to raise a hand. That is the problem Richard Attenborough took on, since passive resistance is close to unfilmable — cinema is built to reward action, and here the action is refusal. A British-trained lawyer gives away what he owns, and the film has to make that legible without a single blow struck. So it works by scale instead: crowds, distances, the sheer number of people required to turn sitting still into a force, caught by photography and costume work that both took Oscars. The acting prize went to a performance largely made of listening. India from the early years of the century arrives as a place with weather and dust in it rather than as a subject. Whether an empire can be embarrassed into leaving is held open as a real question for most of the running time.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c4bb1f21e22f8f83ee09a5b71a4e61225938e90d3c408c0c1c94a31d9df1271"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-bridge-on-the-river-kwai-1957",
+  "field": "lead",
+  "film_id": "0ad105aa-ba30-4090-88a8-aaefdd7515d1",
+  "lang": "en",
+  "text": "The prisoners build the bridge properly, and that is where the trouble starts. David Lean hands Colonel Nicholson a reasonable idea — that discipline is what keeps men alive in a camp — then lets it carry him, beam by beam, into labour that serves his captors better than it serves anyone else. Elsewhere, other officers are arranging to blow the thing up. Neither side of that arrangement is stupid, which is what makes it awful. The 162 minutes go on heat and river mud rather than on argument, and Lean's award for direction sits beside ones for the lead performance and the photography, a fair map of where the attention goes. Burma is rendered as work: the length of a day, the weight of a log. Pride is treated less as a vice than as a competence that has lost track of what it was for.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e91394e2f333f18bcc0ec479a62892c1f59deea47bbb3b363d656920b10d56c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-man-for-all-seasons-1966",
+  "field": "lead",
+  "film_id": "1431faa0-b7d7-4f03-8d17-0fc3f8a8106f",
+  "lang": "en",
+  "text": "One sentence, said out loud, would settle everything, and Sir Thomas More will not say it. He declines to swear that Henry VIII is Supreme Head of the Church in England, and Fred Zinnemann handles the refusal as a technical matter rather than a heroic one: what a court can compel, what silence is worth in law, how long a friendship survives a procedural disagreement. For two hours it stays in rooms, at tables, in appointments both kept and dreaded. The Oscars for colour photography and costume point at the joke underneath, all that court plush deployed against a man who wants only to be left alone with a formula of words. The lead performance, which also won, plays him as a lawyer before anything else. A king needs one signature. This is a film about what a signature is.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ab929973d41fac6c74e1ed20b2a7c8adc8a635212804c7ff4f18c614552f248"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tom-jones-1963",
+  "field": "lead",
+  "film_id": "0e5f5935-3a86-45b0-b89b-bf6d305ddce0",
+  "lang": "en",
+  "text": "Tom loves Sophie and Sophie loves Tom, and the arrangement of the world says no, which the film treats as an occasion for mischief rather than grief. Tony Richardson took the Oscar for directing this, and the direction is the event: a costume picture handled at the speed of a chase, the camera behaving less like a witness than a participant. The colour art direction won as well, and the sets are period without being reverent about it. It is a comedy, a romance and a history picture at once, which is less a hedge than a licence. Class is the obstacle and also the joke, and the joke is aimed at the walls rather than at the lovers. Two hours and eight minutes of appetite — for food, for company, for getting away with things — played by a cast that appears to be having a better time than propriety allows.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b49d37606b0c114401b1c502d1dfbe9985bf79ebcd971763aacc74617dea111"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-apartment-1960",
+  "field": "lead",
+  "film_id": "1f2f72dc-c495-4a68-91f6-2eacd7730e8f",
+  "lang": "en",
+  "text": "A key changes hands in an insurance office, and a man moves one floor closer to a window. Bud Baxter's arrangement — his apartment, their evenings, his promotions — works only while nobody involved says out loud what it is, and Billy Wilder mines that silence for comedy a long while before he sends the bill. The black-and-white art direction took an Oscar and earns it: the firm is drawn as a grid of desks where a man is a payroll number in a hat, while the apartment is small enough to hear through. 126 minutes, split between an office and one set of rooms. In 1960 the joke is corporate before it is romantic, and Baxter is good at his arrangement, which is the uncomfortable part. Every laugh in the first hour is a debt, and the film has been keeping the account.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b8878017c9ed3e63d5a6742f9d8c8de03b26af228084c9f0dc129b7b9cbf6db"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "kramer-vs-kramer-1979",
+  "field": "lead",
+  "film_id": "8ea9afc7-7183-489d-b394-d597a402172b",
+  "lang": "en",
+  "text": "Joanna leaves early, and what stays behind is the housekeeping, plus a small boy who has to be fed at a fixed hour. Robert Benton keeps the scale that domestic on purpose: 1979, one household, a man discovering the parts of it he had subcontracted to a marriage. Ted Kramer's work came first for years, and the film's subject is not the break-up but the ordinary mornings after it, when a child has to be told something and the telling cannot wait for a good mood. Most of what matters happens during chores. Benton took the Oscar for directing, and the acting prize went with it. What keeps the thing from turning warm is that Ted's improvement costs somebody else something, and it is never handed to him as credit. Two people with a case each, and a boy who wanted neither.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d8392c169023c9714a3127476672daaec2e38ce52c01c40b307f7674d693fff"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "midnight-cowboy-1969",
+  "field": "lead",
+  "film_id": "40798ff1-c396-42d7-8899-4e9b7b496be3",
+  "lang": "en",
+  "text": "Joe Buck expects wealthy New York women to pay for his company, and the city needs about a week to explain itself. What the film turns into is not the hustle but the friendship: Buck and an ailing swindler called Ratso Rizzo, who has a bad leg, a fantasy of Florida, and no plausible route to either. Texas is behind one of them and Florida is ahead of the other, and neither place is available. John Schlesinger took the Oscar for directing, and the editing won too, a telling place for the craft to show in a picture about two men with nowhere to be. Across 113 minutes the squalor is thorough and never the point. What is actually tracked is how fast two people with nothing begin keeping small practical promises, and how neither will ever call that what it is.",
+  "model": "claude-opus-5",
+  "source_sha256": "6bb154ed3566f071e7dbdab874b14f85ceca94d72176f81525557702aee38e33"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "terms-of-endearment-1983",
+  "field": "lead",
+  "film_id": "98b0479e-672a-4a07-bc8f-229a970c83c8",
+  "lang": "en",
+  "text": "A mother and a daughter who are unusually good at wounding each other keep telephoning anyway. James L. Brooks lets years of that pass inside 132 minutes, which makes the film a structure of intervals: a marriage going wrong off to one side, Aurora's own search for love proceeding on the other, long stretches when the two of them have nothing new to report and call regardless. The daughter's trouble is treated as weather rather than as an event, which is how it tends to work in families. It moves between comedy and something much less comfortable without announcing the change, and the editing Oscar is part of that trick, as is the one Brooks took for directing. Aurora is fussy, imperious, never softened for anyone's convenience; the performance at the centre won too. The attention is what is unusual, not the plot.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f5d162c1da6f998aac8a2f137c9e7ea5a284fe622b705a926e21616674dc711"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ben-hur-1959",
+  "field": "lead",
+  "film_id": "870c7ee7-5c3f-4939-a42e-e4416e90cf7b",
+  "lang": "en",
+  "text": "Two boyhood friends meet again, one of them now wearing a Roman uniform, and the film takes 212 minutes to work out the cost. William Wyler builds occupied Judea at a scale that does not get built any more, and the colour photography and art direction both took Oscars: an empire is expensive, and so is showing one, which is part of the meaning rather than beside it. The aristocrat's objection to Rome is political before it is personal, and then it is only personal. Betrayal arrives, then reprisal, then years. What keeps the length from sagging is that the quarrel stays private — every public catastrophe traces back to two men who used to know each other and now cannot stand down. An acting Oscar came with the rest. Faith enters sideways, at the edge of somebody else's grievance.",
+  "model": "claude-opus-5",
+  "source_sha256": "d376fdd6b5c1304ef2ed91ddfe7b0505c04e0cceaa08e142df4194b47d6f9bf6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "my-fair-lady-1964",
+  "field": "lead",
+  "film_id": "a08ef9b7-8414-4e7c-9f35-6037a8d0c842",
+  "lang": "en",
+  "text": "The whole plot is a wager between men about the way a woman pronounces her vowels. A flower girl is taken up as an experiment; a phonetics professor claims he can pass her off in society; nothing further is required for 173 minutes. George Cukor spends the difference on rooms, hats, and the exact texture of an English class line, and the colour photography and art direction both took Oscars — the pageantry is the argument rather than the decoration. What gets tested is whether a person is her accent. The film is warmest when it stands with the girl and slyest when it does not, since the professor stays insufferable long past the point where a more obliging picture would have redeemed him. Manners as engineering, and a woman rebuilt in public while the men keep score.",
+  "model": "claude-opus-5",
+  "source_sha256": "7e3c3574b4a17eb57fa8acdaa63bf8976e3620717bc9f9b3a9ac0449f9b5030c"
+ }
+]

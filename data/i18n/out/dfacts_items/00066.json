@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-donner#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2008년 도너와 로렌 슐러 도너는 할리우드 명예의 거리에 나란히 별을 받은 최초의 부부 제작자가 됐다. 두 사람 몫의 별이 동시에, 서로 옆에 놓인 것은 그때가 처음이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4389e737d36db6d7b21f004fc4ec8abf9fa953663def7c8397d2d46769488dc3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-donner#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마지막 연출작은 브루스 윌리스 주연의 실시간 스릴러 《16 블록》(2006)이었다. 1950년대 후반 생방송 텔레비전 시대에 시작된 연출 경력이 여기서 끝났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca9bca1b50e9b71ce5bbf9f7f22605df435391c7bfc1ba3c4dcca8cd2c50f561"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-linklater#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "대학을 중퇴한 뒤 멕시코만의 해상 석유 시추선에서 2년 반을 일했다. 그 임금으로 슈퍼8 카메라와 영사기, 편집 장비를 샀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0f053b8c950dc79ae2ce99cb0c5ad0570c80748bd9f2bc9a02a1337b84d495ad"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-linklater#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "데뷔작 《It's Impossible to Learn to Plow by Reading Books》(1988)는 대사가 사실상 없는 슈퍼8 영화다. 촬영도 편집도 주연도 전부 그가 혼자 했고, 2년이 걸렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fedf01b83bb2e1d8b362b45aea8af23ff9aae7e83668b1c189cdf72c83941679"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-linklater#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "독립영화 《슬래커》(1990)의 제작비 2만 3천 달러는 신용카드를 한도까지 긁고 가족에게 소액을 빌려 겨우 맞춘 돈이었다. 그를 세상에 알린 작품이 그렇게 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "11a3070737b55f8338c75b72e24b71a37708f44455b0db527f3a86f24ac383b3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-linklater#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《슬래커》를 본 젊은 케빈 스미스는 영화학교를 그만두고 뉴저지로 돌아갔다. 그리고 자기 신용카드를 한도까지 긁어 《점원들》을 찍었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5ffc2789a48317cc6751355446823a6e04bc64a610d4e47727f2d585414e97f6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-linklater#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1997년, 헌츠빌 고교 동창 셋이 링클레이터를 명예훼손으로 고소했다. 바비 우더슨, 앤디 슬레이터, 리처드 플로이드. 《멍하고 혼돈스러운》에서 대마초 피우는 인물들에게 자기들 실명이 붙었다는 이유였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "569987f35f432254066dbe7edaef126b274f543cbf05b36400c39ba488bb0deb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-linklater#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《멍하고 혼돈스러운》의 최초 기획은 줄거리가 없는 실험영화였다. 텍사스의 어느 마을을 도는 차 넉 대 안에서 전부 벌어지고, 음악은 ZZ Top이 깐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd0b2e63017bf20fbd7b43605d19fa36cf91aa624c30501df97cc233771f3539"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-linklater#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "비포 삼부작의 연애가 시작된 자리에는 에이미 레어하웁트라는 여자가 있다. 1989년 필라델피아의 한 장난감 가게에서 만나, 밤새 걷고 이야기했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "badd5ff567935caf58bcce00b6b1019386efe2688b6bac145ed85dcb231c179a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-linklater#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1995년 《비포 선라이즈》 시사회에 레어하웁트가 나타나기를 그는 남몰래 바랐다. 2010년에야 알게 된다. 그녀는 영화 촬영이 시작되기 3주 전에 오토바이 사고로 세상을 떠난 뒤였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1febbad629f7e0d1bd0405a9fb92eb2f5879b0bdb0d07c3914d00e83af94a55a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-linklater#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "각본 단계부터 배우와 깊이 붙어 일한다. 몇 달에 걸친 인물 구축 워크숍을 거친 끝에 《비포 선셋》과 《비포 미드나잇》에서는 에단 호크와 줄리 델피에게 공동 각본 크레딧을 정식으로 올렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ffcc5d238da62698754e0cd2031f2278675dca242b569f4231db7afdb977b533"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-linklater#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편 애니메이션에 디지털 로토스코핑을 처음 끌어들인 작품이 《웨이킹 라이프》(2001)다. 시판 애플 컴퓨터를 쓰는 화가들을 모아, 실사로 찍은 디지털 영상을 한 프레임씩 덧칠하게 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eff41ec6c057e24af212c75dcd1ba0d6b178777e67242dd8194e30b2ce5e7149"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-linklater#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "12년에 걸친 《보이후드》 촬영 도중, 딸 로렐라이 링클레이터는 한동안 연기에 흥미를 잃었다. 자기 배역을 죽여 달라고 아버지에게 졸랐지만 단칼에 거절당했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6565d4c2e4c50f4268c26e7cd9297ea72ee12d337c8dc4ee84c56e495d54bd84"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-linklater#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2011년 텍사스 배스트롭 카운티를 휩쓴 대형 산불에 집이 통째로 탔다. 개인 아카이브도, 초기작 관련 소장품도 함께 사라졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e75835cb0391c7b276a3a03a9ad2872975be8cb5217266f2bf059ce2078aacdf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-linklater#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "살인죄로 종신형을 받은 버니 티드가 2014년 일시 석방됐다. 링클레이터의 영화 《버니》가 캐낸 새 증거가 한몫한 결과였다. 법원이 내건 보석 조건을 맞추려고, 감독은 오스틴 자택 차고 위 별채에 티드를 살게 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8924e3dd0f84b1960b8ff366c49a3da708f153a803c38851bfe6d616eca1f98b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-linklater#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "20대 초반부터 철저한 채식주의자로 살아왔고, 동물을 인도적으로 대우하는 사람들(PETA)을 적극 후원한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "146bce379752deb1700ebd60ac12d85ff274acc624759e1a1ecebe31c140d25c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-linklater#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《스쿨 오브 락》 연출은 처음엔 거절했다. 기획이 너무 주류로 보였던 것이다. 제작자 스콧 루딘은 물러서지 않았다. 이 영화가 느끼해지지 않으려면 당신의 인디 감각이 절실하다고 계속 설득했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "17a9d5d65b14f14d7a19cae4724dadec153ae8b340bac277accf3fb05e3b6fa6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-linklater#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2018년 중간선거 때 텍사스 민주당 상원 후보 베토 오로크를 위해 테드 크루즈를 겨냥한 정치 광고 연작을 연출했고, 그 광고들은 널리 퍼졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f2aa61d02f3fc30425a2546ea5ff95917f4adf4861d3b65e0713a45652562c4d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-linklater#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "로스앤젤레스로 옮기라는 업계의 압박을 그는 따르지 않았다. 대신 20에이커 규모의 제작 시설 오스틴 스튜디오를 직접 세웠다. 텍사스 주도는 그렇게 독립영화가 실제로 가능한 거점이 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b5863cfb035c25fb53c9149a1b998de687f0f20c184d838f4447fac3f57553d7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-linklater#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "애니메이션 《아폴로 10과 2분의 1: 스페이스 에이지 어린 시절》(2022)은 자전적 색채가 짙다. 1969년 나사의 달 착륙 열기가 바로 옆에서 끓던 시절, 보험회사에 다니는 아버지 밑에서 휴스턴을 자라던 기억이 그대로 들어갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2bf31dbd73fd3becf1eb38a47d2982c0743a59c2071a8ddb981afbf5052a7d04"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ridley-scott#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "사우스실즈에서 태어났다. 왕립공병대 장교였던 아버지 퍼시 스콧 대령의 부임지를 따라 어린 시절을 컴브리아와 웨일스, 전후 독일로 옮겨 다니며 보냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6596729f8fd48b077b9feebb9f947e0cd70018494dc643542ef049c5324c0bfb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ridley-scott#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "런던 왕립예술대학 재학 중 첫 단편 〈Boy and Bicycle〉(1965)을 찍었다. 주연은 십 대이던 동생 토니, 배경에 지나가는 단역은 아버지였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4133a2e96f17c7380d457c1d45af3925ec50adf6f0d365160b1803615854f7b3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ridley-scott#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1960년대 초 BBC 견습 세트 디자이너 시절, 스콧은 〈닥터 후〉의 그 악명 높은 달렉 디자인을 맡을 뻔했다. 다른 프로그램과 일정이 겹치는 바람에 손을 뗐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ab45a767544374bfbdc0ce0e7af540425064dae1bb3e264b22f9b8daf3d09049"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ridley-scott#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1968년 광고 제작사 리들리 스콧 어소시에이츠(RSA)를 차렸다. 이곳에서 2천 편이 넘는 광고를 연출하며, 분위기가 짙고 영화적인 텔레비전 광고의 문법을 열었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "741e72a7d8d48928ace472073f1704a08b33a6e2e5b4c81f83550bab03ab9da1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ridley-scott#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1973년 호비스 빵 광고 〈Boy on the Bike〉는 도싯의 자갈길 언덕을 자전거를 끌고 오르는 빵집 배달 소년을 드보르자크 선율에 실었다. 훗날 영국인이 뽑은 역대 최고의 텔레비전 광고가 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d0c2b0ab7c8284bed115c3d56eb66e35bd4e8566b3446b3350859503514b9657"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ridley-scott#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "매킨토시를 세상에 내놓은 애플의 슈퍼볼 광고 〈1984〉도 그의 연출이다. 90만 달러라는 거액을 들였고, 넋이 나간 디스토피아의 군중 역에는 런던의 진짜 스킨헤드들을 세웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d668548f443b76682144e5958e9029364a8ebe55d3c9d84470e0c4cd1c0de72e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ridley-scott#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "광고를 찍으며 그는 아무 불만이 없었다. 1977년 조지 루카스의 〈스타워즈〉를 보기 전까지는. 그 길로 방향을 SF로 틀었고, 〈에이리언〉 연출을 맡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fbe734c4aef2435e51a42a707887c5cefb5cbb58a4cf3ef355039df6490a9d5b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ridley-scott#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "본래는 〈듄〉 각색의 연출을 수락한 상태였다. 그런데 형 프랭크가 피부암으로 갑자기 세상을 떠났다. 스콧은 〈듄〉에서 하차하고 〈블레이드 러너〉를 택했다. 슬픔에서 자신을 떼어놓으려면 호흡이 빠른 작업이 필요했던 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fdc905d2b796f85536c0384fdd915aec37ed2ea65aeaeb842bf1d8247ce9c18b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ridley-scott#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "쉬지 않고 그리는 사람이다. 스토리보드 아티스트를 아예 쓰지 않고 숏 하나하나를 자기 손으로 촘촘하게 그린다. 현장에서는 이걸 애정을 담아 '리들리그램'이라 부른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5bcd5b5aca641f4adf815c1895f1262dc45e4335621663303982caf3a2d6f9fe"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ridley-scott#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "〈블레이드 러너〉(1982)의 후반작업이 요동치던 때, 완성보증인 제리 페렌치오와 버드 요킨은 형식상 스콧을 해고했다. 그는 그냥 무시하고 계속 일했다. 스태프 전원이 그의 편이었기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b5ad2d99363b006585c8606a9f8c2ee6f960857abfbd8fe958856069065d6e0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ridley-scott#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "극장판 〈블레이드 러너〉를 스콧은 진저리 나게 싫어했다. 스튜디오가 강요한 해피엔딩, 그리고 해리슨 포드의 맥 빠진 내레이션. 결국 2007년, 내레이션을 걷어낸 자신의 결정판 '파이널 컷'을 내놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b7e3f54333eeb0526f8397a693a46ff6309c23a42731d0d71549107fc98af098"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ridley-scott#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "〈글래디에이터〉(2000) 촬영이 3주 남은 시점, 배우 올리버 리드가 몰타에서 심장마비로 사망했다. 스콧은 배역을 다시 캐스팅하지 않았다. 대신 초기 CGI를 앞당겨 써서 리드의 얼굴을 대역의 몸에 입혔고, 그렇게 마지막 장면들을 완성했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "75d40a621a2f1a17a710eaeffb746a9538cd2c9f3e77501220df655b217802fb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ridley-scott#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "〈델마와 루이스〉(1991)에서 스콧이 원한 자리는 제작자였다. 미셸 파이퍼와 조디 포스터가 빠지고 여러 감독이 고사한 끝에 그가 직접 메가폰을 잡았다. 작은 독립영화로 출발한 기획은 그렇게 광활한 서사시로 바뀌었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "729c91e53656b005b3ed35f919b158285c6537044b6c95a5ee79afee3d871fd2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ridley-scott#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "전쟁영화 〈블랙 호크 다운〉(2001)은 어머니 진 스콧에게 바쳐졌다. 제작 도중 세상을 떠난 이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "df1c39aaeb89cba0bee44cdf5e1cadbc89816dec004d51cd2c4937c14454d25d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ridley-scott#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "성폭력 의혹이 불거지자 스콧은 〈올 더 머니〉(2017)에서 케빈 스페이시를 통째로 들어냈다. 크리스토퍼 플러머를 세워 22개 장면을 단 9일 만에 다시 찍고도 원래 시사회 날짜를 지켰다. 전례가 없는 일이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "84cc702bdc91833bffdfcd4dba4716c0484c15b33dc8e0dc075f054f7ef1a896"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ridley-scott#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2003년 버킹엄궁에서 엘리자베스 2세로부터 기사 작위를 받았다. 영국 영화산업에 기여한 공로였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "056eeb46625b0846cf5c25612ef9d48347336a4709acc07241b4423067ebab99"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ridley-scott#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "인터뷰에서 에두르는 법이 없기로 유명하다. 최근 방송 역사가 댄 스노가 틱톡에서 2023년작 〈나폴레옹〉의 고증 오류를 짚어 화제가 되자, 스콧의 대답은 한마디였다. \"인생이나 좀 사시죠.\"",
+  "model": "claude-opus-5",
+  "source_sha256": "6752071f50ead14ff616139c7b52ca63c9267d636d272813debc4ed48c8dd13f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ridley-scott#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "악명 높을 만큼 다작하는 그도 일에서 물러날 때가 있다. 프랑스 프로방스 뤼베롱 지역에 소유한 11헥타르 규모의 포도밭 저택 마스 데 앵페르미에르. 거기서 직접 와인을 빚는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3045c6909a1fc98e79cadd5563f89d915008ce004c1d0a8e9d209848e903b96"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ridley-scott#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "지난 반세기 문화적으로 가장 중요한 영화 몇 편을 만들었고 감독상 후보에 세 번 올랐다. 그런데도 아카데미 트로피는 한 번도 손에 쥐지 못했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2dd45296074a1c8a7d3db0e00972ecdfbf800e0204475de249c01481782c8091"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ridley-scott#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "데뷔 장편은 나폴레옹 시대를 다룬 〈결투자들〉(1977)이다. 칸영화제 신인감독상을 받았지만 파라마운트는 사실상 개봉을 미뤘다. 열광적인 컬트 팬층이 생기고 나서야 사정이 달라졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae4071fd7eb1aba5d79b72272d0e7ed387a9dcd0005e4649be5ab58c43f8bcd5"
+ }
+]

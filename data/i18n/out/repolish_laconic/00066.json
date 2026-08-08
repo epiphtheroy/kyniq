@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stubbornness-that-refuses-the-universal-equivalent",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자본이 끝내 값을 못 매기는 하나, 버티는 자.",
+  "model": "claude-opus-5",
+  "source_sha256": "e0fb6c0be579cf1d0538c9853becde8df8472be0366f8f29d3735105a5524dad"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-studio-as-a-stylistic-manifesto",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지배적 하우스 스타일을 향한 반박문으로 읽히는 애니메이션 장인술.",
+  "model": "claude-opus-5",
+  "source_sha256": "5ea874f9cc4e3170328a7f11e68f9021dfabe270e276e7c8809560769e218fee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-studio-as-resurrected-lost-france",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "멜빌의 세트가 전쟁과 불에 지워진 프랑스를 다시 세운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e89e2091f213a100df1b171ed6e62129992d03f23fe302e51a72742e8aed204c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-studio-backlot-wearing-a-city-s-mask",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "할리우드 부지에 위조된 실재의 대도시.",
+  "model": "claude-opus-5",
+  "source_sha256": "a5f99ac4a524fc320ab6b095386755b02b11a51da9d49941534de9fc93484943"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-studio-in-ruins-forced-the-real-street",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세트장이 무너진 자리에서 어쩔 수 없이 태어난 야외 촬영.",
+  "model": "claude-opus-5",
+  "source_sha256": "0a4e7553c1d97e096a9c93919260aced31e2fee2cfaab170f98508ee44aaf52f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-studio-lot-posing-as-a-vanished-tokyo",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "오후나 촬영소의 기하학이, 더는 하나로 이어지지 않는 도쿄를 대신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "70c8360bcc26520ed9623b3a4ca77c398105ead0116ee686e2aa56dd93a1cfc9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-studio-made-eden-that-confesses-its-artifice",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "낙원이 제 손으로 밝힌다. 나는 지어진 세트라고.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ad788483425bca7f906d778e7041b5a12e1c3ba1b738f205b0cc0104f241383"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-studio-recut-that-enacts-the-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제작사가 편집본을 망가뜨린 그 사건이 영화의 주제가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b15fadd8ed37386054e3bc737ae2f939a8d82c024f0f1b9797279b5e850a48ca"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-studio-snowfall-as-standing-soul",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인공 눈이 바깥으로 나온 내면. 흰빛으로 옮겨진 영혼.",
+  "model": "claude-opus-5",
+  "source_sha256": "3ceda39fd2ec37ebc51506507941f9be550aaae614c4bcbe4cdd732ca1fd89c8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-studio-tank-posing-as-ocean",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끝없는 바다인 척하는, 만들어 채운 물.",
+  "model": "claude-opus-5",
+  "source_sha256": "14013d246a31a6d9a6f990d26b408e1c31dd556a6e5d1c611232c6b1e81de33b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-studio-that-bit-its-owner",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자기를 만든 대기업을 향한 은밀한 반역으로 읽히는 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "66ca92dc91de0362ec06d564b9f13a49eac36f3dbf82066690a546889dccf710"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-studio-that-outlives-its-empire",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바벨스베르크. 역사를 짓고, 위조하고, 끝내 복수하는 하나의 물리적 장소.",
+  "model": "claude-opus-5",
+  "source_sha256": "857edbe95925f650e56dfc6967bdc4ec80bca91c0d3ac0fc92861df48177fc34"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-studio-that-refused-the-computer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "밀려드는 디지털 앞에서 보란 듯이 고집한 손의 기술.",
+  "model": "claude-opus-5",
+  "source_sha256": "bda3d53ed5334586a4dfd9828abeaa911f954a39fa35880687086c1cfd0f9808"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stuntman-s-revolt-against-the-cut",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흔들리는 카메라와 CGI에 맞선 기술자의 반란. 끊지 않고, 알아볼 수 있게 찍은 액션.",
+  "model": "claude-opus-5",
+  "source_sha256": "4cc637b8045c0d573e7865e2deaa03ece0d91da73bf3cda5c22da0d62f22cf3c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stutter-as-reproduction-s-broken-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "매끄럽지 않게 덜컹이는 움직임, 복제가 남긴 섬뜩한 이음매.",
+  "model": "claude-opus-5",
+  "source_sha256": "aa95ae3ff5a59e3eee49fc8d1a68bf3323074ae76a7aa5557e645b6934bb2d7b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-style-born-from-portable-gear",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가볍고 동시녹음이 되는 새 장비가 받아쓰게 한 다큐멘터리 미학.",
+  "model": "claude-opus-5",
+  "source_sha256": "e47ecbfb61ddc0737805226a98a6b6e532fbd5c6a6949f9a6f6861808aa952b1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-style-forced-by-its-industrial-moment",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화 산업이 가한 압력의 찌꺼기로 읽히는 스타일.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a596752a6cab4826f4d3e7091de0565fc3f2bd27ff4499f2a823442aad1f13e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-style-over-substance-charge-as-critic-s-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그 폄하가 드러내는 건 영화의 공허가 아니라 고발한 자의 편견이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "269840553d979cd76204a1bf91b78d11cf74b9598692357ea92210ae4faf1477"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-subculture-s-code-cashed-out",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "닫혀 있던 반문화의 의례가 상품이 되면서 스스로를 배신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4345396a756a66bab65500dcc4ba80ada703615bebb250b1b875723dfba254cf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sublime-aestheticizing-of-atrocity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "학살과 잔혹에 품격을 입히려 아름다움과 장엄을 끌어다 쓴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9a98b0cb4ff3b273ae3cebfb0231a0f2b71184f7bdaa26cd5ef1672aefe5c177"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sublime-at-the-edge-of-cognition",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이해가 무너지는 자리의 공포. 정신을 압도하는 칸트적 숭고(崇高).",
+  "model": "claude-opus-5",
+  "source_sha256": "25e925791bc780a3626898205a13589bf1ead8e0c11fa15fc66bd75b5e18fbb2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sublime-made-visible-then-tamed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "광대한 무한을 물질로 세웠더니, 보는 이를 왜소하게 만들거나 가둘 뿐이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bef5722a6d1957b5686d61f7b336707da43f1e6d51415faf0359b2762374d27e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sublime-plain-as-indifferent-witness-to-empire",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정복도 잔학도 판단 없이 바라보는 광막한 빈 땅.",
+  "model": "claude-opus-5",
+  "source_sha256": "f51f19bdcc543820764d745ea025690125288e319df1b46e3bf603f7429f5504"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sublime-smuggled-into-the-banal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "평범함을 뒤집어쓰고 몰래 들어온 위대함, 혹은 초월.",
+  "model": "claude-opus-5",
+  "source_sha256": "5f81f28b4cf99d6ee47e6df002e3aac5e0d1c285b2279d6848ae912060448798"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-suburb-as-circuit-of-containment",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "방리유와 그린벨트. 림보이자 헤테로토피아(heterotopia), 설계된 가둠.",
+  "model": "claude-opus-5",
+  "source_sha256": "09f8fb8c018e256931beea22270ee4ece7ae2e1e82c7223ce654dfe8316be5dd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-suburb-as-engine-of-its-own-dark",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주택단지는 제가 억누른 어둠을 스스로 만들어내는 장치다.",
+  "model": "claude-opus-5",
+  "source_sha256": "431113a184593b62fd658ac8ced065b8b0bb111d0a8bf4d781f2d79e77688608"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-suburb-as-purgatorial-anti-place",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아무 데도 아닌 곳으로 읽히는 교외. 지움과 유배의 무장소.",
+  "model": "claude-opus-5",
+  "source_sha256": "da5b9dbb381c89a5869c0bf4d5cd24e4ba82b2e606a73c860b4a79d5b7acb02c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-suburb-as-surveillance-theater",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이웃을 지켜보고 이웃에게 지켜보이는, 설계된 가정생활.",
+  "model": "claude-opus-5",
+  "source_sha256": "0888bfa4e9a891454612a5917daef519759f8a8674677f3c02889584129a3f60"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-suburb-standing-in-for-america",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실제 시카고 교외를 찍어 만든 국가의 허구적 자화상.",
+  "model": "claude-opus-5",
+  "source_sha256": "57b04bf1d878bd0af994643c22d10e6a38c8e89b6d80707d165be06fcf9d6f8e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-suicide-as-sacred-gift",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자기 소멸을 바친다. 황홀하고, 윤리적이며, 끝이 없는 선물로.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b8af240cdc1d481e6a0cf2feb2462f96fbeb2f60dfeee28cda6a27922115f9b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-suicide-as-the-film-s-hidden-sun",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스스로 택한 죽음. 그 부재를 축으로 모든 것이 늘어선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "17a086812b170d71e1dcde100d3448d9b62bab9db33da80737b2add3a0d9d975"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-suicide-as-the-last-sovereign-act",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "빼앗길 대로 빼앗긴 자에게 남은 유일한 자유, 자기 살해.",
+  "model": "claude-opus-5",
+  "source_sha256": "aa63a899128b0c5a4eb16fd597de30f65a78284fb3eaf7be190a0e11720f9f8e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-suicide-that-accuses-the-living",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바깥을 겨눈 고발이자 요구, 혹은 처벌로서의 자살.",
+  "model": "claude-opus-5",
+  "source_sha256": "d79ba933fa7ca40f518eda4f0c6e34f6380887467a0440b94221aedad2e0b1c5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-suitor-as-patriarchy-s-enforcement-arm",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "매력적으로 쫓아오는 그 남자가 곧 남성 지배의 경찰이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f887146219864c3ccce7bb342ce250888792eb3c3b3892770d57affeb1823d0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sun-s-name-that-blinds-and-erases",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "태양을 내건 제목들. 그 빛은 밝히는 대신 상처 입히고, 가리고, 지운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ee4f17af2d4f4519776168db9dccde627a0a0a395a6b3d67b9ff7a626560390e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sunless-world-as-manufactured-prison",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "빛이 들지 않는 밀폐 공간이 자본과 통제가 짜놓은 우리를 드러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "31f2e38a99fbc4d5f5c00ad91ff1d4ab29f1f0de01774c50495758a330ffd706"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sunlit-place-that-hides-its-dark",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "부패와 죽음과 감금을 남몰래 품은 낙원들.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a23e804064160c8287eaa2ae0f0ac2d8bb78a9499c394804dea26e77d58ccaa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sunny-surface-hiding-cold-war-rot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미국의 환한 대낮이 그 시대의 불안과 허기를 덮는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a90309452af4a24bab8f62d0c561bea2c061f3d6b9d6135f4ae632c171d22f0e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-surface-hiding-its-anxious-double",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "야망이나 습관 밑에 깔린 것은 구별되지 않음에 관한 영화다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9f27ff040d068b2e3989392c03bc893a2f80cfad3cf0c1a8b70e7577c9ffa6d0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-surgeon-s-hand-as-the-maker-s-curse",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도구를 쥔 손에 창조의 대가가 새겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b72c25a6a473343009bf8e75b67ddcd997d95ed5c808c252ba2f5214c13fb35b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-surgeon-s-knife-as-sovereign-power-over-life",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "누가 온전한 몸으로 살 것인가. 의료의 권위가 그 결정권이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "09a88fe7280338624e667055548ab4672dc34c7778e6fd6312b287e4ced02401"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-surgeon-who-assembles-but-cannot-heal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몸을 짜 맞추는 자가 정작 자기 자신은 꿰매지 못해 무너진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "297558cc746b31d7d25df12df6dcb57f483d67fd0b4443a51c0e3b669169640c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-surname-as-inherited-creed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아버지의 이름이 신조가 된다. 고르지 않았으나 끝내 겨뤄야 할.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ebb9ac726db6466861e3061eb3dba1aa7086497c4dc0322ba7aa46f7f1235e1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-surname-that-eats-the-man",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "만든 이의 이름을 제목으로 다는 순간, 그 이름이 어린 주인공을 삼킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "67f7966ceda699b8761cefdb5cce60385b908052ca0588bf4d68a8e672ab0519"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-surplus-commodity-as-discarded-life",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자본주의가 남긴 물건들. 버려지고 팔리지 않고도 살아남은 삶들의 창고.",
+  "model": "claude-opus-5",
+  "source_sha256": "9810acdc1ebed9e9dd24f50c0177feee1b7ad37b8827d508b58f69a4add4a5b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-surveillance-state-as-total-system",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "냉전의 장치들이 하나로 녹아붙어 독점적인 통제 기계가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a40376546edde804cb40965e312f64cb6cb36cebf95de58895f87101e9c22439"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-surveillance-that-indicts-its-watcher",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몰래 찍힌 화면이 보는 자의 죄를 드러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca2043c950910bb01f2414ce6209195c1e11fe39fdb60952093a9cb1ebdeb142"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-survey-line-that-erases-what-it-charts",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국가가 삼키는 부드러운 폭력으로서의 측량과 지도.",
+  "model": "claude-opus-5",
+  "source_sha256": "e855f2a494b48c1a4d778252bf62c65910ff50a64de63fd566b1e81ced5f7323"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-survival-that-refuses-its-grief",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "산 사람을 돌보느라, 애도하지 못한 상처가 가려진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "658c8d341f16e4afcbc88df043a1057bf9c99387301a7f2d26a680fae3501a57"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-surviving-witness-who-cannot-read-his-own-survival",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다 겪고 살아남았으나 아무것도 이해하지 못한 사람.",
+  "model": "claude-opus-5",
+  "source_sha256": "267a3c838492cbc69d404be10bd564418770d4d6dde36d3b66bce17512742551"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-survivor-becomes-the-archive",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽은 이들보다 오래 산다는 것은 그들의 기록이 된다는 뜻이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8e6277270ad9829fa0656c7b4bc170b86b640c3cf6c0e80894ee5f6ac3f6ebf2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-survivor-who-becomes-her-own-evidence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "법정이 제 몫을 못할 때, 피해 증언은 스스로 쓴 기록으로 찍힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aaaf5382eeec3040ee4f0817696e7c1b1951ae0235d54bc5da583e53f3a76778"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-survivor-who-demands-his-own-punishment",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살아남은 것이 빚이 되어, 몸이 고통으로 갚는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a388866f1de34dd87c442337cef14de3c227591706271e736afabaad7f6ca1dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-survivor-who-lives-by-method",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기술이 된 인내. 훈련된 절차로 쪼그라든 생존.",
+  "model": "claude-opus-5",
+  "source_sha256": "04a24dc7bdbb52ad2849619bb0fdab0a4035d9472d73aeb13b466444469a61dd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-suspension-of-the-ethical",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "신앙이 요구하는 행위를 이성도 윤리도 승인하지 못한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b33118110b0c2635a2ca8e21d6ae99a234903cbca11f97678d7de12f161012e7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sweet-as-commodity-form",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "과자가 물신(fetish)이 되어, 그 위에서 교환과 자아가 흥정된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd10005109ef691625c0b073c365175d0040385495cf3e46e3fb34ae372ba404"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sweet-title-that-names-a-trap",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다정한 제목들. 그 단맛 아래 덫이 숨어 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "345c0d2f3a6ab9d209853d89ed25c1f53306276b09e3cb145a03afa7c0e8452c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sweet-voice-scoring-the-slaughter",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살육 위로 흐르는 순진한 노래, 목가풍의 반어적 진혼곡.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c46bfe2eaf76f2c2ce36f37359ec0252972cbeabfaa20674b4ab6c555b3ce78"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sweetness-the-title-doesn-t-mean",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목은 달콤함을 약속하고, 정작 그 쓴 부재나 거짓에 이름을 붙인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8e77e5faeaddaea2153fa204c785af0661e8b3ae3f3318e43b90b88b97c93de7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-swinging-lamp-that-judges-the-soul",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흔들리는 등 하나가 도덕을 드러내고 덮는 도구가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f27da5e79af89067bbdea213c5bc26242aa7f85eafc9e52ed56f6b4f57d2750f"
+ }
+]

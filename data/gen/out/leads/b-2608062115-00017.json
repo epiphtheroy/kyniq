@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "pariah-2011",
+  "field": "lead",
+  "film_id": "4e4ee718-e2c2-4531-9616-f964f56c4774",
+  "lang": "en",
+  "text": "Two selves, one address, and nowhere in Brooklyn where a teenager can be both at once. Dee Rees holds the film to eighty-six minutes, which leaves nothing decorative in it: each scene carries the friendship and the family that friendship endangers, at the same time. The danger is domestic. Not the street, not strangers, but the questions asked at home and the silence that comes after them, the arithmetic of what can be said in one room and never in the next. Desire is filmed here as ordinary and clumsy, which is rarer than it sounds. The National Film Registry has since taken the film in, and that archival weight sits oddly against how quietly it plays: no speeches, no verdict delivered, only a girl doing the daily work of translation and getting tired.",
+  "model": "claude-opus-5",
+  "source_sha256": "520a8f3ec8f89725ef8097b87a69250e2026f9e9437627bbbd4a00459ae74cc5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "el-1953",
+  "field": "lead",
+  "film_id": "baeda41d-a578-4758-a37c-a26eb9bfdb1f",
+  "lang": "en",
+  "text": "A man of perfect manners is introduced, and the ninety-two minutes that follow decline to be reassured by them. Buñuel shot it in Mexico in 1953, inside the machinery of commercial melodrama, and the genre hands him exactly what he wants: a courtship, a household, a good name, the whole furniture of respectability available for slow misuse. The cruelty is procedural. Suspicion does not arrive as an outburst, it arrives as a routine with reasons attached, and the reasons are of a kind a man of standing can say aloud at dinner without anyone leaving the table. Gloria is the one left calculating: what a woman in her position can complain about, to whom, and what being believed would cost her. Cahiers du Cinéma placed it among the hundred most beautiful films in the world. Beautiful is not the first word that comes.",
+  "model": "claude-opus-5",
+  "source_sha256": "29949055584b827718c5ea9181f1bec07bb85d9ead10f24a5f29051842089076"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "symbiopsychotaxiplasm-take-one-1968",
+  "field": "lead",
+  "film_id": "c55400f7-b8b8-4288-97e7-1678a99371e9",
+  "lang": "en",
+  "text": "Central Park, 1968: one camera on two actors mid-quarrel, a second camera on the first, and a crew off to the side talking among themselves about what any of this is for. William Greaves runs the same scene through pair after pair, a man demanding to know what is wrong and a woman answering with the sharpest thing available, while the park refuses to hold still around them. A woman rides past on horseback. A man who sleeps there stops to talk and is better company than the script. Seventy-five minutes, filed as documentary, though the subject keeps changing rank: the actors, then the crew, then the question of whether anyone speaks naturally on command and whether sex is underneath all of it. Greaves leaves the crew's deliberations in the cut. Nothing is settled in a public park with the meter running.",
+  "model": "claude-opus-5",
+  "source_sha256": "0a1901a521b3812daba3c0240fc0feef73cef3da11a6c3e0255ed634f4ceeda6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ace-in-the-hole-1951",
+  "field": "lead",
+  "film_id": "f802995e-b50b-4070-bce6-181e284bc73a",
+  "lang": "en",
+  "text": "A man is trapped underground, and the reporter who reaches him first works out that a fast rescue is worth less to him than a slow one. Billy Wilder builds 112 minutes on that calculation and never softens it. The reporter is not a hypocrite waiting to be unmasked; he is capable, funny and entirely explicit about the trade he is making, which denies an audience the comfort of staying a step ahead of him. The film's real attention is on the demand side, on the appetite that makes such a story worth running, and on the fact that a man in a hole becomes more valuable to more people the longer he stays down there. Wilder was working in 1951, in a studio system that liked its leads charming, and he used the charm as the instrument. The dialogue is fast. The film is not amused by itself.",
+  "model": "claude-opus-5",
+  "source_sha256": "d960d45b4f8e9e092eb2118d9022e3c126bc78d268e286a971d808de80552d6e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "pink-flamingos-1972",
+  "field": "lead",
+  "film_id": "08f165fc-85b4-4331-813c-f3fe4108e805",
+  "lang": "en",
+  "text": "There is a title at stake, conferred by a tabloid: Filthiest Person Alive. Divine holds it, a married couple named Connie and Raymond Marble intend to take it, and the whole of John Waters's ninety-three minutes is the campaign between them, waged with the gravity of a succession dispute. The straight face is the technique. Set in and around Baltimore, the film treats a criminal reputation as professional standing to be defended, complete with rivals, humiliations and press coverage. Its comedy comes from the distance between what these people believe themselves to be and the means available to them, the dare always outsizing the budget. Nobody is winking. They are sincere, competitive and houseproud, and that is the joke, which is a harder thing to build than shock.",
+  "model": "claude-opus-5",
+  "source_sha256": "55fa1b800431d805c1e2556d8bc38ee40fa94ed412a21d9b84d612fea0424af1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "daybreak-1939",
+  "field": "lead",
+  "film_id": "36ebbc86-6ef6-42dd-b70e-c7bfb5066716",
+  "lang": "en",
+  "text": "The apartment is on the top floor, the door is locked from the inside, and the man behind it has already killed someone. What follows is not a manhunt but a night: police below, a crowd forming, and a man with nothing left to do but go back over how he arrived here. Marcel Carné organizes everything around that immobility, one room and one window, with memory doing all the travelling. The flashbacks solve nothing. They are not clues, they change none of the arithmetic waiting outside, and their effect is to make the killing more ordinary rather than less. France, 1939, ninety-three minutes, and the pressure comes from the one thing nobody in the film can bargain with, which is that the sun is going to come up.",
+  "model": "claude-opus-5",
+  "source_sha256": "0c0b86cfb8e1d53b6b34fcc4706af044c1a7d9567ce6e3851133fc71d269bb25"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-scarlet-empress-1934",
+  "field": "lead",
+  "film_id": "d16c9e45-bb1d-46eb-aaf6-55c71d7d8a7a",
+  "lang": "en",
+  "text": "The marriage was arranged in advance and the groom turned out to be a fool. A German noblewoman is delivered to Moscow in the eighteenth century to secure a succession, and Josef von Sternberg spends the next hundred minutes on the transaction rather than the romance. The court has uses for her: a body that must produce a son, a name that must stay quiet. The film is unusually frank about her learning to have uses for it in return, Count Alexei among them. What makes it strange rather than stately is the pitch. This is 1934 Hollywood history, staged as a hallucination of Russia rather than a reconstruction of one, where the décor does more arguing than the dialogue and a face held in close-up counts as policy. Sophia Frederica arrives as diplomatic freight and stops being freight.",
+  "model": "claude-opus-5",
+  "source_sha256": "bd75b2f155913d85593235496970cc11d05b711da931b16bb2a56e9946c2e05e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "scorpio-rising-1963",
+  "field": "lead",
+  "film_id": "edc0b06d-5bf3-45bb-b404-0ef204d62e2b",
+  "lang": "en",
+  "text": "Twenty-eight minutes, and most of them go to preparation: machines cleaned, gear arranged, the race itself always further off than the next shot. Kenneth Anger keeps cutting away from all that to material from somewhere else entirely, erotic and punitive and ceremonial and borrowed. He is not telling a story. He is setting two images beside each other and waiting for a connection neither would admit to alone, which is how advertising works and also how ritual works, and the film knows both. It is shorter than a lunch break and packed tighter than most features manage. What it finds in a gang of bikers in 1963 is less menace than devotion: an order of dressing, a hierarchy of objects, and a great deal of care spent on surfaces that will be scratched within the hour.",
+  "model": "claude-opus-5",
+  "source_sha256": "4edff972f7fef5e1e2337d1c657939db1934b59e7dbec6a79de849f72c643d55"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "gran-torino-2008",
+  "field": "lead",
+  "film_id": "963f032d-8438-45d2-9057-7966b79cc03e",
+  "lang": "en",
+  "text": "A 1972 Gran Torino, kept clean in a garage on a street that has changed around it, is the object this whole film is arranged about. Walt Kowalski came home from Korea a long time ago, and his vocabulary for people not from his own block was fixed around then and never revised. The boy next door, who is Hmong, tries to take the car. What Clint Eastwood does with 116 minutes is unfashionably plain: he lets an unpleasant man stay unpleasant for a long stretch, then keeps the repair work small and practical instead of delivering it in a speech, so that nothing is forgiven wholesale. The craft is dry, blunt and older than the decade it arrived in. The interest lies in the mechanics of a small thing: how a man who finished deciding about people ends up stuck in conversation with one.",
+  "model": "claude-opus-5",
+  "source_sha256": "5473f2835d0c3db06641bb50a1eecd7872fd09c2f08b14ea6bfc7b1e40c043e1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "elizabeth-1998",
+  "field": "lead",
+  "film_id": "97d02114-b018-4c1f-9686-f686271656e9",
+  "lang": "en",
+  "text": "The council meets to decide whom the queen will marry, and the queen is sitting in the room. Shekhar Kapur takes the first years of Elizabeth's reign and shoots them as a survival problem rather than a pageant: who is loyal this week, who is taking money from abroad, which of the men bowing is counting on her failing. Catholic opposition is not a debate here, it is a physical fact with people attached to it, and the romance with Robert Dudley is dangerous less for being illicit than for being legible to everyone watching. Costume drama usually offers a settled world viewed from a safe distance. This one keeps the sightlines short and the rooms full of listeners, and puts at the centre a young woman who has not yet learned to be unreadable. It runs 123 minutes and amounts to an education in what a face is for.",
+  "model": "claude-opus-5",
+  "source_sha256": "c570dd65f9b75044dc7e28336a2476d4452fc764a56063e074801f87e3d335a4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-remains-of-the-day-1993",
+  "field": "lead",
+  "film_id": "137ce964-0f29-41b3-bfbc-34d0a5b7cdde",
+  "lang": "en",
+  "text": "The job is to be present and unnoticed, and the head butler is very good at it. That is the whole difficulty. James Ivory spends 134 minutes inside a great English house where the staff's competence rests on a rule that no one downstairs is entitled to a view: not of the guests, not of the arguments in the drawing room, not of the master's warming interest in the Nazi cause. Then a housekeeper arrives who declines the rule. The method is to give almost nothing away in the dialogue, so that what happens happens in the timing of a reply, in a door held a moment, in a question answered a beat too correctly. A period picture usually promises comfort. This one uses the polish to make a colder point about how much of the appalling can be arranged around people who are only doing their jobs well.",
+  "model": "claude-opus-5",
+  "source_sha256": "b2195c1f8e741f8f54403dcf4a242b7052ec76593cbf45184c400bddcd95ee18"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "my-beautiful-laundrette-1985",
+  "field": "lead",
+  "film_id": "0102a120-becc-4215-9068-19ae8e16b0c3",
+  "lang": "en",
+  "text": "A rundown laundrette gets done up, and the whole film organizes itself around that project. Around it stand the money that paid for it, a family with opinions about it, and two men doing the work who are also sleeping together. Stephen Frears made it in Britain in 1985 and it declines every available solemnity. The Pakistani businessmen here are ambitious, funny and sometimes ruthless; the skinheads outside are a nuisance with a political programme; the love affair is filmed as a fact rather than worked up into a scandal. Ninety-eight minutes, and the comedy runs on class as much as anything else: who owns a shopfront, who cleans it, who is permitted to be embarrassed by whom. The refurbishment is loud, and the film is not embarrassed by the loudness, giving a shopfront more ceremony than a shopfront is supposed to get.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c90191d5a4a6784b9d306dafd8e9455b9afd9de0287fdf50bd64cb7d79a87e0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "morvern-callar-2002",
+  "field": "lead",
+  "film_id": "03cb68d2-baeb-4a85-ab29-d232d795ac8d",
+  "lang": "en",
+  "text": "The manuscript is unpublished and the money is untouched, and neither of them belongs to the woman who now has both. Lynne Ramsay withholds the interior monologue this kind of story usually runs on and puts sensation in its place: the light in a room, weather against skin, noise arriving too close. The audience is kept at the same distance from her as everyone else in her life. Nobody asks her to account for herself, and she volunteers nothing. Grief, if that is the word for it, shows up as behaviour rather than expression, and the manuscript gets treated as an asset. Ninety-seven minutes, mostly quiet, and what unsettles is not that she is cold. It is that she is practical, and that the practicality keeps looking, from certain angles, like happiness.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9ae492956a4002f7e440297b8efb88c8c94aca3116ea0699843288a31e573fc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "moonfleet-1955",
+  "field": "lead",
+  "film_id": "d3e34010-d18a-4f61-b9e1-f30c1118321b",
+  "lang": "en",
+  "text": "A boy is sent to a village on the Dorset coast to be taken in by an old friend of his mother's, and the friend moves contraband for a living. Fritz Lang made this in Hollywood in 1955, an English coast built to studio order, and the artificiality does no harm: it gives him a closed world in which every path leads back to the same man. What the adventure form supplies is a child's clear sightline. The boy watches an adult decide, over and over, whether to be decent, with no power over the outcome and no way to look elsewhere. Eighty-seven minutes, quick on its feet, with the shape of a boys' adventure book and a considerably harder temperature. Nothing about Jeremy Fox is settled by his being charming, which is the one position the film holds firmly.",
+  "model": "claude-opus-5",
+  "source_sha256": "f4b53a8c46d990987b5cac6acbbd4805ed94c6323428eb07f2d5d78d33ad7a83"
+ }
+]

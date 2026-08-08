@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lee-chang-dong#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "세계 영화와 문화 교류에 기여한 공로로 프랑스 정부는 2006년 이창동에게 레지옹 도뇌르 슈발리에 훈장을 수여했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a4e4e402f5efcf9c604dfb84cd9de88c3bc49391707191359e1cc9078e44114"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lee-chang-dong#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《밀양》(2007)을 찍는 동안 이창동은 주연 전도연에게 감정을 어떻게 잡으라는 지시를 끝내 주지 않았다. 현장에서 그가 몰아붙인 배우는 극심한 좌절에 시달렸고, 결국 칸영화제 여우주연상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "49a4129a2da68f845e93aeb1b17f0810fbafaf561a0ea150a4b1dc18c67cc571"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lee-chang-dong#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2016년, 이창동이 박근혜 정부의 문화계 블랙리스트에 몰래 올라 있었다는 사실이 드러났다. 9,000명이 넘는 예술가를 담은 그 명단은 그를 국가 지원에서 사실상 잘라냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3c142c6efa09a4ff584e996db12587fef7358275727ac59b91e699a9cee580a0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lee-chang-dong#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "복귀작으로 그가 처음 염두에 둔 것은 무라카미 하루키의 다른 단편이었다. 그런데 일본 방송사 NHK가 텔레비전 옴니버스 기획을 들고 와 <헛간을 태우다>를 각색해달라고 그를 콕 집어 찾아왔고, 이창동은 이 작업을 아예 독립된 극장용 장편으로 키워냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9a250f1ca333d472941f1fc82e2e9bf2e0f9d27c4e1dcfa13db30def4deb47f4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lee-chang-dong#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2018년 스릴러로 <헛간을 태우다>를 옮기면서 그는 주인공의 농장을 파주로 옮겨놓았다. 접경 도시, 북한의 대남 방송이 희미하고 스산하게 비무장지대를 건너오는 곳이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6941d68230e55451618454163def615740d233e62760ab921f933e3e6801414c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lee-chang-dong#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이창동의 영화는 거의 전부 동생 이준동의 손을 거쳐 나왔다. 파인하우스필름을 세운 그는 악명 높게 까다로운 형의 촬영 현장을 실무로 떠받치는 프로듀서다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d990c542e50331598ea6bec9771bdacea4fe97f8abf97214ce0818425f72cb02"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lee-chang-dong#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1980년 광주항쟁에 그가 직접 가담한 것은 아니다. 그럼에도 학살은 이창동과 그 세대에게 깊은 상처로 남았고, 그는 소설에서도 영화에서도 이 역사의 상흔을 거듭 헤집는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "883c2197cee58910b7963ba5336350458b613a02550c143b92c5e4d8acf75c65"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lee-chang-dong#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "칸영화제의 붙박이라 할 만하다. 2010년 《시》로 각본상을, 2018년 《버닝》으로 국제비평가연맹상을 받았고, 2009년에는 이자벨 위페르와 함께 경쟁부문 심사위원으로 앉았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b9ad95b1700c50cf6c97cb395444446b305de4988aa122d3e73357b199d3c9b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "leos-carax#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "십대 시절 그는 샤이오궁의 시네마테크 프랑세즈에서 거의 살다시피 했다. 버스터 키튼과 찰리 채플린의 무성영화를 홀린 듯 보고 또 봤다. 말을 더듬는 자신에게서 달아나는 방법이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d62c38180fbab35e88e2e474cc3b82bdd09ad614580a6b49765be0449365aebe"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "leos-carax#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화를 만들기 전, 열아홉의 카락스는 전설적인 잡지 《카이에 뒤 시네마》에서 잠시 비평을 썼다. 가장 유명한 글은 실베스터 스탤론의 감독 데뷔작 《파라다이스 앨리》를 열렬히 옹호한 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "07561c5e2c166694e05c347a7aaf05e3a31075a63f6c1d4355e9de1d62d82afa"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "leos-carax#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "라방은 이후 카락스의 초기 장편 세 편에서 내리 '알렉스'라는 주인공을 연기한다. 카락스의 본명이 알렉스다. 사실상 감독의 스크린 속 분신인 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b8693911fbb7598c66e656bbcb8132f5cb822dd24c9e490401a9c54522f7a76"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "leos-carax#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "두 번째 장편 《나쁜 피》(1986)에는 잊기 어려운 트래킹 숏이 있다. 데이비드 보위의 'Modern Love'에 맞춰 라방이 파리의 거리를 질주하고 옆으로 재주넘는 장면. 훗날 노아 바움백이 《프란시스 하》에서 대놓고 오마주했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bc5fe46e72db159f13fab6ffafee3b1bb39b2149a4fd93c69dd548c09c457b4b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "leos-carax#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화를 살리려고 카락스는 제작자들을 설득했다. 프랑스 남부 랑사르그의 들판에 퐁뇌프 다리와 센강변 건물들을 거대하게, 터무니없이 비싸게 다시 지어 올린 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b0cd56a8d990f835689a9e97af42ccdd4a013f6cef6a42485f7a31bb7a7c5845"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "leos-carax#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "랑사르그 세트는 이내 폭풍에 무너졌다. 예산은 7,000만 프랑까지 부풀었고 제작자가 셋이나 연달아 파산했다. 저주받았다는 말을 듣던 이 촬영을 끝맺은 사람은 백만장자 크리스티앙 페슈네였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "89175c0945cd49822c2de9d6f2b6f0824a6afab2b06fff7c8bf5576ca8cd1570"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "leos-carax#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "실제 연인이던 쥘리에트 비노슈를 그는 《나쁜 피》와 《퐁네프의 연인들》 두 편의 여주인공으로 세웠다. 3년을 끈 후자의 지독한 제작 과정이 두 사람의 관계를 끝장냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f80b0bd800f147bd9984e4b099cd47bdcbf736df9291d3645bd8a93d42e00e35"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "leos-carax#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1999년 근친상간 드라마 《폴라 X》의 제목은 허먼 멜빌의 잊힌 1852년 소설 『피에르 혹은 모호함』의 프랑스어 제목 머리글자를 딴 것이다. 'X'는 시나리오 열 번째 고를 뜻한다. 평가는 극단으로 갈렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b790e9d39b9c20225f1f9e8967b1e4730d15d536afb1856f1d9023063560798d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "leos-carax#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "칸영화제 첫 상영에서 《폴라 X》는 거센 논란을 불렀다. 기욤 드파르디외와 예카테리나 골루베바가 연기를 흉내 내지 않은 정사 장면 때문이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "56536185c84f48223d3bb0be4127d5dd56ecdf3c521a25b4975eea21c5c223ff"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "leos-carax#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 나중에 골루베바와 결혼한다. 강렬하고 음울한 연기로 알려진 러시아 배우였다. 둘 사이에 나스탸라는 딸을 두었으나 골루베바는 2011년 마흔넷의 나이에 석연찮게, 비극적으로 세상을 떠났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ee4d95fb0b04e46b29ab6494f37f904ae90b661c38bce4bf8f04cb2b40b69de"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "leos-carax#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편을 13년 쉰 끝에 슬픔과 다시 일하고 싶은 마음에 떠밀려 카락스는 2012년 《홀리 모터스》를 찍었다. 이 초현실적 걸작을 그는 골루베바에게 바친다고 명시했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "73812bbec252e334827b744c33d442e2d522db6899660f1fbb3422c4d115ead7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "leos-carax#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《홀리 모터스》에는 카락스 본인이 드물게 얼굴을 내민다. '잠자는 남자'로 호텔 방에서 깨어나는 그는 숲 무늬 벽지를 뜯어내고, 그 뒤에 숨어 있던 극장의 관객을 드러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "db487710134e7a38786901753f499271603ced4290d61c76b89dbd7c4f96753a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "leos-carax#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "괴짜 미국 팝 듀오 스파크스, 그러니까 론과 러셀 메일 형제를 향한 평생의 집착은 2021년 영어 데뷔작 《아네트》로 열매를 맺었다. 밴드가 처음부터 끝까지 구상하고 작곡한 록 오페라다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ba9d7575864920a24f68f5d64f59b5386c9fc845e5b7d8049d6fc7ae835d90ec"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "leos-carax#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《아네트》에서 애덤 드라이버는 도발적인 스탠드업 코미디언을 연기한다. 오페라 가수인 아내의 죽음, 남다른 재능을 지닌 딸과의 관계로 이어지는 그 비극의 궤적은 카락스 자신의 삶과 골루베바를 잃은 슬픔을 어둡게 되비춘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c9a487b0ef8be3587705b184c297e00690db10426bfeed6e07392ea56e2d68d0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "leos-carax#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《아네트》의 문을 여는 녹음실 장면에는 카락스의 실제 딸 나스탸가 아버지와 나란히 등장한다. 허구가 시작되기 전에 둘이 함께 통과한 시간을 먼저 인정하고 들어가는 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "68b570d0e3be76076fc35a82e4a0740431dee38c7759602a3a81f9a696fcbcd1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "leos-carax#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편 데뷔 전, 스무 살의 카락스는 단편 《교살 블루스》(1980)를 연출했다. 이에르 국제청년영화제 그랑프리를 받은 이 작품으로 그는 곧바로 신동 소리를 들었고, 훗날 시네마 뒤 룩(Cinéma du look)이라 불리게 될 흐름의 얼굴이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cecaaed681cb0c3efe259a9ab91ac89721eca63f22dfdca78be5fb9016aa5601"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "leos-carax#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "테사 루이즈살로메가 만든 2014년 다큐멘터리 《미스터 X》는 이 정체 모를 감독을 정면으로 다룬다. 프랑스 영화계에서 그가 얻은 은둔자이자 신화적 존재라는 위치를 파고든 작품이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3c4f3c6d7bda66d91dab3922d705fdfef9e6520f222daab079803bd5822e5e83"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "leos-carax#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스콧 워커의 스산하고 우울한 음악을 그는 자주 끌어다 쓴다. 《소년, 소녀를 만나다》에는 'It's Raining Today'가 흐르고, 《폴라 X》의 오리지널 스코어는 아예 워커에게 맡겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8f112c8a45a71ed8768bdac60eb387048686bc87f3ac9496bb0d7ae11d77314"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "leos-carax#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2024년에는 41분짜리 자전적 에세이 영화 《C'est pas moi》(내가 아니다)를 선보였다. 자기 옛 작품들과 어린 시절 사진, 정치적 사유를 고다르식으로 이어붙인 몽타주로, 애초에 미술관 전시용으로 의뢰받은 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "33b9ef1fb441f6aab031a8f406b4224765b8161160e38802b933dd6acc992c97"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lou-ye#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "연극 집안에서 태어난 러우예는 상하이청년예술극원 무대 뒤에서 어린 시절을 보냈다. 이름난 무대 배우였던 아버지 러우지청이 연기하는 것을 보며 자랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a9589906478db32ba7a900838dd739e359e87974c1b48dee221688aead40013c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lou-ye#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "실사영화로 돌아서기 전 그는 상하이미술학교를 나와 1980년대 초 명문 상하이미술영화제작소에서 애니메이터로 일했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "86d44de2ee99b93189b04806b8c8ab1cb7beb2618a9ff5ea1af8626483d3b0bb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lou-ye#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2000년 그는 네오누아르 《수쥬》를 몰래 로테르담 국제영화제로 빼돌렸고, 거기서 타이거상을 받았다. 승인 절차를 건너뛴 대가로 중국 영화국은 2년 영화 제작 금지를 내렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2cac7a02be6b22543877d413782b935becdc5a0486f48f2a2aeeee80943df832"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lou-ye#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《수쥬》를 만들며 그는 앨프리드 히치콕의 《현기증》에 대한 집착을 숨기지 않았다. 영화 전체가 저우쉰의 1인 2역 위에 세워졌고, 이는 킴 노백이 연기한 이중 정체성을 대놓고 되비춘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "af40982dd5827ac7a0a88d2ba60f3c8189b34ee003c3adf3638c1f9c1ae4b9d6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lou-ye#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《여름궁전》(2006)은 1989년 톈안먼 시위를 정면으로 담은 최초의 중국 본토 영화였다. 공식 경력이 끝장나리라는 것을 그는 뻔히 알면서 당국에 맞섰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "43cbfdd93134fdfd700885abf1eb037d6939981f382d69823fcc04adb7727959"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lou-ye#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "국가가 찍어주는 '용 도장' 없이 《여름궁전》을 칸영화제에 올린 탓에, 국가광전총국은 러우예와 프로듀서 나이안에게 5년간 영화를 만들지 못하게 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7969dca8dd523b0a35927ed680006329e7f14455178b5885e5b8b58a72b2347d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lou-ye#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "5년 블랙리스트 기간에도 그는 손을 놓지 않았다. 눈에 띄지 않는 소형 디지털 카메라를 들고 난징에서 경찰을 피해가며 몰래 찍은 것이 《스프링 피버》(2009)다. 제작 등록은 프랑스 영화로 올렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1496fdf9864acbbc9921aa7824474408b6ad22e35a15fbdd1899c17cb0dc3904"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lou-ye#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2011년에도 여전히 제재 아래 있던 그는 파리로 건너가 《러브 앤 브루즈》를 연출한다. 전부 외국어로 만든 첫 영화였고, 원작은 류제의 반자전적 소설이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "20f132fed36204857a807b41a40264ea82104cca486790117748fe40a84a0587"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lou-ye#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《미스터리》(2012)로 중국 공식 제작 시스템에 돌아왔을 때, 검열 당국은 남자가 돌에 맞아 쓰러지는 장면을 잘라내라고 요구했다. 러우예는 그 요구 사항을 웨이보에 그대로 공개하고 감독 크레딧에서 이름을 빼겠다고 맞섰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ec38e313b6e098cc07ec3ef325c373a1e4f365511183d404d4d6899f5cb39d6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lou-ye#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2014년작 《推拿》를 준비하며 그는 친하오와 궈샤오둥을 비롯한 눈이 보이는 배우들을 난징의 실제 시각장애인 안마원에 몇 주씩 살게 했다. 그곳 노동자들의 몸짓을 익히라는 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "62765f230935db4b0419980e0b44314bc892bfcfcd6aa96e119f167134090f2b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lou-ye#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "삼각대와 고정 숏을 그는 지독히 꺼린다. 오랜 촬영감독 정젠에게 기대어 다큐멘터리처럼 쉼 없이 흔들리는 핸드헬드로 찍고, 그렇게 심리적 현기증을 관객의 몸에 심는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "85857f4eb5cec83729b6ecd47db524b6928cd43b17d46cbb9dd93005b0b778de"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lou-ye#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2008년 대형 사진 스캔들을 겪은 에디슨 첸을 그는 《풍중유우》에 캐스팅했다. 그러나 검열은 첸의 장면을 거의 전부 들어내게 만들었고, 그는 배경을 스치는 존재로만 남았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "247bceb2b831406091737e2902b6f4d8d234fca1225c10361f683508d5b09c42"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lou-ye#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "중국의 강도 높은 코로나19 봉쇄 기간에 러우예는 《언피니시드 필름》(2024)을 몰래 찍었다. 유통이 금지된 우한 봉쇄 현장의 실제 스마트폰 영상에, 호텔에 갇힌 촬영팀이라는 허구를 겹쳐놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "94c09f26bd7de93f47fe4c29bedd8d47bbb55fea6ea0f354ffabce391aa38e75"
+ }
+]

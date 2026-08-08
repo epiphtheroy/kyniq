@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "wilson-1944",
+  "field": "lead",
+  "film_id": "48864f50-9602-44ca-aaa6-1f0e62d90ce5",
+  "lang": "en",
+  "text": "A studio put 154 minutes and full color behind the life of a president, and the Academy rewarded the surface: cinematography, art direction, and the performance at its center. The film opens on a resignation rather than a birth, a university man leaving Princeton to run for governor of New Jersey, and that starting point sets the register. Campaigns, conventions, the slow work of persuading rooms full of men. Color goes to bunting and crowds and hall interiors, dressing procedure as pageant. Private grief arrives mid-term and has to be absorbed on a schedule the office sets. Then Europe intrudes, and a picture about domestic politics turns into a case made in public about what a country owes past its own borders. The Academy Film Archive and Twentieth Century Fox preserved it in 2006, and what they preserved is an argument dressed as a life.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a7c4202453506a746bf8f5db51177214ae1406bcad00c658a3c9048d88d7b01"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "my-twentieth-century-1989",
+  "field": "lead",
+  "film_id": "7d835fef-8ac6-4b5a-b0ce-c66ffeeb43d3",
+  "lang": "en",
+  "text": "Two girls are born in Budapest in 1880 at the hour Edison is presenting the electric light to the world, and the film keeps both events on the same circuit. Dóra and Lili are orphaned early and separated, and the century sorts them: by 1899 one is carrying bombs and an idealism she has never examined, the other is carrying herself expensively through rooms other people pay for. Ildikó Enyedi runs this as comedy, as melodrama, and as science fiction of a kind, in which an invention and a biography share a birthday and therefore a fate. The reunion is arranged for the Orient Express, on the last night of the nineteenth century. It took the Caméra d'Or and went forward as an international submission to the Academy Awards. The joke underneath is the good part: that a life and a light bulb were filed under the same date.",
+  "model": "claude-opus-5",
+  "source_sha256": "593e15517e5aca6824e38e295628ecfa67fd791ca90d41f4f2ae7f72c82e0a1b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "me-and-earl-and-the-dying-girl-2015",
+  "field": "lead",
+  "film_id": "50ff126c-3611-416c-b2f1-ac7f454f2c45",
+  "lang": "en",
+  "text": "Greg makes short, strange films with Earl, and shows them to almost nobody. The rest of senior year is maintenance on a carefully built anonymity: no group, no attachments, and a friendship he refuses to call one. Then his mother requires him to spend time with a classmate who has leukemia, and the visits begin as an obligation neither of them wants. Alfonso Gomez-Rejon films the school with the self-consciousness of someone who has watched a great many movies, and Greg narrates his own life the same way, which is the actual subject: the elaborate apparatus a boy builds to keep from being present in anything. Both the dramatic jury and the audience at Sundance chose it. What it circles is a friendship that will not take the shape assigned to it.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb69d0810bf77ec34154ab2f252df053d2ca032abad90aef38e542e7f3f870b4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "primer-2004",
+  "field": "lead",
+  "film_id": "0b93f1b1-8756-4824-8707-fb6f0ae09c80",
+  "lang": "en",
+  "text": "A few engineers build something in their spare time and only afterward begin working out what it does. Their first use for it is not wonder but arbitrage, small sums taken quietly out of the stock market, which says more about them than any speech could. Shane Carruth keeps the camera at the height of technicians talking shop, and the talk is not decorated for outsiders; jargon stays jargon, and little is repeated for clarity. Seventy-seven minutes, short enough that nothing is spent on orientation. Sundance gave it the dramatic Grand Jury Prize and the Alfred P. Sloan Prize. What accumulates is not spectacle but obligation, between men who trusted each other rather more than they trusted the thing they had built, and who must now agree on a single account of what they did.",
+  "model": "claude-opus-5",
+  "source_sha256": "68459c30b866235fdd4f078e54c96ba089d69d10fec8954eebe268ca40535536"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "i-don-t-feel-at-home-in-this-world-anymore-2017",
+  "field": "lead",
+  "film_id": "20bf134d-46b4-4cfb-9c10-f833f36716fc",
+  "lang": "en",
+  "text": "The burglary is small, a house entered and some things taken, and that is precisely the trouble, because nothing which follows will be proportionate to it. The woman it happens to is already depressed, and what the break-in hands her is rarer than justice: a task. She takes it up alongside a neighbor who is loud, tactless and delighted to be included. Macon Blair works in thriller, crime, comedy and drama at once, and the joins are where the film lives, since a scene can be funny for a minute and then stop being funny without the camera moving. It took the dramatic Grand Jury Prize at Sundance. Ninety-six minutes is not enough time for two amateurs to get good at this, and the people they are walking toward are not amateurs.",
+  "model": "claude-opus-5",
+  "source_sha256": "9ffbbe83e82f5ae740339d19b5cbef7f485a4085f0aa2c71f4106ef15d499760"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "like-crazy-2011",
+  "field": "lead",
+  "film_id": "f332ed4b-4a4a-47e2-8259-7c96d8125234",
+  "lang": "en",
+  "text": "The obstacle in this love story is an immigration rule, which may be the least romantic antagonist the form has ever been handed. A British student overstays her visa because leaving on time would have felt absurd, and the consequence arrives later, at a desk, delivered by someone who has never met her. After that the relationship has to be conducted across an ocean and a time difference, in ninety minutes that keep skipping months without announcing it. Sundance gave the film its dramatic Grand Jury Prize and a special prize for the acting, which is the right pair of honors for a picture resting almost entirely on two faces registering delay. Whether they love each other is settled early and never in doubt. What is in doubt is whether an attachment can survive being administered.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc05ae4e8b8b64673c64cb82a9a202434a7595fbd8fa2c85afade6f4c2d2712d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-believer-2001",
+  "field": "lead",
+  "film_id": "cba8647f-127e-45cd-ba9b-f81350841e86",
+  "lang": "en",
+  "text": "The most articulate antisemite in the room learned the arguments from inside the faith he attacks. Henry Bean builds an entire film on that short circuit: a young man leading a gang of American skinheads, raised Jewish, trained as a scholar, whose questions about his own religion were serious and went unanswered until the anger found a use for them. Intelligence is why the others follow him, and why the hatred comes out articulate rather than mute. Ninety-eight minutes of rooms, streets and talk, with the argument never quite permitted to close. The record around it is strange for a small American drama: a Grand Jury Prize at Sundance, a Golden George, and a European Film Award for best non-European film. What the film keeps returning to is the sound of a mind arguing against itself in public.",
+  "model": "claude-opus-5",
+  "source_sha256": "1f336c78838562124b13c8044bc7f2dc5860a3dbe1222d48e32efbc9e92492c1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "welcome-to-the-dollhouse-1995",
+  "field": "lead",
+  "film_id": "854783be-b948-4b0c-ac57-cc05e0f92038",
+  "lang": "en",
+  "text": "Seventh grade at its actual altitude: a plain girl, a house where attention is allocated to the other children, and a school day organized around her humiliation. Todd Solondz plays it as comedy, which is the real exposure, since the laughs depend on recognition and recognition is not the same thing as sympathy. The bullying at school is matched at home, and neither is treated as a crisis; both are simply the arrangement she lives in. Adults appear mainly as good intentions with no attention span. Eighty-eight minutes is short enough to hold one register and long enough to make that register cost something. It took the dramatic Grand Jury Prize at Sundance. The cruelty on screen is ordinary, and ordinary is the hardest kind to film.",
+  "model": "claude-opus-5",
+  "source_sha256": "fed64fd5ce3915812e702b03b912d43bde149921833a121e17facec6b0ac612a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-miseducation-of-cameron-post-2018",
+  "field": "lead",
+  "film_id": "28799288-38fa-45fe-b92c-d6461c6ca0b2",
+  "lang": "en",
+  "text": "Pennsylvania, 1993, and a residential program where teenagers are taught to call what they feel same sex attraction, a phrase built to sound clinical. Cameron Post is sent there after being caught with another girl, into the keeping of a doctor and her brother, a reverend, a pairing that supplies the operation with both authority and warmth. Desiree Akhavan keeps the register administrative: worksheets, group sessions, hikes, the tedium of supervised days. The program has a logic that is coherent from the inside, which is what makes it hard to refuse from the inside. What Cameron assembles against it is small and lateral, a friendship with two others under the same instruction, less resistance than company. Ninety-two minutes, nearly all of them within the one institution. The threat is the daily request, made kindly, that she agree.",
+  "model": "claude-opus-5",
+  "source_sha256": "31bb200159c0af739f5451b97d917e09d8aa525a39cb112ac20e1bdda25aa867"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-birth-of-a-nation-2016",
+  "field": "lead",
+  "film_id": "1f56fae9-21fe-4cfc-b9a7-5d32def5a5ed",
+  "lang": "en",
+  "text": "Every rebellion is preceded by a long stretch of ordinary obedience, and that stretch is the harder thing to put on film. Nate Parker takes Nat Turner and Virginia in 1831, material that arrives with its own gravity and its own hazard, the standing temptation to solve everything with speeches. The task the premise sets is closer to arithmetic: making the daily calculation of survival under slavery legible enough that a decision to break it registers as a decision rather than an eruption. Two hours is not a great deal of room for both a life and the turning of it. What is at stake early is not the rising itself but everything that must be endured before it can even be imagined by the people who would have to carry it. It left Sundance with the dramatic Grand Jury Prize and the audience award.",
+  "model": "claude-opus-5",
+  "source_sha256": "0ced6e327c8290251007f571927698567946f94ef8e3022ddbab2d9177fa6d43"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "girlfight-2000",
+  "field": "lead",
+  "film_id": "754a7094-1e08-4ccf-9d2b-3b99a4fdd5d4",
+  "lang": "en",
+  "text": "Diana Guzman's temper is the sort that gets a girl written up at school, and the film's opening move is to hand it a ring, a set of rules and someone to answer to. She trains in Brooklyn, and she trains without telling her father, so every hour at the gym is also an hour of concealment at home. A picture with this premise lives on the training, and a hundred and ten minutes leaves room for the repetition that boxing films usually compress into a minute of montage. The argument the repetition makes is that discipline is not the opposite of rage but a container built to hold it. Sundance gave it both the dramatic Grand Jury Prize and its directing award, and it also holds the Grand prix du Festival de Deauville. The first fight, though, is the one being kept from her father.",
+  "model": "claude-opus-5",
+  "source_sha256": "36f2cd9c93f46b1e5ff39f55f72941186e9d51c45d0c40cf643e8b65d5cbfb62"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "nanny-2022",
+  "field": "lead",
+  "film_id": "51b147a7-6c0e-4f7e-a7a6-43380e95d816",
+  "lang": "en",
+  "text": "The dramatic jury at Sundance gave its top prize to a horror film about childcare. Aisha has come from Senegal to work in the Manhattan apartment of a wealthy white family, and Nikyatu Jusu locates the dread in the arrangement itself: an employment relationship conducted inside a home, where affection is part of the job description and power sits entirely on one side. Horror ordinarily has to get its characters into a house; this one starts with a key and a wage. The visions arrive, and the film is in no hurry to decide whether they are exhaustion or something with a longer history behind it. Rage collects because there is nowhere to spend it. Ninety-eight minutes spent largely in other people's rooms, minding a child who is not hers, on a schedule she does not set.",
+  "model": "claude-opus-5",
+  "source_sha256": "bc0c304af5d2b4c07bef5f1e66eebbc6ca5207b8c0fbb8a6513e9dc0047e6270"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-thousand-and-one-2023",
+  "field": "lead",
+  "film_id": "01ae45f7-8834-4163-95f2-7177526624f8",
+  "lang": "en",
+  "text": "A woman takes her six-year-old out of foster care without permission, and everything after is a household built on that one hour. Inez is moving between shelters in mid-1990s New York when she does it, which makes the crime and the care a single act; there is no version of this where she recovers him legally, and none where she leaves him again. A.V. Rockwell then does what most crime dramas will not, and lets years pass: Terry grows quiet and sharp, apartments change, the city changes around them. A hundred and sixteen minutes, nearly all of them domestic. The Sundance dramatic jury put it first. What the camera watches is rent, school and the daily upkeep of a home that cannot afford to be looked at too closely.",
+  "model": "claude-opus-5",
+  "source_sha256": "85da64938c62e5a6afd5bab7c9dee3acf9cde8697ec0edf01da01f35d08cabbd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-brothers-mcmullen-1995",
+  "field": "lead",
+  "film_id": "8fff2b2b-36ba-475c-bc56-1ceae95cac7c",
+  "lang": "en",
+  "text": "Three brothers, one house on Long Island, and three months in which nothing happens except that each of them has to decide what he actually believes. Edward Burns keeps the entire film at kitchen-table height: porch, car, bar, kitchen, and conversation that runs on well past where a script would ordinarily cut. The subjects are love, sex, marriage and an Irish Catholic upbringing in which none of those can be settled separately from the others. It carries a dramatic Grand Jury Prize from Sundance, given to a film assembled at this scale. Most of the comedy comes from watching three men recruit their faith as an argument for whatever they had already decided to want, and then discover that the others are doing it too.",
+  "model": "claude-opus-5",
+  "source_sha256": "f412a1c82cfc3981cdc00478382f54b837b6943ed94ff252665d1cdf89edb077"
+ }
+]

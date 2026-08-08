@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-oshii#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "필생의 대작이 될 뻔한 《G.R.M.》은 켈트 신화에서 길어 올린 SF 대작이었다. 예산이 800만 달러까지 부풀자 반다이 비주얼은 1998년 제작을 돌연 접었다. 오시이는 그래도 놓지 않았다. 15년이 지나 영어 실사영화 《Garm Wars: The Last Druid》로 기어이 되살려낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aa563ffdee44c179795c585cd5dfaa2a450ac40ca608a1fbe0c37de95f9837aa"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-oshii#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오시이는 소련 감독 안드레이 타르콥스키에게 깊이 빚졌다. 《공각기동대》의 저 유명한 '도시 몽타주'는 《스토커》와 《솔라리스》에 바치는 오마주다. 느리게, 물에 젖은 채, 사유하듯 밀고 나가던 그 트래킹 숏.",
+  "model": "claude-opus-5",
+  "source_sha256": "abf601504b9c0422ba53f484702554b31b57255891685013822e76afd1564818"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-oshii#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "실사 데뷔작 《The Red Spectacles》(1987)는 쥐꼬리만 한 예산으로 세피아 톤에 담아냈다. 슬랩스틱 코미디와 프랑스 누벨바그의 미학, 그리고 '프로텍트 기어'를 뒤집어쓴 파시스트 기동대의 위압감이 한데 뒤섞인 기묘한 물건이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "61a3edec26700dbe355ddedbaeb02e7ffcbc1d8a5dce6827d52b4454e2a267c5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-oshii#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《이노센스》(2004)로 그는 칸영화제 황금종려상 경쟁에 오른 최초의 일본 애니메이션 감독이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e5de6376fea6f67e71a2dcae58985ca5cac64984db6467beb94b5aa77e5b106"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-oshii#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "혹평 세례를 받은 2017년 할리우드 실사판 《공각기동대》 촬영장을 찾은 오시이는 감독 루퍼트 샌더스를 한껏 치켜세웠다. 논란이 컸던 스칼릿 조핸슨의 쿠사나기 모토코 캐스팅까지 두둔했다. 팬들은 당황했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "30a32318f1ed581822f416e5b6cf66088a7a60f78c153be20290d63f8056d3cd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "martin-scorsese#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "심한 천식 탓에 그는 리틀 이탈리아의 집 안에 갇혀 지냈다. 부모 찰스와 캐서린은 아이를 데리고 극장을 드나드는 수밖에 없었다. 평생의 영화 중독은 거기서 시작됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e149c7a2895fc09a71b079fadff7583b0c7297edf27469fc05bd7e1d002fff9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "martin-scorsese#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "세인트 패트릭 옛 대성당에서 복사(服事)를 섰고, 진심으로 사제가 되겠다며 커시드럴 예비신학교에 들어갔다. 1년 만에 쫓겨났다. 성적 미달에 몸싸움이 이유였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0a533cacbb1576fb547907f163036f54ffdbcf7c797852d5a0a207d0ecfdd23f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "martin-scorsese#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "첫 장편 《Who's That Knocking at My Door》(1967)를 끝내는 데 3년이 걸렸다. 그러고도 배급이 잡히지 않았다. 착취영화 배급업자 조지프 브레너를 달래려고 암스테르담에서 굳이 필요도 없는 누드 꿈 장면을 찍어 이어 붙이고 나서야 극장에 걸릴 수 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d364e2229dd5e243eeafda7ac37573582ac1c26347d45efb937ebb6ffc15f21"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "martin-scorsese#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "로저 코먼 밑에서 착취영화 《Boxcar Bertha》(1972)를 찍고 나자 스승 존 카사베츠가 대놓고 말했다. 1년을 허비해 '쓰레기'를 만들었다고. 그러니 네 이야기를 하라고. 그래서 나온 것이 《비열한 거리》다.",
+  "model": "claude-opus-5",
+  "source_sha256": "254a276b9323b9a742402d2d385fce31d7193426bd2ad20f346bbf2b997133a4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "martin-scorsese#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 자기 영화에 곧잘 얼굴을 내민다. 《택시 드라이버》에서 광기 어린 인종차별주의자 승객을 직접 연기한 것도 그중 하나인데, 원래 캐스팅됐던 배우 조지 메몰리가 다쳐 그날 촬영에 오지 못한 탓이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d397fa32a0040fbb628cd4da2e8e76d30ce3945370b7ab4897921fee81e98ba8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "martin-scorsese#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1970년대 후반, 코카인 중독은 그를 죽음 문턱까지 몰고 갔다. 1978년 노동절 연휴에 터진 내출혈로 병원에 실려 갔다. 침상을 찾아온 로버트 드 니로가 깊은 우울에 빠진 감독을 설득했다. 그렇게 《분노의 주먹》이 시작됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d090b4f459eb4404816573cba6b03b295559b4089b4794476e0a0c660d1cb1ce"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "martin-scorsese#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "음악 다큐멘터리 《The Last Waltz》(1978)의 편집은 아수라장이었다. 닐 영의 콧구멍에 매달린 코카인 덩어리를 가리려고, 로토스코프 작업자들이 가짜 필름 그레인을 한 프레임씩 그려 넣어야 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "34eb89712ef62c9f92b18b0833ebd37c052e9b8581452a9c0ab9b7f85a58e891"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "martin-scorsese#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "존 힝클리 주니어는 《택시 드라이버》를 열다섯 번 돌려 봤다. 그리고 1981년, 조디 포스터의 관심을 사겠다며 로널드 레이건 대통령을 저격했다. 무너져 내린 스코세이지는 죄책감에 한동안 영화를 그만둘 생각까지 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5a0b387722582d105087425e57e20e67c3903416ff40e8c5e1747cf82cf4de3e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "martin-scorsese#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "부모는 아들의 촬영장 붙박이였다. 《좋은 친구들》의 한밤중 식사 장면은 어머니 캐서린이 자기 요리법대로 즉흥 연기한 것이고, 아버지 찰스는 조 페시가 연기한 인물을 처형하는 데 가담한 조직원으로 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8772d8ed016ff325a40c27d544b8c9e56bcb552d5f64c1c0f4e2bda8514a10f5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "martin-scorsese#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마이클 잭슨의 〈Bad〉(1987) 뮤직비디오는 18분짜리였고, 연출은 그가 맡았다. 촬영지는 브루클린의 호이트-셔머혼 스트리트 지하철역. 라이벌 갱단 두목 자리에는 당시 무명이던 웨슬리 스나입스를 앉혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "72b20093a103e17807cf7b95dc559a2e751fed6895758ab659274f1e0c9aeabb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "martin-scorsese#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1988년작 《그리스도 최후의 유혹》이 불러온 분노는 상상을 넘어섰다. 프랑스의 한 가톨릭 근본주의 단체가 파리 생미셸 극장에 화염병을 던졌고, 열세 명이 중상을 입었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f626035539acbd14f20e1ac90cb8204a4f761d3434ef26af04e935430fc6db3f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "martin-scorsese#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "삭아 가는 셀룰로이드를 보다 못한 그는 1990년 조지 루카스, 스탠리 큐브릭, 스티븐 스필버그와 손잡고 필름 파운데이션을 세웠다. 이 단체가 지금껏 되살린 고전이 수백 편에 이른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a0ef43b1ce3dd7b2bfd6c335a53130f79749a9895dc2ae793f81802bf03c5f9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "martin-scorsese#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《쉰들러 리스트》의 연출을 먼저 제안받은 쪽은 스코세이지였다. 그는 거절했다. 유대인 감독이 해야 할 이야기라는 확신 때문이었다. 대신 그 기획을 스필버그에게 넘기고 《케이프 피어》의 연출권을 받아 왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "888b26ce7cac6c80e52de0170067d09fbad2d1cca9b9e76ffa9433b04e2fa38d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "martin-scorsese#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《쿤둔》(1997)은 14대 달라이 라마의 생애를 우호적인 시선과 장대한 화면으로 그렸다. 중국 공산당은 격노했고, 스코세이지는 티베트와 중국 본토 입국을 영구히 금지당했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ee0da7bc7f159cf051142af3a2983197cb9d419361ea40e326bf193569b23db"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "martin-scorsese#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "거장 소리를 들으면서도 오스카와는 지독히 인연이 없었다. 감독상은 2007년 《디파티드》에 이르러서야 처음 받는다. 친구인 스필버그와 코폴라, 루카스가 트로피를 건네자 그가 던진 한마디. '봉투 다시 확인해 주시겠어요?'",
+  "model": "claude-opus-5",
+  "source_sha256": "07173f5e812e790962e415277083badf829c5ea37732f09d9e8fc3042d943155"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "martin-scorsese#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "결혼은 다섯 번 했다. 그중 한 번은 그가 우러러보던 감독 로베르토 로셀리니의 딸, 배우 이사벨라 로셀리니와 보낸 4년이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "023fa42cbff25f6e82e9adea2fd806826816828912cbe73379ffea6e0b5e0686"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "martin-scorsese#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2019년 《뉴욕 타임스》 기고에서 그는 마블 슈퍼히어로 영화를 두고 '시네마가 아니라' '테마파크'라고 못 박았다. 코믹북 팬과 할리우드 경영진이 한꺼번에 들고일어났고, 불길은 문화 전반으로 번졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "69aa92ad53d39719f730983efb2d83868759c435a342d56dda96c9c2d32be562"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "martin-scorsese#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "뉴욕 작가 프랜 리보위츠의 심통 맞은 재담에 그는 완전히 사로잡혔다. 오직 그 한 사람만을 다룬 장편 다큐멘터리를 두 편이나 연출했을 정도다. 《Public Speaking》(2010)과 《Pretend It's a City》(2021).",
+  "model": "claude-opus-5",
+  "source_sha256": "8ae9aa652ced7410b9900463ffbf1b94b3cc6e2abe99b5204c3e3ce955a556bc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "martin-scorsese#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "덩치 큰 다큐멘터리 《우드스톡》(1970)의 편집에도 그가 손을 보탰다. 감독 마이클 워들리 바로 밑에서, 저 유명한 분할 화면의 약동하는 리듬을 짜낸 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "39a9e11d9540e8c4d549f7e24fd06b8129e91b22ef254905a47bb11a37539056"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "martin-scorsese#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그가 만든 다큐멘터리 《American Boy: A Profile of Steven Prince》(1978)에는 심장에 아드레날린 주사를 꽂는 끔찍한 일화가 나온다. 훗날 쿠엔틴 타란티노가 《펄프 픽션》의 약물 과다 장면에 그대로 가져다 쓴 그 이야기다.",
+  "model": "claude-opus-5",
+  "source_sha256": "da816ee8b35adf66941c558c22553eb338932665eeb6489adf1067eb10ea2043"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "martin-scorsese#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "NYU 워싱턴 스퀘어 칼리지에서 그는 헤이그 마누기언을 스승으로 삼고 따랐다. 500달러 장학금을 쥐여 준 사람도, 영화를 학문처럼 엄정하게 다루는 태도를 심어 준 사람도 그였다. 스코세이지는 훗날 스승의 이름을 딴 상을 만들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f5efa506d68a7c3b0e000ae1912bba103cb75f9c83ef9c774cb099b495d070a9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "martin-scorsese#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《에비에이터》(2004)를 찍는 동안 그는 평생 자신을 괴롭혀 온 강박 성향을 꺼내 놓았다. 하워드 휴스가 중증 강박장애(OCD)로 무너져 가는 과정을 레오나르도 디카프리오가 정확히 연기하도록 돕기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "19446096e99bb941c2db40095ee5bb80a487cfe9b26bfc4f2aa099b244665551"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "masaaki-yuasa#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "경력은 아지아도 애니메이션 웍스에서 시작됐다. 고무처럼 늘어나고 제멋대로 요동치는 그의 작화는 보통의 TV 애니메이션에 쓰기엔 너무 기괴하다는 평을 들었다. 제자리는 따로 있었다. 불경하고 초현실적인 《짱구는 못말려》 극장판이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "faa291f1b8bfd5efb5389d4b7b0956496dc217e54bbfacc7119fc55988201f2e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "masaaki-yuasa#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1992년 극장판 《Chibi Maruko-chan: My Favorite Song》의 사이키델릭한 뮤지컬 대목을 그는 혼자서 다 그렸다. 형태가 쉴 새 없이 뒤바뀌는 그 몇 분으로 업계 안에서는 전설이 됐다. 꿈처럼 미끄러지는 전환을 이미 그때 손에 쥐고 있었던 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "69710704db5291ca45ee3bbf17bd74daec553915a1f55b600e845b2319ad842e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "masaaki-yuasa#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "일그러진 초광각 어안 효과, 만화적으로 쭉쭉 늘어나는 팔다리. 유아사의 인장과도 같은 이 화면은 미국 고전 애니메이터 텍스 에이버리의 과장된 물리 법칙을 파고든 끝에 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a5e77129ef852a142b7539a3ec823750a10ab8ab2374043609a9d2ded35fe181"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "masaaki-yuasa#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2006년 TV 연출 데뷔작 《Kemonozume》에서 그는 일부러 다듬지 않은 거친 스케치 선을 밀어붙였다. 괴물 사냥꾼과 인육을 먹는 요괴의 유혈 낭자한 연애담이었다. 대중 시청자는 등을 돌렸다. 대신 겁 없는 작가(auteur)라는 이름이 남았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "66752e343708a6c802e56a464d2376ba779bd9d3cdc2b9df7ae845c56a8bdd28"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "masaaki-yuasa#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2012년, 유아사와 프로듀서 최은영은 킥스타터에 《Kick-Heart》를 올렸다. 마조히스트 프로레슬러를 다룬 초현실 단편이었다. 20만 달러가 넘게 모였고, 일본 애니메이션으로는 처음으로 크라우드펀딩에 성공한 대형 기획이 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d25fc14c8322e66c0e6eaa58c198eca1f6af6a538ce2152c277260cae9c570b0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "masaaki-yuasa#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Kick-Heart》의 성공에 힘입어 두 사람은 2013년 애니메이션 스튜디오 사이언스 사루를 차렸다. '사루(猿)', 곧 원숭이. 유아사가 자화상을 그릴 때마다 자신을 원숭이로 그린 데서 온 이름이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4dc6fc5d4de2a0ebd533299b44859dc8a1121204eebd406d01f7c03ce7e0114d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "masaaki-yuasa#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "일본 업계의 고질인 애니메이터 소진을 막겠다며, 그는 사이언스 사루의 원화 중간 작업에 어도비 플래시(현 애니메이트)를 쓰도록 못 박았다. 손으로 그려야 할 분량이 확 줄었고, 제작 속도는 전에 없이 빨라졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3b59124416482bb31d8356bd6126ccf28751fcdd5962dc02043ca2bc2a7f4369"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "masaaki-yuasa#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2017년 인어 이야기 《새벽을 알리는 루의 노래》로 그는 안시 국제애니메이션영화제 장편 부문 크리스탈상을 거머쥔다. 일본 감독으로는 22년 만이었다. 그 앞선 수상작이 다카하타의 《폼포코 너구리 대작전》이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f237462410ed8b38a343893c864dc6be2ee8f932f12c5feedc24cb9dbc4b8fc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "masaaki-yuasa#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편 《밤은 짧아 걸어 아가씨야》(2017)는 채 1년이 걸리지 않았다. 《다다미 넉 장 반 세계일주》의 제작진과 성우진을 거의 그대로 불러들인 덕이다. 모리미 도미히코가 세운 교토라는 세계, 그 광적인 리듬을 끊지 않으려는 선택이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e411d82f10032cdb231730c98d2b03ae566b87b9fe89e768eaa4d4f5039e1187"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "masaaki-yuasa#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2021년 일본 정부는 그에게 자수포장(紫綬褒章)을 수여했다. 학술과 예술의 발전에 기여한 이에게 천황이 내리는 훈장이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c0f77f25959c4c8a3f89df08763e6440900fd28e47b67829a0c080553b6342f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "masaki-kobayashi#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "고바야시는 눈 많은 항구 도시, 홋카이도 오타루에서 태어났다. 일본 영화사에 남은 배우이자 여성 감독의 선구자였던 다나카 기누요가 그의 육촌 누이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "95fa01402f32467eb36ad702d7a1f9791c0d7608f39e88d6ee02a7ba63331436"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "masaki-kobayashi#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "와세다대학에서 그가 파고든 것은 동양 고대미술과 불교 건축이었다. 스승은 시인이자 역사가인 아이즈 야이치. 훗날 그의 화면이 사찰처럼 엄격한 좌우대칭을 고집하게 된 뿌리가 여기 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9a83cb02d7266a65dd604ce4acd5fdfec3cd4142bd67f778dcb60fe9921285d4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "masaki-kobayashi#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1941년 쇼치쿠에 조감독으로 들어갔다. 여덟 달 만에 일이 끊겼다. 일본 제국 육군이 그를 징집했기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "56c81b8478ba69e04d31338dd1ac4b1051b44bca28962cb7e4c911c2e3a3ee3c"
+ }
+]

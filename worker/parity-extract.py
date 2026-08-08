@@ -177,6 +177,83 @@ DIRECTOR_COHORT = """
 """
 
 
+# ── PostgREST fallback ────────────────────────────────────────────────────────
+# The Management API needs a personal access token, and those get rotated. The
+# service-role key is a different credential on a different path, and the director
+# corpus is simple enough to assemble from three plain table reads — so a dead
+# `sbp_` token stops the leads corpus (which reaches into the curation schema) but
+# it does not have to stop this one.
+def rest_env():
+    env = {}
+    for name in (".env.local", ".env"):
+        p = ROOT / name
+        if not p.exists():
+            continue
+        for line in p.read_text().splitlines():
+            if "=" in line and not line.startswith("#"):
+                k, v = line.split("=", 1)
+                env.setdefault(k.strip(), v.strip())
+    url = os.environ.get("NEXT_PUBLIC_SUPABASE_URL") or env.get("NEXT_PUBLIC_SUPABASE_URL")
+    key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY") or env.get("SUPABASE_SERVICE_ROLE_KEY")
+    if not (url and key):
+        sys.exit("NEXT_PUBLIC_SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY not found")
+    return url, key
+
+
+def rest_all(path: str, page: int = 1000):
+    """Paged read. PostgREST truncates every response at 1,000 rows regardless of
+    the limit asked for, so the offset walk is not an optimisation — it is the only
+    way to see row 1,001."""
+    url, key = rest_env()
+    out, off = [], 0
+    while True:
+        sep = "&" if "?" in path else "?"
+        req = urllib.request.Request(
+            f"{url}/rest/v1/{path}{sep}limit={page}&offset={off}",
+            headers={"apikey": key, "Authorization": f"Bearer {key}",
+                     "Accept": "application/json", "User-Agent": "metatake-worker/1.0"},
+        )
+        with urllib.request.urlopen(req, timeout=120) as r:
+            rows = json.loads(r.read().decode())
+        out += rows
+        if len(rows) < page:
+            return out
+        off += page
+        time.sleep(0.4)
+
+
+def dfacts_via_rest():
+    directors = rest_all("directors?select=slug,name,birthday,place_of_birth,bio&order=slug")
+    have = {r["director_slug"] for r in rest_all("director_facts?select=director_slug")}
+    films = rest_all("films?select=director_slug,title,year,visible&visible=eq.true&order=director_slug")
+
+    by_dir: dict = {}
+    for f in films:
+        if f.get("director_slug"):
+            by_dir.setdefault(f["director_slug"], []).append(f)
+
+    out = []
+    for d in directors:
+        slug = d["slug"]
+        mine = by_dir.get(slug) or []
+        if not mine or slug in have:
+            continue                        # no hub to fill, or already has a panel
+        mine.sort(key=lambda f: (f.get("year") or 0))
+        facts = {k: v for k, v in {
+            "name": d.get("name"),
+            "birthday": d.get("birthday"),
+            "place_of_birth": d.get("place_of_birth"),
+            "tmdb_bio": (d.get("bio") or "").strip() or None,
+            "films": [{"title": f["title"], "year": f.get("year")} for f in mine[:12]],
+            "film_count": len(mine),
+        }.items() if v}
+        out.append({"entity_type": "director_life", "entity_key": slug,
+                    "field": "facts", "facts": facts, "sha256": sha(facts)})
+    # busiest directors first: the app shows The Life on every one of their films
+    out.sort(key=lambda r: -r["facts"].get("film_count", 0))
+    return out
+
+
 def sha(obj) -> str:
     return hashlib.sha256(json.dumps(obj, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
 
@@ -193,7 +270,26 @@ def main():
     ap.add_argument("--corpus", choices=["leads", "dfacts"], default="leads")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--report", action="store_true")
+    ap.add_argument("--via", choices=["mgmt", "rest"], default="mgmt",
+                    help="rest = service-role PostgREST, for when the sbp_ token is rotated")
     a = ap.parse_args()
+
+    if a.corpus == "dfacts" and a.via == "rest":
+        out = dfacts_via_rest()
+        print(f"cohort: {len(out)} directors without a Life panel")
+        if not a.report:
+            if a.limit:
+                out = out[: a.limit]
+            dest = ROOT / "data/gen/src/dfacts.json"
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            dest.write_text(json.dumps(out, ensure_ascii=False, indent=1))
+            print(f"wrote {len(out)} → {dest.relative_to(ROOT)}")
+            n = max(len(out), 1)
+            bio = sum(1 for r in out if r["facts"].get("tmdb_bio"))
+            multi = sum(1 for r in out if r["facts"].get("film_count", 0) > 1)
+            print(f"  tmdb_bio {bio*100//n}% · 2편 이상 {multi*100//n}%")
+        return
+
     tok = token()
 
     if a.corpus == "leads":

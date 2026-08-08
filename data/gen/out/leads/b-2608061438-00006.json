@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "japanese-story-2003",
+  "field": "lead",
+  "film_id": "d7948155-9e30-4e8b-ae1a-7d1a9bf5a8a3",
+  "lang": "en",
+  "text": "Two people who can barely tolerate each other share a four-wheel drive into the Pilbara, and the nearest help is a day behind them. Sandy reads ground for a living; Hiromitsu is the visitor she was told to escort, and the arrangement licenses both of them to be rude. Sue Brooks lets that irritation run a long time before anything gives, which is why the giving registers when it comes. The cinematography award the film took is legible in the wide shots: mining country photographed as working ground, red rock that means iron and haulage rather than scenery. Nothing out there is arranged for a visitor's benefit, and neither is the schedule that put these two in the same vehicle. Company nobody chose, in a place with no one else in it, for as long as the survey takes.",
+  "model": "claude-opus-5",
+  "source_sha256": "203e047f6082d77f53c06960d1b4f604b255d628c54933f5e3ff1dfe78ecd643"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "raging-fire-2021",
+  "field": "lead",
+  "film_id": "d6f3a288-3414-49ca-8686-0270502def85",
+  "lang": "en",
+  "text": "A respected Hong Kong detective is being hunted by the protégé he trained himself. Raging Fire gives its 125 minutes to that inheritance: how a police force's habits, its shortcuts and its loyalties get handed down whole, and what they look like when someone applies them from the other side of the line. Benny Chan stages the action as hardware — bodies through glass, vehicles into concrete, gunfire in daylight streets where bystanders are an obstacle rather than a rumour. The genre's mechanics are delivered without apology. What holds the thing together is rank. Cheung Sung-bong's record is long and his standing is unquestioned, and the film keeps returning to what that standing was built on and who paid for it. It took best film at the Hong Kong Film Awards, which for a picture this loud is worth a moment's thought.",
+  "model": "claude-opus-5",
+  "source_sha256": "a313bf9ac0b45ebf1bc9c4809b56cb6dbbbe01126f67c2426dd63097bc7c3c8e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "toto-the-hero-1991",
+  "field": "lead",
+  "film_id": "63d840d7-c764-4355-abfc-3bc4d88d85dc",
+  "lang": "en",
+  "text": "Thomas is eighty and still certain that his life was handed to the wrong baby. A fire at the hospital, a swap made in the confusion, and the boy next door grew up in the house that should have been his: that is the grievance, and Jaco Van Dormael treats it seriously, as the organising principle of an entire existence. Childhood, middle age and old age arrive in the same tone and without signposts, so memory, fantasy and plain fact are given equal footing. Ninety-one minutes is short for three ages of a man; the compression is the method, and the comedy comes from how neatly a person files decades of resentment under one explanation. It carried the Caméra d'Or. Whether the swap happened matters less than what believing it has cost by the time there is time to count.",
+  "model": "claude-opus-5",
+  "source_sha256": "033fbe22b3f0f5f168af40933acfd53f6d55a10f34f20da822e338e8eb338137"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "project-gutenberg-2018",
+  "field": "lead",
+  "film_id": "2648f42b-203f-46a7-8530-83b4b244606c",
+  "lang": "en",
+  "text": "Counterfeiting is a craft before it is a crime, and the craft is where this film spends its attention: the plates, the inks, the paper that has to feel right in a stranger's hand. The police cannot put a face to the man they call Painter, so they borrow the only expertise likely to recognise his work — another painter, Lee Man, brought in to explain how such a thing is made. Hong Kong crime pictures usually run on loyalty; this one runs on skill, and on the awkwardness of admiring a hand that produces perfect lies. Felix Chong Man-Keung gives the operation a global map and 130 minutes to move around in, but the scenes that hold are small and technical: a press, a note held up to the light, a currency examined closely by people who love it for the wrong reasons.",
+  "model": "claude-opus-5",
+  "source_sha256": "f89964d466a02c75945f7d378705ad2e2836243c7b39e247bf83b630b823c493"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "gueros-2014",
+  "field": "lead",
+  "film_id": "871158c1-7633-4f95-a176-87e6ce3a27c4",
+  "lang": "en",
+  "text": "A strike closes the university, and the two brothers at the centre of this film manage to be on strike from the strike as well. Enrolled in nothing, committed to nothing, they drive around Mexico City in 1999 while the shutdown goes on without them. The errand they invent is to find an ageing musician who mattered once and may still be alive somewhere in the city. Alonso Ruizpalacios lets the search take the shape of a drift: neighbourhoods crossed for no clear reason, arguments about records conducted with the seriousness of arguments about loyalty. The black and white keeps the city from turning picturesque. The comedy is in the aimlessness and so is the sting, since aimlessness is also a decision, and somebody has to pay for the petrol. It took the Ariel for best picture in a country where the year was still recent.",
+  "model": "claude-opus-5",
+  "source_sha256": "96698952672dc61da93793f7ba8f1a3768615c47e8fb0e969000a9e0238057b1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "cold-war-2012",
+  "field": "lead",
+  "film_id": "b6d53ed0-e375-48f0-bfd0-3c7a36651406",
+  "lang": "en",
+  "text": "Five police officers disappear in a single night, and the commissioner who would normally decide what to do about it is abroad. What follows is less a manhunt than a meeting. Two deputies with equal claim to the empty chair each argue that his own method is the correct one, and each knows the case will become the record on which the appointment is settled. Cold War spends its best energy on procedure: chain of command, radio discipline, the exact wording of an order and the question of who logged it. Then the anti-corruption commission arrives, and a private rivalry becomes a matter for investigators who answer to nobody in the building. At 102 minutes it moves fast, but the pressure is administrative — whoever runs the operation is being watched by people who will read the transcript afterwards.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d6716aa9aeace76f47d0c30ae0e61ce9ef920f7efe443cef75e376ecc5df077"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-golden-dream-2013",
+  "field": "lead",
+  "film_id": "31b2f298-85fd-4f86-9453-56ee511c0600",
+  "lang": "en",
+  "text": "The distance from Guatemala City to California is measured here not in kilometres but in the number of times a teenager has to decide whether to keep going. They leave with almost nothing, and Mexico takes up most of the film — a reminder that the border on the map is one of several, and not the hardest of them. Because the film travels with the group and knows only what they know, every stranger arrives unexplained and has to be judged in seconds, on a face and a tone of voice. They are children in the ways that show: they bicker, they perform for each other, they misread adults badly. It took the Ariel for best picture. The film's own unit of measure is smaller than any prize: the next ride, the next fare, the next stranger who has to be trusted for an hour.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d06b587809ace2dd61e35c9cb3d0f90bfb3d8af6e59a8b1b2503f1e1708a9af"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "riff-raff-1991",
+  "field": "lead",
+  "film_id": "d8e987d7-7b0c-451f-b6e3-1a4ec66bb777",
+  "lang": "en",
+  "text": "On the building site, half the men answer to names that are not their own. Wages under one name, benefit claimed under another, safety whatever the foreman says it is that morning: the arithmetic only works if nobody looks closely. Stevie comes out of a Scottish prison with no address, and what the job buys him is a squat in an emptied council flat. Ken Loach films the work at length — scaffolding, dust, the horseplay that fills a shift — and lets the jokes come from the men rather than from the script's opinion of them. Susan is chasing singing bookings, which is the same economy in a different costume. The European Film Award for best film sits oddly on something this unglamorous, and that is a point in the award's favour.",
+  "model": "claude-opus-5",
+  "source_sha256": "7e1674b313be35bb12a0a2d3521a73f4133e610698b358382b3ff867faf05af1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "my-brilliant-career-1979",
+  "field": "lead",
+  "film_id": "3b72409d-0f34-4a65-9af2-1596ea8542f1",
+  "lang": "en",
+  "text": "The offer on the table is marriage, and by every measure available to the people making it, the offer is a good one. That is the difficulty. The young woman at the centre of Gillian Armstrong's film wants a life of her own composition, and the pressure against that comes from relatives who love her: concern, practicality, the reasonable point that independence has to be paid for by somebody. Armstrong keeps the arithmetic visible instead of treating the romance as pure feeling; an unmarried woman here is an expense and a worry, and everyone in the room can do the sums. The lead performance won at home, and it is not a warm one. She is stubborn, sometimes ungracious, and the film takes her ambition literally rather than as a phase to be waited out.",
+  "model": "claude-opus-5",
+  "source_sha256": "31058e1688f4fbf129025d3fb0804bc443d8a06ac0c11964d1ee832e0b96d3c5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "robinson-crusoe-1954",
+  "field": "lead",
+  "film_id": "0d2e6276-b2d1-4d13-bc8c-8e7ff7cd0fa7",
+  "lang": "en",
+  "text": "Most of what a castaway actually does is carpentry, and this film gives the labour its full share of the running time. Made in Mexico, in English, by Luis Buñuel: shelter, fences, food, a routine stretched across nearly thirty years, and a solitude that begins as a practical problem and turns into something else. A man with nobody to address keeps addressing someone, and what he says — and who he imagines is listening — is where the film's attention settles. Then Friday arrives, and the survival story becomes a story about possession: a name given rather than asked for, a language taught in one direction, and an assumption that the first human being in decades owes something. Ninety minutes for thirty years, which means the film is always choosing what a life alone consists of. The Ariel for best picture came to it at home.",
+  "model": "claude-opus-5",
+  "source_sha256": "f9cbf885fc65af6fbec5a67b6540c2db339f8b4f6bd6e3d5226dea2800cf8bb0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "duck-season-2004",
+  "field": "lead",
+  "film_id": "d8c43a98-4ea7-4115-b2ae-94c66388fd59",
+  "lang": "en",
+  "text": "Two fourteen-year-olds have the apartment to themselves, a console, magazines, soft drinks and a number for pizza. On paper the Sunday is solved. Fernando Eimbcke spends ninety minutes letting that provision fail by degrees, until the boys are left with exactly what the supplies were bought to hold off: unstructured time, in each other's company, in rooms they know too well to look at. The flat is one of thousands like it in Mexico City, and the humour is patient — built out of waiting, out of the elaborate politeness teenagers produce when they are embarrassed, out of a friendship begun in childhood and now quietly under revision. The Ariel for best picture went to a film in which nobody leaves the flat and almost nothing is done on purpose.",
+  "model": "claude-opus-5",
+  "source_sha256": "6ca0d4ab9477bbc00cf2970c89f6779eeffd9c30033b8230cd0a3233d17a7137"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "i-dream-in-another-language-2017",
+  "field": "lead",
+  "film_id": "86b506d2-a21a-48ee-90f3-182009d28877",
+  "lang": "en",
+  "text": "Two old men have not spoken to each other in fifty years, and between them they hold the entirety of a language. Martín turns up with a recorder and a linguist's brief: get them talking, capture the grammar before the grammar is gone. The task sounds administrative and is not, because the quarrel is old and personal and none of his business, and the two speakers are not custodians of a heritage — they are men who fell out young and have had a lifetime to harden the position. Ernesto Contreras lets the film drift toward the mythic without releasing the practical obstacle: a machine that has to be switched on, a door that has to be got through, a request nobody owes him. The Ariel for best actor went to that stubbornness, and rightly: the subject here is pride, not extinction.",
+  "model": "claude-opus-5",
+  "source_sha256": "30ee4342213de67318621f335724ee1b297c95ab399846d161fac2c282ae4381"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "armand-2024",
+  "field": "lead",
+  "film_id": "5691ccf2-b3e5-4983-be6a-466d0f932cad",
+  "lang": "en",
+  "text": "Everything proceeds from something two six-year-olds may or may not have done, and neither boy is in the room. What fills the 116 minutes is the meeting instead: parents summoned, staff working through a procedure they only half believe in, an accusation that has to be managed before anyone can establish what it refers to. Halfdan Ullmann Tøndel keeps the adults inside the building, where institutional language does its work — the careful phrasing, the pauses that carry more than the sentences around them. Hour by hour the proceeding stops being about the children at all and becomes a permitted form for grievances the adults have been carrying much longer. A school building, a handful of faces, and a dispute nobody can settle because nobody can describe it.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b20780304ce6b0ac9dd0b2462ecaabb6429928bb3c7b6c919fffd9f56b7c8c9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "romulus-my-father-2007",
+  "field": "lead",
+  "film_id": "16db2e88-7df6-4ae1-b292-e543a2549bca",
+  "lang": "en",
+  "text": "Raimond is a boy, and the film keeps to what a boy could see, which means the adults stay only as legible as he can make them. What a child registers is not crisis but repetition. Romulus and Christina are raising him under conditions that keep taking more than they return, and the marriage is not built to carry the weight. Richard Roxburgh directs without raising his voice: meals, work, a house, the long stretches in which a child studies the people he depends on and learns which of their moods to plan around. The AACTA award for best actor went to the lead performance, and it is made almost entirely of restraint — a man doing the next necessary thing because the alternatives were never offered to him. Devotion here is labour before it is feeling.",
+  "model": "claude-opus-5",
+  "source_sha256": "d29d2e8c493b8ed75d5f179250436773c62b64bc1ffe123876d8b47f5ed53cda"
+ }
+]

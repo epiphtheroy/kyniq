@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "it-s-only-the-end-of-the-world-2016",
+  "field": "lead",
+  "film_id": "1862bb8d-7efd-428c-b53c-03164b95b754",
+  "lang": "en",
+  "text": "A man comes home to say one sentence and spends the whole visit not saying it. Louis is a writer, he is dying, and he has been away long enough that the family has arranged itself around the gap; when he walks in, they take the floor first and use all of it. Ninety-nine minutes, in French, made in Canada by Xavier Dolan, and running on unforgiving arithmetic: everything that needs saying has to fit inside one afternoon, and almost none of it will. The Cannes jury gave it the Grand Prix. The difficulty is right there in the premise — the film demands proximity to people talking over each other, with nobody appointed to be reasonable on anyone's behalf. What it keeps is smaller than its volume: questions asked sideways, answers withheld from habit rather than cruelty, a visit that is mostly the noise around its own purpose.",
+  "model": "claude-opus-5",
+  "source_sha256": "8aae3594bed9b55f75951daa6eb4e99bbb814f27bf0f8ff4ec5334d135bf9118"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "land-and-freedom-1995",
+  "field": "lead",
+  "film_id": "914a2218-026e-4788-ab47-0a14c4c401de",
+  "lang": "en",
+  "text": "A volunteer picks a side in the Spanish Civil War and finds it is three sides sharing a rifle. David Carr is out of work in Britain in 1936 when he leaves for Spain and joins the POUM militia; the Republic he has come to defend is a coalition of liberals, communists and anarchists, so the film carries two conflicts at once, and the interior one is harder. That is the wager of these 109 minutes: Ken Loach lets people argue at length over what the fighting is for, and asks a war picture to hold still while they do it. The prizes came from three directions — the César for best foreign film, the European Film Award for best film, the Ecumenical Jury at Cannes. What stands to be lost here is not the war, which is already history, but the reason anyone had for going.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ab5cf7ad01f5888ecc989694e1bc63fd224ecff3646c31f2dd9ff606fe2da1f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "open-doors-1990",
+  "field": "lead",
+  "film_id": "4d733580-4a07-47ee-a60d-166d360aa8b8",
+  "lang": "en",
+  "text": "The man who killed three people wants a quick trial and a firing squad; the film belongs to the assistant judge who refuses him. Tommaso Scalia murdered the superior who sacked him, the colleague who replaced him, and his own wife, and he has no interest in a defense. The judge does — not out of sympathy, which nobody in the room can produce, but because he does not believe a state should shoot anyone, and this is the case that tests whether the belief survives contact with a man who deserves nothing. Gianni Amelio takes 108 minutes at the speed of procedure rather than suspense: sessions, documents, the slow discovery of how much a court prefers agreement. Italy's David di Donatello went to the film and to its direction. A principle is easiest to hold when the defendant is sympathetic; this one arranges the opposite.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ba3a81de49b953bb23a967997c43a29f5b0aedfb0171a05758317dcdeffd6af"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "germany-year-zero-1948",
+  "field": "lead",
+  "film_id": "8ab02801-0030-4143-8963-55426075e72b",
+  "lang": "en",
+  "text": "A twelve-year-old is handed the household arithmetic: what can be sold, what can be traded, who eats. The city is Berlin after the war, mostly rubble, and the seventy-four minutes are short because there is not much left to show — the running time behaves less like a story's length than like an inventory. Roberto Rossellini shoots in Italian, on German ground, in 1948, and the boy's errands are effectively the whole of the plot. What makes them hard to watch is his ordinary competence: scavenging becomes a job with hours, and no adult in the frame is in a position to correct him. The film sits on TSPDT's thousand, took the Golden Leopard, and — the stranger fact — appears on a German list of the films that matter to Germany. Nothing is pitched as tragedy. The boy is simply the one still working.",
+  "model": "claude-opus-5",
+  "source_sha256": "dec215e4f73e681da3e30872ebafe291f2b9bb69c02e4e57916ecde0f67a85b0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "atonement-2007",
+  "field": "lead",
+  "film_id": "21db88a8-9b0e-4df0-a194-f7a9a3f83f62",
+  "lang": "en",
+  "text": "A girl says something that is not true, and a household finds it convenient to believe her. The accusation lands on her older sister's lover, for a crime he did not commit, and the rest of the film runs on the interest that one small piece of misinformation accrues. Joe Wright spends a long first stretch on a single hot English day before anything is decided — the interval in which a child misreads adults and does not know she is guessing — and the Academy's attention went to the surfaces: score, cinematography, costume. That is a fair account of where the picture's intelligence sits. It has been seen by almost everyone, and the reason to return is narrower than the reputation: it is exact about how little evidence a story needs before it becomes the official one, and about how early the damage is finished.",
+  "model": "claude-opus-5",
+  "source_sha256": "d299ee969185103e71453cfb439bddb81cf8852802eaddbfa12099d9d9bc1201"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "entranced-earth-1967",
+  "field": "lead",
+  "film_id": "a8ca2a1a-06fd-430f-bd5a-9df8e9d127fc",
+  "lang": "en",
+  "text": "Eldorado has a coastline, an elite, two useless candidates, and no existence. Glauber Rocha invented the country rather than name the one he was standing in, and the invention buys a register no report could use: the 108 minutes move in surges rather than steps, pitched at the volume of a man losing an argument with his own class. That man is Paulo Martins, a journalist far enough past his own idealism to be dangerous to everyone, stuck between a pseudo-populist and a conservative and unable to make either bearable. Brazilian critics keep it near the top of their own hundred and it sits on TSPDT's thousand, while general audiences have largely never met it. Nothing here is offered as reportage. The distortion is the measurement, taken at close range and at full volume.",
+  "model": "claude-opus-5",
+  "source_sha256": "33949efbe093a6a3c46534f1872a980902b91e4ea6fc769ee2a78705d52fc77f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-three-burials-of-melquiades-estrada-2005",
+  "field": "lead",
+  "film_id": "f057c5ee-7c90-405a-869d-f6b6b78d5b74",
+  "lang": "en",
+  "text": "The plot is a logistics problem with a corpse in it, and a promise that has to be kept across a border. Pete Perkins told his ranch hand he would bury him at home in Mexico; when a border officer kills the man and puts him in Texas ground, Perkins takes the officer, digs the body up, and moves the entire arrangement onto horseback. What follows is a western built like a chore — heat, distance, decomposition, two men who cannot get away from each other. Tommy Lee Jones directs, and the 121 minutes are more patient than the premise promises: the interest is less in punishment than in the etiquette of honoring a promise made to someone who can no longer check. The record marks it for acting and for the screenplay, which is the right pair for a film this sparing with explanation.",
+  "model": "claude-opus-5",
+  "source_sha256": "ecdf9b9fdd85a673eb1c1455024164f7c2f6624edd6b023b1bb989f1be780589"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bugsy-1991",
+  "field": "lead",
+  "film_id": "bd1bbb6c-f671-42b5-8277-7eff1b383c3e",
+  "lang": "en",
+  "text": "Las Vegas enters this film as a run-down gambling joint at a spot in the desert. Ben Siegel — New York money, Los Angeles appetites, a temper that arrives before he does — takes a look and comes back with an idea, and the 136 minutes are mostly about what it costs to be the man who has the idea first. Barry Levinson keeps it in the register of a career rather than a rampage: business trips, hotel suites, a family waiting in one city while Virginia Hill declines to wait in another. The recognition it drew was for performance and for surfaces, cinematography and costume, which is honest — this is a picture about a violent man dressing the part of a legitimate one. Whether he is worth 136 minutes is arguable. The desert he is buying into is not.",
+  "model": "claude-opus-5",
+  "source_sha256": "e88bc42b9085f0b4d77c4eb1aa2cb1d8372ffcf56e60ead3164c4fa3b72f8550"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "i-m-your-man-2021",
+  "field": "lead",
+  "film_id": "3e7f68df-f12e-4451-9817-d23a7a995a5e",
+  "lang": "en",
+  "text": "Alma agrees to the experiment because her research needs the money, and the experiment moves in with her. Tom is humanoid, fluent, and assembled from her own file — an intelligence built to be exactly the partner she would choose, on a three-week trial she did not want and cannot afford to refuse. The comedy is administrative before it is romantic: a scientist obliged to determine whether being suited this precisely is a good that can be borne, with a deadline, and her funding riding on her going through with it. Maria Schrader keeps the science fiction to one appliance and one apartment, so the budget goes into the argument, and the 108 minutes rest on a face deciding in real time how much accommodation it will accept. Berlin's Silver Bear for leading performance and Germany's national film award both landed here. The machine is never the problem. The specification is.",
+  "model": "claude-opus-5",
+  "source_sha256": "2c884cf61e76c4a1f96647a252b5b7a998cfec7b1125ce01b6839038f9956449"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "all-things-fair-1995",
+  "field": "lead",
+  "film_id": "bebd5ab2-41d7-468a-bef0-a9826f04447d",
+  "lang": "en",
+  "text": "Malmö, 1943: Stig is fifteen, and the teacher he wants is twenty-two years older and married to a man who drinks. Viola takes the boy's youth as relief from that marriage; the film sets the three facts side by side and declines to turn any of them into an excuse. What it actually watches is the traffic between two households, and the way a private arrangement keeps having to be carried through public rooms — corridors, classrooms, the school day continuing on schedule around it. Bo Widerberg allows 125 minutes, long enough for the first charge to wear off and the imbalance to surface. It took the Silver Bear grand jury prize in Berlin and the Guldbagge for best film at home. Quiet, period-exact, and clear about who holds the power in the room and about when that changes.",
+  "model": "claude-opus-5",
+  "source_sha256": "d517bce51d12c36ed8e51222ac0e85b7f3e692a85f5c9dd5441bfeb15f8585e1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-browning-version-1951",
+  "field": "lead",
+  "film_id": "f0e86304-67ff-4e49-8794-9d024d230092",
+  "lang": "en",
+  "text": "Ninety minutes is enough to take a man apart with the manners kept intact. Andrew Crocker-Harris is leaving his post as classics master because his health has failed, and the school is not sorry; the boys and the other masters settled their opinion of him years ago, and his wife has found her company among those same colleagues. None of this is staged as a crisis. It has all been true for a long time and everyone has adjusted around it, which is the harder thing to sit through. Anthony Asquith holds to a few rooms at the end of a term and lets the pressure come from what this kind of Englishman will not say aloud. A BAFTA for best film, a screenplay award, an acting prize at Cannes. The record is out of proportion to how rarely the film is watched now.",
+  "model": "claude-opus-5",
+  "source_sha256": "6b6ffa271c6711e765dcd45bf510df9e5e406fea97c7545a723ad708ca3ee2ae"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-deathmaker-1995",
+  "field": "lead",
+  "film_id": "a9ae03a6-2d8d-4d41-958a-3d309d33b7cb",
+  "lang": "en",
+  "text": "Two men at a table, and one of them is asked to account for twenty-seven murders in order, without heat. Fritz Haarmann killed at least that many boys; a professor of psychology has to establish whether he can be held responsible, which means asking him to describe motive and method as though describing work. The 110 minutes stay inside that procedure. There is no investigation to follow and nothing is reconstructed for the camera — the horror is entirely verbal, delivered in the cadence of a man answering questions he has answered before. Venice gave the lead performance its Volpi Cup and the German film award went to the picture. Hard to recommend, easy to respect: a film about atrocity that shows none of it, and trusts that a voice at a table is worse than any image.",
+  "model": "claude-opus-5",
+  "source_sha256": "4fc2bd36b91f39afbd9a363b35d19a5081f8ba6b7a2ef138adac4af9ee1f05fa"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "rosa-luxemburg-1986",
+  "field": "lead",
+  "film_id": "d26d0577-360a-4a97-bb31-49052b2631f4",
+  "lang": "en",
+  "text": "A great deal of this political life is spent in cells, and the film treats the cells as working conditions. Rosa Luxemburg moves between platforms and prisons across Poland and Germany, is jailed again and again, keeps up her arguments on paper with people who are not in the room, and assembles the Spartacist League out of that intermittent freedom. Biography usually wants an ascent; Margarethe von Trotta organizes 122 minutes around interruption instead, which is closer to what a public life actually cost a woman, a Pole and a Marxist in early twentieth-century Berlin. The performance took a best actress prize and the picture took the German film award. It is a talky film about someone whose work was talk, and it declines to smooth her into a symbol or to make the positions she held sound easier than they were.",
+  "model": "claude-opus-5",
+  "source_sha256": "867b8d363a66654480e5bf4caed0e4e2f957ed1bdabac79c9e083009de07095d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-terrace-1980",
+  "field": "lead",
+  "film_id": "6fc14089-56da-47a5-8e5f-a375a2be1704",
+  "lang": "en",
+  "text": "The party lasts a hundred and sixty minutes and never leaves the terrace. Eight men of the Italian communist party stand around in Rome with drinks, taking turns on their past, their present and whatever they believe is coming, and the length is not indulgence: a gathering only becomes this exposing after the good hour has passed and people start repeating themselves. Ettore Scola builds it as a series of turns rather than a plot, each man given his stretch, so the film keeps rhyming — the same terrace, the same guests, a different failure each time. Its recognition came for the writing and for a performance, which fits a picture made almost entirely of talk. What it is tracking is a generation that has been talking to itself so long it can no longer tell agreement from habit.",
+  "model": "claude-opus-5",
+  "source_sha256": "ce6972a5846c6a95eb781561ddee21df695da6d1eea46d0a17b7a7593733e055"
+ }
+]

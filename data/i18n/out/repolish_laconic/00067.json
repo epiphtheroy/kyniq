@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sword-stripped-warrior-caste-unmade-by-the-peasant",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사무라이에게서 칼도 몸도 빼앗긴다. 그를 무장시킨 질서를 향한 고발.",
+  "model": "claude-opus-5",
+  "source_sha256": "a147c604150a88952526aa259063fcf5cc301c57fc11a2c279837b25e638ac2d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sworn-oath-as-engine-of-submission",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "맹세가 실은 사람을 묶고 밀어붙이며, 끝내 양심을 대신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a67478e3112abaae42e717dd47e1c4af243edeeb2f3c6a58135880b627945345"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-symbol-worshipped-above-the-man",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "프랜차이즈가 떠받드는 것은 사람이 아니라 상징이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd0365f3638d3249fa98d134d998674ed69069d91ef10a52749c1e9c885b4189"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-symbolic-order-collapsing-into-the-real",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "라캉의 구조화하는 허구가 무너진 자리로 실재(the Real)가 여과 없이 밀려든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "29dab74e6aec096dc9b98538b2f7dd5187f46040e0a72b4e96db633a5907aa55"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-symbolic-order-fails-to-hold",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "상징적 보증이 더는 주체에게 자리를 주지 못한다. 권위는 그때 무너진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e8bf03628e310a63f17b20d7cd6f9bc4dfcd5a974089a0118296f503f3d3e921"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-symmetry-that-made-it-bearable",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "양편을 나란히 놓는 균형. 회피로도 읽히고 위안으로도 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "39e80653e55015ae0780ec179225b8410771ce4f3e03cde9e49425ad7b83e68b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-symptom-as-cipher-to-be-decoded",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "트라우마는 임상적 흔적으로만 말한다. 읽어내야 하는 암호로.",
+  "model": "claude-opus-5",
+  "source_sha256": "5ba661ca7fc10e6e214990f32f72bec13fcca646c0d57fd7198525f74a3feadd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-symptom-as-disavowal-of-power",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "절뚝이는 다리, 깜박이는 능력. 몸이 이미 아는 것을 발설한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "06a412b42721bb98cbd6fd721951bdd1281e07ade7d5b56d70a8835c037f3248"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-symptom-displaced-onto-the-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "억눌린 욕망이 몸의 증상으로, 혹은 가려진 형상으로 떠오른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7cfbf802bc1cdf9a3ffc7c58e3d17ea3b2fba9981c728bcb4a0a57b89ee2b719"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-synthesized-instrument-as-cold-ghost",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "트라우토늄과 테레민 같은 전자 음색이 없는 오케스트라의 자리를 메운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e28d3c3b898d27b2d0950fed980911bdab9cf61612767d69606e1f572f070dce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-synthesizer-as-diegetic-engine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전자 음악이 장식을 그만두고 영화의 현실 자체를 밀고 나간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5e40deebe0c80e3619bc2f4a08703857357345a549426b984ed1ae6dcb76eb66"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-synthetic-image-that-rehearses-our-future",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "화면 속 인공 피조물은 곧 닥칠 알고리즘적 공포의 예고편이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5635c8a99bb7970918d45c3bd23f0d896cae0e77ab27f9856d165e67f6e61766"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-table-as-contested-polity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "저녁 식탁. 사생활이 점령되고 거부되고 배급되는 자리.",
+  "model": "claude-opus-5",
+  "source_sha256": "aad535a64b414cd5b438da5d286b57fbde466c1743e2738c595be339f31f7360"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-table-where-patriarchy-eats-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가족의 식사가 곧 아버지의 파산한 살림살이로 연출된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "22e4e39c0c61dbaca838dd7c222a6941e8e8b1bd612787c0681d579de0c8e622"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tailored-armor-of-lethal-privilege",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "맞춤 정장을 다시 읽으면 불사의 갑옷이자 미학으로 치장한 계급 폭력이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ecfce2b75b6b955e099d5afd64718385fb5ac0d46414e8d392f103439ccb1166"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-take-held-until-performance-becomes-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연기가 바닥날 때까지 버티는 지속. 배우는 연기를 멈추고 증언하기 시작한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b51a43e94b898d6d6a84cc9fee21a402c6d078e0de583a1084a4552a553bd78b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-talent-money-could-not-buy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세상이 내친 사람에게 후원자가 기어이 무대를 마련해준다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e5c8bcd78c2b7e16f91fa22b443a6fcbf2eaa0024f329d4ec73495f45157fe2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tape-recorder-as-moral-court",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "녹음된 증언이 판결하고 단죄하고, 때로는 구원한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "30de6d027f522008203a088b8b0bc034695d500bf7b4e3a5d4f62ee64295aeed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tape-that-carries-the-contagion",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아날로그 비디오를 타고 질병과 공포가, 허물어지는 자아가 옮는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb451f9f626ea14bd8ee5153535f3c5d1200078a5a17f719e53a2a3413572358"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tape-that-outlives-its-tyrant",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이미지가 공모한 자리에서 증거로 남는 것은 녹음된 소리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1f32eefd0f89356dfb8f8c3cada1ec4c3941b2d64720b715c620ccc5983cbd7e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tape-that-plays-its-listener",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "녹음된 매체가 정보이기를 그만두고 그 자체로 유령이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "87124d39e9702d7b2cf1c6788b15edd58dc9bf10b83918098451a279e69e7033"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-teacher-as-arm-of-the-state",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "교육의 가면이 벗겨진다. 징집하고 단죄하는 도구였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b1b69d63ead28ee75c1e6cafecad03b0844cab29ff03ab903cce23458828591"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-teacher-as-screen-for-projected-desire",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제자의 갈망 앞에서 교사는 사람이기를 그치고 대상이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3c71adf8f060eef6320d597b8d24e95dbf40066fe18eb30491a312b27a11d8ad"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-teacher-who-awakens-the-sealed-senses",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감각이 닫힌 자리에 갇힌 정신. 스승이 그 안으로 뚫고 들어간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3b39e56d654087bca0ff47afd228a420f3d42077678e2bc6ef9bc4bb667726d3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tear-that-decodes-the-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "단 한 번의 울음이 영화 전체를 여는 열쇠가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b7154b5938b23e915b341600ed5ffe70953d27782246bd23984a3b58935cea24"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-technology-that-dictated-the-form",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "3-D, 생방송, 텔레비전의 경제학. 기술이 영화의 형태를 통째로 휘어놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b1bface7f3b145ebb6c1a420903a2da8a78a6f58c00519f23b17003b7e054d1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-teen-film-as-covert-ethnography",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "청춘 코미디는 자신을 찍어낸 분류 기계를 남몰래 해부한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "69024bd28f0b478bb49dc4a9ebc9be03d722b31f0d7b31c3160e8783e540ba2c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-teleological-suspension-of-the-ethical",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "키르케고르의 도약. 신앙이, 절대자가 도덕률 위에 선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "877af3641c97eb218a31a7b559d3f752c790db776f5328703fda9f2de1557331"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-telephone-as-disembodied-instrument-of-command",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전화기. 얼굴 없는 권위가 멀리서 치명적 명령을 내려보내는 통로.",
+  "model": "claude-opus-5",
+  "source_sha256": "006423f91b6e6307287f6aacdb7afeead7313c48f1921817a23ee247db525972"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-telephone-as-umbilical-to-the-dead",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끊기지 않은 회선이 산 자를 부재하는 목소리에, 잃어버리고 묻어버린 목소리에 붙들어 맨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "322ab10dc3a18539db83eceba113bb7347a643b68f8e22ee5259c66026dbeb42"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-telescope-that-studies-our-own-dust",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "우주를 향하던 기구가 방향을 돌린다. 인간에게, 죽은 자에게, 핏줄에게.",
+  "model": "claude-opus-5",
+  "source_sha256": "65a2f32a396c98e54e2b06b77ca7777f6f378b1b7cd0b7127c7800e77d826f3d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-television-cut-smuggled-into-cinema",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "작은 화면에서 태어난 영화가 도리어 감당 못 할 크기의 위대함에 이른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0deb2b5704a9ef0c184bc89e825d1183d68e10dfe9c11659ed4655d2489b38d3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-television-set-as-colonial-furniture",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "수입된 화면 한 대가 외세 점령의 물건으로 놓여 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a16841b204ff7c49fcaa17a618666a90c05c991f8dc16bea31de0e5b2c7f68f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tender-lie-against-the-moral-law",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "돌봄은 칸트적 의무 대신 자비로운 거짓말을 고른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "61286ae8c1e93891edf51f4e2d92d780cd86bfa022d7ee2bb3d6a76d0b80762c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tenebrae-rite-of-extinguished-light",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목들이 불러내는 것은 죽음과 부활 사이, 어둠의 전례다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd92a45fc52aecfbdaa352df062aa1db939170ae2102e36b861a0441912e8da0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tennessee-cabin-as-underworld-stage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "같은 촬영지가 형이상학적 내면으로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "72d332f248acfed67b0a5423337c8c65e39e9d85dce7b7c17b42b76d5c10af3a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-terrain-as-belligerent-co-author",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "화산과 석회밭과 숲. 전쟁을 쓴 것은 땅이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d9e7bb508f2be7d158fda23cae58aa47839fddff92f62d1af12960ba144d622e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-terror-built-in-the-soundtrack",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공포는 이미지가 아니라 소리로, 녹음된 재료로 설계된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5e0f6ce323b238ac080d4f6f7e9f9808c6f739056b37b833f10f35084c8f05cd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-terror-filmed-was-genuine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진짜 두려움, 진짜 뼈, 진짜 매복. 스크린의 공포는 거기서 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "86f494e7f4fe0c303bcf43c2e5b31efd8a5a3d7e82b13d3ff87c3b1d4ea1d702"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-test-audience-as-ideology-s-hand",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시사 평가 카드가 결말을 고쳐 쓴다. 그 문화가 차마 견딜 수 없던 결말을.",
+  "model": "claude-opus-5",
+  "source_sha256": "954b6e95dde7b9581c8985fba2f0978efe42a3fd1380a4897a50a01727287cab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-theatre-director-smuggled-into-cinema",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "롱테이크와 이인극이 무대 출신의 감수성을 들키게 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "db53dddf543604fad64f4dd2fd6d98c43c04030c011f618a0c2b97459f62f2ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-theatrical-form-smuggled-into-the-feed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자신을 실어 나르는 스트리밍의 틀에 저항하려고 지어 올린 영화적 야심.",
+  "model": "claude-opus-5",
+  "source_sha256": "de41b663f564b95a2bc2d3d137c19a33076949a4460f5ab9c5975b5ce219258d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-theme-that-already-knows-the-ending",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "음악은 이미 알고 있다. 누가 이길지, 누가 묻히지 못한 채 남을지.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb1f4f065304447e529fd89198d7c0c4f27eaa4d963184d7d48d8f9621893ad7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-theme-that-loves-in-secret",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거듭 돌아오는 악구 하나가 그 주인이 끝내 말하지 못한 사랑을 실어 나른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8250ddad901d8f425129d99975ef5bb034c878cec77e86486465567892835314"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-theology-that-already-lost-its-god",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물러난 신이 남긴 빈자리. 믿음은 거기서 상연된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b6fc444e83bf2f6dbe675f075b4a5f9f9ef167acaf827d887c07b34d1634654d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-theology-with-its-cause-subtracted",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "행위자도 기원도 지워졌는데 우주적 구원만 남아 돌아간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "22be479bc3b6dbb4001fc233a9a67b88e73b3868a763ca65d7c63f9b5d7a6ea8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-theorem-as-narrative-form",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "수학 증명처럼 전개되는 영화들. 증명 끝에 오는 것은 파국이다",
+  "model": "claude-opus-5",
+  "source_sha256": "78c5ade668deaea84a772111faca0d6b8afac76f75c814af2e7c0f399a2f57f7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-theorist-who-cannot-live-his-theory",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "교리를 육체에 밀어 넣는 순간 교리가 무너진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b79aaef6b87b6f779f3c31aca0e0268282711acd6bfcb79ba92aae633be6f63"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-thermal-gaze-that-unmakes-the-human",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "적외선 광학. 인간의 봄이 말끔히 씻겨 나간 시야.",
+  "model": "claude-opus-5",
+  "source_sha256": "e60c40778abbe1a11b38c9bc20fc178ea248e1ae72021fe946e5098ebf5fe4f3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-thought-made-literally-sovereign",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "관념이나 소망이 물질적 육화와 맞붙어 그것을 이긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b263d1fa4a9ab08405b00b4a9b710fcb0ee1977df37577c616e492c7a85a6086"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-threshold-one-cannot-cross",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "문간. 거부와 망설임과 옭아맴이 응결되는 자리.",
+  "model": "claude-opus-5",
+  "source_sha256": "066eb45666c0f1d829878b9f1d67adba79a3965c7b3b30bd31478e468d94a6b0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-threshold-room-as-border-regime",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "중립을 자처하는 제도의 실내가 도리어 그 분할선을 집행한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9276c3528deea540ffc1eba130aafdea7902eb73ae0782b10fb7928b8a920e1c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-threshold-that-refuses-to-become-a-door",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화의 진짜 주제는 방이 아니라 문간이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a039361f5c31623056487e90a433a3edef61b4efe46e56de1aa9f839a2185b00"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-threshold-that-was-always-open",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "봉인은 장벽이 아니었다. 문을 잠그는 것은 안쪽에 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "009791e30db6510082f936fcecb0c71bb685c4917e7eb1b6b9a9f788c5f169e2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-threshold-where-practical-yields-to-digital",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아날로그와 디지털이 교차하는 지점에 붙들린 효과 영화. 그 인수인계를 애도하거나 기록한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c34693ff6c678598a2870b49b8e06fbbf590edbee4b2210064eab6247a7205a2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-thriller-whose-real-subject-is-elsewhere",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장르는 미끼다. 진짜 주제는 플롯이 아니라 구조에 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b7a6aa37e98e7a44250a34e1734b013f5e4201de7e6d3498f469d41f8b66210"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-throne-held-in-another-s-name",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대리로만 행사될 뿐 결코 제 것이 되지 않는 주권. 영화는 그 사실을 알고 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5e988b706900a115015703bcd61b2e56ff639bfcbadb535b01e465068ee71f19"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-throne-is-empty-the-power-performs",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주권의 정체는 텅 빈 극장. 장막 뒤에는 아무도 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5e526515d1855f2e822ddd4036bb7115d849b83faa6a0ed1174c01cefe91a384"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tidy-functionary-who-launders-atrocity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "학살을 질서정연한 기술로, 책임 물을 수 없는 업무로 빚어내는 관료와 설계자들.",
+  "model": "claude-opus-5",
+  "source_sha256": "16b8e351901d7ab8dd084fa7abea583e37f23eab0f1f65ab011dbc9f12eb8c40"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tidy-house-conceals-the-real-haunting",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "청결이 곧 거짓말이다. 건전해 보이는 집이 진짜 부패를 덮고 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b75d1629370736cfe722ad79f0b661c00e155eb63fe5c732e03ea181ac3f596d"
+ }
+]

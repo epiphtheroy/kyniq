@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "yesterday-girl-1966",
+  "field": "lead",
+  "film_id": "25e31542-cab8-420f-b274-42ccc094a70c",
+  "lang": "en",
+  "text": "A young woman moves through West Germany's economic recovery looking for something the recovery does not supply. Venice gave it the Grand Jury Prize, and the German record keeps it twice over, on the roll of Die wichtigsten deutschen Filme and among the German Film Award's best-feature titles. What she is after - happiness, independence, some ground to stand on - is precisely what the country in 1966 believed it had finished delivering, so her drifting registers less as private failure than as a bill presented to the arrangement around her. Alexander Kluge holds it to eighty-eight minutes. A search is not a plot, and the film declines to convert one into the other. That is not enough time to follow a life and it is ample for the shape of one coming apart at the joins.",
+  "model": "claude-opus-5",
+  "source_sha256": "49e8c75d873f3d6ffdb4d6eb2f98568912e71021d81db7b73f920b44cd0f4b0e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "land-of-mine-2015",
+  "field": "lead",
+  "film_id": "feeef979-9f33-4b71-8d4c-bf04d22842d6",
+  "lang": "en",
+  "text": "More than two million mines were buried along the Danish west coast, and in May 1945 the job of lifting them went to German prisoners of war, most of them boys. Martin Zandvliet begins where war films usually end. The surrender is signed, the uniforms have changed meaning, and what is left is manual labour done on hands and knees in sand with no instrument but fingers. The premise sets a clock nobody has to explain: the work cannot be hurried, and every hour of it is spent wanting to hurry. The Danish sergeant placed over the boys has to decide each morning what they are to him, which is the film's real transaction. It carries the Academy Award for Best International Feature Film, a Bodil for best Danish film, and the Dragon Award for best Nordic film.",
+  "model": "claude-opus-5",
+  "source_sha256": "a25f4c45ffad0ce4c0a4dc94e2e1025101641f3c23cf6860bd6f5b54b0cd682e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-hijacking-2012",
+  "field": "lead",
+  "film_id": "c6f8511d-f492-4743-8567-9ea21eaad53b",
+  "lang": "en",
+  "text": "A ransom negotiation is a thriller made almost entirely of waiting. Somali pirates take a Danish freighter; the company in Copenhagen opens a channel and then has to live inside it for weeks, while the crew lives inside the same weeks with less information and worse air. Weeks, in a genre that usually measures in minutes. Tobias Lindholm splits the film between those two spaces, and the split is the design: a boardroom where a number is argued down, a hold where the number is a man's remaining time. It took both of Denmark's best-film awards, the Bodil and the Robert. Nothing here moves at the speed of an action picture. The pressure comes from the opposite condition - nobody is permitted to act, and the phone rings when it rings.",
+  "model": "claude-opus-5",
+  "source_sha256": "b11c962aa1c398e66371bff3b6ffad1eaf5390e4401d653019df736878312338"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "queen-of-hearts-2019",
+  "field": "lead",
+  "film_id": "a9d540c6-5f1d-4e00-9de4-8e995560eb5d",
+  "lang": "en",
+  "text": "A lawyer who has built a career on protecting other people's children takes her husband's estranged teenage son into the house. Everything Anne is professionally certain about applies to the situation, and none of it helps. She has the practice, the doctor husband, the twin daughters, a life that photographs well; Gustav's arrival gives that arrangement something new to answer to. May el-Toukhy spends 127 minutes on it, long for a domestic drama, and the length does work - the household stays plausible and comfortable well past the point where a shorter film would tip its hand. The Bodils went to the lead actress, a supporting actor and the cinematographer, an accurate map of where the film lives: faces, and rooms lit to flatter the people in them.",
+  "model": "claude-opus-5",
+  "source_sha256": "687141c5a24fd32e762a40d1b84e7495fc3473fb5f1c59e4f7c578f10cd73c96"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "open-hearts-2002",
+  "field": "lead",
+  "film_id": "7a2e03eb-e715-4714-8bc4-fb0673bbbd87",
+  "lang": "en",
+  "text": "The accident arrives early and is not the subject; what follows it is. Cecilie and Joachim are about to marry when a car crash leaves him disabled, and Marie, who was driving the other car, goes home to a family that does not get off lightly either. Her husband, Niels, works at the hospital. He meets Cecilie there and falls for her without much resistance. There is no villain available, which removes the usual comfort. Susanne Bier lets the geometry stay uncomfortably neat: four people, two households, one event that redistributes them all without anyone having chosen it. Denmark sent the film to the Academy Awards that year. Its 113 minutes go on letting each of the four be reasonable in turn, which is harder to sit with than blame would be.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d81d00cd4977aa0fd377fdde5305a31d7086b4af0c386eb104b7e9abd149845"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "r-2010",
+  "field": "lead",
+  "film_id": "ce441f68-699a-4d30-9e5b-a787d0ea8864",
+  "lang": "en",
+  "text": "Rune arrives in the hardcore ward with a violent assault behind him and no idea what the rules are. A prison runs a second legal system - debts, favours, protection, and lines between groups that the inmates police more strictly than the staff do - and a cocky young man now has to learn all of it fast. Survival is a literacy problem here: read the room correctly or pay for the misreading. Pilou Asbæk plays him without soliciting sympathy. The friendship that forms with Rachid, a young Muslim prisoner on the wrong side of one of those lines, is the thing the ward is least equipped to permit. Tobias Lindholm keeps it to ninety-nine minutes and shoots at close range; it took the Dragon Award for best Nordic film.",
+  "model": "claude-opus-5",
+  "source_sha256": "634e93af60ac9437f09a7289226b8b2799d69aa5e240dcb983e610b63ef9197c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-one-and-only-1999",
+  "field": "lead",
+  "film_id": "7b255a00-1505-4a1e-84a6-5fd945e790e1",
+  "lang": "en",
+  "text": "It begins with a kitchen installation, which is a low place from which to start a love story. Niller comes to fit Sus's new suite; both of them are attached elsewhere, both attachments are going badly, and what happens across that half-built kitchen works less like romance than like a pressure valve. Susanne Bier takes it as comedy, which obliges the film to be funny about bad marriages, cowardice and the inertia that keeps people where they are - material a drama would file under damage. The laughs have to come out of the same facts that would otherwise carry the tears. The Bodils mark where the weight sits: best film, and both acting prizes for women. A hundred and six minutes, with the floor tilted just enough to make the sliding look inevitable rather than arranged.",
+  "model": "claude-opus-5",
+  "source_sha256": "5cb87c9810fae2d95b874d8692039373de2b74ff8baa809112eed582ae263cf6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "king-s-game-2004",
+  "field": "lead",
+  "film_id": "2a35dce6-3caf-4c23-830f-78686aede57c",
+  "lang": "en",
+  "text": "A party leader is nearly killed in a car crash, and the accounts of what happened start competing before anyone has the facts. Ulrik Torp has just started at a leading newspaper, which means the story lands on the one man in the building with no sources, no debts and no idea whose interests his colleagues are already carrying. Nikolaj Arcel keeps the thriller indoors - newsroom, party corridors, the rooms where power is exercised by deciding what gets printed and when. There is no chase in it worth the name; the weapon is a deadline. It runs 107 minutes on the internal manoeuvres of a Danish party in 2004, which sounds parochial and is not: leaking, denying and timing translate without a footnote.",
+  "model": "claude-opus-5",
+  "source_sha256": "3faaf77298a4f8f21e48a9b34a6c98b6cb254e026ccba2bade476133c82d8d4f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-bench-2000",
+  "field": "lead",
+  "film_id": "44bb89d6-1936-4e82-8199-1caf924e4531",
+  "lang": "en",
+  "text": "Nineteen years is a long time not to speak to a daughter, and Kaj has managed it. A former chef in a council flat, he has been put on a job scheme for the long-term unemployed, where his one remaining asset is a refusal to be managed by the foreman. Then the daughter moves onto the same estate, running from a violent husband, with a six-year-old boy in tow, and Kaj finds himself needed. Per Fly gives this eighty-nine minutes and no cushioning; the setting is the part of Danish welfare that gets administered rather than debated, and the film treats an old man's pride as the practical obstacle it is. The European Film Award for best actor came out of it, which figures - everything rests on one face slowly consenting to something.",
+  "model": "claude-opus-5",
+  "source_sha256": "db79c2e654a8748a043d0fccdef99a697e3b4e48507d6a27808f810774b388bc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-art-of-crying-2006",
+  "field": "lead",
+  "film_id": "6bfcab18-975a-462d-b04b-56087731ae80",
+  "lang": "en",
+  "text": "South Jutland in the early 1970s, and an eleven-year-old is the only functioning adult in his house. Allan's father threatens suicide often enough that the threat has become a household appliance; his mother stopped answering it long ago; the work of keeping the family intact has fallen to the boy, who takes the job seriously. Then a rival family begins pressing on the father's livelihood, and the management gets harder. Peter Schønau Fog films this from inside Allan's understanding rather than above it, which is what makes it hard to sit with: the child's reasoning is perfectly coherent, and the coherence is the trouble. It runs 106 minutes, went out as Denmark's submission to the Academy Awards and took the Nordic Council Film Prize. He is competent, and competence is worse.",
+  "model": "claude-opus-5",
+  "source_sha256": "31af45fb858f8055be9d973cac6d0d9cd1c635e542b411d03eea1fc0e2ea0de7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "cops-and-robbers-1951",
+  "field": "lead",
+  "film_id": "3e4ecd12-b9b5-425a-8828-771a39dec24c",
+  "lang": "en",
+  "text": "A policeman's job depends on a thief staying catchable, which in Rome in 1951 is both a joke and an economy. Esposito works the tourists; Officer Bottoni catches him, loses him, and is then informed by his superiors that his own employment now rides on the recapture. Both men are working the same crime from opposite ends, and both need it to continue. Italy later entered it on the register of 100 film italiani da salvare, and the record carries a Best Screenplay citation as well. The two stay tied at that knot for a hundred and five minutes, generous for a comedy of the period and a sign that gags were not the whole ambition; what it wants is a city where a con and a wage are nearer relatives than either party will admit.",
+  "model": "claude-opus-5",
+  "source_sha256": "642aa30db6b94b445de1e6a0ac699de810579a0d38e483f07ffda5d60479f923"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "persona-non-grata-2021",
+  "field": "lead",
+  "film_id": "10dca6fc-192b-49d8-8c9b-2a86a12f7c35",
+  "lang": "en",
+  "text": "The bride at her brother's wedding is the girl who was Laura's enemy at school. Laura got out - to Copenhagen, to writing, to the bohemian version of a life she picked for herself - and going home for the ceremony costs her something before she has even arrived. Catrine, meanwhile, has spent the intervening years becoming the daughter of the house. What Laura left behind did not stay vacant, and that is the discovery the weekend hands her. Lisa Jespersen plays it as comedy for as long as comedy will hold, which is most of ninety-one minutes; the Bodil and Robert records both keep it among their best Danish films. The joke keeps curdling into a question of who holds a family's affection and whether a thing like that can be taken back.",
+  "model": "claude-opus-5",
+  "source_sha256": "54854b9555cd23a598fde99554b0e71bff8274e0ff3784aff610543401535768"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "kira-s-reason-a-love-story-2001",
+  "field": "lead",
+  "film_id": "84998075-ae34-490f-8272-0a8cf83d77dc",
+  "lang": "en",
+  "text": "Kira comes home from two years in a mental institution to a husband, a house and a set of expectations nobody has revised. Two years is long enough for a household to learn how to run without someone. Whether she is ready for any of it is the open question, and Ole Christian Madsen declines to settle it in advance: ninety-three minutes held close to Kira, with no more certainty about her condition available to the audience than she has herself. Mads kept the marriage going alone; now there are two people in it again, and the thing has to be tested rather than resumed. Affection is treated here as labour - never whether the two love each other, only whether love is adequate equipment for the job in front of them.",
+  "model": "claude-opus-5",
+  "source_sha256": "4dc4708887c6dd26b299e2cbbdbd38ccd494de40be6d35c083009bcfdc75f69e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "memories-of-a-marriage-1989",
+  "field": "lead",
+  "film_id": "a99e4484-da78-446d-b37e-565621a18976",
+  "lang": "en",
+  "text": "A garden party in summer: friends invited, the son and his family arriving, and the host quietly not in it. Karl Åge is the silent half of a long marriage and Regitze is the loud one, and the film is built from what he recalls while the afternoon goes on around him - meeting during the war, years of living together unmarried, her mother on hunger strike over an unbaptised grandson. Eighty-seven minutes, nearly all of it domestic, and the recollections arrive in the order a man reaches for them rather than the order they happened. Regitze is the subject; the shape belongs to him. It took the Academy Award for Best International Feature Film, with Bodils for its lead and supporting actors, prizes that suit a picture whose method is one husband's memory doing all the editing.",
+  "model": "claude-opus-5",
+  "source_sha256": "0cc9c44039dbe1bb20aa44275c6626793cf0474263a7bf1a36bc7066231a387a"
+ }
+]

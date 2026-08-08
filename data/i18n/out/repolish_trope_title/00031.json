@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-photographs-what-cannot-be-kept",
+  "field": "title",
+  "lang": "ko",
+  "text": "간직할 수 없는 것을 찍는 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "b7e5cd09c07dca152316abf353fa9ff64f270bf2579d3b7535fefd52cccb6411"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-records-to-survive-connection",
+  "field": "title",
+  "lang": "ko",
+  "text": "기록해야 관계를 견디는 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "e6396e4efc314425bdd27a41adfd7a043a66fa658ef34f4408dedff5d656361f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-refuses-as-kantian-duty",
+  "field": "title",
+  "lang": "ko",
+  "text": "의무이기에 거부하는 자, 칸트의 후예",
+  "model": "claude-opus-5",
+  "source_sha256": "f2e58b8e719d1a2e27652c368fac7dcd37fc435ef26ba9fe0f893c86f7e4712a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-refuses-the-calculus",
+  "field": "title",
+  "lang": "ko",
+  "text": "셈을 거부하는 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "665c9504d6bed1d73a4c607db18233602416b75eb293b683ac3c7438864a4055"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-renounced-their-gift-as-vocation",
+  "field": "title",
+  "lang": "ko",
+  "text": "재능을 버리는 것이 소명이었던 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "2e9567e43d008e69431cd0a35bab82641bcbd6e609308d076b51da3f66804081"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-saw-the-curve-and-was-ignored",
+  "field": "title",
+  "lang": "ko",
+  "text": "곡선을 읽었으나 아무도 듣지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "d1ef391759c7bcfe5851c2fc661ffdd9a2657534cd05885e1ebc4ccb13e905b2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-stands-in-for-another",
+  "field": "title",
+  "lang": "ko",
+  "text": "남의 자리에 대신 서는 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "679215be214b949a04b8680d98c2c44e9c4b87c7e0ed1bce9e8d0894f706271f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-stays-and-is-doomed-by-staying",
+  "field": "title",
+  "lang": "ko",
+  "text": "남는 쪽을 택해 무너진 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "59f9312459728f52e456c36995ae5a4a1ca4b8d577776e51f6fdf809b38eb855"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-survives-to-bear-witness",
+  "field": "title",
+  "lang": "ko",
+  "text": "증언하려고 살아남은 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "d611ac7c1ff45e1d9875cc08d6072a69bee4cfdb57d6a876e1d582e59951157c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-treats-a-person-as-mere-means",
+  "field": "title",
+  "lang": "ko",
+  "text": "사람을 수단으로만 쓰는 자",
+  "model": "claude-opus-5",
+  "source_sha256": "8f2680e2ac18fd17440f4bcd179d7376757f574b4607500472a383b081676dc3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-walks-out-to-live",
+  "field": "title",
+  "lang": "ko",
+  "text": "살려고 문을 나서는 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "6138b5c6512a25ac56a0e757c75bc09ae384dd570d5b3e81e25d2d0e19cdf97f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-whose-testimony-was-not-believed",
+  "field": "title",
+  "lang": "ko",
+  "text": "아무도 그 증언을 믿지 않았다",
+  "model": "claude-opus-5",
+  "source_sha256": "1b1301f3daf9be1ba28b6d8aabf654ecc8204c7f8a658d791e074d9028080ba1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-only-ethics-no-system-sanctions",
+  "field": "title",
+  "lang": "ko",
+  "text": "어떤 체제도 허락하지 않는 단 하나의 윤리",
+  "model": "claude-opus-5",
+  "source_sha256": "b1083b4407a58046584242a6f45b9e0b81e42cb4604b10e19e5b4e9ea2bea994"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ontology-of-capitalism-s-surplus-humanity",
+  "field": "title",
+  "lang": "ko",
+  "text": "자본주의가 남긴 잉여 인간의 존재론",
+  "model": "claude-opus-5",
+  "source_sha256": "7b92bf7006edd6ba33ee507dc50d1502e234d9632abc154a3dab2d4907d4566e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ontology-of-the-preserved-summer",
+  "field": "title",
+  "lang": "ko",
+  "text": "박제된 여름의 존재론",
+  "model": "claude-opus-5",
+  "source_sha256": "206eb881bdd6bd9cc14b1246411b11c6922ceaf3b9912edf0eca0154dc215f7c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ontology-of-the-unburied-dead",
+  "field": "title",
+  "lang": "ko",
+  "text": "묻히지 못한 자들의 존재론",
+  "model": "claude-opus-5",
+  "source_sha256": "5f8f59d704b398eb8cb10715ce21eed91827570ed0cae409cb7fc030f7d8c3c2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ontology-of-what-cannot-be-undone",
+  "field": "title",
+  "lang": "ko",
+  "text": "되돌릴 수 없는 것의 존재론",
+  "model": "claude-opus-5",
+  "source_sha256": "5094f3965f3a493b16cbbfd8e81cf0f4b1d959317423a413cfd9b88e1df1fc80"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ontology-underneath-the-image",
+  "field": "title",
+  "lang": "ko",
+  "text": "이미지 밑에 깔린 존재론",
+  "model": "claude-opus-5",
+  "source_sha256": "a61c57394b227d6fea68e2a44bd42b73982959767e324821de0372f46f7efd3d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-open-road-as-class-lie-not-freedom",
+  "field": "title",
+  "lang": "ko",
+  "text": "열린 길, 자유가 아니라 계급의 거짓말",
+  "model": "claude-opus-5",
+  "source_sha256": "d7bc293ef04714f78dd1ef60221d80c426f0a09757a2f8e64d53bf1cec976c6c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-open-road-as-robert-frank-s-disenchanted-america",
+  "field": "title",
+  "lang": "ko",
+  "text": "로버트 프랭크가 본 환멸의 미국, 그 열린 길",
+  "model": "claude-opus-5",
+  "source_sha256": "6a556eba5d39a79a57bf4a0aa4fe3ac894fe054403e60850856821bcf74b7f80"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-open-sea-that-was-a-tank",
+  "field": "title",
+  "lang": "ko",
+  "text": "드넓은 바다, 실은 수조",
+  "model": "claude-opus-5",
+  "source_sha256": "8734eea8556d278adbdcc2a79d53331412557c06a09e324415ae2a7080ce8de2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-open-space-that-is-the-cell",
+  "field": "title",
+  "lang": "ko",
+  "text": "감방이 되어버린 열린 공간",
+  "model": "claude-opus-5",
+  "source_sha256": "89624d123735601031e469d220a19cfb8d153be1f7d3217d2ef48deee5a400a4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-opera-that-scores-the-politics",
+  "field": "title",
+  "lang": "ko",
+  "text": "정치에 음악을 입히는 오페라",
+  "model": "claude-opus-5",
+  "source_sha256": "b3336c866525be8beae8563dbc3e89fb1f7791c424a0e9cd934ad28cfbe9bccd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-optic-that-makes-us-pull-the-trigger",
+  "field": "title",
+  "lang": "ko",
+  "text": "관객에게 방아쇠를 당기게 하는 조준경",
+  "model": "claude-opus-5",
+  "source_sha256": "930bcb2954669bb3ef8253ee8d8e23f6a037f4c6769eda5ce7fb5b28af0411af"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-order-that-spends-its-own-people",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 백성을 소모품으로 쓰는 질서",
+  "model": "claude-opus-5",
+  "source_sha256": "5542e36de617c0318a47b20339d73b337ba70fb056efaf6bdfeec426b79a1a30"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-oscar-as-apology-or-conquest",
+  "field": "title",
+  "lang": "ko",
+  "text": "사죄인가 정복인가, 오스카",
+  "model": "claude-opus-5",
+  "source_sha256": "4946e3fcea1774eb6d4723e896c03e3e76661def0c18907a75d2a1b8c242989d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-oscar-as-borrowed-legitimacy",
+  "field": "title",
+  "lang": "ko",
+  "text": "빌려 쓴 정당성으로서의 오스카",
+  "model": "claude-opus-5",
+  "source_sha256": "1831467fa1ba036a2025d66515712a204ff7fc0ba07dee27be5d87c7e11d467e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-oscar-as-self-indicting-verdict",
+  "field": "title",
+  "lang": "ko",
+  "text": "스스로를 고발하는 평결, 오스카",
+  "model": "claude-opus-5",
+  "source_sha256": "00c43bb69a9d17546c3b9c8d5d58ab40703c38a2f3c209de69c76cc6bf7b7053"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-oscar-as-the-west-grading-its-own-conscience",
+  "field": "title",
+  "lang": "ko",
+  "text": "서구가 제 양심을 채점하는 자리, 오스카",
+  "model": "claude-opus-5",
+  "source_sha256": "43feda4a0e5905fd0af53ca98e0ae85d0725e390226b0a9621821727b6ad6551"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-oscar-that-anointed-the-villain",
+  "field": "title",
+  "lang": "ko",
+  "text": "악당에게 관을 씌운 오스카",
+  "model": "claude-opus-5",
+  "source_sha256": "af94c1f618d360498093fcabb5813eb45b9afe93130478f3af549141a43dfbdd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-other-side-as-border-and-grave",
+  "field": "title",
+  "lang": "ko",
+  "text": "국경이면서 무덤인 저쪽",
+  "model": "claude-opus-5",
+  "source_sha256": "b52100a4b1a3fe7c076ba566a6f6db66f085d72cb14c4f0ce3d289dc92964105"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-other-who-carries-my-buried-guilt",
+  "field": "title",
+  "lang": "ko",
+  "text": "내가 묻은 죄를 대신 진 타자",
+  "model": "claude-opus-5",
+  "source_sha256": "d9c480c5955d26ff519f0046fa064ffd9771b7d0d013b821bdeb5ff42439018a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-other-who-is-the-self-s-verdict",
+  "field": "title",
+  "lang": "ko",
+  "text": "타자, 곧 자아에 내려진 판결",
+  "model": "claude-opus-5",
+  "source_sha256": "477c6bcc7dca05aec5885ce0d35ff815143d2b01a8f1cf7d5dd3afedc4f0f0af"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-outcasts-crowned-as-the-true-aristocracy",
+  "field": "title",
+  "lang": "ko",
+  "text": "쫓겨난 자들이 진짜 귀족으로 등극하다",
+  "model": "claude-opus-5",
+  "source_sha256": "9ea5930246e342f645567215b7ff61cc6c546d6e8c57a63be09664db971b3d13"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-outcome-already-known-suspense-anyway",
+  "field": "title",
+  "lang": "ko",
+  "text": "결말을 알아도 조여오는 서스펜스",
+  "model": "claude-opus-5",
+  "source_sha256": "6033f7ca70308094b4547f03d1c8cb232d2f6e6cc04da978b430df15fb9282ef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-outlaw-living-on-borrowed-air",
+  "field": "title",
+  "lang": "ko",
+  "text": "빌린 숨으로 버티는 무법자",
+  "model": "claude-opus-5",
+  "source_sha256": "1e03e7dcf18858f55de396cfd63aabe098965d8439262ccbf16e19420de7ab75"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-outlaw-who-lives-off-his-own-legend",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 전설을 뜯어먹고 사는 무법자",
+  "model": "claude-opus-5",
+  "source_sha256": "dfc6c142176515da3195aec6f6241a61d43a10d17cda74e402ff79a15411d176"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-outlaw-whom-the-people-must-reject",
+  "field": "title",
+  "lang": "ko",
+  "text": "민중이 기어이 내쳐야 할 무법자",
+  "model": "claude-opus-5",
+  "source_sha256": "c7810c7fab53962c858e5e36f4f9a87fecfb39144b776d1dc867f2f541e9a1bf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-outrage-clip-as-attention-economy-liturgy",
+  "field": "title",
+  "lang": "ko",
+  "text": "분노 클립, 관심 경제의 예배 의식",
+  "model": "claude-opus-5",
+  "source_sha256": "7671b53dc1d1665f642bcbf37a76e245fc580d1f488f19a4d318dd3546f56425"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-outrage-that-confesses-its-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 상처를 실토하는 분노",
+  "model": "claude-opus-5",
+  "source_sha256": "3cc94012fbfefb863c63baf9955c51c1664b301fdb7a6e7145e2e5447d0b17e9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-outsider-artist-s-secret-magnum-opus",
+  "field": "title",
+  "lang": "ko",
+  "text": "아웃사이더 예술가가 숨겨둔 대작",
+  "model": "claude-opus-5",
+  "source_sha256": "961bddf69c518d67107cb24f98218e92ace0838100634063cce531e689170740"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-outsider-who-crowns-himself-on-borrowed-theater",
+  "field": "title",
+  "lang": "ko",
+  "text": "빌린 무대에서 스스로 왕관을 쓰는 이방인",
+  "model": "claude-opus-5",
+  "source_sha256": "00b1bfe4b13f3d0824aeadb926888634b9ddeebdd2230d0151f24204fe21ac45"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-outsider-who-survives-by-not-belonging",
+  "field": "title",
+  "lang": "ko",
+  "text": "어디에도 속하지 않아 살아남는 이방인",
+  "model": "claude-opus-5",
+  "source_sha256": "0548458ef13f1664e69209c97909855c294a50b5c40c1f442213d3b930842b89"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-outsider-whose-damage-becomes-his-art",
+  "field": "title",
+  "lang": "ko",
+  "text": "망가진 자리에서 예술이 나온 아웃사이더",
+  "model": "claude-opus-5",
+  "source_sha256": "8291c565911045d1e3c89205b41902f7fb5b894e3633cd4cfe53a1f44d2702a1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-overlooked-detail-is-the-master-key",
+  "field": "title",
+  "lang": "ko",
+  "text": "흘려보낸 디테일이 만능열쇠였다",
+  "model": "claude-opus-5",
+  "source_sha256": "52a04b643d1414a697d74328fe0b1c04ef6ca08d46058b46a0f55d2481564d90"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-owen-elegy-for-doomed-soldiery",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽을 운명의 병사들에게 바치는 오언식 비가",
+  "model": "claude-opus-5",
+  "source_sha256": "fbf4283b6e6546954c13af5b9fa701e0321455980bdab8967ba34d615cc804e1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pacific-as-ironic-peace",
+  "field": "title",
+  "lang": "ko",
+  "text": "태평양, 이름뿐인 평화",
+  "model": "claude-opus-5",
+  "source_sha256": "8f98916b1c996739a60f2b8f767a16d7cb53e591bdc37698825cc4c6866d4845"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pacific-northwest-as-liquid-dread",
+  "field": "title",
+  "lang": "ko",
+  "text": "물기로 스미는 공포, 퍼시픽 노스웨스트",
+  "model": "claude-opus-5",
+  "source_sha256": "8bc1c6d48563b2f178f1b145886eb03864b0b50a6d4b8f92810faed3aa16c141"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pacific-northwest-wilderness-as-lost-eden",
+  "field": "title",
+  "lang": "ko",
+  "text": "잃어버린 에덴이 된 퍼시픽 노스웨스트의 야생",
+  "model": "claude-opus-5",
+  "source_sha256": "0e28e386a3910191f4823ca855cf0580f772d27b0018114582bfae03d75c7a65"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pack-as-voluntary-commonwealth",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 발로 모여 이룬 공화국, 무리",
+  "model": "claude-opus-5",
+  "source_sha256": "20f44f7ccfe71820e2297a1f8dcc130e30d5c99650f80c243574da637401d3a4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-painted-backdrop-confesses-its-falseness",
+  "field": "title",
+  "lang": "ko",
+  "text": "그려진 배경이 제 가짜임을 실토한다",
+  "model": "claude-opus-5",
+  "source_sha256": "1d259584425aef7e2e9aaaa3f50a3fd6c8e7492f2534b12b6f96d8b957b95fba"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-painter-caught-in-the-freeze-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "정지화면에 붙들린 화가",
+  "model": "claude-opus-5",
+  "source_sha256": "baca47917ce385a6867ab5690f27763a37689199a92b6c0f1931a5960eae1b04"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-painter-read-as-an-art-historical-double",
+  "field": "title",
+  "lang": "ko",
+  "text": "미술사의 분신으로 읽히는 화가",
+  "model": "claude-opus-5",
+  "source_sha256": "a93f2a2053bd91b44c2ee0c76c443bb04b31ad8eb3dac3df0db7199ebc8de4c8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-painter-who-films-without-words",
+  "field": "title",
+  "lang": "ko",
+  "text": "말 대신 화면으로 그리는 화가",
+  "model": "claude-opus-5",
+  "source_sha256": "8fb943b495f05bccb879b2565457ce765980c7f540c950cfdc07c6bc23045d0d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-painter-who-raced-the-frontier-s-extinction",
+  "field": "title",
+  "lang": "ko",
+  "text": "사라지는 변경과 경주한 화가",
+  "model": "claude-opus-5",
+  "source_sha256": "fc2ce059106e4076e1085de70ab54d5d5c26ff60241f7402508e356bd4bb1ed4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-painter-who-renders-the-unlookable-beautiful",
+  "field": "title",
+  "lang": "ko",
+  "text": "차마 못 볼 것을 아름답게 그리는 화가",
+  "model": "claude-opus-5",
+  "source_sha256": "5c2080130498862a890ec7a5511e05a0c06f5be1c648bb690d70dcc83ced148e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-painter-who-wore-her-wounds",
+  "field": "title",
+  "lang": "ko",
+  "text": "상처를 옷처럼 걸친 화가",
+  "model": "claude-opus-5",
+  "source_sha256": "47866859d8d8db0d22d3b0cb00a2769fe2957dff85aa72e15563b0663f61a2ce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-painter-whose-sleep-breeds-monsters",
+  "field": "title",
+  "lang": "ko",
+  "text": "잠들면 괴물이 태어나는 화가",
+  "model": "claude-opus-5",
+  "source_sha256": "6edaa868a4fcbc257548cbd0fa6f04e4266a4b6594836befdecb63073e84af7e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-painterly-sublime-set-in-fatal-motion",
+  "field": "title",
+  "lang": "ko",
+  "text": "회화적 숭고(崇高)가 파국을 향해 움직일 때",
+  "model": "claude-opus-5",
+  "source_sha256": "cf97642ef6753c317e29e1833d6650e2f1018f3bee4a97a9a0f5ff43d23db274"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pale-hush-of-a-dissolving-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "흩어지는 주체의 창백한 정적",
+  "model": "claude-opus-5",
+  "source_sha256": "7d2c924d46f26da5eaf764afb4de2109322cd2700357b79ddfe238a5f782bfa3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-palette-disciplined-against-its-own-excess",
+  "field": "title",
+  "lang": "ko",
+  "text": "과잉을 스스로 눌러 다스린 색",
+  "model": "claude-opus-5",
+  "source_sha256": "f56fca2ffac52331868ae7d8ce0ed23ab0ca858b6b412b9cab583da4536bf009"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-palette-forged-by-production-poverty",
+  "field": "title",
+  "lang": "ko",
+  "text": "가난한 제작비가 벼려낸 색채",
+  "model": "claude-opus-5",
+  "source_sha256": "4f47986f7f0921a95ea9aa1232ff43b3909630f8367fd8e4979c12f2e4cf138c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-palme-as-bought-absolution",
+  "field": "title",
+  "lang": "ko",
+  "text": "돈으로 산 사면, 황금종려상",
+  "model": "claude-opus-5",
+  "source_sha256": "6f950d004eee734e11a2b527713eb5bbb22ffff8192fed8a8e61d35fa77bc3a9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-palme-d-or-as-cultural-border-war",
+  "field": "title",
+  "lang": "ko",
+  "text": "문화 ��경전으로서의 황금종려상",
+  "model": "claude-opus-5",
+  "source_sha256": "1ee8553f672c31d9aea8ec31b624731de2406e103d68b6033a7706a7ae3761f8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pan-as-an-old-order-s-death-rattle",
+  "field": "title",
+  "lang": "ko",
+  "text": "옛 질서가 내는 마지막 숨소리, 그 혹평",
+  "model": "claude-opus-5",
+  "source_sha256": "a6b7acc4cef6ec600f0d009331477042360b9ade2a192c18d7b795c4a3516b62"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pan-that-became-scripture",
+  "field": "title",
+  "lang": "ko",
+  "text": "경전이 된 혹평",
+  "model": "claude-opus-5",
+  "source_sha256": "7254bda7bb2ddcbb0fc126828eab72a88b30200684e17b63080e812f9bcb064d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pandemic-as-hidden-co-author-of-production",
+  "field": "title",
+  "lang": "ko",
+  "text": "제작의 숨은 공동 저자, 팬데믹",
+  "model": "claude-opus-5",
+  "source_sha256": "d93f620bc2bba2b01a2c9a9ef113dd7abd517c43be5853b9834279351437230a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pandemic-critic-s-hunger-projected-as-praise",
+  "field": "title",
+  "lang": "ko",
+  "text": "팬데믹기 비평가의 허기가 찬사로 튀어나오다",
+  "model": "claude-opus-5",
+  "source_sha256": "05cb11061959996dc1e78ee72b46182c37d9cb3bf5720c3dbf637b0ea8622c57"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pandemic-film-wearing-a-mask",
+  "field": "title",
+  "lang": "ko",
+  "text": "가면을 쓴 팬데믹 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "a1db1aed02f76755b02e162740d1145034142fa7e2fa9e88934271f4d62f4e5a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-panic-over-the-film-confirms-the-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화를 향한 공황이 영화를 입증한다",
+  "model": "claude-opus-5",
+  "source_sha256": "38f7a51906661b6ead68f2d801c725f4443d507dace6b67b3bcdd805dac47c46"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-panopticon-as-surveillance-apparatus",
+  "field": "title",
+  "lang": "ko",
+  "text": "감시 장치로서의 판옵티콘(panopticon)",
+  "model": "claude-opus-5",
+  "source_sha256": "272462e4b1383a6327128c29c4d03de39d7d5e3716095efcbe4517b4da60781f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-paradise-named-only-to-be-denied",
+  "field": "title",
+  "lang": "ko",
+  "text": "부정하려고 이름을 부르는 낙원",
+  "model": "claude-opus-5",
+  "source_sha256": "b09bcb71684bd4e868101c0a67665e428c27f06cabf484505a2e266b0b589b0d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-paris-that-was-built-elsewhere",
+  "field": "title",
+  "lang": "ko",
+  "text": "딴 데 지어 올린 파리",
+  "model": "claude-opus-5",
+  "source_sha256": "2335eaac3a0b8d93051d3898259c492e6ce07500a8fcf4fb8c86b6ca39e7bc7c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-paris-transit-node-as-threshold",
+  "field": "title",
+  "lang": "ko",
+  "text": "파리의 환승 거점, 그 문턱",
+  "model": "claude-opus-5",
+  "source_sha256": "20ff35c5a611e97d254ecf2dc2c9a150d6d8c932a13d699d6ef908721ab8682b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-parisian-landmark-standing-in-for-elsewhere",
+  "field": "title",
+  "lang": "ko",
+  "text": "딴 도시를 연기하는 파리의 랜드마크",
+  "model": "claude-opus-5",
+  "source_sha256": "dd825ed51422de4ae0f078f09dc897b9cd98044df86cf2a23f981521e6b3c5c6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-park-as-total-administered-spectacle",
+  "field": "title",
+  "lang": "ko",
+  "text": "빈틈없이 관리된 스펙터클, 공원",
+  "model": "claude-opus-5",
+  "source_sha256": "37749902db787a169677747b17bf26b4bb1cc2aa6b65babc5d02176a440bc9f5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-partial-frame-as-epistemic-limit",
+  "field": "title",
+  "lang": "ko",
+  "text": "잘려나간 화면, 앎의 한계",
+  "model": "claude-opus-5",
+  "source_sha256": "c29b77f148869cfad527252d0fc0b1f9d8c1f2c6c82332aa11c8c5e9386ecd56"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-particular-beloved-against-the-universal-law",
+  "field": "title",
+  "lang": "ko",
+  "text": "보편 법칙과 맞선 단 한 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "5c6d3be74d0374d240f591c231b7f465493969de66e8ef17af13f41ae6f6a5d3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-passion-play-in-secular-disguise",
+  "field": "title",
+  "lang": "ko",
+  "text": "세속의 옷을 입은 수난극",
+  "model": "claude-opus-5",
+  "source_sha256": "950d7371a7afd3776efaa000eeceab58b6791a54aac7fa4d63122d016c8f955d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-past-is-unfinished-because-never-fully-lived",
+  "field": "title",
+  "lang": "ko",
+  "text": "제대로 살지 못한 과거는 끝나지 않는다",
+  "model": "claude-opus-5",
+  "source_sha256": "8ccc36f6d312843a511bb75b84649e85a2fdc75d8a95b10981027c69b3801a0f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-past-rendered-as-a-quoted-score",
+  "field": "title",
+  "lang": "ko",
+  "text": "인용된 악보로 되살아나는 과거",
+  "model": "claude-opus-5",
+  "source_sha256": "bfba1b5941b1ac2ca5705e72c6d9d720a50e9fd1d521dd2f892ad370aea8c754"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-past-rewritten-as-the-present-s-symptom",
+  "field": "title",
+  "lang": "ko",
+  "text": "현재의 증상으로 고쳐 쓰인 과거",
+  "model": "claude-opus-5",
+  "source_sha256": "c6aa7b3bd4580fd817b3ada6be9b1ee491890701a97b74d947a840fcb6917ca3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pastiche-that-becomes-true",
+  "field": "title",
+  "lang": "ko",
+  "text": "흉내였다가 진짜가 되는 것",
+  "model": "claude-opus-5",
+  "source_sha256": "789407cc6109d4ddb36cf833a8e04f7324e1153c170f5e0e5ff8b974353bde0f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pastoral-as-america-s-comforting-lie",
+  "field": "title",
+  "lang": "ko",
+  "text": "미국을 달래는 거짓말, 목가",
+  "model": "claude-opus-5",
+  "source_sha256": "ac1f25cbf262e1e7314355a51e6a2dbfcb3f6201d206fcf56bf9b9176eb6d95d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pasture-was-always-a-slaughterhouse",
+  "field": "title",
+  "lang": "ko",
+  "text": "그 목초지는 처음부터 도살장이었다",
+  "model": "claude-opus-5",
+  "source_sha256": "45059ae44b5ac647eefc7f768fec75fce41446f3ef8b109ef56bfa9c4f4232e8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-patient-camera-as-painter-of-light",
+  "field": "title",
+  "lang": "ko",
+  "text": "기다리는 카메라가 빛을 그린다",
+  "model": "claude-opus-5",
+  "source_sha256": "7775e69cc4e277fa75e99f2485ff57359fc72e53b38980de3c7ac6b7ce94e459"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-patriarch-s-decree-quietly-overruled",
+  "field": "title",
+  "lang": "ko",
+  "text": "가부장의 명령, 소리 없이 뒤집히다",
+  "model": "claude-opus-5",
+  "source_sha256": "f8902f6e48b7b722dd1ea75ab54b4b80ab4696800414a1852775f365ca78b05b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-patriarch-who-privatizes-state-violence",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가 폭력을 제 것으로 챙긴 가부장",
+  "model": "claude-opus-5",
+  "source_sha256": "eb28e54890fc851ef5467f6bc739abba74588fe7eee030c8f298352bae893c22"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-patriarchal-name-made-object-and-rite",
+  "field": "title",
+  "lang": "ko",
+  "text": "물건이 되고 의례가 된 아버지의 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "178fe31811f8ac94db97eca2ed14b1498ef4e84d01d03de8db02b24f5a33c5a4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-patron-who-caged-the-gift-he-loved",
+  "field": "title",
+  "lang": "ko",
+  "text": "사랑한 재능을 가둬버린 후원자",
+  "model": "claude-opus-5",
+  "source_sha256": "64e512d5b485fd3c6e055d4478655d4eb28ff654ede6efb00ab6cdc0f587c526"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-peace-that-is-war-renamed",
+  "field": "title",
+  "lang": "ko",
+  "text": "이름만 바꾼 전쟁, 평화",
+  "model": "claude-opus-5",
+  "source_sha256": "3b75eef78e1036244bf82cee8665142ee3da4aae6f9be9838a79d9d22674c84c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-perfect-system-devours-its-architect",
+  "field": "title",
+  "lang": "ko",
+  "text": "완벽한 체계가 설계자를 삼킨다",
+  "model": "claude-opus-5",
+  "source_sha256": "e9943c4a76fa75184c751b541ea10440ee55c704a92644899db4c2ced4e45b1b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-perfectionist-whose-beauty-requires-slaughter",
+  "field": "title",
+  "lang": "ko",
+  "text": "아름다움을 얻으려 도살하는 완벽주의자",
+  "model": "claude-opus-5",
+  "source_sha256": "422d3c755ff9cec9129ab7b5b63f31a59094a88b1eba55a89176e75d5a3c195d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-performance-rebuilt-in-post",
+  "field": "title",
+  "lang": "ko",
+  "text": "후반작업에서 다시 만들어진 연기",
+  "model": "claude-opus-5",
+  "source_sha256": "7a08fc0697eeb82a47ab01675bd59fafb87d126b32af81c2fb8be66be9bcb99a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-performance-that-becomes-binding-reality",
+  "field": "title",
+  "lang": "ko",
+  "text": "연기가 현실을 구속하기 시작할 때",
+  "model": "claude-opus-5",
+  "source_sha256": "553033c88a4ff92f1c5822b6deb59d36bde089bed6f11f59920690a28f95c32a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-performance-that-conceals-a-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "상처를 덮는 무대",
+  "model": "claude-opus-5",
+  "source_sha256": "83ed0bbc77fb411f57f4ae9a0b67cf88671f4a8d0c80eab7cdc2dac7ceee95fc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-performer-who-cannot-stop-performing",
+  "field": "title",
+  "lang": "ko",
+  "text": "연기를 멈추지 못하는 배우",
+  "model": "claude-opus-5",
+  "source_sha256": "32ee1a67c8a227f11906d95b5f980855e9ee837781d11f7d3532f3adb4c5522d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-performer-who-cannot-stop-performing-2",
+  "field": "title",
+  "lang": "ko",
+  "text": "무대에서 내려오지 못하는 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "32ee1a67c8a227f11906d95b5f980855e9ee837781d11f7d3532f3adb4c5522d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-performing-animal-as-capitalism-s-verdict",
+  "field": "title",
+  "lang": "ko",
+  "text": "재주 부리는 짐승, 자본주의의 판결문",
+  "model": "claude-opus-5",
+  "source_sha256": "b6110aa3ce0a73c925a5e999d65e15da7fb8d9bd8a5eb4afed10e7f9d49b4ae6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-permitted-edge-of-the-sayable",
+  "field": "title",
+  "lang": "ko",
+  "text": "말해도 되는 것의 맨 가장자리",
+  "model": "claude-opus-5",
+  "source_sha256": "659000fbf83f1a56d3d66ea3ab5d6432c773b59854b428e883d01b22e927034a"
+ }
+]

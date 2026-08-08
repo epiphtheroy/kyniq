@@ -1,0 +1,12 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "where-the-crawdads-sing-2022",
+  "field": "lead",
+  "film_id": "e1c67b35-2e4e-40b6-a667-3f48e3240a3d",
+  "lang": "en",
+  "text": "A child left in a marsh house learns to feed herself, and the town a few miles off decides what that makes her. Kya grows up among mud, birds and tidal channels outside a small Southern settlement, and the film keeps her there: the marsh is her larder and her address, the place people come to look at her rather than speak to her. Two hours hold two stories at once — a romance that unfolds across years, a death investigation that unfolds across weeks — and Olivia Newman lets the second keep interrupting the first. The grip is less in the mystery than in the ordinary machinery of being known in a small place: the shopkeeper who serves her, the deputy who remembers, the schoolroom door she entered once. It is a famous film rather than a difficult one, and it knows the difference.",
+  "model": "claude-opus-5",
+  "source_sha256": "84d1069e231a9f8880155ec6cdb6e74ed6113577e1ab66fdf6c6e70b83ecdb40"
+ }
+]

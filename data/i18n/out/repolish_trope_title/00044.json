@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-authored-as-its-own-legend",
+  "field": "title",
+  "lang": "ko",
+  "text": "스스로를 전설로 써 내려간 서부",
+  "model": "claude-opus-5",
+  "source_sha256": "0c728fd3fdfc4a699dfbda051cef9ccf283871c1f43b472d900d1d82a7734ddc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-canonized-it-to-calm-its-nerves",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 불안을 달래려 정전(正典)에 올린 서구",
+  "model": "claude-opus-5",
+  "source_sha256": "155a47ecacae30c3855dac152d9ba7943dfc5b22811991e46f218d342da908c3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-canonizes-by-refusing-to-read",
+  "field": "title",
+  "lang": "ko",
+  "text": "읽지 않고 떠받드는 서구",
+  "model": "claude-opus-5",
+  "source_sha256": "46c564e23d9e63ccbe4db91c7f5140eb13d001f23a28a19a6ee24e42f3396315"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-crowned-its-own-appetite-as-authenticity",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 식욕에 진정성이라는 왕관을 씌운 서구",
+  "model": "claude-opus-5",
+  "source_sha256": "830f794d23f767f561fee2d564f84bd65ad1b98cf37c747ef55ebe199f8149e7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-crowns-a-russia-it-needs",
+  "field": "title",
+  "lang": "ko",
+  "text": "서구가 필요로 하는 러시아만 왕좌에 앉힌다",
+  "model": "claude-opus-5",
+  "source_sha256": "24cd87d00534079774d04af187bd9485b423abbcdbde13667f83083aeec0991a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-crowns-the-cage-it-cannot-open",
+  "field": "title",
+  "lang": "ko",
+  "text": "열 수 없는 감옥에 왕관을 씌우는 서구",
+  "model": "claude-opus-5",
+  "source_sha256": "b49bf64301afeaa55a5720bd15b21c528053871f248ee261aeb41228a92581ed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-mislabels-the-unfamiliar-genre-defying",
+  "field": "title",
+  "lang": "ko",
+  "text": "낯설면 '장르 파괴'라 부르는 서구",
+  "model": "claude-opus-5",
+  "source_sha256": "393ff700da9204f8c88647f044bd281ae9a4ef105328bd2b3e35341a15644115"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-misread-the-anime-it-imported",
+  "field": "title",
+  "lang": "ko",
+  "text": "수입해 놓고 오독한 서구의 애니메이션",
+  "model": "claude-opus-5",
+  "source_sha256": "ab6a794f5412315d4159f93763e01a789d536a56c5528ef348f0ab4378c4ef11"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-misreads-her-suffering-as-story",
+  "field": "title",
+  "lang": "ko",
+  "text": "그녀의 고통을 이야깃거리로 오독하는 서구",
+  "model": "claude-opus-5",
+  "source_sha256": "f97d301072ea80374c9eb4ab994161809cce39f6d9a49ab2e03c0e74fcad2faa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-misreads-polish-anguish-as-aesthetic",
+  "field": "title",
+  "lang": "ko",
+  "text": "폴란드의 고뇌를 미학으로 오독한 서구",
+  "model": "claude-opus-5",
+  "source_sha256": "8602375cc4aae09b02252fc7d1a861a8480d869aa2d89bc6a9614f3eca11d884"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-misreads-to-tame-the-other",
+  "field": "title",
+  "lang": "ko",
+  "text": "타자를 길들이려 일부러 잘못 읽는다",
+  "model": "claude-opus-5",
+  "source_sha256": "b6f9dff33a62af18dd34ddd048c4f42765867286e4ad51e2160f7a2917cd9a79"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-mistook-slowness-for-permission-to-praise",
+  "field": "title",
+  "lang": "ko",
+  "text": "느리면 상찬해도 된다고 여긴 서구",
+  "model": "claude-opus-5",
+  "source_sha256": "c55a49f3d05437d8ae76bed3d88df52134e001e2710939f6905686fc232d1118"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-praised-its-inability-to-decode-it",
+  "field": "title",
+  "lang": "ko",
+  "text": "해독 못한 것을 상찬으로 바꾼 서구",
+  "model": "claude-opus-5",
+  "source_sha256": "8931d01a44fa2efe69811451ad846cd1aa2038970627539c20c299783d7c8b57"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-read-past-the-iranian-woman",
+  "field": "title",
+  "lang": "ko",
+  "text": "이란 여성을 건너뛰고 읽은 서구",
+  "model": "claude-opus-5",
+  "source_sha256": "ecc8919309abddc53fa65037078ccf46ac431877328c6f5740f5218f0c7564ae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-s-customs-stamp-on-foreign-wonder",
+  "field": "title",
+  "lang": "ko",
+  "text": "이국의 경이에 찍히는 서구의 통관 도장",
+  "model": "claude-opus-5",
+  "source_sha256": "0131892820ec90473d1dcc0ce6a403d25faac6851a2b5462dcc5dfc9d9a25f1e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-s-hunger-for-a-curated-other",
+  "field": "title",
+  "lang": "ko",
+  "text": "손질된 타자를 향한 서구의 허기",
+  "model": "claude-opus-5",
+  "source_sha256": "c39622deb31847693ce8dea5858e90bb1eae4c6690296ee7987337ede46e062d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-s-hunger-for-a-palatable-iran",
+  "field": "title",
+  "lang": "ko",
+  "text": "입에 맞는 이란을 향한 서구의 허기",
+  "model": "claude-opus-5",
+  "source_sha256": "4308df8802b82b78017206b58582ce6a24afb79f9fbbca1b3b404861d698b96d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-s-hunger-for-the-authenticating-native",
+  "field": "title",
+  "lang": "ko",
+  "text": "진짜임을 보증해 줄 원주민을 향한 서구의 허기",
+  "model": "claude-opus-5",
+  "source_sha256": "bb5ae9ac2e6113b10cf9febfa7e0d360122a54d9c212a0d3fd59168d4a6fd82e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-that-has-run-out-of-west",
+  "field": "title",
+  "lang": "ko",
+  "text": "더 갈 서부가 남지 않은 서부",
+  "model": "claude-opus-5",
+  "source_sha256": "126765f1b474c6253bb0f049a7d5f456a125db193c1e9dd5f8b8a8d3bdfd635c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-western-auteur-credited-for-the-anime-s-idea",
+  "field": "title",
+  "lang": "ko",
+  "text": "애니메이션의 착상을 제 몫으로 챙긴 서구 작가",
+  "model": "claude-opus-5",
+  "source_sha256": "664bbd946aaa05bc65d1866a49c1fc99fabfe1a3205f15e240eccb408837a8a1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-western-built-as-argument",
+  "field": "title",
+  "lang": "ko",
+  "text": "한 편의 논증으로 지은 서부극",
+  "model": "claude-opus-5",
+  "source_sha256": "eeed52fa674eb5309c855eae5ad0aa18d1fe494dba0c14acc73776eeab86c64a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-western-gaze-that-consumes-its-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "대상을 먹어 치우는 서구의 시선",
+  "model": "claude-opus-5",
+  "source_sha256": "20453aa3f47edd82a75cec3266321a2401c28a6c81984ba0c1fd452afdecc01c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-western-gaze-that-tames-the-eastern-star",
+  "field": "title",
+  "lang": "ko",
+  "text": "동방의 스타를 길들이는 서구의 시선",
+  "model": "claude-opus-5",
+  "source_sha256": "b95bd417855ed8254ddc754e5d9211ebec374ed41af295f273affede05acbf89"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-western-knows-it-is-a-set",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 세트라는 걸 아는 서부극",
+  "model": "claude-opus-5",
+  "source_sha256": "bc1badecb7b844700084d0754a47f28628fc82f14e6ed667a58987876dcc85d3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-western-prize-as-foreign-verdict",
+  "field": "title",
+  "lang": "ko",
+  "text": "바깥에서 내려온 평결, 서구의 상",
+  "model": "claude-opus-5",
+  "source_sha256": "13b40cfc84d308ef14b82dcba05b597c752db2f02ef7f01083f22ea77046ec32"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-western-prize-as-self-flattering-verdict",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 얼굴을 쓰다듬는 평결, 서구의 상",
+  "model": "claude-opus-5",
+  "source_sha256": "5a6ff13b7d9aeb51bf74fa93aa06722f0786208261e2df9ff1c7791ab5af34e8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-western-prize-that-indicts-its-givers",
+  "field": "title",
+  "lang": "ko",
+  "text": "준 사람을 고발하는 서구의 상",
+  "model": "claude-opus-5",
+  "source_sha256": "e4c4ccb4c8fece0562bc561a82177d61e3a8b21f2450d186092de0390fee9814"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-western-reading-that-mistook-the-form",
+  "field": "title",
+  "lang": "ko",
+  "text": "형식을 잘못 짚은 서구의 독해",
+  "model": "claude-opus-5",
+  "source_sha256": "dffd187d741281e769995c74fdf835efb92cb5ebd1c421148708ae339ed0dc94"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-western-shot-in-recession-s-wreckage",
+  "field": "title",
+  "lang": "ko",
+  "text": "불황의 잔해에서 찍은 서부극",
+  "model": "claude-opus-5",
+  "source_sha256": "224f8308a837500810be121496d11e4ea0b4b48dcc7c93a549f63fcb19a3baaa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-western-smuggled-into-another-genre",
+  "field": "title",
+  "lang": "ko",
+  "text": "다른 장르로 밀입국한 서부극",
+  "model": "claude-opus-5",
+  "source_sha256": "761643acf8e00dc6489f4302e3e7534fbb34df0b14e94616a49bdb838b7169a2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-western-smuggled-into-foreign-genre",
+  "field": "title",
+  "lang": "ko",
+  "text": "낯선 장르에 숨어든 서부극",
+  "model": "claude-opus-5",
+  "source_sha256": "0bb50d2458bea3ea9fe30b917d1f9f7e1fab2ee7a6c3f44d7907ec1661e181d6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-whisper-as-emergency-suture",
+  "field": "title",
+  "lang": "ko",
+  "text": "급히 꿰맨 자리, 속삭임",
+  "model": "claude-opus-5",
+  "source_sha256": "e6e6c6b1e3c3d5973cd397f32703c2db07beaa792f925dcfee42cb3e5b3ece7c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-whisper-no-witness-could-have-heard",
+  "field": "title",
+  "lang": "ko",
+  "text": "아무도 듣지 못했을 속삭임",
+  "model": "claude-opus-5",
+  "source_sha256": "2e6cc86686766397be833060315101d649c6d2af7cb2d532e77642ff5591cd6c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-whistleblower-punished-for-being-right",
+  "field": "title",
+  "lang": "ko",
+  "text": "옳았다는 죄로 벌받는 내부고발자",
+  "model": "claude-opus-5",
+  "source_sha256": "9b57b3b76d005f2285324d54458e42c9b38edf18bf35d8d1451f4e22bdfd79cf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-white-savior-as-ideological-sedative",
+  "field": "title",
+  "lang": "ko",
+  "text": "이데올로기의 진정제, 백인 구원자",
+  "model": "claude-opus-5",
+  "source_sha256": "f95d6a9e11737e6017edbe129e585dbd7a9e0952123b1910f0c736483e159ef1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-white-savior-charge-boomerangs-on-its-accuser",
+  "field": "title",
+  "lang": "ko",
+  "text": "고발자에게 되돌아온 백인 구원자 혐의",
+  "model": "claude-opus-5",
+  "source_sha256": "2d45b096112a84458334740092da97ab26e5a9c1499ca4f158ffea6b72efe40a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-white-settler-who-won-t-leave-africa",
+  "field": "title",
+  "lang": "ko",
+  "text": "아프리카를 떠나지 못하는 백인 정착민",
+  "model": "claude-opus-5",
+  "source_sha256": "47010845495ce351e0b49fd6a44a4208ad540850fddeadb73865edc56ac892a5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-whiteness-that-indicts-what-surrounds-it",
+  "field": "title",
+  "lang": "ko",
+  "text": "주변을 고발하는 흰빛",
+  "model": "claude-opus-5",
+  "source_sha256": "bf7afb6928b4cdaacb1537c8fe6ec6f563e4dda1da76e38d198708e1019c6e93"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-whodunit-reflex-as-critical-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "범인부터 찾는 반사, 비평의 자백",
+  "model": "claude-opus-5",
+  "source_sha256": "bc02374f12b669a69dcc2c656d32562a3c4c1149cbbeb3defd3b0af2412450d0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-whole-film-is-a-dying-mind-s-fiction",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화 전체가 죽어가는 정신이 지어낸 이야기",
+  "model": "claude-opus-5",
+  "source_sha256": "d27b1fd64f04ce086e8c643dcb874e3154f0bda5d02e52d77f0f799816498714"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-whole-film-is-a-reconstructed-memory",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화 전체가 되짚어 세운 기억",
+  "model": "claude-opus-5",
+  "source_sha256": "a15f1cf96d5f36cc3561f0c2746b510cb086824631bbc85d37e68ec9695da6e5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-whole-film-is-one-mind-s-interior",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화 전체가 한 사람의 마음속",
+  "model": "claude-opus-5",
+  "source_sha256": "fe485f61919319e61e57fa902fef31b26d99bf94f8c87ffb2f965c9bd5b3ddcd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-whole-film-is-the-bardo-not-a-place",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화 전체가 장소가 아니라 바르도",
+  "model": "claude-opus-5",
+  "source_sha256": "8550f2803132cd06f8b81a25f1e8f835a57176acab9abe61da456ef5149002ec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-whole-film-rests-on-a-single-load-bearing-premise",
+  "field": "title",
+  "lang": "ko",
+  "text": "전제 하나가 영화 전체를 떠받친다",
+  "model": "claude-opus-5",
+  "source_sha256": "670c45bd4ea690cd2c2a30a65fa4b2b38eec9495e1cda42b56c247027158fb66"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-whole-soul-stranded-in-the-wrong-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "엉뚱한 몸에 떠밀려 온 온전한 영혼",
+  "model": "claude-opus-5",
+  "source_sha256": "09889f7c178cd93b9849ebdf163ebc38f56d3b6ec75b2ad513f50507caf19b3b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-widescreen-frame-as-authored-meaning",
+  "field": "title",
+  "lang": "ko",
+  "text": "의미를 쓰는 와이드스크린 화면",
+  "model": "claude-opus-5",
+  "source_sha256": "3200f77a4034c1b77989bc7830bcc19539d7607e21d69d535a5aa7b150adf7c5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-widow-who-outlives-the-meaning",
+  "field": "title",
+  "lang": "ko",
+  "text": "의미보다 오래 살아남은 미망인",
+  "model": "claude-opus-5",
+  "source_sha256": "e66cbc742b3b3778d226ad506661b5c10b6f81d85ba42d6562598632d7d31f48"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wife-as-a-man-s-unwaged-infrastructure",
+  "field": "title",
+  "lang": "ko",
+  "text": "한 남자를 떠받치는 무임금 기반, 아내",
+  "model": "claude-opus-5",
+  "source_sha256": "41dda9d93af54680af231ef8027fe73cfab8af1486a76742d2e5442f717f464c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wife-as-property-in-the-honor-economy",
+  "field": "title",
+  "lang": "ko",
+  "text": "명예 경제가 셈하는 재산, 아내",
+  "model": "claude-opus-5",
+  "source_sha256": "f05475eece14425316f4cd44917ce54b965f1e85604e6e57164decdb93916e9d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wife-as-property-in-the-marriage-contract",
+  "field": "title",
+  "lang": "ko",
+  "text": "혼인 계약이 명시한 재산, 아내",
+  "model": "claude-opus-5",
+  "source_sha256": "5f3de7ccf3375b0ae78dca6dec197522bdbce07e666c3ea5fed2fdcffed114a5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wife-disciplined-to-license-the-husband",
+  "field": "title",
+  "lang": "ko",
+  "text": "남편을 면책하려 길들여진 아내",
+  "model": "claude-opus-5",
+  "source_sha256": "d3ee5c78fa91b30cabcc34f6afe7e80cf7165c24391edf74ac4e3cc239327832"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wife-who-voices-the-husband-s-wish",
+  "field": "title",
+  "lang": "ko",
+  "text": "남편의 소망을 대신 말하는 아내",
+  "model": "claude-opus-5",
+  "source_sha256": "e8bc8585bc51418104800f8afd173452b7bac78df6fbe4b434bfc76a2d620d3d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wilderness-that-is-a-constructed-set",
+  "field": "title",
+  "lang": "ko",
+  "text": "지어 올린 세트였던 황야",
+  "model": "claude-opus-5",
+  "source_sha256": "9e5fb06d35d0389384e8b13c1efcfb26dd594a5dafba267461a3a6bec9b89306"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-will-to-nothingness-in-sacred-refusal",
+  "field": "title",
+  "lang": "ko",
+  "text": "거룩한 거부에 깃든 무(無)에의 의지",
+  "model": "claude-opus-5",
+  "source_sha256": "fb8879ad84e94e6c523e3065658ec850c7e6b2752b90cdf2669a9ee79e65ecb0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wind-as-the-force-no-one-can-own",
+  "field": "title",
+  "lang": "ko",
+  "text": "누구의 것도 되지 않는 힘, 바람",
+  "model": "claude-opus-5",
+  "source_sha256": "01e71810d07a52f09febb77544b62300edb7664396c5cf573ea046f4575edb21"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wind-as-uncredited-cast-member",
+  "field": "title",
+  "lang": "ko",
+  "text": "크레딧에 없는 배우, 바람",
+  "model": "claude-opus-5",
+  "source_sha256": "f8328f4553c8c056ea3209b56d9fa6a84a7a9f1564302e37d7a880164ba2f8e9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-windmill-as-engine-of-the-culture-industry",
+  "field": "title",
+  "lang": "ko",
+  "text": "문화산업을 돌리는 엔진, 풍차",
+  "model": "claude-opus-5",
+  "source_sha256": "3a3cf1bd121a32fc5749f0e452d0048a05769bc9ca73aacbeaf64b86b36d8ddf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-window-that-watches-back",
+  "field": "title",
+  "lang": "ko",
+  "text": "이쪽을 마주 보는 창",
+  "model": "claude-opus-5",
+  "source_sha256": "d9a87cfff4b5e9aa952378dc6113d3abd053327191775e0189fdcf18f11375ef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wire-as-the-body-s-betraying-voice",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸을 배신하는 목소리, 도청기",
+  "model": "claude-opus-5",
+  "source_sha256": "e3c8c75bad20a99b264a5a91d639152c193ac8f29ffeb9cf5d551da5251a9bc0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wire-as-the-state-s-nervous-system",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가의 신경계가 된 전선(電線)",
+  "model": "claude-opus-5",
+  "source_sha256": "0f0050346bb3031d66287dfa11f481fc4eab4a1f34d14a9472106078d1e7484c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wisconsin-vista-as-anti-hollywood-ground",
+  "field": "title",
+  "lang": "ko",
+  "text": "할리우드에 맞선 땅, 위스콘신의 풍경",
+  "model": "claude-opus-5",
+  "source_sha256": "f25d8cfe8dfd3994645376905b2bd89c667fa31c726761f6d851952dd212a687"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wisecrack-as-armor-against-the-real",
+  "field": "title",
+  "lang": "ko",
+  "text": "실재를 막는 갑옷, 재담",
+  "model": "claude-opus-5",
+  "source_sha256": "b055679c9d21a92c2cf09146b3213f575b0596f30ea5da3767cc0f89e97a329d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wish-it-cannot-own",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 제 것이라 말하지 못한 소망",
+  "model": "claude-opus-5",
+  "source_sha256": "2861fb7378d1903aab07518c6d3f425ace09b9f66e004caf50b0251dff5647d6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-witch-as-system-s-manufactured-enemy",
+  "field": "title",
+  "lang": "ko",
+  "text": "체제가 찍어낸 적, 마녀",
+  "model": "claude-opus-5",
+  "source_sha256": "0798614a78a8f7d212ae910f072f434f10fcbabc740e4c2836315689b2524a13"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-witch-as-verdict-internalized",
+  "field": "title",
+  "lang": "ko",
+  "text": "삼켜버린 판결, 마녀",
+  "model": "claude-opus-5",
+  "source_sha256": "d81322bdca7eae2da570e81349c721da854c6f3136b9df9e13dffc091565ed93"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-witch-is-what-naming-makes-her",
+  "field": "title",
+  "lang": "ko",
+  "text": "이름이 붙는 순간 마녀가 된다",
+  "model": "claude-opus-5",
+  "source_sha256": "f16253ceaafad7cf1c9e8c43532f9a20ca74f724224578b023a213b98e7f68ab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-withdrawn-author-who-authors-by-withdrawing",
+  "field": "title",
+  "lang": "ko",
+  "text": "물러남으로 쓰는 작가",
+  "model": "claude-opus-5",
+  "source_sha256": "928c9f90a9ecf984e9c53dc6fedff51083b4dcd1e2ab95ef39a0e1fd141579a8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-withheld-answer-is-the-answer",
+  "field": "title",
+  "lang": "ko",
+  "text": "내주지 않은 답이 곧 답이다",
+  "model": "claude-opus-5",
+  "source_sha256": "23e638e2487a62b38a6eae068f36ddb212a5c343aa4b8705be38a41834c5b2ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-withheld-climax-is-the-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "오지 않은 절정이 곧 주제다",
+  "model": "claude-opus-5",
+  "source_sha256": "1794098ff34a2f6e509a80f8cb0dfd83f45873bf5afe1cbc00c79ab3165822c5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-withheld-close-up-as-ethics",
+  "field": "title",
+  "lang": "ko",
+  "text": "다가가지 않는 클로즈업, 그것이 윤리",
+  "model": "claude-opus-5",
+  "source_sha256": "aba569cf421199c0187ab852762b2f278cff612fbebb16aee152b8eed0cccce5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-withheld-cut-manufactures-interiority",
+  "field": "title",
+  "lang": "ko",
+  "text": "끊지 않은 컷이 내면을 만든다",
+  "model": "claude-opus-5",
+  "source_sha256": "cb0dc6394eefe7bbc0cd0ad53ea5e3b35fd3d46fba964ae65df69f2c358d00c7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-withheld-event-is-the-whole-argument",
+  "field": "title",
+  "lang": "ko",
+  "text": "보여주지 않은 사건이 논증의 전부",
+  "model": "claude-opus-5",
+  "source_sha256": "acb10d50d30447c79917413193607b7011b8fabe6469a24e923ab126de026717"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-withheld-image-as-ethical-refusal",
+  "field": "title",
+  "lang": "ko",
+  "text": "윤리적 거부로서 보여주지 않은 이미지",
+  "model": "claude-opus-5",
+  "source_sha256": "b1ea38546b23f740611cc832a17aec4335682aa9526412f4bd5aa394f9b4e0fe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-withheld-image-that-indicts-us",
+  "field": "title",
+  "lang": "ko",
+  "text": "보여주지 않음으로 우리를 고발하는 이미지",
+  "model": "claude-opus-5",
+  "source_sha256": "bd2ceab861dc09206c251872906f0050d9a1a3f9f765096e92cf1c5a47b71d99"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-withheld-interior-forces-the-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "닫힌 내면이 몸을 말하게 한다",
+  "model": "claude-opus-5",
+  "source_sha256": "e8fd782dac148d67bc52d92821e07a87ee33eb30110318760ec7abdd491f5dd7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-withheld-premise-reorients-the-spectator",
+  "field": "title",
+  "lang": "ko",
+  "text": "숨긴 전제가 관객의 방향을 튼다",
+  "model": "claude-opus-5",
+  "source_sha256": "36264eecd35b4e71bf6bdd4dfa0ff1338d8286f6adad1e646d5f7ed538bb3078"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-withheld-reveal-that-defines-the-hero",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 밝히지 않음으로 영웅을 규정하다",
+  "model": "claude-opus-5",
+  "source_sha256": "62d76df923d992c7b174b8bb28e0e9407eee1b2ee98d796bfd4eb4010748a273"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-withheld-score-is-a-moral-refusal",
+  "field": "title",
+  "lang": "ko",
+  "text": "음악을 넣지 않는 것이 곧 도덕적 거부",
+  "model": "claude-opus-5",
+  "source_sha256": "d8ad9832e9186458d4c9a8238f0362c654d3e8e7f7b40b3b0c0129e57001b58b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-withheld-script-that-made-it-real",
+  "field": "title",
+  "lang": "ko",
+  "text": "대본을 감춰 진짜를 얻다",
+  "model": "claude-opus-5",
+  "source_sha256": "4e15268ca1892c01c38db5da667563934095c840e998820fb72aadb1f40d973d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-withheld-shot-that-forbids-feeling",
+  "field": "title",
+  "lang": "ko",
+  "text": "감정을 금하려 찍지 않은 숏",
+  "model": "claude-opus-5",
+  "source_sha256": "0e4a283414c31c56ec64e46a04293e7ee2d37d89f1c89574114ea88074a26e05"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-withheld-truth-is-the-point-not-a-gap",
+  "field": "title",
+  "lang": "ko",
+  "text": "감춰진 진실은 구멍이 아니라 핵심",
+  "model": "claude-opus-5",
+  "source_sha256": "7144a587f1fb4f0230467628b0a318b1a6c2b908794966386135a327ea92865d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-withheld-verdict-of-the-departing-master",
+  "field": "title",
+  "lang": "ko",
+  "text": "떠나는 스승이 끝내 내리지 않은 판결",
+  "model": "claude-opus-5",
+  "source_sha256": "a731ab0de608e7f29c8a2df0995fb5977e28f0184fdbf793769c047a61b843b6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-witness-outlasts-the-hero",
+  "field": "title",
+  "lang": "ko",
+  "text": "영웅보다 오래 남는 증인",
+  "model": "claude-opus-5",
+  "source_sha256": "35ed0ccbc78c3ad7cf7e4f052957b8698d054e342c7988be67989316eecbbf5f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-witness-who-already-knows-is-complicit",
+  "field": "title",
+  "lang": "ko",
+  "text": "이미 알고 있던 목격자는 공범이다",
+  "model": "claude-opus-5",
+  "source_sha256": "168790e8fb31ce09eb4aaa9a39ac81fa38b7ae7a90639ed6bf4fd30467a27260"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-witness-who-records-his-own-erasure",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 지워지는 과정을 기록하는 증인",
+  "model": "claude-opus-5",
+  "source_sha256": "86e396d926341b7bdae4c173f40cf86278ed52e5c0a760e2c6391aa9d4a086ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-witness-who-survives-by-looking-away",
+  "field": "title",
+  "lang": "ko",
+  "text": "눈을 돌려 살아남은 목격자",
+  "model": "claude-opus-5",
+  "source_sha256": "897f7abe245268fe8a062ef1db0ee2e7678c217c4f16d5d5bf89c96d461c569e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-witness-whose-grief-becomes-ethics",
+  "field": "title",
+  "lang": "ko",
+  "text": "슬픔이 윤리로 바뀐 목격자",
+  "model": "claude-opus-5",
+  "source_sha256": "7d4b2054fdcc999ee8be87693f9f5555244768f08426ae573d06a792a3de34c9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-witness-whose-speech-survives-the-trauma",
+  "field": "title",
+  "lang": "ko",
+  "text": "말만은 트라우마를 견뎌 낸 증인",
+  "model": "claude-opus-5",
+  "source_sha256": "a87f1817315beae89f2826153e73c4c6b5d3976a5b6836576c419757b1b13f83"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-witness-whose-testimony-indicts-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 증언에 제가 걸려드는 증인",
+  "model": "claude-opus-5",
+  "source_sha256": "d5e875a8390bd8addb3ea2601c3adbeb8481d21f79ebe8bf2f9966b94347d36b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-witness-whose-testimony-is-silence",
+  "field": "title",
+  "lang": "ko",
+  "text": "침묵으로 증언하는 목격자",
+  "model": "claude-opus-5",
+  "source_sha256": "6537ceb93e41424f70807264dfb6b3327167a6430b3dc0bc03cf3a9ed2d7993f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-witness-whose-truth-is-refused",
+  "field": "title",
+  "lang": "ko",
+  "text": "아무도 받아주지 않은 진실의 목격자",
+  "model": "claude-opus-5",
+  "source_sha256": "f5b77e99b4c8c8deb93d76e12c9a0b0b394f610b8f87b10e2146e5a623c33e8e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-as-conduit-between-men",
+  "field": "title",
+  "lang": "ko",
+  "text": "남자와 남자 사이를 잇는 통로, 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "abe9662e572c8663b2183108f4545f47135aabe743089032a24c61bbb3582eca"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-as-property-in-revolt",
+  "field": "title",
+  "lang": "ko",
+  "text": "반란을 일으킨 소유물, 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "30d7f583b3846def573b5b58ac390552d6e99a87df766f238020649de198e703"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-as-screen-for-the-watcher-s-need",
+  "field": "title",
+  "lang": "ko",
+  "text": "보는 자의 필요가 비치는 스크린, 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "737208fea4ce98cd6173ba8538fbf5738beaae6522002af262231e5a12811c72"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-erased-by-her-crown",
+  "field": "title",
+  "lang": "ko",
+  "text": "왕관이 지워버린 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "adaf1593abd3236f7fcbb6c23438c7d2e436de6bd2e28a2d66e3b62be3d1a68f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-erased-where-desire-has-no-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "욕망에 틀이 없는 곳에서 지워지는 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "c0f10545889bbfd1f6346d4ae8461eb623ce95065b793b5f9de0a7f0bcea1a7a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-filed-as-a-coordinate",
+  "field": "title",
+  "lang": "ko",
+  "text": "좌표로 분류된 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "ccbcbbb44240550b61b17aa26bc1be7813f1a842d6cf80c5c8f3780c3618f7c7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-on-trial-in-a-borrowed-grammar",
+  "field": "title",
+  "lang": "ko",
+  "text": "남의 문법으로 재판받는 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "f453850295a899966b3eed8685211ad07374a61d5369ae14a398bfb4eb5e7e80"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-read-through-her-literary-twin",
+  "field": "title",
+  "lang": "ko",
+  "text": "문학 속 쌍둥이를 거쳐 읽히는 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "a9db45de3dcfd88e038912d2bf8a67d5bd19e63bec8f737fdf32e18270ca5e81"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-s-body-signed-as-property",
+  "field": "title",
+  "lang": "ko",
+  "text": "재산으로 서명된 여자의 몸",
+  "model": "claude-opus-5",
+  "source_sha256": "cd7ff09f265805b5785f8946fe661a462249bb099ee1b0831006f3471c41e03e"
+ }
+]

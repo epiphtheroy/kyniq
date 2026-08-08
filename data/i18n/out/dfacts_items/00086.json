@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "werner-herzog#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2006년 헤어초크는 할리우드 힐스에서 뒤집힌 채 불타는 차의 잔해에서 배우 호아킨 피닉스를 끌어냈다. 정신이 나간 배우가 막 불을 붙이려던 라이터를 빼앗고는, 기자들이 도착하기 전에 사라졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b3c9bee51a2388a2efb7dc2b044113e69845ac34230d026129da8e42eaa41eff"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "werner-herzog#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "로스앤젤레스에서 BBC 비평가 마크 커모드와 야외 인터뷰를 하던 중 헤어초크는 공기총에 복부를 맞았다. 그러나 인터뷰를 멈추지 않았다. 피가 흐르는 상처를 두고 그는 \"대단한 총알은 아니다\"라고 일축했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a9b9f4545b063ede251cb1476968cdb578b457d42299cacbf1362eb59e29ef0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "werner-herzog#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그가 세운 로그 필름 스쿨은 반(反)아카데미 세미나다. 공식 커리큘럼은 전통적인 이론을 건너뛰고 자물쇠 따기, 위조, 그리고 워런 위원회 보고서 읽기로 채워진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e7aa3902691956aee458c3c563ac8647a43dd8790d1d2d9304dea9fa0feb2e94"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "werner-herzog#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Grizzly Man》을 만들면서 헤어초크는 티머시 트레드웰이 곰에게 물려 죽는 실제 녹음을 카메라 앞에서 들었다. 그리고 헤드폰을 트레드웰의 옛 연인 주얼 팔로백에게 건네며, 그 테이프를 당장 없애라고 권했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "38b904f8e9b688f9ce93a2007dcfc94cfed0ea8957b20893d8e819d99b80e3ee"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "werner-herzog#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2011년 다큐멘터리 《Into the Abyss》를 위해 그는 텍사스의 사형수들을 인터뷰했다. 대화의 첫머리는 늘 같았다. 인간으로서 당신을 존중한다, 그러나 당신을 꼭 좋아하는 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf11a68520cb107b8c7c3ce0c0309b9cde56c62612b8a734e40d8cd0c1dca5ef"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "werner-herzog#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Encounters at the End of the World》를 찍으려 남극 맥머도 기지에 들어간 헤어초크는 자연 다큐의 상투적 문법을 전부 무시했다. 대신 바다를 등지고 산맥 쪽으로, 확실한 죽음을 향해 걸어가는 \"미친\" 펭귄 한 마리를 찍었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "44ac98ed53db3b0dbc28b975e8b3d40915b54f21c955a323b3ac222bacdc5364"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "werner-herzog#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "프랑스 남부의 쇼베 동굴은 출입이 극도로 제한된 곳이다. 그는 그 안에서 촬영을 허락받은 극소수 중 한 사람이 되어, 3만 2천 년 전의 벽화를 3D로 담았다. 《Cave of Forgotten Dreams》다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c977de43f25a1376d368f1e640bd6412fa244e6af6ceb0f37487afa9e286271f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "werner-herzog#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2012년 톰 크루즈 주연 액션 영화 《잭 리처》에서 그는 위협적인 악당 '제크' 역을 맡았다. 시베리아 수용소에서 제 손가락을 씹어 끊어낸 남자다.",
+  "model": "claude-opus-5",
+  "source_sha256": "56c777421709214561901817e684e111e48468347d9ac64f567a0bca2f787c0b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "werner-herzog#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《스타워즈》 시리즈 《만달로리안》의 '클라이언트' 역을 헤어초크가 받아들인 주된 이유는 자신의 영화 《Family Romance, LLC》의 제작비였다. 촬영장에서 그는 인형을 직접 움직여 만든 그 장면들을 \"영화가 도달할 수 있는 최선\"이라 칭찬했고, 시리즈를 만든 존 패브로가 그 말에 눈물을 보였다고 전해진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "19b9ac43455b47e58e1c84474d696e15e12be5a5c93d5a6a5a0b45910e99344c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "werner-herzog#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 프로레슬링 열성 팬이다. 레슬매니아는 고대 그리스 극작가들이라면 알아봤을 깊은 문화적 사건이라고 말한 적도 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "efd1a30d6f57653f0cfee217452d563c979e671a006efed3f1d1649c3da4a1b7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "werner-herzog#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화 밖에서 헤어초크는 여러 편의 대형 오페라를 연출했다. 바이로이트 축제에서 올린 바그너의 《로엔그린》이 그중 하나로, 무대를 레이저 광선으로 덮고 살아 있는 늑대 떼를 올렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb2bef278f39160eecaf3f3446cef2033bdc0a28a40049ca64129db14ddb411f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "werner-herzog#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "실존주의가 배어 있는 그 특유의 바이에른 억양은 누구도 헷갈리지 않는다. 덕분에 그는 뜻밖의 대중문화 단골이 되어 《심슨 가족》, 《릭 앤 모티》, 《파크스 앤 레크리에이션》에 목소리로 등장했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ab5fc90eeb1a068c0a991fe9c98dc65322c17f3c1539b1c0c6f5f03574a4abe"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "werner-herzog#23",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2022년 회고록 《Every Man for Himself and God Against All》에서 그는 아버지 디트리히에 관한 사실을 털어놓았다. 2차 대전 중 가족을 버렸고, 뒤에는 책임을 피하려 프랑스군 포로였다고 거짓말을 했다는 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "20a0258523448163ee44bf2e7db5f5b95a8df79c26189a6b07616a2c5934acac"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "werner-herzog#24",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Fitzcarraldo》의 혹독한 촬영 현장에서, 다큐멘터리 작가 레 블랭크는 헤어초크의 저 유명한 독백을 카메라에 담았다. 정글은 조화의 장소가 아니라 \"압도적이고 집단적인 살육\"의 장소라는 말. 영화계 최대의 실존적 비관주의자라는 평판이 그 장면으로 굳어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "09eb2b9884661df624939bb781ad0a8f8fc74d60ad1f8e4e5086f21996a7b216"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wes-anderson#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "본명은 웨슬리 웨일스 앤더슨. 1969년 5월 1일 텍사스주 휴스턴에서 삼형제 중 둘째로 태어났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "25f87be6c0706bbd51e2fb0402902d5f75184f82d8545e07f098c6a3f40347d4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wes-anderson#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "여덟 살 무렵 부모가 이혼했다. 본인 말로는 유년기에서 가장 결정적인 사건이었다고 한다. 이혼했거나 부재하는 부모는 그의 영화에 계속 돌아온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a248029202480fad377b2b94437b68e024f4f29d365f7417e65d2470cf584e31"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wes-anderson#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "소년 시절 그는 아버지의 야시카 슈퍼 8 카메라로 단편을 만들었다. 형제와 반려동물을 배우로 쓰고, 골판지로 공들인 세트를 짰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "84e7b650aa104abb83b82ab7e7f1a0c56f297691f27b9ca24edccea787e61b34"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wes-anderson#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "텍사스대학교 오스틴에서 철학을 공부했다. 오언 윌슨을 만난 곳도 거기였는데, 둘은 우연히 같은 극작 수업에 들어갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "091bbb15a4e1c6a2db63695b741272285a66a0eff337187c2dc93542ca51299d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wes-anderson#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "앤더슨과 오언 윌슨은 오스틴의 좁은 아파트에서 한동안 함께 지내며 《Bottle Rocket》을 썼다. 처음에는 13분짜리 흑백 단편이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a19bc897a936e8859f1e5e50d1d9b938cc364cbc6016d85a92e780d23d3c8597"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wes-anderson#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1994년 선댄스 영화제 상영 뒤 이 단편을 발견한 사람이 제작자 제임스 L. 브룩스다. 그는 컬럼비아 픽처스에서 장편판을 밀어붙였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c1ef5ea94ce0e871122dfab306160d06fa2290366474999df13c61b997a410b2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wes-anderson#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "산타모니카에서 열린 《Bottle Rocket》 시사는 참사였다. 관객이 자리를 떠났고, 앤더슨과 오언 윌슨은 무너졌다. 경력이 끝났다고 믿었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6499e31b2a7290b45625933c7ebf2d1295b6ea920c05732ca438061fc1374a3c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wes-anderson#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마틴 스코세이지는 《Bottle Rocket》을 1990년대 자신이 가장 좋아한 영화 중 하나로 공개적으로 꼽았다. 무명 신인 감독에게 그 한마디가 자격을 만들어주었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ec89141fcbe0cb9adaec168c7c804ba0c0b9618db6276e55d9e8308177891487"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wes-anderson#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "프랑수아 트뤼포를 향한 애정은 잘 알려져 있다. 유년, 멜랑콜리, 정밀한 프레이밍에 대한 그의 집착은 상당 부분 누벨바그에서 왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2fb17a6f03406ae6fa2c63ccb30b0e777afc8eecd769f5e779b815c2df184eb5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wes-anderson#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오랜 세월 그의 생활 근거지는 대체로 파리였다. 유럽의 호텔과 기차에 대한 깊은 애착이 《The Grand Budapest Hotel》과 《The Darjeeling Limited》의 모양을 잡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a69acc78efdb7ab796d40d2f06e59861e964257d03e01e9e4a3cd2d60347957e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wes-anderson#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "좌우 대칭 구도, 중앙에 놓는 프레이밍, 휙 돌아가는 팬. 이 서명이 어찌나 일관된지 '웨스 앤더슨'은 인터넷 밈이자 틱톡 미학 유행이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ee9702ec33f39259603cad1988a63f0062ca1b637ad2bd202ce72d217ec9cd70"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wes-anderson#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "밴드 데보의 마크 마더스보와는 오랜 협업 관계다. 초기작의 음악을 그가 맡았고, 이후 작품은 알렉상드르 데스플라가 이어받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "832bf55cc68836cf15c7ac35b599ffcf59cd2a11aac80a2e2579b23b297fce18"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wes-anderson#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "빌 머리는 《Rushmore》 이후 앤더슨 영화에 거의 빠짐없이 나왔다. 전한다는 이야기로는, 처음 만난 젊은 감독에게 자기 개인 전화번호를 쪽지에 적어 건넸다고 한다. 전적인 신뢰의 표시였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "02a198b0a789ec8d264a22a98cf838b0106f20eec70ae1437dad60c3e024093d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wes-anderson#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《The Royal Tenenbaums》의 가족 집은 세트가 아니다. 할렘 컨벤트가에 실제로 서 있는 뉴욕 타운하우스이고, 안팎을 직접 꾸민 사람은 앤더슨 본인이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fbe29db663773f131b4edbac43791c5b42013861e5e68b0f00390f90b41193e9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wes-anderson#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Fantastic Mr. Fox》의 스톱모션은 원격으로 연출했다. 애니메이터들은 런던에서 작업했고, 그는 파리에서 세밀한 영상 지시를 보냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f72475b7571965ce2fdd86f182b127728895b3f02f5be3abd29152e42398dce8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wes-anderson#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Fantastic Mr. Fox》의 목소리를 그는 스튜디오에서 녹음하지 않았다. 농장 야외에서, 다락에서, 말 등에 앉아서 받았다. 배우가 실제 공간 안에 있기를 원한 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "95b10316182f09127f29b281a17f5ad84098ce482012946fc035e01211826a00"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wes-anderson#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《The Grand Budapest Hotel》의 일부 착상은 오스트리아 작가 슈테판 츠바이크의 글에서 나왔다. 앤더슨 자신이 주요한 문학적 영향으로 그를 꼽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b4f70bc1683e6cf162fd590b5558b1d87924e59cb487c9fdd0ef2376b3d8f37e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wes-anderson#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《The Darjeeling Limited》은 특별히 도색한 진짜 기차에서 찍었다. 그 기차는 인도 라자스탄을 실제로 달렸고, 배우들은 그 안에서 살면서 촬영했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "679267af501cdd98c3bb36791a0ebc27c5af3140274d3e5e605e921ea70f10e9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wes-anderson#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오랜 반려자는 레바논 출신 작가 겸 디자이너 주만 말루프다. 둘 사이에 프레야라는 딸이 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c59588857165a83519151b225d29704a10d84d6c83a0b57742ab8666f24ff5d6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wes-anderson#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 같은 배우들을 반복해서 쓴다. 빌 머리, 오언 윌슨, 제이슨 슈워츠먼, 틸다 스윈턴, 에이드리언 브로디. 필모그래피 전체가 하나의 레퍼토리 극단처럼 느껴지는 이유다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d7952dbfc78072a253d1e42bb8b0ff47b71865c11b8d6516f05cea7a3679dc9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wes-anderson#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2023년작 《Asteroid City》는 텔레비전 방송 안에 연극을 심는 구조를 취했다. 연극적 인공성과 이야기의 경계에 대한 그의 관심이 점점 커지고 있음을 보여준다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3759973f0b6105e319b4267322686765eb5acc0c6a1ba71ddf31f98397b32868"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "본명은 에른스트 빌헬름 벤더스. 1945년 8월 14일 뒤셀도르프에서, 2차 대전이 끝난 지 몇 달 만에 태어났다. 패전국 독일의 폐허가 그의 출발점이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "185959e49782549b506445a261712a7b38e92de3e5787ed62d74ba1283eb721f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아버지 하인리히는 외과의였다. 어린 벤더스도 처음에는 의학에, 이어 철학에 등록했지만 둘 다 그만두었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fae7612e6b87f99750e8badc2cc555fa5833bed4b10fd41ca3c1ec9e06374854"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "십대의 그는 그림에 빠져 있었다. 화가가 되겠다며 1966년에는 파리로 옮겨갔는데, 그곳 영화학교 IDHEC 입학 시험에서는 떨어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb65f401dd2084ad8b2e5e3809bca49014be1b586cbb5f8879811878c26b061a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "파리에서 돈이 없던 시절, 그는 오후를 시네마테크 프랑세즈에서 버텼다. 하루에 다섯 편까지 보는 날도 있었다. 그 몰입이 화가를 영화감독으로 바꿔놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e55185ce3c092f0d7bd0d44865e24da10b3fb8fbb89c3f0e14af79f0864f984f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "독일로 돌아가기 전, 미국 팝 아티스트 조니 프리들랜더의 파리 아틀리에에서 판화가로 잠시 일했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "470248c634d201efd9b20d06c06b486d2b9a74ca52807628b1785d508819b2bd"
+ }
+]

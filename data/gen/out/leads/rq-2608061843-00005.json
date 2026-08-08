@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tic-tac-1997",
+  "field": "lead",
+  "film_id": "bca60595-2cea-433d-bdd5-906d1ed866c5",
+  "lang": "en",
+  "text": "A single day, cut apart and dealt out among strangers who will not meet until after dark. Ninety-six minutes is a tight container for that many lives running in parallel: each strand gets a quarter of an hour before the film has to be somewhere else, and the compression is where the pressure comes from. Daniel Alfredson works in the register of a thriller without a crime at its center, assembling the night out of errands, arguments and small decisions nobody stops to weigh. The Guldbagge for best film followed. Coincidence is ordinarily a screenwriter's shortcut, the thing a script reaches for when it has run out of reasons; here it is the material itself, and every collision has to be paid for in advance.",
+  "model": "claude-opus-5",
+  "source_sha256": "9aabab121a98c5d91b2ab0cec5e247145cf42803254cd10b6c52d9be666a61fe"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-here-after-2015",
+  "field": "lead",
+  "film_id": "c45e6ce1-324d-400a-a955-8297fa6faa6e",
+  "lang": "en",
+  "text": "John has served his time and come home to his father; the people living around them are nowhere near finished with it. The crime stays offscreen and largely unspoken, which leaves the film working in refusals rather than revelations: who will speak to him, who will not, what a father is expected to do with a son his neighbours have sentenced a second time on their own authority. It is classed as a thriller and the classification holds, except that the dread is entirely social. Nothing is concealed here but what everyone already knows. Magnus von Horn directs; the production is French, the language Swedish, the running time 102 minutes. The audience at Rotterdam voted it their prize, an odd fate for a picture built on the certainty that a group never forgives.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e1b3b78b88ae88d707d69fa7eba7da1ac7b87f50a43aa14cd7073b59e170d75"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "as-simple-as-that-2007",
+  "field": "lead",
+  "film_id": "a0cd2960-7d12-47ad-b9c5-fba1ac530224",
+  "lang": "en",
+  "text": "The rooms are clean, the meals arrive on time, the children are looked after. That is the arrangement the film means to crack. Hengameh has run a middle-class household in Iran long enough that nobody inside it registers the running as work, or as something that could stop. Reza Mirkarimi gives her ninety-seven minutes and refuses to supply the single event that would explain her to everyone else. What builds instead is the weight of a day that will be identical tomorrow, and of something she has never had the language to put to her husband. The Golden George it won is a large prize for a register this quiet: a crisis conducted at the scale of one apartment, by a woman whose work all disappears the moment it is done.",
+  "model": "claude-opus-5",
+  "source_sha256": "dbae6b085bd9bc64397da7b152767ffbe10435199b1036f321df0add354c78d1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "passing-fancy-1933",
+  "field": "lead",
+  "film_id": "e15704da-4d19-41c3-be66-86a24a20b4d2",
+  "lang": "en",
+  "text": "A man who can barely feed his own son talks a bar owner into housing a stranger; in Depression Tokyo, generosity gets outsourced. Passing Fancy spends its hundred and one minutes on rent, on work that may or may not be there tomorrow, and on the daily negotiation between a father and a boy living off one uncertain wage. And it is a comedy, filed as one and behaving like one: the poverty is never played for pity, only as the fact around which everybody in the frame arranges the day. It sits on Kinema Junpo's list of the year's best films. Ozu's attention goes to what the favour costs the man who arranged it, and to a child who has the household accounts worked out well before his father does.",
+  "model": "claude-opus-5",
+  "source_sha256": "917ba315edcf88565481080269a50cfe891b8d36f40257c11aca97a4811e84ec"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "gonzaga-from-father-to-son-2012",
+  "field": "lead",
+  "film_id": "8546876e-18fd-4279-8c38-8d741bef6a0f",
+  "lang": "en",
+  "text": "A musical life assembled out of what a father and a son actually said to each other, rather than out of the hits. Luiz Gonzaga left home for the city over a romance, made his name with an accordion, and later handed his own boy to a friend in Rio while the road took him elsewhere. Two hours is long for a singer's biography, and Breno Silveira spends the length on the distance rather than the career, on the years the son grew up somewhere his father was not and the two hard tempers that met afterwards. Gonzagão, Rei do Baião, is a large figure to put on a screen, and the Grande Prêmio do Cinema Brasileiro named this among the year's best, but the film keeps returning to the smaller matter of who was left with whom.",
+  "model": "claude-opus-5",
+  "source_sha256": "b08778be2bceb0ed4afb945a46928fb2a3fa708015ceeaf1bbdca771401d6156"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "brothers-and-sisters-of-the-toda-family-1941",
+  "field": "lead",
+  "film_id": "21be27b3-651f-405f-abdb-dbf2b177ebcd",
+  "lang": "en",
+  "text": "The house goes first, sold to cover debts that surfaced only after the funeral. After that a widow and her unmarried daughter become a matter to be arranged among the grown children, and nobody in the family says no. That is the method: a hundred and five minutes of hospitality offered in the correct words and withdrawn in practical detail, in which room happens to be free, whose schedule has no space in it, how long a visit was understood to last. The refusals are all polite, and Ozu never lets one be spoken aloud. What accumulates is the ordinary arithmetic by which a parent turns into a line in four household budgets at once, with the daughter who has not married assumed to be available for whatever is left over.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc1dcc11ab3b8d1f35b16df767f08bcc8ba01160e13171ef429ab6913102e45b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "it-feels-so-good-2019",
+  "field": "lead",
+  "film_id": "e058c5fe-26c5-4725-bd74-4781efd6c273",
+  "lang": "en",
+  "text": "Akita, some days before a wedding, and the bride has asked an old lover to spend them with her. Kenji has nothing else on: the marriage is finished, the job is gone, and the trip north was meant to be an errand, a formality, a day of politeness in a town he had long since left. Haruhiko Arai declines both of the easy versions of this. The affair is neither scandal nor rescue, and nobody in the film treats it as either, which leaves two people who know each other's history exactly and have stopped performing for one another. A hundred and fifteen minutes, mostly at conversational volume. The calendar does the work a plot would otherwise have to do: the date is fixed, everything here happens before it, and the film asks neither of them to justify the arrangement to anyone outside the room.",
+  "model": "claude-opus-5",
+  "source_sha256": "cbf84e1486c242b54fa9d9bdc31da826e3e55775dfc2f386aed172cb071974d6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-situation-of-mehdi-2021",
+  "field": "lead",
+  "film_id": "94ce46c3-88a9-4b0f-a9a8-6cb3678e01ac",
+  "lang": "en",
+  "text": "An Iranian war film whose soldiers speak Azerbaijani, which is the first thing it establishes about the two brothers at its center. Mehdi asks Hamid to come back to the front and stand beside him; Hamid, who has troubles enough of his own, goes. It is filed under war and romance at once, and the pairing is not an error, since the strongest attachment in it runs between brothers, and the front is the one place where such men are permitted to express anything at all. A hundred minutes, set after Operation Kheibar, treating the war less as a subject requiring explanation than as somewhere people go back to because someone they love is already there. Hadi Hejazifar has made a film out of a request nobody in it has the standing to refuse.",
+  "model": "claude-opus-5",
+  "source_sha256": "5fda60a58cbe56610bc7b50f2757b666fbfa9d0af023e90b63742499911fd9df"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "take-off-2009",
+  "field": "lead",
+  "film_id": "5ef748e3-9364-40e6-b043-579d3f42d3ee",
+  "lang": "en",
+  "text": "Korea wanted a ski jumping team and had to go out and find one, which is how a man who came back looking for his mother ends up in the national uniform. Cha Heon-tae was adopted out to American parents as a child; the television appearance was the errand, and the sport is what happened instead. There is the joke, and then there is the bruise under it, in being recruited to represent a country that had already let him go. Kim Yong-hwa takes 139 minutes, most of them comic, with a squad drawn from men who had other plans and a coach with places to fill before the 1998 Winter Olympics. The film is unusually attentive to the paperwork of patriotism: quotas, qualifying times, a uniform handed to whoever will wear it.",
+  "model": "claude-opus-5",
+  "source_sha256": "17fd4b8879caeb6d3aef57fb06cacf97cd5c57b2801f61ef9090ea31362b4969"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-sleepwalkers-2019",
+  "field": "lead",
+  "film_id": "22b9e9ba-380d-464c-81e0-71f13bd58e63",
+  "lang": "en",
+  "text": "A fourteen-year-old walks in her sleep, through a house filled with relatives who have known one another too long and too closely. The occasion is New Year at the old family place, which in Argentina means summer: heat, drink, fewer clothes, a great deal of looking. Paula Hernández keeps the mother at the center rather than the daughter, a woman watching her child's body become something the men of a tight, inward-marrying clan have begun to notice, and calculating what she is allowed to say about it. The marriage underneath is in trouble the way marriages are in company, which is to say completely and without a word. Argentina sent it out as its Academy submission. A hundred and seven minutes held at the temperature of a holiday nobody can leave early.",
+  "model": "claude-opus-5",
+  "source_sha256": "a0b8b634ce3731dcfd229852791fb72abc0811e07afda28baec6ac4b7a74477f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "kidz-in-da-hood-2006",
+  "field": "lead",
+  "film_id": "a6a08687-594c-4ed8-9623-7e0c1ec4c982",
+  "lang": "en",
+  "text": "Amina has been in Sweden three years without a residence permit, and when her grandfather dies the paperwork becomes the plot. What the film does with that is odd: it is made for children, it is played partly for comedy, and its engine is deportation law. The adult who takes her in is a pierced and tattooed rocker in a suburb the city has stopped maintaining, and her ally is the wild girl down the hall. Respectability is on offer nowhere in it, which for a 2006 family picture is a decision rather than an accident. Catti Edfeldt holds the thing to ninety-six minutes and lets the two girls run the campaign themselves, with the adults sorted into obstacles and roommates. The case is a child's to argue, and the film knows how strange that is.",
+  "model": "claude-opus-5",
+  "source_sha256": "74a9e4aa20587cb307b240f75a719aafda11567cdcdac0e4344d8960959d07af"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "children-s-island-1980",
+  "field": "lead",
+  "film_id": "be0ec798-0145-4b15-b6af-430d37627a36",
+  "lang": "en",
+  "text": "Reine is supposed to be at summer camp, and his mother, working at a hospital, believes that he is. He is in Stockholm instead, with an entire summer in front of him and nobody counting his hours. From there the film gives up plot for sequence: encounters with adults, each of whom takes the boy for something slightly different, none of whom asks the obvious question. Kay Pollak lets it run a hundred and four minutes at the drifting pace of a child's sense of time. It is a film about a child rather than a film for one, since the summer turns up matters a boy that age has no means of sorting and Pollak declines to sort them on his behalf. Sweden sent it to the Academy Awards, which for a picture this reluctant to reassure is a curious piece of national self-presentation.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b5c95a4de5b45d6233cc738c9e090facd12cbb98d6ce0eab1080862f853a5d8"
+ }
+]

@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edgar-wright#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "콘티 작업은 전적으로 형 오스카 라이트에게 기댄다. 만화가인 형이 영화를 컷 하나하나 촘촘히 그려 주는 덕에, 《스콧 필그림 vs. 더 월드》에서 실사와 그래픽 노블의 감각이 이음매 없이 붙었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "72816b1ac89d9bcebf2dbcfb083d88d66dccfd91a463d937b227c763fbc19059"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edgar-wright#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《스콧 필그림 vs. 더 월드》의 고된 촬영 기간에 라이트는 배우 안나 켄드릭과 연인이 됐다. 2009년부터 2013년까지 이어진 관계였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b6a8f404836257c9891a1f2a7071b2af00a32ad014c25a6f6f3c5f6caa4f773b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edgar-wright#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2011년, 라이트의 각본 이력은 자기 연출작 바깥으로 뻗어 나간다. 조 코니시, 스티븐 모팻과 함께 스티븐 스필버그의 애니메이션 대작 《틴틴: 유니콘호의 비밀》 각본을 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ce2e816c7370e7fdbf3543c80e013bfb99aad9c5e3587ffb272b25fa066e4450"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edgar-wright#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마블 시네마틱 유니버스의 《앤트맨》을 8년간 개발해 놓고 2014년 5월 돌연 연출에서 손을 뗀 일은 유명하다. 스튜디오가 그의 각본을 고쳐 쓰는 문제로 창작상의 견해차가 심각했다는 것이 이유였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0fa9e118819387a9fbd282d192b502675f49f9a3ed12c306fcba7e4dc8112b07"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edgar-wright#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "컬트 팝록 듀오 스팍스에 대한 평생의 집착적인 애정. 그 끝에서 그는 론 마엘과 러셀 마엘 형제를 찾아냈고, 2021년 첫 다큐멘터리 《The Sparks Brothers》를 만들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "df25be406c9772a2d4fcc3f6060ee1c701e88dde10603a9de7be85f7d0ea58e2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edgar-wright#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《스타워즈: 라스트 제다이》에 저항군 반군으로 몰래 카메오 출연했다. 형 오스카, 동료 영국 감독 조 코니시와 나란히 배경에 스쳐 지나간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d98e41442ef254fba19b84fea50bc756bddf402c22d49cafbfa551a02da4264c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edgar-wright#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "코로나19 봉쇄 기간에 그는 프린스 찰스 시네마를 비롯한 독립 극장들을 살리자는 운동에 앞장섰다. 극장이라는 신성한 공동 체험을 두고 《엠파이어》에 격정적인 에세이를 싣기도 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "97c56528e8cd0047af10145aa153eade4df77953b822cda422d8fc6128eed4ed"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-berger#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "독일의 공업도시 볼프스부르크에서 나고 자랐지만, 베르거는 부모에게서 물려받은 스위스·오스트리아 이중국적을 갖고 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1893941ca9afe4cbffd6d9aa0227f012e7c85a8c58330eae5a52bafd14b6e06b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-berger#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "베르거가 처음 밥값을 배운 곳은 미국 독립영화 판이었다. 테드 호프와 제임스 샤무스가 세운 뉴욕의 전설적 제작사 굿 머신에서 인턴으로 일했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e61fa68dd30fe300aafcc9aa876e029d5e7d5c8e68ee92ac72a549bc1577bd5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-berger#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아내인 배우 넬레 뮐러슈퇴펜과 자주 함께 작업한다. 평단의 호평을 받은 독립 드라마 《Jack》(2014)과 《All My Loving》(2019)에서 그녀는 공동 각본을 쓰고 직접 출연했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "851683391e0becbf3bd96d5096ada08c6a7a2a3a8ee8d8ce66edd1771486d812"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-berger#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "국제적 도약은 《도이칠란트 83》(2015)의 첫 다섯 편을 연출하면서 왔다. 이 시리즈는 SundanceTV를 통해 미국 방송사에서 방영된 최초의 독일어 드라마로 기록됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ee94896259094dc1be053887345a7772d4292530bcf0ea5b08657245f5b4c733"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-berger#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《패트릭 멜로즈》를 준비하며 베르거는 영국 촬영감독 제임스 프렌드와 각별한 창작의 형제애를 맺는다. 이후 그의 가장 야심 찬 영화들을 찍은 사람이 바로 그다.",
+  "model": "claude-opus-5",
+  "source_sha256": "afb9c8e4b33843112a2f9a177736461dafbe64d89302d4f1cbc97cd29125b593"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-berger#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "AMC의 생존 공포 시리즈 《테러》(2018)를 연출했다. 부다페스트의 거대한 스튜디오에 19세기 영국 해군 함선을 그대로 재현해 놓고, 가짜 북극 유빙 속에 얼려 버린 채 촬영했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4c6dfd4bf9f4b51460a28a6c58cd9a52b42baca36c7e78d5414688c596381d92"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-berger#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《서부 전선 이상 없다》를 각색한 최초의 독일 감독이라는 이력이 그에게 있다. 1930년판과 1979년판이라는 두 유명한 영화는 모두 미국이 주도한 제작이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "89cba63c621409e7dba859d215dc3c7fb9190e42e6d9130452363c0739784101"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-berger#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1차 세계대전 서사시의 참상을 진짜로 담아내기 위해 베르거는 CG 전장을 버렸다. 대신 체코 밀로비체에 거대한 실물 세트를 지었고, 옛 소련군 활주로를 파내 축구장 네 개 크기의 참호를 만들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "08c3f009ea48e98dc953242a52e1e64b3989eea96778cfe951cc51fd8dbb260e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-berger#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《서부 전선 이상 없다》는 2023년 아카데미 아홉 개 부문 후보에 올랐다. 볼프강 페테르젠의 《특전 U보트》가 갖고 있던 기록을 깨고, 오스카 역사상 가장 많은 후보를 낸 독일 영화가 된 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "30c6d8523e1ea14b11562e0e1437c49826e7a5e1ad53b950d5e5fa868b8b9f3b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-berger#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2024년 교황 선출을 다룬 스릴러 《콘클라베》에서 그는 로마 치네치타 스튜디오 촬영이라는 전례 없는 허가를 받아 냈다. 프로덕션 디자이너 수지 데이비스는 그곳에 시스티나 예배당을 실제 크기 그대로 지어 올렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "04ca35f598691c437717723b02476ca114dc5c31aa84a54ffca7ac91c615af31"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-yang#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1947년 상하이에서 태어난 양더창은 1949년 공산화를 피해 가족과 함께 타이베이로 건너왔다. 빠르게 도시로 변해 가는 그곳에서 그는 늘 뿌리 뽑힌 이방인처럼 자랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e88a0e4b0ff7348852c4f4388e76858c6ba77d6a5a55d9ddcd5763dc0764f891"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-yang#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "외로운 아이였던 그는 일본 만화에 깊이 빠져들었다. 특히 데즈카 오사무였다. 딱딱한 제도권 교육에서 달아나려고 몇 시간이고 제 만화를 그렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e9319bc5e96104d706518e3c798d573393048c6d127aea44ab9adaaef5614754"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-yang#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "집안의 현실적인 압박에 밀려 그는 어릴 적 예술가의 꿈을 접었다. 신주에 있는 국립교통대학에서 전기공학을 전공한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c2c5fec5142264095e97a2e0bdd6934bfc464e99dbc4e98914daf53be75b0ceb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-yang#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1970년 미국으로 건너가 플로리다 대학에서 전기공학 석사를 받았고, 이어 USC 영화예술대학에 들어갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9a78477956e1936c23f567e8c018ce0e2ad9d4f7e92ebe7af574b3f70a420e0e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-yang#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "USC는 한 학기 만에 그만뒀다. 상업 논리로 굳어진 할리우드식 공식이 그에게는 남의 것처럼 느껴졌고, 자신에게 통상적인 영화 만들기의 감각이 있는지도 의심스러웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5668670053811dee70d9b655a1b42bd058ce1d311055f26d6df9562c360f7e10"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-yang#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화를 아예 접은 그는 시애틀에서 7년을 마이크로컴퓨터·소프트웨어 설계자로 보냈다. 기술 산업 속의 그 고립이 훗날 그의 영화가 그려 낸 차갑고 현대적인 소외로 고스란히 들어간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0f5738df56a227c17b892f2f226dad2ab91f49bab7e12eb7acbeb9af4d7bcc97"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-yang#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "서른 번째 생일에 영화를 향한 마음이 되살아났다. 우연히 들어간 시애틀의 예술영화관에서 베르너 헤어초크의 《아귀레, 신의 분노》를 본 것이다. 영화가 지극히 개인적인, 규칙을 깨는 예술일 수 있다는 사실을 그 자리에서 알았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4174f7cfefe69687af00194da9e56d5dcb572ba883e954bb0961b64be38a841f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-yang#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1980년 타이완으로 돌아온 그를 친구 유웨이정이 불렀고, 영화 《1905년의 겨울》 각본을 맡게 된다. 뒤늦은 타이완 영화계 정식 입문이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "963874812c7fb6181fc6c85e9965177b4042891e56f333e8997de29c820bf16a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-yang#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "타이완의 또 다른 거장 허우샤오셴이 자기 집을 담보로 잡혀 1985년작 《타이베이 스토리》의 제작비를 댄 일화는 유명하��. 그는 이 영화의 비극적인 남자 주인공까지 직접 맡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "93bf6de482fab56e8e3b3b6f6371f8238008dbb1adc62a9bb404a74f18c7ffb6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-yang#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《타이베이 스토리》 여주인공으로 캐스팅하면서 양더창은 당대 최고 인기 가수 차이친을 만났다. 두 사람은 1985년 세간의 이목을 끌며 결혼한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5a0ddf49e375c86056b17aefdf7c232ec6e7671c9f77fd9867a181d5c2a703c7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-yang#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이혼 뒤 그는 피아니스트 펑카이리와 재혼했고, 마침내 아들을 얻었다. 훗날 그는 펑과 함께한 그 시절을 생애 가장 행복하고 창작으로 충만했던 때라고 말했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4795bdabdd8ea8a2f8ab88997263a66e28b440734236b0563caf8043d23c8b44"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-yang#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "네 시간짜리 대작 《고령가 소년 살인사건》(1991)의 출발점은 실화였다. 열네 살 소년이 여자친구를 살해한 1961년의 소년 살인 사건, 타이베이에서 보낸 유년기의 그 기억이 영화가 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f689b9291a6387efeb63b2f3e9ebfe6bc09cc6b48ff8dd4ebca86088a2ba4fe"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-yang#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2000년, 그는 광활하고도 다정한 가족 서사시 《하나 그리고 둘》로 칸영화제 감독상을 받았다. 타이완 감독으로는 처음이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a149e776dea6fe62224b5cb49c3f68ab218aa202fbc2a06d4cc7a23f5183a735"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-yang#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "국제적으로 그토록 찬사를 받고도 《하나 그리고 둘》은 2017년에야 타이완 극장에 정식으로 걸렸다. 양더창이 세상을 떠나고 꼭 10년 뒤다. 현지 배급 시스템에 진저리를 친 감독이 그곳 상영을 완강히 거부했기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "260e93a49628e3b9d256e83b90dd721195f58954a1872fd9adb8dd95bd1f587c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-yang#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "말년의 그는 어린 시절 사랑했던 그리기로 되돌아갔다. 《The Wind》라는 야심 찬 무협 애니메이션 장편을 연출하기 시작했고, 제작은 성룡이 맡기로 되어 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c8c9c98c8466fd421e7f98ad65fb1db4042dc2f5f8ac0dab2634391ada2a9802"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-yang#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《The Wind》 작업은 끝내 중단됐다. 2007년 캘리포니아 비벌리힐스 자택에서 대장암으로 세상을 떠났다. 향년 59세.",
+  "model": "claude-opus-5",
+  "source_sha256": "f8c3c5d7e07290b27920f5d594e6888066d9f2e63f1b7c8aa115aa2bf3ce93f8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-yang#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "묘비에는 카메라를 든 소년이 선으로 그려져 있고, 그 곁에 영문 한 줄이 새겨져 있다. 'Dreams of love and hope shall never die.'",
+  "model": "claude-opus-5",
+  "source_sha256": "52af919c12abe537671b69e3f01e785b4bd9278ac91a1df373d19cbfb055408e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-kazan#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "콘스탄티노플에서 엘리아스 카잔초글루라는 이름으로 태어났다. 무너져 가는 오스만 제국을 피해 그리스인 부모가 그를 미국으로 데려온 것이 네 살 때, 살림살이는 바구니 하나가 전부였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4460e179ea56f626649848fecce2b52cd2824466313ada2c56c3990be41f410a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-kazan#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아버지 조지는 엄한 양탄자 상인이었다. 아들이 당연히 가업을 물려받으리라 믿었던 그는 엘리아가 연극을 택하자 어리둥절해했고 크게 실망했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d62db5ee6c61e327fea6643bb19599f39a049fd7ab49fdf3c368c474829069c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-kazan#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "매사추세츠의 명문 윌리엄스 칼리지 시절 그는 평생 따라다닌 별명 \"개지(Gadg)\"를 얻었다. \"개짓(Gadget)\", 즉 연장이라는 뜻이다. 몸집이 작고 야무진 데다 곁에 두면 여러모로 쓸모 있는 사람이라 붙은 이름이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e5ead1fc02639c5941939dae61b3af516bc4c0d6abcf077f7e5b19c973ade7a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-kazan#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "윌리엄스에서 그는 철저히 겉돌았다. 부유한 와스프 사교클럽 학생들의 식탁 시중을 드는, 피부 검은 노동계급 이민자였으니까. 이 이방인 콤플렉스가 미국 주류를 정복하겠다는 평생의 사나운 야심에 불을 지폈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "54b9ed8f99542d4b7a1bfe9cb8f2bdd33b32997d06d7b7e8cc26acd46b3773a3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-kazan#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1934년 그는 뉴욕의 급진적 극단 그룹 시어터 안에 있던 비밀 세포조직의 일원으로 미국 공산당에 입당했다. 그러나 당 지도부가 극단을 장악하라고 요구하자 열아홉 달 만에 탈당한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e1f427671f3d190429f78c8535eaf336909d6d3e1a07dcd7ea4fc50871c191ea"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-kazan#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "첫 아내는 시어터 길드의 영향력 있는 희곡 담당자 몰리 데이 대처였다. 당신은 그저 그런 배우라고 대놓고 말해 그를 납득시킨 사람도, 연출 쪽으로 등을 떠민 사람도 그녀였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5035224f56f635d7d1b87f93446f9987fe6621de94f8c4613475344700e0390b"
+ }
+]

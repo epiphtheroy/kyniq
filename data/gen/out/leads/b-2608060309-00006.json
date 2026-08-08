@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "two-cents-worth-of-hope-1952",
+  "field": "lead",
+  "film_id": "475af040-df63-489d-adc5-c95bb245061e",
+  "lang": "en",
+  "text": "Love is the cheap part of this courtship; the dowry is where the trouble starts. A young man has won the affection he wanted and now has to prove he can keep a household, which means meeting a set of conditions, so the romance proceeds as a negotiation with in-laws, with employers, with his own empty pockets. Nothing here stays private: the bargaining is conducted in front of everyone who has an opinion about it. Renato Castellani plays it as comedy, which is the harder choice, since the poverty of Italy in 1952 is not a joke and the love story is not allowed to excuse it. The Cannes jury gave it the Palme d'Or. Ninety-three minutes of errands, borrowed money and relatives with views on the match, and underneath it the arithmetic of two people who are not tragic, only broke, doing sums on a future neither can afford yet.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc2219ac68a42ef734f9efb1c9c17dfe56ec154471c7fba16bce434dc338d8a2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-defiant-ones-1958",
+  "field": "lead",
+  "film_id": "3a925d10-c6ed-4c5e-8e24-7768e2242d86",
+  "lang": "en",
+  "text": "The device is hardware: two convicts escape wrist-chained to each other, one white and one black, with nowhere to go but the same way. Stanley Kramer built the 1958 film on that constraint and let it do the arguing, since every mile has to be settled twice, once against the pursuit and once between the two of them, and neither man can afford to win outright. Cooperation is not a virtue in this arrangement; it is a physical requirement. The premise is blunt, and the picture is more patient than its logline, spending its time on the small mechanics of eating, climbing and sleeping while attached, which is where hostility turns into something harder to name. Ninety-six minutes. The Academy honoured the acting, the direction and the black-and-white photography, Berlin gave a Silver Bear for the leading performance, and the New York Film Critics Circle named it the year's best film.",
+  "model": "claude-opus-5",
+  "source_sha256": "2bc08dcabe45db67fa0920d006ca3ff54ddec4615f9a3109d56ef0bd04927711"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-tree-of-wooden-clogs-1978",
+  "field": "lead",
+  "film_id": "2fe538ae-d0bf-4998-bac4-5b8f8e256f9e",
+  "lang": "en",
+  "text": "One hundred and eighty-seven minutes is itself a claim about attention. Ermanno Olmi means it plainly: a stretch of tenant farming in northern Italy at the turn of the century, taken at the speed the work actually moves. Several families share a courtyard and its work. A priest advises Batisti and Batistina that their son Minec should be schooled, which means surrendering the hands he would have given to the fields, a decision with no margin in it. Then a clog breaks. Authority here belongs to the priest, the landlord and the season, none of it to the family. Because the camera stays on chores rather than event, the loss of a wooden shoe registers as an emergency, which in this economy it is. Cannes gave it the Palme d'Or, and Italy lists it among the films it means to save. Its scale, though, is that courtyard: milk, mud, prayers before supper.",
+  "model": "claude-opus-5",
+  "source_sha256": "5665193703bf8afb86bc83dccb7fb32f07af10d9c1e4edb6940bf12ed0ef89ea"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-sacrifice-1986",
+  "field": "lead",
+  "film_id": "816960f7-0832-4ebc-9546-67fd97e8e275",
+  "lang": "en",
+  "text": "The news arrives in the middle of a birthday party, and after that nothing in the house can be done casually. Alexander, journalist and philosopher and retired actor, is marking the day with family and friends when it is announced that a nuclear war has begun. Andrei Tarkovsky shot the film in Sweden, in Swedish, and gave it 149 minutes; the catastrophe stays a report rather than a spectacle. There is no rescue to organise and nowhere to drive to, so what fills the time is a small group of adults discovering how fast manners come apart and what people reach for once reason has stopped being any use. Cannes awarded it the Grand Prix, Sweden its Guldbagge for best film. What holds the film is the bargaining that follows the announcement, conducted in undertones and mostly with no one listening.",
+  "model": "claude-opus-5",
+  "source_sha256": "b236a8011f27a11f81a2106617dc251bfeb8cf225b63ef073b0691a82575d965"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-woman-who-left-2016",
+  "field": "lead",
+  "film_id": "b2303a9b-9019-4451-bebe-d74283be0df3",
+  "lang": "en",
+  "text": "Three decades were served for a murder she did not commit, and the film opens near the end of that sentence. Her freedom arrives through someone else's confession rather than any court's second thought. Released, she goes looking for the man who arranged it, a former lover with money and standing, the sort whose account of things was believed. Lav Diaz gives the search 229 minutes, and the length is the argument: a wrong that old cannot be answered in a scene, so the film measures it out in walking, in waiting, in hours no summary can compress. Slow cinema is the label, but nothing here is idle. The time is the sentence being served a second time, now outdoors, by a woman who has to work out what she is actually after. Venice gave it the Golden Lion, and a Grand Jury Prize sits alongside it.",
+  "model": "claude-opus-5",
+  "source_sha256": "3980fd7d5eab21350300745f433c26d5cd910bd0fb4820a8b75da296052cf4ed"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-descendants-2011",
+  "field": "lead",
+  "film_id": "1d9a5437-5f00-4903-85f0-91e29aece2f0",
+  "lang": "en",
+  "text": "Hawaii here is not a vacation but a family's landholding, which is a different kind of place to live. Matt King is the land baron in question; his wife is unconscious after a boating accident, and his daughters are near-strangers he now has to drive around and talk to. Alexander Payne runs the two crises in parallel, the land to be dealt with and a marriage to be reassessed by a man learning late what it contained, and lets the comedy come from bad timing rather than from jokes. The daughters are along for all of it, which turns a private humiliation into a family errand. Nothing is settled in a speech. The film was widely seen and heavily honoured, at the Academy and by the Los Angeles critics, which can obscure how unsentimental it is: 115 minutes of hospital corridors, island flights and conversations that arrive in the wrong order.",
+  "model": "claude-opus-5",
+  "source_sha256": "b6af54e7d90f8394a5cca24e8fdbdd5feb83379c83394f8e2ca198f99910d0b4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "if-1968",
+  "field": "lead",
+  "film_id": "dca72931-eda8-4313-bb67-fb5d50e9dead",
+  "lang": "en",
+  "text": "A boarding school teaches obedience, and what its senior boys learn from it is how to administer pain. The masters are remote and largely beside the point; power sits with prefects in the Upper Sixth, held the way small officials hold it, through rules, inspection and a licence to punish. Three boys a year below them, Wallace, Johnny and Mick Travis, stop consenting. Lindsay Anderson made the film in Britain in 1968, and its attention goes to the ritual rather than the revolt: corridors, uniforms, rank, punishment issued on a timetable. Most of its length is spent on that timetable rather than on the plan, which arrives as a consequence of it. 112 minutes, the Palme d'Or, a place on the BFI's list of British films. The unnerving part is how ordinary the machinery looks while it produces exactly what it is built to produce.",
+  "model": "claude-opus-5",
+  "source_sha256": "f7c1c5463622efbabb3ec1e99a612700aa1d6eb88f9fef44cc23b69c54d303c1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mr-deeds-goes-to-town-1936",
+  "field": "lead",
+  "film_id": "787caaba-79bd-4231-b249-53643ed394fa",
+  "lang": "en",
+  "text": "A man comes into a fortune and declines to behave like it, which is what sets everyone else in motion. Longfellow Deeds keeps to a small-town life until a relative's death makes him rich; in the city he is worked over at once by lawyers, reporters and claimants who read his plainness as either a performance or a symptom. Frank Capra directed it in 1936, and the comedy runs on that misreading rather than on the usual business of a country boy among skyscrapers. Deeds is not slow, he is unimpressed, and being unimpressed by money is the one thing this city cannot process. Then Babe Bennett arrives under false colours. The National Board of Review put it first that year, and the Academy honoured the direction. 115 minutes, much of it spent watching people work to establish that a decent man must be up to something.",
+  "model": "claude-opus-5",
+  "source_sha256": "901ebe810d2acb60906fdcb425d0d6a459d33b9353fd63e8ed8e34d6c06457ff"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "darling-1965",
+  "field": "lead",
+  "film_id": "36be3c66-fb2b-44af-8ff3-79f59f1c9ab1",
+  "lang": "en",
+  "text": "Diana wants to be famous and is not particular about the route. A model and a failed actress, she moves through London in 1965, taking up and putting down the men who can move her along, and John Schlesinger declines to make her either a victim or a monster, which is the film's discipline. Swinging London is the setting, and the film is cool about it: parties photographed as work, work photographed as obligation. What it notices instead is boredom, how fast the pursuit of attention becomes a job with no hours, and how someone trained to be looked at can lose the habit of wanting anything in particular. 128 minutes, black and white, the clothes and the camera both busy. The lead performance carries an Academy Award for best actress, the costumes another, and the film sits on the BFI's hundred British films.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf5ae6851d381310f8e8dcd189dfee69244b5f3aba514cd463b2785dba3ee090"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "four-weddings-and-a-funeral-1994",
+  "field": "lead",
+  "film_id": "21328afb-644a-4607-bbdf-54c345b87da3",
+  "lang": "en",
+  "text": "A romantic comedy that only attends ceremonies and skips everything in between. Five social occasions, and the courtships, drift and silences that matter all happen in the gaps the film declines to show. Mike Newell uses that structure as a machine for embarrassment: the same friends assembled again in formal clothes, seated in pews, made to give speeches, required to behave while their private lives come apart off camera. At the centre is a bachelor obliged to consider that he may be in love, which he manages by talking. 117 minutes, and the pacing works like a guest list, since whoever is in the room decides what can be said. It carries a BAFTA for best film and Academy recognition for its script, and it appears on the BFI's British list. The writing's method is small: a word repeated once too often, an apology four scenes late.",
+  "model": "claude-opus-5",
+  "source_sha256": "e765acb02bdd00e706ce2c19b22b8f5d03bbb3ce8de60bac5d0f542c1c0720ec"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "capote-2005",
+  "field": "lead",
+  "film_id": "f16b8f53-8f71-4131-8a9c-6082ef2a79cb",
+  "lang": "en",
+  "text": "What begins as a magazine assignment becomes a debt the writer keeps borrowing against. Truman Capote takes a job from The New Yorker about a murder, and the non-fiction book it grows into, In Cold Blood, needs much more than a reporter's week: access, trust, the sustained goodwill of the people whose account the book cannot do without. Bennett Miller's film is about that transaction and mostly refuses to soften it. Charm is documented here as a working tool, deployed in rooms where its use costs someone something. 114 minutes, quiet, largely conversation. The lead performance took an Academy Award, a Gotham award went to the film, and the National Society of Film Critics named it the year's best picture. The discomfort is not that a writer used people; it is how much craft the using required.",
+  "model": "claude-opus-5",
+  "source_sha256": "f716de0322cb215d05eed0cef40aa1fe80f4fd398fdce7f6382460581f964f40"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-wedding-banquet-1993",
+  "field": "lead",
+  "film_id": "421a6ee5-6e6f-446f-a65c-47e127afcb56",
+  "lang": "en",
+  "text": "The plan is tidy: one fake wedding solves three problems at once. A Taiwanese man settled happily in New York with his American boyfriend needs his parents to stop asking; a Chinese woman needs a green card; a marriage on paper obliges nobody. Then the parents fly in for the ceremony, and Ang Lee lets the arrangement do what arrangements do, which is expand, collect obligations and demand rehearsal. Comedy of manners is the mode, and the manners belong to two households that cannot both be satisfied. 108 minutes of hospitality as pressure: the banquet has to be large, the toasts have to be made, and every courtesy paid to the family is another statement no one can take back. Berlin gave it the Golden Bear, the Golden Horse hundred greatest Chinese-language films took it in, and so did the National Film Registry. It is funny the way a held breath is funny.",
+  "model": "claude-opus-5",
+  "source_sha256": "9ba3bf4cafd0f05edb97cec509f4d217d612c3832806aae2eecf8ce24d013454"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "blow-up-1966",
+  "field": "lead",
+  "film_id": "b6561095-86b7-4671-8669-abeb62b41c64",
+  "lang": "en",
+  "text": "A photograph enlarged far enough stops being evidence and turns into grain. A fashion photographer in mid-sixties London, with his models and pop records and easy sex and a boredom he has no name for, shoots one afternoon and finds afterwards something in the frames he did not see at the time. Michelangelo Antonioni gives the film 111 minutes and does its real work at a wall of prints, each blown up from the last, the image giving back less the more of it there is. The mystery is real; solving it is not what holds him. What the enlargements introduce is doubt, and the doubt spreads outward to the fashion work, the parties, the whole agreeable surface of a photographer's day. Cannes gave it the Palme d'Or, the BFI counts it among British films, and the National Society of Film Critics called it the year's best picture.",
+  "model": "claude-opus-5",
+  "source_sha256": "09fda8308edfc01f304121e0b58ae1a93af340e48d69816da4d7195bffdd0c22"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-quiet-man-1952",
+  "field": "lead",
+  "film_id": "4d696bfa-6e67-4e5d-b935-41afaddd1b0e",
+  "lang": "en",
+  "text": "Two Academy Awards for colour went to this Irish village romance, one for the photography and one for the sets. An American returns to the village where he was born, and the landscape is a large part of the case for staying. John Ford made it in 1952 as a comedy with a fight inside it, 129 minutes in which a man discovers that a village has procedures, and that love in such a place is public business conducted in front of neighbours who all have standing and opinions. The conflict is the kind a village produces: not a villain so much as a way things are done, which is harder to face down. The Directors Guild called it the year's best feature, the National Board of Review put it at the top of its list, and Ford took the Academy Award for direction.",
+  "model": "claude-opus-5",
+  "source_sha256": "6728fb6be14671bd1ba6754992c133ee5e489730c2398157d73c742c7ff835a5"
+ }
+]

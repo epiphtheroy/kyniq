@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-s-name-as-title-and-trap",
+  "field": "title",
+  "lang": "ko",
+  "text": "제목이 된 여자의 이름, 그리고 덫",
+  "model": "claude-opus-5",
+  "source_sha256": "6894821bc188273e668689110bec91dc95b2b788a45f0bd01e58f909864ea734"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-sculpted-by-another-s-hands",
+  "field": "title",
+  "lang": "ko",
+  "text": "남의 손이 빚어낸 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "0a39a7c5d08d08221949f5bf956335deddfb64b250b27761b4eae6d7279c218e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-sculpted-by-men-s-honor",
+  "field": "title",
+  "lang": "ko",
+  "text": "남자들의 명예가 깎아낸 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "aa78841d22c1b985d1b97aabd97f6d2e6ad6b540afba91d62e5aade4a69f9ef2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-taxed-by-the-reputation-economy",
+  "field": "title",
+  "lang": "ko",
+  "text": "평판 경제가 여자에게 물리는 세금",
+  "model": "claude-opus-5",
+  "source_sha256": "bf4aa0d5b20ea699c994612a72f9885d59d77fd5c06c763aa790898e06111791"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-who-authored-her-own-confinement",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 갇힘을 손수 쓴 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "0bbc8bd85bf0b2e0fb06aeab8078c87db57ddfae0f18cc827c2cf1ca0f726acd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-who-authors-her-own-desire",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 욕망을 제 손으로 쓰는 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "353b2a4eb7f16f0276fc8055271abc877a201aa68897afe979f960fa70b3ac91"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-who-became-her-sacrifice",
+  "field": "title",
+  "lang": "ko",
+  "text": "희생 그 자체가 되어버린 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "0a371ac65bbd52937c530da2ea92eb790edff072b9a1d1c5c0c1ba77f48977db"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-who-chooses-power-over-rescue",
+  "field": "title",
+  "lang": "ko",
+  "text": "구원 대신 권력을 고른 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "326686f09e79b58b92052f75eec9fbacb68227206aac8c69f57d3e0c48dd2caa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-who-courts-her-own-undoing",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 파멸에 스스로 다가서는 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "0e44abaa42fb4a7521d671ccf8c7b38df52cff148d15c2cce18b6844b2682bcb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-who-doubles-and-dissolves-the-original",
+  "field": "title",
+  "lang": "ko",
+  "text": "원본을 겹쳐 쓰고 지워버리는 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "f76954ef1db637558ddb2ed31421230448d3229bde58d8a67590f9e221464959"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-who-frees-herself-as-modern-heroine",
+  "field": "title",
+  "lang": "ko",
+  "text": "스스로를 풀어놓는 여자, 근대의 주인공",
+  "model": "claude-opus-5",
+  "source_sha256": "1b178ca1933ee683056fa99a6ff03ff9586e5b8dbdd203f7e8b0f75b7427e7fb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-who-funds-the-genius-and-vanishes",
+  "field": "title",
+  "lang": "ko",
+  "text": "천재의 뒤를 대고 사라진 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "c6ba0f0e2ed67806dd3ad8a38f39dad24e447b30efebcb5262a4d0c52b6c5951"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-who-indicts-the-house-she-serves",
+  "field": "title",
+  "lang": "ko",
+  "text": "섬기던 집을 고발하는 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "14af69218c3f4fee2f20a6177dc391de03c77d982435407599d60632e641c0ba"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-who-is-the-man-s-externalized-appetite",
+  "field": "title",
+  "lang": "ko",
+  "text": "밖으로 튀어나온 남자의 욕구, 그 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "2b875a989c5ecda0a90606517f6d3934c9bc4722bfea738c265a25b18c3aa84b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-who-knows-what-the-film-disavows",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화가 모른 척하는 것을 아는 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "c0299cc1cd80c2c569906fce03af4cd6a7781a280e9ccb96e0d62b0171c43849"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-who-must-be-murdered-to-stay-normal",
+  "field": "title",
+  "lang": "ko",
+  "text": "정상으로 남으려면 죽여야 하는 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "10096b10a18b03cbd4a1fd667a156d9dca5433a6f78a54bfae4beb1c32e1d48f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-who-reveals-the-withheld-key",
+  "field": "title",
+  "lang": "ko",
+  "text": "감춰둔 열쇠를 꺼내 보이는 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "cca7387f7eed7639637bd9a96b79fbc071ccf8a758ec6e16855db55080323d02"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-who-seals-herself-in-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "상처 안에 스스로를 가둔 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "7c53d4cf7889f8e1414738184116ba2099cb539cb79ee66a07a105aa609be301"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-who-seizes-the-gun",
+  "field": "title",
+  "lang": "ko",
+  "text": "총을 빼앗아 쥔 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "370dc09c563b01ae1e132473b1b5157830183834d7edd958d3ec0199921de395"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-who-vanishes-as-structuring-absence",
+  "field": "title",
+  "lang": "ko",
+  "text": "사라짐으로 구조를 세우는 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "8f73189e467693f756c2c0bae9821dac75f0c1b08879732d32a91a4a0675e89b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woman-whose-wit-is-her-armor",
+  "field": "title",
+  "lang": "ko",
+  "text": "재치를 갑옷 삼은 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "7c3118f474db3ee9ea8f2a56a4daf9a34e71dcbd51c02e116ae4b8fd12ee456f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-womb-as-patriarchal-sovereign-territory",
+  "field": "title",
+  "lang": "ko",
+  "text": "가부장 주권이 다스리는 영토, 자궁",
+  "model": "claude-opus-5",
+  "source_sha256": "b9edf326464b8ce2116c61703b9457a9a64fb09cc2de4ca7a32f87fd28e6f52f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-womb-that-carries-its-own-tomb",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 무덤을 밴 자궁",
+  "model": "claude-opus-5",
+  "source_sha256": "2cd08d2a84134243f5d73435a8d9d0559c34d0bb65dfd357a3d449b5a28c005c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-womb-that-imprisons-by-nurturing",
+  "field": "title",
+  "lang": "ko",
+  "text": "기르면서 가두는 자궁",
+  "model": "claude-opus-5",
+  "source_sha256": "bdff5bdf592ffed683a99011eb7ee7e9e06be82619880e3202b29b9d8a32f473"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-women-s-army-and-the-ethics-of-reclaimed-vengeance",
+  "field": "title",
+  "lang": "ko",
+  "text": "여자들의 군대, 되찾은 복수의 윤리",
+  "model": "claude-opus-5",
+  "source_sha256": "4318469b49de1bb23bde6aa5ee4567ecd8d8eea416dac21b4ba16073db7f2379"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-woolfian-drowning-beneath-the-surface",
+  "field": "title",
+  "lang": "ko",
+  "text": "수면 아래 울프식 익사",
+  "model": "claude-opus-5",
+  "source_sha256": "e2b38e558ee75ded7a8ba8c8cea7afd317087e9e03ce4a579ec994fffc2b275b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-word-that-betrays-the-life",
+  "field": "title",
+  "lang": "ko",
+  "text": "삶을 배신하는 한마디",
+  "model": "claude-opus-5",
+  "source_sha256": "0afd304d3988133d34b37d8d868d969fe4cbcf3d08db5136c2ad91201ef82b96"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-word-timely-as-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "자백이 되어버린 말, ‘시의적절’",
+  "model": "claude-opus-5",
+  "source_sha256": "7b6d0fb08f08084b80d428ab286e3c074c6a1a3dd0aeed37fd13279035c2eb92"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wordless-hum-as-absent-mother",
+  "field": "title",
+  "lang": "ko",
+  "text": "가사 없는 흥얼거림, 부재하는 어머니",
+  "model": "claude-opus-5",
+  "source_sha256": "a0d9ce22d7bb09ffb3321c2990d3e16052e0aa253962e9b1082ff094f08879d9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wordless-woman-carries-the-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "고백을 짊어진 말 없는 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "33925cffe1dca5d132196f0bde2ec0c273e260c7a9e735f2af12c5250ac80db5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-work-of-mourning-and-its-limit",
+  "field": "title",
+  "lang": "ko",
+  "text": "애도라는 노동, 그 한계",
+  "model": "claude-opus-5",
+  "source_sha256": "c123c841b8abd5f1cc0274debe17883e4950210253c534febfb67cf481cfb648"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-worker-as-consumed-commodity",
+  "field": "title",
+  "lang": "ko",
+  "text": "다 쓰고 버려지는 상품, 노동자",
+  "model": "claude-opus-5",
+  "source_sha256": "1824e079bbe9773b3331ab91d46f51b1206201e242fc0037269f26b0588be332"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-worker-as-disposable-interchangeable-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "갈아 끼우면 그만인 몸, 노동자",
+  "model": "claude-opus-5",
+  "source_sha256": "4bbb579fc7d04f9943ae55ac5c4c59d30039277aa4de094dfa891053f6a83f96"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-world-already-dead-before-death",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽기 전에 이미 죽은 세계",
+  "model": "claude-opus-5",
+  "source_sha256": "dd0e4346b4faf420c2372735279fdfae4f4a96108eb3dfddcf462d82a737e35c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-world-as-total-disciplinary-machine",
+  "field": "title",
+  "lang": "ko",
+  "text": "세계 전체가 하나의 규율 기계",
+  "model": "claude-opus-5",
+  "source_sha256": "007e3eff3faa9fab42e563ed7e0eb3c70dffa0627dcaeac6a779d0043dcae77c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-world-emptied-of-its-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "주체가 빠져나간 세계",
+  "model": "claude-opus-5",
+  "source_sha256": "5fcd58ebb92f7cb65e775218504a4a478dfba93d459ecc182c34607cdfb6429c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-world-itself-as-invisible-prison",
+  "field": "title",
+  "lang": "ko",
+  "text": "세계 자체가 보이지 않는 감옥",
+  "model": "claude-opus-5",
+  "source_sha256": "1fc7b4513b662714b7160edcb5709a3685ba0fb4cd3d1127a8a777bb8d71b0f0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-world-poisoned-before-the-curtain-rose",
+  "field": "title",
+  "lang": "ko",
+  "text": "막이 오르기 전에 이미 썩은 세계",
+  "model": "claude-opus-5",
+  "source_sha256": "4e850691baf27a322805d6054e13b8bfbe93f3f32285ce131dc951a95d62df16"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-world-that-continues-past-its-own-damnation",
+  "field": "title",
+  "lang": "ko",
+  "text": "파멸을 지나서도 이어지는 세계",
+  "model": "claude-opus-5",
+  "source_sha256": "61dc6e68fe30ada17deb98bed6ab5295c474261e7f128b365def9b38227315f5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-world-that-has-no-outside",
+  "field": "title",
+  "lang": "ko",
+  "text": "바깥이 없는 세계",
+  "model": "claude-opus-5",
+  "source_sha256": "7b7f924df442361248693d6baf9005eb6e5b343bfd717a020bb72acc7bd9b8a4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-world-that-sorts-bodies-as-disposable",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸을 소모품으로 분류하는 세계",
+  "model": "claude-opus-5",
+  "source_sha256": "a259d439ff29b8d4b9b937a89c3247317eeeea47df9ee9e6f6220b459b1a930f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-world-that-waits-to-be-read",
+  "field": "title",
+  "lang": "ko",
+  "text": "읽히기를 기다리는 세계",
+  "model": "claude-opus-5",
+  "source_sha256": "fc5bb994eabfd63e66162ef4457295d87f3cefb6da7bad3b6261177c36efc4cc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-world-with-no-ground-of-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "진실이 딛고 설 바닥이 없는 세계",
+  "model": "claude-opus-5",
+  "source_sha256": "8d14b0c34d0168495919a9dedc2ad97dbadafc9bbf9d104aef383c58a83c9293"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-world-with-no-original-only-surface",
+  "field": "title",
+  "lang": "ko",
+  "text": "원본은 없고 표면만 남은 세계",
+  "model": "claude-opus-5",
+  "source_sha256": "ec8ffdc65c0129f2ac03ea6302923266c5e8770accd2348260619a3d6acc08d9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-worldly-witness-who-recognizes-her-hunger",
+  "field": "title",
+  "lang": "ko",
+  "text": "그 여자의 허기를 알아보는 세속의 목격자",
+  "model": "claude-opus-5",
+  "source_sha256": "d6792aa1cc845f250a58970b9d01b6e0420e3c7a80b979e7dd56d8bb983270bb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-worth-that-resists-its-own-price",
+  "field": "title",
+  "lang": "ko",
+  "text": "제게 붙은 값을 거부하는 가치",
+  "model": "claude-opus-5",
+  "source_sha256": "a35dbefe21a544b267e8e1f7b20ef9d92854d770e8646376591ff176f1a9c183"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wound-as-confession-the-mouth-cannot-speak",
+  "field": "title",
+  "lang": "ko",
+  "text": "입이 못 하는 고백, 상처",
+  "model": "claude-opus-5",
+  "source_sha256": "d8ddcd0f9ae44ee1bc15b0897ac29bff4c4e2d6c1593be4a563963e72c5ff19d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wound-as-erogenous-mouth",
+  "field": "title",
+  "lang": "ko",
+  "text": "성감대가 된 입, 상처",
+  "model": "claude-opus-5",
+  "source_sha256": "4245de945a23a3df3b483a7f338ad103bce4241ea221a411ac111bbafa9511f2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wound-as-source-of-power",
+  "field": "title",
+  "lang": "ko",
+  "text": "상처에서 나오는 힘",
+  "model": "claude-opus-5",
+  "source_sha256": "a1a2970d919be3c67cd730c933d276824cc5a9106fa300153a5d3df984ceb76e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wound-as-the-body-s-only-honest-speech",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸이 정직하게 내는 유일한 말, 상처",
+  "model": "claude-opus-5",
+  "source_sha256": "f86a0f8cee3d6c01694721daebbee09e5fc8587a44da8fcd9a335dd5e84cb430"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wound-carved-to-be-read",
+  "field": "title",
+  "lang": "ko",
+  "text": "읽히라고 새긴 상처",
+  "model": "claude-opus-5",
+  "source_sha256": "631aa07d13d17dbf00a51e8606e0a4516d301a776a3812ff93c8f02bca1b3a44"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wound-made-real-in-the-flesh",
+  "field": "title",
+  "lang": "ko",
+  "text": "살에 새겨져 실재가 된 상처",
+  "model": "claude-opus-5",
+  "source_sha256": "0d21eaf96d407a3c65d7ddbd8b57859ee762bb23c21ea22712e157b40d86da65"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wound-of-the-abandoned-mother",
+  "field": "title",
+  "lang": "ko",
+  "text": "버려진 어머니의 상처",
+  "model": "claude-opus-5",
+  "source_sha256": "3076d0c0aa20cdeb26e911f874557aac26dafefa103e84073db825da2c4fad48"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wound-read-as-castration",
+  "field": "title",
+  "lang": "ko",
+  "text": "거세로 읽히는 상처",
+  "model": "claude-opus-5",
+  "source_sha256": "04cd8d7998a40c79b970b79319cc5e910796a805f3ab5e5b74bc84db7f802349"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wound-refusing-spectacle",
+  "field": "title",
+  "lang": "ko",
+  "text": "구경거리가 되기를 거부하는 상처",
+  "model": "claude-opus-5",
+  "source_sha256": "13dd16b5a82ec42922aef09907283ea03601cfdb28fa31d5081a42fd612a4379"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wound-that-composes-itself-into-music",
+  "field": "title",
+  "lang": "ko",
+  "text": "스스로 음악이 되는 상처",
+  "model": "claude-opus-5",
+  "source_sha256": "8197b37aa0a85aafbcb701137a5efe03d8a23aa462067da137dbb664652d7456"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wound-that-refuses-to-forget",
+  "field": "title",
+  "lang": "ko",
+  "text": "잊기를 거부하는 상처",
+  "model": "claude-opus-5",
+  "source_sha256": "b838ee177552cc960edec7a2464027802bb7e2e12f1e5edb8db48118941f89e5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wounded-eye-as-castration-s-cipher",
+  "field": "title",
+  "lang": "ko",
+  "text": "상처 입은 눈, 거세의 암호",
+  "model": "claude-opus-5",
+  "source_sha256": "ba7ce2bf96a56550465b591880b354a7b66f76e204ea81f4db373769c89ce9b2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wounded-voice-that-cannot-get-the-words-out",
+  "field": "title",
+  "lang": "ko",
+  "text": "말이 목에 걸린 상처 입은 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "7729b8c1ee7499df157941f7bdffe6eb01de2eb8f65d57b70b8615638efa5a0a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-writer-paralyzed-by-his-own-inertia",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 타성에 마비된 작가",
+  "model": "claude-opus-5",
+  "source_sha256": "770c13dea7712687966a092368bde7e62c2e258254d96e048dcdf34d106148c0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-writer-who-writes-from-the-dead-he-loved",
+  "field": "title",
+  "lang": "ko",
+  "text": "사랑한 죽은 이들에게서 길어 올리는 작가",
+  "model": "claude-opus-5",
+  "source_sha256": "d9b9a4836bdc2ee40f002b08e1afab20d4269fb6e84239a9ad234a7bf693582d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-writer-whose-subject-is-his-own-failure-to-write",
+  "field": "title",
+  "lang": "ko",
+  "text": "쓰지 못함을 주제로 삼는 작가",
+  "model": "claude-opus-5",
+  "source_sha256": "c1773b4321a9ee0cf7c87537d6bdbc28be5ced5eb86d2aa6bc8f68bf5c40a2f8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-written-page-that-authors-the-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "자아를 써내는 원고지",
+  "model": "claude-opus-5",
+  "source_sha256": "da1e0a7de4b1e405223cf0a1da07647b9cd44a0b38c91c112ccea56519f2d846"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-yakuza-as-liquidation-of-postwar-selfhood",
+  "field": "title",
+  "lang": "ko",
+  "text": "전후의 자아를 청산하는 야쿠자",
+  "model": "claude-opus-5",
+  "source_sha256": "081977482d0bd4fda7dd71850dd1520f6ef60d9f7e10e30d528adc1ab3a5f0e5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-year-of-release-as-loaded-timestamp-in-the-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "화면에 박힌 개봉 연도, 장전된 시간표",
+  "model": "claude-opus-5",
+  "source_sha256": "76fa66065544311ab3e395e6464e19c26c3eb4bb09f17d175d2ff5ad5a994e57"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-years-of-failure-are-the-real-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "실패로 보낸 세월이 진짜 주제다",
+  "model": "claude-opus-5",
+  "source_sha256": "5b93b62f52d1387e6903e6684778683589b03b632833d6ea3f83a9cbcf057ec0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-zigzag-hill-path-as-kiarostami-s-signature",
+  "field": "title",
+  "lang": "ko",
+  "text": "지그재그 언덕길, 키아로스타미의 서명",
+  "model": "claude-opus-5",
+  "source_sha256": "d1e929c23d0b9e162d1b0e5aa447b439b93ea0d4050ff038b8594dbdd07b705a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-zone-as-mutated-interior-code",
+  "field": "title",
+  "lang": "ko",
+  "text": "변이한 내면의 코드, 존",
+  "model": "claude-opus-5",
+  "source_sha256": "a2dca228fe5f53afb618786147c2bc7ff64a6b0bf552965aaada38426968ede7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-zoom-that-betrays-the-looking-eye",
+  "field": "title",
+  "lang": "ko",
+  "text": "바라보는 눈을 배신하는 줌",
+  "model": "claude-opus-5",
+  "source_sha256": "95c5ab2f4fb3208a32d4dae7c962cc051a149d5194d0a5b75eb8dfbfc262aaac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "theft-as-claim-against-property-s-law",
+  "field": "title",
+  "lang": "ko",
+  "text": "소유의 법에 맞선 권리 주장, 절도",
+  "model": "claude-opus-5",
+  "source_sha256": "815c242cbf203a2ef0c38133eab1ae94e86facd5c3b367880dda5dca6f5af948"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "theft-as-speech-and-sacred-act",
+  "field": "title",
+  "lang": "ko",
+  "text": "말이자 성사(聖事)인 절도",
+  "model": "claude-opus-5",
+  "source_sha256": "d52be7b43a4b2c94676759c261d58467d5668e2fcb4a27d487ad3c8ad8ee1559"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "theft-as-the-logic-of-capital-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "절도야말로 자본의 논리",
+  "model": "claude-opus-5",
+  "source_sha256": "f244d38882f4d750cfbf1b25f5f6e66c9a4978d03e240bf97a86c37e04e20e57"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "theme-and-variation-as-the-only-structure",
+  "field": "title",
+  "lang": "ko",
+  "text": "주제와 변주, 그것뿐인 구조",
+  "model": "claude-opus-5",
+  "source_sha256": "31981f90a902b55cbd3856a9c3d07cae264156389aee0d88c1998bdd6e62ccf8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "therapeutic-capital-privatizes-the-cure-for-pain",
+  "field": "title",
+  "lang": "ko",
+  "text": "고통의 치료를 사유화하는 치유 자본",
+  "model": "claude-opus-5",
+  "source_sha256": "2d3246073063ba235bd128a35adcb17caf755dbc9c75818d2201889b103ad512"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "there-is-no-couple-only-mirrors",
+  "field": "title",
+  "lang": "ko",
+  "text": "연인은 없다, 거울만 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "acc98b9b1d0e19604e1026d81a481f09e1d6c8618a0a8e0cc645254cc11c3426"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "there-is-no-self-behind-the-broadcast",
+  "field": "title",
+  "lang": "ko",
+  "text": "방송 뒤에 자아는 없다",
+  "model": "claude-opus-5",
+  "source_sha256": "7325bbb4d55b404ec80e1124d38adcc11d049e4e98d4d23211d87480c481c025"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "there-is-no-self-without-the-other",
+  "field": "title",
+  "lang": "ko",
+  "text": "타자가 없으면 자아도 없다",
+  "model": "claude-opus-5",
+  "source_sha256": "845e9e45b18bdea34e5f958e410d60d7d9fb42acdf7dc3fbed7d320b9c284d24"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "this-place-standing-in-for-that-frontier",
+  "field": "title",
+  "lang": "ko",
+  "text": "저 변경을 대신 연기하는 이곳",
+  "model": "claude-opus-5",
+  "source_sha256": "2e8d3c57bfd8c6977b2a5e949d3b24a20ca1826aca34e8cc9f42e5b563b04ed4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "this-place-stands-in-for-eden",
+  "field": "title",
+  "lang": "ko",
+  "text": "에덴을 대신하는 이곳",
+  "model": "claude-opus-5",
+  "source_sha256": "efe5fd835548c0344b5f31cea6273c2b27140e419f10fb94c4d4f09d4cc715e8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "time-itself-as-the-antagonist",
+  "field": "title",
+  "lang": "ko",
+  "text": "시간, 그 자체가 적수",
+  "model": "claude-opus-5",
+  "source_sha256": "b654bab25956038e0e649fc55d4c78bb3a70354a97016d869239d5353845c687"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "time-sculpted-in-the-patient-drift",
+  "field": "title",
+  "lang": "ko",
+  "text": "느린 표류로 깎아낸 시간",
+  "model": "claude-opus-5",
+  "source_sha256": "c8824a69854ba4f933a2f1e2dff86ee6eb3844d2df2cfdc42b77794ffe0c85de"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "to-be-a-killer-rather-than-a-dier",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽는 쪽 말고 죽이는 쪽",
+  "model": "claude-opus-5",
+  "source_sha256": "f0d6f54ae6bebd4f709ed80db1e0e1adc55586e4e505febfe65fa06855a047a5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "to-be-watched-is-to-be-made-a-thing",
+  "field": "title",
+  "lang": "ko",
+  "text": "보이는 순간 사물이 된다",
+  "model": "claude-opus-5",
+  "source_sha256": "7aefba96976c1095bea472abac80c4da1afd7355d965760c428c6e760dd7439f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "to-choose-the-death-already-scripted",
+  "field": "title",
+  "lang": "ko",
+  "text": "이미 쓰인 죽음을 골라잡기",
+  "model": "claude-opus-5",
+  "source_sha256": "2389fea03ba1edbb3c6eed0bd4d95a1fd58cc76ab3a7c95ff872515af0f28ff7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "to-comprehend-evil-is-to-consent",
+  "field": "title",
+  "lang": "ko",
+  "text": "악을 이해하면 동의한 것이다",
+  "model": "claude-opus-5",
+  "source_sha256": "fb6befa5818bbe2f1ef632ef577aede4db85088da299252fa87e0a00763d498d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "to-flee-is-to-be-pure-verb",
+  "field": "title",
+  "lang": "ko",
+  "text": "달아나는 동안에는 순수한 동사",
+  "model": "claude-opus-5",
+  "source_sha256": "e920411735e32805e9ea995d09ba65eba11b72500281e78989013e01cdbedaf8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "to-kill-so-that-killing-will-not-happen",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽임을 막으려 죽인다",
+  "model": "claude-opus-5",
+  "source_sha256": "3ca62ed7f496084344c023d91d591571a12feeb9a107af6c3abdd16557ee2be8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "to-name-her-is-to-take-her",
+  "field": "title",
+  "lang": "ko",
+  "text": "이름을 붙이는 것이 곧 차지하는 것",
+  "model": "claude-opus-5",
+  "source_sha256": "199f51616f84e042473345ca7e59544a2b3e8568cf2a713fd6040ca27767a7c2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "to-relinquish-is-the-highest-care",
+  "field": "title",
+  "lang": "ko",
+  "text": "놓아주는 것이 가장 높은 돌봄",
+  "model": "claude-opus-5",
+  "source_sha256": "0c13a0e75a880f385e6f051608395650a0c27dec15c2bd5cfa6b6dee098e40e7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "to-watch-the-replay-is-to-stand-trial",
+  "field": "title",
+  "lang": "ko",
+  "text": "되감아 보는 일이 곧 재판정에 서는 일",
+  "model": "claude-opus-5",
+  "source_sha256": "2c3201650d6bcadd0ada6919da257570dc625d49bdf29823d6d0003c37bfe62e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "tokyo-as-fabricated-hyperreal-city",
+  "field": "title",
+  "lang": "ko",
+  "text": "지어낸 하이퍼리얼 도시, 도쿄",
+  "model": "claude-opus-5",
+  "source_sha256": "1fee01d6aaa299f828e5b15bc55d6ea87e1097097c88e242af8f2ad5d5557fd4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "tokyo-s-real-topography-smuggled-into-fiction",
+  "field": "title",
+  "lang": "ko",
+  "text": "허구 속으로 밀반입된 도쿄의 실제 지형",
+  "model": "claude-opus-5",
+  "source_sha256": "e3a0342100624bcde7f034d370ec8ee73904ef96e99708ee1368cfd11688c4f3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "toledo-as-spain-s-embalmed-wounded-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "방부 처리된 스페인의 상한 몸, 톨레도",
+  "model": "claude-opus-5",
+  "source_sha256": "7754c0e3b4a6e9a3de104d104d0da5e5a1ffbfe4cdec69f5d2f772cdceb5deb8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "tonal-cold-as-aesthetic-strategy",
+  "field": "title",
+  "lang": "ko",
+  "text": "차가운 톤이라는 미학적 전략",
+  "model": "claude-opus-5",
+  "source_sha256": "0b53c9a8bdbc7e9d1fbf147047c25f8ce6fe29b2ae2fb4ed295811c3cdbaa523"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "tonal-whiplash-as-deliberate-authorial-weapon",
+  "field": "title",
+  "lang": "ko",
+  "text": "작가가 벼려 쓴 무기, 톤의 급전환",
+  "model": "claude-opus-5",
+  "source_sha256": "ae3233dd5c19fc8bea4955f2a4c5335b05b1310c5146a11087d195e474a3d533"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "toronto-cast-as-anonymous-elsewhere",
+  "field": "title",
+  "lang": "ko",
+  "text": "이름 없는 어딘가로 캐스팅된 토론토",
+  "model": "claude-opus-5",
+  "source_sha256": "f43db865dbfae081096fbdcabc408db1e5102ae8087a552a449cdbca56aba747"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "torture-as-america-s-disavowed-self-portrait",
+  "field": "title",
+  "lang": "ko",
+  "text": "미국이 부인한 자화상, 고문",
+  "model": "claude-opus-5",
+  "source_sha256": "360129d79e17a8a2b8135609d92d4c347263d31851f1fabd9f7fef39f6cf1728"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "torture-as-the-ticking-bomb-alibi",
+  "field": "title",
+  "lang": "ko",
+  "text": "째깍이는 폭탄이라는 고문의 알리바이",
+  "model": "claude-opus-5",
+  "source_sha256": "bb8c9e7f7de35f3414584b626b802c78fd8e6d39e9787fc86997fbcd0913848d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "total-control-drawn-over-a-void",
+  "field": "title",
+  "lang": "ko",
+  "text": "공허 위에 그려 넣은 전면 통제",
+  "model": "claude-opus-5",
+  "source_sha256": "d946c73857089172a4f21c4111acf94014912fd50cdb7bbddd1b17eae4a29333"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "touch-and-wounding-as-one-act",
+  "field": "title",
+  "lang": "ko",
+  "text": "쓰다듬는 일과 베는 일이 한 동작",
+  "model": "claude-opus-5",
+  "source_sha256": "7c63a1a04da84439b5005478d67b5864bb54b418bf19c9a96603e001e2d745a5"
+ }
+]

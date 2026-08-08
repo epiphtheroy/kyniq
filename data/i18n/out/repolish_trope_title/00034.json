@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-place-cast-as-elsewhere",
+  "field": "title",
+  "lang": "ko",
+  "text": "다른 곳 역을 맡은 실재의 장소",
+  "model": "claude-opus-5",
+  "source_sha256": "1e7d7d2cee206a324e9ddbe75b76a3dad5fc0ea74cbf4ef59ed706261fd976b3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-place-cast-as-its-imagined-other",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 상상한 타자 역을 맡은 실재의 장소",
+  "model": "claude-opus-5",
+  "source_sha256": "837e6aa951162c76445da1408f6f4a0a81cde767640b6ad11ffe6be2d3e44a81"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-place-cast-as-russia-s-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "러시아라는 몸을 연기하는 실재의 장소",
+  "model": "claude-opus-5",
+  "source_sha256": "cd48b94749d3ccb7fa03702991a75ee4d81121bc871500fbff4dbf6b56172ae2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-place-cast-as-sacred-or-dead-city",
+  "field": "title",
+  "lang": "ko",
+  "text": "성지 아니면 죽은 도시 역을 맡은 실재의 장소",
+  "model": "claude-opus-5",
+  "source_sha256": "ccec5ab9ba5d498416cda3e38622d5da807550509ecd7737e46683dc6bb44295"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-place-conscripted-to-play-fiction-s-ruin",
+  "field": "title",
+  "lang": "ko",
+  "text": "허구의 폐허로 징발된 실재의 장소",
+  "model": "claude-opus-5",
+  "source_sha256": "243bc903dc9a06a87ca53c4c47be6798805c07c103e2a2252377c7aa96bfee5d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-place-filmed-as-another-time",
+  "field": "title",
+  "lang": "ko",
+  "text": "다른 시대로 찍힌 실재의 장소",
+  "model": "claude-opus-5",
+  "source_sha256": "6f7a571f227a0ea9f98313246cef74998cada60aa8c9953fa5439a239dddf6ce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-place-that-outlives-its-fiction",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 허구보다 오래 남는 장소",
+  "model": "claude-opus-5",
+  "source_sha256": "5a2204b6066681dddb179ce2b74d6d9d1b4795a9b2197bcf752e559cfeb2beea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-place-walled-out-by-fiction",
+  "field": "title",
+  "lang": "ko",
+  "text": "허구가 담장 밖으로 밀어낸 실재의 장소",
+  "model": "claude-opus-5",
+  "source_sha256": "e70b437e617e2860a73e1cd0a2e1faa54a66258354c7fc323c04087c9b9f7a78"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-province-shot-as-wounded-nation",
+  "field": "title",
+  "lang": "ko",
+  "text": "상처 입은 나라로 찍힌 실재의 지방",
+  "model": "claude-opus-5",
+  "source_sha256": "d92fffd8763630d8349c9159aae15d2fe9f59e86884cdf8bca78ea180e87d0f7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-shore-as-epistemic-edge",
+  "field": "title",
+  "lang": "ko",
+  "text": "앎의 끝으로서의 실재하는 해안",
+  "model": "claude-opus-5",
+  "source_sha256": "e52074a3ce95d9ca5a99a74107aee90bbf8b67648be44e8c235ed05339ef0506"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-shore-as-fiction-s-border",
+  "field": "title",
+  "lang": "ko",
+  "text": "허구의 국경이 된 실재의 해안",
+  "model": "claude-opus-5",
+  "source_sha256": "e12b89a3874aac6eef01f225af42110e02482ecd37765f6ff80e43038da431e1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-snow-that-refuses-metaphor",
+  "field": "title",
+  "lang": "ko",
+  "text": "은유가 되기를 마다하는 진짜 눈",
+  "model": "claude-opus-5",
+  "source_sha256": "7361794da0ef00bcd28ebad469b03e9f9d30ed2e7517a79b162694c587942f71"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-stone-anchoring-a-refused-place",
+  "field": "title",
+  "lang": "ko",
+  "text": "부정당한 장소를 붙들어 매는 진짜 돌",
+  "model": "claude-opus-5",
+  "source_sha256": "e46b2e7140e7cfbf4f999718ceeb2b9590c30cf4b316c8dc1150bbc76dd637b8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-street-disguised-as-anywhere",
+  "field": "title",
+  "lang": "ko",
+  "text": "아무 데로나 위장한 실재의 거리",
+  "model": "claude-opus-5",
+  "source_sha256": "4cad97fc72f448c6c5f551a7816384f685426d0ad781a77bce6e4dd0d73d7d79"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-sweden-that-disowns-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 자신을 부인하는 진짜 스웨덴",
+  "model": "claude-opus-5",
+  "source_sha256": "98f3bc8dafd18293e4fd3d271d3e030fc01b6da2fe80d6732931a79f9c02d1ec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-tearing-the-symbolic-open",
+  "field": "title",
+  "lang": "ko",
+  "text": "상징계를 찢고 나오는 실재(the Real)",
+  "model": "claude-opus-5",
+  "source_sha256": "1d1073be2d9c4f37e979c2e30d5b4cd536a994136fb1de49e7517bc55f9a7783"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-that-cannot-be-seen",
+  "field": "title",
+  "lang": "ko",
+  "text": "보이지 않는 실재",
+  "model": "claude-opus-5",
+  "source_sha256": "cf368f04b7f7e921e9388f3194007a422bf542fa26830dbf7e6f67597c922c5f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-that-withdraws-from-reach",
+  "field": "title",
+  "lang": "ko",
+  "text": "손 닿기 직전 물러서는 실재",
+  "model": "claude-opus-5",
+  "source_sha256": "7ee0429503bdc1ac0a2518410d7965ccb7d21d2c9f0b7a4d6c7faf08a5ea07a6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-tokyo-district-as-hidden-sacred-underworld",
+  "field": "title",
+  "lang": "ko",
+  "text": "숨은 성역이자 지하세계가 된 도쿄의 실제 동네",
+  "model": "claude-opus-5",
+  "source_sha256": "f6ad5607c822c32beec1397c2bc7c068afa8626500fd2473398585ed5ac80649"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-town-beneath-the-mythic-south",
+  "field": "title",
+  "lang": "ko",
+  "text": "신화 속 남부 아래 깔린 실제 마을",
+  "model": "claude-opus-5",
+  "source_sha256": "d53d152f648b654a1802ed18e164ca25434b224bc881476ffa8447305d89c2a6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-town-repainted-into-a-dream",
+  "field": "title",
+  "lang": "ko",
+  "text": "꿈으로 덧칠된 실제 마을",
+  "model": "claude-opus-5",
+  "source_sha256": "51b05cdceacc3fbf9c218d5cb4aed591d6b3979209e529da112cc1a5ee8218d2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-town-worn-as-mask",
+  "field": "title",
+  "lang": "ko",
+  "text": "가면처럼 뒤집어쓴 실제 마을",
+  "model": "claude-opus-5",
+  "source_sha256": "a83bffaaaae208c67a77c55a122894ca61666e8383cf02ebc06e6d1b3e856bb7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-village-that-plays-the-nation",
+  "field": "title",
+  "lang": "ko",
+  "text": "나라 전체를 연기하는 실제 마을",
+  "model": "claude-opus-5",
+  "source_sha256": "40019f978f57bc55a2527edc25c53f72295f1306b651d313d2e9f6d3089a08c3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-real-villain-is-the-system",
+  "field": "title",
+  "lang": "ko",
+  "text": "진짜 악당은 제도다",
+  "model": "claude-opus-5",
+  "source_sha256": "6a0c0a8dd7c44f674efb19224b895224b83242186883f6294d63e4c7c8aad1aa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rebellion-is-the-system-s-own-design",
+  "field": "title",
+  "lang": "ko",
+  "text": "반란마저 체제의 설계도 안에 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "30a1438fcdf50e6469a91da150f169758b9cac9e6bea1fd4f240f386e5108c59"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-as-adult-self-diagnosis",
+  "field": "title",
+  "lang": "ko",
+  "text": "어른들의 자기 진단이 된 수용",
+  "model": "claude-opus-5",
+  "source_sha256": "b3533230fe0542487b557d11e4aacad43518016d0766b966c6209733269ecd63"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-as-proof-of-the-thesis",
+  "field": "title",
+  "lang": "ko",
+  "text": "논지를 스스로 입증해버린 수용",
+  "model": "claude-opus-5",
+  "source_sha256": "ae8aacd64a44d2b5857502eac2271b71ca7539cebefc5d9d787dc6ae1bf39643"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-as-the-film-s-hidden-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화의 숨은 주제가 된 수용",
+  "model": "claude-opus-5",
+  "source_sha256": "345cd760d8fa86bc79a526b88f430a5be83cfa656dbd49342a79cd5b95fc8e41"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-became-the-real-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "수용이 곧 진짜 영화가 되다",
+  "model": "claude-opus-5",
+  "source_sha256": "7ef35d5a5f0b07c73addd055632ca69a34b93075d65ad26d0367d9219732f7af"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-discourse-as-cultural-symptom",
+  "field": "title",
+  "lang": "ko",
+  "text": "문화적 증상으로 읽히는 수용 담론",
+  "model": "claude-opus-5",
+  "source_sha256": "4f7862e578058a6a00bcd7a87be1cfc0d1649940f2a3ef27b81db5041f7bb80a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-history-as-the-real-text",
+  "field": "title",
+  "lang": "ko",
+  "text": "진짜 텍스트는 수용사(受容史)였다",
+  "model": "claude-opus-5",
+  "source_sha256": "60ccbefa0e80e385635709ec8ec717dbb0157175439c6ca1689790693f3c79fc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-reveals-the-critic-s-bias",
+  "field": "title",
+  "lang": "ko",
+  "text": "수용이 비평가의 편견을 들춘다",
+  "model": "claude-opus-5",
+  "source_sha256": "fb09ea492f64ea62eb1352d9ab98a29a1f10831d2e2972c369007197f3aa5028"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-that-absolved-the-nation",
+  "field": "title",
+  "lang": "ko",
+  "text": "나라에 면죄부를 준 수용",
+  "model": "claude-opus-5",
+  "source_sha256": "eb1d74d4c1b379b55a4febefebafb1dbfa8df200570daeab7a3c3ba550af1974"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-that-became-the-text",
+  "field": "title",
+  "lang": "ko",
+  "text": "텍스트가 되어버린 수용",
+  "model": "claude-opus-5",
+  "source_sha256": "b668c0077aecf1e8a92f92c7649f1e202b3a6d4eebe4d8085f8807aff06b4288"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-that-confessed-franchise-exhaustion",
+  "field": "title",
+  "lang": "ko",
+  "text": "프랜차이즈의 지침을 실토한 수용",
+  "model": "claude-opus-5",
+  "source_sha256": "9a64d475fd8a212c0c7d82e3a1d566679ef1d6221cdf7f0bfd3ce376fdf42bc5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-that-diagnosed-its-own-hunger-to-heal",
+  "field": "title",
+  "lang": "ko",
+  "text": "치유를 향한 제 허기를 스스로 진단한 수용",
+  "model": "claude-opus-5",
+  "source_sha256": "e2ffea11579b03b3c6f38f1bfd9eb687a2df84a8d8993950769ba2720e1ed575"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-that-exposed-genre-snobbery",
+  "field": "title",
+  "lang": "ko",
+  "text": "장르 속물근성을 들킨 수용",
+  "model": "claude-opus-5",
+  "source_sha256": "36b8e231a8955b96097cb413f9155e468994e10ae6702b958cf8719f1bc2adb8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-that-indicts-its-critics",
+  "field": "title",
+  "lang": "ko",
+  "text": "비평가를 되레 고발하는 수용",
+  "model": "claude-opus-5",
+  "source_sha256": "92044cad1fd5fa82f124ec29e495b26568346d4e2ad3aada23e4478acaad33e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-that-missed-the-murderer",
+  "field": "title",
+  "lang": "ko",
+  "text": "살인자를 못 알아본 수용",
+  "model": "claude-opus-5",
+  "source_sha256": "2f523f667992bc645940a3cddc612ab850b1d3236b46084c216d6e3eb35d6d9b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-that-reenacts-the-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화를 그대로 되풀이하는 수용",
+  "model": "claude-opus-5",
+  "source_sha256": "f5ceeef2cd931b49445d36773d1cb8207ff3c49d5b4f3051b1305443dbda2759"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reception-that-tamed-the-dish",
+  "field": "title",
+  "lang": "ko",
+  "text": "요리를 순하게 길들인 수용",
+  "model": "claude-opus-5",
+  "source_sha256": "0fe18cb1866bf8e3b1888e2842086abdc0a5fdef4c67346591fba01ba47018e5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-recession-rendered-as-drained-color",
+  "field": "title",
+  "lang": "ko",
+  "text": "색이 빠져나간 화면으로 그린 불황",
+  "model": "claude-opus-5",
+  "source_sha256": "d3fa4d96ae6eebf2af29de961c95909a24131ca978c09c509ed097e9e20306be"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reckoning-s-refusal-of-spectacle",
+  "field": "title",
+  "lang": "ko",
+  "text": "스펙터클 없이 치르는 심판",
+  "model": "claude-opus-5",
+  "source_sha256": "d5ace19ed79672ab79d69850e54ba8ad474e89a2f30152db28e3cb9c644ee7c6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reclaimed-body-made-visible",
+  "field": "title",
+  "lang": "ko",
+  "text": "되찾은 몸, 마침내 보이는 몸",
+  "model": "claude-opus-5",
+  "source_sha256": "2513eda073c03366b683d597382baa1185c2b8b4ef5ea624c0fcecb38de62552"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-recluse-who-writes-the-world-from-solitude",
+  "field": "title",
+  "lang": "ko",
+  "text": "홀로 틀어박혀 세계를 쓰는 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "b3fdb4ee16176c2e4b8809f0caea5ab39b53f1b81725dfcdb172004864332a4a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-recorded-image-that-disputes-death",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽음에 이의를 제기하는 기록된 이미지",
+  "model": "claude-opus-5",
+  "source_sha256": "d3e0d009b5fd4eb05430c40ce76c51876a78c5f716334fb5320ff9b17b2a3ee2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-recorded-voice-that-outlives-its-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸이 사라진 뒤에도 남는 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "698a5ccaa3da1f6deda1fa02fc8ae0746495b772a6e5294e8b7d2ee54ac7f931"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-recorder-that-holds-what-no-person-can",
+  "field": "title",
+  "lang": "ko",
+  "text": "사람은 못 견딜 것을 담아두는 녹음기",
+  "model": "claude-opus-5",
+  "source_sha256": "4ac71af644ab931c30561d97354200a50a21846999503a4a578ff5e7f847d7ad"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-recording-apparatus-as-sole-honest-witness",
+  "field": "title",
+  "lang": "ko",
+  "text": "정직한 목격자는 기계뿐이다",
+  "model": "claude-opus-5",
+  "source_sha256": "176ecae478cc10e00d1bd8d028bba26218fb97504c65dc344fea66a07c562bf5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-recording-as-forensic-rorschach",
+  "field": "title",
+  "lang": "ko",
+  "text": "법의학적 로르샤흐가 된 녹음",
+  "model": "claude-opus-5",
+  "source_sha256": "f01b39bef717e487acacec1f6f44b0c9bd95afd89b9a7eb7e1be01e8b3233231"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-recording-as-the-film-s-buried-origin",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화의 파묻힌 기원이었던 녹음",
+  "model": "claude-opus-5",
+  "source_sha256": "310fb93a7b3b8742b15e2b0ddf122118ce8d8468cfb0a9b2d8b4656342d26c51"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-recording-device-that-consumes-its-owner",
+  "field": "title",
+  "lang": "ko",
+  "text": "주인을 집어삼키는 촬영 장치",
+  "model": "claude-opus-5",
+  "source_sha256": "51b433447aa6427c938b17cf55b6110bd97b29650f928a173df3953cf7f7f04d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-recording-that-indicts-its-keeper",
+  "field": "title",
+  "lang": "ko",
+  "text": "보관자를 고발하는 기록",
+  "model": "claude-opus-5",
+  "source_sha256": "36989f8cdfaa5390a73a0e3d3297651faa3198fc0986a9b91775c2c73e76b88b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-recording-that-judges-its-speaker",
+  "field": "title",
+  "lang": "ko",
+  "text": "말한 사람을 심판하는 녹음",
+  "model": "claude-opus-5",
+  "source_sha256": "45d5dd4d231f3e1e2f302a3130745bb640ee33bd1f8ea8f75069eb21d88c7e10"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-recording-that-speaks-instead-of-records",
+  "field": "title",
+  "lang": "ko",
+  "text": "기록하지 않고 말을 거는 녹음",
+  "model": "claude-opus-5",
+  "source_sha256": "c4ee9cd11118b143fb81645459ca0be20df55472e39592b9823c295901a25116"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-records-that-indict-without-consequence",
+  "field": "title",
+  "lang": "ko",
+  "text": "고발해도 아무 일 없는 기록들",
+  "model": "claude-opus-5",
+  "source_sha256": "7f98e180815f041e0ece359059bab0bb27c863a8901de73b85b4b25e23062446"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-recurring-song-as-repetition-compulsion",
+  "field": "title",
+  "lang": "ko",
+  "text": "반복강박이 된 그 노래",
+  "model": "claude-opus-5",
+  "source_sha256": "d4b53acc36adaa4e01c27e48b36519380cb08a3737302a973fb14e7ad55bea27"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-red-object-holds-what-words-cannot",
+  "field": "title",
+  "lang": "ko",
+  "text": "말이 못 담은 것을 품는 붉은 사물",
+  "model": "claude-opus-5",
+  "source_sha256": "229a93c731bf5879cd442fd0e307be8d8b4fdefbe9a0965403a33278d324a3f9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-red-pen-that-savors-the-sin",
+  "field": "title",
+  "lang": "ko",
+  "text": "죄를 음미하는 빨간 펜",
+  "model": "claude-opus-5",
+  "source_sha256": "162b582793bf078dab58c83aec1b4841f4f8e571ea5ca2b0fe785c89fde2370b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-redemption-reading-as-critical-symptom",
+  "field": "title",
+  "lang": "ko",
+  "text": "구원으로 읽으려는 충동, 비평의 증상",
+  "model": "claude-opus-5",
+  "source_sha256": "a3ecb9e940a7e4f7f1b6b6ad6f3ff13a1919524c1b3b60612863e8ef1ac1d693"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reduction-to-almost-nothing",
+  "field": "title",
+  "lang": "ko",
+  "text": "거의 아무것도 아닌 데까지 덜어내기",
+  "model": "claude-opus-5",
+  "source_sha256": "e33456d7083ef227bcc2b202b26bc58276cdd9925773dce94f0df27b36e0651a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reformer-who-frees-nations-not-women",
+  "field": "title",
+  "lang": "ko",
+  "text": "나라는 해방하고 여자는 놔둔 개혁가",
+  "model": "claude-opus-5",
+  "source_sha256": "6e6939a64507db345aa981ce3a2a15d2060756eb7015c84bfea82586cd9d8011"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refuge-that-is-secretly-a-border",
+  "field": "title",
+  "lang": "ko",
+  "text": "실은 국경이었던 피난처",
+  "model": "claude-opus-5",
+  "source_sha256": "1c35d75c8fcb8c3a040a4f5792b48042c44e67cc538318e007bcd75e5da40513"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refugee-rendered-as-economic-figure",
+  "field": "title",
+  "lang": "ko",
+  "text": "경제 지표로 그려진 난민",
+  "model": "claude-opus-5",
+  "source_sha256": "6814032209c54f5441c35edd8d8eb11f8a91a9b6af56a9506fd791bf80855cd0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refugee-who-speaks-to-disappear",
+  "field": "title",
+  "lang": "ko",
+  "text": "사라지려고 입을 여는 난민",
+  "model": "claude-opus-5",
+  "source_sha256": "67d0e3720bb1bde07b5b0a1cb72bc4c3e9d2a57cb58ea1a8c223af4a29eee7ce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refusal-as-kantian-defense-of-personhood",
+  "field": "title",
+  "lang": "ko",
+  "text": "인격을 지키는 칸트적 거부",
+  "model": "claude-opus-5",
+  "source_sha256": "0996a973bf7fd7dac74968f7740ce94b6794e5ed5b88ae44bfd36775d090eb9c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refusal-of-forgiveness-as-sovereignty",
+  "field": "title",
+  "lang": "ko",
+  "text": "용서하지 않을 권리",
+  "model": "claude-opus-5",
+  "source_sha256": "b1b00233f7edb6cf2278220fbea0d3372dff2b263f6ac74e502d9421526cec92"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refusal-of-the-face",
+  "field": "title",
+  "lang": "ko",
+  "text": "얼굴을 내주지 않기",
+  "model": "claude-opus-5",
+  "source_sha256": "71cd78d628623089cb2af21aa1a5092e1b4591fa4639a5b2736c04daacdbcceb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refusal-of-the-inherited-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "물려받은 몸을 거부하다",
+  "model": "claude-opus-5",
+  "source_sha256": "b8d7595cd288316089270f856fa1b9116800177aafec06d893bfb9ff451eb573"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refusal-of-the-wager",
+  "field": "title",
+  "lang": "ko",
+  "text": "내기를 걷어차기",
+  "model": "claude-opus-5",
+  "source_sha256": "736a27a2736723e243af71611b6c8e94a07862ad3da8062c3e498b68271c7a35"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refusal-that-becomes-the-act",
+  "field": "title",
+  "lang": "ko",
+  "text": "거부가 곧 행동이 될 때",
+  "model": "claude-opus-5",
+  "source_sha256": "50a8b9897f7e1be01c368932929ff3b1ab2d0f01e5a70737d8b1704a48a6e2f1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refusal-that-keeps-one-s-hands-clean",
+  "field": "title",
+  "lang": "ko",
+  "text": "손 안 더럽히려는 거부",
+  "model": "claude-opus-5",
+  "source_sha256": "21aebf1974261e2bde4daaaab2be4e21ae99a89b026fe610f5971cf41ca7adaf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refusal-that-names-whose-privacy-the-law-protects",
+  "field": "title",
+  "lang": "ko",
+  "text": "법이 지키는 사생활이 누구 것인지 드러내는 거부",
+  "model": "claude-opus-5",
+  "source_sha256": "4702a4f190edc458f8be347df164f00dcbc136effd00159ec6d7fea3e6778b10"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refusal-that-refuses-liberation-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "해방마저 거부하는 거부",
+  "model": "claude-opus-5",
+  "source_sha256": "b6bde09a534cdd4545d902b784dde64bcfdb227c9fb1e6e54e9343965339d9b4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refusal-to-become-one-s-assigned-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "배정된 나로 살기를 거부하다",
+  "model": "claude-opus-5",
+  "source_sha256": "71f9ce5a8fc984275a80a83b8d9d39cbb527106d2752ff1421d687c527442230"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refusal-to-marry-as-structuring-negation",
+  "field": "title",
+  "lang": "ko",
+  "text": "결혼 거부, 이야기를 떠받치는 부정",
+  "model": "claude-opus-5",
+  "source_sha256": "6e8291a690f98175c9f80dc05f99c5eeb2a599b5685ad9118be6e00ef9cd3ee9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-refusal-to-name-her-is-the-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "그녀의 이름을 끝내 말하지 않는 것이 영화다",
+  "model": "claude-opus-5",
+  "source_sha256": "227c6c5704a385d16d66487d12d2d60214a0812955ee8e4fa354eecf84b71854"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-regime-dying-inside-the-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "화면 안에서 죽어가는 체제",
+  "model": "claude-opus-5",
+  "source_sha256": "90d79cddd67d2c2261fddd9dc91afc499ceb9920a0808bc6dcf2001d10e31913"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-region-filmed-somewhere-else-entirely",
+  "field": "title",
+  "lang": "ko",
+  "text": "엉뚱한 곳에서 찍힌 그 지역",
+  "model": "claude-opus-5",
+  "source_sha256": "f5be86294da37c83a71bbc6ab99cba7d3d2078f3b46e36d1430a549839120444"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rehearsal-method-as-hidden-engine",
+  "field": "title",
+  "lang": "ko",
+  "text": "보이지 않는 동력, 리허설 방법론",
+  "model": "claude-opus-5",
+  "source_sha256": "c6a3dd5b6c7e2c518f80513aab4ca201ec930c4f006342538ce02f5cd495549f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rehearsal-that-devours-the-performance",
+  "field": "title",
+  "lang": "ko",
+  "text": "본 공연을 집어삼킨 리허설",
+  "model": "claude-opus-5",
+  "source_sha256": "7cdede3c91f868b606611f974daa60dc5f081f13f40b7c1930187cf72647bc29"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rehearsal-that-stands-in-for-living",
+  "field": "title",
+  "lang": "ko",
+  "text": "삶 대신 치르는 리허설",
+  "model": "claude-opus-5",
+  "source_sha256": "3f7cb561e4413a4e56f0e97ac9a834b6e7bbe0b592bbc4f1306f02ecde6d02b5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reluctant-crown-and-its-sickness",
+  "field": "title",
+  "lang": "ko",
+  "text": "마지못해 쓴 왕관, 그리고 병",
+  "model": "claude-opus-5",
+  "source_sha256": "09c9e8d1d3e47fd8bed9661c563fe721d39e948837c15e20dec26b67dc1a2e01"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-remake-as-cultural-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "리메이크라는 문화적 고백",
+  "model": "claude-opus-5",
+  "source_sha256": "8da23604e5bd5ed1018449bba1958243b0594eae5eaaf20309715832869bd675"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-remote-control-that-edits-reality",
+  "field": "title",
+  "lang": "ko",
+  "text": "현실을 편집하는 리모컨",
+  "model": "claude-opus-5",
+  "source_sha256": "4f37e7c1b27013db020cb009df8b95669e04154eacebc0c5e02b94a1c6dff00e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-removed-wig-as-unmasked-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "가발을 벗자 드러나는 맨얼굴",
+  "model": "claude-opus-5",
+  "source_sha256": "1489d1f263abcb25b507eb850db2b2625908ca402254f3aee4067033bb74bb85"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-render-farm-as-confession-of-its-limits",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 한계를 실토하는 렌더 팜",
+  "model": "claude-opus-5",
+  "source_sha256": "4ff5347c23f5ff2acfeca0c2d57518e2f7ccf4e3ca4d4d02d831219c28b66d03"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-renounced-genre-pleasure",
+  "field": "title",
+  "lang": "ko",
+  "text": "내다 버린 장르의 쾌감",
+  "model": "claude-opus-5",
+  "source_sha256": "3c51b3778288bc765e194260b568c814c9fde837c24f936775b6466dd7317879"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-renunciation-of-power-s-bargain",
+  "field": "title",
+  "lang": "ko",
+  "text": "권력이 내민 거래를 물리치다",
+  "model": "claude-opus-5",
+  "source_sha256": "0ebf040f5ffb66f11069ae359caa9e08ba46b11e01b4523a2d3183fce78a0dbc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-repeated-climb-as-recurrence-engine",
+  "field": "title",
+  "lang": "ko",
+  "text": "되풀이되는 오르막, 영원회귀의 엔진",
+  "model": "claude-opus-5",
+  "source_sha256": "e1c54727361ebe8f5b6353137a41f26a922d1ada8c0d38892c3ba6480d884e25"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-repeated-night-as-liturgy",
+  "field": "title",
+  "lang": "ko",
+  "text": "전례가 되어버린 같은 밤",
+  "model": "claude-opus-5",
+  "source_sha256": "7708eebbe4476d2849038bc88d0188fee6367724940729bc7d415df8ed485dfb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-repetition-compulsion-as-death-drive",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽음 충동으로서의 반복강박",
+  "model": "claude-opus-5",
+  "source_sha256": "79e21d965994fc9a38df6e86f21bc512e1f152e306818fc666951433224cdb15"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reporter-devoured-by-her-own-story",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 쓴 기사에 잡아먹힌 기자",
+  "model": "claude-opus-5",
+  "source_sha256": "b7dcab14a24ca520634af958bae3ac9b1f9da9d379ed826b1c88f9c1c6e0bfd0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reporter-who-became-his-own-story",
+  "field": "title",
+  "lang": "ko",
+  "text": "자기가 기삿거리가 된 기자",
+  "model": "claude-opus-5",
+  "source_sha256": "6e96f146c03c0e5f1c8d788de7867a57c28173f707148b0ccbaee565c13aea79"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-repressed-erupts-as-physical-matter",
+  "field": "title",
+  "lang": "ko",
+  "text": "억압된 것이 물질로 터져 나온다",
+  "model": "claude-opus-5",
+  "source_sha256": "f68f23f2e65f6a5ba9587ec71246ed5000bbe75c4d05abcb5ca2892208289e71"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-repressed-ground-of-bengali-self-regard",
+  "field": "title",
+  "lang": "ko",
+  "text": "벵골식 자긍심이 눌러둔 바닥",
+  "model": "claude-opus-5",
+  "source_sha256": "764c2df59b6419f200aa827843f3df131913f1ef676454c524870f3edc43ca92"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-repressed-jungle-returns-to-devour-its-conqueror",
+  "field": "title",
+  "lang": "ko",
+  "text": "정복자를 삼키러 돌아오는 정글",
+  "model": "claude-opus-5",
+  "source_sha256": "87a376e5a0ca2af6d562a8d11fd58a5286bf651affa1302b460ed1996def5c55"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-repressed-returns-as-inscribed-symptom",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸에 새겨진 증상으로 돌아오는 억압",
+  "model": "claude-opus-5",
+  "source_sha256": "1a1b45ebe255f3f33d3e3521335c79278c621aa2dbaeba9d51f9e52e552592b6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-repressed-returns-as-weather",
+  "field": "title",
+  "lang": "ko",
+  "text": "억압된 것이 날씨로 돌아온다",
+  "model": "claude-opus-5",
+  "source_sha256": "a029c871cecb87d1a5d0e15cd235f8104cd44ab23fc52433dacbb213f5ee95cf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-repressed-returns-wearing-a-face",
+  "field": "title",
+  "lang": "ko",
+  "text": "억압된 것이 얼굴을 쓰고 돌아온다",
+  "model": "claude-opus-5",
+  "source_sha256": "d0c88a162bfcfb57836513cc44545172703161f447c500680ec2d5f0183ff04e"
+ }
+]

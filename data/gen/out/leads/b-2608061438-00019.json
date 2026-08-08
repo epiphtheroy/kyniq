@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-fall-of-berlin-1950",
+  "field": "lead",
+  "film_id": "4d812c08-45f7-405f-bff4-81a56307b743",
+  "lang": "en",
+  "text": "A smelter is given a medal, and the man pinning it to his coat is Stalin. The ceremony is barely finished before bombs are dropping on the field where Alexei Ivanov stands with Natacha, the schoolmistress he is engaged to; he enlists, makes sergeant, and the German advance does the rest of the arranging. Mikheil Chiaureli made this in 1950, and the date governs everything: the Soviet leader appears as a speaking character, unhurried and paternal, warning of a war that then obligingly arrives, while the sergeant who reveres him does the walking. Two films run beside each other and keep interrupting — a courtship, and a state composing the official version of its own victory — and the second one wins every argument. What holds attention now is the sheer machinery required to make a country's memory look like this.",
+  "model": "claude-opus-5",
+  "source_sha256": "4fcd28cee55222a5bd6ec0cb1c7e083c56e950cc995735509ed8845aec1851b1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-almost-man-2012",
+  "field": "lead",
+  "film_id": "4d6ee9dc-39e5-427c-bbc7-fdf96a66240b",
+  "lang": "en",
+  "text": "Nothing in Henrik's life is going wrong, and that is the difficulty. The new house, the new job, the wife, the whole apparatus of a settled Norwegian adulthood is assembled and functioning, and somewhere inside it a grown man is still doing bits, still pushing a joke past the point where the room stopped laughing. Martin Lund gives himself eighty minutes, about the length of the dinner party where this sort of thing detonates in front of witnesses, and keeps the volume down throughout. No villain arrives. Nobody delivers a diagnosis. The comedy works by increments, each lapse marginally less forgivable than the last, until the distance between how Henrik behaves and how he is being read is the only thing on screen. Funnier than it is comfortable, and it knows it.",
+  "model": "claude-opus-5",
+  "source_sha256": "c9fdb9acbc07c8c61c0f9238ca43773fc6779ddc5623925e264947c7f8a3ebd7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-children-s-story-2004",
+  "field": "lead",
+  "film_id": "4bee2209-9ba1-456b-a295-eae615894c1c",
+  "lang": "en",
+  "text": "The television in the grandmother's room stays on whether or not she is well enough to watch it, and that is roughly the supervision available to Rosario. He is eleven. In his group he gives the orders, and his days run through arcades, a stretch of Italian outskirts where the buildings ran out before the city did, and small crimes that shade into dares and back without anyone marking the line. Andrea Frazzi stays inside the boy's schedule and declines to raise his voice about any of it; what Rosario does is presented as work, with hours and a hierarchy and a standing to protect. It took the David di Donatello for direction, and direction is the whole difficulty here: the film never once asks to be found shocking; it just keeps following the boy.",
+  "model": "claude-opus-5",
+  "source_sha256": "25e70fa6a4683b70672b87cbe7b1d429d1fe21eceb2b9a8c3c8854d464ca0ef6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "taming-of-the-fire-1972",
+  "field": "lead",
+  "film_id": "93bd637f-1be6-42a1-9bca-3b5c126f2c0e",
+  "lang": "en",
+  "text": "One hundred and sixty-six minutes, used to walk one working life from a 1920s workshop to a man in orbit in 1961. Taming of the Fire follows Sergei P. Korolev, and it refuses to sort his career into a clean half about exploration and an awkward half about weapons: the space programme and the missile industry are one enterprise here, the same people, the same rooms, the same fights. Daniil Khrabrovitsky made it in 1972, near enough to the events that none of this had settled into history. The result is a biography told as an industrial process. What carries the length is not launches but procurement — metal, money, permission, the slow accumulation of a yes — and the suggestion that a machine of that scale is mostly an argument somebody finally won.",
+  "model": "claude-opus-5",
+  "source_sha256": "a08c71fca56f40aad5fa2ead0ff8ef9dc901bda18111b2ed0b04bac92154758a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "romance-for-lovers-1974",
+  "field": "lead",
+  "film_id": "91c19103-4f00-4653-a517-348b6d89aa07",
+  "lang": "en",
+  "text": "Word of a death arrives well before any confirmation, and a wedding gets arranged in the gap. Andrei Konchalovsky builds the film on that interval: a marine reported lost, a fiancée who does not wait indefinitely, a marriage contracted on information nobody has checked. Romance, drama and music are all listed against it, and the third one is doing real work, since feeling here is performed at full height rather than confided across a table, which is a strange and deliberate way to treat material this bruising. Sustaining that pitch for two hours and a quarter takes nerve. Subtlety is not on offer and is not being attempted, and the interest lies in watching a director decide, scene by scene, how much volume a private disaster will bear.",
+  "model": "claude-opus-5",
+  "source_sha256": "ffa8ee2ca0618fad3151232c304d40517347f9fe7fa47c675026ee8ab02c61cf"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "shadows-of-a-hot-summer-1978",
+  "field": "lead",
+  "film_id": "38e96819-1b4a-493e-8710-34cc91a05f24",
+  "lang": "en",
+  "text": "A hot summer, a farm outside a small Czechoslovak town, and a group of men in the yard who were not invited and are not going. František Vláčil allows the situation no exit and no melodrama. A working property does not stop needing work because strangers have arrived, so Ondrej and his family carry on with the season under supervision, and every ordinary chore turns into a negotiation. Whose chair. Whose bread. Who goes out to the fields and who stays where the others can see them. The heat is not atmosphere here; it is a working condition. One place, one season, and the pressure accumulates out of the arithmetic of a day rather than out of anything announced. Stíny horkého léta commits to that farm so completely that the road into town starts to feel theoretical.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ff023140ad4e1a08ba6360cfe9926f4f6ab73ce8aa305b4cf6d010fa4cd4d03"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "angel-at-sea-2009",
+  "field": "lead",
+  "film_id": "34900858-cb46-4f16-b32a-1792131368fe",
+  "lang": "en",
+  "text": "A father tells his twelve-year-old son something he should have told an adult. Everything after that is Louis carrying it: at meals, next to an older brother who has not been let in, inside a French-speaking household set down in southern Morocco far from anyone he might otherwise have told. Frédéric Dumont has eighty-six minutes and spends most of them close to the boy, which is a risky allocation and the correct one. What the secret contains matters less than the transaction: a child has taken responsibility for an adult without being informed that this is what he was accepting, and he took it because he loves his father. Loyalty at that age is not a sentiment. It is a job, and Louis works at it.",
+  "model": "claude-opus-5",
+  "source_sha256": "7047d865f2036b15f114522a05370054250b513137a902a332005d0e80966518"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "restoration-2011",
+  "field": "lead",
+  "film_id": "8fcf7120-d9a0-4dcc-80c8-a8163963743f",
+  "lang": "en",
+  "text": "The shop restores antiques, so it lives or dies on other people continuing to believe that a damaged thing is worth keeping rather than replacing. The family running it agrees about very little else. Yossi Madmoni keeps the entire quarrel inside the trade — what the workshop is actually worth, who is owed for the years poured into it, whether a craft handed down is an inheritance or a sentence — and lets the repairs go on in the background while the argument does its slow work. The screenwriting award from Sundance's world cinema competition is the right prize for this one: it is built out of conversations that appear to concern a table and do not. In Hebrew, with no catastrophe larger than a ledger, and the tension never has to be manufactured.",
+  "model": "claude-opus-5",
+  "source_sha256": "ba038a478cc91c0278c99277e11d7fecf170a7a72721b6182bb0f464a746be83"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "red-bells-part-i-mexico-in-flames-1982",
+  "field": "lead",
+  "film_id": "c0b3ed13-eaf0-4bc6-bd03-042237ee0406",
+  "lang": "en",
+  "text": "A Russian-language film about an American reporter, mounted as an Italian production: the passport situation alone is worth a minute. Sergey Bondarchuk sends John Reed into the Mexican Revolution to watch the fighting and to get his interview with Francisco Villa. Around that errand he assembles the rest of a working journalist's decade, a strike covered at home, the European war reported from close range, and Mabel Dodge, who is the part of Reed's life that was never going to fit into a dispatch. This is the first of the Red Bells films, filed under Western as much as drama, and the fit is closer than it sounds: a man whose job is to keep asking questions, in country where everyone else has already picked a side. Reed is filmed as a professional, which is the least romantic and most interesting choice available.",
+  "model": "claude-opus-5",
+  "source_sha256": "c47d3b27878c2a880f62c05428b89fce0d5969d04fdb5e177453c420ee72bac5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "my-soul-brother-1994",
+  "field": "lead",
+  "film_id": "ac6d6a3e-f088-4dd8-bf7f-40cd4163ef4a",
+  "lang": "en",
+  "text": "One brother has the office, the marriage and the plans; the other has spent years absorbing whatever life sent. Now they are in the same room again. Spain, 1994, and the pressure in this thriller comes from an arrangement rather than a crime, because nobody keeps a longer or more itemized ledger than a sibling. Carlos is doing well and is aware of it. Julia is his wife and also, in the accounting he does not admit to, part of the inventory. Toni turns up with a claim that never gets phrased as a claim, and Mariano Barroso lets it sit in the room while everyone stays courteous. His direction took a Goya for a new director, and the reason shows early: the film knows exactly how slowly to close a door.",
+  "model": "claude-opus-5",
+  "source_sha256": "0c228f07a75358e2edfc8aeb144ef2ab20859c64974a7576b90c1b700604087e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "if-all-the-guys-in-the-world-1956",
+  "field": "lead",
+  "film_id": "bfd9c488-83f5-4f62-b0fd-9fc5cc8beb76",
+  "lang": "en",
+  "text": "A trawler is in trouble somewhere at sea, and the only thing that leaves the boat is a signal. Christian-Jaque follows the signal rather than the ship. It is received, relayed, handed onward, and the people holding it at each stage have no tie to the crew and nothing to gain beyond knowing that they answered. The result is an odd shape and a durable one: a film assembled as a relay, each sequence delivering the problem to someone further off and less obviously involved. Made in France in 1956, it is adventure by the strictest reading of the word, since everything turns on strangers behaving well while under no obligation at all. The emergency at sea is urgent enough. The switchboard is the part worth staying for.",
+  "model": "claude-opus-5",
+  "source_sha256": "e26c40f2010ca93b1d95fe6d6b885cd2e5b5ee931730b17af6775fd29a3617c0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "as-far-as-i-can-walk-2021",
+  "field": "lead",
+  "film_id": "b5172801-2b60-4703-a1b8-977c4ff1694a",
+  "lang": "en",
+  "text": "They left Ghana intending to reach Western Europe and got sent back as far as Serbia, where the plan quietly became a life. Stefan Arsenijević is exact about the asymmetry that follows. Strahinja finds work, a routine, people who use his name; Ababuo, who arrived with ambitions of her own, is handed nothing to fill a day with. A marriage can carry that imbalance for a while. Then she is not there, and he goes looking. The search functions less as suspense than as a survey — one doorway, one office, one stranger's quick assessment at a time — conducted in a country neither of them chose and both now have to live in. Nothing is pitched above speaking level, which is precisely what makes the frustration at home hard to look away from.",
+  "model": "claude-opus-5",
+  "source_sha256": "57aef6d47a89df084a744d12804e64d8b704bbdc251be59b9df9e0c062044857"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "streetheart-1998",
+  "field": "lead",
+  "film_id": "e2769127-8677-4104-90f0-40dced9cca14",
+  "lang": "en",
+  "text": "One hour, no longer, to be spent however the other person likes: that is the offer, and Louise makes it to strangers on the streets of Montreal. The precision is the whole of it. Unemployed, criticized regularly by her sister, seeing a married man who quotes poetry on his one available evening a week, drifting into the dance studio downstairs because it is there, she takes the single part of her life that can be scheduled and gives it away sixty minutes at a time. Charles Binamé lets the encounters go where they go, funny and awkward and briefly sexual and sometimes flatly sad, without ever organizing them into a lesson. The film moves the way a day of small appointments moves, and the arithmetic underneath the comedy is never said out loud.",
+  "model": "claude-opus-5",
+  "source_sha256": "2dd20fa8d4d088de42d55046d75efb8d22863111f675f124cdfe07c3e04874b4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bob-and-the-trees-2015",
+  "field": "lead",
+  "film_id": "5bb4a1e9-4940-408d-8cc2-d91f2bf7aaae",
+  "lang": "en",
+  "text": "A fifty-year-old logger in rural Massachusetts, gangsta rap in the cab, a soft spot for golf. Diego Ongaro treats none of it as a punchline, which is the first decision the film gets right: the taste is simply Bob's, the way the woodlot is Bob's, and neither is paying what it used to. The material is work. Timber worth less than it was, a cow that gets hurt, a job that goes wrong in the ordinary way jobs go wrong once the margin has already gone. What builds is a man starting to listen to the part of himself he used to talk down, and the film is patient enough to let that happen at the speed it would actually happen. Nobody consulted Bob about the economy that changed under him. The trees still have to come down.",
+  "model": "claude-opus-5",
+  "source_sha256": "a424ddaa8234515ca51aa746bf904263c15f995f9ec6faa7a88f0e3f22a7c9b7"
+ }
+]

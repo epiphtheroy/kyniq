@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-trembling-hand-that-refuses-to-mourn",
+  "field": "title",
+  "lang": "ko",
+  "text": "애도를 거부하는 떨리는 손",
+  "model": "claude-opus-5",
+  "source_sha256": "fb47704fc9d77b3a6844d7f39e70dedf912cc6cfe4b8d64e84ddad1b06c1dd66"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-trial-as-society-s-rigged-verdict",
+  "field": "title",
+  "lang": "ko",
+  "text": "사회가 미리 짜둔 평결, 재판",
+  "model": "claude-opus-5",
+  "source_sha256": "0accfa27f783cf374c2786009b51f33ce53c3c0789cc20f49ce537c4fd08632f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-trial-as-theology-of-the-litigious-republic",
+  "field": "title",
+  "lang": "ko",
+  "text": "소송 공화국의 신학이 된 재판",
+  "model": "claude-opus-5",
+  "source_sha256": "7a9df1b4d16844c36d5887f683ccc5445f1f3b4e434bf367678d5d0b6209220b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-trial-as-verdict-machine-without-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "진실 없이 돌아가는 평결 기계",
+  "model": "claude-opus-5",
+  "source_sha256": "db2e07fc8317651cffe9fd1e86d17bf7c13264aa39ec47feca8fa6890f9c7332"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-trial-shadowed-by-its-era-s-persecution",
+  "field": "title",
+  "lang": "ko",
+  "text": "시대의 박해가 드리운 재판",
+  "model": "claude-opus-5",
+  "source_sha256": "8d5ccf4dec3fed21d35c675bba52a18646a3681c8e9c1e8bce0d45ba0cf68a2b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-trial-that-tries-the-father",
+  "field": "title",
+  "lang": "ko",
+  "text": "아버지를 심판대에 세우는 재판",
+  "model": "claude-opus-5",
+  "source_sha256": "968929f0ab3f8639aae1fb0fd1fc813102f164d440e64e66c03659b2a9bffc42"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tribunal-where-existence-is-the-charge",
+  "field": "title",
+  "lang": "ko",
+  "text": "존재가 곧 죄목인 법정",
+  "model": "claude-opus-5",
+  "source_sha256": "224fc2e5353bd1e5afff6a097b7df5ec57da06a635c1afc0ee3ae0b41312f566"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tribunal-without-a-state-stages-its-own-power",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가 없는 법정, 제 권력을 연출하다",
+  "model": "claude-opus-5",
+  "source_sha256": "f7d9a0cef5abda1bd2337b8e5c7a53e53908b27cabf5c26995a999060579fd79"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-trolley-problem-made-flesh",
+  "field": "title",
+  "lang": "ko",
+  "text": "살과 피가 된 트롤리 딜레마",
+  "model": "claude-opus-5",
+  "source_sha256": "10c9768841e580824604a5dfba8a95a4a6e277d3709c9d36115c255b8de536e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-trolley-with-no-brakes",
+  "field": "title",
+  "lang": "ko",
+  "text": "브레이크 없는 트롤리",
+  "model": "claude-opus-5",
+  "source_sha256": "26816c88a77189786559d6dfba8ce83586d277f7e11aa34d7d451c6b9ca22e12"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tropical-light-that-lies",
+  "field": "title",
+  "lang": "ko",
+  "text": "거짓을 말하는 열대의 빛",
+  "model": "claude-opus-5",
+  "source_sha256": "d74ef59c358eddacb20aac8e639feddcd369109cf52e74b7260342aff45d1f1a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tropical-paradise-filmed-as-dread",
+  "field": "title",
+  "lang": "ko",
+  "text": "공포로 찍힌 열대의 낙원",
+  "model": "claude-opus-5",
+  "source_sha256": "53cf2245c4a6f2c6c486a718eb25598369fc150a904032d99edae8b4c0607bca"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-trust-test-the-world-won-t-permit",
+  "field": "title",
+  "lang": "ko",
+  "text": "세상이 허락하지 않는 신뢰의 시험",
+  "model": "claude-opus-5",
+  "source_sha256": "401d2e609b48ae9c2d469207e685d313718af936ebfdb0654571d21c79fe4d11"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-trusted-man-doomed-by-a-hidden-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "숨은 진실이 파멸시킨 믿음직한 사내",
+  "model": "claude-opus-5",
+  "source_sha256": "3376e8aab07d46d73ae89a0da4fab88e350512925cb0bb43fda48df1f0eae433"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-truth-told-or-withheld-as-moral-choice",
+  "field": "title",
+  "lang": "ko",
+  "text": "말할 것인가 감출 것인가, 진실이라는 선택",
+  "model": "claude-opus-5",
+  "source_sha256": "cb56bd10b477ecd865e0f702f247d701525389668af7da7a74978ff4c939f1f0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tune-that-outlives-the-lovers",
+  "field": "title",
+  "lang": "ko",
+  "text": "연인보다 오래 남는 선율",
+  "model": "claude-opus-5",
+  "source_sha256": "7320addb34e517c681d7d1aaf5091eadc9396d7c65d7626bcb5d4b8631c4b410"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tunnel-as-rite-of-passage-made-architecture",
+  "field": "title",
+  "lang": "ko",
+  "text": "건축이 된 통과의례, 터널",
+  "model": "claude-opus-5",
+  "source_sha256": "4d58503a94e62d89dc4d3a056307bb50ed2b07c6add4d558e6baf51c482f1a68"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tunnel-that-births-a-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "자아를 낳는 터널",
+  "model": "claude-opus-5",
+  "source_sha256": "2118a46a86ce77ec6cf01efa8d3fce3bf13f47696efe2e08ef5c274ded51b76c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-turing-test-as-dramatic-engine",
+  "field": "title",
+  "lang": "ko",
+  "text": "극을 굴리는 동력, 튜링 테스트",
+  "model": "claude-opus-5",
+  "source_sha256": "68b00742514ad3239e3dcb8b579011bd6dd86ea3b0205b898cbc61f22973359c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-twin-made-real-by-the-camera",
+  "field": "title",
+  "lang": "ko",
+  "text": "카메라가 실재로 만든 쌍둥이",
+  "model": "claude-opus-5",
+  "source_sha256": "070ff7c38a9d5b34b71bf4bde2962d33e53ddda901a3bc66fc5908c46426c20d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-twist-as-symptom-of-a-solving-culture",
+  "field": "title",
+  "lang": "ko",
+  "text": "풀이하는 문화의 증상, 반전",
+  "model": "claude-opus-5",
+  "source_sha256": "76f10c7f9e180ba50bb3bcdf8d157feb28fd0c4ad5e5ff82b24502649e5d788f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-twist-born-from-the-empty-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "빈 화면에서 태어난 반전",
+  "model": "claude-opus-5",
+  "source_sha256": "5e7efe2a108f9ed443d34f383bbb1965166b8cf433cde6f0a87dc36faf0a7802"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-two-monads-that-never-quite-touch",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 닿지 못하는 두 모나드",
+  "model": "claude-opus-5",
+  "source_sha256": "83c30b32d91680a0ccf829fa35d952e2a528711db763ce940016adc0bb234378"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-two-strands-that-are-one-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "두 갈래로 갈라진 하나의 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "514246e6f1f8a7c82b3e216c994f643dba955fff4cbf0a1ada054193ce7201c2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-two-that-are-one-divided-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "둘이자 하나인 갈라진 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "432e7e5cf1dfd92978cf335a3c415d20a3f37f10edf12e0bd62de97296a8d1ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-two-who-are-secretly-one-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "실은 한 사람인 두 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "0ad3d85082fb7a6929e06c24a4d46941216294ce55b84544baf76348c17b6c2f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tycoon-entombed-in-his-hoard",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 쌓은 재물에 묻힌 거물",
+  "model": "claude-opus-5",
+  "source_sha256": "9f8ae88acbcd701cbaf6ec1b1409d578f8d70967321b59e039cd72c3dd16f07e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tyranny-of-the-maxim",
+  "field": "title",
+  "lang": "ko",
+  "text": "격률(Maxime)의 폭정",
+  "model": "claude-opus-5",
+  "source_sha256": "404f84bbd78f415bc4d26a2e69c3bb3ea0633c78e25fb810a456b9bbfea23332"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tyrant-convinced-he-is-the-hero",
+  "field": "title",
+  "lang": "ko",
+  "text": "스스로를 영웅이라 믿는 폭군",
+  "model": "claude-opus-5",
+  "source_sha256": "6fbe975e3574e601afe576a56c46954686e80df979704eec327ae08fd6b5945f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tyrant-played-as-clown",
+  "field": "title",
+  "lang": "ko",
+  "text": "광대로 연기된 폭군",
+  "model": "claude-opus-5",
+  "source_sha256": "f6af5613c24c7581f96addb792c25ce8be86ab325c366266f90977d3a81fb956"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unanswerable-plot-hole-as-critical-symptom",
+  "field": "title",
+  "lang": "ko",
+  "text": "답 없는 플롯 구멍, 비평의 증상",
+  "model": "claude-opus-5",
+  "source_sha256": "cc2de31f785004871927aa48f035501fcd0c425037d3ccb6c79d883a3b0172c3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unblinking-take-as-lie-detector",
+  "field": "title",
+  "lang": "ko",
+  "text": "거짓말 탐지기가 된 롱테이크",
+  "model": "claude-opus-5",
+  "source_sha256": "68d6e741eafdee754c1b9c1ef385a9b9aca652be14f994ec1985acf4c3a325c3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unborn-as-the-film-s-hidden-verdict",
+  "field": "title",
+  "lang": "ko",
+  "text": "태어나지 않은 아이, 영화의 숨은 판결",
+  "model": "claude-opus-5",
+  "source_sha256": "720bb433fc3adbfb02e230f261b48bd164055c6eaa6b85139ec6a62da7c9d50e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unbroken-camera-move-as-moral-argument",
+  "field": "title",
+  "lang": "ko",
+  "text": "끊기지 않는 카메라, 그 자체가 도덕적 논변",
+  "model": "claude-opus-5",
+  "source_sha256": "810357d5a2c649ea846bc63246f3bd1af15fa11fbd3ff9002acb2cf2476cdf08"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unbroken-take-becomes-a-dream-s-duration",
+  "field": "title",
+  "lang": "ko",
+  "text": "끊기지 않는 테이크가 꿈의 시간이 되다",
+  "model": "claude-opus-5",
+  "source_sha256": "fe11409db01c3e01728fadc3dc9a4b5f3961a13b5c23edb6faf3a13748182660"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-uncanny-as-made-literal",
+  "field": "title",
+  "lang": "ko",
+  "text": "글자 그대로가 된 언캐니(Unheimliche)",
+  "model": "claude-opus-5",
+  "source_sha256": "a09745b532ebb53d69522d54aff5c14453579a6e6f9aad3d6a565e851c6cca93"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-uncanny-valley-speaks-against-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "스스로를 배반하는 불쾌한 골짜기",
+  "model": "claude-opus-5",
+  "source_sha256": "2918c32bc2951d61a1b307da329028a6b81949c1ad4064b3766e78b05878658c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-undead-as-dead-labor-reanimated",
+  "field": "title",
+  "lang": "ko",
+  "text": "되살아난 죽은 노동, 언데드",
+  "model": "claude-opus-5",
+  "source_sha256": "2a1da9c7fc8762c8f63b85984b3bf3b0c6c0be8dbd20e72a414b80896806dd03"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-underclass-that-cannot-represent-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "스스로를 대변하지 못하는 하층",
+  "model": "claude-opus-5",
+  "source_sha256": "56788f8f0a72833e4586c7f3372a33a98652b97e3e661a32e922bbdda6a1bff6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-undercover-self-as-lethal-bad-faith",
+  "field": "title",
+  "lang": "ko",
+  "text": "치명적 자기기만이 된 위장 신분",
+  "model": "claude-opus-5",
+  "source_sha256": "f346de75809558b0cf4e2fd37041830fca03da557ac9cfbc0eb1676c129257c7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-undercover-who-forgets-the-way-back",
+  "field": "title",
+  "lang": "ko",
+  "text": "돌아갈 길을 잊은 잠입자",
+  "model": "claude-opus-5",
+  "source_sha256": "7ede59f7af1667a13e16cfda9990d857fd81e43fcf635939a4af926791a530e2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-underling-who-indicts-the-order",
+  "field": "title",
+  "lang": "ko",
+  "text": "질서를 고발하는 말단",
+  "model": "claude-opus-5",
+  "source_sha256": "8a3ebceca04ae39f8722afc08b2fb1c64d58bced2eadc00acc50f9a4304b905d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-underworld-as-surviving-aristocracy",
+  "field": "title",
+  "lang": "ko",
+  "text": "살아남은 귀족으로서의 암흑가",
+  "model": "claude-opus-5",
+  "source_sha256": "a62bb1de55054bfa571c75da29f2a1f537ebf8dfe166b1a17aa6c606787b5aba"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-undying-curse-of-endless-consciousness",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝나지 않는 의식이라는 저주",
+  "model": "claude-opus-5",
+  "source_sha256": "c1788fef3cf10f69cab51abf0ddaeaca1af0367dd4e79c5336da3d6441cdb065"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unfilmable-verdict-as-nostalgia-for-narrative",
+  "field": "title",
+  "lang": "ko",
+  "text": "‘영화화 불가’라는 판정, 서사를 향한 향수",
+  "model": "claude-opus-5",
+  "source_sha256": "be368e83dbd6631a11234bbd5a296b1a6f0de84b47a7f08dbfcad0be002cfb38"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unfinished-greek-national-mythos",
+  "field": "title",
+  "lang": "ko",
+  "text": "미완으로 남은 그리스 국가 신화",
+  "model": "claude-opus-5",
+  "source_sha256": "045e1bf8617f3b19a429c00c4b4506b73ce755946b546f46c9b16a1af7eb8784"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unhidden-kill-witnessed-in-full",
+  "field": "title",
+  "lang": "ko",
+  "text": "감추지 않은 살해, 끝까지 지켜보게 하는",
+  "model": "claude-opus-5",
+  "source_sha256": "38a05d1d768f659d26e4a92dc38b06c223827bfdd1a42dadfb7bea32d22d04f9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unhurried-dead-embody-death-s-patience",
+  "field": "title",
+  "lang": "ko",
+  "text": "서두르지 않는 망자, 죽음의 인내",
+  "model": "claude-opus-5",
+  "source_sha256": "20b9e31db7394b54621dca791215ebd08138fc41531384e3b64b8e3980f6e26c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-uniform-as-speech-act-not-disguise",
+  "field": "title",
+  "lang": "ko",
+  "text": "제복은 변장이 아니라 발화 행위다",
+  "model": "claude-opus-5",
+  "source_sha256": "4c199cfa74b5653735e1bbaf994c9bad31f1ab46e9c557b6fe734f1ac1380fa7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-uniform-that-wears-the-state",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가를 입은 제복",
+  "model": "claude-opus-5",
+  "source_sha256": "51316e3ccad3a6ac80f623252fca5d389a56f6448a1d3066adf78b256695f7f5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-universal-backlot-wearing-a-new-face",
+  "field": "title",
+  "lang": "ko",
+  "text": "새 얼굴을 뒤집어쓴 만능 세트장",
+  "model": "claude-opus-5",
+  "source_sha256": "7942bef7a9f7680ead27cbe9ab361a19d63eeb64d4f907e812a3fed2fee38b3a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-universal-monster-rebuilt-from-a-franchise-s-ruin",
+  "field": "title",
+  "lang": "ko",
+  "text": "프랜차이즈의 폐허에서 되살린 유니버설 몬스터",
+  "model": "claude-opus-5",
+  "source_sha256": "162fb126c647e2ff7a3c65af4ff64f1b425e72cd0f40dd820f79187dbd4addde"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-universalizing-praise-that-disarms-the-specific",
+  "field": "title",
+  "lang": "ko",
+  "text": "구체성을 무장 해제하는 보편의 찬사",
+  "model": "claude-opus-5",
+  "source_sha256": "ae3440c7db11821c17a92876d90da7277c7243f3f170b7c5f3b6e7a74caeda3b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-universe-that-does-not-care",
+  "field": "title",
+  "lang": "ko",
+  "text": "아랑곳하지 않는 우주",
+  "model": "claude-opus-5",
+  "source_sha256": "7cf3ebedcfb135893717a5d764c503fb04383a5dfeef59bde9553772c9bbe04d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unknown-whose-casting-is-the-trick",
+  "field": "title",
+  "lang": "ko",
+  "text": "무명 배우, 캐스팅이 곧 술수",
+  "model": "claude-opus-5",
+  "source_sha256": "0fbad3e1897ff07f4b800fce221f216ad601f7c049ff7b410ad942ec53757466"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unlikable-woman-as-critical-symptom",
+  "field": "title",
+  "lang": "ko",
+  "text": "호감 가지 않는 여자, 비평의 증상",
+  "model": "claude-opus-5",
+  "source_sha256": "64c3de62c610aca9c01bf7724d78897dffa7853a71a7b1eafdc01c00e02dfd8f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unmasking-as-death-of-privacy",
+  "field": "title",
+  "lang": "ko",
+  "text": "정체가 벗겨지는 순간 사생활은 죽는다",
+  "model": "claude-opus-5",
+  "source_sha256": "bf1e5add537b484350318265625c8d93a95ac388ea0042963df822350ae5c5cc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unopened-box-that-must-stay-sealed",
+  "field": "title",
+  "lang": "ko",
+  "text": "열려서는 안 되는 상자",
+  "model": "claude-opus-5",
+  "source_sha256": "9f9ec5c071242538722d5edf3f60e2e16cfd19b4e0133dff469796937050c066"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unreachable-distance-as-moral-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "닿을 수 없는 거리, 도덕의 상처",
+  "model": "claude-opus-5",
+  "source_sha256": "cb6c0bbe0c7ba74f88c7fad7cbb2b1c9d223767e1d635da9f4d7995c0e6dae38"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unresolved-tone-as-metaphysics",
+  "field": "title",
+  "lang": "ko",
+  "text": "해소되지 않는 음색이 곧 형이상학",
+  "model": "claude-opus-5",
+  "source_sha256": "abe963d532a3d131c04e0d9de096285c796b627ce238a1c942460741c7bb7735"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unseen-atrocity-indicts-the-watcher",
+  "field": "title",
+  "lang": "ko",
+  "text": "보이지 않는 잔혹이 보는 자를 고발한다",
+  "model": "claude-opus-5",
+  "source_sha256": "754b8316b9ad62cefbb41d73276a11e8425e31e9b1bf5f5c8d6dc6856cf04fc5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unseen-sound-as-acoustic-return",
+  "field": "title",
+  "lang": "ko",
+  "text": "보이지 않는 소리, 음향으로 돌아오는 것",
+  "model": "claude-opus-5",
+  "source_sha256": "1ca1ba1dbf6fe10e2dab100fbe499f9e0f187d7b9b5d7118e5dd058cef9c517e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unspoken-father-haunting-the-pause",
+  "field": "title",
+  "lang": "ko",
+  "text": "침묵을 맴도는 말해지지 않은 아버지",
+  "model": "claude-opus-5",
+  "source_sha256": "8d82a57bdc546ed8de250574761cc0dc8cc83ba1460a760d5a083027226166c8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unspoken-word-that-anchors-desire",
+  "field": "title",
+  "lang": "ko",
+  "text": "입 밖에 내지 않은 말이 욕망을 붙든다",
+  "model": "claude-opus-5",
+  "source_sha256": "52148fc721d1a6de6ddf86667afe8f64adf472f73b0afda4639d1ec5f872bb09"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-untraceable-power-with-no-center",
+  "field": "title",
+  "lang": "ko",
+  "text": "중심도 자취도 없는 권력",
+  "model": "claude-opus-5",
+  "source_sha256": "3b079733c1eada179272825bcc0b3ea76299ef2f491d7f605a3ee2d8c88e9ef8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-untranslatable-ritual-shot",
+  "field": "title",
+  "lang": "ko",
+  "text": "옮겨지지 않는 의례의 한 잔",
+  "model": "claude-opus-5",
+  "source_sha256": "a80d8dfe84d20ef0416a2fb25906c074339c3837ea3cf1795368fd3f97e92800"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-untranslatable-wound-between-tongues",
+  "field": "title",
+  "lang": "ko",
+  "text": "두 언어 사이에 남은 옮길 수 없는 상처",
+  "model": "claude-opus-5",
+  "source_sha256": "be9d850b10b1b0f6b40b69513b66c4620ccb66396f211039e6790e7c7a2816e5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-untranslated-tongue-as-estranging-engine",
+  "field": "title",
+  "lang": "ko",
+  "text": "자막 없는 언어, 낯설게 하기의 동력",
+  "model": "claude-opus-5",
+  "source_sha256": "2a44446bd36fc83a069c3e4915c92ee573a1fb9d8dc57113e2cd5aaa80f82430"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unwaged-care-that-subsidizes-everything",
+  "field": "title",
+  "lang": "ko",
+  "text": "세상을 떠받치는 값 없는 돌봄",
+  "model": "claude-opus-5",
+  "source_sha256": "97b98225090ece30e9607a5bb7d0223fde838a7637ac9975d9969aa4215e258d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unwaged-labor-beneath-the-wage",
+  "field": "title",
+  "lang": "ko",
+  "text": "임금 밑에 깔린 무임금 노동",
+  "model": "claude-opus-5",
+  "source_sha256": "c2c625cfbdc2a2d636b929e0d34c4e0f6717efdb6414b462b3bfe9f2a776cdb0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unwaged-labor-that-built-japan",
+  "field": "title",
+  "lang": "ko",
+  "text": "일본을 세운 무임금 노동",
+  "model": "claude-opus-5",
+  "source_sha256": "312613b00075135d26808f5edc2dc80ab6a195362a38e6efda1fe44fc11dd77b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-utensil-that-refuses-its-category",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 범주를 거부하는 그릇",
+  "model": "claude-opus-5",
+  "source_sha256": "88b25896da5bf5ab055eef49fa3b1c4cb5f6fafbed80f61d473951bd6eb0cd7e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-utopian-blueprint-that-curdles-into-tyranny",
+  "field": "title",
+  "lang": "ko",
+  "text": "폭정으로 굳어버린 유토피아 설계도",
+  "model": "claude-opus-5",
+  "source_sha256": "812c293eb4609e560b625e8c944212a9d5c9b590c9cb6df574f1bf5c1334cbf6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vacant-dwelling-as-speculative-economy",
+  "field": "title",
+  "lang": "ko",
+  "text": "투기 경제로 읽히는 빈집",
+  "model": "claude-opus-5",
+  "source_sha256": "adb3dcd7e19cfa3d240a5360fad19501f39d27dac3872e76a71fc96730a6feb9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vacant-lot-as-liquidated-frontier",
+  "field": "title",
+  "lang": "ko",
+  "text": "청산된 프런티어, 빈터",
+  "model": "claude-opus-5",
+  "source_sha256": "770d641bbb3e055661a27262e998726df040491f820865d2e90a89f237cf6cff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-valley-as-america-s-backlot-of-disavowal",
+  "field": "title",
+  "lang": "ko",
+  "text": "밸리, 미국이 부인(否認)을 찍는 뒷마당",
+  "model": "claude-opus-5",
+  "source_sha256": "2a7a279e03ad1c41947cd641607d145be55a4771aee931680b56fd38c60f28af"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vampire-as-empire-feeding-on-the-colonized",
+  "field": "title",
+  "lang": "ko",
+  "text": "식민지의 피를 빠는 제국, 흡혈귀",
+  "model": "claude-opus-5",
+  "source_sha256": "953d694472bc200d201dbe905e36f8e7adfcddc642abf1de31d22a29dc8bacac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vampire-bound-by-moral-law",
+  "field": "title",
+  "lang": "ko",
+  "text": "도덕률에 묶인 뱀파이어",
+  "model": "claude-opus-5",
+  "source_sha256": "607b657bcfe3ce150900c8cca6d7769faaf72c16743f415590fc28e2e8b7c34a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vampire-disciplines-the-desiring-woman",
+  "field": "title",
+  "lang": "ko",
+  "text": "욕망하는 여자를 길들이는 뱀파이어",
+  "model": "claude-opus-5",
+  "source_sha256": "4a3f42ed4794dc565e384715cf65f75b6551779b5d08c057606002aeeecfe0aa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vampire-made-of-film-s-dying-light",
+  "field": "title",
+  "lang": "ko",
+  "text": "필름의 스러지는 빛으로 빚은 뱀파이어",
+  "model": "claude-opus-5",
+  "source_sha256": "e356c4a7b358560ca95c1affc5cb4add1eb46f8d9ab36c9f32fb903fd509f6fe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vampire-names-a-condition-not-a-beast",
+  "field": "title",
+  "lang": "ko",
+  "text": "뱀파이어는 짐승이 아니라 하나의 상태다",
+  "model": "claude-opus-5",
+  "source_sha256": "487654623588b349ed7243364e0b253c584709a62cfb8a7f1c088d8812bf1967"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vampire-s-curse-is-aging-flesh-not-death",
+  "field": "title",
+  "lang": "ko",
+  "text": "뱀파이어의 저주는 죽음이 아니라 늙는 살",
+  "model": "claude-opus-5",
+  "source_sha256": "a6718fa2501f0b0086868707cb07c4c5f786f74dfb8020f000d52463ca5ed9aa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vanished-city-rebuilt-as-memory",
+  "field": "title",
+  "lang": "ko",
+  "text": "기억으로 다시 세운 사라진 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "a621a09ca40549b35d661383033da4f4256efaa92d11a56e5b80a1e422bfbcd8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vanished-dynasty-filmed-in-borrowed-lands",
+  "field": "title",
+  "lang": "ko",
+  "text": "빌린 땅에서 찍은 사라진 왕조",
+  "model": "claude-opus-5",
+  "source_sha256": "fd4466bc48567eea4459c68942e23198a23b98360898e47b87e82db9916d952c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vanished-mitteleuropa-of-roth-and-zweig",
+  "field": "title",
+  "lang": "ko",
+  "text": "로트와 츠바이크가 잃어버린 중부유럽",
+  "model": "claude-opus-5",
+  "source_sha256": "f702a24b57f3b51fb565474b56be0b5ba5d9c29cc0e393b1656ddb2590e265da"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vanishing-class-hidden-in-its-token",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 표징 뒤로 사라지는 계급",
+  "model": "claude-opus-5",
+  "source_sha256": "a1cb4c8ad69e94dddc1aa0aa3285bf4a1145a19addd2033da1deede1fa8ea572"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vanishing-that-is-the-answer",
+  "field": "title",
+  "lang": "ko",
+  "text": "사라짐이 곧 대답이다",
+  "model": "claude-opus-5",
+  "source_sha256": "d92ee0476e6ccf4d9cfcf34aeded57898c7dea1164b261e5553cdb8628b6cbb9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vault-as-the-sealed-unconscious",
+  "field": "title",
+  "lang": "ko",
+  "text": "봉인된 무의식, 금고",
+  "model": "claude-opus-5",
+  "source_sha256": "98ee29f9afb002e9ea97c315d9eeceeb438f849b85d09fd19317ca9ce92dbf31"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vehicle-that-cannot-stop-moving",
+  "field": "title",
+  "lang": "ko",
+  "text": "멈출 수 없는 탈것",
+  "model": "claude-opus-5",
+  "source_sha256": "d92b2c79d9babbc078e00ca6d2574f85dab001c4a58b8a3d048708b408905c39"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vehicle-that-dies-with-its-purpose",
+  "field": "title",
+  "lang": "ko",
+  "text": "목적이 끝나면 함께 죽는 탈것",
+  "model": "claude-opus-5",
+  "source_sha256": "0c847493ed1835074df120dadb335c0c20361ef86868840be9cbab35b85a235e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-verdict-audiences-hand-the-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "관객이 영화에 건네는 평결",
+  "model": "claude-opus-5",
+  "source_sha256": "8e97cc53e7ad2ad502e92b11437abb4b694bb4e1d7103e08bedc638a89fae7cf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-verdict-mistakes-its-true-defendant",
+  "field": "title",
+  "lang": "ko",
+  "text": "진짜 피고를 잘못 짚은 판결",
+  "model": "claude-opus-5",
+  "source_sha256": "28ea577df7a5040bbca243ecbca8393b05a9c62d71b7336adaa57bc3f114fe08"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-verdict-of-aloneness",
+  "field": "title",
+  "lang": "ko",
+  "text": "홀로 남으라는 판결",
+  "model": "claude-opus-5",
+  "source_sha256": "d1bcfd16e6b77d95c1d5da77c5365e2bd2e7531a343ee403347fe6ee4fb09c11"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-verdict-on-the-prior-era-s-tone",
+  "field": "title",
+  "lang": "ko",
+  "text": "앞 시대의 정조에 내린 판결",
+  "model": "claude-opus-5",
+  "source_sha256": "f4baab3784f4a316f08a2a83f58247ad020cb3b5d6edd7a20e161df7c4f7d32d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-verdict-pronounced-before-the-crime",
+  "field": "title",
+  "lang": "ko",
+  "text": "범죄보다 먼저 내려진 판결",
+  "model": "claude-opus-5",
+  "source_sha256": "193e37747aba6a37caf0727dc841684d10189c8e55f33f12b40392eaf0679e30"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-verdict-that-confessed-the-critic",
+  "field": "title",
+  "lang": "ko",
+  "text": "비평가를 실토하게 만든 평결",
+  "model": "claude-opus-5",
+  "source_sha256": "f41f05f1217f70c028e2435eb0c2e58033df9ba54589403add56a2a6045338a0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-verdict-the-conscience-passes-on-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "양심이 제게 내리는 판결",
+  "model": "claude-opus-5",
+  "source_sha256": "6d63f6f222785a7b8a3a9616212aef664eada89aa4991ec9c52da1f901f71993"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-verdict-the-enforcer-will-not-own",
+  "field": "title",
+  "lang": "ko",
+  "text": "집행자가 제 것이라 하지 않는 판결",
+  "model": "claude-opus-5",
+  "source_sha256": "b2634081b3330151a54605f3ee86094ac50e9a3c5d4ee1f3a6487c6206ad7893"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vermeer-threshold-in-iranian-asian-light",
+  "field": "title",
+  "lang": "ko",
+  "text": "이란과 아시아의 빛에 놓인 페르메이르의 문턱",
+  "model": "claude-opus-5",
+  "source_sha256": "efd5ea23fe41b91607d9ce516b6674e293947c817e1f41c82051d677f1bdfb8e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vertical-city-mapping-semi-colonial-capital",
+  "field": "title",
+  "lang": "ko",
+  "text": "반(半)식민 자본을 그려내는 수직 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "d190f27f5d829ece90943501cffdf3178f0103306639e3d24af13396c8ae1aba"
+ }
+]

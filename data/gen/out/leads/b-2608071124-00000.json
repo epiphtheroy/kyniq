@@ -1,0 +1,132 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-way-of-all-flesh-1927",
+  "field": "lead",
+  "film_id": "1f60bd74-2845-4b49-b399-fb8132b28347",
+  "lang": "en",
+  "text": "A bank clerk is handed a thousand dollars in securities and told to carry them from Milwaukee to Chicago. The trip is short. Nothing about the errand suggests it needs a story at all, which is the mechanism: a train, a stranger who wants champagne bought for her, a saloon, and a morning in a room he does not recognize. Victor Fleming films the early 1900s from 1927, close enough that the period is remembered rather than reconstructed, and the attention stays on domestic arithmetic - the job that pays, the family expecting him at a certain hour, the standing a clerk has instead of money. The single honor the film carries is for acting, which is the right place for it, since everything after that morning depends on one face doing the accounting.",
+  "model": "claude-opus-5",
+  "source_sha256": "de9761735a71f12759d166d9f5198d2cf1149e74f0e61c818fc0623e213ed38a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "shwaas-2002",
+  "field": "lead",
+  "film_id": "b904b275-8e57-4759-8859-b8a0e5f7ab49",
+  "lang": "en",
+  "text": "An old man with a cancer diagnosis sets himself a task that has nothing to do with medicine: to show his grandson what a life is worth, while there is time to show it. The film runs 107 minutes in Marathi and carries the National Film Award for Best Feature Film, which puts a small domestic story at the head of a national ledger for the year. Sandeep Sawant keeps the register low. No crisis is larger than the one in the room, and the drama lives in small negotiations - what a child is told, what is kept from him, how long an afternoon can be stretched. Sentiment is the standing risk in a premise like this; the counterweight is arithmetic, an old man measuring what he has left in days rather than years.",
+  "model": "claude-opus-5",
+  "source_sha256": "a9cae1879391a51ba8f75b3b2c3a9e003320b41725d476392b0f66399cf93dfd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-dreamed-adventure-2026",
+  "field": "lead",
+  "film_id": "a4fa0249-ff3e-4277-a94d-2e999edd3c4b",
+  "lang": "en",
+  "text": "One hundred and sixty-seven minutes for a premise a thriller would dispatch in ninety: a woman takes a job she should not take, because a friend needs her to. The setting is the corner where Bulgaria, Greece and Turkey meet, a place where crossing is both an everyday act and a business. Valeska Grisebach directs in Bulgarian, and the length does the work - long enough for the woman's own wanting to register as a force in the story rather than a motive stated once and then abandoned to chase. The film holds a Jury Prize. In a plot built from a deal and a favor, what that suggests is an interest less in whether the arrangement survives than in what she discovers she is prepared to do while it lasts.",
+  "model": "claude-opus-5",
+  "source_sha256": "0a863da7301c22dcdd1a88a1093bd2b06abce3bb22641e610738d103faf1a819"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "running-on-karma-2003",
+  "field": "lead",
+  "film_id": "95d8a8be-aae2-4524-a7ca-252950916bbb",
+  "lang": "en",
+  "text": "The premise arrives as a sight gag: a former monk carrying a bodybuilder's torso, able to look at a stranger and read what their life owes. Then the film takes the second half of that seriously. Johnnie To keeps the furniture of Hong Kong crime cinema - a policewoman, an investigation, the promise of a fight - and interrupts it with a proposition the genre has no equipment for: that a consequence already in motion might be argued with. At 94 minutes the swerves are abrupt by design, comedy and physical spectacle and something close to doctrine sharing scenes without settling their quarrel. Best Film at the Hong Kong Film Awards is the fact worth keeping, because it means an industry recognized the oddity rather than merely tolerating it.",
+  "model": "claude-opus-5",
+  "source_sha256": "801cbdb7172c0f161cfcf740419fde9260f96337da505c036743af04b4aa36c9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "war-pony-2022",
+  "field": "lead",
+  "film_id": "c134c188-6c32-4f82-be93-f3c59717f5a4",
+  "lang": "en",
+  "text": "Twenty-three and twelve, both on Pine Ridge, both certain that manhood is something a person can go out and acquire. The film moves between them without making either one a lesson about the other. Bill wants to make something of himself and is short of routes; Matho wants in on whatever the older boys have, sooner than he should. What keeps this from becoming a case study is texture - houses, cars, jobs, money owed, people being funny in the middle of trouble. Gina Gammell directs a British-financed production made among Lakota lives on the reservation, and the Caméra d'Or it carries sits on a film with almost no plot machinery: 114 minutes of small events that turn out to have been decisions. The grimness a summary promises is there, and it is not the whole register.",
+  "model": "claude-opus-5",
+  "source_sha256": "1bd2c7fdd80056adde0660dc124d6f7af6a9ad40db06e8f4fa38456f2b60b8d6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "under-the-shrapnel-1982",
+  "field": "lead",
+  "film_id": "a3da3125-47b4-4d52-a688-c8e35e77bd5f",
+  "lang": "en",
+  "text": "The abduction goes wrong immediately, and after that the film is about a room. Felipe Cazals opens on an attempt to kidnap a politician that costs several policemen and one of the guerrillas their lives, then shuts the survivors indoors with a hostage nobody planned for: an old comrade of the group's leader, taken not for ransom but because he knows too much to be let go. Mexico, 1982. The politics stay largely off screen; what fills 102 minutes is the pressure on people who agreed about a cause and must now agree about smaller things - who eats, who sleeps, who is trusted near the door. It took the Ariel for Best Picture, and the award is legible in the acting rather than the action, most of which is over before the film properly begins.",
+  "model": "claude-opus-5",
+  "source_sha256": "886d67d2d1e8a86c29dfdd5f0643a75c404174fa7d04b9b4752ca9aabe2420a6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "desperado-city-1981",
+  "field": "lead",
+  "film_id": "ba738163-bc3d-4439-8397-f1657ce23ef4",
+  "lang": "en",
+  "text": "A banker's son would rather drive nights than sit through another dinner with his father, so he drives nights. What he has not given up is dependence: the room he sleeps in and the cab he works both belong to an older woman whose commitment was never in doubt, and the arrangement is plain to everyone except him. Vadim Glowna builds the film out of fares - people who get in, talk, and get out - and out of the specific boredom of a young man who has arranged his freedom with someone else's money. A teenage passenger, as unhappy at home as he is, becomes the one person he recognizes. German, 1981, 98 minutes, with a Caméra d'Or attached. Its subject is not the refusal but the bill that comes for it.",
+  "model": "claude-opus-5",
+  "source_sha256": "bdf62483e4c6d6ce0476955a40cca7cd4fb8eca522dff12965eaebcdce233d12"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lev-tolstoy-1984",
+  "field": "lead",
+  "film_id": "931ce79a-b515-4ee4-a70b-b5e0cc48b6eb",
+  "lang": "en",
+  "text": "Two parts, titled Insomnia and Departure, and 168 minutes to spend on an old man who cannot sleep. Sergei Gerasimov filmed Tolstoy's last years at Yasnaya Polyana as a house under mild siege: family, friends, acquaintances, strangers who have travelled from other countries simply to look at him. Then it goes inward, running what the film calls the voice of his thoughts across the sleepless hours, where memory does the talking - the happy youth, and the years that cost. This is not the biography that begins at a cradle. It is a late portrait in Russian, made in 1984, treating fame as a domestic condition, something that arrives at the door each morning and has to be fed. The Crystal Globe suits a film whose largest event is a decision taken very slowly.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1a4b5d0bed02112e2c23a57f4557977a06ab58204ce6bb4297789d4baab2ca1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "little-crusader-2017",
+  "field": "lead",
+  "film_id": "5d80003d-d876-4287-b0ce-197064f41aa3",
+  "lang": "en",
+  "text": "A boy hears stories about children marching to the Holy Land and leaves home; his father puts on armor and rides after him. Eighty-seven minutes is a brief allowance for a quest, and Václav Kadrnka spends it on the least eventful stretch: riding, asking, waiting, riding again. The medieval world arrives as landscape and weather rather than pageant, with the knight Borek growing smaller inside it. Dialogue is scarce. The interest lies in what a search does to the searcher once it stops producing information, and in how a father's route bends toward the thing he least wants to find. Křižáček took the Crystal Globe, and it earns its short length by refusing to explain the child - the boy's reasons stay the boy's, somewhere ahead on the road.",
+  "model": "claude-opus-5",
+  "source_sha256": "0636920d32c477325456f93455c0606042721f763ca011f02bcac6292ab1e79c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "out-1-1971",
+  "field": "lead",
+  "film_id": "b9ccaeba-3219-4810-9f1d-3f92dda09465",
+  "lang": "en",
+  "text": "Seven hundred and forty-three minutes: twelve hours and twenty-three, in which two theatre troupes rehearse Aeschylus and two loners work the Paris streets for cash. Rehearsal is the engine, so a great deal of the film is people trying things that do not work yet, at the length that trying actually takes. Jacques Rivette lets a mystery drift in from the edges and never insists on it; the plot is thin by design, a thread the performers keep picking up and putting down. Paris in 1971 is a city a camera can walk into and begin a conversation with. Its place on the TSPDT thousand is the only conventional thing about it. Almost nothing here is shaped for anyone with somewhere else to be.",
+  "model": "claude-opus-5",
+  "source_sha256": "db41fdc2ed48889b6d341e7912c1c39771b398bcb0e48224dcfb8d3a0e3af41c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-special-day-1977",
+  "field": "lead",
+  "film_id": "7c39d43f-6a03-4c90-9826-bc10fe9aea38",
+  "lang": "en",
+  "text": "Rome is out in the streets for Hitler's 1938 visit, and Ettore Scola stays behind in an emptied apartment block, where a housewife worn down to acceptance and a journalist the regime has marked have the place to themselves for one afternoon. Two people, a few rooms, 106 minutes. The politics arrive as noise from elsewhere, which is the method: fascism is never argued about, it is simply the reason one of them is watched and the other has no hours that belong to her. What passes between them is mostly talk, and the clock does the work of an antagonist - a family will come home. It sits on the list of a hundred Italian films marked for saving, and it is the least monumental film imaginable about a historic day.",
+  "model": "claude-opus-5",
+  "source_sha256": "faa03838b9a3b677890b37946c45f754ccce7631aa0f6912a91ca7144615beb2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "captain-blood-1935",
+  "field": "lead",
+  "film_id": "ec6cb958-cffe-4006-9288-6d4c7bd13546",
+  "lang": "en",
+  "text": "Before any sword is drawn there is a courtroom, and a physician convicted of treason he did not commit. Michael Curtiz gives that humiliation enough screen time to make what follows follow: a man shipped out of England as property has few objections to taking whatever floats past. From there the picture runs as a 1935 Hollywood machine at full efficiency - exile, a ship, a crew, a command, and a romance obliged to survive his legal status. Two hours budgeted for tempo, with history handled at the level of costume and weather. Its place on the 1001 Movies list is not a matter of depth. The grievance is what holds: on the record, unrepaired, and pushing a man who would rather have gone on practicing medicine.",
+  "model": "claude-opus-5",
+  "source_sha256": "cad3dd07321be4514b208709cac706d687f9f720d4e23c8edd7b405c86411ce5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-black-cat-1934",
+  "field": "lead",
+  "film_id": "5357e90f-fa5c-4f89-998a-a42a6f4475c9",
+  "lang": "en",
+  "text": "A horror film whose menace is an architect, living in a house he designed himself. Edgar G. Ulmer has 65 minutes and wastes none of them: a car leaves a road in Hungary, two American honeymooners and a traveling doctor named Werdegast take shelter, and the host, Hjalmar Poelzig, shares with the doctor a past that neither will state plainly in front of guests. That withholding is the mechanism. Joan and Peter are polite people caught inside an argument older than they are and no business of theirs, and the dread is architectural rather than gothic - a modern house, a hospitable owner, something wrong with the arrangement. It sits on the 1001 Movies list, and at just over an hour it has no room for explanation, which is entirely to its benefit.",
+  "model": "claude-opus-5",
+  "source_sha256": "ce0e989479cf92301202351e67d9ad2b5b778909c57515fd475e3bbafa853b4a"
+ }
+]

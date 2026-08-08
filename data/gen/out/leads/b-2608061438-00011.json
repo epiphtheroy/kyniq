@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "half-a-life-1982",
+  "field": "lead",
+  "film_id": "e9d013f8-92ac-452d-8e55-d8b937c2e553",
+  "lang": "en",
+  "text": "Michel Recanati was the director's friend, and the film never pretends otherwise. Recanati organized in Paris around May 1968 — the meetings where leftist principles were argued out, then the actions that came of them — and did a short stretch in prison in 1973. Romain Goupil is not assembling a life out of documents; he works from proximity, from having been present for the part that felt like a beginning. That is the job the film takes on, and the awkwardness of it is visible: a friend deciding what he is entitled to say, and about whom. The César for a first film went to it. Ninety-five minutes, and most of them belong not to the riots but to the long afterward, when the same people had to go on living in the decade that followed the one they had planned for.",
+  "model": "claude-opus-5",
+  "source_sha256": "1efcf044dbd5f807773f172534087cdd781ffba750136f7dd3623ab9ecd167ac"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "coming-to-terms-with-the-dead-1994",
+  "field": "lead",
+  "film_id": "5b1c2a38-a798-4eed-9e8e-5c452dbffb4f",
+  "lang": "en",
+  "text": "A man on a beach in Brittany is building a sand castle, and a few people stop to watch him. Pascale Ferran picks three of them out of the small crowd — Jumbo, who is nine, and François with his sister Zaza — and follows each one away from the water into a private accounting with a death of their own. Three reckonings, one summer, 104 minutes. The film sets them beside each other rather than braiding them into a single lesson, so that no one way of carrying a death gets to stand in for the rest, and a child's version is allowed to sit next to an adult's without being ranked beneath it. The man goes on with his castle the whole time, working in a material that was never going to hold, and Ferran is content to leave that where it is.",
+  "model": "claude-opus-5",
+  "source_sha256": "210205131d6afd138062fb8ae884005ae29a0d2a7617cde24e25b0b641361600"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bedtime-fairy-tales-for-crocodiles-2001",
+  "field": "lead",
+  "film_id": "a15d11bc-50e1-4e92-a457-b3928e01d945",
+  "lang": "en",
+  "text": "One house, and a man moving back through the people who lived in it: his father, then his grandfather, then whoever stands behind them. Ignacio Ortiz gives 108 minutes to that single motion, which puts the weight in an unusual place — not on what happens next, but on what was already in the rooms before anyone now living walked into them. Descent is the subject and also the method. A structure like this asks an audience to carry faces across decades and to catch the rhymes: a gesture made by a man who never met the person he got it from. The Ariel for best picture went to it, which for a film assembled this way reads as a vote for shape over incident. Each generation gets to be young in its turn, gets its own trouble, and hands the house on.",
+  "model": "claude-opus-5",
+  "source_sha256": "e205f55dbc2ec721f3159093e56f3f7204b584f620e1fa3aea71e381180349df"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "northern-lights-1978",
+  "field": "lead",
+  "film_id": "8a3a4ded-dd0a-4b76-bf5a-67779ec9302c",
+  "lang": "en",
+  "text": "North Dakota, 1915: wheat in the ground, and the price of it decided somewhere far away. The fight in Northern Lights is a farmers' campaign against the grain trade, the banks and the railroads at once, which is less a cause than an unpaid second job, and John Hanson keeps his two young lovers inside that schedule instead of lifting them out of it. Courtship happens between meetings. A prairie winter organized around freight rates and mortgage terms is not an obvious thing to build a film on, and choosing it commits the picture to the unglamorous middle of things: chores, distances, the long ride to somebody's kitchen to argue about tactics. The romance is not a rest from the politics. It runs on the same short supply of hours and money.",
+  "model": "claude-opus-5",
+  "source_sha256": "77e2cd527f9c414e138f78ece664e390515042b0509806e70b67125f5abd8683"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "stork-1972",
+  "field": "lead",
+  "film_id": "f2d40c7e-e4cc-4969-92ef-97c0b6615f04",
+  "lang": "en",
+  "text": "A drawing job at General Motors Holden in Melbourne, and a private conviction that he is a revolutionary: in Stork the two facts never meet anywhere. He quits the job and keeps the conviction, moving into a share house where the political questions run to who drank the last beer. Anna, the only woman living there, is already involved with two of the other men, and the film treats that as domestic arithmetic rather than scandal. Tim Burstall gives this 85 minutes, about as long as the joke can hold — a young man whose fantasy life outruns everything else, bungling interviews, offending the respectable, drinking. The comedy is broad, the house is filthy, and nobody in it is satirized from a safe distance. What keeps the thing from curdling is that the film never pretends its hero is right about himself, and never punishes him for it either.",
+  "model": "claude-opus-5",
+  "source_sha256": "fe330089441e7b89c418b1ecb62b77d97aa7f7de633756fbcb49743cd67c57c0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "djomeh-2000",
+  "field": "lead",
+  "film_id": "1844b6db-6a91-46bb-8d6b-4e1524b53864",
+  "lang": "en",
+  "text": "The favor is small and impossible: Djomeh wants to ask a village woman to marry him, and he needs an Iranian to do the asking for him. He is Afghan, working as a milk boy in a country that let him in without letting him belong — the villagers keep their distance, and Habib, the older Afghan he was entrusted to, offers something colder than distance. Only his employer treats him as company, and it is the employer he asks to carry the proposal. Hassan Yektapanah has ninety-four minutes and spends them on a route rather than a plot: the same stops, the same road, conversations that circle the one subject the younger man cannot raise himself. The village is small enough that everyone in it knows he is not from it. What the film measures is the width of the gap between being tolerated in a place and being allowed to want anything from it.",
+  "model": "claude-opus-5",
+  "source_sha256": "b4b6a9826da3b3bed339ab0f8614e371584fdf23c9d2677ce67d264a30fef614"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "homecoming-1984",
+  "field": "lead",
+  "film_id": "707f0d43-cfe3-42ad-bfe9-410b5fe3a7bc",
+  "lang": "en",
+  "text": "Coral has had enough of Hong Kong and goes back to the town she came from, where two people she has known since childhood are still living the life she left. That is the whole event. Yim Ho works with the small arithmetic of return: what her friends have become, what they assume she has become, and the version of her the town has kept in storage since she went. Ninety-six minutes, three adults, and a place where everyone already knows the first draft of the story. The Hong Kong Film Awards named it best film — a result for a picture with no crisis anywhere in it, where the pressure is entirely social, made of assumptions and of the questions people decline to ask. Nobody raises their voice. Nothing here would be settled if they did.",
+  "model": "claude-opus-5",
+  "source_sha256": "26398a08e9d23bae33d52de4bf534cfbab3017803dd58475bc79a23687e83efd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "annie-s-coming-out-1984",
+  "field": "lead",
+  "film_id": "fd462f98-720d-4d84-b1fd-0cfcc40c330b",
+  "lang": "en",
+  "text": "The reasoning inside the hospital is a closed circle: these children cannot communicate, therefore they cannot think, therefore there is nothing in them to hear. A young social worker takes a job on the ward and begins noticing diagnoses that do not match the people they are attached to, then finds that the burden of proof has been arranged so that it cannot be met. Annie O'Farrell, played by Tina Arhondis, is on the far side of that circle. Gil Brealey moves the film from ward to courtroom, where the argument stops being about one girl and becomes about the professional standing of the men who classified her. The certainty of trained people is harder to sit through than anything in the corridors. What is on trial is who counts as a witness to their own life.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e03342f389add61ee9ceb95380d18e3508901634864c90ed4b715f330d161c8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "noir-et-blanc-1986",
+  "field": "lead",
+  "film_id": "1d46ac82-dbf7-419a-8eb4-d594bdefd0cb",
+  "lang": "en",
+  "text": "Edith chooses her husband's clothes, down to his shoes, and Antoine has never seen the need to object. He is an accountant, sent to spend a month straightening the books of a fitness club, and the owner, wanting the auditor comfortable, tells him to use the place — the machines, the showers, the massage table where a man named Dominique works. Claire Devers holds this to eighty minutes and to a handful of rooms: an office with ledgers, a gym after hours, a table with someone face down on it. What starts as a transaction between a client and a service turns into an arrangement of another kind, settled almost without discussion, since neither man is going to be the one who says out loud what is being agreed. Devers films all of it as routine — appointments made, hours booked, a service rendered on schedule.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3a97739a621735a67061022fdb8495dcccb969fd2bae106135c99ee14279c2c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "to-my-nineteen-year-old-self-2022",
+  "field": "lead",
+  "film_id": "34cff8f5-408b-4f76-8d44-f5d7f2c035fb",
+  "lang": "en",
+  "text": "The camera was switched on in 2011 because a school building was coming down. Ying Wa Girls' School asked one of its own graduates, Mabel Cheung Yuen-Ting, to document the rebuilding, and what accumulated instead was a record of a group of students going from childhood into adulthood while the city outside them ran through the most turbulent decade in its history. Eleven years compressed into 136 minutes means the cuts do the hardest work: a girl is one person, the film jumps, and she is someone else who remembers being her. The Hong Kong Film Awards named it best film. A project that began in a schoolyard could have stopped at graduation; this one keeps the appointment long afterward, until its subjects are old enough to hold views about having been filmed.",
+  "model": "claude-opus-5",
+  "source_sha256": "a5d868cf14c6ba047471c291de866ef57ece30151c409e5b4f2f4d52ff6a067b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "if-i-never-see-you-again-1997",
+  "field": "lead",
+  "film_id": "bb91a642-c3f1-4fb5-aa70-e9e24802ef88",
+  "lang": "en",
+  "text": "Five men in a nursing home form a band, then walk out of the building with their instruments, because a band needs somebody to play to. The city has no particular use for them: administrators who want them back, police who want them elsewhere, and the plain difficulty of being old on streets built for people in a hurry. The instruments are the plan and the whole of it. Juan Pablo Villaseñor plays this as comedy and keeps it there for 97 minutes, which takes some nerve, since the joke only works if the audience can see what the escape costs five men with no money and nowhere to sleep. The Ariel for direction went to him. What the film wants for them is smaller than a triumph and more stubborn than one: a night on a stage, in front of whoever happens to be there.",
+  "model": "claude-opus-5",
+  "source_sha256": "5648985d9ef7459a57a2736ec9f7d88251ef0519e5518151b1a1def3ac952431"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ah-ying-1983",
+  "field": "lead",
+  "film_id": "0b38cff6-b043-49b5-ad96-096fd82ccee3",
+  "lang": "en",
+  "text": "Learning to make films looks like this: turning up, watching other people work, being handed something small and doing it badly first. Allen Fong builds 110 minutes around a young woman edging into Hong Kong's independent film scene, and the story was drawn in part from a life actually lived rather than invented whole. That shows in what it keeps: the odd jobs, the waiting, the hours a tighter script would cut. A person learning the trade, filmed by someone practicing it — the two levels sit in the same frame without comment. The Hong Kong Film Awards named it best film. Nothing in it is scaled up for the occasion, and the interest lies in how little distance Fong leaves between an ordinary working life and the apparatus that has just begun pointing at it.",
+  "model": "claude-opus-5",
+  "source_sha256": "19e7080705185da93b8a581bd69cf4aac32d586b20f267ac33f2ae76670c66b9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sin-remitente-1994",
+  "field": "lead",
+  "film_id": "1385c668-59d6-40c5-9291-323a9878db60",
+  "lang": "en",
+  "text": "It starts as a noise complaint: an aging postman objects to the music his young neighbor puts on whenever she brings someone home. She settles the score by sending him love letters with no name on them. He believes them. That is the engine of Carlos Carrera's film, and the cruelty in it costs the person committing it almost nothing — Marianna goes back to her own affairs, a tabloid journalist she wants to interest and an assignment photographing what gets left behind at crime scenes, while Andre spends money he does not have on a cheap detective. The detective produces an answer, and the answer agrees, for a fee, to keep being the answer. A colleague tries to warn him. The city here is a place where a joke can be set going and then simply left to run.",
+  "model": "claude-opus-5",
+  "source_sha256": "c294ecf16bffef5d10639e2eda59a200f2fbec2e56b6a1cbfed0642b7a9b3740"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-year-of-the-plague-1978",
+  "field": "lead",
+  "film_id": "f0b201e1-bb3c-456c-b325-1e079e4c7e4e",
+  "lang": "en",
+  "text": "The emergency in this film is not the microbe; it is the paperwork. A doctor in a Mexican town works out that what he is seeing spreads, takes it up the chain, and meets officials whose first instinct is to manage what the public will be told and whose second instinct is the same as the first. Felipe Cazals made it in 1978, and the science-fiction label sits strangely on something this procedural: 109 minutes of memos, denials, deferrals and briefings, with the outbreak gaining ground in the intervals between them. Nobody in it is a villain in the ordinary sense. Everyone is protecting an institution, calmly and on the record, and the announcement is treated throughout as a separate object from the event it describes.",
+  "model": "claude-opus-5",
+  "source_sha256": "84391819827c5422b44ca0f522678d3ddc89da5d1db9d9c6fb96d58c9168a12b"
+ }
+]

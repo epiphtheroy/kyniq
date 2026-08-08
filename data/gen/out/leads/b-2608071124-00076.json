@@ -1,0 +1,132 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "soleil-o-1970",
+  "field": "lead",
+  "film_id": "f59547b3-159a-4566-aaea-ddd0881f6330",
+  "lang": "en",
+  "text": "The education is French, the language is French, and every door that closes is French too. Med Hondo's 1970 film follows a Mauritanian who arrives in Paris holding qualifications the city taught him to want, and finds that the arrangement was never built to end in a job. The premise fits on a card — an educated man looks for work — and it carries a whole economy: fluency admired and not hired, lodgings offered and withdrawn, the counsel of men who came earlier and were also wrong. A hundred and four minutes gives Hondo room for argument, for mockery, and for the repetition that looking for work actually consists of. It took the Golden Leopard. What the film refuses is the tone of a complaint being made politely to someone who might help.",
+  "model": "claude-opus-5",
+  "source_sha256": "e2efd0ede1cb342a84609a502c38b57d577ecd81d43111a68df3f44072c70cd2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "jfk-1991",
+  "field": "lead",
+  "film_id": "996b8458-60fd-446f-a482-638a7f3a9cab",
+  "lang": "en",
+  "text": "One hundred and eighty-nine minutes, most of them spent on paperwork. Jim Garrison, the district attorney in New Orleans, reopens the killing of a president, and Oliver Stone's 1991 film goes with him into depositions, photographs, transcripts, and the accounts of witnesses who may or may not be worth believing. The Academy Award it won for editing describes the method exactly: the case is made in the cutting, by juxtaposition, at a speed that keeps ahead of doubt. Whether the argument holds is left to the audience and to history; the film's own pressure falls on Garrison's office, his staff, his marriage, and a city that would prefer the matter closed. Three hours is not indulgence here. It is the length of a file a man has read too many times to sleep.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c8f56895cc3a32638f4dc30d28fff355d99b104cddd43550cbf0963ff934a3c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-circus-1928",
+  "field": "lead",
+  "film_id": "1ab47c65-3cd2-420e-b5a2-3ff087ae86c7",
+  "lang": "en",
+  "text": "The tramp is funniest when he has no idea he is being watched, which becomes a problem the moment somebody starts paying him for it. He wanders into a circus, is taken on as a handyman, and ends up the act — a promotion that converts clumsiness into wages and hands the wages to a man who can stop them. That man's stepdaughter is the girl Charlie falls for, so both of the things he wants sit in the same fist. Love and employment share an owner. Seventy-two minutes, 1928, and the arithmetic runs underneath the slapstick instead of beside it: every laugh raised in the ring is counted by someone outside it. Chaplin gets a ring, an audience, and a trade in which falling down is both the job and the humiliation, and he never lets the two come apart.",
+  "model": "claude-opus-5",
+  "source_sha256": "6495b8c69be326f42147512618f87308d44ac29e5b1b6e12b0d95b5a00649247"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "design-for-living-1933",
+  "field": "lead",
+  "film_id": "86ee78d3-5605-4d46-b9ff-fde1e6103c44",
+  "lang": "en",
+  "text": "Gilda is on the verge of a comfortable, boring marriage when the two men she gave up turn up and take her to Paris instead. Ernst Lubitsch filmed that arrangement in 1933 and declined to punish anybody for it: Tom and George have argued their jealousy down into a workable truce, Gilda holds opinions of her own about all three of them, and the comedy comes from adults negotiating terms rather than from anyone's disgrace. Ninety-one minutes, almost all of it talk, and the decisive information is placed just outside the frame for the audience to collect. Two men and one woman is a joke setup; three people running a household is a plot, and this is the second thing. Marriage plays the straight man — offered as the sensible option, photographed as the dull one.",
+  "model": "claude-opus-5",
+  "source_sha256": "be0163ce3f0731fb5d89d808bdf28ea6bcb659e1ab2c4e867d0894dda089619e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-tiger-of-eschnapur-1958",
+  "field": "lead",
+  "film_id": "5913c441-bbca-4f1d-abb9-16aa6287f97e",
+  "lang": "en",
+  "text": "His first act on the job is to save someone's life. A German architect has been brought to Eschnapur to build, and what he does instead is rescue the Maharajah's favourite temple dancer, which earns him a ruler's friendship — a gift that can be withdrawn. Fritz Lang made the film in 1958, in German, with French backing, and he takes the palace adventure at its word: everyone in it belongs to somebody, the dancer to a temple before herself, the foreigner to whoever is paying for the drawings. Then the architect and the dancer fall in love, and hospitality begins to acquire a floor plan. A hundred and one minutes of corridors, thresholds, audiences granted and denied. The film argues nothing; it arranges people in rooms and lets the arrangement tighten.",
+  "model": "claude-opus-5",
+  "source_sha256": "95c8e683cd0c0365c6e913196e53db2b6cb980eff137c99b36466d468c2a1e4c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "born-in-flames-1983",
+  "field": "lead",
+  "film_id": "af7b37cd-5c9b-48f0-96e9-c45bc03c9871",
+  "lang": "en",
+  "text": "The revolution has already been won, and the women who fought it are told the matter is settled. Born in Flames begins ten years after a social-democratic war of liberation in New York, with equality still on the list of things promised, and with several groups of women deciding separately that waiting has stopped being a strategy. Lizzie Borden shot it in 1983 as science fiction with none of the equipment — no chrome, no future city, just the streets available to her and eighty minutes of dispute. The dispute is the film. Women who agree completely about who has failed them and not at all about what to do next keep meeting, and the meetings are filmed with the patience usually reserved for plots. An uprising assembled out of that friction is a different thing from one imposed on it.",
+  "model": "claude-opus-5",
+  "source_sha256": "d042cb9c2ea45f88173dc24bbfe775bbe920dfbd4374d889dac1ac38dd984e6f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "one-way-or-another-1977",
+  "field": "lead",
+  "film_id": "bf124c1c-e968-424e-9943-8cd008c6b776",
+  "lang": "en",
+  "text": "Italy's governing party withdraws to a sealed building to pray, and a series of unexplained crimes begins. Todo modo, released in 1977 as One Way or Another, puts the Christian Democrats through spiritual exercises — kneeling, confession, timetables — while their actual business, the distribution of a state, continues in the corridors between devotions. Elio Petri films this as a mystery, which is the shrewdest form available: the deaths require investigation, and no investigation can proceed without reading the ledger of who owes what to whom. A hundred and twenty-five minutes and almost no daylight. The enclosure does the political work. No electorate appears in the frame, only a party talking to itself and to God and finding the two conversations hard to tell apart.",
+  "model": "claude-opus-5",
+  "source_sha256": "91833ac30ec85848823d4252d731f66e45e0697f11add22b9697011a021b0dc3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "diabolique-1955",
+  "field": "lead",
+  "film_id": "41dc333b-e3f4-4bc2-af42-0e2f43b098b6",
+  "lang": "en",
+  "text": "The wife and the mistress of the same man become accomplices, and that is the least strange thing about this school. Michel Delassalle runs it as headmaster and as household, cruel to both women as a matter of daily routine and at no pains to hide either of them. Henri-Georges Clouzot gives the first stretch of his 1955 film to practicalities — who is where, what carries through a wall, how long a thing takes — and the rest to the discovery that what they were so careful about is no longer where they left it. The Louis Delluc Prize went to it. One woman is meek and frightened, the other hard and out of patience; both are shut inside a building full of boys and made to wait, each watching the other for a first sign of collapse. The waiting is the whole of the horror.",
+  "model": "claude-opus-5",
+  "source_sha256": "347039b57900bc0a5da7ec3981f0bd7cc72de4a030a2d105a607be90a86758e7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-cook-the-thief-his-wife-her-lover-1989",
+  "field": "lead",
+  "film_id": "0debbf58-cfb2-4c7c-b2f1-dc77fdbc6198",
+  "lang": "en",
+  "text": "The dining room is the entire world of this film, and its owner is the worst customer in it. Albert Spica has bought a French restaurant in London and eats there every night, loudly, at a long table, until the paying clientele stop coming. His wife Georgina endures the performance and begins meeting another regular, Michael, out of sight of the table. Peter Greenaway builds everything from that floor plan, and the European Film Award the film took for production design is less a decoration than a description: the moral order is settled by which room a person is standing in. A hundred and twenty-four minutes of courses arriving on schedule. Sharing a building with Spica is measured in appetite, and in the discipline of staff who know exactly what is happening and are paid to serve it.",
+  "model": "claude-opus-5",
+  "source_sha256": "8651eddd02bb2a9b6b3ea32e8704c22d8b53feec93c90995bdd1b7084aa81a8c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "new-york-new-york-1977",
+  "field": "lead",
+  "film_id": "774d9e4b-d761-4d1a-92c2-a50ded5da781",
+  "lang": "en",
+  "text": "They meet on V-J Day, in the middle of a national celebration, and the trouble starts immediately. He plays saxophone and cannot stop performing once he steps off the stand; she sings, and her voice will carry her further than his horn carries him. Martin Scorsese gave this a hundred and sixty-three minutes in 1977 — longer than a romance usually survives, which is the point, since the film wants the touring, the marriage, the bookings, and the slow discovery that two working musicians' schedules amount to a verdict. The pleasures of the big-band picture are all present and none of them console anybody. Most films about show business treat success as compensation for what a couple went through. This one runs both at once and lets neither improve the other.",
+  "model": "claude-opus-5",
+  "source_sha256": "a568325a3f637ddae94e41aa42add5ad43fd669537c00c47b5e1354ed2e4eeec"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "fort-apache-1948",
+  "field": "lead",
+  "film_id": "cbd713c4-f989-44e3-9da1-e02fcb6bce66",
+  "lang": "en",
+  "text": "Owen Thursday reads his new posting as an insult and sets about converting it into a citation. Fort Apache sits a long way from anything, and the officer sent there arrives convinced that honour is owed to him, carrying a book of regulations he means to enforce on men who learned the country by living in it. John Ford's 1948 film keeps the danger inside the walls: the subordinates who know Cochise, know the border, and know what drawing him out of Mexico will cost are outranked, and being right confers no rank. Two hours and eight minutes, much of it drill, protocol, the maintenance of a garrison. None of that is padding. The claim is that a command structure will follow a fool with correct paperwork the whole way out, and duty rosters carry it before dust does.",
+  "model": "claude-opus-5",
+  "source_sha256": "ee877a12a1daaadff9561a43cc4f5af0a0842240b6db09a54f929528bb04edf7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "unrelated-2007",
+  "field": "lead",
+  "film_id": "5ab5522e-cedd-4d97-ae62-1589bfc026fc",
+  "lang": "en",
+  "text": "A woman spends her holiday inside somebody else's family, and the terms turn out not to be negotiable. The relationship she left in England is going badly and she has come to Tuscany without it, which leaves her a guest with no fixed position — free to attach herself to the parents or to the young people, welcome in a partial way with both. Joanna Hogg's 2007 film spends a hundred minutes on meals, cars, swimming, and a remark repeated later in a slightly different tone. Nothing is declared. The drama is in seating and in who gets told what, and the discomfort belongs to nobody in particular, which is how it spreads. The Guardian placed it among the hundred best films of the century; it earns that in a register barely above conversation.",
+  "model": "claude-opus-5",
+  "source_sha256": "0fce1ff2258990793f77f5a5330728196bd148ca74c3c79e13d3e6b51ae5d521"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "diaries-notes-and-sketches-1969",
+  "field": "lead",
+  "film_id": "dca661cd-4dfd-459d-b2f4-dd73877b896b",
+  "lang": "en",
+  "text": "Six reels, kept across a decade, of one man's ordinary days. Jonas Mekas filmed his 1960s in New York — the people at his table, lovers, family, the artists whose work he went out to see and whose faces he brought home — and the result runs three hours under two names, Diaries, Notes, and Sketches and Walden. A diary film owes nothing to structure. It accumulates, and the accumulation becomes the record of a community that held together partly because somebody kept pointing a camera at it. Three hours is less a length here than a condition: time is the material being handled, and it can only be handled by taking time. Nothing in it was shot because it mattered. It matters because it was shot.",
+  "model": "claude-opus-5",
+  "source_sha256": "6ec5b5df5c4b3f3fd1911308802beffea621fe753787ce95d74e945b6ea6aadd"
+ }
+]

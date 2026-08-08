@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "news-of-the-world-2020",
+  "field": "lead",
+  "film_id": "91e03d16-2018-43f5-9193-dccfa5e24b30",
+  "lang": "en",
+  "text": "The job at the center of this Western is reading the newspaper aloud for money. A man carries the week's papers from town to town across Texas and speaks the world to rooms that have no other way of hearing it. Then he agrees to return a kidnapped girl to whatever is left of her family, and his circuit becomes a delivery he cannot hand off. Paul Greengrass keeps the 118 minutes at ground level: weather, wagons, the cost of a night's lodging, two travelers finding out what the other will put up with. The news is the sly part — items chosen, softened, timed for the room, order performed for towns that have little of it. A 2020 film built less on pursuit than on custody, and on the strange labor of speaking for a living to people who cannot read.",
+  "model": "claude-opus-5",
+  "source_sha256": "96c7c8c82c77b9912dfbaf1b6be1e82400d0e51d49038cc046fbefcda6584d82"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mary-poppins-returns-2018",
+  "field": "lead",
+  "film_id": "2ae81eda-760e-469d-adfb-f8d35e3024fc",
+  "lang": "en",
+  "text": "A nanny returns to a family that has grown up without her, and the film's first job is to make the arrival feel like weather rather than nostalgia. Rob Marshall's 131 minutes are long for a family picture, and the length goes into numbers staged as set pieces, where a costume change carries more information than the dialogue around it. The Academy's award for costume design is the honest one: the clothes build the world the songs then live in. What is odd, and interesting, is the shape of the rescue. The Banks house is in some kind of grave trouble, and the answer offered is not a solution but an afternoon out — distraction proposed, in total seriousness, as a form of care. Children take that at face value. Adults may notice how much the 2018 film holds at arm's length, and how much charm it spends to keep it there.",
+  "model": "claude-opus-5",
+  "source_sha256": "b55a6cacd76eaed94294d0c957d72bb43e26a510474f9b3c90ed564c0bd41d17"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hereafter-2010",
+  "field": "lead",
+  "film_id": "82394412-1750-4fec-b925-3922f2cf610d",
+  "lang": "en",
+  "text": "The visual effects award is the strangest thing on this film's shelf, since most of it is people in rented rooms circling a subject they will not raise directly. Three lives, three countries: a blue-collar American, a French journalist, a London schoolboy, each brought up short by a death. Clint Eastwood lets the strands sit apart and refuses to hurry them together. The fantasy element is modest — the possibility that the dead can be reached, and the small trade in comfort that possibility supports. What the 2010 film is really tracking is inconvenience: grief as the thing that interrupts a shift, a school term, a career, and will not schedule itself around any of them. Eastwood shoots all of it flat and unemphatic. Whether that flatness is patience or evasion is an argument the film has with itself, and does not settle.",
+  "model": "claude-opus-5",
+  "source_sha256": "f8eeff51a434ecfeb335e8ae4b6c14a5bda230bd86423920936b774948ebac05"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-painted-veil-2006",
+  "field": "lead",
+  "film_id": "48296187-59b0-43d9-b23e-863e5e61a981",
+  "lang": "en",
+  "text": "Cholera is a plumbing problem before it is a tragedy: wells, drainage, where the dead lie in relation to where people drink. The British doctor sent to a Chinese village knows this, and the work gives him somewhere to be that is not his own house. His wife is there too, brought along as part of a bargain neither will state out loud; her affair came before the posting, and the posting is what it cost. John Curran's 2006 film keeps epidemic and marriage on the same clock — both requiring daily, unglamorous attention, neither promising a result. What makes the 125 minutes hold is the enforced proximity: no one to talk to but each other, and nothing either is willing to say. The countryside is filmed without being made to mean anything. Romance is the label on the box. Negotiation is the register.",
+  "model": "claude-opus-5",
+  "source_sha256": "e434b60f2b0a07200a431c4bfca8e13c09a6249a627701f2608813ff2b8aacc6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-midnight-sky-2020",
+  "field": "lead",
+  "film_id": "98c769c6-bf42-401f-bad0-441a4db251d5",
+  "lang": "en",
+  "text": "An observatory in the Arctic, a spacecraft on its way home, and a radio link that has to be built before it can be used. George Clooney's 2020 film separates its two halves by most of a planet and lets the distance do the work: the ice is hardware, rationing and walking, the ship is close quarters and waiting. The crew has not been told what it is returning to, which makes delay the actual antagonist — messages that take time, news that arrives too late to change a course. Filed as science fiction, it plays as an endurance picture. At 118 minutes it is unhurried, sometimes past the point of tension, and the snow sequences and the space sequences pull against each other rather than together. That gap may be the honest part. A catastrophe this size does not organize itself into a plot.",
+  "model": "claude-opus-5",
+  "source_sha256": "c0f8f93d56e9963fb2487587953e9426ff70cb09ddef48f37ccc819df8e1d018"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-rainmaker-1997",
+  "field": "lead",
+  "film_id": "0c0aa922-6049-4658-a573-6e4ac4b53919",
+  "lang": "en",
+  "text": "An insurance denial is a form letter, and this case turns on how many times one was mailed. Rudy Baylor has just passed the bar, has no clients, and takes on a family whose son is dying while a company explains in writing why it owes them nothing. Francis Ford Coppola gives most of the 135 minutes to procedure — depositions, document requests, an unlicensed paralegal doing the work that keeps a two-man practice alive. What dates the 1997 film least is its interest in money at the lawyer's end: rent, a suit, filing fees, and how much of ethics turns out to be a question of what a person can afford. The courtroom stretches are less about oratory than about a beginner learning, in real time, what the other side is permitted to do to him. A genre picture that keeps stopping to count.",
+  "model": "claude-opus-5",
+  "source_sha256": "f7ac7e92ff5e5047e2b5962fecd81a629d0bc105ae185eed328703ec79b2111c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-day-the-earth-stood-still-1951",
+  "field": "lead",
+  "film_id": "e8dd3fa7-b081-4ba2-b375-66b21f43666d",
+  "lang": "en",
+  "text": "Six years after the war, a visitor lands with a machine at his side and offers the species a choice with only one acceptable answer. Robert Wise takes 92 minutes over it and spends almost none of them on spectacle. The 1951 film's real setting is administrative: offices, boarding houses, radio bulletins, and a run of adults discovering that nobody on the planet is authorized to reply on its behalf. The threat is delivered politely, which is worse. It won a Golden Globe for promoting international understanding, a category that says as much about the year as the picture does. What holds is the calm, and the sense that the danger in the room is procedural — a question of who has standing to speak, and of how long the visitor is prepared to wait for an answer.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb94eb865bd8a72cb6dcd0e997974a65ba5c9a49e1ef47da7008ee0fab6725f4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "notes-on-a-scandal-2006",
+  "field": "lead",
+  "film_id": "2426f4a2-2f84-4efc-9e7b-5914613ed30d",
+  "lang": "en",
+  "text": "A senior teacher takes an interest in the new arrival from the art department, and the interest is dated, filed and kept. Ninety-two minutes is a short leash for this material, and Richard Eyre pulls it tight: school corridors, a flat, staffroom courtesies that turn out to have been receipts. The younger woman's affair with a fifteen-year-old is the scandal of the title. The film is more curious about the older woman's arithmetic — what she will trade for company, how long she can wait before spending what she knows. Its award for the score suits a story that runs on pursuit rather than suspense; the destination is visible early and that does nothing to slow it. Two English women, one staffroom, and a friendship conducted at the pace and temperature of surveillance.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b1bbacd01eee641e6a13c6ea6b8268c8aaff01d024649d8ea988356aa8e9133"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-kite-runner-2007",
+  "field": "lead",
+  "film_id": "66da6770-5586-468e-94a0-8eb6c9484755",
+  "lang": "en",
+  "text": "A settled life in California is interrupted by news from Afghanistan, and the favor asked is a chance to settle something owed since childhood. Marc Forster's 2007 film moves between the two eras without pausing to explain either, and its most consequential decision is linguistic: much of it is not in English, which is what the BAFTA in that category recognized. That choice puts a wall between the returning adult and the country he walks back into — the same streets under different management, a language he has not needed daily in years. At 128 minutes it is patient with children and precise about them: how boys sort their loyalties, who is expected to absorb blame, how quickly shame can be taught. The rescue is the errand. The real business is the debt, and how long a man can live at a distance from one.",
+  "model": "claude-opus-5",
+  "source_sha256": "6fa204f4b8d943cbad818abc8cb48c2f1c9e096db665d00d18198b177d91fb5f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-outlaw-josey-wales-1976",
+  "field": "lead",
+  "film_id": "4de55ed1-deee-4dac-b5c0-6279a8673c40",
+  "lang": "en",
+  "text": "Revenge is settled early, which leaves the long middle for a harder problem: the people who keep attaching themselves to a man traveling light. Soldiers are behind him. Beside him, by no arrangement he agreed to, are strays with nowhere else to be, and he cannot make himself leave them, which is the least heroic reason imaginable for assembling a household. Clint Eastwood shot this in 1976 and gave 135 minutes to the unhurried parts of a Western: meals, weather, bargaining, long rides with more talkers than gunmen aboard. The country he crosses is full of the displaced, and the pursuit runs on paper and pay rather than fury. What the film keeps testing is whether a man who has decided to owe nobody anything can hold that position for a single afternoon.",
+  "model": "claude-opus-5",
+  "source_sha256": "cbb71fab50d05e162a12d3e291207bb7fc97e6be8652c4a6dc737d16a929c4cc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-ten-commandments-1956",
+  "field": "lead",
+  "film_id": "accbd8fa-585d-44b7-9c12-f1c4e71873c5",
+  "lang": "en",
+  "text": "Three hours and forty minutes, and the awards went to the surfaces: color cinematography, color art direction, color costume. That is closer to fair than it sounds. Cecil B. DeMille's 1956 film is built to be looked at — crowds arranged like architecture, fabric that states rank before anyone speaks, interiors scaled to a screen rather than a room. It opens with an infant who should have died and did not, raised as a prince in a royal household, and the early stretches are court business: who is favored, who is owed, what a birth is worth set against a throne. When Moses learns where he came from, his inheritance becomes a practical problem rather than a spiritual one. DeMille takes his time because time is itself the effect. A film this long asks to be treated as an occasion, and conducts itself accordingly.",
+  "model": "claude-opus-5",
+  "source_sha256": "653e90094901eec331cef9ce5425861109d36d516e6bd5735f4c2c79270ccd81"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-woman-king-2022",
+  "field": "lead",
+  "film_id": "1d7b528c-86fc-4a08-81bc-ac03ab0d87c4",
+  "lang": "en",
+  "text": "The recruits arrive knowing nothing, and the training yard is where this film keeps its weight: drill, repetition, injury. The Agojie guarded the kingdom of Dahomey in the 1800s, and the story hands the next intake to a general named Nanisca, which makes continuity as much the subject as combat. A corps has to reproduce itself, and it charges for belonging. The 2022 picture is interested in institutions, which is not where action films usually look. Gina Prince-Bythewood stages the fights close and legible, and the 135 minutes leave room for the court, its politics, and an enemy with plans of its own. What stays is the price of the arrangement: the women who enter the palace guard give up other lives to do it, and the film declines to pretend the protection they provide came cheap.",
+  "model": "claude-opus-5",
+  "source_sha256": "26ebaf373a98c9c710ec126db83aa9afe82f081899c682b0f593205e81aeaee8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bullitt-1968",
+  "field": "lead",
+  "film_id": "1b64b9c0-12ec-447a-8bb2-4431202bd9cd",
+  "lang": "en",
+  "text": "A witness is being kept alive in a San Francisco apartment, and the detective assigned to him is being used by a senator who wants a conviction more than a man. When two hired killers turn up in the city, Frank Bullitt's week becomes a question of who told them where to look. Peter Yates films 1968 police work as logistics: shifts, phone calls, waiting, the long flat stretches in which nothing has happened yet. Dialogue is thin enough that engines, tires and closing doors carry much of the plot, which is why awards for editing and sound describe the film better than any summary of it. The chase everyone mentions is made of the same materials as the rest — real streets, real distances, ordinary machinery pushed hard. The criminals were never the difficulty. The people with an interest in the outcome are.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf3a92357b99b36632761dc4fca5e554b2d18b763d383a1edd1e1b369e25a909"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-simple-plan-1998",
+  "field": "lead",
+  "film_id": "3bd80452-4889-487a-999c-c4fbe829447d",
+  "lang": "en",
+  "text": "Four million dollars found in a wrecked plane is not wealth; it is a storage problem, a tax problem, and a question of who else knows. Two brothers find it in the snow outside a small town where everyone's business is visible, and the plan they agree on is simple exactly once. Sam Raimi's 1998 film is built out of winter and errands, and its tension is verbal: every amendment requires one more person's agreement to stay quiet, which is why the screenplay award suits it better than the genre label does. Nobody here is corrupted by greed as an idea. Each of them is solving one small immediate difficulty in the cheapest way available, and the difficulties compound in a straight line. Filed as a thriller, it plays as a run of household conversations that cannot be taken back.",
+  "model": "claude-opus-5",
+  "source_sha256": "83d91ab585251a31a8d7b5a9d12d868c5f228ef70b21291e2085e1188642fa40"
+ }
+]

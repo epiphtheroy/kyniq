@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "newsfront-1978",
+  "field": "lead",
+  "film_id": "4dbac0e7-ca5c-4202-96e5-8ea65df5ff97",
+  "lang": "en",
+  "text": "Before television, the news reached Australians in a cinema, projected on film and shot by men who worked for rival companies. Newsfront puts two brothers on opposite payrolls of that trade in the 1950s: the same country roads, the same flood, two cameras that must not come back with the same footage. Phillip Noyce made it in 1978, when the newsreel was already an artifact, and he keeps to the working life rather than the headlines — the drive out, the argument over an assignment, the canister handed across. What presses on the brothers is not the decade in the abstract but a faster medium arriving and the question of who will still be paid to look. A leading performance took an Australian film award, which suits a picture built from faces in cars and corridors. A hundred and ten minutes, and nobody in it stands still.",
+  "model": "claude-opus-5",
+  "source_sha256": "a695291cacb7e737fa17efce48069072a35d1c4059cc7d5129b61fa0049c3ade"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-4th-company-2016",
+  "field": "lead",
+  "film_id": "e70ec0c4-ee52-4a90-9bd7-2764a3394a02",
+  "lang": "en",
+  "text": "The Dogs of Santa Martha play American football for a Mexico City prison, and they also rob banks for the men who run it. Zambrano is young, small-time, and wants a place on the roster; the roster comes attached to the second job. Amir Galván Cervera sets this in the López Portillo years, and his interest is administrative rather than lurid — who authorises what, who collects, which privileges inside the walls are paid for by which crimes outside them. Two hours spent on procedure rather than spectacle: how a place is granted, who signs off, what a favour costs when it is called in. Best actor at the Ariels went to the lead, which fits a picture strongest on the calculation in Zambrano's face rather than the noise of the robberies.",
+  "model": "claude-opus-5",
+  "source_sha256": "23f0b705850dabffef9dd74e02ee0ff66d2417aef305b5e1afb1063a4ba6f619"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "to-be-number-one-1991",
+  "field": "lead",
+  "film_id": "69104544-3ae7-4c0f-ae8d-7c2d50820cff",
+  "lang": "en",
+  "text": "Ho crosses from the mainland into Hong Kong owning nothing, and the film follows him until he is one of the men the city is afraid of. A hundred and thirty-six minutes is a long ascent, and the length is the argument: not a montage of rising fortunes but the intervening years, the partners taken on and dropped, the arrangements made with people in uniform. Poon Man-Kit shoots the colony as a place where a peasant labourer can be rebuilt into a boss because nearly everyone there arrived from somewhere else. It was named best film at the Hong Kong Film Awards. What lasts is less the violence than the ledger underneath it — who is owed, who is protected, and what a name becomes worth once enough people repeat it in the right tone of voice.",
+  "model": "claude-opus-5",
+  "source_sha256": "615fa661b9ae57cf16566e23ece0a55c91b8cd2f3cccc2105ad12fd5d04c7b4c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "northern-skies-over-empty-space-2022",
+  "field": "lead",
+  "film_id": "b41c6d5d-6a30-4bcb-a9e2-8133bec8f539",
+  "lang": "en",
+  "text": "The hunter's reputation is intact; the land it rests on is not. Don Reynaldo has spent a lifetime being the man who decides — what is shot, who is paid, who is indulged — and Alejandra Márquez Abella builds the film around the point at which that stops working automatically. The threat to the property is the plot; the rearrangement of the household is the subject. Family and workers alike have to calculate what he is still owed, and he has only the one register, the one that served while nothing was in question. A hundred and fourteen minutes, largely meals, fences and instructions. The film watches the vocabulary of the hunt — tracking, permits, waiting for something to break cover — go useless in the hands of a man who is now, in his own house, the one being observed.",
+  "model": "claude-opus-5",
+  "source_sha256": "456c6ba4657d8f58d9d7b1906ff3ca4efda80aa6e0feee6d4e5f1a8777e8c402"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-realm-of-fortune-1985",
+  "field": "lead",
+  "film_id": "0f42510d-33d6-4135-97f3-87fce198e8d1",
+  "lang": "en",
+  "text": "Fortune finds Dionisio in a town that has no use for fortunate men. Arturo Ripstein takes a hundred and thirty minutes over the consequences, and almost none of it is celebration: a windfall has to be kept, displayed, defended, and explained to neighbours who have already decided how this kind of story finishes. The town supplies heat, distance and very little else, and the film treats that flatness as a physical condition rather than a mood — the roads are long, the choices are few, and a man who has become interesting is a man who can be found. The Ariel for best actor went to the lead, which is where the film lives: a face slowly registering promotion into a position it has no equipment to hold. Not a lesson about greed. A study of what being visible costs where nobody else has anything.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c22c9acbfdb303d20b1bf790afd738a5f671403e5950844e1793ed3270e9348"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-forsaken-land-2005",
+  "field": "lead",
+  "film_id": "cc9b36d2-5aee-4d27-8df6-6a64592bad54",
+  "lang": "en",
+  "text": "A man is paid to stand and look at a stretch of ground where nothing is supposed to happen. Vimukthi Jayasundara's film comes out of Sri Lanka in 2005 and describes a posting rather than a war — the home guard's rounds, the heat, the long middle of the day, the household waiting at the far end of the shift. Waiting is the whole occupation, and the picture lets that shape its own construction: held frames, wide compositions, a rhythm organised around a horizon that does not change. A hundred and eight minutes. Its genres are given as drama and romance, and both are accurate, though desire here moves the way everything else does, slowly and in plain sight of people who have nothing to do but notice. Years of this have gone by before the film begins, and it shows in how the man carries himself.",
+  "model": "claude-opus-5",
+  "source_sha256": "0a42c0250f35355ffbb2b5fd0e7d1156ebc5f2a00977f721d398f1d2683668f0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "under-california-the-limit-of-time-1998",
+  "field": "lead",
+  "film_id": "49339173-33a7-4e7b-aed6-6b996cca943f",
+  "lang": "en",
+  "text": "A car hits a woman on a Los Angeles street and the driver does not stop. What Damian does afterwards is not confess but travel: south across the border, into the part of Mexico his family came from, carrying an idea about atonement he could not put into words. Carlos Bolado gives the film ninety-six minutes and spends most of them outdoors — the arid country where his grandmother is buried, the guide named Arce who knows how to cross it, the slow business of walking through a place with no witnesses. Penance makes an odd engine for a road picture, having no address; the journey ends when the man decides it has. Damian is an artist by trade, practised at making things mean what he wants them to mean. The desert is indifferent to that habit, and the film lets the indifference stand.",
+  "model": "claude-opus-5",
+  "source_sha256": "095f0cc895ed4f46540f4268394e23da63b5488c6ef733aae52c7b010fd4e8a6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "oriana-1985",
+  "field": "lead",
+  "film_id": "99bd6e71-0477-4e3c-a6ed-bc0862560232",
+  "lang": "en",
+  "text": "The house is remote, the aunt does not receive visitors, and a girl is sent to live inside both facts. Fina Torres shot Oriana in Venezuela in 1985, eighty-eight minutes, and it proceeds the way a household story does rather than the way a plot does: rooms entered in a particular order, objects that mean more to whoever left them than to the girl now handling them, a version of events assembled from what the household is willing to repeat. Venezuela put it forward as its submission to the Academy Awards. The mystery among its listed genres is a domestic one, made of doors, drawers and the order in which things are explained, and its romance belongs to somebody else's past. What the girl comes into is not the aunt but the shape of the seclusion, learned slowly, from furniture and from silence.",
+  "model": "claude-opus-5",
+  "source_sha256": "5a979959a0e0a86cb30434eb408af321776dab2451b90275bc55d42c50673335"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mariana-mariana-1986",
+  "field": "lead",
+  "film_id": "f14b9d41-afec-41af-a09d-afd7048d6e43",
+  "lang": "en",
+  "text": "In 1940s Mexico City, a schoolboy notices that his best friend's family owns American things they cannot really afford. Carlos is that boy, Mariana is his friend's mother, and Alberto Isaac's film runs eighty-five minutes and is entirely aware of how small it ought to be. What holds it together is the vantage: a household watched from the doorway by someone too young to be told anything directly, registering the imported objects, the looseness, the distance between this family and every other one he has been taught to expect. The trouble starts with a truancy, a boy walking out of a classroom in the middle of the day, and the adults who notice. Isaac took the Ariel for direction, a verdict on restraint: the material could be played as scandal and is played instead as one year that altered the temperature of a life.",
+  "model": "claude-opus-5",
+  "source_sha256": "5054e754873ec426e715145bd30e329c31797e86b9cfa64308fdb3b1ffc884de"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lonely-hearts-1982",
+  "field": "lead",
+  "film_id": "affeb674-348a-4240-af34-f124c684d5a1",
+  "lang": "en",
+  "text": "Two people nobody would think to introduce meet anyway: a piano tuner in his middle years who talks a great deal, and an office worker who would rather not be looked at. Paul Cox made this in Australia in 1982 and gave it a hundred and six minutes of interiors — front rooms, workplaces, the etiquette of a courtship neither party has the equipment for. It is filed as a comedy and it is one, though the laughs come from accuracy rather than invention: the pause before a sentence, the small social debts, the way an enthusiastic man overshoots a reticent woman by a fraction every time. Cox took the direction award, which for a film with almost no incident places the credit correctly. The tone is the achievement. Neither of them is made ridiculous, and the film never denies that both frequently are.",
+  "model": "claude-opus-5",
+  "source_sha256": "d145b2aad8173011926f92f7c7d9dd8998272546f2d43cd729cca9c2887dc4ec"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "letters-from-marusia-1974",
+  "field": "lead",
+  "film_id": "363172fd-b5b6-43e2-a000-7ad5bcc26eaa",
+  "lang": "en",
+  "text": "The strike is in a nitrate town in northern Chile; the film was made in Mexico, in 1974. Miguel Littín reconstructs what happens when a foreign company's workforce decides to ask for terms, and his attention goes to the machinery rather than the speeches — the company store, the ledger, the distance to the next town, the difference between making a demand and refusing to move. A hundred and ten minutes, chronicle-paced. The meeting scenes are not nostalgic: the arguments run long, the disagreements are real, and every man speaking knows he is deciding something on behalf of a family that is not in the room. Littín took the Ariel for direction. The period detail carries the case the film is making, which is that the company's hold on the town was clerical before it was anything else.",
+  "model": "claude-opus-5",
+  "source_sha256": "845745d263e460f3cbdf3e066f56617bf5c125bdb429b5ad0a3f82428395e298"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "seaside-2002",
+  "field": "lead",
+  "film_id": "2f8684b3-5756-48fd-9e88-ce1ab10f5780",
+  "lang": "en",
+  "text": "The visitors leave the Bay of Somme at the end of the season and the people who live there get the place back. Julie Lopes-Curval follows several of them at once: a young man who guards the beach in summer and stocks the grocery through the winter, his mother at the slot machines, his girlfriend on the line at the factory that employs most of the town. Ninety minutes, no crisis. The subject is the arithmetic of staying — what the work pays, what leaving would cost, how someone who watches other people arrive on holiday every year begins keeping a private account of elsewhere. It took the Caméra d'Or. The off-season is treated as the town's real condition and the summer as the interruption, and that reversal is what the film is built on: the year the postcards leave out.",
+  "model": "claude-opus-5",
+  "source_sha256": "f16e4e2c7cb7e309f5b99d1bfc856cd326f2df3005f7ef1895a2a892b1388976"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "cageman-1992",
+  "field": "lead",
+  "film_id": "2976ada4-4702-44a6-98f8-bc2838502e52",
+  "lang": "en",
+  "text": "A cage, here, is a bed with wire around it, rented by the month, and it counts as an address. The young man at the centre has been put out of wherever he was living, is desperate enough to take anything, and is sent to Fatso, who runs the place and allots him his space. Jacob Cheung Chi-Leung takes two and a half hours over it. The length is the method: given enough time the room stops being a curiosity and becomes a society, with seniority, debts, standing grievances, factions, and a door everyone has an opinion about. The Hong Kong Film Awards named it best film. The comedy is one of proximity — men who are funny, tedious and territorial in the manner of people who have run out of options and must still get along until morning, and then again the morning after.",
+  "model": "claude-opus-5",
+  "source_sha256": "ec63d60148459679129ef03b8d1fc590049f0e8c4fa4f4baba136948d06d4d64"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "homesdale-1971",
+  "field": "lead",
+  "film_id": "7196ca5f-fa6b-4d87-af74-afadedefc705",
+  "lang": "en",
+  "text": "A guest house takes bookings, and the staff have prepared entertainments for the weekend. Homesdale runs fifty-two minutes, the right size for a joke that would curdle at ninety, and it sits under comedy and horror because it works by keeping the two indistinguishable: an announced activity, a competition, house rules delivered in the register of a holiday camp and enforced with something else underneath. Peter Weir directed it in Australia in 1971. The guests bring their private embarrassments with them, intact and carefully covered, and the programme is arranged to draw each one out in front of the others. Everybody stays polite throughout. That is the unpleasant part — not the games so much as the tone in which they are administered, and how readily the guests agree to play.",
+  "model": "claude-opus-5",
+  "source_sha256": "f90975bbc21d898b3b0513608d6dce05e70d31f6f117684fab345a33eaca2194"
+ }
+]

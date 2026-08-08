@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "nothing-ever-happens-1963",
+  "field": "lead",
+  "film_id": "806946b6-5755-402e-a66e-5ad5a14b40a6",
+  "lang": "en",
+  "text": "A touring company crosses into Spain and leaves one of its performers behind in a town near Burgos, where a medical emergency has put her in a bed she cannot leave. She is French and conspicuous; the town is small and has time. Bardem gives the ninety-seven minutes to what that does to the people around her, chiefly the doctor who treated her and the doctor's wife, who has to go on living on the same street as the talk. The method is patient to the point of cruelty: show a place where every day is identical, then hold on the identical day until it starts to hurt. Nothing is confronted directly. The pressure surfaces in who sits where, whose remark gets repeated by evening, which door is shut when she passes, and how fast a woman who did nothing but fall ill becomes the thing everyone has a position on.",
+  "model": "claude-opus-5",
+  "source_sha256": "20cb03270c2534cc6c844f0dea36680ade018646b7b581ae6013470773e4facd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "umbracle-1972",
+  "field": "lead",
+  "film_id": "c0901dba-bd97-493f-aaa1-df8d734ccd77",
+  "lang": "en",
+  "text": "Christopher Lee walks through Barcelona with no part to play and no scene to arrive at. Portabella filmed him that way deliberately: a face carrying a whole genre's worth of expectation, set loose in a city under Franco, in a country the picture keeps circling and indicting without ever settling into a subject. It is built from fragments, some of them archival, that resound instead of adding up, and a sequence will start behaving like a story and then decline to continue. Eighty-five minutes of interruption, in Catalan, the montage treating actor and street as material rather than a world to believe in. What it withholds is exactly what a viewer arrives expecting, and the withholding carries the politics. Strangeness here is not decoration. It is the only honest register available for the place and the year.",
+  "model": "claude-opus-5",
+  "source_sha256": "2236bcfb58ea8b6922c028c6f12ee3308d00e392123df240a50c93c23516488f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-arch-1969",
+  "field": "lead",
+  "film_id": "fc878fcd-5043-4783-a3dd-6ec908151917",
+  "lang": "en",
+  "text": "A widow keeps a household, a daughter near marrying age, and a feeling she has decided not to act on. The cavalry captain quartered nearby puts all three arrangements under strain at once. Tang Shu-Shuen made The Arch in Hong Kong in 1969, and it moves at the speed of a place where every decision is watched twice, once by the family and once by the code the family lives under. Virtue is not an idea here. It is a schedule: which door stays open, how a cup is handed across, what a mother permits herself to say to a daughter about a man they have both noticed. The film went out as an international submission to the Academy Awards. Its own ambition is smaller and harder, to film restraint from inside, so the cost of behaving correctly registers in a face before anyone gives it a name.",
+  "model": "claude-opus-5",
+  "source_sha256": "77b5767321b771d839aec82f0091146e973b14659a21f57fd5b95c5a258a77a4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "playthings-1933",
+  "field": "lead",
+  "film_id": "0140e7e8-5297-495d-af36-809693cd7c3d",
+  "lang": "en",
+  "text": "Every household in the village makes toys by hand and sells them to whoever passes through; Sister Ye is the one people ask for. Sun Yu filmed that economy in 1933 with unusual attention to the objects themselves, which are carved, cheap, meant for children, and the entire livelihood of a place. Then the fighting between warlords reaches the houses, and the people who survive carry their trade to Shanghai, where the same small toy on a city pavement means something it never meant in a courtyard. A hundred and fourteen minutes, spent on a woman's hands and her customers rather than on speeches about the times. What the film grasps is that a craft is also a set of relationships, and that when those go the skill saves nobody. The city is not sentimentalised. Neither is the village she came from.",
+  "model": "claude-opus-5",
+  "source_sha256": "06d33af054b598237ef0ab7f0db068309c5fe9ecb0885510902bdc23563b76a4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "galician-caress-of-clay-1961",
+  "field": "lead",
+  "film_id": "ef8b7b22-774c-4be3-a4a6-97835009aec6",
+  "lang": "en",
+  "text": "The plan was to record a second sound channel at the film's own first screenings, using the ambient noise of the places it came from. Val del Omar died before that could happen. He had abandoned the project for twenty years, returned to it late, and left notes, a montage and a soundtrack; from those, in 1995, Javier Codesal assembled the twenty-three minutes that exist. What survives is a short film about Galicia and its clay by a man who kept other names on hand for it, Caress of Our Land, Clay of Souls, as though the thing had not finished deciding what it was. Few films carry this much unrealised intention so openly. The version we have is both a work and the residue of a much larger idea about sound, a region, and the people whose voices were meant to complete it.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d3e47745e456be9c12d3307d50aaaaf7848fe7cb1599f0cbc1b108449b3f0b5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "evening-performance-1981",
+  "field": "lead",
+  "film_id": "8a83897a-1927-4913-906b-5a12d84a6a8d",
+  "lang": "en",
+  "text": "Two people who were together for years sit in a dressing room and talk, and both of them are professionals at being looked at. Lola Herrera is mid-run in a Miguel Delibes play; Daniel Dicenta, separated from her for some time, has come to the theatre for the conversation. Josefina Molina keeps the ninety minutes inside that room, so the film has no way to escape into scenes of what is being described. Two faces, a mirror, a clock that means one of them is due onstage. The interest is in watching performers work without a script and then, at the difficult moments, reach for one. Nothing is dramatised. The drama is what they have already lived through and now have to put into sentences, in a space barely large enough for the argument.",
+  "model": "claude-opus-5",
+  "source_sha256": "0122f3325fcec1847587cb76c32b31daf8db68805835fabda5cd42173bf8b4a5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "crossroads-1937",
+  "field": "lead",
+  "film_id": "ba5d5933-c5c2-4abe-9193-6734566ab55b",
+  "lang": "en",
+  "text": "A wall of loose planks divides one Shanghai room into two, and the tenants on either side have never met. He hangs photographs; her nails, driven into the same boards from the other face, knock them down. That feud is the engine of Crossroads and also its argument: for four university graduates in 1937 with no work between them, a partition is not a detail, it is the shape of a life. The running joke, two people conducting a war through wood while passing each other on the tram every morning, sits directly beside unemployment, a proofreader's night shift, and an assignment to report on conditions inside a factory. Shen Xiling gets both registers out of the same cramped rooms without changing tone. A hundred and ten minutes that never stray far from the question of rent.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ab8480a8bac61f7d760e4135fd99bd29831f7e75f671d4b42b8c955a99b1a53"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dearest-executioners-1977",
+  "field": "lead",
+  "film_id": "fa6f259c-287f-4160-a7be-ed32786f6524",
+  "lang": "en",
+  "text": "Someone persuaded the men who carried out Spain's death sentences in the early 1970s to sit down and describe the job, then filmed them without permission. That is the premise, and it carries a hundred and three minutes. Patino also went to the families of people those men had executed, so two accounts of the same acts run through one film with neither promoted to the official version. Because it was shot clandestinely, the conditions are legible: rooms that were available rather than chosen, a camera that could not afford to linger. What the arrangement produces is a collision of vocabularies, the language of employment on one side and of grief on the other, describing identical events. It is made of testimony and nothing else, which leaves the arithmetic to whoever is watching.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd18680af3e3168f8c563afd6d852833471f2021a7cd6c12cbcef1faa7d52cfc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-lin-family-shop-1959",
+  "field": "lead",
+  "film_id": "a04d7ef5-4789-42cc-bb6a-fb269e58b970",
+  "lang": "en",
+  "text": "The whole film happens at the counter of a small-town shop and in the rooms behind it. Its owner has stock to move, creditors to satisfy, an official to keep sweet and a family to keep fed, and the method is to show how those four demands sit inside one working day. Nobody makes a speech. They count, they haggle, they work out what a decision will cost by the end of the week, and the politics of the period arrive the way politics actually arrives in a shop: a rumour in the market, a fee that was not a fee last month, a customer asking for credit. Eighty-five minutes, made in 1959, exact about the arithmetic of staying open. The Golden Horse hundred keeps it, and what earns the place is patience. The ledger is the drama, and the ledger gets checked every day.",
+  "model": "claude-opus-5",
+  "source_sha256": "2161b7c9832c47251de9cd3b441cd0c2ac4ac94e69d88224bbb33d741dc0727a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "innisfree-1990",
+  "field": "lead",
+  "film_id": "474f6b07-f78e-4f95-a070-a53860d44f9d",
+  "lang": "en",
+  "text": "The subject is another director's film, John Ford's The Quiet Man, and Guerín declines to explain it. Rather than assemble a history of the shoot, he gives the hundred and ten minutes to a community and its weather, in which Ford's picture persists as something people carry rather than something a documentary takes apart. The two subjects keep interfering with each other, which is the design: an older fiction and a place going about an ordinary week, held in the same frame until neither can be watched innocently. It is slow the way a visit is slow, and the slowness is what lets a landscape stop performing. Nothing is being proved. Something is being attended to, and that turns out to be a stranger method for a tribute than argument would have been.",
+  "model": "claude-opus-5",
+  "source_sha256": "8741ad52254610c66d59f467aff3ba84fe288fce95cc964733790ed6527f0463"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "monkeys-like-becky-1999",
+  "field": "lead",
+  "film_id": "df066d6e-9cdf-496e-8f35-2caa4f2f3d9d",
+  "lang": "en",
+  "text": "In 1949 the Nobel Prize for Medicine went to António Egas Moniz, among the first surgeons to apply the technique called lobotomy to schizophrenia. The Portuguese neurologist takes the first half of the film; then Jordá leaves the archive completely, and the second half is spent with people living with schizophrenia now, in their afternoons, their arguments, their treatment. The join between the halves is the proposition, and it is left unnarrated. Nothing is arranged to shock. The surgical record and the ordinary afternoon receive the same flat attention, which is harder to sustain than outrage, and across ninety-seven minutes nobody is sorted into patient or authority. It took the Premi Nacional de Cinema, though its real curiosity is what a prize like Moniz's was able to certify.",
+  "model": "claude-opus-5",
+  "source_sha256": "b3cb28ea578de8b9a9bcf73ace2870caec3a3cdfdcbebbc2de6e5aca75bed688"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "general-report-1977",
+  "field": "lead",
+  "film_id": "979b323f-9d5a-4e9b-98df-b2887a23f68a",
+  "lang": "en",
+  "text": "A hundred and sixty-five minutes of people in rooms, working out what kind of country they are about to live in. Portabella filmed during the Spanish Transition, months after Franco died, when the answer was not yet available to anyone in shot. Some of the men talking had backed the dictatorship; some had spent years outside the country because of it; the film puts them in one document without pretending the distance between them is small. Its patience is the argument. Political representation turns out to be a slow business of sentences, procedures and who is willing to sit at a table, rather than a change of flag. Nothing in it was made to be quoted. What it holds is a moment when the vocabulary was still under negotiation, and everyone using it had reason to weigh which word to let out first.",
+  "model": "claude-opus-5",
+  "source_sha256": "be7dab789e118400ff8fc2ec24858422600b9c4a3859feeaac2fa4ffdae707d5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ere-erera-baleibu-izik-subua-aruaren-1970",
+  "field": "lead",
+  "film_id": "b3e4080a-4bfe-4588-8e7b-04f7b291c7f5",
+  "lang": "en",
+  "text": "Colour arrives, mutates, and refuses to settle into anything the eye can name. It was painted directly onto the celluloid, dozens of techniques applied by hand to the strip itself, so what reaches the screen was never photographed. Sistiaga finished seventy-two minutes of this in 1970, an amount of manual labour that changes how the thing is watched: every second on screen was somebody's afternoon. The title imitates the sound of Basque and means nothing, which is less a tease than fair warning that translation is off the table for the next hour as well. Abstract expressionism is the nearest relative, in the endless chromaticism and the reach for synesthesia, except that a canvas holds still. This asks for the attention a painting gets and then keeps moving out from under it.",
+  "model": "claude-opus-5",
+  "source_sha256": "f600b65d097ff0b4121ec14d1f000d745eab0f086d2dd3d3206c0b020bf3c274"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "la-verbena-de-la-paloma-1935",
+  "field": "lead",
+  "film_id": "bad6fc05-7474-4d4a-9655-56cb4d38319d",
+  "lang": "en",
+  "text": "The plot is one jealousy and one fairground, and there is not much more to it than that. A young printer, a girlfriend who has accepted a rival's invitation, seventy-eight minutes to get from the insult to the reckoning. Perojo was filming a popular operetta the audience already knew by heart, so surprise was never on offer; delivery was. The pleasure is timing, a song landing on its beat, a chase threading a crowded street, slapstick broad enough to reach the back of a 1935 cinema. What holds up is the density of the staging. Vendors, neighbours and a crowd with somewhere to be keep moving while the leads argue in front of them, so the fair is never a backdrop. It is the pressure that makes a small quarrel public, and therefore serious.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e43357e8b64520ee54ea52914b3f60d092a555709f3a674f8b33421b596b7c3"
+ }
+]

@@ -1,0 +1,72 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tale-of-cinema-2005",
+  "field": "lead",
+  "film_id": "d17b36c8-0c51-41cf-8bfd-23b44995538f",
+  "lang": "en",
+  "text": "A man leaves a cinema, sees a woman on the street, and knows the face: she is the actress from the film he has just watched. The story before that moment — a Seoul student intent on dying, and the young woman who decides not to leave him alone with it — turns out to have been what was on the screen. Dongsoo, who makes films and has made no good ones, goes looking for her. Hong Sang-soo sets the two halves rhyming in ways nobody inside them chose, and the rhyme is unflattering: repeating a gesture is not the same as understanding it, and the man repeating it cannot tell the difference. No machinery to speak of. Rooms, streets, conversations that double back. Eighty-nine minutes on a man whose feelings arrive secondhand, off a screen, and are then offered as his own.",
+  "model": "claude-opus-5",
+  "source_sha256": "67985cc3bcefd3255a93862be881dedd2264d7ae169fb44aa331373f88a3d26d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "what-s-the-time-in-your-world-2015",
+  "field": "lead",
+  "film_id": "d2e56ff2-def8-4858-891f-aa236bedc998",
+  "lang": "en",
+  "text": "A woman comes home after years in Paris and meets a man who is a stranger to her and no stranger at all to her life. He knows her past in detail she never gave him, and he is not embarrassed about it. Safi Yazdanian lets that imbalance stand for long stretches without accounting for it: one person doing the remembering for two, and a hundred and one minutes in which she has to decide what it amounts to — flattery, trespass, or proof of a self she can no longer check against anything. The romance runs backward. Ordinarily two people accumulate a shared history; here it is already assembled, kept by him, and handed across like property she forgot she owned. She came back for a place. What was waiting is a person who had been keeping it.",
+  "model": "claude-opus-5",
+  "source_sha256": "227fc4209db622810d7fafd7b33c915f0c326e0d364ad5f5cdd95c3190d8fa34"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "swept-away-2002",
+  "field": "lead",
+  "film_id": "d41488d5-3b17-4323-94c1-707232c64f59",
+  "lang": "en",
+  "text": "A cruise, a rich passenger, a deckhand obliged to be polite to her, and then no cruise at all. On the island the order of operations reverses: she can buy nothing, he can actually do things, and the deference she was owed at sea has nobody left to enforce it. Guy Ritchie plays this as comedy for eighty-nine minutes, which is at least candid, because the romance runs on a joke that is not entirely a joke — desire manufactured out of who currently gives the orders. Two performers, one beach, no third party to interrupt. The setup keeps brushing against something less comfortable than farce: how much pleasure is available in watching a woman be told what to do, and how much of it the film assumes will be shared.",
+  "model": "claude-opus-5",
+  "source_sha256": "df79083162489d488597c765a330fcf076c381e954b93fe50a993773b96b7c80"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "rent-a-cat-2012",
+  "field": "lead",
+  "film_id": "d44049bd-9db6-4638-aa68-c1ea49bfb28a",
+  "lang": "en",
+  "text": "The business at the center of this one is a woman and a supply of cats, loaned out by the day to people who live alone. Her customers are mostly elderly and the terms are clean: company for a while, the animal returned, nobody obliged to anyone afterward. Naoko Ogigami gives that premise a hundred and ten minutes, well past the point where a joke of its size would ordinarily expire, and the surplus is the argument — the woman administering everyone's loneliness is no less alone than her clients. Then a man she knew years ago turns up, and there is no rental agreement for that. The playing stays deadpan. The ledger underneath does not soften, and that is what keeps the whimsy from turning into consolation.",
+  "model": "claude-opus-5",
+  "source_sha256": "63aa38116005f83664c5b557cd3003bc20fe4d5fc74f2cce870c3e0bd69c4be0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "simple-passion-2021",
+  "field": "lead",
+  "film_id": "d4dd833f-65fe-46a6-9ce2-0e923de980c7",
+  "lang": "en",
+  "text": "For several months a woman's week arranges itself around a man who is married, Russian, and free only sometimes. He is younger than she is and in Paris on diplomatic papers; she teaches, she researches, she is by every description a person with her feet on the ground. Danielle Arbid takes the arrangement as the subject rather than the man, who functions largely as a schedule, and the ninety-nine minutes go to the intervals — the hours before he comes, the hours after, the odd administrative calm of a life reorganized around somebody else's availability. What holds it together is that she watches herself doing it. Not with regret, and not with any intention of stopping: with the attention of a researcher who happens to be the material.",
+  "model": "claude-opus-5",
+  "source_sha256": "1457b6594968a787333ffe788a045bfa52dffbe117ad1cd4bfce698d2c1a1029"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "two-lights-relumino-2017",
+  "field": "lead",
+  "film_id": "d56935ec-748f-4e33-9da3-28ee4eea8eb7",
+  "lang": "en",
+  "text": "A photography club is a peculiar place to meet someone who cannot see the photographs, and that is where this one starts. Thirty minutes: a woman with a visual impairment, and a man who is drawn to her and has to work out how to say anything about an image in terms that are of use to her. Hur Jin-ho has no room for the long middle where romances get complicated by other people, so the complication sits in the first meeting and stays put — courtship conducted in description, one person putting into words what the other is standing in front of. The register is gentle throughout. What keeps it from going soft is the practical detail: how two people arrange to look at the same thing when only one of them is doing the looking.",
+  "model": "claude-opus-5",
+  "source_sha256": "79dadf99ff8e8b4235c25978e51fe5986a2e0bbbd85284704f6bfe5b9abeb7a3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "gyeongju-2014",
+  "field": "lead",
+  "film_id": "d90e4025-17c6-4593-a1d0-e5af86ad53a7",
+  "lang": "en",
+  "text": "The funeral he traveled from Beijing to attend takes up almost none of the film. What is left is a professor with a long afternoon in a town he used to know, and Zhang Lu is in no hurry to hand him anything to do. He drinks tea. He talks. He keeps returning to the woman who owns the tea shop, who is not a rescue and not a distraction but the person in front of him while he is trying to think about someone dead. Grief and flirtation share a table for most of the running time and neither behaves. He belongs here and also to Beijing, which means he is owed nothing and expected nowhere. At 145 minutes the length is doing the work: mourning keeps its own clock, and a visitor with no appointments sees what residents stopped noticing years ago.",
+  "model": "claude-opus-5",
+  "source_sha256": "a016bae0f265c32afa5d0f41764241ad3261318755cfe1affd2e6f64e2c62ae7"
+ }
+]

@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "black-sun-2005",
+  "field": "lead",
+  "film_id": "f071a88a-7e74-4c0d-b39b-93b7030a0691",
+  "lang": "en",
+  "text": "A man describes losing his sight, and the film declines to show anything clearly. The voice belongs to Hugues de Montalembert, an artist living in New York, blinded in a mugging some thirty years before Gary Tarn made this. Tarn works in smeared, unfocused, half-legible images and runs the account across them, so nothing on screen ever arrives as evidence for what is being said. The mismatch is the method. Seventy-five minutes is a short span for three decades, and the compression pushes out context and chronology in favour of a voice and a texture. Montalembert speaks in the flat, unhurried register of a man who has had years to arrange the story, and the pictures stay far enough out of focus to be useless to him and to anyone watching.",
+  "model": "claude-opus-5",
+  "source_sha256": "341aa90589f780d8600647e8fa7f7dee3aec5e4b2fd62ba3b01affa315f12cc9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "god-bless-the-child-2015",
+  "field": "lead",
+  "film_id": "3a043a50-c78d-4d84-9173-004a51fdd40a",
+  "lang": "en",
+  "text": "Five children, the youngest one and the eldest thirteen, spend a whole day running a house by themselves. Their mother is depressed and unreliable and has gone off before; this time nobody can say whether she is coming back. Harper, the oldest and the only girl, does what she always does, which is feed people, count heads, and hold the line between a game and an emergency. Robert Machoian gives the day ninety-one minutes and keeps it at the children's pace, so the film fills with invention, negotiation, and the specific tiredness of a thirteen-year-old who cannot hand the job to anyone. The domestic detail is exact: who eats, who cries, who is carrying whom. What the film is really watching is the speed at which invention tips into chaos, and how much of it Harper is expected to absorb before dark.",
+  "model": "claude-opus-5",
+  "source_sha256": "488175257f22de721d30d674e055a50433ed2245dac288cba968759f4d0a8234"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "burning-hearts-1986",
+  "field": "lead",
+  "film_id": "c2083006-6c80-4af7-9531-73952eb9f051",
+  "lang": "en",
+  "text": "Henriette's boyfriend is dull, and the doctor she is having an affair with is violent. She is a nurse of about thirty in Denmark in 1986, and Helle Ryslinge keeps all of it in the register of comedy: the shifts, the flat shared with a gay friend, the brother she stays close to, who wants somebody to love him and is having no better luck than she is. A hundred and fourteen minutes is a long time to give an ordinary life, and the length does the work, since routines have to repeat before their absurdity becomes visible, and Ryslinge lets them repeat. It took the Bodil for Best Danish Film. Nothing in it suggests that Henriette's mess is unusual, which is the least comfortable thing about the jokes.",
+  "model": "claude-opus-5",
+  "source_sha256": "59d8b699ba1d53fae71c16af4344ad3c294c025024d696db4d408e4b6b96faad"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "songs-of-repression-2020",
+  "field": "lead",
+  "film_id": "b411a2d8-7739-4928-b440-4fa24ea33249",
+  "lang": "en",
+  "text": "A tidy German village at the foot of the Andes, with a hundred and twenty people still living in it, is the whole location of this film. It was Colonia Dignidad; it is Villa Baviera now, and the new name did not empty the place. Estephan Wagner films the residents in German, in Chile, on ground whose history includes torture chambers, mass graves, medical experiments and the systematic abuse of children. Most of the ninety minutes go not to that record but to ordinary daytime, and to what happens to a question when it is put to someone who stayed. Religious fanaticism and a hard conservatism still set the terms here. The camera keeps its distance and lets the arrangement speak, which is harder to sit with than an accusation would be.",
+  "model": "claude-opus-5",
+  "source_sha256": "40c5a88a847f3926080245b1fb10758a0b3cbf38348f4e33e2a251516784a235"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-sleep-of-death-1985",
+  "field": "lead",
+  "film_id": "d084cf56-2459-4e49-a76b-177f54d3567f",
+  "lang": "en",
+  "text": "The year is 1815, and a young Englishman is touring Europe with time and money to spend. He is pursuing the Countess St. Alyre. Around her stand the Marquis D'Armanville and a circle of acquaintances whose interest in the young man goes unexplained, and then a series of bizarre murders begins. Calvin Floyd shot this in Ireland in 1985, ninety minutes of Regency travel handled as horror rather than romance, which means the danger arrives by way of etiquette: an introduction, an invitation, a room entered because refusing would be rude. The film moves him toward the borderland of nightmare by degrees, one polite acceptance at a time. His error is a social one before it is anything else, and costume and address carry the menace that a creature would carry elsewhere.",
+  "model": "claude-opus-5",
+  "source_sha256": "231fd8e1fca7a9eafdc09813d6cc454b11824a59d963ec4c952caa2e6f843a24"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ridge-2019",
+  "field": "lead",
+  "film_id": "a94e5a31-a282-4547-b905-0566240bf8f8",
+  "lang": "en",
+  "text": "Beata arrives in Sweden for her first season of work, Aaron comes back to the place he grew up, and Billie has a first summer holiday to get through. John Skoog builds northern Scania out of fragments, most of them plain, a few tilted toward the magical, and lets the three of them surface and sink again inside it. Aaron's heart is broken and Beata's stay is short; the season is what the film runs on, and it decides who is present and who is only passing. Seventy-six minutes, arranged so the pieces accumulate rather than build. The real subject is what a worked landscape does to the people crossing it: the fields set the hours, and the figures gradually stop reading as separate from the ground they stand on. Shadows move over the country, and so do they.",
+  "model": "claude-opus-5",
+  "source_sha256": "d47aabb532792599d4b87bf8317a6c516175359c36878a3ea93a6ee91fdfc4c3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-eclipse-2022",
+  "field": "lead",
+  "film_id": "60c9bc94-83a2-4760-a2b7-7531bbbef140",
+  "lang": "en",
+  "text": "A solar eclipse in 1999 gives the film its measure, and everything else in it is family. Nataša Urban, living in exile, went back to ex-Yugoslavia with an analogue camera and pointed it at her own relatives, so the past she is after is held in living rooms rather than in an archive. Analogue stock is not a neutral choice here; it costs something per minute and it cannot be reviewed on the spot. A hundred and ten minutes in Serbian, produced out of Norway; it carries the European University Film Award. The tension is structural: the woman asking is both an insider with a claim on these people and the one who left. An eclipse suits that, being a thing a whole country looks at on the same day and then remembers in incompatible ways.",
+  "model": "claude-opus-5",
+  "source_sha256": "b06f0c0b7b45d3c69ce3d24ff1a86e13b1d4c6229130a34d3bffdb01cbbd1746"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-damned-and-the-sacred-2002",
+  "field": "lead",
+  "film_id": "ba691085-6d36-429c-8480-b9c16b42fe97",
+  "lang": "en",
+  "text": "The dancers are children, the steps are traditional, and the city they come from is Grozny. Jos de Putter takes a youth folk group on tour through Europe and cuts those stages against daily life at home in a ruined city. Seventy-four minutes, and the two halves never blend: the performances are filmed for their shapes, the streets for what they are. Discipline is the hinge, the hours a routine costs and the postures held and the counting out loud, and it is not hard to see why a form with fixed steps and a fixed order would matter to people living where little else holds still. The tour gives the film its shape: rehearsal, travel, stage, and a return date fixed from the start. A folk repertoire from a place that has been fought over is never only a folk repertoire, and the children performing it are of an age to know that.",
+  "model": "claude-opus-5",
+  "source_sha256": "187508c5c46b341b9a6966b920603010e688edeed9c25e42db9727a85211bfc2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-last-shelter-2021",
+  "field": "lead",
+  "film_id": "4be413cb-13cd-4b9e-9ec8-5355a0ce1013",
+  "lang": "en",
+  "text": "The people passing through Gao are headed for Europe; the film stays put and lets them talk. Gao is in Mali, at the edge of the Sahel, quiet enough to work as a way station rather than a destination. Ousmane Samassekou spends eighty-five minutes there instead of on the road, largely in Bambara, with travellers at the stage where the journey is still an intention and the desert is still ahead of them. That choice does something a road film cannot: waiting acquires its own duration, and the reasons and the second thoughts stay in the mouths of people who are still deciding. The stopping point turns out to be its own kind of place, with its own hours and its own arrangements among strangers who may not meet again.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b774c302ddc2bca0ea1ff5adaf6ee2cf3e52653e7a6c216816673902a5cdc97"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bloody-beans-2013",
+  "field": "lead",
+  "film_id": "7deced71-f2c4-4d8d-9ab6-a4afe77a5720",
+  "lang": "en",
+  "text": "The game starts in the sea, moves up the beach, and turns into a war. Children on an Algerian shore splash, doze and squabble, then choose sides, and the war they are playing is the war of independence, national history handed to a pack of kids who invent the rules as they go. Narimane Mari's first film keeps the camera inside the flock: up stairways, into houses, across village squares, in a racket of shouting and slogans loosened from their meanings. She shoots close and low, so the adults' war arrives as noise and costume rather than as history to be respected. Seventy-seven minutes at the pace of a dream, which is to say time stretches, night comes too fast, and the sight of small bodies moving in formation against a wall begins to look like a rehearsal for something none of them chose.",
+  "model": "claude-opus-5",
+  "source_sha256": "3855b2e4b67d6453c32615332df1d6ec5efd347a20778b4b7a842649c4df863f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-flats-2024",
+  "field": "lead",
+  "film_id": "c05ed444-b6f7-4e35-9199-8a7384b983fd",
+  "lang": "en",
+  "text": "Joe plays his younger self in the tower-block flat where he lives. The building stands in New Lodge, a Catholic district of Belfast where the Troubles left a number of dead badly out of proportion to the size of the place, and the childhood being staged was spent inside that. Alessandra Celesia brings in the neighbours, Jolene and Sean and Angie among them, who take on the same exercise, so the documentary is built from performances by the people who were there. Reenactment usually belongs to true-crime television; here it is closer to a rehearsal held among neighbours, with the furniture standing in for what it always stood in for. A hundred and sixteen minutes gives the method room to change: what begins as the reconstruction of rooms and incidents becomes the harder business of saying things out loud in front of people who already know them.",
+  "model": "claude-opus-5",
+  "source_sha256": "a0e74120916a582691bf09b075a580d47c1d7e4b768bae3922211ddbb44c6189"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "motherland-2023",
+  "field": "lead",
+  "film_id": "20814e69-f576-4438-917a-d8e41913497b",
+  "lang": "en",
+  "text": "Babak is on his way to meet his fiancé's parents, and the year is 1979. Twenty-four minutes, a Canadian film in Persian about an American living room: Jasmin Mozaffari sets an Iranian man down in a house in a country that is post-Vietnam, loudly patriotic, and living through the height of the hostage crisis, then lets the introductions proceed. She stages it in a private house rather than at a rally or a newsroom, which is where this history is usually filmed. The short form suits the situation, since the pressure and the pleasantries arrive together and neither has time to soften. What it tracks is the arithmetic a guest runs in real time: what to answer, what to let pass, how much of the room to carry. An engagement joins two families; this one is also being conducted between two countries.",
+  "model": "claude-opus-5",
+  "source_sha256": "4edb667381628f079617ad7d43ef6873ee3003d5734d74075fcc90d21bc54a8d"
+ }
+]

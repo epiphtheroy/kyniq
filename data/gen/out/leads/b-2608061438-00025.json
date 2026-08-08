@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-apostle-1997",
+  "field": "lead",
+  "film_id": "b8cca158-11d3-4dab-944e-f2f81f05d28a",
+  "lang": "en",
+  "text": "A preacher's trade is his voice, and when the life around that voice comes apart he carries it to another state and puts a different name on it. Robert Duvall directs, and gives the sermons room: at 134 minutes, preaching runs closer to the length preaching actually takes. The Louisiana radio work is the strange part — a pulpit with no congregation in the room, a signal going out to people who will never be looked in the eye, in a place where the man has no history yet. Texas stays behind him, and so does the name. What holds it together is the distance between someone who can move a room in five minutes and the same man alone between towns, and the film never settles whether the gift is grace or appetite. Two hours is a long time inside a belief a picture neither mocks nor endorses; this one holds the position.",
+  "model": "claude-opus-5",
+  "source_sha256": "e88bb3f5b2911e5e3eea896677839ab12861cfa4e4f69e7adc2c57a94d04a5fe"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-star-is-born-1976",
+  "field": "lead",
+  "film_id": "cd57d882-b7dd-4fe0-a7be-fabb83f055d9",
+  "lang": "en",
+  "text": "An arena crowd roars for a man who can barely stand up in front of it. John Norman Howard is a rock star running out of road; Esther Hoffman sings in clubs until he hands her a few songs at one of his shows, and the industry does the rest. The 1976 production put its money into the concerts, and the awards attention it drew says the same: cinematography, sound, the song score. Between those sequences it has to make room for two people in a house, one of whom is now the one being waited on. The pressure on Esther is practical rather than tragic: dates booked, studio hours, a man in the next room she has to decide about each morning while other people hold her schedule. Frank Pierson lets the arithmetic of two careers run at its own speed across 140 minutes.",
+  "model": "claude-opus-5",
+  "source_sha256": "c44f8a57ac4ca0817ad1e6c59266d08f84641da0ae0317d6f83d05fee41659d4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "anne-of-the-thousand-days-1969",
+  "field": "lead",
+  "film_id": "8618a791-db7d-45fd-909d-9c42a80eabe3",
+  "lang": "en",
+  "text": "Henry VIII wanted a son, and the law of a country was rebuilt around the want. The 1969 British production runs 145 minutes and spends most of them in rooms: the case against his marriage to Katharine of Aragon is argued by clerics, lawyers and ambassadors, and Anne Boleyn's advantage is that she follows the argument better than most of the men conducting it. It is a costume film in the strict sense, since much of the drama is procedural — who may sit, who is addressed by which title, what a marriage counts as once a court has ruled on it. Charles Jarrott gives the scenes to his performers, who carry stretches that are, in plot terms, conversations about paperwork. The tension is in that conversion: a private appetite turned, document by document, into national law.",
+  "model": "claude-opus-5",
+  "source_sha256": "0180d022103267181204555870e20a85cdd3fdd6655a42d2fa60c90e481314c9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-secret-of-santa-vittoria-1969",
+  "field": "lead",
+  "film_id": "f31de515-d5a1-41bf-8709-11af052508e1",
+  "lang": "en",
+  "text": "What the village is hiding is wine, and there is far too much of it to move quietly. Stanley Kramer's 1969 comedy sets an Italian town a logistical problem while a German detachment settles in around it, and the jokes come out of arithmetic: bottles counted, hands available, hours left, a secret that only works if everyone keeps it. That last condition is the real subject — how a place arrives at a decision it never puts to a vote, and what a neighbor's silence is worth once it has a price. Kramer works in crowds, and 139 minutes gives him room to let a whole population behave as one nervous character. The Academy attention went to editing, which is the right department: a scheme this size has to be cut like a heist, and the comedy dies the moment the timing slips.",
+  "model": "claude-opus-5",
+  "source_sha256": "43ca15ae8091de06ca9161012c67bc1aa317c297a13eadbddcf98ff20a914035"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "youth-2017",
+  "field": "lead",
+  "film_id": "a155d882-1fda-4214-984a-7fbe1544c98c",
+  "lang": "en",
+  "text": "In a troupe like this one the body is an instrument the group owns: trained, costumed, ranked, assigned. Feng Xiaogang follows young performers in a Chengdu arts unit through the ordinary damage of that arrangement — a family scandal to outrun, an affection that is not returned, a rejection that quietly sets the shape of a life. The film is filed as history and war as well as drama, and the combination is the point: the discipline learned in a rehearsal hall is the discipline that will be asked for later. Much of the 136 minutes goes to dance, watched long enough that a slight failure of timing starts to read the way the troupe reads it. It took the audience award at Rotterdam, a warm reception for a picture this exact about what belonging to a group costs the people inside it.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ee8c3f1bc1b42e023fcd1b7bf1eef2ec023da232d02ae8d58d55b6dadc382d8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "les-girls-1957",
+  "field": "lead",
+  "film_id": "df249640-61fb-4ef7-8f9e-d20938fdaf1f",
+  "lang": "en",
+  "text": "Three people testify about the same dance troupe, and no two accounts of it agree. George Cukor takes the libel suit at the center literally: Sybil says one thing about Angele, Angele reverses it, and Barry Nichols, who ran the act, offers a third version that has to survive both. What makes the structure pay in a 1957 musical is that a musical can restage rather than merely retell — each account gets its own numbers, its own wardrobe, its own view of who was charming and who was absurd. The awards attention went to costume and production design, which here is evidence rather than decoration; the case is argued through what people wore and how a room looked. At 114 minutes it is a comedy that declines to certify any of its own scenes.",
+  "model": "claude-opus-5",
+  "source_sha256": "d9604b4e6f42513b8b2a0fe1fe7e823e3ace02eb958d4991e00e509e48d9daa2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "news-from-home-1976",
+  "field": "lead",
+  "film_id": "1ba165fe-99ab-44d2-bcb1-9a464cbf0561",
+  "lang": "en",
+  "text": "A daughter reads her mother's letters aloud, in her own voice, over images of the city she moved to in order to be far from her. That is the entire method, and it holds for 89 minutes. Akerman filmed New York in 1976 and kept the images impersonal; the voice is not, and never manages to be. The letters ask about money, health, when she is coming home, and deliver affection and grievance in the same sentence, so that love arrives with a bill attached. Nothing in the frame answers them. Directors keep voting the film into the Sight & Sound poll, which makes sense for a work that shows how much can be carried by a held frame and a reader doing two jobs at once. Distance here is practical before it is emotional: an ocean, a postal delay, a rent.",
+  "model": "claude-opus-5",
+  "source_sha256": "81b76a67fe2c2a62d8a9b31151d9a1ba815f9d7299288b0705239cae0fed2e32"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "with-a-song-in-my-heart-1952",
+  "field": "lead",
+  "film_id": "40c8b64d-afcc-47ea-b0d5-74fd3fcf937e",
+  "lang": "en",
+  "text": "Jane Froman's career happened in rooms where nobody could see her: a radio booth first, then wherever a microphone was set up. Walter Lang's 1952 picture is a studio biography of a working singer, built the way studios built them — the songs carry the chronology and the scenes between them are connective tissue. The interesting part is that the numbers are also the argument: the job is to sound identical to an audience that has no idea what the day cost. Don Ross, the pianist who gets her the first job and later marries her, keeps a career and a marriage running as one arrangement. The awards attention landed on the musical score, a fair reading of where the labor went. 117 minutes, mostly songs, and a performer who treats stamina as a professional skill.",
+  "model": "claude-opus-5",
+  "source_sha256": "7781b47aaf45e17576fd0278ff985e229870a9b35431bd9c118ac91a70a36414"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mystery-2012",
+  "field": "lead",
+  "film_id": "71991659-b7fe-42cb-9718-39d5f7bd95cd",
+  "lang": "en",
+  "text": "A police officer declines to sign off on the obvious explanation, and a private humiliation becomes a case. Lou Ye gives it 98 minutes and a register close to procedure: Lu Jie, who has just watched her husband walk into a hotel with a young woman, finds her household turning into a set of claims that can be checked against each other. The production carries a French national listing over a Chinese-language story, which is information in itself about who could pay for this and where. What holds attention is not the puzzle but the accounting underneath it: a woman working out what she owns, what she is owed, and how much of the last several years she has read wrong. The questions the police begin asking are the ones a wife has already asked.",
+  "model": "claude-opus-5",
+  "source_sha256": "67db6c24ed76478dd0c8c0310f4081a240d864ba51e64485d1d656e79377f2b2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "make-way-for-tomorrow-1937",
+  "field": "lead",
+  "film_id": "7d9c33a0-0c49-4ab0-9b43-7ff36181f0b4",
+  "lang": "en",
+  "text": "The children are not villains, which is what makes it unbearable. They have small apartments, jobs, and a plan that reads fine on paper: one parent here, one parent there, for the time being. Leo McCarey made this in 1937, and it watches an elderly couple get divided between households by people who love them and cannot house them both, refusing at every turn to hand anyone a villain's line. The arrangement is reasonable at each step, and nobody consenting to it thinks of himself as doing harm. 92 minutes, and it never goes looking for consolation. It works by household arithmetic — a spare room, a fare, a schedule that will not stretch — and by the courtesies two people married a lifetime suddenly have to use on each other. The cruelty is procedural; so is the tenderness.",
+  "model": "claude-opus-5",
+  "source_sha256": "a2319ccb76559a7180f6a06ed8b70d80dc2ac2540bb302ad3e6291ec51d025bf"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "killer-of-sheep-1977",
+  "field": "lead",
+  "film_id": "8fc42d8c-6663-4e6d-b0a2-0d9a006fcdb7",
+  "lang": "en",
+  "text": "The job is killing sheep, and the film treats it as a job: a shift, a wage, the same thing again tomorrow. Charles Burnett shot in Watts and built 80 minutes out of the hours around that shift rather than out of incident — no case to solve, no clock running down, no stranger arriving to start a plot. The man at the center is tired in a way a story cannot fix, and the film knows better than to offer him one. What accumulates instead is texture: rooms, streets, small money moving between adults, children at play who are not asked to mean anything. The Sight & Sound critics have voted it into their poll, unusual company for a picture that refuses nearly everything the industry calls structure. Eighty minutes is enough, because the argument is that the days keep their shape.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a4c98051082ba1d68a09a80679248a3ab3fc3a6fe6391c14129cbd405ef8c76"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-adventures-of-prince-achmed-1926",
+  "field": "lead",
+  "film_id": "5dfe7769-8bf4-4573-98b5-9d974a6b24b0",
+  "lang": "en",
+  "text": "Sixty-six minutes of animation in 1926 is a labor figure before it is anything else: every second assembled by hand, one image at a time. Lotte Reiniger took a strand of the Arabian Nights — a sorcerer, a prince, a run of adventures — and gave it the length of a feature, which means holding reversals and a romance rather than a single gag. The material suits the method: what no camera can photograph is precisely what animation exists for, and a story already running on transformation asks nothing the technique cannot supply. Nothing here happens by accident of weather or location. Every effect in the frame was decided in advance by somebody, and that decidedness is the pleasure of it — a fairy tale in which even the wind is authored.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc7d72e3d7a9ac00ff4b3a3bcc3e650b89a26641d4566a5d0c7a910d3e7286fa"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "triumph-of-the-will-1935",
+  "field": "lead",
+  "film_id": "308c2bf8-74e4-41e4-937a-e816ee5feaba",
+  "lang": "en",
+  "text": "This is a film a party made about itself, and every difficulty with it begins there. Leni Riefenstahl was given the 1934 Nuremberg rally and 114 minutes in which to present Adolf Hitler; the result is documentary only in the sense that the events in front of the camera did occur. It is studied because the technique is legible and because it functioned: a single figure raised by camera position, crowds converted into pattern, the ordinary credibility of nonfiction used as a delivery system. Watching is a technical exercise with an unpleasant charge, since noticing how a shot works means noticing how it worked on people. The assignment was flattery, and the film records how thoroughly it was carried out. The uncomfortable part is not that it is crude but that it is not.",
+  "model": "claude-opus-5",
+  "source_sha256": "4653fe39b8efb521e30663b57d0bcd2debb143ee694f0d645d2c2cbc6529a5c8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-touch-of-zen-1971",
+  "field": "lead",
+  "film_id": "0c780c57-b164-45ae-a24b-29eadfadb63d",
+  "lang": "en",
+  "text": "A martial arts film that runs three hours has to be interested in something besides fighting. King Hu spends much of the length on what the genre usually skips: a town, a trade, a household, and a painter named Gu Sheng-zhai with no ambition and no obvious reason to be in a story like this. Yang Hui-zhen is running from officials who have the state behind them; the monks who fall in beside her bring a discipline of another kind into what is otherwise a chase. Golden Horse voters ranked it in their hundred Chinese-language films, and the length is why: 180 minutes lets pursuit be measured in patience and distance instead of duels. When the fighting arrives it is staged as movement through a landscape rather than an exchange of blows.",
+  "model": "claude-opus-5",
+  "source_sha256": "9698466fdf7338c1e24da52f4c1e9c9ffc34a262828e73a5f53ce92f89dee240"
+ }
+]

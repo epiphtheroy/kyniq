@@ -787,7 +787,7 @@
   "entity_key": "samurai-rebellion-1967",
   "field": "rationale",
   "lang": "ko",
-  "text": "Kinema Junpo Award for Best Film of the Year에 오른 작품, 어느 정도 알려진 · 국가 정전: JP · 감독 고바야시 마사키의 작가 계보를 통해 다시 평가된다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "text": "키네마준포 올해의 영화상에 이름을 올린 작품이고, 어느 정도 알려져 있다 · 국가 정전: JP · 감독 고바야시 마사키의 작가 계보를 통해 다시 평가된다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
   "model": "claude-opus-5",
   "source_sha256": "0ee883e4448d27e477f36f3edee5e05c17c436bc7a78a00b5460e2c58733d42f"
  },
@@ -1174,7 +1174,7 @@
   "entity_key": "scent-of-a-woman-1992",
   "field": "rationale",
   "lang": "ko",
-  "text": "Best Actor와 Golden Globe Best Motion Picture Drama가 예우한 영화, 일반 관객에게 대단히 유명한 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "text": "남우주연상과 골든글로브 드라마 작품상을 받은 영화이고, 대중에게 대단히 유명하다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
   "model": "claude-opus-5",
   "source_sha256": "bff55810dc774506517b1e503aedb7424c6c2fcc9b4c8c9058e240df9ebaf2e1"
  },
@@ -1543,7 +1543,7 @@
   "entity_key": "sergeant-york-1941",
   "field": "rationale",
   "lang": "ko",
-  "text": "Best Actor와 1001 Movies to See Before You Die에 오른 작품, 어느 정도 알려진 · 국가 정전: US · 감독 하워드 혹스의 작가 계보를 통해 값이 다시 매겨진다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "text": "남우주연상과 1001 Movies to See Before You Die가 인정한 작품이고, 어느 정도 알려져 있다 · 국가 정전: US · 감독 하워드 혹스의 작가 계보를 통해 값이 다시 매겨진다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
   "model": "claude-opus-5",
   "source_sha256": "ccb8d71d9c3cd7996933ec4351adb81e3f3538deeba6cabb7ce41d130bd36d11"
  },
@@ -1768,7 +1768,7 @@
   "entity_key": "shampoo-1975",
   "field": "rationale",
   "lang": "ko",
-  "text": "WGA Best Original Screenplay에 오른 작품, 어느 정도 알려진 · 국가 정전: US · 감독 Hal Ashby의 작가 계보 안에서 다시 값이 매겨진다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "text": "WGA 각본상에서 인정받은 작품이고, 어느 정도 알려져 있다 · 국가 정전: US · 감독 Hal Ashby의 작가 계보 안에서 다시 값이 매겨진다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
   "model": "claude-opus-5",
   "source_sha256": "eeac26e7ea0631770ad177d846eceaf77c01cf45371341189fd3265a9eda7fcc"
  },
@@ -2317,7 +2317,7 @@
   "entity_key": "sideways-2004",
   "field": "rationale",
   "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 Best Adapted Screenplay에 올랐고, 널리 알려진 · 국가 정전: US · 감독 Alexander Payne의 작가 계보 안에서 다시 평가된 작품. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "text": "정전의 핵심에 놓인 작품으로, TSPDT 1,000 Greatest Films와 각색상에 이름을 올렸고, 널리 알려져 있다 · 국가 정전: US · 감독 Alexander Payne의 작가 계보 안에서 다시 평가된 작품. 스스로를 시네필이라 부른다면 반드시 볼 것.",
   "model": "claude-opus-5",
   "source_sha256": "457b0995e6a51d3b23b292d18d21e7dfdbf187ab52783e05ed7c11e1e353e5da"
  },
@@ -3478,7 +3478,7 @@
   "entity_key": "spider-2002",
   "field": "rationale",
   "lang": "ko",
-  "text": "작가 David Cronenberg의 정전화된 작업 세계가 떠받치는 작품, 어느 정도 알려진 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "text": "데이비드 크로넨버그 감독의 정전화된 작품군이 떠받치는 작품이고, 어느 정도 알려져 있다 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
   "model": "claude-opus-5",
   "source_sha256": "a8ec52d8019c4c9a43298665dd22bee4ac8ebae54a73a2ad44932d5266f2e44b"
  },

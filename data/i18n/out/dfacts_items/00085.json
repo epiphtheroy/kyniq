@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "victor-erice#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《El Sur》는 칸영화제에서 열광적인 찬사를 받았다. 그러나 에리세 본인은 케레헤타의 자금 개입을 뼈아픈 배신으로 받아들였다. 찍지 못한 후반부는 햇빛이 쏟아지는 안달루시아를 무대로 할 예정이었고, 그는 수십 년째 그 잃어버린 절반을 애도해왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d373d307f4a284c0365238aeb05dd1c44f4c02d8e69fd05208b166572e9ae5f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "victor-erice#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "세 번째 장편 《마르멜로 나무의 햇빛》(1992)을 위해 에리세는 몇 달을 극사실주의 화가 안토니오 로페스 가르시아 곁에서 보냈다. 화가는 마드리드 안뜰의 마르멜로 나무에 내려앉는 가을빛을 정확히 붙잡으려 했고, 카메라는 그 시도를 집요하게 기록했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dbe359ffeb03ecc4a87f73f22d8c8f0325a9d7e22af9de4ed48f02926c1a128e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "victor-erice#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《마르멜로 나무의 햇빛》을 찍는 동안 에리세는 시간의 경과에 사로잡혔다. 그래서 이 다큐멘터리는 마르멜로 열매가 실제로 썩어 떨어지는 과정을 그대로 따라간다. 늙어가는 화가 자신의 모습이 거기 겹쳐진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5343953ac9fe0854cdaf32618a1590e40cf92919711a1db7eebdd3528d291b43"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "victor-erice#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "칸 심사위원상 수상작. 이후 시네마테크 온타리오가 세계 각국의 시네마테크와 영화제를 상대로 벌인 대규모 투표에서 《마르멜로 나무의 햇빛》은 1990년대 최고의 영화로 뽑혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7c520fab52ff13eaac411098147b8a1b3b60c014f1c33c0eb3cf797da098261"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "victor-erice#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1990년대 후반, 에리세는 후안 마르세의 소설 《El embrujo de Shanghai》를 각색하는 데 3년을 쏟아부었다. 그러나 1999년 프로듀서 안드레스 비센테 고메스가 각본이 상업성이 없다며 그를 프로젝트에서 돌연 배제한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d70644f30aabdbb261d790aa51a3019c96f778d662386d23db7bc42f51233aa"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "victor-erice#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "상하이 프로젝트 무산은 스페인 언론 지면에서 격렬한 공개 설전으로 번졌다. 결말은 고메스가 그 기획을 감독 페르난도 트루에바에게 넘긴 것. 그 배신 이후 에리세는 30년간 장편에서 물러나 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e59d12cc556af77d70db27d432feda576b7577038b7124c753e1e141cf5a8750"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "victor-erice#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "기획이 무너진 충격 속에서 에리세는 흔치 않은 선택을 한다. 촬영되지 못한, 그러나 치밀하게 조사된 시나리오를 《La promesa de Shanghai》라는 단행본으로 펴낸 것이다. 자신의 예술적 구상을 세상 앞에 입증하기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c1cd58da166e589ce21a314f5cec220022924513188f8e24f991f34a3524ad8c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "victor-erice#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "단독 장편을 쉰 30년 동안에도 그는 손을 놓지 않았다. 옴니버스 기획에 참여해 호평받은 단편들을 내놓았고, 그중 대표작이 《Ten Minutes Older: The Trumpet》(2002)에 실린 'Lifeline'이다. 1940년대 스페인, 갓 태어난 아기와 째깍이는 시계를 나란히 놓은 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "c00962d04a6d789f65b9df390a02d584f6d32a2d8bdcc2fcd449461a080945ab"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "victor-erice#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편에서 31년을 비운 뒤, 여든두 살의 에리세는 네 번째 영화 《클로즈 유어 아이즈》(2023)를 그라나다와 알메리아, 마드리드에서 비밀리에 찍었다. 그 현장에서 그는 아나 토렌트와 재회한다. 50년 전 《벌집의 정령》으로 그가 발굴했던 바로 그 아역이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "72a728bf13598ddebab02560467efcdd11bae896796e7f0aa56e6639b9843d77"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "victor-erice#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2023년 복귀작 《클로즈 유어 아이즈》의 중심에는 미완으로 남은 극중 영화가 있다. 제목은 《The Farewell Gaze》. 《El Sur》와 《El embrujo de Shanghai》처럼 중도에 끊긴 자기 기획들을 향한, 지극히 사적인 메타 주석인 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "950b1f9ba5bea3c29f666c3fe721312c387a1dffa3a32e3e4b0db017e9066108"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "victor-erice#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2023년 칸에서 에리세는 큰 파문을 일으켰다. 《클로즈 유어 아이즈》의 프리미어를 보이콧하고 《엘 파이스》에 신랄한 공개서한을 실은 것이다. 집행위원장 티에리 프레모가 자신을 붙잡아두기만 하다가, 복귀작을 비경쟁 부문 칸 프리미어에 무례하게 묻어버렸다는 내용이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a12348c02dfc8340940daeed32d38499d177f84277e574b9b29a9c3552403708"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "vincente-minnelli#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "본명은 레스터 앤서니 미넬리. 가족이 꾸린 순회 보드빌 극단 미넬리 브라더스 텐트 시어터의 아역 배우로, 어린 시절을 미국 중서부를 떠돌며 보냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d47e7c196b7fbd26b2535697f53ae1449aa3747225a76361e3cb7fd7d6a74739"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "vincente-minnelli#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "집안의 극장 사업이 무너지자 십 대의 미넬리는 시카고로 갔다. 그곳 마셜 필즈 백화점 본점에 쇼윈도 장식 담당으로 취직했고, 연출과 색채를 향한 그 집요한 눈은 거기서 처음 자랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b226957f412e865692d996d85c155388e48ef4a67afa261bcb90d2b63a5f275d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "vincente-minnelli#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "시카고의 무대사진가 폴 스톤 밑에서 도제로 일하며 그는 자기만의 화면을 벼렸다. 평평한 배경막을 입체로 보이게 만드는 조명 다루는 법을 그때 배웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e0b8785c5fb65df291ac23187d3358c1bf5243271d599d698a5e14ba1391e3e5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "vincente-minnelli#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화 카메라 뒤에 서기도 전인 1932년, 미넬리는 갓 문을 연 뉴욕 라디오시티 뮤직홀의 의상·무대 총괄이 된다. 주 단위의 살인적인 마감에 맞춰 호화로운 무대 스펙터클을 만들어내는 자리였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a7c59c97fe6feb6cad95b372c503ec7e8562d3bad520f33ffd59ebd02870b065"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "vincente-minnelli#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "MGM의 프로듀서 아서 프리드는 미넬리에게 유례없는 수습 기간을 줬다. 1년 넘게 정규 급여를 지급하면서 시킨 일이라곤 다른 감독들 곁을 따라다니고, 편집실을 들여다보고, 영화 만드는 기술의 작동 원리를 익히는 것뿐이었다. 작품은 그다음에 맡겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b37777558de7d128507db0fc9673e42b889dae2b87cf22c85827730d88f69cd6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "vincente-minnelli#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "감독 데뷔작은 흑인 배우만으로 만든 뮤지컬 《Cabin in the Sky》(1943). 주연 에설 워터스와 젊은 무용수 리나 혼 사이의 험악한 현장 갈등을 중재하는 일이 그에게 떨어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a9731aba618f483a4c4e3a98e77c3ae264aaaa2e5b6cec4af721d0ad4ef03513"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "vincente-minnelli#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "훗날 아내가 되는 주디 갈런드와 그가 진짜로 가까워진 곳은 《세인트루이스에서 만나요》(1944) 현장이었다. 화려한 스튜디오 분장을 벗고 옆집 소녀 같은 자연스러운 얼굴로 가자고 그녀를 설득했고, 헤어와 의상 테스트를 직접 챙겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "18e7a9004618929c49908a655c7e953a0069aa7d93f12e0234f1b81e608ac386"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "vincente-minnelli#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 테크니컬러 자문진과 붙어 앉아 특정한 레몬빛 노랑을 만들어냈다. 스튜디오 기술자들은 그것을 '미넬리 옐로'라 불렀다. 3색 필름에서 보통의 노랑은 번지지 않게 찍기가 악명 높게 어려웠기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e294d856b88a4184241c0a5dbc00e25d8d8e404c82c8a584a1c6cf8941f5a90b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "vincente-minnelli#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "갈런드와의 결혼이 금 가기 시작한 것은 《The Pirate》(1948)을 찍으면서였다. 난항을 거듭한 이 현장에서 갈런드의 피해망상은 걷잡을 수 없이 커졌고, 급기야 남편이 상대역 진 켈리를 띄우려고 자기를 일부러 밉게 찍는다고 몰아붙였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "04d3dfcccca69ef1b7114ff3a06a45f43c6851993ce7a65c67eba482ed5dca73"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "vincente-minnelli#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "할리우드 멜로드라마 《배드 앤 뷰티풀》(1952) 현장에서 미넬리와 커크 더글러스가 ���딪친 일은 유명하다. 다만 더글러스는 나중에 인정했다. 그 지독한 완벽주의가 자기 경력 최고의 연기 중 하나를 끌어냈다고.",
+  "model": "claude-opus-5",
+  "source_sha256": "31a1d8c7cb806e259316ada1c74ac5d6d9594e0fb2a3a7f7a229db4787b36acd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "vincente-minnelli#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《브리가둔》(1954)의 'Heather on the Hill' 장면에서 그는 특정한 유려한 카메라 움직임을 머릿속에 그려두고 있었다. 그래서 스코틀랜드 고원을 로케이션이 아니라 MGM 실내 세트에서 찍겠다고 고집했다. 날씨까지 인공으로 완전히 통제하기 위해서.",
+  "model": "claude-opus-5",
+  "source_sha256": "b32582cd9138319eff3c17ad3d3404b96986ed386ea2ed40ac0788d6d3222433"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "vincente-minnelli#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "정신과 병원을 무대로 한 드라마 《The Cobweb》(1955)에서 미넬리는 세트를 일부러 어긋나게 설계했다. 서로 부딪치는 어수선한 직물 무늬들. 관객의 의식 아래로 불안과 신경증을 밀어 넣기 위한 장치였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c1ad4991b7e70b6b0505be94ee64061b5227e77c46892ab3880ade4147c9aa64"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "vincente-minnelli#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "빈센트 반 고흐를 다룬 《열정의 랩소디》(1956)에서 그의 시각적 정확성에 대한 집착은 극에 달했다. 프랑스의 드넓은 농작물 밭을 더 밝은 노랑으로 스프레이 도색하라고 인력을 투입한 것이다. 화가의 캔버스에 칠해진 바로 그 색조에 맞추기 위해.",
+  "model": "claude-opus-5",
+  "source_sha256": "71eb7833246cb02e8c9932aa15d00aeffa7b1cb4e440640b6bb5c44b24f435f5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "vincente-minnelli#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아카데미 감독상은 파리를 무대로 한 화려한 뮤지컬 《지지》(1958) 단 한 번뿐이었다. 이 영화는 후보에 오른 아홉 부문을 전부 가져가며 당시 기록을 세웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6857a843b16b510dcdef114786864f469d0e571b0d31e3ec339becadcb743d82"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "vincente-minnelli#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Some Came Running》(1958)을 찍으며 미넬리는 인디애나주 매디슨의 놀이공원을 영리하게 써먹었다. 요란한 조명이 번쩍이는 관람차와 요지경 거울. 프랭크 시나트라가 연기한 인물의 심리적 붕괴가 그 아수라장의 화면으로 옮겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6fe23b5b9e4f84a59c321b971510c073b1a6dcba54a67f64151b14ae80288841"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "vincente-minnelli#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1974년 그는 자서전 《I Remember It Well》을 냈다. 자신의 양성애를 통째로 지우고 갈런드와의 결혼이 품었던 어두운 면은 대충 뭉갠, 지나치게 말끔한 회고록으로 악명 높다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c95bf6c0028a3cacb9d9255703c4bee4fd62d1f15cacdbc06b9223e2be967c8a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "vincente-minnelli#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "유작 《A Matter of Time》(1976)에는 딸 라이자가 주연으로 나섰다. 하지만 제작은 재앙이었다. 배급사 아메리칸 인터내셔널 픽처스는 일흔셋의 감독을 편집실에서 쫓아내고 영화를 난도질했고, 그는 결국 이 작품을 공개적으로 부인했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ab94e2edbb88c071564882cb1ce8c6b0277a15a259c25e7f37dc67b2df102a4b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "vincente-minnelli#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1986년, 세상을 뜨기 불과 몇 주 전에 그는 프랑스 레지옹 도뇌르를 받았다. 병든 감독은 베벌리힐스 자택에서 휠체어에 앉은 채, 산소 튜브로 숨을 쉬며 훈장을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6db40a13c6b07b4676fb7887c19dfd9a5581cd24f0b7cdae320e654c596cd28c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "vincente-minnelli#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1986년 폐기종과 폐렴으로 눈을 감으며 미넬리는 110만 달러 유산의 대부분을 딸 라이자에게 남겼다. 네 번째 아내 리 앤더슨에게는 10만 달러와 함께 살던 집에 계속 거주할 권리가 돌아갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d19e53dfdda91149b7772c4bca080ee18bde99247eb21c3814c9844f7df9544"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "werner-herzog#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "본명 베르너 스티페티치. 수돗물도 수세식 변기도 전화도 없는 바이에른 산골 마을 자흐랑에서 유년을 보냈다. 처음 영화를 본 것은 열한 살 때였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0c0348ca8ab98a75fcd8b1178631be2aca4f9323ee58f7274eb8ecb1eee7191a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "werner-herzog#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "초기 작업 자금을 대려고 헤어초크는 뮌헨 영화학교에서 35mm 카메라를 훔쳤다. 훗날 그는 그것을 절도가 아니라 예술에 필요한 자연스러운 '징발'이었다고 항변했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f259aa339af9742a87752f89e5e823b590730b9749fa32e986113b1814f71db"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "werner-herzog#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1971년, 막판 일정 변경 덕분에 헤어초크는 LANSA 508편에 오르지 않았다. 그 비행기는 페루 아마존에 추락했고 생존자는 율리아네 쾨프케 한 사람뿐이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c53470abca6482ceb3374855c0969077f0ca081a56542aadc458702da15b463b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "werner-herzog#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "페루 정글에서 《아귀레, 신의 분노》를 찍던 아수라장 속, 격분한 클라우스 킨스키가 현장을 떠나려 하자 헤어초크는 총으로 그를 쏘고 자기도 쏘겠다고 위협했다. 두고두고 회자되는 장면이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ce4a7072437bd03454178858de22b806bd390f70de8a4e5eaceb9f8e32fd138"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "werner-herzog#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1974년, 스승이자 선구적 영화사가였던 로테 아이스너가 큰 뇌졸중으로 쓰러졌다는 소식을 듣는다. 헤어초크는 한겨울에 뮌헨에서 파리까지 걸었다. 자기 몸을 그렇게 혹사하는 순례가 그녀를 살려두리라 믿었던 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b0a7ef43d212e8b3a06033ff326e77996909c5741d0b30401a2850052e646a43"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "werner-herzog#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1976년작 《유리의 심장》에서 몽유병자 같은 양식화된 연기를 얻어내기 위해, 그는 매 장면 촬영 전에 출연진 거의 전원에게 직접 최면을 걸었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "76abddbd036369f272b9994ad6b261c644cebf0ba8f77a1a9f59947a26dbfd2e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "werner-herzog#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1977년에는 과들루프섬으로 향했다. 그곳 화산이 원자폭탄급 위력으로 폭발하리라는 예보가 나온 참이었다. 다큐멘터리 《La Soufrière》를 찍은 목적은 오직 하나, 대피를 거부한 농부 한 사람을 인터뷰하는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "b61d3ce41df6c12339db7e453e5601fa7dffdf4abd9944fbd4a02c65245cf31b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "werner-herzog#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "젊은 시절의 에롤 모리스가 다큐멘터리 《천국의 문》을 절대 끝내지 못한다는 데 걸었다가 진 대가로, 헤어초크는 자기 가죽구두를 마늘과 허브에 넣고 삶았다. 앨리스 워터스의 레스토랑 셰파니스에서였고, 관객이 지켜보는 앞에서 그것을 먹었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "88c546a42d9855155bc9b949a4064fe298201eb0b01cab99190d42f40780d99d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "werner-herzog#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1982년 대작 《피츠카랄도》에 특수효과를 쓰지 않겠다고 버틴 결과, 아마존 분지의 두 강 사이 가파른 진흙 언덕 위로 320톤짜리 증기선을 사람 힘으로 끌어올리게 된다. 동원된 아과루나족 남성만 수백 명이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "259a8a9b143c6444b00a7148cedddcfd127798dc7292e78b2da7652c69edd632"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "werner-herzog#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《피츠카랄도》에 참여한 원주민 엑스트라들은 클라우스 킨스키를 몹시 싫어했다. 급기야 한 부족장이 헤어초크에게 저 배우를 죽여주겠다고 진심으로 제안했을 정도다. 감독이 거절한 이유는 단 하나, 영화를 끝내려면 킨스키가 아직 필요했기 때문이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "85e2b0b8d692d9c097d9251e46dd07252d398dea2f9fe586b747deed9d236dc9"
+ }
+]

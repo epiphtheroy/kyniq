@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-wedding-march-1928",
+  "field": "lead",
+  "film_id": "aa71a36f-c5da-4f0a-a8f0-ccfddb131f80",
+  "lang": "en",
+  "text": "The uniform is also a set of instructions about whom its wearer may marry. Nicki is an aristocrat and an officer in a Vienna that sorts people by birth and keeps the sorting current; Mitzi is a peasant; the attraction between them is immediate and, to both of them, plainly impossible. Stroheim makes of that not a lament but a study in supervision. Everybody here is watched — by parents, by neighbors, by the ranks above and below — and so the courtship proceeds in the seams of the day, in whatever minute nobody is using. His family, meanwhile, has an heiress in view. He knows this early, which turns each tender scene into something stranger than romance: a man being careful with a woman while the terms of his own life are settled in another room by people who will not consult him.",
+  "model": "claude-opus-5",
+  "source_sha256": "2183f98817fb61aedec52d6f3ef9bd5ebfa16f17c2ca1d57271e0887c0f92b47"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "x-men-2000",
+  "field": "lead",
+  "film_id": "84970f9a-4329-45cc-8e4a-848f3c9a3cf6",
+  "lang": "en",
+  "text": "One hundred and four minutes is not much time to establish a school, a team, a war, and two newcomers who arrive with nothing. Singer spends it on introductions. The setup — people born with abilities, gathered into a private academy, opposed by others born the same way who have drawn the opposite conclusion about living among everyone else — could carry twice the length, and part of what holds this together is that it declines the extra room. Rogue and Wolverine learn the world at a stranger's pace, which keeps exposition down to what a newcomer would actually be told. The fights are brisk, sometimes abrupt. The Hugo it took is a science-fiction award, and the category fits: the costumes are the least of what the film is arguing about.",
+  "model": "claude-opus-5",
+  "source_sha256": "96819582e833036c2c618491f9b16e3ce3b19b680aaca93cf68536e72663e6b1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "x2-2003",
+  "field": "lead",
+  "film_id": "5481d235-4d8a-4c20-a636-b2f4b914e4b1",
+  "lang": "en",
+  "text": "The threat this time holds a colonel's commission and has no powers at all. Stryker works with a mood rather than against one: the anti-mutant feeling rising around him is not his invention, and that is what makes him harder to oppose than anything with claws. At 133 minutes the film has room for institutions — chains of command, facilities, orders that arrive from somewhere above the man giving them — and it uses the room. It also forces people who despise one another into the same corridor, because a program aimed at an entire population is indifferent to which side of the argument they took. Singer keeps the register level throughout, which is the right choice for a story about a country deciding through official channels that a category of its own citizens is a security problem.",
+  "model": "claude-opus-5",
+  "source_sha256": "c4da5685a31736db4719c394a93953b984ef832966489caed5567e1139cf6b15"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "rise-of-the-planet-of-the-apes-2011",
+  "field": "lead",
+  "film_id": "be393299-b088-49b8-aa15-22a66ea79ce4",
+  "lang": "en",
+  "text": "A chimpanzee raised in a suburban house, among people who talk to him, is taken to a facility full of chimpanzees who were not. Caesar's difficulty for much of the film is social rather than physical: he has to learn the rules of a place whose keepers are indifferent and whose inmates owe him nothing. Wyatt gives that education time, in a genre that usually hurries. The Academy Award here was for visual effects, and it does more work than the category normally implies, because the whole picture rests on an audience reading intention off a face that is not human and cannot argue its case in words. It helps that the household comes first. Before the cages there is an ordinary domestic life, which is what makes the facility register as a demotion rather than a plot development.",
+  "model": "claude-opus-5",
+  "source_sha256": "0c6e3cd40b7fe2bf9654e9b922ae914ddb249711306226d4bc330df1a11452e3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ready-player-one-2018",
+  "field": "lead",
+  "film_id": "3cc65789-c830-45a0-86a4-d348ec2b5d64",
+  "lang": "en",
+  "text": "A rich man dies and leaves his fortune to whoever can win a game he designed. Spielberg takes that inheritance plot literally and builds 140 minutes on it: rules, rounds, rivals, and a prize that is not a trophy but an estate. The premise has a quiet legal edge. A popular video game system is somebody's property, and the people competing inside it are competing for ownership of a place they already spend their lives in — a stranger arrangement than any of the creatures moving through the frame. The film is generous with motion and unembarrassed about play. It is also, underneath all of it, a will being read aloud, and the reading takes the length of a feature because the deceased preferred puzzles to paperwork.",
+  "model": "claude-opus-5",
+  "source_sha256": "913a259bbd067332cb3d20cccd9ea4d151f8fc928a7a3370d69eebf3645df5af"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "cloverfield-2008",
+  "field": "lead",
+  "film_id": "9b169bb2-d05b-4cad-8d43-7421d8684e9b",
+  "lang": "en",
+  "text": "Someone at a going-away party is filming when the night stops being a party. Everything after that is the same camera, held by people with no vantage and no briefing — no map of the city, no cut to a war room, no officer explaining what is out there — only what one lens in New York happens to catch. Eighty-five minutes is the right length for that rule. It costs the film everything a monster picture usually sells and buys something better in return: the specific panic of running from a thing whose shape nobody can establish. The scale is enormous. The information is tiny. Between those two facts sits the entire design, and the five friends carrying it are exactly as informed as anyone would be, which is to say not at all.",
+  "model": "claude-opus-5",
+  "source_sha256": "388df541e46c51b842b3de1190522780906b1bb9f89771f4329c37c2caf1d2ee"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "stargate-1994",
+  "field": "lead",
+  "film_id": "de50b9d0-56fc-49f0-95d6-025e1e00d562",
+  "lang": "en",
+  "text": "The find is archaeological and the trip is interstellar, and the film insists these are one event. A machine comes out of the Egyptian ground; through it lies a desert, and people who resemble their own distant ancestors and live under the name of a god. Emmerich spends 121 minutes on that inversion. The odd pleasure of the thing is how much of it is expedition — arrival, observation, the slow business of being understood — before it becomes a fight, and how patiently the wonder is handed to characters who have to work for it. The design borrows an iconography already ancient when the film was made, which lends its spectacle a second-hand authority no invented alien alphabet can buy. Familiar symbols on an unfamiliar world: a cheap trick, and a good one.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d8241c396e8884cf2900eb85169dda375c8a84f00f836ec86e428d400219c83"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "superman-ii-1981",
+  "field": "lead",
+  "film_id": "5804c8f7-f49f-42f8-ba64-2be59648a191",
+  "lang": "en",
+  "text": "Three people arrive on Earth who can do everything Superman can do, and one of them gave orders for a living. That single arrangement reorganizes the sequel. When the hero is the strongest thing in the frame, the drama is logistical — get there, hold this up, be quick — and Zod removes that problem by matching him at every point, so the film has to look elsewhere for pressure. Some of it comes from Luthor, who has the one asset the Kryptonians lack: he knows how this planet works. That alliance is unequal, both sides know it, and the friction between them does more work than any punch. The rest comes from scale. Three invulnerable people treating a populated planet as furniture is a comic idea and a frightening one, and 127 minutes is enough time to be both.",
+  "model": "claude-opus-5",
+  "source_sha256": "884318336b24da12c1b120f7643258a03cf9e5e2f8800603b06883cf8fa6909e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "star-trek-vi-the-undiscovered-country-1991",
+  "field": "lead",
+  "film_id": "4cc33fec-deac-4c3d-aa0a-7cdfd03649be",
+  "lang": "en",
+  "text": "A Klingon ship is nearly destroyed, the evidence points at the Enterprise, and a peace conference is already on the calendar. What follows is less a space adventure than a procedural about diplomacy under suspicion: two powers exhausted by years of war, an incident nobody can account for, and officers ordered to sit across a table from people they were trained to destroy. The Academy Award for makeup matters more here than the category usually suggests, because much of the tension runs on reading intent off faces designed to be illegible to the other side. Meyer runs the thing at thriller speed for 110 minutes. What has to be defused, though, is not a device but a habit: years of enmity that both fleets have built their working lives around.",
+  "model": "claude-opus-5",
+  "source_sha256": "a466a1ba7d3502dbff8f8f7ea24d7dfc218d37ba3425e4aa61de81f8750fcb70"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "soylent-green-1973",
+  "field": "lead",
+  "film_id": "1d7a79bf-1b81-4a93-9828-a89e917f9728",
+  "lang": "en",
+  "text": "The year on screen is 2022, which has since arrived and gone, so the date now reads as a comment rather than a horizon. Fleischer's city has run out of room — too many people, air that must be endured, and an administration whose central problem is calories. The plot is a crime story, and that is the practical decision: a mystery gives the camera an excuse to move through the housing, the offices, and the crowds where food is distributed, which is what the film actually wants to show. Ninety-seven minutes, much of it texture rather than incident. What keeps it from becoming a lecture is that scarcity, from the inside, does not feel like the end of the world. It feels like queuing. It feels like heat, and rules, and a system that has quietly stopped pretending it can fix anything.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc7b452d71428fdd5320df7571e6c1965c5fd161e8fe0bff4ecc5a23fce43520"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "logan-s-run-1976",
+  "field": "lead",
+  "film_id": "657ef1a1-ecc7-4e2f-bb3a-1e339d9ae125",
+  "lang": "en",
+  "text": "Nobody in this city has ever met a forty-year-old, and the ceremony that ensures it is a civic occasion, held on the birthday itself, with a crowd. Everything else is provided: under the dome, pleasure is available more or less on request. The Academy Award the film took for production design is the fact worth carrying into it, because the argument here is architectural. A sealed world has to look like somewhere a person would choose, or the bargain makes no sense and the story has nowhere to go. Anderson gives the audience time in that world before the arithmetic of thirty starts to press, which is the only honest way to film a paradise with a term limit. The other option is escape, and escape means leaving the place that answered every question anyone inside it was raised to ask.",
+  "model": "claude-opus-5",
+  "source_sha256": "73209db9482bdbadd4c55d221d58bbd32c908919b00ad8c5e51ebceef495461e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "rollerball-1975",
+  "field": "lead",
+  "film_id": "3990f234-d4df-4e49-9c4e-2474bd8e113b",
+  "lang": "en",
+  "text": "A league owned by corporations wants one of its most powerful players gone from the game, and he declines. That refusal is the plot. Jewison's future has no dictator and no underground — it has executives, and it has a sport brutal enough to hold a population's attention for as long as the season lasts. Pressure on the athlete is therefore administrative rather than criminal, which is the coldest idea in the picture: a man can be removed by a decision taken in a meeting he does not attend. At 125 minutes there is time to show the sport at length instead of summarizing it, and the length matters, because the crowd in the stands is half of what is being described. Whatever the film has to say about power it says twice — once in an office, once in the noise.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc201b750262307eed0ed7ef94a6755fe96b1000171fa2715da45aa186e97018"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "alien-nation-1988",
+  "field": "lead",
+  "film_id": "7ca58249-497e-4bcf-9c10-2630f416e077",
+  "lang": "en",
+  "text": "First contact happened years ago, and the film begins with what came after: apartments, jobs, a city absorbing people it never invited. The quarantine has ended, the Newcomers are being placed, and the business at hand is municipal rather than military. That is an odd place for a science-fiction picture to start, and odder still to run the idea through a crime plot — which is what makes the ninety-one minutes worth the time, since the aliens are not a threat to be repelled but neighbors, coworkers, suspects and victims, people whose account of an evening may or may not be believed. Integration gets argued in small things here: hiring, housing, whose word carries weight. The film is never solemn about it, and that refusal to preach is why the premise stays alive.",
+  "model": "claude-opus-5",
+  "source_sha256": "9ef63370ddee20f27d841d1a4875e083a24f7fb1f2f58cfeac87457eea563931"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "shadows-1959",
+  "field": "lead",
+  "film_id": "2308d516-a1b5-429d-8cdc-bb3e4808fd78",
+  "lang": "en",
+  "text": "The color line in this film runs through one family, between a brother and a sister. Lelia is light enough that a white man courting her makes an assumption without noticing he has made it; Hugh, who sings for a living, is not, and the two facts sit inside the same family without ever having needed to be discussed. Cassavetes builds around that arrangement rather than driving through it. Eighty-seven minutes of encounters — people meeting, talking slightly past one another, working things out while somebody else is in the room — and the interest lands on what gets declined rather than said. A city in 1959, large enough that a person is read one way on one street and differently six streets over. What the film returns to is the household: who is home, who is out working, and what has shifted by the time they are together again.",
+  "model": "claude-opus-5",
+  "source_sha256": "3a2c21d81c97b14bf0e99b99220671a3f024ad89570251381f8dbe5387f0e325"
+ }
+]

@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-cameron#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《어비스》의 긴장은 고된 심폐소생술 장면에서 터졌다. 주연 메리 엘리자베스 마스트란토니오가 몸이 무너져 촬영장을 뛰쳐나가며 카메라를 멈추지 않는 카메론에게 소리쳤다. \"우리는 동물이 아니야!\"",
+  "model": "claude-opus-5",
+  "source_sha256": "4ab34df34c042ec3d17e5b166342e7ccc7c7ea786d863230847c63d362334cff"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-cameron#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1990년대에 카메론은 스파이더맨 영화를 위한 방대한 \"스크립트먼트\"를 썼다. 거미줄은 몸에서 직접 나오고, 피터 파커와 메리 제인 왓슨은 브루클린 다리 위에서 욕설 섞인 정사를 벌인다. 훗날 샘 레이미가 그 요소 일부를 가져다 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e14508eaa013f5e2a5dd2e85767a18ce9893c26b462839ad30ac3ba387bf562f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-cameron#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "20세기 폭스 경영진 앞에서 그는 《타이타닉》을 그저 \"그 배 위의 로미오와 줄리엣\"이라고 소개했다. 바하칼리포르니아에 1억 5천만 달러를 들여 그 침몰선을 고증대로 재현하겠다는 속셈은 일부러 감췄다.",
+  "model": "claude-opus-5",
+  "source_sha256": "05e74ef5ebefb080bc7f405a55477ebeaa2a6d2bbb110121dfb8616f12f6e328"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-cameron#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "카메론은 그림 솜씨가 상당하다. 《타이타닉》에서 '대양의 심장' 목걸이만 걸친 케이트 윈슬렛의 그 유명한 목탄 스케치를 직접 그렸다. 화면 속에서 스케치하는 손도 감독 본인의 손이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8a5f385dfa6bc921a09b3209427846139207243b107c028432cc28b70b156d7f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-cameron#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "노바스코샤 핼리팩스에서 《타이타닉》을 찍던 중, 앙심을 품은 스태프 한 명이 자정 간식으로 나온 클램차우더에 PCP를 탔다. 쉰 명 넘게 다트머스 종합병원으로 실려 갔고, 약에 취한 걸 알아챈 카메론도 억지로 토한 뒤 그중에 섞여 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9bdb7897dbb004acf65ccb710899a0432d46e704688087f158c4ef2bd2fa101d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-cameron#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1990년대 후반이면 그가 한 치도 봐주지 않는 혹독한 감독이라는 소문은 이미 전설이었다. 《타이타닉》 스태프들은 티셔츠를 맞춰 입었다. 문구는 이랬다. \"난 안 무서워 — 제임스 카메론 밑에서 일하거든.\"",
+  "model": "claude-opus-5",
+  "source_sha256": "b7a633e53d22ed290b0f88322daf69233a49ac0299e4f4e4ac046b2a13377d2a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-cameron#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "결혼은 다섯 번. 상대의 면면이 유별나다. 제작자(게일 앤 허드), 오스카를 받은 동료 감독(캐스린 비글로), 《터미네이터》의 주연 배우(린다 해밀턴), 그리고 《타이타닉》의 배우(수지 에이미스).",
+  "model": "claude-opus-5",
+  "source_sha256": "4dee46f1dadade516c3c61bc3ae8ab103213d47e6a9f9b090a5f95c2385960ed"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-cameron#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《아바타》의 80쪽짜리 트리트먼트는 1994년에 이미 나와 있었다. 그러나 제작에 들어가기까지 십 년 넘게 기다려야 했다. 당시 CGI 기술로는 그가 머릿속에 그린 실사 같은 푸른 외계인을 만들어낼 수 없었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cdfdb87b4c43b6be33eac1cf9950c2455e7c0387bed8e0c42c723d1e148dfefb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-cameron#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《아바타》를 위해 그는 USC 언어학 교수 폴 프로머를 고용해 나비어를 맨바닥에서 만들게 했다. 어휘 2,000단어가 넘는, 실제로 작동하는 언어가 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f58ece56a04beb5677657ba55457df0719c396dd4bf3888da26859114c0a7ecd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-cameron#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "NASA 자문위원회에서 3년간 일하며 유인 화성 탐사를 밀어붙였다. 큐리오시티 로버에 실을 3D 카메라 시스템도 직접 설계했다. 예산 삭감이 그 계획을 접게 만들었을 뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d07f0d7637d5f2d61a0af629409013bf73dfe5f447c94095af8d37d39e30ab9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-cameron#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2012년, 카메론은 호주에서 비밀리에 공동 설계한 잠수정 딥시 챌린저를 몰고 마리아나 해구 바닥까지 내려갔다. 지구 해저의 가장 깊은 지점에 홀로 도달한 최초의 인간이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "81a5503b19843aa3db775ecb420c56061a748d7ab5e44062954b68031bef1f4b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-cameron#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "형제인 마이크 카메론과 자주 함께 일한다. 항공우주 엔지니어인 그는 다큐멘터리 《Ghosts of the Abyss》에서 타이타닉 잔해 내부를 촬영한 원격 조종 탐사정(ROV)을 설계했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d72949859e4086f10fca14db6d8eb8dfc4263c7b0a84d9c60ee699ab8c6acf9f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-cameron#23",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2012년 다큐멘터리 《Forks Over Knives》를 본 뒤, 카메론과 아내 수지 에이미스는 곧장 철저한 비건 식단으로 돌아섰다. 이어 캘리포니아에 MUSE School을 세웠다. 미국 최초의 전면 비건·제로웨이스트 교육시설이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "76315264c62cdb34491eec25bf716ca887294ee96f2c99faa0c57ceca635d7d2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-cameron#24",
+  "field": "fact",
+  "lang": "ko",
+  "text": "지속가능한 농업의 터전을 찾아 뉴질랜드 와이라라파 지역의 땅 5,000에이커 넘게를 사들였다. 지금 그는 거기 살면서 유기농 대마와 호두, 채소를 기른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d4427b51f360ced4d461b95b127a788fe3a739d0fbc8e895b0a04addbaf9649e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gray#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "조부 보리스 그레이저스테인은 백군의 포그롬에 부모를 잃고 우크라이나 오스트로폴을 떠났다. 1923년 뉴욕에 닿았고, 성을 줄여 그레이로 바꿨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "83c08462948bcc6b2a512c16e81a67eb89136e6987ce1ff15c2d6abb80bdb9b2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gray#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "퀸스 플러싱에서 자란 그레이는 사립 큐포레스트 스쿨을 다녔다. 학교 이사였던 부동산 개발업자 프레드 트럼프를 그는 진심으로 무서워했다. 자전적 영화 《아마겟돈 타임》이 되살려낸 것이 바로 그 관계다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7498137592d6fbb89ca8ee4629d3b3cf59e899050411fca147c4bc326300f61e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gray#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "본래 화가를 꿈꿨다. 열 살에 프랜시스 포드 코폴라의 《지옥의 묵시록》을 보고 나서, 집착의 대상이 영화로 옮겨 갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b4da390fde4ddac59d51033b04fbc1e0025ef6cf3637edd3d8090dab154f7684"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gray#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "USC 영화예술대학에 다니던 시절 어머니가 뇌종양으로 세상을 떠났다. 그를 만든 상실이었다. 1994년 데뷔작 《리틀 오데사》의 중심에 죽어가는 어머니가 놓인 이유다.",
+  "model": "claude-opus-5",
+  "source_sha256": "00f1098e3ae2c018ff227982c804e84add26fd360c95acc6717f0e79d3680d42"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gray#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스물다섯의 나이에 그레이는 《리틀 오데사》로 1994년 베니스영화제 은사자상을 받았다. 그 상을 거머쥔 역대 최연소 감독 중 하나다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c9915b14992717552bb01b23399f1423af3e6f6e86b87cc3a2cc17b4f6aff13c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gray#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "두 번째 영화 《야드》는 크게 잘려 나갔고, 타협의 산물인 해피엔딩까지 붙었다. 미라맥스 공동회장 하비 와인스타인과의 지독한 싸움 끝이었다. 그 상처로 그레이는 7년간 연출에서 손을 뗐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5999225f6c6316d5e321ade26efa6f758f1a95fd9b684b144cc38341f4519aa7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gray#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "배우 호아킨 피닉스와 그는 자신을 규정하는 파트너십을 맺었다. 네 편의 장편에서 함께했고, 괴짜로 소문난 이 배우를 그레이는 곧잘 자신의 영화적 분신이라 부른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f14e76f0d1e618f196cb7a1b2677a4a4caa33a5c6d099206efb82e956fea38c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gray#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "파리의 어느 저녁 식사 자리에서 마리옹 코티야르와 그의 연인 기욤 카네를 만난 뒤, 그레이는 《이민자》를 오로지 그를 위해 썼다. 결국 이 프랑스 배우는 유창한 폴란드어 대사 스무 쪽을 외워야 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a67ba6af76b5864b58cc294c54727f289e8b108c19b88b5f4a54c1333fba7291"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gray#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《이민자》가 담아낸 1920년대 뉴욕, 세피아빛에 가스등이 밝히는 그 화면을 위해 그레이와 촬영감독 다리우스 콘지는 애시캔 화파(Ashcan School)의 그림을 파고들었다. 조지 벨로스와 에버렛 신이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "41735f9f72d85a579da70cbbc470c91e73a2b8d35ae57c56c1cf39a5542bf9f5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gray#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "디지털 카메라만은 고집스럽게 거부했다. 《잃어버린 도시 Z》를 찍자고 그는 무거운 35mm 장비��� 콜롬비아 밀림 깊숙이 끌고 들어갔다. 살인적인 습기와 매일의 홍수가 필름 원본을 삼킬 듯 위협했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0f8cd383d5cfd8e0a5918523d81b18ff33b2d581cb6509973c9fb6db987d1d22"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gray#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《잃어버린 도시 Z》의 영국 탐험가 퍼시 포셋 역에는 원래 브래드 피트가 캐스팅돼 있었다. 나이가 배역에 맞지 않게 되자 피트는 자기 회사 플랜 B를 통해 제작자로 남았고, 훗날 그레이의 《애드 아스트라》에서 주연을 맡는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e4e945b22f814258b7ca4ffb725dab0e76aef630b227957e31557e9da25fc91c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gray#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생 클래식 음악에 빠져 산 그는 2019년 무대 연출로도 데뷔했다. 파리 샹젤리제 극장에서 올린 모차르트의 《피가로의 결혼》이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6cd1bd780d7ba8ab1d812d8de05da577b6b971a1dde9a4d8ca8a9bb6f7b77425"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gray#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "SF 대작 《애드 아스트라》의 극장 개봉판을 두고 그는 깊은 후회를 숨기지 않는다. 제작사 뉴 리전시가 원래 구상과 어긋나게 설명적인 내레이션과 한결 희망적인 결말을 붙이라고 강요했다는 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c353f878c6e7718b6cbac117f03583d00bbf668b65fbfad4aadc4d65d57854a5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gray#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2022년 자전적 영화 《아마겟돈 타임》의 제목은 클래시가 레게곡을 리메이크한 'Armagideon Time'에서 곧장 왔다. 1980년대 초 뉴욕에서 보낸 젊은 날, 늘 곁에 있던 노래다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1964a51fae6e854bd9e185870df9ab277d9e2c77dcd4de40d5a7ca132e30f22"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gray#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화적으로는 뉴욕과 그 외곽 자치구에 그토록 집착하면서, 정작 그레이는 로스앤젤레스에 산다. 다큐멘터리 감독인 아내 알렉산드라 딕슨, 세 아이와 함께.",
+  "model": "claude-opus-5",
+  "source_sha256": "3b7336796e8a0d9aba6d320e47a24591ed0b10ad530426414e704db8507a718f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gunn#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "건의 연예계 이력은 1989년 세인트루이스의 얼터너티브 록 밴드 The Icons의 리드 보컬로 시작됐다. 이 밴드의 'Sunday'는 훗날 그의 첫 영화 *트로미오와 줄리엣*에 실린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c831f5e1023a6864f3d931ab8739e312dfa19158277306147717afa1f2d5ed45"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gunn#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "컬럼비아대에서 산문 창작 MFA 과정을 밟던 중, 건은 전설적인 B급 영화사 트로마 엔터테인먼트에 서류 정리 아르바이트로 지원했다. 공동 창립자 로이드 카우프먼은 대신 150달러를 쥐여주며 *트로미오와 줄리엣* 각본을 쓰게 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6dc3699b48d785b78ea5eea10583f63da3dba73d060f8c87d445b593583f58db"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gunn#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "카우프먼과 함께 1998년 회고록 *All I Need to Know About Filmmaking I Learned from the Toxic Avenger*를 썼다. 언더그라운드 영화판에 발을 들이던 그 아수라장의 기록이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c111d6cafe1253789d85ce511d29663b714e13c4311326f62607e7f61576de2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gunn#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "주류 할리우드에서 성공하기 전, 2000년에 소설 *The Toy Collector*를 냈다. 빈티지 액션 피겨 수집벽을 채우려 처방약을 훔쳐 파는 병원 잡역부 이야기, 반쯤은 자기 이야기다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d2a2f49634b0dedc01670fffca03e8e09431817718bfcf0fdcab485b2763da8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gunn#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2002년 실사판 *스쿠비 두*를 그는 원작 만화의 클리셰를 조롱하는 어둡고 시니컬한 PG-13 풍자극으로 썼다. 워너 브라더스는 그걸 밀어붙여 가족용 PG 영화로 재편집했다. CGI로 배우 사라 미셸 겔러의 가슴골까지 지웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b7ebdf1de39d000058e6ebfbb7af14c36b80efa8b7ef5dd5f9fdd482821cdcf2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gunn#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2004년 3월, 건은 자신이 쓴 두 편으로 2주 연속 주말 박스오피스 1위를 차지한 할리우드 최초의 각본가가 됐다. 잭 스나이더가 연출한 *새벽의 저주* 리메이크와 *스쿠비 두 2: 몬스터 대소동*이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "adde6b6daa8e14f53a84c4f5d5da2d3c25862aa28156c61dce8de6ff87e30cdd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gunn#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2006년 연출 데뷔작인 신체 공포 코미디 *슬리더*는 흥행에서 참담하게 무너졌다. 건은 깊은 우울에 빠졌고, 다시 장편을 연출할 기회가 오리라고 진심으로 믿지 못했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a39e3c8928ea7f64639ed0b1f5716428178b4ee2bf4719ce942b518ee4bae459"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gunn#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "배우 마이클 루커에 대한 그의 의리는 거의 미신에 가깝다. *슬리더*에서 만난 뒤로 초폭력 영화 *슈퍼*부터 *더 수어사이드 스쿼드*까지, 자신이 연출한 거의 모든 작품에 그를 넣었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6dff7bfceb2e991b1bf45d76fcfa89a73b7d2268c0a9c276ec6e03fcc925576d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gunn#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2008년 건은 형제들과 함께 Spike.com용 코미디 웹 단편 시리즈 *James Gunn's PG Porn*을 만들었다. 성인영화의 설정을 그대로 흉내 내다가, 정작 접촉이 시작되려는 순간 시시한 일상 장면으로 뚝 끊어버리는 식이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bd74e993cf794be3d458ae8df38f11230cbecea9593d747f5fee02d2d82b9b59"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gunn#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "괴짜 일본 게임 디자이너 스다 고이치(스다51)와 손잡고 2012년 컬트 핵앤슬래시 게임 *롤리팝 체인소*의 각본을 썼다. 산 로메로 고등학교에서 좀비와 싸우는 치어리더의 이야기다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d9846c3d3b43c5ca625ba6afcc51aff50363f25290f7df4ba1d4c9aadf3b9a1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gunn#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2018년 7월, 디즈니는 건을 *가디언즈 오브 갤럭시 Vol. 3*에서 전격 해고했다. 우파 선동가 마이크 서노비치가 10년 묵은 그의 트윗들을 파냈기 때문이다. 소아성애와 강간을 소재로 한 저속하고 도발적인 농담이 거기 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f8c5e5f8efb184c0b5cf6ff5f45afe18a12fb55c17d5273499910afc64f2a7f6"
+ }
+]

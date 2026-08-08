@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "fraulein-2006",
+  "field": "lead",
+  "film_id": "84ccbee1-d4c6-41e8-9d9c-8d2508abdd81",
+  "lang": "en",
+  "text": "Thirty years after leaving Serbia, Ruža has built a life in Zurich so precisely arranged that nothing new can get into it. Then Ana arrives. Andrea Štaka allows eighty-one minutes, barely room to establish a routine let alone dismantle one, and the compression does real work: there is no slack in the schedule for a second person. A jury handed it a Golden Leopard, which is worth knowing about a film with so little event in it. What holds the attention is two stubborn wills recognizing each other across an age gap, and the particular Swiss quiet in which that recognition has to happen, orderly and indifferent to where either woman came from. The friendship is subtle in the sense that neither party will admit to needing it. Admitting it is what the film costs them.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d5521c6c78d2d97a14d9fb54699b6d9502a385a7dadfde20ee05d3d7b11520d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "private-2004",
+  "field": "lead",
+  "film_id": "ef2a801e-ce93-40c6-9fd7-811dac4f3ce7",
+  "lang": "en",
+  "text": "The house stands between a Palestinian village and an Israeli settlement, which makes it less a home than a position. The army takes it, and the family stays. Mohammed, his wife and their five children go on living downstairs while soldiers hold the floor above, and everything else follows from that division: a staircase becomes a border, a curfew becomes a clock, and cooking, homework and sleep are all performed under observation. Saverio Costanzo made it as an Italian production shot in Arabic, and the language is a choice of vantage, since the camera stays inside with the family rather than hovering over the situation. Ninety minutes, one building, no map of the larger conflict. What is at risk is not the house, which nobody can carry off, but the father's insistence that a place under occupation is still a place to live.",
+  "model": "claude-opus-5",
+  "source_sha256": "9dd19e7c7a9eb2e6f0c1c9710c1121d5756eed5e6987820f6e12331157223ec0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-idlers-of-the-fertile-valley-1978",
+  "field": "lead",
+  "film_id": "839987ce-fdc9-4623-ada6-4fd17a7cd289",
+  "lang": "en",
+  "text": "Sleep is the family business: a father and three sons withdraw to a country villa and make doing nothing a full-time position. The estate runs regardless. A young maid cooks, carries and cleans while the men lie down, and Nikos Panayotopoulos takes nearly two hours to let the arrangement settle, because idleness is not a joke that can be told quickly. It is a condition that has to be sat through. The house is the entire world of the film; the family has organized its life so as never to require anything outside it. What keeps this from being a fable about laziness is the maid, the only person on screen who wants something, and the fact that her wanting is filmed as labor rather than as virtue. It is blunt about whose hours belong to whom, and blunter for lying so still.",
+  "model": "claude-opus-5",
+  "source_sha256": "23a6ebeb9e79cea63f2d43a0fce809055853d712a38335266f8cab44f09679f0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "when-willie-comes-marching-home-1950",
+  "field": "lead",
+  "film_id": "a9c7c01b-c631-4ea1-a1db-c822689be8c9",
+  "lang": "en",
+  "text": "A man volunteers for the war and is posted to a training camp in the town where he grew up, close enough to walk home for supper. John Ford directs the joke, and there is a nerve running through it: the distance between the uniform a town admires and the service a man is actually permitted to give. Eighty-two minutes, mostly comedy, played out among neighbors who cheered Willie's departure and now watch him come back down the same street every evening. The story took an Academy Award, an odd honor for a picture built on a soldier's embarrassment rather than his courage. For long stretches it is a comedy about waiting. What Ford works out along the way is how much of heroism is an accident of geography, and how a small town can be fond of a man and merciless about him in the same breath.",
+  "model": "claude-opus-5",
+  "source_sha256": "928de996df3f6def1aeecd33cb9ee7c2724b27798f2a9634e04fd661c9f7ca32"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ten-north-frederick-1958",
+  "field": "lead",
+  "film_id": "ee2f91d9-0b2c-4810-9e09-2960af630a85",
+  "lang": "en",
+  "text": "The funeral ends, the guests go home, and the daughter is left holding five years she has not finished thinking about. Ann Chapin's father spent them failing in public and in private: a political career that went nowhere he intended, a marriage that took more than it returned, drink to make the arithmetic bearable. The film is built as her recollection, so the order of events belongs to her, and that arrangement does most of the work, because a life reviewed by someone who loved it is not the same shape as a life lived. Philip Dunne works in the register American drama had available in 1958, where respectability is the pressure and the real subject is never named directly. A hundred and two minutes in rooms whose furniture outlasted the ambition. What Ann is sorting through is the gap between a summary and a man.",
+  "model": "claude-opus-5",
+  "source_sha256": "6ecac55f91907f7f7a159248fa174177fc85dc6676a3979faeafcc253f6782e7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-vicious-circle-1981",
+  "field": "lead",
+  "film_id": "05a0db5e-a86d-4e43-9b44-b64c38fa65c6",
+  "lang": "en",
+  "text": "Howard Latimer meets a German actress at London Airport, and hours later she is dead in his flat with no one but him to account for her. It is the worst available position for a man whose profession runs on being believed. From there the film does what an eighty-four-minute British thriller is built to do, which is keep a respectable man moving through rooms where he has no standing, one step behind a blackmail scheme and a passport operation he does not yet understand. Gerald Thomas seems less interested in who did it than in how fast a doctor's credibility turns into a liability. Rooms, corridors, conversation, a clock. The pleasure is procedural: a competent man discovering that competence is not a defense, and that every sensible thing he does makes him look worse.",
+  "model": "claude-opus-5",
+  "source_sha256": "0a3f219a9f5dc49709be482cfccc90db455d3389624d2c032d272e5891322442"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "godless-2016",
+  "field": "lead",
+  "film_id": "ca18a83b-e3cf-4b83-a6f7-e2c9af5ffbc3",
+  "lang": "en",
+  "text": "The identity cards she sells belong to patients who can no longer remember owning them. She is a nurse, and the theft and the care are performed by the same hands, in the same rooms, at the same practiced speed. Morphine keeps the distance manageable and the cash keeps it worthwhile, and Ralitza Petrova declines to arrange either into a lesson. What the film tracks is not conscience but fear, the specific dread of someone who has begun to expect punishment before she has agreed that she deserves it. Ninety-nine minutes, and the coldness is structural rather than atmospheric, since the camera grants no relief the character has not earned. It carries a Golden Leopard and a European Film Award for European Discovery of the Year, which is a great deal of attention for a film this unwilling to console.",
+  "model": "claude-opus-5",
+  "source_sha256": "28634b0631ff0db76003f843dc0f29b54a8a3afa85cd6fbe62d4939e1ecd4066"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "charles-dead-or-alive-1969",
+  "field": "lead",
+  "film_id": "3aeafbc3-4df6-40eb-9e0c-60ba5ed10080",
+  "lang": "en",
+  "text": "A Geneva watch company turns a hundred, and the founder's grandson uses the anniversary interview to talk himself out of his own life. Charles Dé is fifty. He can define his grandfather in a word, craftsman, and his son in another, businessman, and about himself he has nothing usable to say. So he goes: no crisis, no announcement, just a man who stops appearing and moves in with a young couple he meets by chance, cooking for them, reading, drinking, arguing late into the night. Alain Tanner filmed this in Switzerland in 1969, where the centenary of a watch firm is the sort of thing a family treats as a moral achievement, and the family handles his absence as an operational problem. Ninety-three minutes. The best of it is a man turning out to be good company the moment nobody expects anything of him.",
+  "model": "claude-opus-5",
+  "source_sha256": "a20e39e4e475cbb86210cecb0dbaff1de50e6cb1edd5ac4848f4dbe782cded72"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "back-to-stay-2011",
+  "field": "lead",
+  "film_id": "f9f5863b-a324-46f0-bedb-824945bb48e9",
+  "lang": "en",
+  "text": "Three sisters go on living in their grandmother's house after the grandmother is gone, and the house declines to adjust. Marina, Sofía and Violeta were raised in those rooms, and each grieves in a private dialect the other two can hear but not translate. Milagros Mumenthaler keeps nearly everything indoors: objects nobody has the standing to move, chores that used to be assigned and now must be negotiated, an afternoon light that makes the place larger than three people can fill. Ninety-nine minutes with no incident big enough to call a plot, which is the right decision, since mourning does not arrive in scenes. It holds a Golden Leopard. What is at stake is small and total, whether a household that ran on one woman's authority can survive as an agreement among three.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f0a49428c9f66265191491f278316ca97e476d4e73b68ca9c3866c34f8a02c0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "they-have-changed-their-face-1971",
+  "field": "lead",
+  "film_id": "186c50af-9bf9-4091-a8ec-34ce71a7b297",
+  "lang": "en",
+  "text": "The industrialist at the top of the mountain road is named Giovanni Nosferatu, and the film keeps a straight face about that for as long as it can. A mid-level employee of an automotive company makes the drive up expecting a meeting. What he finds is a house where the vocabulary of management and the vocabulary of predation have merged so completely that the horror needs no fangs, since consumption is already the business model and the guest is already inside. Corrado Farina shot it in Italy in 1971, ninety-six minutes, and it plays better as satire wearing horror's furniture than as horror reaching for a point. The dread is administrative. It comes from the position of an employee invited somewhere pleasant who has not been told when the invitation expires.",
+  "model": "claude-opus-5",
+  "source_sha256": "f849a1d8dcad8cd3a0480b840d07ad3632a75345436d0733c118c1b33691fb68"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "she-a-chinese-2009",
+  "field": "lead",
+  "film_id": "679bb92f-1fce-44ee-b6a7-45768b809d55",
+  "lang": "en",
+  "text": "Mei gets out of her village, and the factory in Chongqing turns out to be the first of several rooms she cannot leave. London follows, then a marriage to a much older man, and the shape of the film is its argument: escape here is a sequence rather than an event, and each new place arrives with its own terms attached. Xiaolu Guo films it closer to observation than to melodrama. Mei is neither a victim to be pitied nor a heroine to be admired, only a young woman making decisions with the information available to her, which is never enough information. A hundred and three minutes across two continents, flat in tone by design, because nothing in her situation improves if the camera starts feeling sorry for her. What stands to be lost is her belief that moving and choosing are the same act.",
+  "model": "claude-opus-5",
+  "source_sha256": "8cb988b1e39d613816bfcb16a38f5e3bf58bcfefdf4696c970efd36a47342509"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "silence-is-golden-1947",
+  "field": "lead",
+  "film_id": "fa54a598-7075-4493-a106-5245d986011c",
+  "lang": "en",
+  "text": "Emile produces films in the first years of the century, when the machinery was heavy and the stories were not. A friend leaves his daughter Lucette in Emile's house for the length of a tour, and Emile falls for her, which is a workable problem until Jacques, younger and back from military service, turns up complaining about his failures with women. Emile, generous and vain in the same gesture, coaches him. René Clair directs, in French, a hundred minutes, and the comedy runs on a mechanism as tidy as it is unkind: a man who knows exactly how courtship is engineered, handing over the blueprint without once considering the site. The early studio is the right setting for this. Romance is manufactured there on a schedule, by people who have stopped noticing it happening to them.",
+  "model": "claude-opus-5",
+  "source_sha256": "68ec3fa33c67e5f03bee2fb911ea6d5259b4c693c1015a7678b6ba91655c61e9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "rule-34-2022",
+  "field": "lead",
+  "film_id": "33689741-6f3f-481b-bc52-c69558f096ad",
+  "lang": "en",
+  "text": "Simone studies criminal law and argues for women's rights by day; at night she performs sex for a camera and an audience that pays. The film does not treat this as a contradiction waiting to be exposed. Julia Murat is after something harder, which is what happens when a woman who has thought rigorously about consent, violence and the law finds her own desire moving somewhere her arguments do not reach. A video pulls her toward BDSM, and the escalation that follows is intellectual as much as physical. A hundred and one minutes, Brazilian, unhurried, willing to stay inside discomfort rather than resolve it. Its viewer rating sits low, which is legible for a film that withholds the verdict an audience arrives expecting. A Golden Leopard jury read the same withholding as a decision.",
+  "model": "claude-opus-5",
+  "source_sha256": "47b4c389119c6d07aa2a6389607cde00fc3e5be18e6c386f3c49d9c8bb15a867"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "critical-zone-2023",
+  "field": "lead",
+  "film_id": "fef3efc5-bf29-4db2-b4dd-04cffdf54105",
+  "lang": "en",
+  "text": "The car moves through Tehran after dark and the route belongs to a GPS voice that sounds certain of everything. Amir drives. His only company is a dog, his cargo is drugs of every description, and his clients are people who need something at three in the morning and have nowhere else to ask. Ali Ahmadzadeh made it as a German production in Persian, ninety-nine minutes, most of them shot behind a windshield, and the driving supplies the form: episodic, nocturnal, each stop a brief negotiation with somebody's private disaster. He is redeeming no one. The film makes no such claim for him and is careful not to soften him. What accumulates, delivery by delivery, is evidence that care is still being practiced at street level in a city that offers the people receiving it no future.",
+  "model": "claude-opus-5",
+  "source_sha256": "89478b869d40ac8d6a30749f3b70a40d1089059e95446941cc4427504df325ab"
+ }
+]

@@ -1,0 +1,82 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "in-the-shadow-of-women-2015",
+  "field": "lead",
+  "film_id": "2db9f043-6cea-4a8c-a043-aeecd3e240fc",
+  "lang": "en",
+  "text": "Pierre and Manon make documentaries with no money and cover the rent by taking whatever work is going, which amounts to two jobs each. Into that narrow margin Pierre fits a second attachment: Elisabeth, an intern, becomes his mistress, and he decides, without much apparent strain, to keep both women. Seventy-three minutes leaves Garrel no room for a moral argument, and he does not appear to want one. What the film attends to is upkeep — hours to account for, a phrase reused, the flat tone a man adopts when he has resolved not to be questioned — and the way Elisabeth's position stays subordinate twice over, at work and in the affair. Manon has her own hours, and the film grants her them. Small, dry, and unillusioned about how long such an arrangement can run on inattention alone.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7f5a651b1031511da9caf7e0678f97bcaf49eb4180761af5ed02405ad2dbef3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "score-a-film-music-documentary-2017",
+  "field": "lead",
+  "film_id": "2f5640ac-026a-4f2e-b661-007f36667a9c",
+  "lang": "en",
+  "text": "The music is the part of a film that everyone remembers and nobody watches being made. Matt Schrader puts composers on camera and lets them talk shop: Hans Zimmer, Danny Elfman, Quincy Jones and Randy Newman among them, describing how a cue gets found and what a scene demands long before anyone knows how to answer it. Ninety-four minutes shared among that many working lives leaves little space for any single career, so the documentary proceeds by accumulation, a habit here and a deadline there, threaded through an account of how scoring changed as the medium changed around it. Its working assumption is that the labour is more interesting than the mystique, and it stays with process rather than reaching for the word genius.",
+  "model": "claude-opus-5",
+  "source_sha256": "e56d95447086ac62116b8477662186bc981a90094983ef3450c05830496cd507"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "madonna-2015",
+  "field": "lead",
+  "film_id": "30ce441e-0f2d-4d5b-9e24-3a77d366adf8",
+  "lang": "en",
+  "text": "An ambulance brings in a woman with no name and no family, unresponsive and pregnant. Somewhere above her in the same hospital, a patient with money and standing needs a heart, and hers is available in the way that only an unclaimed body is available. Shin Su-won gives the story to a caregiver: the person who washes, turns and lifts, and who has no authority whatsoever over what happens next. Two hours is generous for this premise, and the film uses the room to stay at floor level, among the shifts and the corridors, rather than racing the transplant. The obstacles are procedural and completely solid — no documents, no next of kin, nobody obliged to listen to a woman paid by the hour. Caregiving here means noticing, which turns out to be the least welcome thing an employee can do.",
+  "model": "claude-opus-5",
+  "source_sha256": "446a74814449fc1af1ec472b5dd9291c2b9215c2fb360a73fc8965fd0aea80cb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "malena-2000",
+  "field": "lead",
+  "film_id": "31c0eab5-a8a6-4233-87cd-884d78729652",
+  "lang": "en",
+  "text": "Renato is given a bicycle on the day the war begins, and on the same day he first watches Malèna cross the square. He is twelve. He takes up a position outside her life and keeps it. Tornatore holds to that low, adoring vantage, which becomes the trouble rather than the charm, because the boy's watching is only the private form of the town's, and the town has already settled what a beautiful woman with a husband presumed dead must be up to. Her share of the film is errands, rent, the walk to the shops and the terms the shopkeepers set. The cinematography was honoured, and that sits oddly right: looking is the instrument here, and every adult in the town is holding one. Remembered as a warm coming-of-age reverie, it runs considerably colder than that.",
+  "model": "claude-opus-5",
+  "source_sha256": "eed31cb94668673c4211b7a85ee5cf58e050d374262a1e1694d09d6bb31bc6eb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-day-of-kubo-the-novelist-2021",
+  "field": "lead",
+  "film_id": "32119aa0-3d9d-4abe-8ce2-47d708fe428c",
+  "lang": "en",
+  "text": "Two months have passed without a reply, so the writer decides to go in person. Kubo's manuscript is somewhere inside a publishing house where an old senior of his now runs the editorial floor, and the morning starts with the walk toward that conversation. A single day in seventy-three minutes gives Lim Hyun-mook no plot to hurry toward; there are errands instead, appointments that arrive too early or run long, and the peculiar arithmetic of asking a friend for a professional favour while pretending it is neither. The film keeps to the ordinary traffic of a working life in which the work has not been accepted yet: streets, tables, other people's schedules, the manuscript never far from mind. What the editor says matters less than the hours a man spends carrying the question around the city.",
+  "model": "claude-opus-5",
+  "source_sha256": "22527d72699a4dff26b185d62c10d766f66b6900c28f328d918c2bde1135bf42"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "official-competition-2021",
+  "field": "lead",
+  "film_id": "32aa86cb-f32f-4de0-b964-1cf7565a1c23",
+  "lang": "en",
+  "text": "A billionaire wants a film worth remembering the way another man might want a bridge with his name on it, and he can afford either. Lola Cuevas takes the commission and assembles its worst possible chemistry: Félix Rivero, a screen star, and Iván Torres, a stage actor whose principles consist largely of contempt for screen stars. Hardly any of what follows happens on a set. Duprat keeps the comedy in rehearsal, where Lola sets trials designed to strip two men of their poses and then watches from a chair, and where the vanities are too big for the room. It plays dry and wide and at full length, rescuing nobody. Funny in the manner of a badly arranged dinner: no one may leave, everyone performs graciousness, and each guest will later give a different account of the evening.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ff3d9163743f8205ec41b3ff0d6d8c6710640ed3a3ac5794590211f081a153a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "five-times-two-2004",
+  "field": "lead",
+  "film_id": "333d7c67-66a9-4d0d-a90c-b86bf38c9941",
+  "lang": "en",
+  "text": "The signatures come first; everything in the film after that happened earlier. Ozon takes five scenes from one marriage and runs them backwards, which means the audience is always better informed than Gilles and Marion and can do nothing at all with the advantage. Ninety minutes, five blocks, and gaps between them wide enough to hold years. The couple are ordinary in a very particular register — a dinner table, a hospital corridor, the courtesies people keep up in front of guests — and the reversal turns those courtesies into evidence, since politeness in the first hour is the residue of something the film has not shown yet. Marion's performance carried a European Film Award. The design withholds explanation on principle, offering not causes but the order in which they stopped being visible.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7d0cc2e5ffc69b474b0228af7f1253fab82774e14cc9b76d3ab636a4b45a654"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "vivarium-2019",
+  "field": "lead",
+  "film_id": "345539e6-0dc7-46ac-9e4c-447f543b7c5d",
+  "lang": "en",
+  "text": "Identical houses, and a road that keeps bringing the car back to the same front step. A couple viewing a starter home follow their agent into a new development and then find no way out of it; before long they are raising a child that is neither theirs nor quite human. Finnegan makes his science fiction out of the vocabulary of a property brochure — the show home, the estate, the day distinguishable from yesterday only by count — and with one location and two adults he has to escalate through repetition, which means accepting a measure of the tedium he is depicting. Sitges gave its acting prize to the woman of the pair, and that is where the weight of the film sits: the feeding, the watching and the answering fall to her. Known mostly for its premise, less often for what it does with a kitchen.",
+  "model": "claude-opus-5",
+  "source_sha256": "4da48f200eee8d2c14c79ef9676a13b8a822e1285b574e4fdf97042c92b885a6"
+ }
+]

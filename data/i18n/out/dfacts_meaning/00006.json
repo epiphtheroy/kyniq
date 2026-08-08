@@ -1,0 +1,272 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sidney-lumet",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "시드니(Sidney)는 고대 영어 'sīdan īege'에서 왔다. '넓은 섬'이라는 뜻이다. 생드니(Saint Denis)가 줄어든 형태라는 설도 있다. 성 루멧은 아슈케나지 유대인 사이에서도 드문 이름으로, 폴란드어나 이디시어에서 왔으리라 짐작될 뿐 출처가 분명하지 않다. 부칭이나 지역 성씨를 미국식 철자로 옮긴 결과일 가능성이 크다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a1ca16cc1445c3da91e46641beb138ffb3138870b006c9a2298ee14aa075876"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sion-sono",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "성 소노(園)는 글자 그대로 '정원' 또는 '공원'이다. 이름 시온(子温, 때로 Shion으로 표기)은 '아이'를 뜻하는 子와 '따뜻하다'를 뜻하는 温이 붙은 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d45fa6f43f6382ad9aa2a06d795935373585ae2e23d02ae998961a36d7cbe4d1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sofia-coppola",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "소피아는 그리스어 sophia(σοφία), 곧 '지혜'에서 왔다. 코폴라는 캄파니아 지방에서 나온 이탈리아 성씨다. 나폴리 방언 coppola에서 왔는데, 남부 이탈리아 남자들이 오래 써온 납작한 모자를 가리키는 말이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "adfb89aa497a83f98fdf5c9ba1ae08ab544a18f7964f05c90a587987e51447ce"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "본명은 애덤 스피걸. '애덤'은 히브리어 אדם에서 온 말로 '사람' 또는 '흙'을 뜻하고, '스피걸'은 독일어로 '거울'이다. 스파이크 존즈라는 이름은 BMX 가게 주인이 붙여줬다. 감지 않아 뻗친 머리가 1940년대 풍자 악단 지휘자 스파이크 존스를 닮았다는 이유였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a162073d30a0f120cb38f7601ce7070b2136a6b42dbe335faa8510fca2d867fb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-lee",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "본명의 셸턴은 고대 영어에서 '바위 턱 위의 울타리'를 뜻한다. 잭슨은 '잭의 아들', 리는 '빈터' 또는 '풀밭'이다. '스파이크'는 어머니 재클린이 붙인 별명이다. 갓난아기가 놀랄 만큼 억세고 좀처럼 지지 않았기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ccdcf9e89e15ab3274985ceadb112494ed21187e6ae1f2f5f8267715f8f1081"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "stanley-kubrick",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "스탠리는 고대 영어의 'stān'(돌)과 'lēah'(빈터, 풀밭)가 합쳐진 이름이다. 성 큐브릭은 슬라브계다. 폴란드어 쿠비아크나 체코어 쿠비크 같은 계열이며, 거슬러 올라가면 '밀어내는 자'라는 뜻의 야쿠프(야곱)에 닿는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "78175fd3282bbdab2bc0cb24102b3ec6af969ef1a39ccd2ca33792af204587bf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-soderbergh",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "스티븐은 그리스어 'Stephanos'(Στέφανος)에서 왔다. '왕관' 혹은 '화관'이라는 뜻이다. 소더버그는 스웨덴어 'Söderberg'를 영어식으로 옮긴 것으로, 'söder'(남쪽)와 'berg'(산, 언덕)가 붙은 지형 이름이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "328d33ea1ad2cf377591edc8174686456d9cdea7ce8c84b060d9b443477e06df"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-spielberg",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'스티븐'은 그리스어 'Stephanos'(Στέφανος)에서 왔다. '왕관' 또는 '화환'을 뜻한다. '스필버그'는 독일어와 이디시어권의 지명 성씨로, 직역하면 '놀이 산'(Spiel + Berg)이다. 오스트리아나 독일에 있는 같은 이름의 마을에서 비롯됐을 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d47436e226435701b3747c4593b63639c3ea29042f44acaa535f52adaa71084"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sylvester-stallone",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "실베스터는 라틴어 'silvestris'에서 왔다. '숲의' 또는 '야생의'라는 뜻. 성 스탤론은 이탈리아어로 '종마'다. 후기 라틴어 'stallum'(마구간)에서 나왔다. 그 유명한 '이탈리안 스탤리언'이라는 별명은 결국 자기 성을 그대로 옮긴 말이었던 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "60a0bf87d45300fa69a472e75d03a47e9b5ab4b2c85c95fb43fd745ed53b6c04"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "taika-waititi",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'타이카'는 영어 tiger를 마오리어로 옮겨 적은 말이다. 성 '와이티티'는 그의 테 파나우아아파누이 혈통에서 왔다. 'wai'(물)에 'titi'가 붙었는데, titi는 흔히 빛난다는 뜻이거나 바다제비의 일종을 가리킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c89d2bcf93a15be7d0f694f6810732a2412853a91c2bcbf45a7f5e6bfd866bbd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "takeshi-kitano",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "다케시(武)는 '무사', '군사', '사납다'를 뜻하는 한자다. 성 기타노(北野)는 그대로 '북쪽 들판'이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c11736184937dcdc8bf96906930e39274e2ad2d3e33c1f16b9c01a67d400d54b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "terrence-malick",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "테런스는 로마의 씨족명 테렌티우스에서 왔다. 어원은 알려져 있지 않고, 에트루리아계일 가능성이 거론된다. 성 맬릭은 레바논계 아시리아인이었던 친할아버지에게서 물려받았다. 아랍어 말리크(مالك 또는 ملك)는 '왕' 또는 '주인'이라는 뜻이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "784cd0c1154e602ea91b83a9894f5f0aaf51f827b6a38a6f8ce6270e244ece63"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "terry-gilliam",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "테리는 테런스의 애칭이고, 테런스는 로마 씨족명 테렌티우스에서 왔다. 에트루리아계로 짐작되나 확실하지 않다. 길리엄은 고대 프랑스어 이름 기욤(윌리엄에 해당한다)에서 나온 영국 성씨다. 게르만어 'wil'(의지, 욕망)과 'helm'(투구, 보호)이 합쳐진 말이니, 풀면 '흔들림 없는 수호자'가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "425db4f9f23aa9295d05f3490837e08b4515b51a71023c1ad5100263a06ee77b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "theo-angelopoulos",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "테오도로스(Θεόδωρος)는 그리스어 'theos'(신)와 'doron'(선물)이 붙은 이름, 곧 '신의 선물'이다. 성 앙겔로풀로스(Αγγελόπουλος)는 'angelos'(전령 또는 천사)에 펠로폰네소스식 부칭 접미사 '-poulos'(~의 후손)가 붙은 것이다. 옮기면 '전령의 아들'.",
+  "model": "claude-opus-5",
+  "source_sha256": "3b24fcea169db4acea9b391521a9ff24f84d1bb1dae2ede983999b8bff6f4c71"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "thomas-vinterberg",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "토마스는 아람어 이름 'Ta'oma'(תאומא)에서 왔고, 그 뜻은 그대로 '쌍둥이'다. 성 빈터베르는 덴마크어와 스웨덴어의 'vinter'(겨울)와 'berg'(산)를 합친 스칸디나비아식 지형명 혹은 장식명이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b5eafbc2b5c41d50f503d3cb26389b503d4c5ced281b99b829b970cbba436ab6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ti-west",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'타이'는 '티모시'의 애칭이다. 티모시는 그리스어 Τιμόθεος(티모테오스)에서 왔고, timē(명예)와 theos(신)가 붙어 '신을 기린다'는 뜻이 된다. '웨스트'는 고대 영어 west에서 나온 영국 지형 성씨로, 본래 큰 마을 서쪽에 사는 사람에게 붙였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "45933bf8fc4d5d9d36de3c5cfdbd3ca2ab367aa19fbfb41f2cd5545a9081c808"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tim-burton",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'티모시'는 그리스어 '티모테오스'에서 왔다. timē(명예)와 theos(신)가 합쳐져 '신을 기린다'는 뜻이다. '버튼'은 고대 영어 지명에서 온 성씨로, 'burh'(요새)와 'tun'(울타리 친 터, 마을)이 붙은 말이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "61e220f25a3ca2cba648a4f717d08f6638b1a51236d1038f071cf422856f48e8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-haynes",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'토드'는 중세 영어 'todde'에서 왔다. '여우'라는 뜻이고, 본래 꾀바른 사람이나 여우 사냥꾼을 부르던 별명이었다. 성 '헤인즈'는 게르만계 이름 'Hagano'에서 나온 영국식 부칭이다. '산사나무' 또는 '울타리'를 뜻했으니, 오래전에는 지켜주는 담을 가리킨 말이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "82dfee6910b81b5fd0d231fbda889a2f26e1b86de0a73dac43a9353d4d0de68c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-phillips",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "토드 필립스의 본명은 토드 분즐이었다. '필립스'는 그리스어 '필리포스'에서 왔다. philos(사랑하는)와 hippos(말)가 붙어 '말을 사랑하는 자'가 된다. '토드'는 중세 영어로 '여우'를 뜻하던 말이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "38b56c21ef1e68c7787078c5cd7d037c203e612a6d5a34825991186844a4d5d6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "蔡明亮. 성 蔡(차이)는 주나라 때의 채나라에서 비롯된 오래된 중국 씨족명이다. 이름 明亮(밍량)은 明(밝다, 맑다)과 亮(빛, 환하다)이 붙어 그대로 '밝다', '환하다'는 뜻이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0672b5a6371f269fc4baacd5e0f7559e75d09c30a9a88d10a301d154ccad06f1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "victor-erice",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "빅토르는 라틴어 'victor'에서 왔다. '정복자' 또는 '승자'라는 뜻이다. 에리세는 ���바라에 있는 같은 이름의 마을들에서 나온 바스크 지명 성씨다. 라틴어 인명 'Eritius'에서 왔거나, '마을' 혹은 '땅'을 뜻하는 바스크어 어근 'erri'에서 왔을 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fbb91da210f8f48cb95d89ef36b80aff27afef328b9ecffb27da2a3cd92bc88c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "vincente-minnelli",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "빈센테는 빈센트의 이탈리아·스페인식 변형이다. 라틴어 'Vincentius'에서 왔고 '이기는', '정복하다'라는 뜻을 품는다. 미넬리는 이탈리아 성씨로, 중세 이름 미노에서 나온 부칭 지소형(指小形)일 가능성이 크다. 미노는 굴리엘미노나 바르톨로메오 같은 이름을 줄여 부르던 말이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2884e736bed97a8d0618f12fa879e6f03453f1047cc98880de2dd1e3a5a26ab6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "werner-herzog",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'베르너'는 게르만어 'warin'(지키다, 보호하다)과 'hari'(군대)가 합쳐진 이름이다. '헤어초크'는 독일어로 '공작'을 뜻하는 귀족 칭호이며, 고대 고지 독일어 'herizoho', 곧 '군대를 이끄는 자'에서 왔다. 그는 본래 베르너 스티페티치로 태어났다. 나중에 아버지의 성을 택한 이유는 단순했다. 영화감독에게는 '공작'이 더 위엄 있게 들린다고 여겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de686f00ba42386bf60df4ec5d4792bea74db2ba47c2d27ef98e301cf0ed9d2d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wes-anderson",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "웨슬리는 고대 영어 지명에서 왔다. '서쪽 풀밭'이라는 뜻으로, west에 lēah(빈터, 풀밭)가 붙었다. 앤더슨은 '앤드루의 아들'을 뜻하는 부칭이고, 앤드루는 그리스어 '안드레아스', 곧 '사내다운' 혹은 '용감한'에서 왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f6fa7b0534e04509632b2f0bbcaee8448e1ab07041cb307d5845d57220da4f65"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'빔'은 '빌헬름'을 줄여 부르는 네덜란드·독일식 이름이다(빔 벤더스의 본명은 에른스트 빌헬름 벤더스다). 게르만어 'wil'(의지, 바람)과 'helm'(투구, 보호)에서 왔으니 대략 '흔들림 없는 수호자'라는 뜻이 된다. 성 '벤더스'는 'Wender'에서 왔고, 돌아서는 일 또는 돌아서는 사람과 관련이 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "613fc6ee99a65f4c62baa20b26a6f57a41718e54b62defecd9aba4d71a0e4bae"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wong-kar-wai",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "성 王(웡)은 '왕'이다. 이름을 이루는 家(가)는 '집안' 또는 '집'을 뜻하고, 衛(위)는 '지키다', '보호하다'를 뜻한다. 이름 전체를 풀면 '집안의 수호자'가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bb7608221b07a0db1890ce2cd486bed2639e665a433fe553b07dbf8c768236d8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "xavier-dolan",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'자비에'는 바스크 지명 에체베리아('새 집')에서 온 이름이다. 성 프란치스코 하비에르가 이 이름을 썼다. '돌란'은 아일랜드 성씨 Ó Dúbhláin을 영어식으로 옮긴 것으로, '두블란의 후손'이라는 뜻이다. 두블란은 '검은 반항' 또는 '도전'을 뜻한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c938a7d8fac5da10d7f12fae02407c7ee53822a8808d86fe16b8c7cc41e9501"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "yasujiro-ozu",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "성 오즈(小津)는 小('작다')와 津('항구' 또는 '나루')이 붙은 것이다. 이름 야스지로(安二郎)는 安('평안'), 二('둘, 둘째'), 郎('아들')로 이루어진다. 차남이라는 표시와 고요함을 부르는 뜻이 한 이름에 담긴 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1fba7ff7995d98a078c066e56ea7f25d43a24e1cb035889425113965545cddf1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "yorgos-lanthimos",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "요르고스(Γιώργος)는 그리스어 게오르기오스(Γεώργιος)에서 왔다. γῆ(게, '땅')와 ἔργον(에르곤, '일')이 붙은 말이니 '농부', '땅을 부리는 자'라는 뜻이다. 성 란티모스(Λάνθιμος)는 그리스 성씨이되 어원이 그리 분명하지 않다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e19a3ff9194d02e02854907ed5a020ed8d67e50537982d39910e01b0c7b2d5b7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "zack-snyder",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'재커리'는 히브리어 이름 즈카랴에서 왔다. '주께서 기억하셨다'는 뜻이다. 성 '스나이더'는 네덜란드어 'Snijder'나 독일어 'Schneider'를 영어식으로 옮긴 것으로, 재단사를 가리키던 직업명이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "df84d7b2eec5fd2b363a0009753d5f8c45a210376a7729b785b2d619c028f3d4"
+ }
+]

@@ -1,0 +1,62 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "eternal-sunshine-of-the-spotless-mind-2004",
+  "field": "lead",
+  "film_id": "b6a255f9-fa60-4fa8-8b90-88c6558f8b22",
+  "lang": "en",
+  "text": "A man learns that the woman he loved has had him deleted from her memory, and concludes that the only fair answer is to do the same. Michel Gondry's science fiction keeps no laboratory and no future in it, just a procedure that can be booked, the way a wall gets knocked through. Most of its 108 minutes take place inside memories as they are being taken away, so the images are unstable by design: whatever is on screen is also the thing being erased, and Joel is awake for it. The screenplay won an Academy Award and the arrangement shows why - the procedure hands the film a clock, and a clock turns love into a matter of what can be reached in time. Which leaves the comedy, easy to miss under the machinery: two people conducting an argument inside a system built on the premise that the argument is finished.",
+  "model": "claude-opus-5",
+  "source_sha256": "482fdd5e15613e96c4821b63c7be64a6e44c351801e463f84a29a2c177184fd7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "in-front-of-your-face-2021",
+  "field": "lead",
+  "film_id": "c54e57f2-ab9e-4519-8992-9339c92ff3bf",
+  "lang": "en",
+  "text": "Eighty-six minutes, a borrowed room, one lunch, and a drink in a tiny bar down a Seoul alley. A woman is staying with her sister in a high-rise she finds implausible, re-learning the country she left, and keeping to herself something she has decided not to hand over. A director some years younger wants her for a project; she said no, politely, and then agreed to meet him anyway, which is how the afternoon becomes an appointment with a stranger who needs something from her. Hong Sang-soo lets the meeting run at the speed of talk, so all the interest lies in how long courtesy can hold while she is thinking about something else. Then the rain, and thunder with it, and two people who met an hour ago are kept in one small room by the weather, drinking.",
+  "model": "claude-opus-5",
+  "source_sha256": "c51614ace7e94f85f07f4e79fef50e24f72000b93b7e8ecf265ce9ea5d06c83a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "close-up-1990",
+  "field": "lead",
+  "film_id": "d65d9074-72fb-4ab4-b5ba-aae4c7f22c57",
+  "lang": "en",
+  "text": "The charge was fraud: a young man had been passing himself off as the filmmaker Mohsen Makhmalbaf. Abbas Kiarostami read about the case and went to the people in it with a proposal: play yourselves, do it again, this time with me filming. Directors voting in the Sight & Sound poll have kept the result in their canon, which makes a certain professional sense - the accused, restaging his deception for a camera, is finally being handed the thing the deception was for. Filed under crime, the film has little use for guilt, since the facts were never in dispute. The question is appetite, what it does for a man in Tehran in 1990 to be taken, briefly, for someone whose word carries weight. Ninety-eight minutes of people explaining themselves to a lens they have agreed to trust.",
+  "model": "claude-opus-5",
+  "source_sha256": "2812fb37dfd5dbdfe3fc5e83d334187d61fb35c1437f194674e3e71618dbb443"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "early-summer-1951",
+  "field": "lead",
+  "film_id": "d9076174-6fbc-4b58-8933-78cef58bc9be",
+  "lang": "en",
+  "text": "Twenty-eight is late, in the Tokyo of 1951, and Noriko's family has begun discussing it within her hearing. She has work she likes and a social life she has no wish to give up; the house holds other generations, each with a stake in her answer, and a business associate of forty has made an offer the family treats as already accepted. Yasujirō Ozu takes 125 minutes over this, long enough for the marriage question to stop being a subject and become the climate: raised at meals, in doorways, at work, while everyone arranges themselves around a decision that is not theirs to make. Then a widowed childhood friend moves back to the neighbourhood, and her heart goes somewhere no one has scheduled. Nothing raises its voice. The pressure comes entirely from people who love her and have already made up their minds.",
+  "model": "claude-opus-5",
+  "source_sha256": "ea8761ce175ba612e033230f08506fd4374b67796fe2d97412446529f677362f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "shock-corridor-1963",
+  "field": "lead",
+  "film_id": "dc42f1a4-2127-4ac5-a757-116c955bc36d",
+  "lang": "en",
+  "text": "The plan is to fake insanity, get committed, and come out of the ward with a murderer's name and a prize. Johnny Barrett is a reporter, and his girlfriend and a psychiatrist supply the coaching and the paperwork that make the lie hold. Samuel Fuller shoots it in 1963 at full volume, a newspaperman's melodrama with a thesis: 102 minutes of a man obliged to keep performing a condition among people who are performing nothing. The method is the trap. To get his witnesses talking he has to enter their accounts of the world and stay there a while, and the film grants those accounts more weight than it grants his byline. The National Film Registry took it in, a strange home for something this lurid, and the luridness is the argument: pressure applied to a man until the seams show.",
+  "model": "claude-opus-5",
+  "source_sha256": "525300790d6c157049ca8866f9e79b6a15a68e97020f480124904622970ecf86"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "wadjda-2012",
+  "field": "lead",
+  "film_id": "e3c3049b-becc-4f4b-8406-8f886538cc31",
+  "lang": "en",
+  "text": "A green bicycle, a price beyond her means, and a Quran recitation contest with prize money: the plan is efficient and entirely her own. Wadjda's method is to take the institution meant to shape her into a good girl and treat it as a revenue stream, memorising verses with the concentration of a child saving for a machine. Haifaa al-Mansour shoots in Arabic, in Saudi Arabia, with German production behind her, and the arrangement is legible in the film's tact: it argues nothing out loud, it follows a determined girl through the rooms where permission is granted or withheld. Ninety-eight minutes, a school, a house, a street. The comedy sits in the gap between what the adults think the contest is for and what she has decided it is for, and the bicycle stays in frame throughout, an object with a price on it.",
+  "model": "claude-opus-5",
+  "source_sha256": "086763464d333df00183caf00bcfb2af956058eee6e55c5ed537084ce1cf8486"
+ }
+]

@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ali-abbasi#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "트럼프 캠프의 거센 법적 위협에도 아바시는 눈 하나 깜짝하지 않았다. 오히려 전직 대통령을 위한 비공개 시사회를 열겠다고 공개 제안하면서, 기자회견에서 트럼프가 이 영화를 싫어할 것 같지는 않다고 능청스럽게 덧붙였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5cf18d5b05f3bf387f782d5a86e8b488b1454b6f9856d38344422949eaf0c249"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrea-arnold#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "켄트주 다트퍼드에서 태어났다. 어머니는 열여섯, 아버지는 열일곱이었다. 늘 돈에 쪼들리던 노동계급 가정의 네 아이 중 맏이가 아널드였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3f6d720dc9b86230a87f3913b2bb7b7f2a19ced8fbea073610ca93d909ed4fbf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrea-arnold#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "열여섯에 고등학교를 그만두고 동네 공장에 들어갔다. 그러다 런던으로 옮겨 가 연예계라는, 그에게는 도무지 어울리지 않아 보이던 길을 밟기 시작한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "066b37a8658b71e6bf193bd1472b9584ee67a19203dd5c6e026b792d31555533"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrea-arnold#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "쇼 비즈니스로 들어선 첫 문은 춤이었다. 1970년대 후반, BBC의 전설적인 음악 차트 프로그램 《Top of the Pops》 무대에서.",
+  "model": "claude-opus-5",
+  "source_sha256": "b0e8e2be8dc0b2449e9bced44d3491f893d14a97dc4c51ada397ef8946692770"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrea-arnold#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1980년대 내내 십 년 동안 그는 영국 TV의 익숙한 얼굴이었다. 토요일 아침의 좌충우돌 어린이 프로그램 《No. 73》에서 롤러스케이트를 타는 진행자 던 로지 역으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "3854a090acdceb05ace29099799efceb8290a03ee3774eea6c33606f53ca63c8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrea-arnold#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "진행자 노릇으로는 채워지지 않았다. 자기 이야기를 직접 쓰고 싶었던 그는 서른을 넘긴 나이에 로스앤젤레스로 건너가 American Film Institute Conservatory에서 연출을 공부한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "30bed0e402033f500ef3231c0589630ca0cf4c8b7f6c57aacad417bcce4f0500"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrea-arnold#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2003년 단편 《Wasp》는 데이트를 하러 나가면서 어린 네 아이를 펍 바깥에 세워 두는 가난한 싱글맘의 이야기다. 다트퍼드에서 자라며 지켜본 젊은 엄마들, 그 사납고 복잡한 얼굴들이 고스란히 밑그림이 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c8a26108a4904b0b239dba1cc36dff4291ed24291b1c063ed38140d3caeb7348"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrea-arnold#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2005년 《Wasp》로 아카데미 단편 영화상을 받았을 때, 벅차오른 아널드는 격식 있는 수상 소감을 건너뛰었다. 대신 전 세계로 중계되는 방송에서 저 황금 조각상을 두고 '개 불알(the dog's bollocks)'이라 외쳤다. 최고라는 뜻의 영국식 속어다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6033d61ac8edad7118c94b1b31546bb27cfccfd348904c8d1657dc4c244c500a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrea-arnold#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "길거리 캐스팅의 눈썰미는 전설로 통한다. 《Fish Tank》의 주연 케이티 자비스를 찾아낸 것도 순전히 우연이었다. 그 십대 소녀는 틸버리 타운 역 승강장 건너편에서 남자친구와 고래고래 싸우는 중이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d5bb6d1c1a136dc0e817d5c3b3763cc0657e85b7d965361c49ee6f2fe7d0605"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrea-arnold#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미국 로드무비 《American Honey》의 주연을 고른 방식도 다르지 않다. 플로리다 파나마시티 해변, 대학생들의 아수라장 같은 봄방학 한복판에서 일광욕을 하던 열아홉 살 사샤 레인이 눈에 들어왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "641cd839f73c8beb276d7f34cc39ec5e18697a34fba5c6c7d61eb36d9bde09ee"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrea-arnold#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아일랜드 촬영감독 로비 라이언과 자주 손을 잡는다. 둘이 함께 다듬어 온 것이 들썩이는 핸드헬드와 4:3 화면비의 그 화법, 다큐멘터리처럼 가까이 붙는 사실감이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "06f299476d6ab2777c492fafd7a10118995d3cfdf5bf8c633a9742aa86fe66ae"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrea-arnold#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편 데뷔작 《Red Road》는 원래 '어드밴스 파티(Advance Party)' 기획의 일부로 발주된 작품이다. 라스 폰 트리에가 고안한 실험으로, 감독 셋이 완전히 동일한 아홉 명의 인물을 가지고 각자 영화를 만들어야 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a3f70e5c6370b6a86cea4427f9fe7b60f5bc99c82fac17994b2c6116a0e05076"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrea-arnold#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "에밀리 브론테를 대담하게 옮긴 2011년작 《Wuthering Heights》에서 아널드는 히스클리프에 제임스 하우슨을 앉혔다. 그 문학사의 인물을 흑인 배우가 스크린에서 연기한 최초의 사례였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6b1415df1e68b5b48647b1740a274b8ff33404ae9cf1a3feba11f5d7a5e5a471"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrea-arnold#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "노스요크셔 황무지, 비에 두들겨 맞으며 진행된 《Wuthering Heights》 촬영 현장에서 그는 배우들의 화장을 금지하고 자연광만 고집했다. 그 시대의 폭력과 진창을 있는 그대로 끌어안기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "10be3033152354debfa2b926fed44e1c18faed2d8bc6983cfd69001ce3ae5f0e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrea-arnold#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《American Honey》에 나오는 떠돌이 잡지 판매 청소년 무리를 알기 위해 아널드는 홀로 수천 마일을 달렸다. 미국 중서부와 남부를 몇 차례나 가로지르며 싸구려 모텔에 묵고 십대들을 만나 이야기를 들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d7a4142d04a56330f7b34dddf5b166684b712eb3be7240de38cf073bde0e1f0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrea-arnold#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2019년 업계를 뒤흔든 사건이 있었다. HBO는 《Big Little Lies》 시즌 2의 일곱 편 전부를 아널드에게 맡겼다. 그런데 후반작업 단계에서 촬영분이 그의 동의도 없이 시즌 1 연출자 장마르크 발레에게 몰래 넘어갔고, 발레의 스타일에 맞춰 다시 편집됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d3d616eebe039dfb9350819b4c591aaf5e954e09ea1b0e921d8c79bc2dfd78b7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrea-arnold#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이 편집 스캔들은 미국감독조합(DGA) 내부에 거센 분노를 불러왔다. 프레스티지 TV라는 판에서 감독의 창작 권리가 얼마나 허약한지가 드러난 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0fcaa8c33dfc1b8ecdcf57003008754bf513012352b0b25f9104e3ab5b3b79ae"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrea-arnold#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "동물을 향한 그 집착이 다다른 곳이 2021년 다큐멘터리 《Cow》다. 대사 한마디 없이, 영국의 한 낙농장에서 루마라는 젖소가 견뎌 내는 고된 하루하루를 몇 해에 걸쳐 바짝 붙어 따라간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c4b4b3c45402ad47976b21744fbcb72075a7e12fd24b19182f3b2ff07ebd8111"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrea-arnold#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2011년 신년 서훈에서 독립영화 산업에 기여한 공로로 대영제국훈장 오피서(OBE)를 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "27d60a6c7d4d4e1397ccb68c65b33f71c1ffcd849b3f8e220d21e6a20044b7a2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrea-arnold#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "칸영화제가 유별나게 아끼는 감독이기도 하다. 《Red Road》, 《Fish Tank》, 《American Honey》로 심사위원상을 세 번이나 가져갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "379ff0566cf63b4dc63238480a7ab4433482a22a6d82ae9c710cb1296160a29f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrei-tarkovsky#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아버지는 이름난 시인 아르세니 타르콥스키였다. 안드레이가 세 살 때 그는 가족을 버리고 떠났고, 그 상처는 평생 아물지 않았다. 감독은 자전적 걸작 《거울》에서 그 장면을 강박적으로 다시 세운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b5c3b8eb994c79f3713c687349cc1356ad66a2c666fe18317256847ad6e260b3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrei-tarkovsky#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "어머니 마리야 이바노브나는 모스크바 제1국립인쇄소에서 교정 일을 하며 식구들을 굶기지 않았다. 수십 년을 버틴, 몸이 상하는 자리였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "21efdef3c656aa0788780649163c85d3bda733d7961f7d37698c188e2790b55e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrei-tarkovsky#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "제2차 세계대전 중 가족은 볼가강 변의 시골 마을 유리예베츠로 소개됐다. 얼어붙고 질척이던 그 배고픈 시절의 풍경이 훗날 그의 영화가 딛고 선 시각적 토대가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "884035068e62fee7f3fa2aac74214c332036147cbbe2cfbea11c4b5d3ea9e369"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrei-tarkovsky#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1954년 명문 VGIK 영화학교에 입학해 곧바로 미하일 롬의 마스터클래스로 들어갔다. 옆자리에 앉은 학생이 뒷날 공동 각본가가 되는 안드레이 콘찰롭스키였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "74fe2d5e9ab3dbcae4f7f1e97676f37558e495ece880ef39b73622345518868b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrei-tarkovsky#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스탠리 큐브릭의 《2001: 스페이스 오디세이》를 몹시 싫어했다. '기술의 박물관'일 뿐이라며 잘라 말한 그는, 《솔라리스》를 그 정반대편에 놓이도록 일부러 설계했다. 때 묻고, 감정으로 아픈 영화로.",
+  "model": "claude-opus-5",
+  "source_sha256": "81a946c65e0d357c24fd20f74e151c88aff0e20a3d3e2cad03d60e1bcc54cca4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrei-tarkovsky#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "폴란드 작가 스타니스와프 렘은 《솔라리스》의 각색에 격분했다. 모스크바의 한 호텔 방에서 감독에게 고함을 질렀다고 한다. 자기 하드 SF 소설을 러시아식 《죄와 벌》로 만들어 놨다는 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9edbe5cedc8495665e8af0cf241407028a68868333fc89f251754739281cdc9a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrei-tarkovsky#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "첫 아내 이르마 라우시는 VGIK 동기였고, 《안드레이 루블료프》에서 성스러운 바보 두로치카라는 중요한 역을 맡았다. 두 사람의 결혼은 1970년에 끝났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4e6cff21fc8a7b5546d23a52e5edc06f0c42686130e9cc405c35e969268019c9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrei-tarkovsky#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "두 번째 아내 라리사 키질로바는 《안드레이 루블료프》의 제작부 조수로 일하다 그와 결혼했다. 그를 억척스럽게 지켜 냈지만, 정규 교육을 받지 않았다는 이유로 남편의 지식인 친구들에게는 곧잘 미움을 샀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "08b498bff3a9ed360dd0834b5c3570d12802b8f9f679105e375736ffdec83d12"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrei-tarkovsky#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생 써 내려간 지극히 사적인 일기에 그는 《순교록(Martyrolog)》이라는 제목을 달았다. 참된 예술가의 삶이란 끊이지 않는 고통스러운 희생이라는, 그 우울한 믿음의 표시였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2cbd34f7b6fd88e361e30a64a5a7e97f56b120b868f0d464c32662b3b6f663fc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrei-tarkovsky#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《잠입자》의 첫 번째 판본은 통째로 사라졌다. 모스필름 현상소가 실험적인 코닥 필름을 잘못 현상한 탓이다. 무너진 타르콥스키는 촬영감독 게오르기 레르베르크를 해고하고 영화 전체를 다시 찍었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6dc81edf64b92e687d1d612b9ea8efb14bced73ae493c52430a4ca406e894e18"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrei-tarkovsky#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "타르콥스키와 아내 라리사, 배우 아나톨리 솔로니친을 차례로 죽음으로 몰고 간 말기 폐암. 여러 스태프는 그 원인을 《잠입자》 촬영 현장에서 찾는다. 에스토니아 예갈라강 인근, 독성이 심한 화학 공장 옆이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "02b983d50a3da4c46a630de5342039b88e37001c4dab84ab8bf31c9f30f87506"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrei-tarkovsky#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "요한 제바스티안 바흐의 음악에 평생 사로잡혀 있었다. 코랄 프렐류드 〈주 예수 그리스도여, 내가 당신을 부르나이다(Ich ruf zu dir, Herr Jesu Christ)〉는 《솔라리스》의 정서적·영적 닻이 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a86bb4c74b6cf04891e2f0fdf975e84cbaddcde058cf45d71c780e75d011b2db"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrei-tarkovsky#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "말년에는 어디를 가든 폴라로이드 카메라를 들고 다녔다. 안개 낀 풍경, 자기 개, 가족을 수백 장 찍었다. 시간을 곧바로 '조각'해 낸다는 그 매체의 성질에 매혹된 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c9d27444a57d015cfad58f6390bd927d4855c5cf5987983696b88de7d68a0d2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrei-tarkovsky#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《희생》의 절정, 불타는 집을 6분간 끊지 않고 담는 그 숏은 첫 시도에서 스벤 뉘크비스트의 카메라가 걸리는 바람에 무산됐다. 결국 집을 처음부터 다시 짓고 장면 전체를 새로 세워야 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e7d0946f74fda9d9545eb4e4b381efecc325e81fd90d8e006acc96d687ec6a9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrei-tarkovsky#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "파리 근교 생주느비에브데부아 러시아인 묘지에 잠들어 있다. 에른스트 네이즈베스트니가 만든 묘비에는 이런 글이 새겨져 있다. '천사를 본 사람에게.'",
+  "model": "claude-opus-5",
+  "source_sha256": "8882f59675518a8e676580d98aa402af7e94ec87d1c733745d8670d306722216"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrei-tarkovsky#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1988년 소련 천문학자 류드밀라 카라치키나는 새로 발견한 소행성대 천체에 그의 이름을 붙였다. '3345 타르콥스키'.",
+  "model": "claude-opus-5",
+  "source_sha256": "83b0e86fd7b39feb2ee98702c2a0330b20ed7fc9d03a492aed3bdab73aa4125f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-haigh#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "세상을 극으로 옮기기 전에 세상부터 알아야 한다고 여겼다. 그래서 헤이는 영화학교를 일부러 피했고, 뉴캐슬 대학에서 역사학 학위를 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2591f78b9c642f63db713f637dfd4e530f2a0c120cba689806dd66fbf9ffb656"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-haigh#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "대형 영화가 어떻게 굴러가는지는 편집실에서 몸으로 배웠다. 오스카를 받은 편집자 피에트로 스칼리아 밑에서 조수로 일하며 리들리 스콧의 대작 《글래디에이터》(2000)와 《블랙 호크 다운》(2001)을 거쳤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d3eeb21a2bfd97c9cf10ae9d361358144975ec12e118740552b26cceff8cd59"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-haigh#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2009년 데뷔작 《Greek Pete》는 런던의 남창들을 따라간 다큐픽션이다. 소니 PD150 한 대로 꼬박 일 년을 찍었고, 제작비는 그가 직접 댄 몇천 파운드가 전부였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2602ca4336dc6273c398febf8ec16d732cb09ecc693f8a0915723d8fec055f4f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-haigh#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평단의 찬사를 받은 2015년작 《45년 후》는 데이비드 콘스탄틴의 단편 〈In Another Country〉에서 나왔다. 알프스에서 얼어붙은 시신이 발견된다는 열두 쪽짜리 이야기가 무너져 가는 결혼 생활의 해부로 늘어났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3d0ff3a49057f167de3829cf37295cdce1218e4d7101701a68eb584ee3c7b5b"
+ }
+]

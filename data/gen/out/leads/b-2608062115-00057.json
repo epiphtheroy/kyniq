@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "toto-in-color-1952",
+  "field": "lead",
+  "film_id": "c41208d5-12d4-40be-8539-63de6009f353",
+  "lang": "en",
+  "text": "The first Italian film shot in color spends the novelty on a musician trying to sell one composition to one impresario. Antonio Scannagatti wrote the piece, calls it Epopea italiana, and needs Tiscordi to hear it; the ninety-three minutes are mostly the distance between those two facts. Tiscordi is one of the important men, and importance in this film is measured by how many rooms stand between him and anyone who wants something from him. Totò plays the composer, which means the pitch is never quite a pitch but a series of postures held slightly too long, provincial dignity carried like luggage. It is a small idea, worked hard. Steno uses the new process as comic equipment rather than atmosphere: the costume, the food, the flush rising in a face that is still smiling.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e596c438e860ddd75f60cddd5905c46d37fe7b2b5c76ea3e62bb3ecb0ceca28"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-path-of-hope-1950",
+  "field": "lead",
+  "film_id": "974d75ea-1728-4a71-87f4-6c2506b2a020",
+  "lang": "en",
+  "text": "The mine closes in Sicily, and the walk north to the French border begins. Sicilian miners and their families set out without papers, and Pietro Germi measures the journey in weather, in borrowed money, and in the men who take that money in exchange for arrangements. Nothing on the route is staged as heroism. Children have to be carried; every decision is reached by argument, because standing still costs more than moving badly; the border itself turns out to be less a line than a mountain that has to be walked over. Germi keeps the group in frame instead of lifting a hero out of it, so the pressure is collective — who is slowing, who will be waited for, who has stopped speaking. A Silver Bear Grand Jury Prize went to a film whose every character is, by law, in the wrong place.",
+  "model": "claude-opus-5",
+  "source_sha256": "94717efe793c634974acba1dc48e919d0472946a5a23b719541ff1661750226b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-hero-of-our-times-1955",
+  "field": "lead",
+  "film_id": "bb4d745a-752b-4955-bc7f-e5aae187df08",
+  "lang": "en",
+  "text": "A man can arrange his life so that his cowardice is almost never put to the test. Alberto Menichetti has an aunt, an old housekeeper named Clotilde, a desk at a firm, and an employer, Mrs. De Ritis, widowed when her husband was killed on a wild boar hunt, who has taken an interest in him. He is in love elsewhere, with Marcella, and is waiting out the calendar until she is old enough to be told so. Mario Monicelli allows him very little mercy. The comedy runs on the difference between what fear costs a man privately and what it costs whoever is standing next to him, and the film keeps finding new rooms in which Menichetti can decline to act: an office, a dinner table, a street where something is happening to somebody else while he works out the price of noticing.",
+  "model": "claude-opus-5",
+  "source_sha256": "67dfb13353c669d77fd2677ab3c326519d12d19e77f69f3d5000a135607005f3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sunday-in-august-1950",
+  "field": "lead",
+  "film_id": "21b19cf6-6a97-4d50-8048-eea3b55dcde4",
+  "lang": "en",
+  "text": "Seventy-five minutes, one summer Sunday at Ostia, and no protagonist anywhere in it. Luciano Emmer lets Roman families, boys moving in packs and couples with an hour to themselves share the beach and the running time equally, so that no single story is permitted to become the story. The structure is the argument. What accumulates in place of a plot is the shape of a city's day off in 1950: who arrives early, who has to be back, what people are willing to say to strangers when the light starts to go. Emmer keeps the camera at the level of overheard conversation, which makes the comedy quiet and the disappointments quieter. The crowd is the subject — a working city spending the one day of the week that belongs to it.",
+  "model": "claude-opus-5",
+  "source_sha256": "382e5cfd421639f4c171d12280f556e47d0b682aa12ef4046f2799f15cc7043c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-swindlers-1959",
+  "field": "lead",
+  "film_id": "fc44179b-31d3-4a3c-bcac-68cd26621767",
+  "lang": "en",
+  "text": "Mario has decided to go home to Italy, and someone else's need for his passport unmakes the decision. He had gone to Hannover to work in the mines and lost the job; Totonno, who would prefer the police not to find him, takes the document and offers work instead. What follows is a trade. The magliari sell cloth in Hamburg door to door, on commission and on nerve, in a language they mostly do not have, moving a supplier's goods across ground a Polish crew already counts as its own. Francesco Rosi films the mechanics with real attention — the pitch at the threshold, the markup, the obligation running back to whoever fronted the stock — and when Mario falls for Paula Mayer it registers as one more thing owed, in a country where he owns nothing.",
+  "model": "claude-opus-5",
+  "source_sha256": "81ff35134a27ea93aa92eed9d0765ee2ffa52c46969bb997d78212bb52afb4f5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "four-steps-in-the-clouds-1942",
+  "field": "lead",
+  "film_id": "f180cf12-cecd-4850-810f-8838f4b1025f",
+  "lang": "en",
+  "text": "A salesman on a train agrees to pretend, for one afternoon, to be a stranger's husband. Paolo has a family of his own and a route to finish; the girl is unmarried, pregnant, and travelling home to a father who has not been told. The lie is meant to expire by evening. Alessandro Blasetti keeps the scale domestic — a house, a family table, relatives asking the questions relatives ask — while the man in the middle of it improvises a life he does not have, in front of people entitled to check the details. Comedy and dread run on the same rail here, and the pretence is never allowed to turn into an adventure. It was made in Italy in 1942, and its one large idea is that ordinary decency can be inconvenient, expensive, and undertaken anyway.",
+  "model": "claude-opus-5",
+  "source_sha256": "04831069ce7dd25c4c2b75ac3cf8daafcf5eba7dec0c6612a3dbd0fbd4d7503c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "chains-1949",
+  "field": "lead",
+  "film_id": "305ca3f3-34b7-4e43-b191-dd68ce74e9d0",
+  "lang": "en",
+  "text": "A wife, a husband, and the man she knew before him: the oldest arrangement in popular melodrama. Raffaello Matarazzo plays it at full volume — the husband trusts her, and the other man arrives with a claim she cannot refuse without explaining and cannot explain without wreckage. Melodrama is often discussed as though its machinery were a defect. Here the machinery is the design: obligation tightened in even increments, a reputation and an older debt pulling on the same woman from opposite sides. The crime element is not a puzzle, it is a lever. Nobody is winking, and taken at the pitch it is played this is a precise instrument for measuring how little room a respectable life leaves a person with a past, and how much of that room is occupied by other people's certainty.",
+  "model": "claude-opus-5",
+  "source_sha256": "9895ae8ea0fd7ba351b11b818c2c8c1e3c9ac0a1631e53bd9e45199d29cab918"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "long-night-in-43-1960",
+  "field": "lead",
+  "film_id": "d3784be4-e349-4228-a582-1f84b1ef0278",
+  "lang": "en",
+  "text": "Ferrara under fog, 1943, and a man at the window who cannot go down into the street. Pino watches from his chair; his wife Anna is unhappy in the marriage; Franco, who has deserted, is somewhere in the same few blocks. Florestano Vancini runs the private story and the civic one through the same streets, because in a town this size they are the same streets — while the affair goes on, the local Fascist ranks are rearranging themselves among men who all know each other. The fog is not decoration. A place like this operates on being seen, and on the usefulness of having seen nothing. Made in 1960 about events seventeen years old, the film treats the recent past as unfinished business between neighbours, which is harder to stage than a battle.",
+  "model": "claude-opus-5",
+  "source_sha256": "f048744deaf809346c6c73c1b26979d5cdc7b956df6ae3a2e14ae6e04f336746"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "it-s-a-hard-life-1964",
+  "field": "lead",
+  "film_id": "6b973479-9d42-4163-8846-dde98fe51853",
+  "lang": "en",
+  "text": "The job title is head of cultural initiatives; the employer is a mining plant. Luciano Bianchi lives in Guastalla with a wife and a son, collects books, thinks of himself as a man of ideas, and draws his salary from an industry with no structural use for ideas. Carlo Lizzani plays that arrangement for comedy and then lets the comedy sour on schedule. Ninety-nine minutes is time enough to watch a man work out the exchange rate between what he believes and what he is paid, and 1964 offers him plenty of counters at which to do the sum: the office, the plant, the household that needs the salary to keep arriving. The film is unkind in one specific way. It never mocks Bianchi for reading; it simply keeps noting who signs the cheque.",
+  "model": "claude-opus-5",
+  "source_sha256": "f6f95675fe15a8df7e0f427ac93e81ba32c5558d14f9d3ba0144214c879e3632"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-art-of-getting-along-1954",
+  "field": "lead",
+  "film_id": "bcff7e51-d1f5-47fb-96aa-f3b21452d274",
+  "lang": "en",
+  "text": "Socialism first, then fascism, then whichever way the room is leaning. Rosario Scimoni — Sasà to everyone, and nephew to the mayor of Catania — changes his political faith about as often as he changes women, and at one point sets about founding a party of his own. Alberto Sordi plays him, which settles the tone: the charm is fully operational and entirely load-bearing. Luigi Zampa builds the film as a career rather than a plot, following one man up through Italian public life on the strength of reading the weather half a step ahead of everyone else, from one regime's vocabulary into the next. Sasà is never the stupid one. Zampa prepares no correction and no comeuppance; he keeps the ledger, and the entries keep coming out in Sasà's favour.",
+  "model": "claude-opus-5",
+  "source_sha256": "4be996e6af8945cc85cc338582135efc4e97266879c506b9c297da3290485a1e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "guest-house-paradise-1937",
+  "field": "lead",
+  "film_id": "c61ef45a-7fd2-4ad7-becd-819e05341765",
+  "lang": "en",
+  "text": "An iron left switched on is what sends Julle back into the boarding house after dark. Lotta has quit her job at Paradiset, out in the Stockholm archipelago, where Elvira Pettersson runs a full guest list on strict terms; her brother returns to unplug the thing and is caught where he has no business being. So he becomes Don Carlos, the Argentine opera singer the house has been expecting. Farce needs a closed building, a crowd with expectations and one man who cannot stop talking, and Weyler Hildebrand has all three on an island nobody can conveniently leave. It sits, improbably for a 1937 Swedish comedy, on the 1001 Movies list, and the reason is legible in the guests: people who would rather be fooled than be wrong.",
+  "model": "claude-opus-5",
+  "source_sha256": "c28c0d0d86494ea96de3ec0f061055611bef413ccbccebd02b8b64c9baaaf7ea"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "you-re-on-your-own-1959",
+  "field": "lead",
+  "film_id": "cda6aabb-5f51-4422-9084-93d5f04ff937",
+  "lang": "en",
+  "text": "The apartment is cheap, and the reason for that is what the rooms were being used for a short while ago. Italy in the fifties has more families than it has rooms, so this one takes the tenancy on offer: a former brothel, in a building whose old traffic a change of tenant does not erase. Mauro Bolognini runs the whole film on that single embarrassment and it holds, because the family cannot afford to move and the neighbourhood's memory outlasts any lease. What saves it from being one joke told twice is the housing itself — how many people are sharing how few rooms, and what a respectable address is really worth to people choosing between respectability and a roof. Bolognini keeps the tone light and the arithmetic exact, which is the only honest way to make a comedy out of a shortage.",
+  "model": "claude-opus-5",
+  "source_sha256": "270eaef09d7519c7f4836be4400f605e845b11e11b09cb0e0c7df52a57991bd2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "in-the-name-of-the-father-1972",
+  "field": "lead",
+  "film_id": "c66eae96-eb03-4031-8ebe-f9c088b0b0a2",
+  "lang": "en",
+  "text": "The priests teach as they have always taught, and that is the opening the new boy walks into. It is 1958. Angelo arrives at the religious boarding school with money, contempt and no intention of being improved, and finds a student body already worn down by the vice-rector and the rules. Marco Bellocchio treats what follows as a study in how authority actually changes hands: not by argument but by nerve, a boy who finds the clever one and the timid one, gives them something to belong to, and makes the prefect's position start to look negotiable. The comedy is real and it is not warm. Bellocchio is sharpest where the revolt begins to resemble, in method and appetite, the institution it despises, staging its own Grand Guignol inside a building built for obedience.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac63360bf94e5f0b1a2dd146939961fcaae9df0b93b0b8de3b75034058ec29ad"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-wayward-wife-1953",
+  "field": "lead",
+  "film_id": "ba062adb-d4ac-449a-b756-445a6e882857",
+  "lang": "en",
+  "text": "Gemma wants more than her marriage is going to hand her, and the film declines to punish her for it. Mario Soldati works the gap between what a woman in 1953 could say she wanted out loud and what she could actually arrange, and the film has time enough to show that difference costing something daily rather than all at once. It moves between comedy and something considerably harder, often within a single scene, because manners are funny right up to the moment they constitute the whole of a person's available freedom. None of it is announced. Soldati's attention stays on the calculating: what Gemma says, to whom, and what she has decided is worth the risk of being wrong about. The portrait is assembled almost entirely out of what other people are prepared to say to her face.",
+  "model": "claude-opus-5",
+  "source_sha256": "ecad68e39047b65e6d2027ab025446e9e507cf2a8e43e42454ceb3985e22a121"
+ }
+]

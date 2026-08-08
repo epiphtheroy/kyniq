@@ -1,0 +1,132 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "superoutro-1989",
+  "field": "lead",
+  "film_id": "62fe7d24-a246-4009-81a7-fee30016ef4a",
+  "lang": "en",
+  "text": "A man moves through Salvador doing things that make strangers stop, and the film logs each of them as an event rather than a symptom. Forty-six minutes is an awkward, deliberate length: too long for a sketch, too short to assemble the usual machinery of motive around a life. Abraccine's hundred best Brazilian films has a place for it, which is not the ordinary fate of a picture this size. Comedy is a hard word to keep hold of here, since much of what happens is funny only up to the point where a crowd's patience runs out. Edgard Navarro keeps going past that point, and he has chosen a subject with nowhere to withdraw to: whatever this man does gets done where he stands, in front of whoever happens to be there.",
+  "model": "claude-opus-5",
+  "source_sha256": "2e76ad2a2b9a2ea5bdbb19f5b53cd167748f20a0217b6a3c35f9b7304e85f77f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-time-and-turn-of-augusto-matraga-1968",
+  "field": "lead",
+  "film_id": "b0237c16-fbf2-4fae-b8d7-8547c50efd62",
+  "lang": "en",
+  "text": "Augusto Matraga holds land, owes more than the land is worth, and has spent years treating the law as a rumour from somewhere else. Then a trap closes on him and nearly finishes the job. What follows is the part that is hard to film: a violent man setting out to become useful, taking up labour and faith in the hinterland of Minas Gerais with the same appetite he brought to everything before it. The source is a Guimarães Rosa short story, and that inheritance is the hardest thing in the project, since Rosa's prose runs on the speech of the backlands and 110 minutes of image have to find an equivalent for it. The frame around it is a western: horses, distance, and a man whose reputation reaches a place ahead of him.",
+  "model": "claude-opus-5",
+  "source_sha256": "2cd5711c15c391cb293226e462d6d68170cb926a59ff92454ed61fda40a8218b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "aruanda-1960",
+  "field": "lead",
+  "film_id": "95d64c21-d025-4341-85f9-92a446d5b608",
+  "lang": "en",
+  "text": "Twenty minutes, 1960, and a subject Brazil's institutions had simply stopped reaching. The place is Quilombo Olho d'Água, in the Serra do Talhado, in Paraíba, descended from the settlements that people escaping slavery built for themselves in colonial times and still keeping its own arrangements. Abraccine's hundred best Brazilian films carries it, a short among features. At that length a documentary cannot build a case in stages; it can only decide what to look at, and here the settlement is the whole of the available material, the ground and the work and the distance to anywhere else. What Linduarte Noronha found was an isolation that is administrative rather than scenic, the result of a country drawing its lines around a place and then forgetting the place was there.",
+  "model": "claude-opus-5",
+  "source_sha256": "88b611b100bb972f3e9926ec52a83716a8b1b2520c3ca5f119cf25c30b5fecae"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "blablabla-1968",
+  "field": "lead",
+  "film_id": "24b58f20-dc58-4e80-bfb1-b5f58f0fa38c",
+  "lang": "en",
+  "text": "A politician, a revolutionary, and a man who is neither share a country under military rule and twenty-six minutes of film. The year is 1968 and the place is Brazil, so Andrea Tonacci was describing a government that was in the room while he worked. Short films get one thing done, and the thing chosen here is close to unfilmable: what a political condition does to private nerve, with each of three positions given barely enough time to state itself. None of them gets a case built for him. The evenness of that is the point, since the office-holder, the man who has chosen illegality and the one with no position at all are held to the same clock. The last of them has no rhetoric to fall back on, no organisation behind him, and two others talking over him.",
+  "model": "claude-opus-5",
+  "source_sha256": "a811862526fee581667e4f0db5181dbecd308f373a26ca3109a9ce6317240fb9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "meteorango-kid-intergalactic-hero-1969",
+  "field": "lead",
+  "film_id": "d3599ed4-4f95-43f2-ad53-aaef50be24af",
+  "lang": "en",
+  "text": "Lula turns up to the protests and could not say what any of them are for. He is a student in Bahia at the end of the sixties, and the film follows him through days that come to nothing much: the campus, the street, an attempt at acting, whoever is around. In the same city, on a parallel track, another young man follows women with an intention the film declines to dress up. The two are never asked to explain each other. Holding both strands in one picture is the decision that matters, drift measured against menace across eighty-five minutes that refuse to rank them. André Luiz Oliveira made it in 1969, and the comedy in it is the kind that comes of watching a man waste a day with total commitment.",
+  "model": "claude-opus-5",
+  "source_sha256": "e082ab029968a38152076818158bf65fb9ec2f4393ec7f2eda388ac47b640821"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "o-grande-momento-1958",
+  "field": "lead",
+  "film_id": "363b5646-db5e-4dc5-bbb8-2cd39329e964",
+  "lang": "en",
+  "text": "By the afternoon of the wedding the family has sold what it can and the groom is still short. That is the engine: an immigrant household in 1958 trying to mount the party expected of it, doing the arithmetic in public. Personal belongings go out the door so that the table can be full. Eighty minutes, a single day, no subplot to relieve the pressure. Roberto Santos keeps everything at the scale of supplies and small sums, which is the scale it occupies for the people inside it, since the honour of the occasion is not an abstraction but a quantity of food and drink that has to be in the house before evening. Drama and romance, not comedy: whatever laughter the situation offers would have to be taken at the family's expense.",
+  "model": "claude-opus-5",
+  "source_sha256": "86b53ae8fe124cb1f8a658ea8e734b43613dfd70f42f19f3f0e8c5d5dbe20517"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "cabaret-mineiro-1980",
+  "field": "lead",
+  "film_id": "5f34a944-ad96-4287-808e-28467fdb5c63",
+  "lang": "en",
+  "text": "Stop by stop, the train through Minas Gerais delivers the traveller to people he has already loved. Seventy-five minutes, 1980, and the shape is a route rather than a plot: a station, someone he knew, a stretch of track, another station. Nothing accumulates but mileage and recognition. On a film built this way songs carry the years between one affair and the next, doing the work a flashback would otherwise be asked to do. Carlos Alberto Prates Correia lets the state itself set the pace. The cost is momentum. The return is a sensation particular to large countries, where the gap between two people can be measured in hours of track, and everyone he left is still living at the end of one of them.",
+  "model": "claude-opus-5",
+  "source_sha256": "fdaf0beead4c814edc30fb4f3b3fb2f4e3a535072d71e82e011c9c38570682dd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sargento-getulio-1983",
+  "field": "lead",
+  "film_id": "1ae6a247-099a-451a-9ca8-506204a7e009",
+  "lang": "en",
+  "text": "The order was to escort a prisoner from Paulo Afonso to Aracaju. Partway along, the government changes and a second order arrives cancelling the first, and the sergeant does not turn around. Everything sits in the gap between those two instructions: a man whose entire authority came from being told what to do, now carrying out an assignment that has stopped existing for anyone but him. Hermano Penna puts it in the 1940s and takes eighty-five minutes, most of them on the move, two men bound together by a duty only one of them recognises. The question has been settled everywhere except on the road itself. The prisoner is political, a category the sergeant has no use for; he has a rank, a route and a delivery to make.",
+  "model": "claude-opus-5",
+  "source_sha256": "35d888cb10587e61275b150a3b635eb7908d00580bec36e8d6fad61d8740b2f5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-land-of-sao-sarue-1971",
+  "field": "lead",
+  "film_id": "fbc41d7c-2805-447d-8a90-b1b5e4640e36",
+  "lang": "en",
+  "text": "Rain fails in this part of Brazil often enough that failure is the baseline, and what interests Vladimir Carvalho is everything built on top of that. His subject is a stretch of the Northeast and the way it has made a living over time: what gets grown, what gets sold, what changes when the water does not come. A region organised around an unreliable sky has no natural climax to offer, and he takes it at the pace it actually moves. Eighty minutes of documentary, in 1971, spent on an economy instead of a protagonist, with nobody to follow home and no arc borrowed from a single life. The ordinary business of getting by receives the framing usually reserved for events. The drought is the condition. The accounting is the film.",
+  "model": "claude-opus-5",
+  "source_sha256": "c966001630f4358341e2e6fc7d621d6936bc9c91fa6c5b04c0bf418c0e7a000d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "my-name-is-tonho-1969",
+  "field": "lead",
+  "film_id": "b4a3c11b-9417-4a63-a41e-176f42a5ef88",
+  "lang": "en",
+  "text": "Taken as a child and raised on the road by the people who took him, Tonho leaves them as a young man with no account of where he began. Brazil in 1969, ninety minutes, and a western's arrangement throughout: the same thin law, the same dependence on whoever happens to be armed, the same road that hands a traveller a woman whose brother is gone and a gang with no reason to be careful. Ozualdo Ribeiro Candeias has built a man with no parents, no property and no past, which is a freedom hard to tell apart from having nothing. The film seems more interested in the second half of that description than the first, and the comedy it finds along the way is dry enough to pass for weather.",
+  "model": "claude-opus-5",
+  "source_sha256": "34123a3a7ae98f2cd00f26d79d57a3c0d69632d35967251012b1476b19318aa9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "juan-as-if-nothing-ever-happened-1987",
+  "field": "lead",
+  "film_id": "9ff98fef-bb3a-4fde-9d03-c10f71537530",
+  "lang": "en",
+  "text": "Juan Marcos Herman was taken in Bariloche, and the film gives 165 minutes to what that sentence leaves out. Carlos Echeverría made it in 1987, from Germany, in Spanish, about an Argentine town under the dictatorship, and the distance is not incidental: a disappearance is exactly the kind of event a small place agrees to stop discussing. At that length the work is not summary but accumulation, of who was where, of who still lives on the same street, of what the town settled on saying afterwards. A documentary can compel nobody. It can only go back and keep asking, which puts the weight on the people who stayed. Museo del Cine's survey of Argentine cinema holds it, which is a country claiming a film it did not produce.",
+  "model": "claude-opus-5",
+  "source_sha256": "a2095bb37152ba50e01a61fa7c4ba2ae5b966acf4ee253156306e98e04347918"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "near-dark-1987",
+  "field": "lead",
+  "film_id": "9b7476f7-b349-429d-b022-bfe3efa272ae",
+  "lang": "en",
+  "text": "The vampires travel by stolen car, which turns immortality into a scheduling problem: distance covered before sunrise, somewhere dark to be by morning. Kathryn Bigelow gives them ninety-four minutes and American highways, which is not much room for sentiment. The rules stay practical rather than occult; the standing question is where to be when the sun comes up. The way in is a farm boy and a girl he meets, and the joining is less chosen than caught, costing him not his soul in any theological sense but the daylight hours a working farm is organised around, and the people who expect him during them. The rest is the group. They are a household before they are monsters, and the horror comes from how fast a person is absorbed into somebody else's routine.",
+  "model": "claude-opus-5",
+  "source_sha256": "7386fe08f7246a7803d62f13e6ca7c6fda2dc9b5e1bc60ff91f82585a8352b09"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "i-am-cuba-1964",
+  "field": "lead",
+  "film_id": "9e9101ec-8846-4bb2-8b2c-374dcc6db1e7",
+  "lang": "en",
+  "text": "The casino is American-owned, and the young woman drawn to it has a boyfriend who sells things on the street. That pairing is the method. I Am Cuba is assembled out of four lives that never need to meet — hers, a tenant farmer's on land he works but does not own, a group of students getting their political education first-hand, a family in the hills beyond the city — and the case is made by placing them inside the same 141 minutes. Each strand carries a whole position, a heavy load for people who get a quarter of a film apiece. Shot in Cuba in 1964, in Spanish, about the revolution of 1959, it is closer to an address than a story, and what holds is how much physical country it insists on carrying while it argues.",
+  "model": "claude-opus-5",
+  "source_sha256": "f73a72824ca05237080d79e0c4375f086436a6ab2fafec0b86af62f52073b5d3"
+ }
+]

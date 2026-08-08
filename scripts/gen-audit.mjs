@@ -69,6 +69,8 @@ const FORMULA = [
   [/\ba landmark of\b/i, "a landmark of"],
   [/cast in the (mold|mould) of/i, "cast in the mold of"],
   [/^[A-Z][^,]{2,40} \(b\. \d{4}\)/, "(b. YEAR) 도입"],
+  [/stands? to be lost/i, "헌장 차용 'stands to be lost'"],
+  [/\b(what|which) is at stake is\b/i, "'what is at stake is'"],
 ];
 const NEGATIVE = /\b(no (awards|record|reception|information)|little is known|not much is known|may not be for everyone)\b/i;
 
@@ -103,7 +105,11 @@ for (const r of items) {
     const m = sents.reduce((a, b) => a + b, 0) / sents.length;
     const sd = Math.sqrt(sents.reduce((a, b) => a + (b - m) ** 2, 0) / sents.length);
     cvs.push(sd / m);
-    if (sd / m < 0.22) flag(k, `문장장 단조 (CV ${(sd / m).toFixed(2)})`);
+    // Calibrated against 2,632 finished pieces: CV runs p05 0.24, median 0.46, so a
+    // 0.22 bar just clips the bottom 3.5% — and reading those, they were good writing
+    // that kept an even stride, not machine prose. A flag here costs a rewrite, so the
+    // bar belongs where the genuinely mechanical cases are. 0.15 catches 0.6%.
+    if (sd / m < 0.15) flag(k, `문장장 단조 (CV ${(sd / m).toFixed(2)})`);
   }
 
   const promo = t.match(PROMO); if (promo) flag(k, `홍보어 '${promo[0]}'`);

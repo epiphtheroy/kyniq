@@ -1,0 +1,102 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "days-of-glory-2006",
+  "field": "lead",
+  "film_id": "60711f6d-dec0-4d2f-ba72-bc903f0a35f3",
+  "lang": "en",
+  "text": "One hundred and thirty thousand men enlisted to liberate a country none of them had set foot in. Four of them — Said, Abdelkader, Messaoud, Yassir — carry Rachid Bouchareb's account of 1943, and the film's attention sits less on the next hill than on the distance between the uniform and what wearing it was supposed to confer. It is spoken in French, the language of the army rather than of home. Two hours and eight minutes is a long time to hold that gap open, and the holding is the work: the campaign advances, the terms of service do not, and the word fatherland stays inside its quotation marks. Algerian production, French war, four names the histories on either side had no use for. Bouchareb films them as soldiers first, which is the least sentimental way to make the claim land.",
+  "model": "claude-opus-5",
+  "source_sha256": "da6aa4d59e66ea363615314edc145e500d7773bb42154fb7ba81eef990add675"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-golden-era-2014",
+  "field": "lead",
+  "film_id": "a6912f0d-285a-47a9-925d-6d6588358537",
+  "lang": "en",
+  "text": "Xiao Hong's life arrives in other people's voices. Ann Hui builds the writer out of recollection — the love affair, the books, the leaving of China while the war closed the routes behind her — which is a slower and more argumentative method than chronology, and she takes 177 minutes over it. Hong Kong production, Mandarin dialogue, mainland history: the film is made from one place about another and never pretends the distance away. Hui is unhurried with rooms and with talk. The romance is handled as one fact among the working facts of a career, a rarer decision than it sounds for a film about a woman who wrote. Voters at IFFR gave it their audience award, which suggests three hours sits more easily in a cinema than on paper. The length is itself a claim about whose life deserves it.",
+  "model": "claude-opus-5",
+  "source_sha256": "2da7c2bb2405ac20f4c5f9b0cbe11428627261a3e84a67632078f4b50aab313d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "article-20-2024",
+  "field": "lead",
+  "film_id": "8eac6670-b751-40a3-b9b5-06359eed933d",
+  "lang": "en",
+  "text": "A prosecutor's case file, played partly for laughs. Zhang Yimou gives 141 minutes to Han Ming, whose problem is a single line of law: whether an act of deliberate injury can be re-described as legitimate defence, and what it costs to decide that it can. The comedy sits oddly against that, and the oddness is the reason to look — an argument about statute conducted at something close to the tempo of family farce, from a director whose name usually promises other rhythms. There is no period remove here. The offices are current, the language is current, and the people asking the questions are colleagues who will still be colleagues afterwards. The Golden Rooster named it best picture. Its real subject is the interval before any verdict, the weeks when a judgment is still something people can be talked out of.",
+  "model": "claude-opus-5",
+  "source_sha256": "425aa157d908a2b93ff3757ab7ee70190d86063cb5ca85405fb2c751e239a965"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dune-2021",
+  "field": "lead",
+  "film_id": "b0f60a85-35a6-411f-b4d6-34926afe1370",
+  "lang": "en",
+  "text": "The most valuable substance in the universe is dug out of sand, and everything in this film follows from that. A ruling family is moved onto the planet that holds it. Their son has been told he has a destiny; he understands less of it than the adults around him, and dreams more. Denis Villeneuve treats scale as pressure rather than display — halls too large for the people standing in them, machinery whose arrival takes its own time, low frequencies used the way other films use weather — so that the question of who controls a commodity registers in the body before anyone explains it. Across 155 minutes, a great deal of the action consists of waiting for something everyone can see coming. Fear is handled as a technical matter: what a person is trained to do while it passes through them, and who is watching to see whether they can.",
+  "model": "claude-opus-5",
+  "source_sha256": "5ec278f967c5f80a187d1c34ca69a7b7b6ab0e2c392ce0b116b8317668df6185"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "take-off-2009",
+  "field": "lead",
+  "film_id": "5ef748e3-9364-40e6-b043-579d3f42d3ee",
+  "lang": "en",
+  "text": "A man goes on television to look for his mother and comes away with a ski coach. Cha Heon-tae was adopted out of Korea with his sister and raised by American parents; he can ski, which is why Coach Bang wants him for a national jumping team being assembled before the 1998 Winter Olympics. Kim Yong-hwa runs 139 minutes and keeps both errands going at once, the search and the training, which is why the film plays as comedy for long stretches and then stops being funny without warning. National teams in films are usually a way of talking about a country; here the country is also the thing the main character has to be readmitted to. Baeksang gave it best film. The training scenes keep making one point: the sport consists mostly of standing at the top and agreeing to go.",
+  "model": "claude-opus-5",
+  "source_sha256": "17fd4b8879caeb6d3aef57fb06cacf97cd5c57b2801f61ef9090ea31362b4969"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-pink-panther-strikes-again-1976",
+  "field": "lead",
+  "film_id": "689814fe-80ce-43ac-b8f2-44b16531052a",
+  "lang": "en",
+  "text": "The villain is a policeman driven out of his mind by another policeman. Charles Dreyfus, whose collapse Clouseau's antics brought on, escapes the institution and sets about an elaborate scheme to be rid of him for good, so Blake Edwards has 103 minutes in which the engine of the plot is pure grievance and its target remains serenely unaware that anything is aimed at him. The asymmetry is the machine. Clouseau cannot be hurt because he cannot be surprised; Dreyfus cannot be satisfied because nothing he does registers as an attempt. Around that, the gags are wound a full turn past the point where a tidier comedy would have released them, and much of the pleasure is in waiting to see how far the mechanism will run. The Writers Guild recognized the screenplay, an odd tribute to a film whose best passages depend on props.",
+  "model": "claude-opus-5",
+  "source_sha256": "94ab55d09c6cb98d22a6e7dff2f91b60e1dd4d6c199975db60e063a6f39d8ef5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "rapture-1979",
+  "field": "lead",
+  "film_id": "00c8a567-647b-41ee-a69a-228e8e947184",
+  "lang": "en",
+  "text": "Reels arrive in the post, and the man who opens them is in no condition to be careful with them. José Sirgado shoots cheap films for a living and takes heroin between jobs; the packages come from Pedro, who shares his appetite for cinema and appears to have found a use for a camera that Sirgado has not. Iván Zulueta's picture, made in Spain in 1979, spends 110 minutes on a proposition it holds in complete seriousness: that looking is a habit, and habits require larger doses. Projection is filmed as intake. The horror, when it comes, comes through the equipment rather than at the hands of anything. Spanish critics have kept it in their hundred best ever since, which is one way of conceding that the film reached something the rest of the culture would have preferred to leave alone.",
+  "model": "claude-opus-5",
+  "source_sha256": "2796578e2535fe41ab6734ec42a480387c694b9270b198afd35812af663dba42"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "footlight-parade-1933",
+  "field": "lead",
+  "film_id": "d12d80bd-40c8-4096-b6e8-91eb681d9135",
+  "lang": "en",
+  "text": "The job at the centre of this film is selling live stage numbers to audiences who have started going to the pictures instead. The producer is short of cash, at odds with the people who work for him, and pursued by an ex-wife with a claim on anything he earns: 104 minutes of 1933 in which putting on a show is indistinguishable from meeting a payroll. The National Film Registry keeps it, and the reason is a contradiction the film never bothers to resolve. Lloyd Bacon shoots the labour — rehearsal rooms, deadlines, financiers to be talked round, a floor of people at work. Then the numbers begin and the arithmetic goes out the window, because the routines that result could not be staged in any theatre able to hold them. Hard-headed about cost, and then wildly indifferent to it.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f8322f0efffaaab49037fc6196a019335fa6c63d214cc319d89754e17963edc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "in-the-fog-2012",
+  "field": "lead",
+  "film_id": "fe6edd48-02b4-4b0c-9997-442479cbe1f0",
+  "lang": "en",
+  "text": "The accusation is false, which changes nothing. On the western edge of the USSR in 1942, under German occupation, a man is named a collaborator, and the naming is sufficient; Sergei Loznitsa begins after the damage, at the point where clearing a name has stopped being one of the available actions. What is left is a choice between bad options, taken in front of men who have already settled who he is. The film is patient in a way war films seldom are: 127 minutes in which the occupation is closer to weather than to event, and violence, when it arrives, is a matter of procedure. Belarusian production, Russian dialogue, forest for a stage. The hardest thing in it is that a man's own account of himself is no longer admissible anywhere, and he has to act as though it were.",
+  "model": "claude-opus-5",
+  "source_sha256": "5c028c02b4f8bdd7e671d0dc7d237d12f882784c3ede595bf5890df8917eb587"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-woman-of-the-port-1933",
+  "field": "lead",
+  "film_id": "2c1ac612-e4de-461d-a478-d0ad2e24d158",
+  "lang": "en",
+  "text": "Seventy-six minutes, and the earliest of them exist to remove her options: her father dies, her fiancé leaves, no work comes. After that, the waterfront. Arkady Boytler's 1933 picture is melodrama without apology — the machinery visible, the coincidences large, the feeling unembarrassed by either — and its brevity means calamity arrives at the pace of a ballad rather than a plot. Much of the interest lies in how the port is shot: night, sailors, a woman whom everyone in frame treats as available, and a camera that keeps a small distance from the transaction while missing none of it. Somos placed it among the hundred best Mexican films, and the story is the least of what it has. What lasts is the tone, which neither judges her nor rescues her.",
+  "model": "claude-opus-5",
+  "source_sha256": "e1b4cebe5a504587869b3b341ae362c934f47cc97149b4870df0e34fd202df3d"
+ }
+]

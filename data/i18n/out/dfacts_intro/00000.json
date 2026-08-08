@@ -1,0 +1,272 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "abbas-kiarostami",
+  "field": "intro",
+  "lang": "ko",
+  "text": "이란 영화의 거인. 압바스 키아로스타미는 다큐멘터리와 픽션의 경계를 흐리며, 시골의 최소한의 이야기에서 깊은 철학적 사유를 길어 올렸다. 늘 짙은 선글라스 뒤에 얼굴을 감춘 그는 달리는 자동차와 비직업 배우를 시적인 영화의 그릇으로 바꿔놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "39ebb13e0234a7aebe9afdf11af738cdbf988ebd397cb908aeb313f26eae2f6e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "adam-mckay",
+  "field": "intro",
+  "lang": "ko",
+  "text": "애덤 매케이는 2000년대 부조리 코미디의 문법을 세운 뒤 신랄한 정치 풍자로 넘어간 미국 감독이다. 구조적 부패와 기업의 탐욕, 기후 위기를 향한 집요하고도 거침없는 관심이 그 급격한 방향 전환을 밀어붙였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "97f5a0aa253e1eed3109fe23c2c3f2751e2a32feb1f337e590eff7d107933363"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "agnes-varda",
+  "field": "intro",
+  "lang": "ko",
+  "text": "좌안파(Rive Gauche)의 개척자였던 아녜스 바르다는 다큐멘터리적 사실성과 장난기 어린 자전(自傳)을 뒤섞었다. 스튜디오 시스템 바깥에서 끝내 물러서지 않았고, 70년에 걸친 작업 내내 사적이고 다정한 영화로 페미니즘 영화와 시각예술을 다시 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "68ded255c21c0c5426b2ac051208c47db57ab08fab54ecb6002a9713330835b8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "akira-kurosawa",
+  "field": "intro",
+  "lang": "ko",
+  "text": "현장의 독재자였던 탓에 일본 영화의 '천황'이라 불렸다. 구로사와 아키라는 일본 전통 미학과 서구 문학을 한데 녹였다. 상처투성이 유년, 형의 자살, 경력의 참담한 침체를 모두 견뎌내고 세계 영화의 거인이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e6193ea06e69d4336527ae293c32a9107971a23c7d586c13a88616197377207"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alain-resnais",
+  "field": "intro",
+  "lang": "ko",
+  "text": "알랭 레네는 프랑스 좌안파의 형식주의 대가였다. 기억과 시간, 트라우마에 매달린 지적인 영화감독. 난해한 걸작으로 이름을 얻었지만, 정작 그가 평생 부끄럼 없이 사랑한 것은 싸구려 만화책과 브로드웨이 뮤지컬이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aa2f1e6547c2915dcd78bdf40d8570c799c324f4dae94f9e955739be6fd8ec03"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alejandro-gonz-lez-i-rritu",
+  "field": "intro",
+  "lang": "ko",
+  "text": "알레한드로 G. 이냐리투가 만드는 영화는 내장을 건드리고 기술적으로 무모하다. 라디오와 광고를 거쳐 온 이 멕시코 감독은 타협 없는 방식으로 오스카를 두 해 연속 거머쥐었고, 상실과 생존과 정체성을 자기 문제로 파고들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dadd19ca4e5e38e5d33becaf8465dc9ec6903c788b7e17b13c65d8943718fbd5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alejandro-gonzalez-inarritu",
+  "field": "intro",
+  "lang": "ko",
+  "text": "알레한드로 G. 이냐리투가 만드는 영화는 내장을 건드리고 기술적으로 무모하다. 라디오와 광고를 거쳐 온 이 멕시코 감독은 타협 없는 방식으로 오스카를 두 해 연속 거머쥐었고, 상실과 생존과 정체성을 자기 문제로 파고들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dadd19ca4e5e38e5d33becaf8465dc9ec6903c788b7e17b13c65d8943718fbd5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alex-garland",
+  "field": "intro",
+  "lang": "ko",
+  "text": "소설가에서 감독으로 넘어온 영국인. 알렉스 갈런드의 영화는 머리로 파고들면서 눈을 붙든다. 과학과 인공지능, 인간의 자기 파괴가 어디까지 허용되는지를 묻는 작업이다. 소설 『비치』로 X세대의 목소리라 불린 그는 이후 현대 SF 영화의 좌표를 다시 그렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "208751ac830bf2be5b86267e3b095feac45cbe0307bf7ef2607135cce5a93d1f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuar-n",
+  "field": "intro",
+  "lang": "ko",
+  "text": "알폰소 쿠아론의 카메라는 끊기지 않고 흐른다. 그 유려한 움직임과 인간을 놓지 않는 이야기로 사랑받은 멕시코 감독이다. 작은 독립 드라마에서 SF 대작까지 넘나들며 그는 할리우드 최초의 라틴아메리카 출신 감독상 수상자가 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f66031cd894fc074be9934d902379f59afbbbf0882947316123b0c4a55c9418"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuaron",
+  "field": "intro",
+  "lang": "ko",
+  "text": "알폰소 쿠아론의 카메라는 끊기지 않고 흐른다. 그 유려한 움직임과 인간을 놓지 않는 이야기로 사랑받은 멕시코 감독이다. 작은 독립 드라마에서 SF 대작까지 넘나들며 그는 할리우드 최초의 라틴아메리카 출신 감독상 수상자가 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f66031cd894fc074be9934d902379f59afbbbf0882947316123b0c4a55c9418"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfred-hitchcock",
+  "field": "intro",
+  "lang": "ko",
+  "text": "'서스펜스의 거장'이 공들여 만든 음산한 공적 페르소나 뒤에는 뿌리 깊은 불안과 평생의 공포증, 통제하지 않으면 못 견디는 성향이 있었다. 런던 이스트엔드에서 할리우드의 정점까지, 그 전설적인 경력을 빚어낸 것도 결국 그것들이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6f0724223e0e8bf9ee0c5832180fcdf0916f16d18c24e3b4d3be6f190673040"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ali-abbasi",
+  "field": "intro",
+  "lang": "ko",
+  "text": "이란에서 태어나 스칸디나비아를 거점으로 삼은 도발자. 알리 아바시는 그로테스크한 신체 공포와 매서운 정치 비판을 한 몸에 붙인다. 건축을 공부하던 그는 장르를 비틀어 인간 본성의 가장 어둡고 숨 막히는 구석을 드러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de45ebbd854cc598ab1de7c9a7543b6dd9eee58d9f695ef9716c6a69a385e413"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrea-arnold",
+  "field": "intro",
+  "lang": "ko",
+  "text": "롤러스케이트를 타던 어린이 프로그램 진행자에서 칸을 정복한 작가로. 안드레아 아널드는 영국 사회적 사실주의의 개척자다. 거칠고 야생적인 그의 영화는 노동계급 청춘과, 인간이 자연과 부딪는 원초적 순간을 담는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "68220fb22c15475d342d249f6e4fc49a72a61625e6b7353e4fed534d0359384f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrei-tarkovsky",
+  "field": "intro",
+  "lang": "ko",
+  "text": "소비에트 영화의 거인 안드레이 타르콥스키는 스스로 '시간을 조각하기'라 부른 영적이고 시적인 영화 언어를 벼려냈다. 국가 검열과 싸우며 형이상학적 갈망의 걸작 일곱 편을 남겼고, 망명지에서 숨을 거뒀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1abb8654375b99b1e93787e1bf86675441585290dc02398261d5468dadee466d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-haigh",
+  "field": "intro",
+  "lang": "ko",
+  "text": "할리우드 대작의 편집실에서 초저예산 독립영화의 연출자로. 앤드루 헤이는 뼈아프도록 내밀한 인물 연구로 알려진 영국 감독이다. 그가 끝내 도달한 자리는 21세기 퀴어 영화와 가정극이 받은 가장 높은 평가 중 하나다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c70bfb6f1f3e2f163e10065b2103e6214f98638482d529ad025aa254eff952c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-stanton",
+  "field": "intro",
+  "lang": "ko",
+  "text": "픽사의 기틀을 놓은 사람 중 하나. 앤드루 스탠턴은 스튜디오의 두 번째 애니메이터로 출발해 이야기꾼이 되었다. 《니모를 찾아서》와 《월-E》 같은 감정의 서사시를 연출하며, 결함투성이라 오히려 우리 같은 인물을 현대 애니메이션의 중심에 올려놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "321429e167d0b5842c2c7e6fd60bb9bc2538a960dab283e57141806d7d0dc68f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrey-zvyagintsev",
+  "field": "intro",
+  "lang": "ko",
+  "text": "안드레이 즈뱌긴체프는 한 치도 흐트러지지 않게 구성한 도덕극으로 사람을 무너뜨리는 러시아의 작가다. 유럽 영화제가 아끼는 이름인 동시에, 푸틴 체제를 향한 맹렬한 비판자이자 망명자다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9bacf25e5449a18d2c8e9b0ffb2bfd7e048401d86e1f2da81fcdd73cb3c5f24c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ang-lee",
+  "field": "intro",
+  "lang": "ko",
+  "text": "이안은 장르를 옮겨 다니며 길을 낸 대만 감독이다. 억눌린 욕망과 바깥에 선 자들의 정체성을 그의 카메라는 끝까지 이해하려 든다. 가족의 작은 드라마부터 시각효과의 판을 바꾼 대작까지, 동양과 서양의 영화를 감정의 정확도 하나로 잇는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8a7dd94abd7d25aca0a574fc133da24ad89178ea419501c5be83f21d3041796d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "anthony-russo",
+  "field": "intro",
+  "lang": "ko",
+  "text": "앤서니 루소는 미국의 영화·TV 감독이다. 동생 조와 함께 클리블랜드에서 신용카드로 자금을 마련해 독립 코미디를 찍던 시절부터, 영화사상 최고 흥행작 중 하나인 《어벤져스: 엔드게임》을 연출하기까지 왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0a4b2708712ce0f5c91a6603b6a0f8fd932afa311dda76116040f9aa939e3acb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ari-aster",
+  "field": "intro",
+  "lang": "ko",
+  "text": "아리 애스터의 영화는 슬픔과 가족의 상처, 존재를 짓누르는 공포를 한 치의 빈틈 없이 조립해 관객을 무너뜨린다. 인터넷에서 악명으로 알려진 단편에서 출발해 평단이 인정하는 작가가 된 그는, 신경증적이면서 음험하게 웃긴 시선으로 현대 예술영화의 지형을 바꿔놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ad66f88df528f4ba0437d3d89ad1e82a80b141a8a69f4a7116a426bad366762"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "asghar-farhadi",
+  "field": "intro",
+  "lang": "ko",
+  "text": "오스카를 두 번 받은 이란의 작가 아쉬가르 파르하디. 도덕적으로 얽히고설킨 사실주의 드라마로 세계의 평가를 얻었다. 테헤란 연극판에서 출발한 그는 엄격한 검열을 능란하게 빠져나가며, 중산층 가정의 다툼과 윤리의 수렁을 누구나 자기 일로 느낄 이야기로 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "432d14a17d170537508df040345169e5b543a4b5f52a3ca01ab22d3e626f62e6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "barry-jenkins",
+  "field": "intro",
+  "lang": "ko",
+  "text": "배리 젠킨스의 영화는 서정적이면서 사람의 편에 선다. 흑인의 정체성, 구조가 남긴 상처, 이어지고 싶다는 갈망이 그 안에 있다. 작품상을 받아 역사를 쓴 《문라이트》가 그 정점이고, 제임스 볼드윈을 옮긴 농밀한 각색이 그 곁에 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "28e19ac3b3e6feffd39842d5ae9436159903cecceef3d123d3483ca1c1e38090"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-affleck",
+  "field": "intro",
+  "lang": "ko",
+  "text": "보스턴의 무명 독립영화에서 오스카를 쥔 신동으로 단숨에 올라섰다. 벤 애플렉은 이후 타블로이드의 과잉 노출과 알코올 중독의 공개적인 싸움을 통과했다. 그리고 미국 범죄 스릴러와 역사극을 거칠게 찍어내는 감독으로, 한 걸음씩 자신을 다시 세웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a855de6af10d6fb94b5c453202824fc02ca56987448ea287171562aadfc0cd35"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-stiller",
+  "field": "intro",
+  "lang": "ko",
+  "text": "배우이자 코미디언이자 감독. 벤 스틸러는 날 선 풍자 코미디로 이름을 알린 뒤, 프레스티지 드라마를 깐깐하게 만드는 연출자가 되었다. 태어날 때부터 할리우드에 잠겨 살아온 사람이 그 업계와 현대의 고립을 해부하는 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9ab68c29e1c32e961a28fb20fa3af7703f72d05ff1d6cfd0fe12dbd597cc2a9b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "benny-safdie",
+  "field": "intro",
+  "lang": "ko",
+  "text": "베니 사프디는 미국의 감독이자 각본가, 배우다. 형 조시와 함께 뉴욕 영화에 숨 가쁘고 불안한 한 시대를 만들었고, 이후 홀로 연기와 연출로 갈라져 나와 자기 자리를 넓혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "df582cf6479738a24bb079e95b3bb6efa0b1c2dec547c58ae9d7012c50823baf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "bernardo-bertolucci",
+  "field": "intro",
+  "lang": "ko",
+  "text": "마르크스주의 시인에서 영화의 도발자로. 베르나르도 베르톨루치는 거대한 역사 서사시와 프로이트적 내면 분석을 한데 묶었다. 20세기 이탈리아의 이념적 격동을 담아내며 외설 재판까지 겪었고, 이탈리아인으로는 유일하게 아카데미 감독상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "46f4b9b11d96257a0cd277bd70062496e6aabf8947284b2b083b95a59e64a7c0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "bi-gan",
+  "field": "intro",
+  "lang": "ko",
+  "text": "비간이 만드는 영화는 최면적이고, 시간을 접었다 편다. 기억과 후회가 그 재료다. 안개 낀 고향 카이리에 뿌리를 둔 그의 작품에는 날것의 사실성과 초현실이 뒤섞이고, 기술적으로 무모한 롱테이크와 직접 쓴 시가 흐른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c628cc5abf876ab0f00a8cbed1c5aa01d4fa730fd24749812884c5169d17d492"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "billy-wilder",
+  "field": "intro",
+  "lang": "ko",
+  "text": "나치를 피해 달아난 오스트리아계 유대인. 빌리 와일더는 면도날 같은 재치로 할리우드에서 가장 냉소적인 이야기꾼이 되었다. 유럽에서 가져온 어두운 감각을 무기 삼아 필름 누아르와 스크루볼 코미디, 매서운 사회 풍자를 넘나들며 미국의 금기를 하나씩 해체했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7cca3c7834ffb3ccaa155a7082af6ef49de5903b840b3d558ffd1af6f46bb315"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "bong-joon-ho",
+  "field": "intro",
+  "lang": "ko",
+  "text": "장르를 섞어 사회를 찌르는 데 능한 감독. 봉준호는 한국의 민주화 운동을 통과해 세계 영화의 중심에 섰다. 강박에 가까운 정확성 탓에 '봉테일'이라 불렸고, 한국 감독으로는 처음 황금종려상과 작품상을 함께 가져갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9deff4af5ccfc74b9ffd3e1976a6f6befb74713cc3ca38630fc0e145359e9f48"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brad-bird",
+  "field": "intro",
+  "lang": "ko",
+  "text": "디즈니의 전통적인 손그림과 픽사의 CG 혁명을 잇는 자리에 브래드 버드가 있다. 타협을 모르는 사람. 활력이 넘치면서도 사적인 그의 영화에는 한 가지 집착이 반복된다. 평범함을 강요하는 세계에 맞서는 비범한 개인.",
+  "model": "claude-opus-5",
+  "source_sha256": "89cf61702678ff097ecfb5d1f88270dc9cbb3b1e5e64d3c8cbafe0ef9fd101f7"
+ }
+]

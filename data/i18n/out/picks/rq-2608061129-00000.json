@@ -1,0 +1,210 @@
+[
+ {
+  "entity_type": "director_pick",
+  "entity_key": "francois-ozon#8-women-2002",
+  "field": "reason",
+  "lang": "ko",
+  "text": "장난기로 치면 이만한 오종이 없다. 눈에 갇힌 저택, 사탕빛 화면, 프랑스 영화계의 전설들이 총출동한 뮤지컬 살인극. 장르를 갈아타며 노는 그의 짓궂음으로 들어서기에 가장 편한 문이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "francois-ozon#swimming-pool-2003",
+  "field": "reason",
+  "lang": "ko",
+  "text": "저자성(authorship)과 욕망을 놓고 벌이는 오종의 유희, 그 입구로는 이 영화가 가장 좋다. 범죄소설가가 머무는 프랑스 별장은 햇빛에 절어 가며 심리전의 무대로 바뀐다. 억압과 도발이 맞붙고, 허구와 현실의 경계가 지워진다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "francois-ozon#in-the-house-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "오종이 왜 중요한 감독인지 보여주는 영화. 교사는 학생이 써 온 글에 홀리고, 현실과 허구는 쉬지 않고 서로를 고쳐 쓴다. 능청스럽게 층을 쌓아 올리는 이야기 솜씨, 그가 지은 가장 날카로운 구조물이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "francois-ozon#young-beautiful-2013",
+  "field": "reason",
+  "lang": "ko",
+  "text": "사계절에 걸쳐 한 십대가 몰래 몸을 파는 자리까지 따라간다. 청소년의 성과 무심함을 이토록 차갑게, 눈 하나 깜짝 않고 들여다본 영화는 오종에게도 드물다. 정확하고, 판단하지 않으며, 구조가 반듯하다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "francois-ozon#double-lover-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "한 번 빠져든 뒤에 꺼내 볼 영화. 브라이언 드 팔마를 떠올리게 하는, 가장 야하고 선정적인 오종이 여기 있다. 쌍둥이 치료사와 얽힌 한 여자의 관계는 거울처럼 겹치는 신체 공포와 에로티시즘으로, 흔들리는 정체성으로 미끄러져 간다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "francois-ozon#frantz-2016",
+  "field": "reason",
+  "lang": "ko",
+  "text": "1차 대전이 끝난 자리의 애도를 다룬다. 맑은 흑백 화면이 이따금 색으로 피어난다. 절제된 우울, 그리고 선의로 하는 거짓말을 향한 오종의 오랜 관심이 여기서 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "krzysztof-kieslowski#the-double-life-of-veronique-1991",
+  "field": "reason",
+  "lang": "ko",
+  "text": "연결에 관한 키에슬로프스키의 형이상학이 한 편의 서정적인 이야기로 압축돼 있다. 이렌 자코브는 빛나고, 프레이스네르의 음악은 좀처럼 떠나지 않는다. 황금빛으로 물든 그의 신비주의에 몸을 담그는 가장 쉬운 방법.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "krzysztof-kieslowski#three-colors-blue-1993",
+  "field": "reason",
+  "lang": "ko",
+  "text": "삼부작의 문을 여는 편. 쥘리에트 비노슈가 슬픔과 자유 사이를 헤쳐 나간다. 눈부신 음악과 물에 젖은 이미지 덕분에, 처음 온 사람도 키에슬로프스키의 감정 계산이 얼마나 정확한지 단번에 알아챈다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "krzysztof-kieslowski#dekalog-1989",
+  "field": "reason",
+  "lang": "ko",
+  "text": "바르샤바 아파트 단지에서 벌어지는 열 편의 이야기. 각각이 십계명 하나에 느슨하게 걸려 있다. 그의 도덕과 형식이 함께 다다른 정점이자, 한 사람의 내밀한 윤리가 건조한 관찰과 만나는 자리다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "krzysztof-kieslowski#three-colors-red-1994",
+  "field": "reason",
+  "lang": "ko",
+  "text": "모델과 은퇴한 판사 사이에 우연과 감시, 그리고 인연이 얽힌다. 운명을 두고 쓴 그의 가장 풍요로운 사유이며, 도덕과 화면 양쪽에서 도달한 꼭대기다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "krzysztof-kieslowski#a-short-film-about-killing-1988",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《데칼로그》의 한 편을 늘려 만들었다. 잔혹한 살인과 국가가 집행하는 사형을 나란히 놓고, 병색이 도는 초록 필터로 찍었다. 이미 그에게 넘어온 사람에게만 주어지는 가장 어둡고 타협 없는 보상.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "krzysztof-kieslowski#a-short-film-about-love-1988",
+  "field": "reason",
+  "lang": "ko",
+  "text": "역시 《데칼로그》에서 자라난 영화다. 이웃을 훔쳐보는 청년을 불편할 만큼 오래 들여다본다. 훗날 프랑스에서 얻은 우아함, 그 아래 깔린 거친 폴란드의 뿌리가 보인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pedro-almodovar#volver-2006",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 따뜻한 알모도바르. 페넬로페 크루스가 중심을 잡고, 어머니와 딸과 작은 마을의 비밀이 이야기를 채운다. 멜로드라마와 희극과 유령이 뒤섞이는데도 문턱은 가장 낮다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pedro-almodovar#women-on-the-verge-of-a-nervous-breakdown-1988",
+  "field": "reason",
+  "lang": "ko",
+  "text": "입문에는 이 편이 제일 낫다. 버림받은 여자들, 약을 탄 가스파초, 겹쳐 울리는 전화벨. 사탕빛 화면의 소동극이 어두운 구석 하나 없이 그의 엉뚱한 활력만 먼저 보여준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pedro-almodovar#all-about-my-mother-1999",
+  "field": "reason",
+  "lang": "ko",
+  "text": "슬픔과 연극, 그리고 스스로 고른 가족이 한자리에 모인다. 여자들로 짜 올린 알모도바르의 가장 촘촘한 직물. 바깥으로 밀려난 이들을 향한 특유의 연민과 겹겹의 멜로드라마를 쌓아 올리는 솜씨를 한꺼번에 볼 수 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pedro-almodovar#talk-to-her-2002",
+  "field": "reason",
+  "lang": "ko",
+  "text": "오스카를 안긴 정점이다. 혼수 상태의 여자를 돌보는 두 남자를 다정하게, 동시에 불편하게 지켜본다. 멜로드라마와 무성영화에 바치는 헌사, 그리고 동의(consent)라는 질문이 한데 묶인 가장 단정하고 인간적인 작품.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pedro-almodovar#law-of-desire-1987",
+  "field": "reason",
+  "lang": "ko",
+  "text": "초기작이면서 겁이 없다. 게이 영화감독, 트랜스젠더인 누이, 누아르로 번져 가는 성적 집착. 알모도바르의 강박이 여기서 결정(結晶)을 이룬다. 이미 그에게 붙들린 사람이라면 건너뛸 수 없다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pedro-almodovar#pain-and-glory-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "자기 자신과 벌이는 결산. 안토니오 반데라스가 늙어가는 감독이 되어 기억과 욕망, 말라붙은 창작력을 파낸다. 톤은 낮고 사색적이며, 화려한 색채 뒤에 서 있던 사람이 그제야 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pedro-almodovar#bad-education-2004",
+  "field": "reason",
+  "lang": "ko",
+  "text": "어두운 쪽의 알모도바르. 가톨릭 학교에서 벌어진 학대, 협박, 계속 바뀌는 정체가 영화 속 영화 안에 포개진 누아르다. 기억과 연기가 어떻게 진실을 비트는지 보게 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pedro-almodovar#parallel-mothers-2021",
+  "field": "reason",
+  "lang": "ko",
+  "text": "산부인과에서 아이가 뒤바뀐 이야기에 스페인이 묻어둔 내전의 역사를 겹친다. 사적인 멜로드라마가 국가의 기억과 한 몸이 되고, 크루스는 이 감독과 함께한 작업 가운데 가장 날 선 연기를 내놓는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pedro-almodovar#matador-1986",
+  "field": "reason",
+  "lang": "ko",
+  "text": "도발하던 시절의 알모도바르가 여기 있다. 투우와 에로스와 죽음이 야하고 불온한 과잉 속에 뒤엉킨다. 훗날 그가 다듬어 쓰게 될 거친 펑크 감각을 날것으로 만난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pedro-almodovar#the-skin-i-live-in-2011",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 차갑고 가장 낯선 실험. 외과의사와 그가 가둔 사람을 다룬 임상적인 호러 스릴러이며, 정체성이라는 그의 오랜 주제를 정말로 불쾌한 장르의 영역까지 밀고 간다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pedro-almodovar#broken-embraces-2009",
+  "field": "reason",
+  "lang": "ko",
+  "text": "영화 그 자체에 부치는 연서다. 눈이 먼 감독이 끝장난 사랑을 되짚고, 그 회상은 필름 누아르와 페넬로페 크루스의 농밀한 클로즈업을 통과한다. 결국 이미지와 집착에 관한 이야기다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pedro-almodovar#high-heels-1991",
+  "field": "reason",
+  "lang": "ko",
+  "text": "모녀의 경쟁이 오페라만큼 커진다. 멜로드라마에 스릴러를 얹은 렌즈, 애절한 노래를 부르는 디바, 여장을 한 판사까지. 신이 나서 흥청거리는 이 영화는 후기의 매끈함만 아는 사람에게 훨씬 기이하게 보일 것이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pedro-almodovar#dark-habits-1983",
+  "field": "reason",
+  "lang": "ko",
+  "text": "다듬기 이전의 알모도바르가 날것으로 남아 있다. 약에 취하고 사랑에 빠진 수녀들이 카바레 가수를 숨겨준다. 신성모독에 가까운 이 희극에서 변두리에 선 자의 감각이 먼저 보인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pedro-almodovar#the-flower-of-my-secret-1995",
+  "field": "reason",
+  "lang": "ko",
+  "text": "연애소설 작가가 무너져 가는 과정을 따라간다. 알모도바르가 성숙한 감정의 리얼리즘으로 방향을 튼 지점이며, 《귀향》과 후기 전체의 씨앗이 여기 들어 있다.",
+  "model": "claude-opus-5"
+ }
+]

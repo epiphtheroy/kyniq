@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-heist-1975",
+  "field": "lead",
+  "film_id": "10bf5441-8cfa-48bf-ac15-b494537e6e2c",
+  "lang": "en",
+  "text": "Eighty-three minutes, and the walls close in twice: first the prison, then the punishment cell inside it. Felipe Cazals sets this in Lecumberri, where three convicts celebrate a delivery of drugs brought in by one of their mothers and are found out almost at once. The apando is where they go next. The film cares less about the smuggling than about the arithmetic around it — what a visiting mother is worth to men with nothing else to trade, how quickly a small favor becomes evidence, how a grievance sealed inside one cell still travels down a corridor and gathers other men to it. Cazals keeps the running time short and the space shorter. Days here are measured in shifts, in who stands on the other side of the door, and in the distance a man can be moved without ever leaving the building.",
+  "model": "claude-opus-5",
+  "source_sha256": "c05b3d80f4f372ef4d9c958feaf8a2a7be713d76c25f0d13dbbb0cdbf23cb86f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "another-dawn-1943",
+  "field": "lead",
+  "film_id": "7b875cf7-3e6b-405b-a96a-fe9b14c8a02c",
+  "lang": "en",
+  "text": "She married a man whose career never arrived, and then on an ordinary evening she runs into Octavio. He is a union activist being hunted by a corrupt politician, with hours rather than days to spare; she has a marriage with nothing in it and a good reason to stay out late. Julio Bracho keeps the film after dark, which turns romance into logistics: who can carry a message, which door opens from the inside, how long a man can stand in a lit doorway. What it notices is not whether she loves him but how much she likes the danger — the errand is the first thing in years to require her nerve. The politics stay concrete, a question of who holds which office. And the wife who goes down into the underworld is not slumming; she is finally being asked for something.",
+  "model": "claude-opus-5",
+  "source_sha256": "9bf312adc4c4c53f3a49b194d7c6e7aca5ac474f8f686a7df3582fb886060f1c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "my-son-the-hero-1961",
+  "field": "lead",
+  "film_id": "3cbc95d1-1df9-427e-87a5-82b2368072c5",
+  "lang": "en",
+  "text": "The mother tells her two sons what is owed, and the instruction does not expire. Their father was killed while riding beside them in northern Mexico early in the last century, and Reynaldo and Martín grow up with the fact treated not as grief, which fades, but as an assignment with a name on it. Ismael Rodríguez builds it as a western, and the genre does real work here: horses, long distances, a territory where the law is a rumor, all of it shaping two boys into men trained for one purpose. What that training costs is the actual subject, and it shows early, in the way the two of them are spoken to at home. Ninety-seven minutes, no detours. The person worth watching is the one who set the terms and then stayed behind while they were carried out.",
+  "model": "claude-opus-5",
+  "source_sha256": "209dff41d4d29ac523593db475721be02bb9385c16fdf94e2423c9a72f98d63f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "oh-what-beautiful-legs-1948",
+  "field": "lead",
+  "film_id": "5da4a5af-9f23-4ce3-a77f-4a3f8398ee18",
+  "lang": "en",
+  "text": "The job is to impersonate a bankrupt mogul whose creditors are still out looking for him. The second job, which nobody mentioned, is to mount a musical revue with performers from Brazil, Mexico and Spain, without money, while handling three starlets who all have an eye on what they take to be the producer's fortune. Tin Tan — Germán Valdés — plays the impostor as a man who has decided that exposure is a scheduling problem. Gilberto Martínez Solares keeps the numbers arriving and the creditors close. It is a comedy about credit in both senses: what a man is worth on paper, and what he can persuade a room to believe for one more afternoon. A hundred and one minutes, and the sums never once come out in his favor.",
+  "model": "claude-opus-5",
+  "source_sha256": "fbdb3812667143dd65bd9c8eaea93a3be888ffddd883e9df4cf0b599ec955f85"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "la-cucaracha-1958",
+  "field": "lead",
+  "film_id": "fa66ab42-e827-4016-b3cd-49a02d97ef7a",
+  "lang": "en",
+  "text": "A colonel, a widow, and a woman who fights: the Mexican Revolution supplies the camp, and the three of them supply everything else. Ismael Rodríguez puts them in the same column and leaves none of them anywhere to go, since none of the three can walk out on a triangle they are also required to fight alongside. The war contributes marches, waiting, and orders that separate people permanently, so nobody has to invent a reason for these three to be thrown together again the next morning. Ninety-seven minutes, most of them loud. What organizes it all is rank: a colonel outranks everyone in the field and nobody at all in this argument, and Rodríguez keeps finding the moment when the uniform stops helping and a man has to answer as himself.",
+  "model": "claude-opus-5",
+  "source_sha256": "4c54b2686019a7c1dfbb24bf0bf82123639664d4301719f699c8246ca978e62d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mother-krause-s-journey-to-happiness-1929",
+  "field": "lead",
+  "film_id": "67beb24a-49f9-4279-85f5-4ee056fb5b7a",
+  "lang": "en",
+  "text": "Six people share the flat: an old woman, her grown son, her daughter, a lodger, the woman he means to marry, and that woman's child. The address is Wedding, a poor district of Berlin; the year is 1929. Mutter Krause delivers newspapers and hands over what she earns, Paul drinks it, and the money owed for the papers falls due anyway — the man owed it has the word theft ready. Phil Jutzi takes 133 minutes over a story with very few moving parts, and the length is the argument: a household does not collapse in an evening, it loses one thing a week. The pawn shop is the hinge, and what crosses the counter is worthless to everyone but her. Around this, a courtyard, a staircase, and a daughter starting to listen to a young man with opinions about who arranged all of it.",
+  "model": "claude-opus-5",
+  "source_sha256": "fbf610d702776af5ec94ed65d38e9e1f022b8c20541c47456195e3f25637a42c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "black-wind-1964",
+  "field": "lead",
+  "film_id": "5bdc00cc-3100-4092-9cc6-a66eef1aa503",
+  "lang": "en",
+  "text": "A railway line has to cross the Sonora desert, and the men laying it work through searing heat by day and freezing cold at night. Servando González films the camp rather than the achievement: engineers holding a schedule, workers holding a wage, and not one evening on which those two things mean the same. Dust storms arrive without warning and halt everything; the men call them the black wind. The story comes from real work and keeps the grain of it — surveying, hauling, repairing, waiting — across 127 minutes paced by the desert rather than by incident, which is to say slowly, and then all at once when the wind gets up. Mexico sent it out as an international submission to the Academy Awards, a large stage for a film whose central event is a schedule nobody can keep.",
+  "model": "claude-opus-5",
+  "source_sha256": "75e5adb8716a04141efe7c387c1ce13fe3459819b5b2366dc6dd3fa8236cf6aa"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "night-falls-1951",
+  "field": "lead",
+  "film_id": "e36a22f4-ec48-4e7f-aa1d-639948962c28",
+  "lang": "en",
+  "text": "Marcos wins for a living and leaves for pleasure, and both are done in public. He is a jai-alai professional, good enough to be indulged, careless with the women he takes up and drops, and the premise is that a man this predictable can be scheduled by somebody else. Roberto Gavaldón spends 88 minutes on the scheduling. The crime at the center is not a robbery but a revenge cut precisely to one man's vanity, which requires knowing his week better than he knows it himself: which nights he plays, which women he has stopped calling, how reliably his pride answers when addressed. Nothing exotic is needed to bring it off, only patience and an accurate estimate of his character. Marcos stays confident the whole way through. It is what makes him easy to move.",
+  "model": "claude-opus-5",
+  "source_sha256": "17af9bd11a48b2b7306b555961507cadc4ba91e5de267d4c9394e83f60f07c05"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "pueblerina-1948",
+  "field": "lead",
+  "film_id": "45d4fc83-f3a7-43ee-b7d4-8ee360045d42",
+  "lang": "en",
+  "text": "The land is there, the marriage is willing, and the brothers González own everything around both. Aurelio Rodríguez comes out of jail wanting an ordinary life: a field to work and Paloma to bring home to it. The village has already assigned him a lower place than the one he intends to take. Emilio Fernández films this as a question of property — whose field, whose water, whose word counts — and the jail term behind him is useless to him and permanently available to the men who matter locally. The tension comes from the smallness of the ambition. Nobody here is trying to change a country; a man wants to plow his own ground and be let alone, and even that has to be approved by two brothers who have never yet been refused.",
+  "model": "claude-opus-5",
+  "source_sha256": "e8344ed8820c32b45e764a21ae72726ce789eddcf9e15de68bfaf706cac70ae0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-golden-cockerel-1964",
+  "field": "lead",
+  "film_id": "45a45c58-3cff-4291-935e-d5662a80ccc0",
+  "lang": "en",
+  "text": "The birds keep winning, which is how a poor man in the cockfighting business becomes interesting to a rich one. He is hired, and a run of luck turns into an employment arrangement with a ceiling on it. Then both men want the same woman. Roberto Gavaldón lets it play out where the business happens, in a Mexico where a fight is also a market and a wager is also a public statement about what a man thinks he is worth. Across 105 minutes nobody mistakes love for a matter separate from money; the woman is competed for in the same rooms and by the same instruments as everything else. The bet Gavaldón is watching is the quieter one — a man wagering that his luck belongs to him rather than being lent.",
+  "model": "claude-opus-5",
+  "source_sha256": "96bf1c083037e273763a965aa207ea0c2ca90a6c5b8de5d2a6de2be02f360825"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-shadow-of-the-tyrant-1960",
+  "field": "lead",
+  "film_id": "15a49dfb-4edf-4163-bfc4-6818c215a9e0",
+  "lang": "en",
+  "text": "The men being groomed to replace the president discover that succession is not a process but a favor. Mexico, the 1920s: El Caudillo is still in office, the candidates to follow him are circling, and he has already made clear that kidnapping, betrayal and murder are instruments available to him should the arithmetic call for them. Julio Bracho stages this as procedure — meetings, corridors, the correct forms of address between men who understand each other perfectly. A hundred and twenty-nine minutes is long for a thriller and exact for a conspiracy, because the suspense lies in watching intelligent men calculate slowly and wrongly. Each of them can see the shape of the thing and believes himself the exception, and the film gives them all the time they need to be certain.",
+  "model": "claude-opus-5",
+  "source_sha256": "b7b6f79ea69867bc4dcfe74d3544174bb6257ee529f42f24c16a22e9ee859615"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "naufragio-1977",
+  "field": "lead",
+  "film_id": "efaf75ec-d2b0-4aa0-b69e-4581eb41c4b6",
+  "lang": "en",
+  "text": "The letters keep arriving from a ship somewhere, and the son who writes them has not been home in years. His mother reads them out to a friend at work, and the friend begins assembling a man from the pages — a better one, in all likelihood, than the sailor at sea. Jaime Humberto Hermosillo keeps the film at the eye level of two working women, which is where the odd thing happens: an absent person becomes shared property, then something closer to a claim. A hundred and one minutes, most of it talk, and each conversation is doing something other than what it says. Hermosillo understands how much company a mother's grief can supply, and how quickly a story told often enough stops belonging to the person it is about.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d01419b2c8cc66b12680abde697efb09ae2189c49f477378088fffd5cb192d1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-berliner-1948",
+  "field": "lead",
+  "film_id": "3a9ee966-3192-47d2-ac34-f37220a68e4d",
+  "lang": "en",
+  "text": "Black-market prices and government paperwork stand between Otto and an ordinary afternoon. He is a defeated man in a defeated country, where every transaction he needs is either priced past him or requires a stamp, and his answer is to picture a better life somewhere past the queue he is currently standing in. Robert A. Stemmle made it in Germany in 1948, as a comedy, which is a decision worth sitting with: the first audience was living inside the conditions being joked about and could not step out of them at the end. An honor at the British Academy Film Awards says the joke also travelled to people who had never queued for anything. Eighty-nine minutes, and the Everyman is generic on purpose — not a survivor with a story, just the next man in the line.",
+  "model": "claude-opus-5",
+  "source_sha256": "191898031751264b89535ed9c6697d0c06f0b8b9459eaa939688f24e339f2092"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "wild-flower-1943",
+  "field": "lead",
+  "film_id": "200426e7-2a84-476d-9cd1-8e7bb4f6c735",
+  "lang": "en",
+  "text": "A landowner's son marries a laborer's granddaughter, and in this part of Mexico that is already a position taken. Castro joins the revolutionary movement, his father disowns him, and Esperanza stays, which the film treats as the more deliberate of the two acts. Emilio Fernández directs and also turns up in the cast, standing inside his own frame. Ninety-four minutes. The revolution here is not battles but consequences measured at household scale: what a family will refuse to send, who is no longer welcome where, how two people live on the wrong side of both their names while the countryside decides what it is going to be. The romance is the mechanism rather than the decoration. Everything costly in the film is paid for by people who own almost nothing.",
+  "model": "claude-opus-5",
+  "source_sha256": "533f34ab5a625418688c7cdd9f139e2021dc5ef1718ce7e1946c84ed929ea99b"
+ }
+]

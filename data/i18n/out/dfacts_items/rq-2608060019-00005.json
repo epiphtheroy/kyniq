@@ -1,0 +1,182 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuar-n#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "할리우드의 거물 시드니 폴락은 쿠아론의 데뷔작 《Sólo con tu pareja》를 보고 깊은 인상을 받았다. 그래서 이 젊은 멕시코 감독을 직접 불러 1993년 네오누아르 TV 시리즈 《Fallen Angels》의 한 에피소드를 맡겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3009852c49a4e9debabbea5a7c8dfe35ae330af307db094858b8787afa712e7f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuar-n#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1998년작 《위대한 유산》 현대판 각색을 연출한 일을 그는 공개적으로 깊이 후회해왔다. 잘못된 이유로, 개인적 연결고리 하나 없이 만든 유일한 영화라고 여러 차례 말했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b55cc6ca89abf427917ccfeb1c907bfc16363dd3f99e4fbd98836fd7b929dfc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuar-n#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "할리우드 스튜디오 경영진과 부딪히며 자기 목소리를 잃었다고 느낀 그는, 입안을 헹구듯 성적으로 노골적인 로드무비 《이 투 마마》를 찍었다. 의도된 선택이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0a98ffbdf151172ba1328fda82a393544393e4330641afb36c8fabca3ad0a2d7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuar-n#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "어린 《해리 포터》 배우들이 배역을 이해하도록 쿠아론은 각자 자기 캐릭터에 관한 에세이를 써 오게 했다. 결과는 극 중 인물 그대로였다. 에마 왓슨은 열여섯 장을 썼고, 대니얼 래드클리프는 한 장을 냈으며, 루퍼트 그린트는 끝내 제출하지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d3ffcf689548b1e40ca2e1ae8485fce13c3ca619832331fc31913072239aefaf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuar-n#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "인공어 에스페란토의 열렬한 옹호자인 쿠아론은 자기 제작사 이름을 \"Esperanto Filmoj\"로 지었고, 세계 에스페란토 운동을 공개 지지해왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "50917c90f6d30dc6ad7c3ef66ef0c4828e876b96deb40316e75483fae51a49eb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuar-n#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "디스토피아 걸작을 준비하면서 그는 원작인 P. D. 제임스의 소설 《The Children of Men》을 끝내 읽지 않았다. 줄거리 요약만 손에 쥔 채, 불임의 미래에 관한 자기만의 사회정치적 그림을 그렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "75e5b9e7ccf58438737978933941c139619880d1c5297c19246d809e8f7db2f8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuar-n#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《칠드런 오브 맨》의 그 유명한 롱테이크 액션 장면. 가짜 피가 카메라 렌즈에 그대로 튀었다. 쿠아론은 \"컷!\"을 외쳤지만 폭발음에 목소리가 묻혔고, 결국 그 거칠고 우연한 화면이 완성본에 남았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f3ea46570e8f32501d4552d40d6f17a1e34580cde5c15af115584dff405e1ed"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuar-n#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "기예르모 델 토로, 알레한드로 곤살레스 이냐리투와 함께 그는 \"영화계의 세 아미고\"를 이룬다. 서로의 각본과 러프 컷을 사정없이 물어뜯고 다듬어주는 사이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d1ceabb9ecf6a21b3620c04f1af1ad4f120c49340f7f6fb372946a183a8e36a3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuar-n#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《그래비티》의 끊기지 않는 무중력 환영을 찍을 기술이 세상에 없었다. 그래서 쿠아론과 촬영감독 에마뉘엘 루베즈키는 3년에 걸쳐 수백만 개의 LED를 두른 20피트짜리 \"라이트 박스\"를 만들어내는 데 힘을 보탰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "75cf2500f7867748061aef66792dabae5a45dc097ca87f6799e7788c9eb4450a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuar-n#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "숨 막히게 조여드는 《그래비티》의 각본은 장남 호나스 쿠아론과 함께 썼다. 작은 독립영화 아이디어로 출발한 것이 거대한 스튜디오 블록버스터가 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f708215fbca665d37d5ecb5ea5ea143a60bc4b3546a1e69c8a141eb85df3135"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuar-n#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2014년 《그래비티》로 감독상을 받으며 쿠아론은 아카데미 감독상을 수상한 최초의 라틴아메리카 영화인이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e4402b1ebf9cbf45838ad03bf10084b29d85973530f39f9c679e474804be0d0b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuar-n#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《로마》의 주연은 갓 졸업한 유치원 교사 얄리차 아파리시오였다. 연기 경험은 전혀 없었다. 그를 택한 이유는 하나, 실제 자신을 키워준 유모 리보의 기운을 고스란히 품고 있었기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5e955e81ba2dd57e1d4806c35d527ba59f280311e1308bb7c186d8ea3147fd7a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuar-n#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생의 촬영감독 에마뉘엘 \"치보\" 루베즈키가 일정이 겹쳐 《로마》에서 빠지게 되자, 쿠아론은 과감하게 직접 촬영감독을 맡기로 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e54ea24b1fe75df5c6274a813b81c5f00d6b5e1954f4d70600896ccb877409c9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuar-n#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2014년 《타임》은 그를 세계에서 가장 영향력 있는 100인으로 선정했다. 소개 글을 쓴 사람은 J. J. 에이브럼스였다. 문화적 영향력이 공인된 순간이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e47f3b9a65acb3b446f5ca924231b7dfb111d9cbf4b141b1b0f832dbaaa9bf97"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuar-n#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "동생 카를로스 쿠아론과 자주 손발을 맞춰왔다. 오스카 후보에 오른 《이 투 마마》의 각본도 형제가 함께 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a2a10060285fbb6177deacbaf391f6ace9fb0a2be03d3c832aabb521d7dbfeef"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuar-n#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "엄청난 성공과 여러 차례의 아카데미 수상에도, 그는 끝내 CUEC 영화학교를 정식으로 졸업하지 못했다. 말썽 많던 퇴학은 경력의 사형선고가 아니라 디딤돌이었던 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c7817d9b122c29bb048cabd91e963d60b0e56e9a8872fabaf37218248faf3d7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuaron#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "약학 생화학자였던 어머니는 안정된 직업을 요구했다. 그는 타협안을 냈다. 오전에는 멕시코 국립자치대학교에서 철학을, 오후에는 CUEC(Centro Universitario de Estudios Cinematográficos)에서 영화를 공부하는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d6baf8c54e7342924b3a48c51eb3a6e8aa1530f7743f40f3ecfa68f9dab60d7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuaron#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "단편 《Vengeance Is Mine》을 영어로 연출했다는 이유로 그는 영화학교에서 쫓겨났다. CUEC 교수진에게 그 선택은 멕시코 문화에 대한 용납할 수 없는 배신이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "67f0859d5db5d1e7a8b34f4c39aba9e847adbb2f12b9124952539f68dee7d977"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuaron#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생의 벗 기예르모 델 토로와의 첫 만남은 멕시코 TV 앤솔러지 《La Hora Marcada》 작업 현장에서였다. 델 토로가 다가와 대뜸 던진 말은, 쿠아론이 각색한 스티븐 킹 이야기가 \"형편없다\"는 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "769d76a55b910aecdfb62c726f51a6b2f416302fef65e63b776ff70248d5fc17"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuaron#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "쿠아론의 데뷔 장편 《Sólo con tu pareja》에 크게 감탄한 할리우드의 거물 시드니 폴락은 1993년, 이 젊은 멕시코 감독에게 직접 연락해 네오누아르 TV 시리즈 《Fallen Angels》의 한 편을 맡겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3009852c49a4e9debabbea5a7c8dfe35ae330af307db094858b8787afa712e7f"
+ }
+]

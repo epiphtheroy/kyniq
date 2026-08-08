@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dream-of-a-cossack-1951",
+  "field": "lead",
+  "film_id": "28cd14c3-1778-411d-bb56-5da8a261e14d",
+  "lang": "en",
+  "text": "The credits call the leading man Semyon Bondarchuk; the actor's name was Sergei. He plays a soldier back from the war in the Kuban, meaning to farm, who instead talks the district into a canal and a power station. Yuli Raizman had done this before and knew the trick: policy arrives on screen as if one man had thought of it over breakfast, and the crowd that follows him seems to be following its own idea. The source is a popular novel by S. Babayefsky, and the machinery shows. Enthusiasm spreads person to person on a schedule; the romance keeps pace with the earthworks. What is worth 112 minutes now is less the argument than the surface it was built from: fields, water, concrete, and a young actor asked to embody a construction programme while looking like a man in love.",
+  "model": "claude-opus-5",
+  "source_sha256": "a008b0d5255102509be350889466b0c7ccd44987545d0fcd99a2c97562829c52"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "stepbrothers-1958",
+  "field": "lead",
+  "film_id": "7ce0793e-d8c8-46ca-b671-2f0e1c11decd",
+  "lang": "en",
+  "text": "A boy grows up in a house run on military lines, where his half-brothers are permitted to hit him and no one above them objects. He is illegitimate; that is the whole of his offence and the whole of their licence. Miyoji Ieki keeps almost everything indoors and lets the years run, 1921 to 1946, so that the rules are never argued, only applied, morning after morning, by whoever outranks whom. The cruelty is kept ordinary on purpose: who eats first, who kneels, who is spoken to and who is spoken about. And the film is explicit about what it thinks the house is for. The arrangement in this dining room is the arrangement running the country outside it, and both hold together on the same principle, which is that no one inside is permitted to disagree. 110 minutes, and the door stays shut.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1ea36fc86737214cef7ed6240629d731baca5b7d966c8ff61aad6cb2b706df6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "summer-with-hope-2022",
+  "field": "lead",
+  "film_id": "9b62e9a2-1c27-439b-b99b-1e57ad01d205",
+  "lang": "en",
+  "text": "A father will consent to the divorce his wife wants, but only if the boy swims well enough. That is the deal Omid is handed, and it holds even after a paperwork problem locks him out of the competition he trained for, so he moves to open water and to a coach named Mani. Sadaf Foroughi keeps the pressure administrative and domestic: a form, a signature, a rule nobody will overturn, which is harder to dramatise than a race. Then the talk starts. A teenager and an older man in the water together for hours a day, and the neighbours supply their own account of it, repeated until it stops needing evidence. Ninety-nine minutes, in Persian, made out of Canada, and most of what threatens this boy arrives by word of mouth rather than by anything he does.",
+  "model": "claude-opus-5",
+  "source_sha256": "968243543244e80d0840a9f184e30aee5b0ecd34027d43e07ebd8671d74e3b10"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "cantata-de-chile-1976",
+  "field": "lead",
+  "film_id": "6cc8aed9-3cff-48fb-90cb-668e3f93c64e",
+  "lang": "en",
+  "text": "Sixty-nine years separate the killing from the film: miners shot in Chile in 1907, the picture made in Cuba in 1976. Humberto Solás gives the episode 119 minutes, the length of a war epic rather than an incident report, and the choice is itself the argument, that the Santa María School was where an arrangement long in place finally became visible. Two hours on a single atrocity means long stretches in which nothing advances and something accumulates instead. Spanish-language, Cuban-made, about someone else's country: the dead here are handled as a matter for the household. A film reaching back that far, from that distance, is not trying to report the week. It is trying to keep the week from settling into the past, where it would be safe.",
+  "model": "claude-opus-5",
+  "source_sha256": "ce942f939a8f57a7c270dfc5b1532226e5105936b61147a70ec0c487aef2bd10"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "krapatchouk-1992",
+  "field": "lead",
+  "film_id": "0706f050-4ac1-47b6-8070-8611314dea73",
+  "lang": "en",
+  "text": "Their country stopped existing while they were away at work, and a ticket clerk in Paris is the one who has to tell them. The two had gone west as guest workers, put money aside, and were changing trains for home; now the passports in their hands name a place with no border left to cross into. Enrique Gabriel plays it as comedy, and the jokes are administrative: the wrong stamp, the shrug, the queue that leads to another queue. Then the luggage goes. Then the newspapers decide they are Russian spies, on the grounds that this makes a better story than two men with nowhere to be. Paris takes them in anyway. Exiles feed them, a Spanish hatmaker warms to one of them, and the city quietly supplies what the state has withdrawn.",
+  "model": "claude-opus-5",
+  "source_sha256": "95f2b14cfbd37bdb16831d5cd7812f066916c316a01297fbbca9a3963841acdb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-sudden-glimpse-to-deeper-things-2024",
+  "field": "lead",
+  "film_id": "25be5a66-fbbc-4dc5-ab9e-78fa8e640b96",
+  "lang": "en",
+  "text": "In May 1949 a painter climbed to the top of the Grindelwald glacier, and what she saw up there rearranged the rest of her looking. Wilhelmina Barns-Graham had come from St Ives, where the modernists had set up shop; the ice handed her a problem those rooms could not, something solid and transparent at once, and she never put it down. Mark Cousins builds the film around that climb rather than around a career, which is the riskier structure: no chronology to lean on, only the question of what a person's eyes do after a shock. Eighty-nine minutes. A glacier makes a poor subject for a portrait and a good one for this argument, since it moves, it is never empty, and looking at it is work. Documentaries about painters film the paintings. This one is after the seeing.",
+  "model": "claude-opus-5",
+  "source_sha256": "3ddbee93dcf8980fd2b0f952f45f8a0319f8df1acb76846fdca70f0885ef0168"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-street-to-die-1986",
+  "field": "lead",
+  "film_id": "f2357752-5b4f-4a77-b198-8cf61dc51fe8",
+  "lang": "en",
+  "text": "What this film has instead of a villain is a burden of proof. An Australian veteran of Vietnam falls ill, decides the defoliant sprayed over him is the reason, and then has to establish that in a forum built to doubt it. Bill Bennett gives it ninety-one minutes and stages most of them in rooms where nothing dramatic is permitted: kitchens, corridors, offices where a claim is processed or is not. The medical question cannot be settled. What can be shown is a household spending its savings and its patience while a sick man spends his remaining strength on documents. It took the AACTA for best actor in a leading role, which is the right shape of recognition for a picture resting on one body losing an argument with time.",
+  "model": "claude-opus-5",
+  "source_sha256": "be34dc51be9518975b1ea1fc873de2f51cde942b520bf713f2df0634f260506f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "better-go-mad-in-the-wild-2025",
+  "field": "lead",
+  "film_id": "b1f07400-1572-41b8-b01d-af18367937b5",
+  "lang": "en",
+  "text": "Two brothers who share a farm, a routine and a face, and one of them has begun to find that unbearable. Franta and Ondra keep animals, keep house, keep each other; their days have no seam in them, no hour that belongs to one and not the other. From outside they read as the same man printed twice. Inside, one wants out and the other cannot imagine why, and Miro Remo's camera stays in that gap for 77 minutes without offering to close it. It took the Czech Lion for documentary. The tenderness is real and so is the suffocation, and the film declines to rank them, which is what makes it hard to look away from and harder to feel good about. This is not a study of eccentrics. The two of them are the ones being crowded, and the crowding is mutual.",
+  "model": "claude-opus-5",
+  "source_sha256": "7918ffe27497b4e5f72498fd31d5aaff29bd12db94dfb84070384705d5bcffe6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "accused-1964",
+  "field": "lead",
+  "film_id": "35754569-aa03-4d7e-b344-5dd2e75fdc40",
+  "lang": "en",
+  "text": "A London doctor whose reputation precedes her is accused of sexual misconduct, and the person the film watches hardest is her wife. Anubhuti Kashyap builds it as a thriller, which is the honest genre for the material: an allegation moves faster than any process designed to test it, and every room the doctor enters has been briefed before she gets there. The marriage takes the impact first. Her wife has access both to the woman herself and to the version of her now circulating, and the two do not line up cleanly enough to make loyalty a simple decision. A Hindi-language picture set among London professionals, 107 minutes, most of it careful conversation between people who know they are being read. It keeps its camera where the wife is standing: close, and short of the file.",
+  "model": "claude-opus-5",
+  "source_sha256": "c0d5269cc1881eba776cd008ff552ea98808266a39a5206d44823cabbbcc6d25"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "savage-2018",
+  "field": "lead",
+  "film_id": "71083a3a-54a4-495a-8aee-25a955e16d97",
+  "lang": "en",
+  "text": "Snow shuts the road to a police post high on Mt. Baekdu, and the only visitors it gets are the ones who should not be there. Cui Siwei's setup is nearly a stage play: one officer, one building, weather that makes leaving worse than staying, and a transfer order that cannot arrive until the pass clears. The thieves who come in from the storm want shelter first and something else second. From there it runs on the oldest engine in the genre, two parties in one room who cannot both be comfortable, and spends its 112 minutes on physical facts. Cold, distance, how long it takes to cross open ground when the ground is white and moving. An action picture that draws most of its threat from a thermometer, and patient about that in a way the genre usually is not.",
+  "model": "claude-opus-5",
+  "source_sha256": "27c7408f609de3ee6288e301c7d0d5c9f99574ddd23aa4b49899fa999dc76ea6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bingo-the-king-of-the-mornings-2017",
+  "field": "lead",
+  "film_id": "3cbf7447-7f1f-4841-968d-3e52c17b506c",
+  "lang": "en",
+  "text": "He hosts one of the most-watched children's shows in Brazil and no one who watches has ever seen his face. Under the powder and the red nose is Augusto Mendes, an actor who got here by way of porn studios and soap operas, and who wanted exactly the recognition the costume now makes impossible. Daniel Rezende sets it in 1980s television, auditorium programmes, colour turned all the way up, standards nobody would sign off on today, and takes his comedy from how well the arrangement works and how badly it serves the man inside it. Fame arrives every morning and belongs to a clown. The Grande Prêmio do Cinema Brasileiro named it best film, which for a picture built out of wigs, sequins and studio noise is worth knowing. 113 minutes, and the laughs come with an invoice.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9eba355512073658e14ab3987fba3f54a1e44b1cd6b6a903818cf336d2f1db2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-way-home-2002",
+  "field": "lead",
+  "film_id": "e498170e-62f0-420c-8e89-077ca58b9ab8",
+  "lang": "en",
+  "text": "A woman who cannot speak is handed a seven-year-old who has not yet learned to stop demanding. Sang-woo arrives from the city with the appetites of the city; his grandmother has spent her whole life in one village and cannot answer him in any currency he recognises. Lee Jeong-hyang builds everything on that imbalance and allows herself 86 minutes, which leaves no room for a subplot to soften it. Much of the film is conducted in errand and gesture, what gets carried, what gets cooked, how long the walk takes, because one of the two people has no other vocabulary on hand. It took the Grand Bell for best film. The small cruelties of a bored child are filmed without excuse or commentary, and that decision is what makes the rest of it land.",
+  "model": "claude-opus-5",
+  "source_sha256": "3114782820df84c47e0852a2dc6e4083914c1625dfe331a3e80169bc64d59914"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-ballad-of-narayama-1958",
+  "field": "lead",
+  "film_id": "2c3aae95-f6c7-423f-b0ac-9319287a6ddf",
+  "lang": "en",
+  "text": "The village has a rule about its old people: at seventy, the children carry them up the mountain and leave them there. Orin is sixty-nine. She has made her peace with the arithmetic, which turns out to be the easy part, since the difficulty is her family, who have not, and whom she now has to get ready, practically, the way a household gets ready for a season. Keisuke Kinoshita keeps the scarcity in frame throughout. No one here is cruel; there is simply not enough rice, and the rule is what a shortage looks like once a few generations have agreed to obey it. Kinema Junpo named it the best film of its year. Ninety-eight minutes, most of them spent on household business that would be unremarkable if the calendar were not running underneath it.",
+  "model": "claude-opus-5",
+  "source_sha256": "b1964bfed51b308d5e8ffb7345fa87d589ab74547bf4e7bcd356cb1960271605"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "chronicle-of-an-escape-2006",
+  "field": "lead",
+  "film_id": "64fda6ae-6727-4c36-bf1e-b4a7770ac44b",
+  "lang": "en",
+  "text": "A minor-league goalkeeper is taken from his house in 1977 by men working from bad information. Claudio Tamburrini was not a terrorist and had nothing to give the people asking, which inside an unofficial detention house is the worst position available: the questioning does not end when there is nothing left to confess, it ends when somebody decides it should. Nobody in the building needs him to be guilty. Adrián Caetano films the place as what it plainly was, a building that had been something else first. Most of the 103 minutes are spent among the men still alive that week, learning each other's names and the shape of the day. It took the Silver Condor for best film, and it works in the register of a thriller rather than a memorial, trading solemnity for alertness.",
+  "model": "claude-opus-5",
+  "source_sha256": "89766acfd35819695018806bc2ce0e621eb00fa5b2f335156ce5ebe9f9ff8d57"
+ }
+]

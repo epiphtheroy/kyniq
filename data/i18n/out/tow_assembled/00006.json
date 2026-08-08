@@ -1606,7 +1606,7 @@
   "entity_key": "monty-python-and-the-holy-grail-1975",
   "field": "rationale",
   "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films에 이름을 올렸고, 일반 관객에게도 대단히 유명하다 · 국가 정전: GB · 작가 Terry Gilliam의 계보를 통해 다시 값이 매겨진. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films에 이름을 올렸고, 일반 관객에게도 대단히 유명하다 · 국가 정전: GB · 테리 길리엄 감독의 작가 계보를 통해 값이 다시 매겨진다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
   "model": "claude-opus-5",
   "source_sha256": "4eba49bf46bc43e777483f093dcd02dae0b75278e44d4396b54f17d5d5148ac5"
  },
@@ -3244,7 +3244,7 @@
   "entity_key": "night-of-the-living-dead-1968",
   "field": "rationale",
   "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 National Film Registry에 올랐고 널리 알려져 있다 · 국가 정전: US · 작가 George A.의 계보를 통해 다시 값이 매겨진. Romero의 계보를 통해 다시 값이 매겨진. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 National Film Registry에 올랐고 널리 알려져 있다 · 국가 정전: US · 조지 A. 로메로 감독의 작가 계보를 통해 다시 평가받는다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
   "model": "claude-opus-5",
   "source_sha256": "250ba4d16b02e445b7df66fccfd893ade8699ad91ffb2496b4786aa53fcd407f"
  },
@@ -3937,7 +3937,7 @@
   "entity_key": "nouvelle-vague-2025",
   "field": "rationale",
   "lang": "ko",
-  "text": "작가 Richard Linklater의 정전화된 작업 세계가 떠받치는 작품, 어느 정도 알려진 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "text": "리처드 링클레이터 감독의 정전화된 작업이 떠받치는 작품이고, 어느 정도 알려져 있다 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
   "model": "claude-opus-5",
   "source_sha256": "12acd2f3d3c3269357b949a2ca6bd3277be2ee9ce5745ff176f9f0d965ffc6a2"
  },
@@ -4360,7 +4360,7 @@
   "entity_key": "oldboy-2003",
   "field": "rationale",
   "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 Grand Prix에 올랐고, 일반 관객에게 대단히 유명한 · 국가 정전: KR · 사조: 한국 뉴웨이브 · 감독 박찬욱의 작가 계보를 통해 다시 평가된다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "text": "정전의 핵심에 놓인 작품으로, TSPDT 1,000 Greatest Films와 심사위원대상에 올랐고, 대중에게 대단히 유명하다 · 국가 정전: KR · 사조: 한국 뉴웨이브 · 감독 박찬욱의 작가 계보를 통해 다시 평가된다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
   "model": "claude-opus-5",
   "source_sha256": "74b19ba8fd8f2275c36d90bc396ce23ba8d5d9df774365b672bf88de30b6b981"
  },

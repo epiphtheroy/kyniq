@@ -1,0 +1,272 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "abbas-kiarostami",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "이름 '압바스'(عباس)는 아랍어에서 왔고, '사자' 혹은 '준엄한'이라는 뜻이다. 성 '키아로스타미'(کیارستمی)는 페르시아어다. '왕' 또는 '통치자'를 뜻하는 '키야'와, 페르시아 서사시 《샤나메》의 신화적 영웅 '로스탐'이 결합했고, 끝의 '-이'는 혈통이나 관계를 나타내는 접미사다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f574a652cefe13d6592caa6e8ae165c33f350b289b121860964328528950de40"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "adam-mckay",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'애덤'은 히브리어 אָדָם('Adam)에서 왔다. '사람'이라는 뜻이자 '붉다'는 뜻이기도 한데, 성서의 첫 인간을 빚은 붉은 흙을 가리킨다. 'McKay'는 스코틀랜드 게일어 'Mac Aodha'의 영어식 표기로 '아오의 아들'이라는 뜻. 아오는 고대 켈트의 신이고, 그 이름은 '불' 또는 '불꽃'을 의미한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "90447e7dff82c9fa7b447f5dab6b3569d1176bca55ecd6ff2c7eca3af7b0b80c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "agnes-varda",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "스스로 택한 이름 '아녜스'는 고대 그리스어 Ἁγνή(하그네)에서 왔다. '순수한', '정결한'이라는 뜻이다. 본명 아를레트는 노르만-프랑스어의 애칭형으로 게르만어 'arn'(독수리)에 뿌리를 둔 것으로 보인다. 그리스식 성 바르다(Βάρδας)는 '장미'를 뜻하는 아르메니아어 'vard'에서 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c84cfd17c9ad842a19105ef238f7f4194a4d87c633d72e568a842f2a86e3d97"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "akira-kurosawa",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "일본어로 구로사와는 黒澤라고 쓴다. '검다'(黒)와 '늪'(澤)이 붙은 이름이다. 이름 아키라(明)는 '밝다', '맑다', '총명하다'를 뜻한다. 흐린 성과 밝은 이름이 한 사람 안에서 시적인 대비를 이룬다.",
+  "model": "claude-opus-5",
+  "source_sha256": "79ba0324c8d523ced58e391f801f9ad1d0da9f545f774a80c5c9d3623e347ccc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alain-resnais",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'알랭'은 켈트계 이름 앨런의 프랑스식 변형으로 '잘생긴' 또는 '작은 바위'를 뜻한다. '레네'는 브르타뉴 지방의 성씨다. 고대 프랑스어 'resne'(고삐)에서 나온 것으로 보이며, 본래는 마구나 가죽 제품을 만드는 사람을 가리켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "113d8ddd022ef5f71b618be96c5b6b1cba4fc3dcf4ac3e3cbe163be819677027"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alejandro-gonz-lez-i-rritu",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'알레한드로'는 알렉산더의 스페인어형으로, 그리스어 '알렉산드로스'(사람을 지키는 자)에서 왔다. '곤살레스'는 '곤살로의 아들'을 뜻하는 부칭이고, 곤살로는 '전투' 또는 '전쟁'을 의미하는 서고트계 이름이다. '이냐리투'는 바스크어에 뿌리를 둔다. 'inar'(히스, 또는 불똥)에 접미사 '-tu'가 붙어 대략 '히스가 자라는 곳' 혹은 '반짝이는'이라는 뜻이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a63000fa61c23902cbc78c4f1a78f6f6157cb8b7a441e22919de70183472dc0d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alejandro-gonzalez-inarritu",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'알레한드로'는 알렉산더의 스페인어형이며, 그리스어 '알렉산드로스'(사람을 지키는 자)가 그 뿌리다. '곤살레스'는 부칭으로 '곤살로의 아들'을 뜻하는데, 곤살로 자체가 '전투'나 '전쟁'을 가리키는 서고트계 이름이다. 바스크계인 '이냐리투'는 'inar'(히스, 또는 불똥)와 접미사 '-tu'가 합쳐진 말로, 대략 '히스가 자라는 곳' 또는 '반짝이는'으로 옮길 수 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a63000fa61c23902cbc78c4f1a78f6f6157cb8b7a441e22919de70183472dc0d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alex-garland",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'알렉스'는 알렉산더의 애칭이고, 알렉산더는 그리스어 '알렉산드로스'(Ἀλέξανδρος)에서 왔다. 지키다라는 뜻의 'alexein'과 사람을 뜻하는 'andros'가 합쳐져 '사람을 지키는 자'가 된다. '갈런드'의 어원은 고대 프랑스어 'garlande'다. 상으로, 왕관으로, 혹은 장식으로 머리에 쓰던 꽃과 잎의 화관을 가리키던 말이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "03140e59dc87bbd71d0301859cfe02bdc084f0babef03c44725492271046361e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuar-n",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "알폰소라는 이름은 게르만어 'Adalfuns'에서 왔다. '고귀하고 준비된' 또는 '민첩한'이라는 뜻이다. 성 쿠아론은 아스투리아스와 스페인 계통으로, 역사적으로 이베리아 반도에 집중되어 있었다. 지역 지명에서 왔거나 '가죽'을 뜻하는 'cuero'에서 파생했다고 본다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d65f38e33be8c8caaef949e6fca6a373e2458c96d5d7a8e003a9833d307c8dd8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuaron",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "게르만어 'Adalfuns'가 알폰소의 뿌리다. 뜻은 '고귀하고 준비된', 또는 '민첩한'. 쿠아론이라는 성은 아스투리아스와 스페인에서 왔고 역사적으로 이베리아 반도에 몰려 있었다. 어원은 지역 지명이거나, 가죽을 뜻하는 'cuero'로 추정된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d65f38e33be8c8caaef949e6fca6a373e2458c96d5d7a8e003a9833d307c8dd8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfred-hitchcock",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "앨프리드는 고대 영어 'Ælfræd'에서 왔다. '요정의 조언'이라는 뜻이다. 히치콕은 영국식 부칭 성씨다. 중세에 리처드를 줄여 부르던 'Hitch'에, 젊은 사내나 도제를 가리키는 접미사 '-cock'이 붙었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "32d6a033aae548a54bbe33c6863f2b7a9623cbd17a65447b35ff6af99474c206"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ali-abbasi",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "아랍어 이름 알리(علي)는 '높은', '고귀한', '으뜸가는'이라는 뜻으로, '높이'를 의미하는 어근 'Uluww'에서 나왔다. 성 압바시(عباسی)는 페르시아어와 아랍어의 부칭으로 '압바스에 속한'을 뜻한다. 압바스는 글자 그대로 '사자' 또는 '준엄한'이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d6d05e862bc801b4423a726d603cf984a03745b0ada438e979e1189f61902187"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrea-arnold",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "안드레아는 그리스 이름 안드레아스의 여성형이다. '남자다운', '용감한'을 뜻하는 'andreia'에서 나왔다. 성 아널드는 게르만계로, 'arn'(독수리)과 'wald'(힘, 또는 지배자)가 붙은 말이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d0e4551c2875d768281e7e50d34591947e47577ae427d461a186b7cab0208d2b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrei-tarkovsky",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "안드레이(Андрей)는 그리스어 '안드레아스'에서 왔다. 남자답다, 용감하다는 뜻이다. 성 타르콥스키(Тарковский)는 폴란드 귀족 성씨 타르코프스키에서 비롯됐다. 타르카라는 이름의 영지와 연결되거나, 튀르크계 존칭 '타르칸'에서 나왔다고 본다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7af8ec2a583414a43fbbe63180acacfa8050ac043ff9cfa36343ec09e08b3300"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-haigh",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "앤드루라는 이름은 그리스 이름 안드레아스(Ἀνδρέας)에서 왔다. '사람'을 뜻하는 'aner'에 뿌리를 두고 '남자다운', '용감한'을 의미한다. 헤이는 고대 영어 'haga'에서 나온 지형 성씨다. 산울타리를 두른 땅이나 울타리 친 집 가까이 사는 사람을 가리켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e42808dbaa533dc65448be554a8291469f26c3aa7dab43ddcea73c7825f8bdca"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-stanton",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "앤드루는 그리스어 '안드레아스'에서 온 이름으로, '남자다운' 또는 '용감한'이라는 뜻이다. 스탠턴은 고대 영어 계통이다. 'stan'(돌)과 'tun'(울타리 친 땅, 또는 마을)이 합쳐져, 돌 많은 땅에 사는 사람을 뜻했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ad2dd575c99ddb7fd65713c0fb3c688a2c8cb1dcb90967f57e58e7d65a204ed"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrey-zvyagintsev",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "안드레이(Андрей)의 뿌리는 그리스어 '안드레아스', '남자답다' 또는 '용감하다'는 뜻이다. 성 즈뱌긴체프(Звягинцев)는 러시아 방언 명사 'звяга'(즈뱌가)에서 왔다. 본래 개가 요란하게 짖는 소리를 가리켰고, 나아가 시끄럽고 다투기 좋아하는 사람을 뜻했다. 접미사 '-체프'는 '~의 후손'이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b7536109c5bd288a0152b98c980cc4814d14cbccd5978532be0c5f704854ebef"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ang-lee",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "한자로는 李安(리안)이라고 쓴다. 성 李(리)는 '자두' 또는 '자두나무'를 뜻하며 중국에서 가장 흔한 성 가운데 하나다. 이름 安(��)은 '평안', '안전'이라는 뜻인데, 중국 본토를 떠나 대만에 안착한 것에 대한 감사를 담아 아버지가 지어준 이름이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cded7f6c9e93765ec56694ee110c27a31c1add4407677fd83fdc14c147d82c9c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "anthony-russo",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "앤서니는 로마의 씨족명 안토니우스에서 왔다. 에트루리아계로 어원은 알 수 없고, 훗날 '꽃'을 뜻하는 그리스어 'anthos'(ἄνθος)와 잘못 결부됐다. 루소는 이탈리아 성씨로, '붉다'는 뜻의 후기 라틴어 'russus'가 뿌리다. 원래는 붉은 머리나 불그레한 얼굴을 가진 사람을 부르던 별명이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bf6208de2a6a106c7b48c1f109c7131362af178706b78db6218904f3d7eb4f6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ari-aster",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "이름 아리는 히브리어(אֲרִי) 계통으로 '사자'를 뜻한다. 성 아스터는 고대 그리스어 'ἀστήρ'(아스테르), 곧 '별'에서 왔다. 아슈케나지 유대인 혈통이 여기 묻어 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f53f7b23b173e678c875c3f45193e6df0b93f3f7132c8bf72beb455e175cf47e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "asghar-farhadi",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "아스가르(اصغر)는 아랍어에서 온 이름으로 '가장 작은' 또는 '가장 어린'을 뜻하며, 예로부터 막내아들을 가리켰다. 파르하디(فرهادی)는 파르하드(فرهاد)에서 나온 페르시아 성씨다. 파르하드는 12세기 니자미 간자비의 서사시 《호스로와 시린》에 나오는, 산을 깎던 비극적 연인이다. 어원에는 '환희' 또는 '돕는 자'라는 뜻이 담겨 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6ce369d50f0f1b7ab3754e29b4d5416444f980a62fe457712a734dcd9869249"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "barry-jenkins",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "젠킨스는 플랑드르와 잉글랜드 계통의 성이다. 부칭으로 쓰여 '젠크의 혈족'을 뜻하는데, 젠크는 '신은 자비롭다'는 뜻의 존을 줄인 말이다. 이름 배리는 아일랜드 이름 바러의 영어식 표기다. 바러는 핀바르의 애칭형으로 '금발의' 또는 '흰 머리의'를 뜻한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "81568a3c683c99ba4441093baea8b5b12e0dbdf6622af0aa76e4a925034b3aaa"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-affleck",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "벤저민은 히브리어 'Binyāmīn'(בִּנְיָמִין)에서 왔다. '오른손의 아들'이라는 뜻이다. 스코틀랜드계 성 애플렉의 뿌리는 게일어 'Achadh nan Leac', 곧 '평평한 돌들의 들판'이다. 중간 이름 게자는 헝가리 전통 이름인데, 홀로코스트를 살아남은 가까운 친구를 기리며 부모가 붙여준 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bfbecb616d0d578b692f14d0e8bbbd01776971571e737db077fe532d94e72d0c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-stiller",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "벤저민은 히브리어 בִּנְיָמִין(빈야민)에서 온 이름으로 '오른손의 아들' 또는 '남쪽의 아들'을 뜻한다. 스틸러는 독일계이자 아슈케나지 유대인의 별명 성씨다. 중세 고지 독일어 'stille'에서 왔고, '고요한', '조용한', '말 없는'이라는 뜻이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d2979fc2175379ac1259e94c90a63362196861de56946a73155cbde3f5a30a0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "benny-safdie",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'베니'는 히브리 이름 벤저민(בִּנְיָמִין, 빈야민)의 애칭으로 '오른손의 아들'을 뜻한다. 성 '사프디'(صفدي)는 아랍계이자 세파르디 유대인의 지명 성씨다. 레반트 갈릴리 지방의 도시 사페드(츠파트)에 조상의 뿌리가 있음을 가리킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d35dff6fcf910d6188b720dec70b771534f654d938cdf304e32358d3c2541d02"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "bernardo-bertolucci",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "베르나르도는 베르나르의 이탈리아어형이다. 게르만어 'bern'(곰)과 'hard'(용감한, 굳센)가 합쳐져 '곰처럼 용감한'이라는 뜻이 된다. 베르톨루치는 베르톨루초에서 나온 부칭 성씨다. 베르톨루초는 베르토의 애칭형이고, 베르토의 뿌리는 '빛나는' 또는 '이름난'을 뜻하는 게르만어 'beraht'다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e0655315b0c977d517005ae5e06e9a83a0a6758751697e7972d3e3ece9164ad"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "bi-gan",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "한자로는 毕赣이라고 쓴다. 성 毕(비)는 '끝나다', '마치다'라는 뜻이다. 赣(간)은 장시성을 가리키는 공식 약칭이자, 그 지방을 흐르는 큰 강의 이름이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5cf30d324a92b546f00347fde62fd9b7f3c085f71f216bc22eecf5ad0df38e7f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "billy-wilder",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "본명은 새뮤얼 와일더다. '새뮤얼'은 히브리어 שְׁמוּאֵל(슈무엘)에서 왔고 '신이 들으셨다'는 뜻이며, 게르만계 성 '와일더'는 길들지 않은 기질을 가리킨다. 어머니가 미국 순회 흥행사 버펄로 빌 코디에게 푹 빠져 있던 탓에 아들을 '빌리'라 불렀고, 그 별명이 그대로 이름이 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "19ba9a996312d1444bda3903407e96df174a8ba402bfe1f40c3ba920db5e016e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "bong-joon-ho",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "봉준호(奉俊昊)는 대략 '드넓은 하늘을 받드는 재능 있는 사람'으로 풀린다. 성 봉(奉)은 바치다, 받들다라는 뜻이고, 준(俊)은 재주가 뛰어남을, 호(昊)는 여름날의 광대한 하늘을 가리킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a589bb662656433b5debfe10891936a5497f2230e3b7a5295eeadb7950abf67f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brad-bird",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'필립'이라는 이름은 그리스어 필리포스(Φίλιππος)에서 왔고 '말을 사랑하는 자'를 뜻한다. '브래들리'는 고대 영어 brad(넓은)와 leah(숲속 빈터)가 합쳐진 말이다. 성 '버드'의 어원은 고대 영어 bridd로, 예전에는 새 잡는 사람을 가리키는 직업 성씨로 쓰였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cad963b28d582c3c370c9a2bc5f9d96f90aaa5a653ab00bf5ebd432070428236"
+ }
+]

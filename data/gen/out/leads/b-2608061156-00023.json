@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "love-field-1993",
+  "field": "lead",
+  "film_id": "a7532b6e-5a57-4c2b-9ad1-5c2bdcb5bc85",
+  "lang": "en",
+  "text": "A Dallas housewife decides she will be at the president's funeral, and everything after that decision is a matter of transport. Lurene Hallett has followed Jacqueline Kennedy the way other people follow a team; she sees the president arrive in Dallas, and a few hours later he is shot. Her husband forbids the trip east. She takes a bus, and the bus is where the film really happens: a white woman with far too much to say, seated near a Black man traveling with his young daughter, the three of them collecting suspicion at every stop. Jonathan Kaplan holds the scale to a highway and a hundred minutes, so the pressure arrives through other passengers, through a husband making telephone calls, through police who have been handed a description. What she means by helping and what the road will permit are not the same thing.",
+  "model": "claude-opus-5",
+  "source_sha256": "5fe13535507536f024e4e4fd8c910bcfacdab4abf63dadd5dc32108452410310"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "la-traversee-de-paris-1956",
+  "field": "lead",
+  "film_id": "f9e33143-70de-4eef-ae6a-45eafa292c10",
+  "lang": "en",
+  "text": "Four suitcases of black-market pork, and the whole width of Paris to carry them across. Claude Autant-Lara builds an entire film out of that errand: two men with no reason to know each other, cases too heavy to look innocent, and an occupied city in which any doorway may hold someone who talks. Eighty minutes, short enough that the walk itself is the plot. The comedy comes from how ordinary the crime is - people are hungry, the pig is real, everyone in the chain takes a cut, and the war is being fought elsewhere by other people. Then it stops being funny, because the arithmetic that makes a butcher rich also makes a neighbour worth something to the authorities. Hunger organises the city more efficiently than any occupier manages to.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b75f53f967e76fea3cf976ca2ec89b2569702b96729c51dc3c05967b996baaf"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "house-of-strangers-1949",
+  "field": "lead",
+  "film_id": "9c28b4c1-4ad3-410f-bde3-ca83e6cec965",
+  "lang": "en",
+  "text": "A father is arrested, and three of his four sons treat the arrest as an opening. Gino Monetti's bank is a family business in the most literal sense: the sons work for him, resent him, and take the desk the moment he is vulnerable. Only Max, the lawyer, stays. Joseph L. Mankiewicz films this as a domestic argument that never quite lowers itself into one, since everyone here is articulate, and articulate people can do enormous damage without raising a voice. Crime sits in the genre listing and belongs there, but the working machinery is inheritance - who was put to work, who was sent to school, which son was raised to believe he was owed something. A hundred and one minutes later, loyalty looks about as compromised as the betrayal it gets measured against.",
+  "model": "claude-opus-5",
+  "source_sha256": "6ab62421b08c7425046c21f99f341700afe9533e3023083ff65b0258813607a3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-double-hour-2009",
+  "field": "lead",
+  "film_id": "3ebd04c3-55cc-4dd0-afa7-53e7483b3b42",
+  "lang": "en",
+  "text": "A hotel chambermaid signs up for speed dating; so has a former policeman, and neither of them explains why. The setup is a rented hall, a bell, a few minutes per stranger, and Giuseppe Capotondi takes it seriously as a way of meeting someone: two guarded adults finding out they can talk. For a long stretch this is a romance filmed with unusual patience - corridors, laundry, the flat quiet of a hotel between guests - shot as though something is expected to give way underfoot. It does. The film then asks a question most thrillers skip, which is how much of a person one is entitled to know before extending trust. Ninety-five minutes, tightly held. The tenderness early on is not a setup for a trick; it is what everything afterward has to survive.",
+  "model": "claude-opus-5",
+  "source_sha256": "14246a148b7ebb9755169dd1beb74860a499353552bf20174c4f29933e069298"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "things-change-1988",
+  "field": "lead",
+  "film_id": "dcd5f3f7-6ae1-4c58-8357-f016a97730f0",
+  "lang": "en",
+  "text": "The Mob needs someone to confess to a murder, and the man they settle on repairs shoes. Gino agrees, for money and a promise, and is handed a minder: Jerry, low enough in the organisation to be trusted with a job that is mostly sitting in a room. They do not stay in the room. Out in the world, the old man's courtesy, which is only the manner of someone who has spent his life fitting other people's feet, gets read as the composure of a very senior figure, and the error compounds. David Mamet writes the misunderstanding as a matter of diction: almost nobody lies outright, sentences are simply allowed to do the work. The comedy is exact and a little cold. Under it sits a plain question about what a man's word is worth once he has agreed to sell it.",
+  "model": "claude-opus-5",
+  "source_sha256": "7704f3773b161d67739bd6d61674a967ee8a5553e889a9a79f700819ca7b9e35"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "la-grazia-2025",
+  "field": "lead",
+  "film_id": "93d10a38-c09d-41ab-aef0-be019ebe9a3e",
+  "lang": "en",
+  "text": "The term is nearly over, and what remains on the desk are the decisions nobody else can be asked to take. Mariano De Santis is President of Italy with months left in the job, and Paolo Sorrentino builds the film out of consultation: the man asks, listens, delays, asks again. The Volpi Cup went to that performance, and the choice is legible - most of the picture is one face declining to announce what it has concluded. His closest confidante is his daughter, Dorotea, which puts every political judgement in the same room as a family one and gives her counsel a weight no official could carry; she will still be his daughter after the office is handed on. A hundred and thirty-three minutes is a long sit for a picture with so little event. The length is the argument.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d377c90d267f55a36ad5be1badaa7d997fea5b04ff1bb1a11f6a71ab8564cf1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "20-000-species-of-bees-2023",
+  "field": "lead",
+  "film_id": "f7357815-3b50-457a-acbe-101a490aef71",
+  "lang": "en",
+  "text": "Lucía is eight, and the adults around her are still catching up with something she has already settled. The summer holidays give the film its shape: no school, no schedule, weeks in which nothing has to be resolved by Friday. Around her are the women of the family, whose own lives turn out to be under negotiation as well, so that the child's question quietly opens theirs. Estibaliz Urresola Solaguren keeps the camera low and lets scenes run past the point where a message would arrive, and across 127 minutes almost nothing is raised above conversational volume. The Silver Bear went to the performance at the centre, which is the right place for it: a small girl is asked to hold every scene while the grown-ups talk around her, and she does.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7237c6c250345de5cddf165a8f611428ca18db56106ac6d5637b9075b354e10"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "fill-the-void-2012",
+  "field": "lead",
+  "film_id": "3eb5d2c1-3ea5-45be-8252-6b07002c4d1f",
+  "lang": "en",
+  "text": "Marriage here is arranged by the family, and the eighteen-year-old at the centre of the arrangement is expected to agree with her whole heart. Shira has a match, a date and every reason to be happy; then the household goes into mourning, the wedding is postponed, and a second proposal appears - that she marry her sister's widower. Rama Burshtein films from inside the community rather than at it, and the real subject is procedure: how a proposal travels through a family, who is permitted to raise it, who may refuse and at what price. Shira's mother has an argument that is neither selfish nor fair, involving a grandson who may be taken to Belgium. Ninety minutes at close range, mostly interiors. Nobody in it behaves badly, and that is the difficulty.",
+  "model": "claude-opus-5",
+  "source_sha256": "bdd4129ffc2d66a2d3635f963ead891c501bd5dd060f58c0100ad00083eedf70"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ladybird-ladybird-1994",
+  "field": "lead",
+  "film_id": "90cb7151-628d-4701-8ed7-2e04af94d727",
+  "lang": "en",
+  "text": "Social services have taken four children from Maggie, and the file explaining why enters every room ahead of her. Ken Loach begins after the damage, which is the harder place to begin: the woman on screen has already been assessed, the assessment is written down, and paper does not revise itself. Jorge, a refugee from Latin America and gentle in a way she has had little practice with, holds no stake in her history, and beside him another life is briefly available. The film stays in rooms where the power is unevenly held - an office, a waiting area, her own kitchen with a visitor taking notes. A hundred and one minutes, and no one in it is a villain. Everything she does in front of an official is read through what was recorded before she opened her mouth.",
+  "model": "claude-opus-5",
+  "source_sha256": "65835f7cdedadb73f40b350289230fca1e7bcd1fd0dd9519932c61b082aa9ca6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "seduced-and-abandoned-1964",
+  "field": "lead",
+  "film_id": "c39ee372-a718-4798-98ec-4e448b3daae7",
+  "lang": "en",
+  "text": "Agnese's mother finds out first, her father second, and from that hour the household is running a small frantic administration. The man involved is engaged to Agnese's sister, so every available repair breaks something else. Pietro Germi plays it as farce delivered with a straight face: two hours of negotiation among people who agree completely about the rules and cannot afford to be seen breaking them. Solutions get proposed, all of them marriages, each costing someone more than the last. Vincenzo Ascalone, a prominent man in a small Sicilian town, treats his daughter's situation as an emergency with a deadline. Agnese, who did the thing everyone is discussing, is the party nobody consults. The laughter is loud, and it curdles where protecting a daughter and protecting a name stop being separable.",
+  "model": "claude-opus-5",
+  "source_sha256": "43d1e9bdd0fab34fbb31bdd0c8c409869bee80146fe46b260902a35364348651"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-horse-s-mouth-1958",
+  "field": "lead",
+  "film_id": "940bc5d4-c7f3-4213-9554-6d348d804427",
+  "lang": "en",
+  "text": "What Gulley Jimson wants is a wall - large, blank and belonging to somebody else - and he will take a household apart to reach one. Out of prison, broke and without a trace of shame, he installs himself in the penthouse of patrons who made the error of going away. He paints their wall. He pawns what is portable. A hole appears in their floor. Ronald Neame keeps it to ninety-five minutes and lets the trouble stay physical, one object at a time, while the talk runs fast and literary and unrepentant; the adapted screenplay took an Academy Award, and the writing is doing most of the driving. What saves this from being a comedy about a sponger is that the painting is meant seriously. The next surface Jimson has his eye on is a church nobody is using.",
+  "model": "claude-opus-5",
+  "source_sha256": "010b808f1d00fb7a8afc7a7074471eea2d13bbdf36a5a6d88a2250885ef412ea"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "london-river-2009",
+  "field": "lead",
+  "film_id": "3c4a6134-7088-4fc2-a684-00c8147cad3a",
+  "lang": "en",
+  "text": "Two strangers arrive in London to look for their missing children, and the city they have come to has just been bombed. Rachid Bouchareb gives them eighty-seven minutes and the plain mechanics of searching: desks, photographs, lists of names, the same few questions put to people with no reason to remember. The pair have nothing in common but the errand, and the errand keeps returning them to the same corridors. Both are outsiders in a place that, after the 2005 attacks, has started sorting its residents out loud. Bouchareb shoots in English under an Algerian flag, and that arrangement carries its own account of how the young end up in a city their parents have to be shown around. The patience is the method. Two people knock on doors.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a0315ded7ea08e2190ce039286d06a13abd6c8da592e1cc72bd763c930bc9ed"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sacco-vanzetti-1971",
+  "field": "lead",
+  "film_id": "ab49b782-43a9-4dd9-a953-23ec0aad7762",
+  "lang": "en",
+  "text": "Boston, 1920: two Italian immigrants are charged with murder, and their politics reach the courtroom well ahead of the evidence. Giuliano Montaldo made the film half a century later, with French money and in Italian, which is already a statement about whose account this is. Most of the 125 minutes go to procedure - hearings, testimony, the patient accumulation of what a court will admit and what it waves through - because the unfairness lives there rather than in any single villain. Nicola Sacco and Bartolomeo Vanzetti are anarchists, and the film neither tidies that away nor makes them charming; their beliefs are argued at length in the room where those beliefs are being used against them. The tension is which parts of a system fail, and in what order.",
+  "model": "claude-opus-5",
+  "source_sha256": "d3998bef3a7ea6612194564e7b03e82dd9121174b286d17c9778f25246c34bba"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "love-and-anarchy-1973",
+  "field": "lead",
+  "film_id": "1671ba64-740d-40f6-af99-d1ad44b96e72",
+  "lang": "en",
+  "text": "The assassination is planned out of a brothel, which is both the safest available address and the worst. Tunin's qualification for the job is that a friend of his tried it and was killed; the task transfers to him the way a debt does. Salome, who works in the house and has her own dead man to answer for, does the planning, and a third woman is brought in. Lina Wertmüller spends two hours and six minutes largely on waiting: rooms full of women, a business that has to carry on as usual, a date on a calendar only three people can read. Then the plan meets an obstacle nobody budgeted for, which is that the days keep being pleasant. The women start weighing a life against a gesture, and the film treats that hesitation as serious rather than cowardly.",
+  "model": "claude-opus-5",
+  "source_sha256": "c4ce480d3c96877071d9146f8ac4f4031672c561b45cb9a9c908423d3d163e08"
+ }
+]

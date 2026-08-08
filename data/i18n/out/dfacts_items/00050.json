@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lou-ye#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 같은 배우들을 거듭 부른다. 블랙리스트에 오른 감독과 일하느라 본토에서의 경력을 걸어야 하는 사람들, 그 배짱 있는 소수의 무리다. 대표적인 얼굴이 친하오. 러우예의 영화 네 편에서 주연을 맡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd2fa5582fa9836dacbe9734cd9e9c49802b59dbb777d89158e46f9e0b75c6b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luca-guadagnino#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "팔레르모에서 태어났다. 아버지는 시칠리아 사람이었고, 어머니는 카사블랑카에서 자란 알제리 사람이었다. 유년의 첫 시절은 에티오피아에서 보냈다. 그곳에서 아버지가 이탈리아 문학과 역사를 가르쳤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b3177b2e7a1b1af6abd3f776d7e79dd257487dcebacbcce2c6c2e97dd19525ba"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luca-guadagnino#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1977년, 가족은 아디스아바바를 떠났다. 마르크스-레닌주의 데르그 정권의 폭력을 피해서였다. 팔레르모로 돌아왔을 때 그는 여섯 살이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "72611fe69f935d7670b003a7d2881e477ffa061228582531f7afb7b0180b553b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luca-guadagnino#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "로마 라 사피엔차 대학에서 문학과 영화사를 공부했다. 졸업 논문의 주제는 미국 감독 조너선 드미였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "202ed7ae908bba5942de89318715089e35f16c5c0743cfcd75769fc42060eec3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luca-guadagnino#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1994년, 로마의 한 호텔로 틸다 스윈튼을 찾아갔다. 데뷔작 《The Protagonists》의 주연을 맡아달라고 설득했고, 그렇게 평생의 뮤즈이자 동료를 얻었다. 20년 넘게 이어지는 협업이 거기서 시작됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "77095ba615ad60450a527aaf2663c9c82e8543b5986fa404e0ce03207051a88b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luca-guadagnino#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화 밖에서는 Studio Luca Guadagnino를 운영한다. 성공한 인테리어 디자인 회사다. 로마와 런던의 럭셔리 스킨케어 브랜드 이솝 매장, 코모 호숫가의 개인 주택들이 이 회사 작업이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de3fec324a06a63f16cf48ba556efc6a45ba8b037656dd3d0fcc555e0195fd42"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luca-guadagnino#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《콜 미 바이 유어 네임》을 찍으며 원작 소설의 배경을 이탈리아 리비에라에서 롬바르디아 내륙의 소도시 크레마로 옮겼다. 이유는 단순했다. 그가 거기 17세기 팔라초에 살고 있었고, 촬영 기간에도 제 침대에서 자고 싶었던 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a76db16eca44609709b1140dfc690f6dd2b47ed6aa595749203bb6ff18fb45dc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luca-guadagnino#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "각본가 제임스 아이보리와 가벼운 설전이 공개적으로 오갔다. 아이보리는 《콜 미 바이 유어 네임》에서 남성의 전면 노출을 뺀 결정을 두고 \"헛소리\"라고 대놓고 비판했다. 구아다니노의 반박은 이랬다. 노골적인 노출은 이 영화의 다정한 톤을 망쳤을 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "be93802358287720c78fe0f7e3371cce8dc31c0423ec5d7fe7aea7bd8ccac928"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luca-guadagnino#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2020년에는 명품 구두 장인 살바토레 페라가모를 다룬 장편 다큐멘터리를 연출했다. 그전까지 초기 독립영화의 제작비는 펜디, 아르마니, 카르티에 같은 브랜드의 하이패션 광고를 찍어 마련했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "73c44afb2cc9f5a7ffdac807f4ae73bfb1934d1a82c98695473edf376b34b40b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luca-guadagnino#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "어린 시절 그를 사로잡았던 《서스페리아》를 다시 만드는 데 몇 년을 바쳤다. 그러나 2018년 완성작에 대해 원작자 다리오 아르젠토는 공개적으로 손을 저었다. \"원작의 정신을 배신했다\", 게다가 공포라고는 조금도 없다는 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a9f57a23395d19d55243dbc14306a2eed07c1854e1150b83c0fc80977d1eef86"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luca-guadagnino#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2013년 《Bertolucci on Bertolucci》를 공동 연출했다. 전부 아카이브 자료로만 엮은 다큐멘터리이자, 영화적 영웅 베르나르도 베르톨루치에 대한 헌사다. 베르톨루치는 카메라가 관능적으로 배회하는 구아다니노 특유의 화면에 결정적인 스승이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "616cba659e862ab565630bc42de97afefdf4a42d1f1faaac6c529dad5df7cfb0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luca-guadagnino#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "드물게 텔레비전으로 건너간 작업이 2020년 HBO 미니시리즈 《We Are Who We Are》다. 여덟 편 전부를 그가 연출했고, 촬영은 이탈리아 베네토에 통째로 지어 올린 미군 기지 복제 세트에서 이뤄졌다. 세부까지 공들인 거대한 세트였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e9b2a322291870beb82e42f38fc8a8d19ccbaa811ee265ceede84bc9ca67a8cb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luchino-visconti#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "본명은 루키노 비스콘티 디 모드로네 백작. 1277년부터 1447년까지 밀라노를 무자비하게 통치한 가문의 직계 후손이다. 그 집안 문장에는 사람 아이를 삼키는 독사가 새겨져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ad67f81ca52003a3cd11f8494ec3d6e15fd7188100d1d7c7e53f228638c74513"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luchino-visconti#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "어머니 카를라 에르바는 이탈리아 최대 제약 재산의 상속녀였다. 덕분에 어린 비스콘티는 밀라노의 팔라초에서 자랐다. 집 안에 개인 극장이 있었고, 상주하는 하인이 수십 명이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ff662beb07a624be93924f7344ae51cc475f4be3c6c4b406b8778778768a55ea"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luchino-visconti#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화로 들어서기 전, 이십대의 그는 경주마 사육으로 이름을 날렸다. 그가 운영한 마구간은 밀라노 시 대상까지 거머쥐었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "225bfe0fa11a85944f29cd6731175d288b247e409a0f430edb3a54f575ed60c8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luchino-visconti#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화 이력의 문을 열어준 사람은 패션 디자이너 코코 샤넬이었다. 그의 주선으로 서른 살의 귀족은 1936년작 《시골에서의 하루》에서 장 르누아르의 조감독으로 일하게 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2543bc5289ddbb500c378de01e5c7d79e8f28463fcfff24dc9bb76e1892cf62e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luchino-visconti#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "엄청난 부자였던 백작에게 마르크스주의를 처음 일러준 사람도 장 르누아르였다. 이때부터 평생의 역설적인 정체성이 시작된다. 이탈리아 공산당에 한결같이 표를 던진 \"붉은 귀족\".",
+  "model": "claude-opus-5",
+  "source_sha256": "48cd1ba119d7ec6736cffb03e5ad02a4cf81acbe3cb389bffdf76f4e27975a58"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luchino-visconti#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1943년 데뷔작 《강박관념》은 제임스 M. 케인의 《포스트맨은 벨을 두 번 울린다》를 판권 없이 옮긴 영화였다. 파시스트 당국은 격분해 네거티브를 공개적으로 불태웠다. 비스콘티는 복제 프린트 한 벌을 몰래 남겨두었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d6941a644def997634494c940c3daa4e4ba936a2a239e355144b74a717471ff"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luchino-visconti#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2차 대전 동안 비아 살라리아의 호화로운 로마 저택은 다른 용도로 쓰였다. 반파시스트 파르티잔과 몸을 숨긴 연합군 병사들의 은신처였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b0f12cb4b4931069e0c47c9af9fdf1eed978cff0bd0e6a406849d7fa36615ca"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luchino-visconti#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1944년 4월, 악명 높은 파시스트 고문 기술자 피에트로 코흐에게 체포됐다. 임시 감옥에서 보낸 시간은 보름. 처형을 면한 것은 바티칸에 연줄이 두터웠던 배우 마리아 데니스가 갑자기 나서준 덕이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ceea35e3127254477d094e2c67de58464ca1d6a6f67852288bc987a592ec64b0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luchino-visconti#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1948년 네오리얼리즘의 걸작 《흔들리는 대지》는 제작비 전액을 이탈리아 공산당이 댔다. 비스콘티는 실제 시칠리아 어부들만 카메라 앞에 세웠다. 그들의 사투리는 알아들을 수 없을 정도여서, 결국 표준 이탈리아어 자막을 붙여야 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb7af45311cae8ae864fa17d834a9f9be62027338042b718e3c93ecec5448459"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luchino-visconti#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "젊은 프랑코 제피렐리와 격정적인 연애를 시작해 몇 해를 함께했다. 제피렐리는 비스콘티의 저택으로 들어와 세트 디자이너 겸 조수로 일하며 연출을 배웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dfbbb204e191bb20b737a40218931d41fad88130b957f56a7d5d048e8e5be58f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luchino-visconti#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1954년 베네치아 영화제에서는 실제로 주먹다짐이 벌어졌다. 비스콘티의 조수 제피렐리와 페데리코 펠리��� 지지자들 사이의 일이다. 은사자상을 두고 펠리니의 《길》이 비스콘티의 《센소》를 제친 직후, 판정 시비가 몸싸움으로 번졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f142b33626dafbf6ad3819479b9956633b9bb4a6050bf1548d98edd14e32d1f7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luchino-visconti#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1954년 라 스칼라에서 마리아 칼라스를 《베스타의 무녀》로 연출하며 오페라계의 연기 기준을 뒤집어놓았다. 뻣뻣하기로 소문났던 소프라노에게 영화배우의 심리적 리얼리즘을 요구했고, 끝내 그것을 받아냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d5e89d99c7153e70bdaa66cc991ece7fd70d3c12300887ef6c985a39872a1247"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luchino-visconti#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1964년, 오스트리아 알프스에서 로케이션을 물색하던 쉰여덟의 비스콘티가 스무 살 호텔 웨이터를 만난다. 헬무트 버거. 그는 곧 비스콘티의 뮤즈이자 주연 배우, 그리고 남은 생을 함께한 연인이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e41dc86ce368d6c045a3783e7c91b3e0c33bb394575386ffce8e7744bc1d956d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luchino-visconti#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《베니스에서의 죽음》의 타치오를 찾아 스칸디나비아와 동유럽의 학교들을 돌았다. 최종 낙점은 스웨덴 소년 비에른 안드레센. 비스콘티가 공개적으로 붙여준 \"세상에서 가장 아름다운 소년\"이라는 이름은 그에게 짐이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "11359960651b2566651d64d4d2449d57830b6380449b689e066e7aa71bf44de9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luchino-visconti#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "거친 미국 배우 버트 랭커스터와 어울릴 것 같지 않은 깊은 인연을 맺었다. 《레오파드》 캐스팅 때만 해도 비스콘티는 그를 마다했다. 나중에는 자신의 영화적 분신으로 떠받들었고, 《가족의 초상》에 다시 불렀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "82403fd119c21c5a833088fce042a22ed3f9270892598bda4a059eb603316fe0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luchino-visconti#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "젊은 시절 명연주자 로렌초 데 파올리스 밑에서 첼로를 혹독하게 익혔다. 그 음악적 소양이 깊었던 덕에, 그는 말러와 브루크너의 교향곡에 카메라의 움직임을 한 마디씩 맞춰갈 수 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "824a6e180be583f18eac9cffc4ca2454259f7280377e2c142acf5b1ae2be13fe"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luchino-visconti#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "골초였고, 끝까지 뉘우치지 않았다. 하루 120개비까지 피웠다. 심혈관계가 성할 리 없었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1911a8fc544cca177a9d0cf3b7986a4ef5ac7a6286294d2e3807eaadc7271717"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luchino-visconti#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1972년, 방대한 역사 대작 《루트비히》의 고된 촬영을 막 끝낸 직후 그는 큰 뇌졸중으로 쓰러졌다. 몸 왼쪽은 영영 마비된 채로 남았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f5efc4b11fc898d14ce6aac59ac754a0c4569ea208bb64ad3d3be11a30735904"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luchino-visconti#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "비스콘티의 유해는 수십 년간 이스키아 섬 별장 정원의 돌판 아래 놓여 있었다. 이탈리아 본토의 소란을 피하려 사들인, 초목이 무성한 땅이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d53de7713e905dfc617ecbb9ea044b151888deaa103b7a25d3ead9431a75a3a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luchino-visconti#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생 공산주의자였으나 로마에서 치러진 장례는 성대한 귀족의 의식이었다. 이탈리아 왕족과 공산당 간부, 영화계의 얼굴들이 한자리에 모였다. 그의 생을 관통한 모순이 그 장면 하나에 다 들어 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2c9da1db36e78562144eb975cd0ffdb71f0a2d036d57e970a5cf2f835b153cf4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luis-bunuel#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "부유했던 아버지 레오나르도는 쿠바에서 철물과 총기를 팔아 재산을 모은 뒤 스페인으로 돌아왔다. 어린 루이스에게는 총에 대한 평생의 집착이 남았다. 감독은 말년까지 장전된 권총을 머리맡에 두고 잠들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6eb8660b87b0a98794998ae3f05bd30954294c4b9f0f710c0b2e34c0fb1982fd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luis-bunuel#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "사라고사의 콜레히오 델 살바도르에서 엄격한 예수회 교육을 받는 동안 곤충학에 깊이 빠져들었다. 특히 거미와 전갈. 꼼꼼히 관찰하고 공부한 그것들은 훗날 그의 영화에서 초현실적 모티프로 거듭 등장한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1717a3589a4954a103525873c5d8a4f11a7f4dddc97e4dd7f73424877f0c8c98"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luis-bunuel#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1920년대 초, 마드리드의 전위적 기숙사 레시덴시아 데 에스투디안테스에 머물던 시절이다. 부뉴엘은 시인 페데리코 가르시아 로르카, 화가 살바도르 달리와 전설이 된 삼각의 우정을 맺는다. 그 밀도가 대단했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6f3e573bf6998de67be4e099e81c0f2271c2b3b731830d44db5577f613015b9d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luis-bunuel#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "파리로 건너간 뒤 장 엡스탱 감독의 조수 자리를 얻었다. 그러나 거장 아벨 강스를 도우라는 지시를 거부하자 곧바로 잘렸다. 부뉴엘은 강스를 연극적인 삼류라며 대놓고 경멸했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "56082696ab9f281c8b964ef38ee94fec1587628c65a3fe7868ba98a9f7daedd4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luis-bunuel#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아내 잔 뤼카르는 해부학을 공부하던 학생이자 올림픽 체조 선수로 1924년 파리 대회에서 동메달을 땄다. 그러나 극단적인 가부장적 질투에 사로잡힌 부뉴엘은 결혼과 동시에 그녀가 그토록 사랑하던 피아노를 다시는 치지 못하게 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "db74fccb58b56c0a79445c7c63e538467830d76f9ff3e06e6baa56ab1985e7d4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luis-bunuel#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스페인 내전 기간에는 파리에서 공화국 정부를 위해 은밀히 일했다. 선전 담당이자 무기 구매자였다. 아버지가 남긴 옛 인맥을 동원해 무기를 스페인으로 몰래 들여보냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2e7e049f183d2ce785a80aef48e193c290724a56eb596deebc61b3c7e80eeb24"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luis-bunuel#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1943년 뉴욕 현대미술관에서 일하던 그는 사임을 강요당한다. 살바도르 달리가 자서전 《살바도르 달리의 은밀한 생애》를 내면서 부뉴엘을 전투적 무신론자이자 공산주의자로 미국 당국에 고발하듯 폭로한 뒤였다. 악의가 분명한 처사였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2e3ca999984aaaf067360fe5fbac523a239a534f4b2bee136cc2a55c4b261d86"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luis-bunuel#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1940년대 중반 할리우드에 발이 묶인 채 일감이 없었다. 워너브러더스의 스페인어 더빙을 연출하며 버텼고, 기괴한 기획안을 들고 다녔지만 제작으로 이어지지 않았다. 그중 몸에서 떨어져 나온 손 이야기 하나가 나중에 피터 로어 주연의 《다섯 손가락의 야수》가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "468317fa31f3f5e78d16ad4c7741ee1b0ba4057e04ed7717718db3bb995ecebd"
+ }
+]

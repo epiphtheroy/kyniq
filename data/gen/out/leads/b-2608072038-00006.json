@@ -1,0 +1,92 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-kite-2003",
+  "field": "lead",
+  "film_id": "742c7818-9b13-4374-912f-0cfd9c9fe888",
+  "lang": "en",
+  "text": "The barbed wire runs between two halves of the same community, and the wedding is on the far side of it. Randa Chahal Sabbag takes eighty minutes over a marriage arranged across a militarised line in southern Lebanon: Lamia is fifteen, the groom is her cousin, and the crossing has to be negotiated with the men who guard it. Nothing in the setup asks for a raised voice. A girl walks a short distance and is expected to arrive an adult. Venice gave the film its Grand Jury Prize, a large gesture toward something built at the scale of household argument - a dress, a road that cannot be used casually, relatives waving from a field. The frontier is not a figure of speech here but a piece of local infrastructure, and the discipline of the film lies in how ordinary it lets that seem.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d6001da911f383f5192c7fa7047692ba17b3fb339dd67c5871f7452a8245b5f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "evening-bell-1989",
+  "field": "lead",
+  "film_id": "5d0baec4-e8b2-43f0-84d6-3fe734313d4b",
+  "lang": "en",
+  "text": "The war has ended and the work has just begun: five Chinese soldiers cross a scorched countryside burying what they find and lifting mines out of the ground. Wu Ziniu films the aftermath instead of the fighting - no charge, no bugle, ninety minutes of clearing up - and the platoon is small enough that each man's exhaustion registers separately. Somewhere ahead is a starving Japanese detachment that has not been told about the surrender. The dread comes less from that than from the arithmetic it implies: how a soldier feeds, guards and speaks to men he was shooting at last week. Berlin's Silver Bear Grand Jury Prize went to it, an honour that sits oddly on a film so committed to shovels, hunger and unglamorous labour. Wu keeps the countryside itself in view: cratered, quiet, still full of things that can go off.",
+  "model": "claude-opus-5",
+  "source_sha256": "76a9d73f45830b31f3c45c177be9f23583375885db380aeb71563b1515ff0ef6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-bookshop-2016",
+  "field": "lead",
+  "film_id": "1879b1bd-83ce-4e22-8060-018fdd5a5a75",
+  "lang": "en",
+  "text": "A shop lease in a small English town in 1959 turns out to be a political document. Isabel Coixet stages the local opposition as manners: nobody forbids the bookshop, everyone simply declines to make it possible, and the campaign proceeds through invitations, hints and the quiet borrowing of influence. The scale stays domestic across a hundred and ten minutes - orders, shelves, the question of which titles a town will tolerate on a table by the window. What holds attention is the texture of provincial power, which never has to raise its voice because it has already decided. Spain's Goya for Best Film went to it, an odd trophy for a story lived entirely inside English reticence. Coixet's real subject is how much resolve one person will spend on something as modest as selling books to neighbours who would rather she did not.",
+  "model": "claude-opus-5",
+  "source_sha256": "518754bbb7f5e8518d3d2ebe1172a874e92f6cd7250208f0cd4f1509f95cee63"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-three-faces-of-eve-1957",
+  "field": "lead",
+  "film_id": "8a130a04-8f9c-4526-ba17-7dd3bb16c99b",
+  "lang": "en",
+  "text": "In 1957 a Hollywood studio built a picture around a case file. Nunnally Johnson's ninety-one minutes are little more than a consulting room, a doctor taking notes, and a patient who arrives as more than one person. The clinical framing dates badly and is revealing for that - the confidence of the mid-century psychiatric voice, the assumption that a woman is a puzzle whose solution is held by someone else. What survives intact is the acting problem the film sets itself, since every change has to be visible on a face rather than explained. Best Actress at the Academy Awards recognised exactly that. The film now doubles as a document of how much of a woman's interior life the era was willing to show, and whom it trusted to interpret it on her behalf.",
+  "model": "claude-opus-5",
+  "source_sha256": "829f3ff3da5ebef8106a0c7fccbb067d04a42d7703e7f6ef4bbf0ef79bcf035e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ali-zaoua-prince-of-the-streets-2000",
+  "field": "lead",
+  "film_id": "8e0b2ad6-5b34-42ca-97eb-ac7076372456",
+  "lang": "en",
+  "text": "An island with two suns over it exists only in a story a boy half-remembers from his mother. Nabil Ayouch puts four children on the docks of Casablanca with glue, a pecking order, and a gang they have walked out on, and he keeps that fantasy pressed against the harbour - real cranes, real ships, a way out no child can simply walk into. The film is not sentimental about the group. The boys are hard on each other, and Dib's people organise their day the way weather organises a farmer's. Ninety-nine minutes, most of it at a child's eye level. The Etalon d'Or de Yennenga went to it. What Ayouch watches most closely is the maintenance of the story itself: how the boys repeat it, correct each other's versions, and use a fairy tale as currency among themselves.",
+  "model": "claude-opus-5",
+  "source_sha256": "e20822c1006763cc3900acd41582c7432702f3501bf4e6eed4c9411435134f46"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "i-never-sang-for-my-father-1970",
+  "field": "lead",
+  "film_id": "aa1a4597-1818-4b7d-b5b5-e4255596b483",
+  "lang": "en",
+  "text": "A grown son cannot leave town because his father has not finished needing him. Gilbert Cates keeps to ninety-two minutes and a few rooms: a house run entirely around an old man's habits, a car, a conversation about California that both parties understand to be a conversation about abandonment. The father is not a monster, which is the difficulty. He is charming in company, hard at home, and expert at the small request that cannot be refused without cruelty. Nearly all the work is done in dialogue - the Writers Guild singled out the adaptation - and two actors are trusted to sustain a duet of manners in which the real subject is never named aloud. What the film reaches is a middle-aged discovery: duty and love are not the same thing, and only one of them can be put in a diary.",
+  "model": "claude-opus-5",
+  "source_sha256": "88f21a5427d0b8a88b1e852841bf50bed696bfcb099f002f437042033e036333"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "soorarai-pottru-2019",
+  "field": "lead",
+  "film_id": "1179e34c-a8b7-4897-89e9-aecf86f05382",
+  "lang": "en",
+  "text": "An airline is a strange thing to build a fight scene around. Nedumaaran Rajangam wants fares cheap enough for people who have never flown, and his opponents are licences, financiers, incumbents and the men who control runway hours; Sudha Kongara Prasad shoots two and a half hours of that in Tamil as a boxing picture with paperwork, where reversals arrive as regulations and a victory looks like a signature. The domestic scenes carry as much weight as the business ones, a marriage negotiated between two people with equally stubborn plans. The National Film Award for Best Feature Film went to it. What keeps the film from reading as a company brochure is where its anger points: not at rivals, but at the settled assumption that flight belongs to a particular class of passenger.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d30a089ecb71413afb76fceed529080508598edc818982c0b0f1db7cdf26d1c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-hill-1965",
+  "field": "lead",
+  "film_id": "66c46050-e2e7-4dfa-97ec-92e73e0f14eb",
+  "lang": "en",
+  "text": "A mound of sand in the North African desert, built by an army for no purpose except to be climbed. Sidney Lumet's setting is a British military stockade in wartime, and its instrument of correction is that slope: full kit, midday sun, up and down until a sergeant is satisfied. There is no enemy in the film. Everyone tormenting these men wears the same uniform, which turns the drama into a matter of procedure - who logs what, which officer will put his name to it, how a complaint travels up a chain built to protect itself. Two hours inside compound walls, where even the sky feels administered. A screenplay prize went to it, and the description fits: the cruelty is conducted in regulation language, and Lumet's attention stays on how fast an institution finds lawful words for what it is doing.",
+  "model": "claude-opus-5",
+  "source_sha256": "4c9213ecffc79676c2b9d4150e50ea4e268af3b6d1d969089c76e783ebc04d46"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "3-days-in-quiberon-2018",
+  "field": "lead",
+  "film_id": "7a0424ae-08bf-4cae-8a59-be60e98f176e",
+  "lang": "en",
+  "text": "Brittany, 1981: a spa hotel out of season, where a famous woman is drinking coffee with an old friend who has come to keep her steady. Emily Atef gives a hundred and fifteen minutes to three days in Romy Schneider's life, and the interest lies in the arrangement between the two women - one has retreated here to get out from under the pressure of being herself, the other has arrived to absorb it. Hilde Fritsch wants nothing from her. That asymmetry organises every scene. The European Film Award for Best Actress went to the performance, which carries the peculiar difficulty of playing a face audiences already know by heart. Atef declines the shape of a life story and stays in the room and on the shoreline, with two people talking as if the world outside had agreed to wait.",
+  "model": "claude-opus-5",
+  "source_sha256": "acf2bdf33a76ee5dadcbf51c3d81d6ed0e9d49d12285c14a91e27ca956ac71b8"
+ }
+]

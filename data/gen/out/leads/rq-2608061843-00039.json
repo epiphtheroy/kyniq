@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "home-sweet-home-2025",
+  "field": "lead",
+  "film_id": "f98c4753-9bb3-4b0d-b4cf-b17b020f0cc7",
+  "lang": "en",
+  "text": "The flowers come first, then the ring, then the proposal in Venice. Gośka met Grzesiek online and has every reason to trust her luck; the film is filed as a thriller; both of those hold inside the same 108 minutes. Wojtek Smarzowski is interested in the ordinary machinery of a courtship — the first message, the attentive listener, the trip abroad — and in how little of it can be told apart from the real thing while it is happening. Poland handed the picture its national best-film award. The scale never widens beyond two people and the decisions they make in private, one at a time, each of them reasonable on the day it is made. Smarzowski is in no hurry, and the slowness is the method: he wants Gośka's judgement to have been shared for a good while before it becomes uncomfortable to have shared it.",
+  "model": "claude-opus-5",
+  "source_sha256": "75614edc4ebbb550771e53bb4c458f3b898842def5ff9963ffde139a3c115a70"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-kingdom-1994",
+  "field": "lead",
+  "film_id": "024c8763-226a-4b29-ab32-a4be830f1486",
+  "lang": "en",
+  "text": "Four and a half hours is a strange length for a ghost story. Lars von Trier spends them inside the most technologically advanced hospital in Denmark, a building organised end to end around measurement, and then lets an ambulance arrive that nobody can account for and a child's voice sound in an elevator shaft. Dread and comedy turn out to be the same substance here: nothing embarrasses an institution like an event its instruments cannot record, and the doctors' first instinct is procedural rather than frightened. Riget took the Bodil for best Danish film. The runtime is the argument — 275 minutes is long enough to stop treating a hospital as a setting and start treating it as a population, with its rotas and hierarchies and long-running internal quarrels, so that when the place misbehaves it is misbehaving against people already known by name.",
+  "model": "claude-opus-5",
+  "source_sha256": "852632507d759454be66b57c81d112d174283e4386f477ae41643e4a6f2cfa01"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "steamboat-bill-jr-1928",
+  "field": "lead",
+  "film_id": "f12a03ed-a8d6-4ee3-9ef6-945355ccee2c",
+  "lang": "en",
+  "text": "The son has been away at college, the father has been running a boat on the river, and neither has laid eyes on the other since the boy was small. Seventy minutes is all this takes. A young man turns up with the wrong manners, the wrong build, and a full set of skills of no use whatsoever on the water, and the film sets about putting that body next to machinery and weather to see what happens. Comedy of this vintage is physics before it is anything else, which is part of why the National Film Registry keeps it: the gags are engineered rather than improvised, and a detail that looks decorative in the first reel turns out later to be carrying weight. The romance is not filler either. Courting the wrong girl costs the boy more strain than the steamboat does, and the film knows exactly how funny that is.",
+  "model": "claude-opus-5",
+  "source_sha256": "ccfb372faf68eee97b486e9838ff66c1ae240f75dc3d15a6d3773aea446b9ae0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "olympia-part-one-festival-of-the-nations-1938",
+  "field": "lead",
+  "film_id": "29ad3202-9607-4a26-9668-125e83b179c3",
+  "lang": "en",
+  "text": "Before a single race is run, the film goes all the way back to ancient Greece. That overture is the tell: a documentary of twenty-one athletic events, made in Germany and released in 1938, that first takes the trouble to descend from antiquity into a modern stadium is making a claim about inheritance before it has filmed anybody at all. Leni Riefenstahl shoots effort rather than results — the frame is built around a body under strain, and 127 minutes leaves room to stay with it long after a newsreel would have cut to the scoreboard. The film also holds the record of Jesse Owens taking four gold medals, which it neither hides nor argues with. Watching it now means holding two things at once: the physical intelligence of the camerawork, and the year and the country stamped on the negative. Neither one cancels the other out.",
+  "model": "claude-opus-5",
+  "source_sha256": "e0bb2cc6a0e4afaefba172b95e6f9a3b3604a0e0995531603fba8a6161679918"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "frankenstein-1931",
+  "field": "lead",
+  "film_id": "b9ce16b6-61c4-4d85-8458-403999add599",
+  "lang": "en",
+  "text": "Henry Frankenstein's problem, before it becomes anything grander, is procurement: the body has to be assembled out of parts that other people are finished with. James Whale gets that done quickly and spends what is left on the harder question, which is what a new thing is owed by a world that meets it with fear. Seventy minutes leaves no room for mythology. The film moves at household scale — a laboratory, a village, a father's house — and it is far more curious about the creature's confusion than about his violence. The rage is real, but it arrives second, and it arrives as a response. Whatever was made with such care becomes, within a day, a problem for other people to manage, and every adult in the picture has a plan for it. Whale's deepest interest is not the apparatus. It is a face.",
+  "model": "claude-opus-5",
+  "source_sha256": "7331de437d3aa62924f60d0e03e54309b0529fd2c67f8c67541e8e9b62543840"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-birdcage-1996",
+  "field": "lead",
+  "film_id": "091d22a1-688c-4103-9814-7c046455c888",
+  "lang": "en",
+  "text": "A cabaret owner and his partner, who performs in drag, are asked to play the one part neither can manage: an ordinary heterosexual couple, for one evening. The occasion is dinner with the conservative parents of their son's fiancée. Mike Nichols runs it as farce, so the pressure is architectural — a home redressed, a script agreed, entrances timed — and the comedy comes from how much labour ordinariness demands once it has to be faked. The Screen Actors Guild gave its ensemble prize to the cast, and that is the right unit of measure: nobody wins a scene alone here, and there are rarely fewer than four people in a room, each maintaining a different lie at a different speed. Underneath the noise sits a plain question about what a son is permitted to be ashamed of, and the film puts it without once slowing down to be solemn.",
+  "model": "claude-opus-5",
+  "source_sha256": "68e00f144b65eb99f7626e8a4ac67b2a344f118b06a07ac3b7358f8dd6820024"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-guilty-2018",
+  "field": "lead",
+  "film_id": "1966b44f-e19d-4044-9194-b38cf77b9411",
+  "lang": "en",
+  "text": "Everything that matters happens somewhere the camera never goes. Asger Holm has been taken off the street and put on the emergency line, and when a frightened woman calls to say she has been taken, the world of the film narrows to what arrives through a headset in a room he is not permitted to leave. Gustav Möller keeps that constraint honest for all eighty-five minutes; the European Film Award went to his screenplay, and the screenplay is the whole apparatus. Every scrap of the night comes in as sound, so it gets assembled out of the same fragments Asger has, and his errors are inherited in real time by everyone listening with him. What is under examination is a dispatcher's authority: a demoted man with a phone, a shift to get through, and the conviction that he already knows what kind of story he is hearing.",
+  "model": "claude-opus-5",
+  "source_sha256": "d2f8829d0ecefd739d53cc293cc3ac28f2983724fbcc7008e9f8c4b6a833076f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "adam-s-apples-2005",
+  "field": "lead",
+  "film_id": "df6a698d-55ac-4e38-be46-990e42d6b9cf",
+  "lang": "en",
+  "text": "Community service is meant to be a punishment; the priest taking delivery of it behaves as though a guest has arrived. Ninety-five minutes, a Danish parish, and two men who cannot be brought to agree on what is happening between them: one has been sentenced there, and the other declines to notice. Anders Thomas Jensen plays the collision for comedy, but the mechanism underneath is a test of stamina — how long a determinedly charitable reading of a man can survive contact with the man himself, and whose comfort that reading is really protecting. Nobody is made stupid in order to settle it. The neo-Nazi keeps his intelligence and the priest is never reduced to a fool, which leaves the film free to be a good deal harder, and funnier, than its setup suggests.",
+  "model": "claude-opus-5",
+  "source_sha256": "61f2818e1d47c9e0f821fb19a927b3761b8a1b79c22f7599ed62aac9ca571463"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-house-of-the-spirits-1993",
+  "field": "lead",
+  "film_id": "44036abb-1eb0-4e55-8d32-533722fafe7a",
+  "lang": "en",
+  "text": "A Danish production, in English, about a landowning family in South America — the passport is the first odd thing about this film. Bille August takes 140 minutes over a marriage and a house: a rancher who believes in property, a wife who sees things before they occur, and children raised inside that difference. The years around them turn violent, and national history registers as domestic weather, arriving at the gate and at the dinner table rather than in the street. Clairvoyance gets the same handling. It is household fact rather than spectacle, and nobody in the family thinks it requires explaining. The film holds a Robert, Denmark's national film award, which remains the least intuitive detail in any account of it, and the northern evenness it brings to a story with none of its own is the argument the picture keeps having with itself.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8aca42b329516004d779bda97baa5cbb08048d48b033da816d62933e143065b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "nightwatch-1994",
+  "field": "lead",
+  "film_id": "9942548f-40ba-475b-b6bd-81f28b3ea34c",
+  "lang": "en",
+  "text": "The job is nights, the pay covers tuition, and the building is full of the dead. Ole Bornedal builds his horror out of employment. Martin needs money, the shift is legal and dull, and the mortuary asks nothing of him except that he stay awake in it until morning — a premise that does most of the work a monster usually has to do. The threat here is procedural. A body is a piece of paperwork, paperwork can be altered, and a man who spends his nights alone among corpses has nobody to confirm where he was standing at any given hour. Martin is a law student, which the film keeps in view: he is learning how a case gets built at the same time as he is quietly supplying the materials for one. By the time an inquiry turns his way, that groundwork has been laid without ever looking like groundwork.",
+  "model": "claude-opus-5",
+  "source_sha256": "552d9e9f9d58993969573b130d07b6ae400fe388a6a63de70964569239743fed"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "europa-europa-1990",
+  "field": "lead",
+  "film_id": "41a8769f-af42-45dc-b0b0-ec726ccb190c",
+  "lang": "en",
+  "text": "The safest place available to him turns out to be inside the Hitler Youth. Agnieszka Holland's boy is Jewish, separated from his family in the first weeks of the war, and alive because a German unit decided he was an orphan worth keeping and then a hero worth decorating. Everything after that is maintenance: an accent, a story, a body, a hundred small answers given at speed. It is a German-language film made out of France, carried on the BBC's list of the hundred greatest films directed by women, and its grip has less to do with danger than with intimacy. He is fed by these people, taught by them, praised, promoted, befriended, and one loose detail would end him. The film refuses to make that simple, and refuses him the comfort of hating them cleanly.",
+  "model": "claude-opus-5",
+  "source_sha256": "86571eb03f18445f5731e4c013b0b844f8682281cf6102340ec7e8a5c9c8b10a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "smiles-of-a-summer-night-1955",
+  "field": "lead",
+  "film_id": "136bf71d-1c6b-4169-bc00-88c1ec1f9c6d",
+  "lang": "en",
+  "text": "The bet is made in public, in front of witnesses, which is what gives it force. Desiree wagers that she can have Fredrik back for a weekend, and Fredrik — a middle-aged lawyer married to a young woman he has not yet touched, whose son has begun looking at his stepmother — accepts an invitation everybody present knows how to read. Four couples convene. Bergman arranges them the way a host arranges a table: by proximity, by grudge, by what each can be relied on to do after dark. The film is exact about who owes what to whom, and the jokes land hardest on the people most concerned to keep their dignity. Set early in the last century, among people with leisure enough to turn desire into a matter of scheduling, it runs 109 minutes, which is precisely as long as that joke stays funny.",
+  "model": "claude-opus-5",
+  "source_sha256": "11c4634ce1de909e4e68dde0bd5707ff3c2893d094712def674ebf752ca06eb0"
+ }
+]

@@ -1,0 +1,272 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lee-chang-dong",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "이창동은 한자로 李滄東이라 쓴다. 성 李는 자두, 혹은 자두나무를 뜻한다. 이름의 滄은 차갑고 맑다는 뜻이면서 바다처럼 넓고 푸르다는 뜻이고, 東은 동쪽이다. 풀어 옮기면 '맑은 동쪽 바다', 또는 '넓고 푸른 동방'이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "274e6b98ef377edd5379f80e1ec15f0107a9c9ca8ba8361272fafa74dc7c6b4c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "leos-carax",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "본명은 알렉상드르 크리스토프 뒤퐁. 열세 살에 '레오스 카락스'라는 가명을 스스로 지었다. 자기 이름 'Alex'와 영화의 최고 상을 가리키는 'Oscar', 이 두 단어의 철자를 뒤섞어 만든 이름이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f41d12905c393d5300ff03bdef69b38d94c3610a94f00f67e3156ca526932625"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lou-ye",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "娄(러우)는 중국의 성씨로, 옛 중국 천문학에서는 별자리 이름이기도 했다. 烨(예)는 밝다, 찬란하다, 혹은 불빛을 뜻한다. 글자 그대로 읽으면 눈부시게 빛나는 존재라는 말이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0bfc20057741f0e5b337c0f9c9e99910d252372e482a3e73ecd456bcd218a993"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luca-guadagnino",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'루카'는 라틴어 루카스(Lucas)의 이탈리아식 이름으로, 고대 남부 이탈리아의 지역 루카니아 출신이라는 뜻이다. 뿌리를 더 캐면 빛을 뜻하는 인도유럽조어 *leuk-에 닿는다. 성 '구아다니노'는 벌이와 이익을 뜻하는 이탈리아어 guadagno에서 왔다. 상인을 가리키던 직업 성씨였거나, 재산을 모은 사람에게 붙던 별명이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b770aa1ac3d5d1422653436019d83e3b314379ebe50dccf5f4d55202803f615"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luchino-visconti",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'루키노'는 루카의 이탈리아식 애칭이다. 어원은 루카니아 사람을 뜻하는 라틴어 Lucanus, 혹은 빛을 뜻하는 lux로 거슬러 올라간다. '비스콘티'는 부백작을 뜻하는 라틴어 vice comites에서 나왔다. 밀라노 공작이 되기 전 가문이 지녔던 옛 작위가 그대로 성이 된 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "30df55eb170c45a9b8ad557e2bfb7fb2583a844b49240fc23d53d2724c71ef40"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luis-bunuel",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'루이스'는 게르만어 클로도베크(Chlodovech), 곧 루트비히에서 온 이름이다. 이름난 전사, 싸움터에서 유명한 자라는 뜻. 성 '부뉴엘'은 나바라 지방의 한 마을 이름을 딴 지명 성씨이며, 그 마을 이름은 작은 목욕탕, 물에 몸을 담그는 곳을 뜻하는 라틴어 balneolum에서 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "97a3f5f55e522e8060e0e42554ee3b60a11eaaff63834c0449c7afb6ed2b0d6f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "m-night-shyamalan",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "마노지(मनोज)는 산스크리트어에서 온 이름으로 마음에서 태어난 것, 곧 사랑을 뜻한다. 샤말란(श्यामलन्)은 어둡다, 검다는 뜻의 산스크리트어에서 왔고 힌두 신 크리슈나를 부르는 별칭으로도 쓰인다. 가운데 이름 '나이트'는 뉴욕대에 다니던 시절 그가 법적으로 직접 붙인 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d5e04c2e372e89e6414f3fb9f205d2fa9504dfe3bb8dd1a3175ebaa58e7765ea"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "makoto-shinkai",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "본명은 니이쓰 마코토(新津 誠). 성 新津는 새 나루, 새 항구를 뜻하고 이름 誠는 성실함이자 참됨이다. 필명 '신카이(新海)'는 새 바다라는 뜻으로, 집안이 일군 이름난 기업의 그늘에서 자기 작업을 떼어놓으려고 고른 이름이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "71654aa8f8776465b2e33226269f55b256c8c4f1373b7546bfa63ce25c64eaa9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-hosoda",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "마모루(守)는 지키다, 막아내다라는 뜻의 일본어다. 성 호소다(細田)에는 좁고 가늘다는 細와 논을 뜻하는 田이 들어 있다. 둘을 이으면 작은 논밭을 지키는 사람이라는 그림이 떠오른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b35ea7f96ddd34b9d5ab92fedfc72a301caf958e2eb49a6b8d22e5e61bd8890e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-oshii",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "성 오시이(押井)는 밀다, 누르다, 무게를 뜻하는 押과 우물을 뜻하는 井이 합쳐진 말이다. 이름 마모루(守)는 글자 그대로 지키고 막고 보호한다는 뜻이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "50115b473b6c9ddadf85c7d676f685600fc168fe6321c82cd1a1ac819bb80139"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "martin-scorsese",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "마틴은 '마르스에게 바쳐진'이라는 뜻의 라틴어 *Martinus*에서 왔다. 마르스는 로마의 전쟁신이다. 성은 원래 이탈리아어로 스코틀랜드 사람을 뜻하는 *Scozzese*였다. 조부모가 시칠리아의 폴리치 제네로사를 떠나 미국에 들어올 때 이민국 직원이 철자를 잘못 적었고, 그 오기가 그대로 굳었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e37e46d0eb90c6e3739b17e38b5dcc63a02c5cbcb4f1069c976bd9db4d6e5e0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "masaaki-yuasa",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "한자로는 湯浅 政明이라 쓴다. 성 유아사는 얕은 더운물, 곧 얕은 온천을 뜻한다. 湯이 더운물이자 온천이고 浅이 얕다는 말이다. 이름 마사아키는 정치와 다스림을 뜻하는 政에 밝고 맑다는 明을 붙였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cf5daf58fef28fcb510ef8149e848c358812eab1967567b55e53506893172d01"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "masaki-kobayashi",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "한자로 小林, 작은 숲이다. 이름은 正樹, 곧은 나무이자 참된 재목이라는 뜻. 이름에 깃든 나무의 형상이 그의 태도와 그대로 겹친다. 굽히지 않는 도덕적 완강함, 그리고 뿌리 깊은 반전주의.",
+  "model": "claude-opus-5",
+  "source_sha256": "76b27ba82e517ec76e98c1bf71944fb45b7298416531c5095352f6a8b188e035"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "max-ophuls",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'막시밀리안'은 로마식 이름 막시밀리아누스에서 왔고, 가장 크다는 뜻의 막시무스(Maximus)를 줄인 형태다. 본래 성 '오펜하이머'는 라인란트팔츠의 도시 오펜하임 출신을 가리키는 독일계 유대인 지명 성씨로, '오포의 터전'이라는 뜻이다. 그가 '오퓔스'라는 가명을 쓴 것은 부르주아 집안의 이름을 연극판에 올리지 않기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "58b36e26bb6e1e46f80e078f625205ae416bfabe4867bc49e9d44fb8db642bc3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-haneke",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'미하엘'은 히브리어 미카엘(מִיכָאֵל)에서 왔다. 신과 같은 이가 누구냐는 물음이 그대로 이름이 된 경우다. 성 '하네케'는 저지 독일어와 프리슬란트어 계열로, 요한(Johann)에서 갈라져 나온 부칭의 축약형이다. 요한의 뿌리는 다시 히브리어 요하난, 신은 자비롭다는 뜻이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f0d17c0f8cccfbde69e7df6103b748ab00f5574df3d5ead7379339e92caa31e7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-powell",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "태어날 때 받은 이름 임레(Imre)는 게르만계 '에메리히'의 헝가리식 형태다. 용맹 또는 노동을 뜻하는 amal과 힘, 지배자를 뜻하는 ric이 붙어 만들어졌다. 성 '프레스부르거'는 프레스부르크(지금의 슬로바키아 브라티슬라바) 출신 혈통을 가리키는 아슈케나지 유대계 지명 성씨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e73f230e6631a8733b7583f3f2bf92a1846a94f05578eea74b3ddd4556f925d7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michelangelo-antonioni",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'미켈란젤로'는 이탈리아 이름으로, 히브리어 '미카엘'(신과 같은 이가 누구인가)과 그리스어 '앙겔로'(전령, 천사)가 붙어 만들어졌다. '안토니오니'는 안토니오에서 갈라져 나온 이탈리아식 부칭 성씨이며, 그 뿌리는 에트루리아 가문명 안토니우스에 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "78427badbd6e8f4d69a232948ad2c6d49987991832ac8f40a92fc3f2242998f0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "miguel-gomes",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "미겔은 미카엘의 포르투갈·스페인식 이름이다. 히브리어 미카엘은 신에 견줄 자가 누구냐고 묻는 말이었다. 성 고메스는 서고트계에 뿌리를 둔 포르투갈의 부칭 성씨로, 사람을 뜻하는 게르만어 guma 또는 gomo에서 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1327f1babcf2538ba8c9e8d56a8f5ab489f6251c416d9699a50af56f8db607ce"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "na-hong-jin",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "한글로는 나홍진, 한자로는 흔히 羅泓軫으로 적는다. 羅는 그물 또는 비단, 泓은 깊고 맑은 물, 軫은 수레이자 슬픔을 뜻한다. 이름 전체가 넓고 깊은 물을 불러온다. 인간의 도덕이 흐려지고 바닥이 보이지 않는 지점을 파고드는 감독에게 어울리는 이름이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a8485c81f16ed969bfd8df97a08f9ad6cd8d33dade6d1cb23f11fb24f3741010"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nadav-lapid",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'나다브'(נדב)는 성서 히브리어에서 온 이름이다. 너그럽다, 고귀하다, 기꺼이 나선다는 뜻이며 어근은 자원해서 내어준다는 말에 닿아 있다. 성 '라피드'(לפיד)는 히브리어로 횃불, 곧 불꽃이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "80ad8e0b6ab47bf35f63213e4aaf3901b1b5d057791cfc4cb7ce85329b0dad55"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nagisa-oshima",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "성 오시마(大島)는 글자 그대로 큰 섬이다. 일본에서는 흔한 지형형 성씨이기도 하다. 이름 나기사(渚)는 물가, 바닷가, 물이 닿는 가장자리를 뜻한다. 뭍과 바다가 맞닿는 경계다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ef5615ce7d2abcc451b5d5bffb76e2c6d99ff2b66c2dd3a874416a79e042fa87"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "noah-baumbach",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'노아'는 히브리어 노아흐(נוֹעַ)에서 왔고 쉼, 안식을 뜻한다. 성 '바움백'은 독일어에서 나무를 뜻하는 Baum과 시내를 뜻하는 Bach가 붙은 말이다. 옮기면 나무 곁을 흐르는 개울이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6c3430bd73e45777a46c0bd1c951853c986b13439ed36eb77da261c2e0917d5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nuri-bilge-ceylan",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "누리는 아랍어(نوري)에서 온 이름으로 빛나는, 나의 빛이라는 뜻이다. 빌게는 순수한 튀르크계 이름이며 지혜롭다, 배움이 깊다를 가리킨다. 성 제일란은 튀르키예어로 가젤. 이름 전체를 이어 읽으면 지혜롭고 빛나는 가젤이라는 시구가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb74c1e38aace78c3dcc7bb635b4823a273f8a8c1f1c2915f5e52e26b75da907"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "olivier-assayas",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'올리비에'는 라틴어 olivarius에서 왔다. 올리브나무를 심는 사람, 혹은 올리브 가지라는 뜻이고 올리브 가지는 오래전부터 평화의 표식이었다. '아사야스'는 세파르디 유대계 성씨로 히브리어나 아랍어에 뿌리를 둔다. 야훼가 구원이라는 뜻의 히브리 이름 예샤야후(이사야)에서 왔다는 설이 가장 유력하고, 치료하는 자를 가리키는 아랍어 어근 asa에서 왔다는 설도 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1602ccc48c32f257007a0907075ce761198b57ada006dcaf148274e92bf82ddf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "오슨은 노르만 프랑스어 ourson, 곧 새끼 곰에서 왔고 더 거슬러 가면 라틴어 ursus에 닿는다. 웰스는 영국의 지형 성씨다. 고대 영어 wella에서 나온 말로, 샘이나 개울 가까이 살던 사람을 가리켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5359d7978e02709a617376dbeeae6940a258f40c77e9435d1f9e7bf1ffe92075"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ousmane-sembene",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'우스만'은 아랍 이름 우트만(عثمان)의 서아프리카식 형태다. 전통적으로는 느시라는 새의 새끼, 또는 선택받은 자로 풀이한다. '셈벤'은 세레르계 성씨이며 세네갈 신살룸 지역에 그 뿌리가 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "55843a6217df778f30dd01cd25045c0789aaa27d94e4bf2e92ad02e142ef78b7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pablo-larrain",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "파블로는 라틴어 파울루스(Paulus)에서 온 이름으로 작다, 낮다는 뜻이다. 성 라라인은 바스크어 larrain에서 왔다. 초원이나 목초지를 가리키는 말이지만, 본래는 마을이 함께 쓰던 타작마당을 뜻했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fce4c868d1a9e355bdd9885a18614815f4e03a0919f8628b4995021b4c6bb5b8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paolo-sorrentino",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'파올로'는 라틴어 파울루스의 이탈리아식 이름이다. 뜻은 작음, 그리고 겸손함. '소렌티노'는 출신지를 담은 이탈리아 지명 성씨로, 소렌토에서 온 집안임을 알린다. 소렌토는 나폴리 만 건너편에 앉은 해안 도시다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e78d351ef5afdb5c45f086290b6040bf284df89bee9e6fe0b6f40b4ccabf1663"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "park-chan-wook",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "한자로는 朴贊郁이라 쓴다. 朴은 팽나무를 뜻하기도 하고 꾸밈없이 소박하다는 뜻이기도 하다. 贊은 기리다, 돕다이며 郁은 향기롭고 아름답다는 말이다. 이어 읽으면 곁에서 빛을 더하는 사람, 그리고 다듬어진 우아함이 떠오른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a1284a936d2ac7bdfcf0e49f3e2f9b67dac5970df978881583ac927a9f583e0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paul-thomas-anderson",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "폴의 어원은 라틴어 파울루스, 작고 낮은 자라는 뜻이다. 토머스는 쌍둥이를 뜻하는 아람어 테오마에서 왔다. 앤더슨은 앤드루의 아들이라는 부칭 성씨이고, 앤드루의 뿌리는 사내답다, 용감하다를 뜻하는 그리스어 안드레아스다.",
+  "model": "claude-opus-5",
+  "source_sha256": "afcdf159c9b359d14fe25384465ba39c0bccb3c0e2b03cecd257fca6cb802ff9"
+ }
+]

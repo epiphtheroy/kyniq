@@ -1,0 +1,52 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "little-forest-winter-spring-2015",
+  "field": "lead",
+  "film_id": "349a98b4-dd57-4b0d-aa7f-e58ca50bf5df",
+  "lang": "en",
+  "text": "Mochi pounded in the deep of winter, curry on the stove, a cake for the year's last party: in Komori the calendar is kept by the kitchen. Two of the four seasons get a full two hours, which leaves time for the parts of country cooking a montage usually swallows — the soaking, the waiting, the hands. Ichiko works. Her mother is absent from the village and the film does not hurry to account for it; that absence behaves like weather, present in everything, discussed rarely. Then the paddies want planting, the sakura come on schedule, and she starts thinking again about going. Junichi Mori is content to let the argument stay in the food: what it costs to make a meal out of a place, and what it would mean to eat somewhere else.",
+  "model": "claude-opus-5",
+  "source_sha256": "35d5aac25ebb230b3007721e2d0941f17a6c82e04fca590b2bd769b45a433b9c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-dream-2016",
+  "field": "lead",
+  "film_id": "357fb1ea-71ed-4e03-a45c-bf59ff1b3bed",
+  "lang": "en",
+  "text": "Thirteen minutes, one dream, and no reliable owner for it. Jaeheon, a film director, dreams about Eunsun, an actress: that much is stated, and then the dreaming changes hands, so a wish belongs first to the man who does the casting and then, perhaps, to the woman being cast. Jeong Ga-young keeps the register dry instead of lurid, which is what allows the comedy to stay black rather than merely rude. Shorts at this length usually run toward a single reversal. This one lingers earlier, in the seconds before an appetite is admitted, and it treats the professional courtesies between a director and an actor as a thin lid over something else. The root of the desire is the question; the sleeper's identity is the joke.",
+  "model": "claude-opus-5",
+  "source_sha256": "255451fc407e302ae77abcf9911306e2112e952b8f6e450c4acb83a4564d6d1e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sidewalls-2011",
+  "field": "lead",
+  "film_id": "3725ff9a-b8eb-4c21-a066-2a2361209c5c",
+  "lang": "en",
+  "text": "Two apartments face each other across the same street, and for most of the running time the film keeps their tenants apart. Martin designs websites and leaves his one room in small measured doses; Mariana, out of a long relationship, is trying to make things again. A romance of ninety-four minutes usually spends its energy on obstacles between two people who have already met. Gustavo Taretto's obstacle comes earlier: three million residents, arranged by architecture so that nearness guarantees nothing. What holds the middle is not suspense about the couple but an accumulation of small evidence — elevators, windows, errands, the internet as a place to live — that a person can be thoroughly addressed and still never spoken to.",
+  "model": "claude-opus-5",
+  "source_sha256": "e2dcf489a940502767bde41deda42a55d853f52c72a49a1d761623cd5d596c7f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "you-ain-t-seen-nothin-yet-2012",
+  "field": "lead",
+  "film_id": "37ca9a50-7427-4e05-ac75-342d7487ea46",
+  "lang": "en",
+  "text": "The man who wrote the play is dead, and his instructions bring together every actor who ever performed it. They are shown a recording: a young company, La Compagnie de la Colombe, working through the same Eurydice these people once carried. From there the film is committed to a hard arrangement — a room, a screen, a text heard in more than one set of mouths — and Alain Resnais keeps it there for nearly two hours rather than opening it out. Antoine d'Anthac's guests are not asked to reminisce. They are asked to watch strangers take their lines, which is a specific kind of injury and also a rehearsal. The pleasure is technical before it is sentimental: the same speech arriving twice, aged differently.",
+  "model": "claude-opus-5",
+  "source_sha256": "6aea3cc343bc97adb868eb9be80566dcf92384bf26d012c8d5de5413516182fd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "buffalo-66-1998",
+  "field": "lead",
+  "film_id": "396d6933-faa1-4633-942b-718271e9917c",
+  "lang": "en",
+  "text": "Billy is out of prison after five years and within minutes he has taken a hostage he intends to present to his mother as his fiancée. The lie is the engine: rather than arrive home as himself, he drafts a stranger, Layla, into standing in for a life he has claimed to have. Vincent Gallo directs himself in the part, so every humiliation on screen has been arranged by the man absorbing it. Comedy, romance, drama — all three are listed and none of them behaves, because the pretense has to hold up in a parents' house, at close range, with a teenager who agreed to nothing. Its Independent Spirit Award for Best First Feature makes sense: no one appears to have intervened to make Billy easier to like.",
+  "model": "claude-opus-5",
+  "source_sha256": "02d595e4106c8093e7d64ce53ec58c647ba1c0a8bdedd9cad4ffc22a4b88fe45"
+ }
+]

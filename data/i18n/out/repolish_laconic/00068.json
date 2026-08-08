@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tiger-as-externalized-survival-instinct",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "부인된 삶의 의지. 돌봐야만 살아 있는 짐승의 모습으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "495eeb8573a1b7d6b150943d5e1051a290ec3de9709512a02e26e194a3f1ba8f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tiger-as-moral-law-in-fur",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "짐승이 가리키는 것은 본능이 아니라 바깥에서 내려온 명령이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d456b767b0afdd0d3e3a478847cccc553a7a02a9c93c0fd34397dfcc1265300"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-time-loop-as-compulsion-to-repeat-guilt",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "삭이지 못한 수치가 시간의 고리라는 증상으로 나타난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d0573ee1bcc7979f2f34a1a7fb12c24f464047cf2176df58503b71b7c442a9c4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-timetable-as-sovereign-deity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "의지도 신앙도 아닌 철도 시간표가 세계를 다스린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1f6d38914c8abc24f240e29f09caf142ffa89e66edc424c8e115e20dba0fe59"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-as-diagnosis-of-cinema-s-own-failure",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 매체가 바닥났음을, 혹은 손을 놓았음을 영화 스스로 이름 짓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3bb02de63e363968b820775c06ec90a76d3a351adf1f1ec6120005f5319c7255"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-as-repossessed-selfhood",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세계에 맞서 미덕 하나를 되찾거나 새로 이름 붙이는 명명.",
+  "model": "claude-opus-5",
+  "source_sha256": "23dfa75bd4e96d186f0ac03a768c71d72617609736c0617a9fde492cc69d117e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-as-self-dissolving-oxymoron",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목이 서로 어울리지 않는 두 말을 붙여놓고, 영화가 그 둘을 화해시킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "63f9a1a3f1936b4768289908d675a57628687c9369e3a1a4057d3dd1d59ac1e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-as-time-code-euphemism",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목이 내건 척도가 정작 진짜 주제를 가린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "662b1f20ae5000fbff17b9e97542a7efda248f6a21161a4cf65290100f8403d3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-as-unfinished-or-withheld-address",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목은 문장이자 비밀이며, 우리를 향한 부름이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "864494bdb1a3d758493e6f2d69727e90765edae352bb068957f10eabfea6abbf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-conjunction-is-the-whole-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "두 이름을 잇는 '와'. 그것이 논변의 전부다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ea26bacb45948287e5c03ba820fd79d783fa5f4ae0a4e5fb6f0e9df572e0f3e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-crowns-a-man-who-isn-t",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "경칭이 부르는 주권을 그 남자는 끝내 얻지 못한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "28fcf8d29b854a651751620b3d9250fe1ca6848a1a2554f4442126b97d6437a0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-decodes-the-dread",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "호러 영화의 이름마다 묻혀 있는 어원(語源)의 전조를 읽어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f78e4abe667bc52568f9b41c07ab88877439cb61a99dd630983e9916b98c547e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-delivers-the-verdict-first",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목이 먼저 판결을 내리고, 이야기는 그것을 흐트러뜨리는 데 온 힘을 쓴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ee1a1eb49cf2b3e6bfe80e56a9595c5a752893d5c786444aa0e0d90b1a5d466"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-is-a-command-you-cannot-obey",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'보지 마라'. 운명이 금하면서 동시에 요구하는 명령.",
+  "model": "claude-opus-5",
+  "source_sha256": "826b706bd2520f5887379409082cbe5d78d1f30958cba2d38711a1c2d5994549"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-is-a-name-already-hollowed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 공허를, 제 불가능을 스스로 실토하는 이름.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a248b8d8b494bb8aacd89c9803745e4c5a6cb3a4c3d8e87334169cbf0af0bec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-is-a-verb-that-hunts",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주어가 없는 술어. 그 술어가 곧 뒤쫓는 힘이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "23002d97aa9d6f39dfb2cce78d719c08b88069fbf856249f3bc0f69b28b9aa78"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-is-the-argument",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목의 구두점 하나, 어법 하나가 독해 전체를 떠받친다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1194253c2e6b244413f056716cfad5a2a7657e7012ce993aaf6e1af1641d6c53"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-is-the-cage-it-names",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화 자신의 이름이 덫이자 상표이자 축소로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "daaef74829ac843c46b1372476a18bff69d67fc530480fe043a39becc340c7a5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-is-the-cipher-to-the-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이름을 풀면 영화가 비밀을 털어놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0bbdd4658c2cb52767f0185da47855e218fc48b5b00b84da309a8090b8181423"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-is-the-thesis-decoded",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목을 깨뜨려 그 안에 숨은 논변을 꺼내는 독해.",
+  "model": "claude-opus-5",
+  "source_sha256": "ecc289316936c5464aed4b1aa65c55788e11653e297ac970605c45610a93d827"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-is-the-verb-to-return",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "돌아옴을 이름으로 삼은 제목, 그 제목을 통과해 영화를 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "abf9083e5c9e5fa3ae5893cdca04ea0d25f0ec02cc3ef8d8a734956872414e25"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-name-encodes-its-bearer-s-fate",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목에 박힌 인물의 이름이 그를 삼킬 궤적을 미리 써놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fadc7e0b7e4263e733177489c125b000f78feebb5788d474e2d0547414a1edaa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-a-crime-of-knowing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "법의 역설이자 앎의 역설로 읽히는 제목.",
+  "model": "claude-opus-5",
+  "source_sha256": "588044714bd83af7515df89f3cbec8c611a1bbff79bbf32a77fadf6a377924fa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-a-debt-of-mourning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화의 이름이 끝내 갚을 수 없는 슬픔에 표를 남긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dfa3f30c158676d2586b3976b9f7333617c795b953a3af2382dd3829239181aa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-a-finality-the-film-resists",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'터미네이터', '심판의 날'. 서사가 제 몸을 다 써가며 되돌리려는 결말들.",
+  "model": "claude-opus-5",
+  "source_sha256": "028e4e48dfa2e49425dd7bdbe546c8c6511692c1c3d89477da5c870a75d2a091"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-a-force-by-its-absence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "잴 수 없는 것을 재는 말, 혹은 없는 것을 부르는 말.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b89cbfda08a7633aea1e8894cd6fdfdbb3d618e8cf25fd2c7f3707588bdeec0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-a-kinship-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화의 이름이 몰래 가족의 결핍을 짚어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "92e7e78e145ab03244639cef117f9a347a8b8cd10d5a977de2c1667150be43f9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-a-line-one-crosses",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목이 문턱이나 경계의 이름이라 보는 읽기.",
+  "model": "claude-opus-5",
+  "source_sha256": "b783f90b3c120eeb63022b0506a034ca28fa7cb5f90c4c4f782ccaa8b64c0986"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-a-prison-that-holds-everyone",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목의 명사는 감방이고, 인물들은 이미 그 안에 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e27c096b758b66660ef2572e4f10436665f19a1bde42b0cff6e39bed3f2c2ce3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-a-state-not-a-place",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지리로 오해받은 하나의 상태. 그것이 제목의 명사다.",
+  "model": "claude-opus-5",
+  "source_sha256": "44585dee417b4cd8866da595524953deb5527b92fc761ae3a1c2facc434f31c5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-a-vacancy-not-a-man",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영웅의 이름은 역할이고 빈자리이고 지워짐이다. 자아인 적은 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "65ad66aca09189a41cf873c9618f8ee6bc9607f1a32eacdd8e578f3ba4e4c0c6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-a-wiring-diagram-not-kinship",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'네트워크'. 인간의 유대인 척하는 차가운 회로.",
+  "model": "claude-opus-5",
+  "source_sha256": "1fd393ca4675679a3f479a8dc448b97f140f9a203844d708bba6a39fc5385980"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-grief-s-belated-warmth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "상처가 다 난 뒤에야 도착하는 다정함이 제목에 숨어 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e7ec7000967c9d35060b3ffa7d30e0a8d7f76af867154ecd9a291547958d117b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-its-own-thesis",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목 하나가 해석의 열쇠 전부다.",
+  "model": "claude-opus-5",
+  "source_sha256": "169403ef1f666e5de5d732e5d0140915ad52ac3868d33c95572cadb59032fb3e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-love-as-a-made-object",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감정이 아니라 손으로 빚어 살아남은 물건으로서의 사랑.",
+  "model": "claude-opus-5",
+  "source_sha256": "4285eaf6614c8e8b4de0e428db87d28c487a7865d7914e1aaf966a741c4812a0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-apparatus-not-the-man",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'기계'라는 말이 가리키는 것은 괴물이 아니라 공정이고 체계다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bcce3fb0a0f06ba6dce05e3f268abae206443d12b5293a1ea5f69d864548bfef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-body-not-the-threat",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이름을 위협에서 떼어내, 그 위협을 짊어진 살 쪽으로 비틀어 붙이는 읽기.",
+  "model": "claude-opus-5",
+  "source_sha256": "ec01f0a8d0e9a555714c41777a933c867bf9b960d6ad7146a7fb4a4e4c9f15f3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-container-not-the-creature",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고유명사는 마녀를 지나쳐 그 너머의 진짜 주제를 가리킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e3f340fb528304f5df1d3b7fcfaee215a98abc670454204186571049fe02c7b5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-culture-not-the-killer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살인자의 이름으로 그를 길러낸 사회를 고발한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9813ef9b01862e7d0c0234b2b7631b6b2864f0134f3d6e2b45671a9347ead3ca"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-distance-within-love",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "메울 수 없는 사이, 그 거리의 정확한 눈금으로 읽히는 제목들.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b297c860b51d30f60f59031c7c27535308a7f4187a4e7b4d5ad35b166287a6b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-onlooker-not-the-woman",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "여자의 이름을 단 제목이 실은 그녀를 틀에 가두는 시선을 부른다. 그녀의 진실은 끝내 불리지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d650ee2856e0e5fe3235daa42440150cd171497f2d06855188d08ecf77e1a4d9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-parasite-not-the-host",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "누가 누구의 둥지를 빼앗는지 끝내 밝히지 않는 탁란(托卵)의 제목들.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d71970a47b31ba649fd58c391269b403607e924ff97b5eea0c65b14a28fd044"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-self-it-erases",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "벗겨졌거나 빌려왔거나 아예 없는 정체성. 제목이 부르는 것은 그것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "feb84e10f06c3311a31f3216db42e3ba293095149e559b956c06fb411346ea68"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-sickness-it-cures",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화의 이름이 병을 진단하고, 서사가 그 병을 앓아 낫게 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3f7c9db727de24f805945982eb1d77efb8d25a7cd45f7b9ad97bcc34f01d34cc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-soul-not-the-place",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장소를 가리키는 제목이 실은 안쪽을 가리킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "98991abe34544a3ae612e2f8c553f56d02427d90183f781d1952a3868c07d644"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-summoning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목 그 자체가 불러내는 행위다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4eacf76774e0c211a55a9bca4cb672a953c95daebe3397007dfdff41a672c108"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-wager-not-the-player",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거는 행위를 제목으로 삼은 영화들. 내기는 문명의 조건이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6576bff7ddb0ab8e6a81eac6aa6dd4763ef6f0627e0f9c648e6df4527cc2f34f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-witness-not-the-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보기만 하는 자, 그 사람의 이름이 영화의 이름이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "370612ae81d50d717f8f1f8b3547dfc152c389c53c2b2492161ae0295fd89f94"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-wrong-faculty",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목이 엉뚱한 능력, 엉뚱한 죄 쪽으로 시선을 돌려놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c2a4506f62a9d6d3b2f9ae695647e213eab80d3f474032f23b8896dcbf8d7e9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-whose-story-it-is",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목을 주인공에 대한 판결로 세우고, 그 판결을 심문하는 읽기.",
+  "model": "claude-opus-5",
+  "source_sha256": "265abc660cccc020567563329cb54742b0de72798347a8e7a4b31492e0b5969f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-naming-who-s-erased",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목에 새겨진 자아는 소진되었거나, 끝내 주어지지 않았거나, 남이 대신 규정한 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c15666d7c9d4660c3f05e57a5e964153ba20a6fe843ba55f7f719801a5233193"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-numeral-as-mortality-clock",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "속편에 붙은 숫자가 몰래 세는 것은 낡아감과 죽음이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "928b222309b8a5d5468612ec2cecf61415d2b4416350dcf48afcd8ea0bfbe171"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-read-as-wounded-grammar",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사랑의 제목을 문장으로 뜯어본다. 목적어를 잃은 동사, 가리킬 것이 없는 대명사.",
+  "model": "claude-opus-5",
+  "source_sha256": "b7d7ad7c92c1a2c798cd48e0a21dad151484125e162c3183496ca0aff87bdcdb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-s-bigness-names-a-moral-disproportion",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목에 박힌 크기의 말이 고발하는 것은 크기가 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a12f5e6330e4be639af08d549e222c467e957c82a881c0786fbbf8ff444d1742"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-s-happening-holds-the-unspeakable",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목이 말하는 '일어난 일'이 곧 이야기가 입에 담지 않는 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7914ad2963cbd7170636869875ddb56d7d59fbc4a9dff60f0565ee6094534121"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-s-heat-names-a-lethal-threshold",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "열, 자아와 사랑과 압력이 발화하는 온도.",
+  "model": "claude-opus-5",
+  "source_sha256": "14577405eb29180914a195311426593d72891648c352a2785a15badb10d036eb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-s-night-names-darkness-not-an-hour",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목의 시각을 시간이 아니라 지각의 상태로 다시 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c0f5464214405bd08d5afae72c255b0bf220204a8405033878fe2dc23f03302f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-s-possessive-names-a-captivity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목의 문법이 누가 누구를 가지고, 기르고, 가엾이 여기는지 흘린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2fe3997b5bc47e7bce89596fd9f17e7f86301a7719169998166da7cea0a563d3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-s-praise-is-a-trap",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "경이와 환상의 언어. 기리는 대신 옭아맨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "096bea708d4d3b093d0dffbf23d65358e0445740c130fb68c1a0ef3375b8c16c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-s-pronoun-is-the-indictment",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목은 문법으로 우리를 지목하고, 그대로 고발한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c29926509a8fc6920ba27edcb2a99659fc69d6239e07179a98108e70d48c245b"
+ }
+]

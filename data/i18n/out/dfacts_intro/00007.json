@@ -1,0 +1,11 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "zhang-yimou",
+  "field": "intro",
+  "lang": "ko",
+  "text": "중국 5세대(第五代) 감독 가운데 국제적으로 가장 널리 알려진 이름이 장이머우다. 시안 출신으로, 한때 방직공장 노동자였고 촬영감독으로 먼저 이름을 얻었다. 그는 중국 최고의 시각 스타일리스트가 되었고, 2008년 베이징 올림픽 개폐회식을 총연출했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c779dabe30b6d4d48ca4e354cf31367e9e86b01f58af7f4f9721548f11437e4"
+ }
+]

@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lonely-boy-1962",
+  "field": "lead",
+  "film_id": "f43795dd-71b0-4e55-838d-6951b68c3186",
+  "lang": "en",
+  "text": "The camera gets past the footlights, and what it finds back there is arithmetic. Paul Anka in 1962 was the idol of millions of adolescents, and this twenty-seven-minute Canadian film gives nearly as much attention to the people who arranged that as to the singer — the manager talking business, a career discussed as inventory. Interviews carry a good deal of it, but the picture keeps returning to the crowd, to faces caught mid-scream, which is a hard thing to hold a lens on without sneering. There are two easy positions available here, fan and skeptic. This one stands in the doorway between stage and house and lets both halves speak, and the Academy of Canadian Cinema and Television named it best motion picture, an odd verdict for something under half an hour. What survives is a machine described by the men who run it.",
+  "model": "claude-opus-5",
+  "source_sha256": "069688b72398bce6d2cc432f6d1344dee2b420d3bf6c1852ef6afd4c1dac1b7a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "nina-s-journey-2005",
+  "field": "lead",
+  "film_id": "3f9bacdc-fa9f-4f94-93c1-0a7c92c612f2",
+  "lang": "en",
+  "text": "The voice telling this story belongs to the woman it happened to. Lena Einhorn stages six years of a girlhood, half of them inside the Warsaw ghetto, and lets the elderly Nina Einhorn narrate it herself, so that Polish actors on Warsaw streets are spoken over by the person who was there. Most of what the two hours show is ordinary: a first love, a party, a graduation. The catastrophe runs underneath as subtraction — people who were in the frame last month are not in it now, and nobody stops to account for where they went, because inside the thing no accounting is available. Coming-of-age as a form assumes the world will still be standing when the girl arrives at it. Here the form has to keep working while the furniture is carried out of the room.",
+  "model": "claude-opus-5",
+  "source_sha256": "2aa29f600247e761da894be20a61b74a811a65181227f7a21e953b3a2c8c2965"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "i-pierre-riviere-having-slaughtered-my-mother-my-sister-and-my-brother-1976",
+  "field": "lead",
+  "film_id": "28b30cf4-af67-4b13-b399-041ed15c9bc5",
+  "lang": "en",
+  "text": "In a Normandy village in 1835 a young man killed his mother, his sister and his brother, went into the countryside, and afterwards wrote down what he had done. Allio put the farmers of that district in the parts, asked them to carry their bodies as their ancestors had carried theirs, and let the re-enactment move at the speed of the work being re-enacted. Michel Foucault compiled the documents the film draws on, and the film keeps their multiplicity — Pierre Rivière's confession, the depositions, the language of the court — setting each account beside the others with no narrator to rule between them. What accumulates over 130 minutes is friction: the distance between what a peasant family could say about itself in 1835 and what the law needed it to say. The realism gets close enough to stop being period dressing and start being evidence.",
+  "model": "claude-opus-5",
+  "source_sha256": "b32d4a6099a9cc67102aa82fa247347a32491827af8ff6e9385704d96d02bc65"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "universe-1960",
+  "field": "lead",
+  "film_id": "546d2572-e25a-47fd-9460-3029440ddf57",
+  "lang": "en",
+  "text": "The itinerary is Moon, then Sun, then the Milky Way, then galaxies no instrument had resolved. Twenty-nine minutes, and the difficulty is plain once stated: none of it could be photographed, so all of it had to be built. The animation works from what astronomy could describe rather than from anything a lens had brought back, which puts the film in an odd category — nonfiction assembled entirely out of the unseen, and taken seriously enough that the Academy gave it the award for documentary short. Watched now, it is also an artefact of what the sky was understood to be in 1960, which is a second kind of interest. The discipline holds: scale kept honestly, distances allowed to be as large as they are, nothing dressed up to compensate.",
+  "model": "claude-opus-5",
+  "source_sha256": "28b0085e3c360a6e9679159d0bbf64a8e6abc2599e5f14d53df7fd24c3bf31ff"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "morning-for-the-osone-family-1946",
+  "field": "lead",
+  "film_id": "3c439338-6347-41e5-8c59-2c10f8dcba90",
+  "lang": "en",
+  "text": "The war arrives in the Osone house wearing the face of a relative. An uncle in uniform moves in, and the pressure he brings is domestic before it is anything else: whose opinions may be spoken at the table, whose fear may be admitted, what a family owes a man who represents the army inside it. Kinoshita released it in 1946, months into a country that had just lost, and the decision to stay indoors for eighty-one minutes — no front, no battle, only rooms — is an argument about where the war was actually conducted. Work made this close to a national catastrophe tends to accuse or to console. This one watches a family absorb an authority it did not invite and cannot evict, and lets meals and deference carry the weight.",
+  "model": "claude-opus-5",
+  "source_sha256": "99ee17fdee49edfefa962ec8a708de34c04fde1253bcf573fe68938603efaa59"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "kenji-mizoguchi-the-life-of-a-film-director-1975",
+  "field": "lead",
+  "film_id": "c473c086-b235-417c-841e-433b8f61af23",
+  "lang": "en",
+  "text": "Thirty-nine people sit down, one after another, to describe the same man. Kaneto Shindō, who called Mizoguchi his mentor and his friend, spends two and a half hours gathering testimony from actors, writers, producers and crew, cut against stills and excerpts from the films, and the method has consequences: a life told only by the people who stood near it becomes a study of what a director is like to work for. Anecdote accumulates into something close to a labour history of a set — who was asked for what, and how often. It was made in 1975, while those particular mouths were still there to be asked. Reputation is elsewhere; this is the record of a working life, taken down by someone who had been in the room.",
+  "model": "claude-opus-5",
+  "source_sha256": "651c30d28503f422f2ec5a5b2394c8f11a7945ad2ee6eca916c05fa084f2556a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "to-realize-1984",
+  "field": "lead",
+  "film_id": "753bf68f-6474-47fc-aaf2-760895006ba7",
+  "lang": "en",
+  "text": "A car crash puts one of the two leads beyond speech, and the film hands everything that follows to the other. The doctor who takes charge is carrying his own damage home every night, and the imbalance is the whole design: a patient who registers nothing, a physician who cannot stop registering everything. Doria keeps the material at the bedside rather than in the corridors, and a hundred minutes there produce a specific kind of intimacy — one-sided attendance, speech that gets no answer, a private life quietly rearranged around a body that gives nothing back. The Silver Condor named it best film. What is unusual is where the effort is placed: not in the medicine, which runs out, but in the daily decision to keep turning up for a stranger.",
+  "model": "claude-opus-5",
+  "source_sha256": "cfa8e3bef5d4640f72b36e86bc274f51fe4566ff9a9872cdf4ef94cfee84170f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "city-of-gold-1957",
+  "field": "lead",
+  "film_id": "b2405896-6e22-4dc2-a646-757b96fb408e",
+  "lang": "en",
+  "text": "Most of the images in these twenty-two minutes do not move at all. City of Gold is assembled largely from still photographs of Dawson City at the height of the Klondike rush, the camera travelling across them, set against the same streets as they stand today — a town swollen by prospectors who walked and floated three thousand kilometres north on the chance of ground. The stillness does the work. Photographs of a boom are taken by people who assume the boom will hold, and setting those faces beside the quiet that followed says what needs saying without a word of comment. Cannes gave it the short film Palme d'Or. What stays is smaller than the history: the exact expressions of people posing in a place they had suffered to reach.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b3af66630f2209d72960b262492c566bfa224f3b0dad8b1d1832a8ed89e1385"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "our-homeland-2012",
+  "field": "lead",
+  "film_id": "784a6798-435f-4fcb-ab3a-8c349d194628",
+  "lang": "en",
+  "text": "A brother comes back to Tokyo for a stated number of days, and every conversation his family manages has to fit inside that number. Twenty-five years earlier he had gone to North Korea, one of more than ninety thousand ethnic Koreans in Japan who left between the late 1950s and the 1970s for a country promising prosperity, justice and an end to being treated as foreign at home; the permission that returns him is medical, and temporary. Yang builds the film around his younger sister, close enough to the director's own life to make the drama a form of accounting. Nothing in the hundred minutes needs a raised voice — the strain sits in ordinary hospitality, in what a family does not ask, in a schedule none of them set. Politeness under a deadline turns out to be a severe subject.",
+  "model": "claude-opus-5",
+  "source_sha256": "e96d7f39956d48263bd9ba1f4148d08560539dbc8f006afeff0298d27f7cbcc4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "aniceto-2008",
+  "field": "lead",
+  "film_id": "0232af4e-e99c-4db5-8d48-dd9374c9bb78",
+  "lang": "en",
+  "text": "Favio hands the oldest shape in melodrama, the triangle, to three dancers rather than three actors. Aniceto, Francisca and Lucía are carried by Hernán Piquín, Natalia Pelayo and Alejandra Baldón, so appetite and jealousy reach the screen as movement before they arrive as speech. Eighty-two minutes is brief for a love story and about right for a dance; the film is under no obligation to explain a motive it can stage instead. Something is given up in that trade — nobody gets a scene in which they account for themselves — and something exact is gained, because a body committing to a step commits visibly, and the moment a preference changes shows in the shoulders. Attention shifts from who says what to who leads.",
+  "model": "claude-opus-5",
+  "source_sha256": "a697cf64eecc211b2b7e6969c738f415768e95138d297858c0828410a592b23d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-neighbour-s-wife-and-mine-1931",
+  "field": "lead",
+  "film_id": "cc93951b-cb24-4e3a-a756-21a583223da6",
+  "lang": "en",
+  "text": "A playwright moves out to the country to get some writing done, which is the entire engine of this film. It runs fifty-seven minutes, because the country turns out to be full of neighbours, and because a man at a desk is a comic object — visibly labouring, producing nothing. Gosho takes the smallest available unit, one house and the one beside it, and finds his farce in the traffic between them. Nothing in it is expensive: rooms, a door, a wall, a wife, the household next door. Distraction is the subject and also the method; the film keeps getting up from its own desk. A comedy at this scale has to carry every complication in on foot, which puts unusual weight on entrances and on the precise moment a man decides to stop working and go see what is happening next door.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3a86d5cb5fb4c8c1649eac49d24097dcae08ac40c3c39cadc64bff44c427cc4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "god-bless-you-1948",
+  "field": "lead",
+  "film_id": "68f1ce23-0e5d-4d24-be03-d229a9e88854",
+  "lang": "en",
+  "text": "Outside a casino, a beggar at the door and a woman waiting in her good clothes, which are the last capital her household has. Nancy's husband gambles. Her own work, unpaid and constant, is to look like a woman who needs nothing, and Amadori spends two hours on that arithmetic — the offer that arrives, the benefactor, the change of address — while the pressure worth watching stays underneath, in how much labour poverty demands of someone required to remain decorative. It plays at full volume, as a studio picture of 1948 is entitled to, and it means its swoons rather than winking at them. The Silver Condor named it best film. Elegance here is not a temperament but an occupation: a dress code, fixed hours, and no wages at all.",
+  "model": "claude-opus-5",
+  "source_sha256": "6828a3ad1c26c1556d879c5131c1975e4ae9ae52ba83423f0a28219270db6b64"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "where-spring-comes-late-1970",
+  "field": "lead",
+  "film_id": "6e4d4faf-c91b-4e7d-b6fd-1cc5931e509f",
+  "lang": "en",
+  "text": "In 1970 Japan was presenting itself to the world at its first EXPO. This film starts out the same year in the other direction: the mine has closed, the miner who worked it is out of a job, and the decision is Hokkaido, the far north, farming, which is not what he knows. Yamada gives the picture over to the transit itself. A hundred and six minutes of a household in motion, carrying what it owns the length of a country that is at that moment busy congratulating itself, and the journey becomes the substance rather than the setup for one. What holds it is how ordinary the obstacles are: distance, money, the slowness of moving several people at once, and the fact that every decision has to be taken while already under way.",
+  "model": "claude-opus-5",
+  "source_sha256": "74c0abae34457d506052f991b1809d2e80dad7344da49dbe4a11b99e66368485"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-cherry-orchard-1990",
+  "field": "lead",
+  "film_id": "492b729a-5df9-4289-9733-a6d415147898",
+  "lang": "en",
+  "text": "A cast list goes up at a girls' school, and for the rest of the term it is the most consequential document in the building. Nakahara spends ninety-six minutes on the preparing rather than the performing: a Chekhov production being got ready, costumes argued over, a line reading corrected without anyone quite saying who is in charge. What the film understands is that adolescence organizes itself around exactly this kind of temporary institution — the club, the cast list, a hierarchy that will not exist in two years and is absolute today. Nothing catastrophic is required, and nothing catastrophic arrives. Proximity supplies the pressure: rehearsing Chekhov in a room full of people who will be at the next desk tomorrow morning.",
+  "model": "claude-opus-5",
+  "source_sha256": "785272d67897c2af2fa741ad34f7272877bc6d0139934ff55ada7d8fbb3002ac"
+ }
+]

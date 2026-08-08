@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hoarded-treasure-as-doomed-class",
+  "field": "title",
+  "lang": "ko",
+  "text": "쌓아둔 보물, 몰락할 계급",
+  "model": "claude-opus-5",
+  "source_sha256": "f9af97f5571c9f059c7a221ea95cfe8510e949de8e849afeb0b831ac063af40f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hoarder-whose-collection-outranks-its-keepers",
+  "field": "title",
+  "lang": "ko",
+  "text": "주인보다 격이 높은 수집품",
+  "model": "claude-opus-5",
+  "source_sha256": "ba0e79b815de7e42eb80ebea22e8c166218fad405da6efe77b67c50ec7eeabf3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hole-as-wound-and-passage",
+  "field": "title",
+  "lang": "ko",
+  "text": "상처이자 통로인 구멍",
+  "model": "claude-opus-5",
+  "source_sha256": "74aea69129ffc1d79091a8974b623279fe72614635fe78f93f3bc7404a9ab484"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hollow-center-where-meaning-should-be",
+  "field": "title",
+  "lang": "ko",
+  "text": "의미가 있어야 할 자리의 공백",
+  "model": "claude-opus-5",
+  "source_sha256": "393c0530e5907273f4ee78e68de1b1064fdddae5cab65b2c90842e5410f80b14"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hollow-front-concealing-the-real-power",
+  "field": "title",
+  "lang": "ko",
+  "text": "진짜 권력을 가린 빈 간판",
+  "model": "claude-opus-5",
+  "source_sha256": "f77dba90fcb92a49cc5f67ed34556ec6a2e794649eb7046f4a56e79592870a4f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-holy-fool-whose-idiocy-sees-truer",
+  "field": "title",
+  "lang": "ko",
+  "text": "어리석어서 더 멀리 보는 성스러운 바보",
+  "model": "claude-opus-5",
+  "source_sha256": "74c17c6dd25266bf0c5d847eb1b5fe7a3b2f9cea643e6b3c37a17e3bf0a16907"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-holy-hoisted-as-mockery",
+  "field": "title",
+  "lang": "ko",
+  "text": "조롱거리로 내걸린 성물",
+  "model": "claude-opus-5",
+  "source_sha256": "dd4ae71edda1ad5b96f4987ec530e0a25ce3f76df0938b008b3aeff4d26943a8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-holy-stage-hosting-a-secular-tragedy",
+  "field": "title",
+  "lang": "ko",
+  "text": "세속의 비극이 올라간 성스러운 무대",
+  "model": "claude-opus-5",
+  "source_sha256": "957fb1f426f906caf21539faec9f8fe41bdfa0c92c0fed4c1c9a912545675778"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-homage-alibi-that-disarms-critique",
+  "field": "title",
+  "lang": "ko",
+  "text": "비판을 무력화하는 오마주라는 알리바이",
+  "model": "claude-opus-5",
+  "source_sha256": "2bd627a6d1c29cbf2d95b8dd01eefc40b982be942885d5556e2ce3e070d129b1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-home-as-hidden-factory-of-domestic-labor",
+  "field": "title",
+  "lang": "ko",
+  "text": "가사노동의 보이지 않는 공장, 집",
+  "model": "claude-opus-5",
+  "source_sha256": "674ad8a1aed8f364b99fdba104464e6bf7b7da990f45be4fccaf13bcf9bd8947"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-home-as-tender-prison",
+  "field": "title",
+  "lang": "ko",
+  "text": "다정한 감옥, 집",
+  "model": "claude-opus-5",
+  "source_sha256": "9fc68eb24a995e5add77be350fae2278039e09b210340c7e957a5137cb1e464b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-home-as-the-true-battlefield",
+  "field": "title",
+  "lang": "ko",
+  "text": "진짜 전장은 집이다",
+  "model": "claude-opus-5",
+  "source_sha256": "a241bec3858c087dfc3b44565ec2c4ae9818210b1a29097e5e5b94ff795af7ad"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-home-counties-dreamed-america-or-magic",
+  "field": "title",
+  "lang": "ko",
+  "text": "미국을, 혹은 마법을 꿈꾼 잉글랜드 근교",
+  "model": "claude-opus-5",
+  "source_sha256": "84add75013e206f5ea96839012cb7f042599fd67f0f49e7eeaf11302ac3c0c08"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-homeless-drifter-in-precarity-s-gap",
+  "field": "title",
+  "lang": "ko",
+  "text": "불안정의 틈에 사는 떠돌이",
+  "model": "claude-opus-5",
+  "source_sha256": "3df2232b8cd84a440a92ddda53017804d78c9442624cb0f878b161c61c733592"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hometown-dissolved-into-invented-memory",
+  "field": "title",
+  "lang": "ko",
+  "text": "지어낸 기억 속으로 풀려버린 고향",
+  "model": "claude-opus-5",
+  "source_sha256": "8df6d41c2f13bb4c9950f37d9650c9e3283dbf2919c74a21a36968cf73c4bf57"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hometown-seen-only-from-exile",
+  "field": "title",
+  "lang": "ko",
+  "text": "떠나야만 보이는 고향",
+  "model": "claude-opus-5",
+  "source_sha256": "4c7edf0101089ceb425d5a5ba445f3ee1eea6db012bcc1e02d74d30a3972ed80"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-honest-lie-that-tells-the-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "진실을 말하는 정직한 거짓말",
+  "model": "claude-opus-5",
+  "source_sha256": "8a5e8c7bd0ba99946685fc737dffaf96c16ff6c2bb97fd060587c09484d49096"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-honor-code-that-kills-its-keepers",
+  "field": "title",
+  "lang": "ko",
+  "text": "지키는 자를 죽이는 명예의 규범",
+  "model": "claude-opus-5",
+  "source_sha256": "a99102bc4402f81190afacb1a783d4e3626a2b22c76752fef32ea662cd8d41e7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hook-as-barbed-object-of-desire",
+  "field": "title",
+  "lang": "ko",
+  "text": "미늘 돋친 욕망, 갈고리",
+  "model": "claude-opus-5",
+  "source_sha256": "02c2e501174449026a3a2303e99f6f6ea137c97b370c4c4cb206977fae2c054f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-horror-auteur-inside-the-franchise-machine",
+  "field": "title",
+  "lang": "ko",
+  "text": "프랜차이즈 기계 안의 호러 작가",
+  "model": "claude-opus-5",
+  "source_sha256": "b75f173eba95455ae2ac64e59651e7d1cf45427581772b3274ffd4513e692636"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-horror-of-a-world-that-means-too-much",
+  "field": "title",
+  "lang": "ko",
+  "text": "의미가 너무 많은 세계의 공포",
+  "model": "claude-opus-5",
+  "source_sha256": "09584851cc8dfcf94092daa22f3a1249b11d362af1ecd18d382a03acadeafd75"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-horror-staged-in-pitiless-daylight",
+  "field": "title",
+  "lang": "ko",
+  "text": "인정사정없는 대낮에 벌어지는 공포",
+  "model": "claude-opus-5",
+  "source_sha256": "5cf5415d190e70f7c3e5ba5ded447c6cd8d43e16b304e5d3c6f28441f32dc041"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-horse-as-mute-confessor-and-withheld-answer",
+  "field": "title",
+  "lang": "ko",
+  "text": "말 없는 고해신부, 끝내 주지 않는 답",
+  "model": "claude-opus-5",
+  "source_sha256": "6e3fef17215c16eeeb7118c8364ab3fb9d369098decf4b12c05007de2338823d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hostile-review-that-proves-the-film-s-thesis",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화의 명제를 입증해버린 혹평",
+  "model": "claude-opus-5",
+  "source_sha256": "6c1c833da5894329eb8d339244a614aea50ff8f977adbd272e4a1e82ffb94044"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hostile-verdict-as-self-portrait",
+  "field": "title",
+  "lang": "ko",
+  "text": "혹평이라는 이름의 자화상",
+  "model": "claude-opus-5",
+  "source_sha256": "810929b464456106c75e53d1bc597c2e5519dc1b7cd3d0b11c3cba99e8fb572a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hotel-as-capital-s-placeless-cell",
+  "field": "title",
+  "lang": "ko",
+  "text": "자본의 장소 없는 방, 호텔",
+  "model": "claude-opus-5",
+  "source_sha256": "824f47bf2c69097668559504b033d7786af799dd82d5e863e3dc80de3712d872"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hotel-that-hoards-the-dead",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽은 자를 쟁여두는 호텔",
+  "model": "claude-opus-5",
+  "source_sha256": "5509cd16a4f298904d37015bb38f39116b776ab2834c7c968fb0b70a10d6ef31"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-house-argument-forces-the-buried-truth-out",
+  "field": "title",
+  "lang": "ko",
+  "text": "집안 싸움이 캐낸 묻힌 진실",
+  "model": "claude-opus-5",
+  "source_sha256": "9a1d8892595f4287d1260c417f4ef2c8901dc1805b2452c551dfb5c4c9bd0b04"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-house-as-a-living-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "살아 있는 몸으로서의 집",
+  "model": "claude-opus-5",
+  "source_sha256": "a24f29052f7f3f99dc77994eb884aad69451ea1ec963e1f9373a36e494d41701"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-house-as-built-anxiety",
+  "field": "title",
+  "lang": "ko",
+  "text": "불안을 지어 올린 집",
+  "model": "claude-opus-5",
+  "source_sha256": "ec60a1fa0821b305ea6ac2fa3e870cd9ab72cf2525eecaf86481680cf3b4bbff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-house-disguised-as-a-house",
+  "field": "title",
+  "lang": "ko",
+  "text": "집으로 위장한 집",
+  "model": "claude-opus-5",
+  "source_sha256": "972b4b1731b9f678bcab9f7aa2b4031843a5e6094dcf5d2282dcf3f3cdf6f963"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-house-filmed-as-sealed-stage",
+  "field": "title",
+  "lang": "ko",
+  "text": "밀폐된 무대처럼 찍힌 집",
+  "model": "claude-opus-5",
+  "source_sha256": "9d440c9ce13516b4839abe6e98afd1b06fe49409e41e8485819ee0255f55d8a4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-house-governed-from-within",
+  "field": "title",
+  "lang": "ko",
+  "text": "안에서 통치되는 집",
+  "model": "claude-opus-5",
+  "source_sha256": "47af6b48e3f8026c0e2493b0a524766cdd8c86b7c327f53aa1a4651c74adef3b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-house-s-drive-toward-total-transparency",
+  "field": "title",
+  "lang": "ko",
+  "text": "완전한 투명을 향한 집의 욕망",
+  "model": "claude-opus-5",
+  "source_sha256": "6cae61c153b2f5f16efb49d5a1b7dee3be9ab8c40264fdde98c021607b47a29f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-house-that-holds-its-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 상처를 안고 있는 집",
+  "model": "claude-opus-5",
+  "source_sha256": "84f7ebd6756c77020859ace8c8b9c012d1a69c1a09f4c9d5cc3e47b55db455d8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-house-that-thinks-as-consciousness",
+  "field": "title",
+  "lang": "ko",
+  "text": "의식이 된 집, 생각하는 집",
+  "model": "claude-opus-5",
+  "source_sha256": "389c7357501021c855beef9b12c367e8dfebdd5e4ba484497ba7b813a027602e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-house-whose-floor-plan-cannot-exist",
+  "field": "title",
+  "lang": "ko",
+  "text": "도면으로 그릴 수 없는 집",
+  "model": "claude-opus-5",
+  "source_sha256": "e450126fc7cd17f258e047c5987c3dd7ae860d2b02582f7cac44065e0d1b3eff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-household-as-state-in-miniature",
+  "field": "title",
+  "lang": "ko",
+  "text": "축소된 국가로서의 가정",
+  "model": "claude-opus-5",
+  "source_sha256": "91c2c08baffb1cd5327d4a1ebf0b809d7635affed39fcd8b1c8ae4399545793b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-household-as-the-only-possible-nation",
+  "field": "title",
+  "lang": "ko",
+  "text": "가능한 유일한 나라, 가정",
+  "model": "claude-opus-5",
+  "source_sha256": "a1ba95c74f3c3d392fe0628b9ca5c47b4950451b9b38861ce7cab46c1643e6ca"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-housing-block-as-dying-collectivist-dream",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽어가는 집단주의의 꿈, 주거 단지",
+  "model": "claude-opus-5",
+  "source_sha256": "532c746e93bad8cab231956b933662124bb5d2fca76f5580c3b83b4ae6ceb18a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-human-dissolved-into-the-watershed",
+  "field": "title",
+  "lang": "ko",
+  "text": "물길 속으로 풀려 사라진 인간",
+  "model": "claude-opus-5",
+  "source_sha256": "9248466d08ff2a92b30a777c44dab51edc2e9a04549ac1bde4d6d329df0544ee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-human-reckoned-as-collateral",
+  "field": "title",
+  "lang": "ko",
+  "text": "담보로 계산되는 인간",
+  "model": "claude-opus-5",
+  "source_sha256": "c253a1c0ae9a1c0da32872e6ed583fcf3a234658b55d129080d82556bc309ba4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-human-reduced-to-exchange-value",
+  "field": "title",
+  "lang": "ko",
+  "text": "교환가치로 쪼그라든 인간",
+  "model": "claude-opus-5",
+  "source_sha256": "350f7ef088b1cf1b807d20ccc8861ca5c4eda6aad809752f91f5d3f20ab57dd1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-human-rendered-as-manufactured-machine",
+  "field": "title",
+  "lang": "ko",
+  "text": "공장에서 만든 기계로 그려진 인간",
+  "model": "claude-opus-5",
+  "source_sha256": "2b9017d8e706f35bb020351ca845be1309ce7c5f864c9f91becd82228c0cb948"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-humanist-label-as-critical-domestication",
+  "field": "title",
+  "lang": "ko",
+  "text": "'휴머니스트'라는 딱지, 비평의 길들이기",
+  "model": "claude-opus-5",
+  "source_sha256": "744894616f79120479a6ed438bfeb855f4217fec0abddae48f5d0c7e7134b83b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hunger-artist-who-starves-for-the-crowd",
+  "field": "title",
+  "lang": "ko",
+  "text": "군중 앞에서 굶는 단식 예술가",
+  "model": "claude-opus-5",
+  "source_sha256": "61e03926fc62e92cde8090fa158a528193842eea1a7de114e669722dfb97726b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hunger-that-comfort-kills",
+  "field": "title",
+  "lang": "ko",
+  "text": "안락이 죽여버린 허기",
+  "model": "claude-opus-5",
+  "source_sha256": "2f3864ee410e24e6edae15ad6577bd1fdc1c36f3221acc66a110b532d0996eb1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hunger-to-be-allowed-to-believe",
+  "field": "title",
+  "lang": "ko",
+  "text": "믿어도 좋다는 허락을 향한 갈망",
+  "model": "claude-opus-5",
+  "source_sha256": "5da56c8d203b76cc629d600a9ee2dd5951b28015e6e3ed990e656449e8a7de2d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hunt-word-that-hides-a-different-meaning",
+  "field": "title",
+  "lang": "ko",
+  "text": "딴 뜻을 품은 '사냥'이라는 말",
+  "model": "claude-opus-5",
+  "source_sha256": "7169cd5a42a4e09d813c7175dc335d528d1254e86458189e25421c9563f9bf7e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hunter-bound-to-his-prey",
+  "field": "title",
+  "lang": "ko",
+  "text": "사냥감에 묶인 사냥꾼",
+  "model": "claude-opus-5",
+  "source_sha256": "31d06203e6ced0157e0aa2d1a51f5f4b4af9265b80d99c2c0623a694608a81bb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hunter-who-becomes-his-quarry",
+  "field": "title",
+  "lang": "ko",
+  "text": "사냥감이 되어버린 사냥꾼",
+  "model": "claude-opus-5",
+  "source_sha256": "486951fc8c40fee29e7ad35de96823398b2ace9779b521c1bd55d27abb0c304c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hunter-who-becomes-his-quarry-2",
+  "field": "title",
+  "lang": "ko",
+  "text": "쫓다가 쫓기는 자가 된 사냥꾼",
+  "model": "claude-opus-5",
+  "source_sha256": "486951fc8c40fee29e7ad35de96823398b2ace9779b521c1bd55d27abb0c304c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hunter-who-spared-what-he-hunted",
+  "field": "title",
+  "lang": "ko",
+  "text": "쫓던 것을 끝내 살려준 사냥꾼",
+  "model": "claude-opus-5",
+  "source_sha256": "29c5a7dd2d529a5efd98f4447598294dc9c6c7270e4a8b2f6da686f8dd0e1e7a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-husband-who-murders-what-he-adores",
+  "field": "title",
+  "lang": "ko",
+  "text": "흠모하던 것을 제 손으로 죽이는 남편",
+  "model": "claude-opus-5",
+  "source_sha256": "73e7d3f7f161962041c3239128886e9511e41bf3951b2991454ae5bb950f8cc9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hustler-as-avatar-of-the-gig-economy",
+  "field": "title",
+  "lang": "ko",
+  "text": "긱 이코노미의 화신, 발버둥치는 자",
+  "model": "claude-opus-5",
+  "source_sha256": "c8745bfd8b996a8034bfcfc2b94c78a7df5cbd21da986549b75c32cca5c658e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hustler-as-perpetual-motion-machine",
+  "field": "title",
+  "lang": "ko",
+  "text": "멈추지 않는 영구기관, 장사꾼",
+  "model": "claude-opus-5",
+  "source_sha256": "a959bdcefb1c0a669b82aadd05bd5c0f4b2d4bb74ac6640e7727f0cbd12792ef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hypertrophied-body-as-reagan-era-america",
+  "field": "title",
+  "lang": "ko",
+  "text": "비대해진 육체, 레이건 시대의 미국",
+  "model": "claude-opus-5",
+  "source_sha256": "c633e208e67f852e6b9d9b7256a7b87937cf48bd861d926f498c8ba0a12d964d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-iberian-coast-as-buried-otherness",
+  "field": "title",
+  "lang": "ko",
+  "text": "묻혀버린 타자성으로서의 이베리아 해안",
+  "model": "claude-opus-5",
+  "source_sha256": "2ac0f4daee381814fc428418362dbb84ca9096c2a4107d3396ca8544d49ba1b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-idyllic-american-town-as-stage",
+  "field": "title",
+  "lang": "ko",
+  "text": "무대로 쓰인 목가적 미국 소도시",
+  "model": "claude-opus-5",
+  "source_sha256": "5f859927be1f2647bdff93d6fdf8ff60006b7a26557b04f69a623b04a19cdabb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-idyllic-town-harboring-its-crime",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 범죄를 숨긴 목가적 소도시",
+  "model": "claude-opus-5",
+  "source_sha256": "d0dff89c3ea17003cd44bb3d8460b142e2e1a69f4aec4377122e5ee2f57084a5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-illusion-veil-made-visible",
+  "field": "title",
+  "lang": "ko",
+  "text": "눈에 보이게 된 환영의 베일",
+  "model": "claude-opus-5",
+  "source_sha256": "2300d75041b29aa5b1a779563dd2eb60bafef43e7f57faae5969b0b90ea8a878"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-image-betrayed-by-its-chemistry",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 화학작용에 배신당한 이미지",
+  "model": "claude-opus-5",
+  "source_sha256": "32dceb13420bac32e4d5edf41056d5b6e512ed51fe5298975a432096179fe787"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-image-chemically-corrupted-into-meaning",
+  "field": "title",
+  "lang": "ko",
+  "text": "화학적으로 썩어 의미가 된 이미지",
+  "model": "claude-opus-5",
+  "source_sha256": "88e35cdab0111e0eca0ce998437672c126c4dd57d5872e55fdc5de6d0ac33641"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-image-estranged-from-its-own-era",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 시대에서 밀려난 이미지",
+  "model": "claude-opus-5",
+  "source_sha256": "9d9a9127b0294502a3fb12fbef680e6d19bb07473559f91cc2a97f00841231f8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-image-surveils-where-it-pretends-to-see",
+  "field": "title",
+  "lang": "ko",
+  "text": "본다고 하면서 감시하는 이미지",
+  "model": "claude-opus-5",
+  "source_sha256": "23f05811e7eddd0987d71e78f7cadfba78a8679e31a960936178173d09dcde00"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-image-that-crosses-the-screen",
+  "field": "title",
+  "lang": "ko",
+  "text": "스크린을 건너오는 이미지",
+  "model": "claude-opus-5",
+  "source_sha256": "ab0ae32312c68e20d07a45fa9bc623a7173718238e8a71b5b8d21e4e8400ccd7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-image-that-devours-its-watcher",
+  "field": "title",
+  "lang": "ko",
+  "text": "보는 자를 삼키는 이���지",
+  "model": "claude-opus-5",
+  "source_sha256": "8ef096ba1b356f429ed137827bd681251b0d379ac2c41d7afa41da63f6965159"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-image-that-outlives-its-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸보다 오래 남는 이미지",
+  "model": "claude-opus-5",
+  "source_sha256": "929ea602f7fc71f2c29d255a2b1f37a94c2e19a3ca8e2e35ab2dda5d6c8ee6ed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-image-that-outlives-the-dead",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽은 자보다 오래 남는 이미지",
+  "model": "claude-opus-5",
+  "source_sha256": "d7844d89e03b7497ee18d6c3e9831334ea2c90f98d6a10deb1d7eb9c5c507d7a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-imaginary-friend-as-transitional-object",
+  "field": "title",
+  "lang": "ko",
+  "text": "중간대상(transitional object)이 된 상상 속 친구",
+  "model": "claude-opus-5",
+  "source_sha256": "6fda9f5cc57d21403f730e14332e881dbe6e2566dcf04f79a926f044bd1a425b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-imagined-land-that-never-was",
+  "field": "title",
+  "lang": "ko",
+  "text": "있은 적 없는 상상의 땅",
+  "model": "claude-opus-5",
+  "source_sha256": "a59970ea3c2ecee5d827c771b49feb315ae540ebbc57510ea28745516e3a9a32"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-immigrant-self-erased-to-pass-american",
+  "field": "title",
+  "lang": "ko",
+  "text": "미국인 행세를 위해 지운 이민자의 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "837ec2026cadf9f984c4111d33bd3d3e2f3bdb62265605cfe5f73c983dbb93a9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-immigrant-who-becomes-his-own-caricature",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 희화가 되어버린 이민자",
+  "model": "claude-opus-5",
+  "source_sha256": "7cfef6627cb1249eaf5d3344d6d7a8028f1c0902293f5bfdffaa31013d5d7769"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-imperative-addressed-to-the-viewer",
+  "field": "title",
+  "lang": "ko",
+  "text": "관객을 향해 던지는 명령형",
+  "model": "claude-opus-5",
+  "source_sha256": "3f50ba31f54aa64bfe73af2bb2299a6217338c034bb14e7d92c06d906e02a2fb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-implant-as-wound-that-pretends-to-cure",
+  "field": "title",
+  "lang": "ko",
+  "text": "치유를 가장한 상처, 이식물",
+  "model": "claude-opus-5",
+  "source_sha256": "d579fff20ce85af9ea5778d287d811e7e4032832fbdf3a2da2b8aa67cf0c26c6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-impossibility-of-witness-as-form",
+  "field": "title",
+  "lang": "ko",
+  "text": "증언 불가능이라는 형식",
+  "model": "claude-opus-5",
+  "source_sha256": "0d8c98cfeda6dc9227036b7076ecb398d7a65ef011b15f50477c6d55c6ec646d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-impossible-arithmetic-of-saving-strangers",
+  "field": "title",
+  "lang": "ko",
+  "text": "낯선 이를 구하는 셈법, 끝내 맞지 않는",
+  "model": "claude-opus-5",
+  "source_sha256": "38f49c344781c71a41dbc59a1ee3542fb7bed76d8aff17360d1a72216095181a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-impossible-debt-of-the-spared",
+  "field": "title",
+  "lang": "ko",
+  "text": "살아남은 자가 갚을 수 없는 빚",
+  "model": "claude-opus-5",
+  "source_sha256": "2eed137e5bde7f8644d579a646cdae7fcf26c51c0dcaf006b398fe02e364062e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-impossible-shot-animation-made-real",
+  "field": "title",
+  "lang": "ko",
+  "text": "애니메이션이 실현한 불가능한 숏",
+  "model": "claude-opus-5",
+  "source_sha256": "26632c8764cea9394dd5397197b6baa8edb605e63306de538c764895e5bdb17a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-impossible-staircase-as-architecture-of-dread",
+  "field": "title",
+  "lang": "ko",
+  "text": "불가능한 계단, 공포의 건축",
+  "model": "claude-opus-5",
+  "source_sha256": "40a812dd5e6e5a165bbe3680c5ce350dd959ea66ae6f334a2f01bbc33f074c11"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-imposter-as-mirror-of-a-wanting-world",
+  "field": "title",
+  "lang": "ko",
+  "text": "모자란 세계를 비추는 거울, 사기꾼",
+  "model": "claude-opus-5",
+  "source_sha256": "a37502e0df369874c911126ee8a7ff46732ce1f3912ce5e167deda775a8d7fac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-impostor-who-built-a-real-life-on-a-lie",
+  "field": "title",
+  "lang": "ko",
+  "text": "거짓 위에 진짜 삶을 지은 사기꾼",
+  "model": "claude-opus-5",
+  "source_sha256": "8450fea8a35169668ced3b0cc89c6397651fe77bd3a4eb32ca14ee03408b4cde"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-impresario-who-exists-only-through-his-production",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 흥행물 안에서만 존재하는 흥행사",
+  "model": "claude-opus-5",
+  "source_sha256": "e8457abd9c8dabe9149cdc65584b15a42cee2d503809aaa7322f26fdfd179f2c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-inarticulate-fighter-whose-body-speaks-his-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "말 대신 몸이 진실을 말하는 파이터",
+  "model": "claude-opus-5",
+  "source_sha256": "8a836534c85d9a3acc56caae4364873f9a3e20ef634bfb2141b191a22edf15b5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-incomprehensibility-charge-as-critic-s-self-portrait",
+  "field": "title",
+  "lang": "ko",
+  "text": "난해하다는 고발, 평론가의 자화상",
+  "model": "claude-opus-5",
+  "source_sha256": "287467cbe79b349982205771dba6b61d00d3c9d63fcf91ac991201f871bc4997"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-independent-woman-disciplined-by-the-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "프레임이 길들이는 독립적인 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "9428535834ba71f1bad70e69aa17e4d2c9f184918d41916c1e08dc9c9eb6fb49"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-indian-city-as-hidden-moral-topography",
+  "field": "title",
+  "lang": "ko",
+  "text": "숨은 도덕의 지형도, 인도의 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "76694518a8173a29cd86aa31058400f87ecc259c44ab626df2b8e915cca27168"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-indie-director-rewriting-genre-grammar",
+  "field": "title",
+  "lang": "ko",
+  "text": "장르의 문법을 다시 쓰는 인디 감독",
+  "model": "claude-opus-5",
+  "source_sha256": "41d8c1589da5f1f41595cc5ed7aaac4f4614b952f2d1d18ec21bf79bede8d580"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-indifferent-city-as-a-single-hidden-family",
+  "field": "title",
+  "lang": "ko",
+  "text": "무심한 도시, 실은 하나의 숨은 가족",
+  "model": "claude-opus-5",
+  "source_sha256": "6e21e4c9af6453a2aa45a361f27d73e690c10a64129ae34c8768c96adbb0625c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-indifferent-georgian-landscape-as-judgment",
+  "field": "title",
+  "lang": "ko",
+  "text": "무심한 조지아의 풍경이 내리는 심판",
+  "model": "claude-opus-5",
+  "source_sha256": "c530e41314b6f3b910b043c30a14466204cdd0b0af269ead18051ea427149c60"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-indifferent-landscape-that-answers-everything",
+  "field": "title",
+  "lang": "ko",
+  "text": "무심한 채로 모든 것에 답하는 풍경",
+  "model": "claude-opus-5",
+  "source_sha256": "a8748c00cc55268d1a8f0b18e9cefa9bb60b9f4ef4128fa2f110dcdf911bcb7e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-industry-that-devours-its-women-on-schedule",
+  "field": "title",
+  "lang": "ko",
+  "text": "때가 되면 제 여자들을 삼키는 산업",
+  "model": "claude-opus-5",
+  "source_sha256": "e02d42b8d0ae8d63342955311b27ef7c8bc8c6a53b0d435c02e046f05d80b208"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-industry-that-resurrects-its-own-estate",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 유산을 되살려내는 산업",
+  "model": "claude-opus-5",
+  "source_sha256": "9357701a5e5bd470d2dfceb4454352cb9e45cb34adc082173c9ed1d900690a7e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-inheritance-belongs-to-whoever-stayed-to-defend-it",
+  "field": "title",
+  "lang": "ko",
+  "text": "유산은 남아서 지킨 자의 것",
+  "model": "claude-opus-5",
+  "source_sha256": "5cbeda3f52a1ae2c499283e7ab4fd304e0080e99921d60abbbf0309197bef4db"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-inheritance-that-comes-with-a-curse",
+  "field": "title",
+  "lang": "ko",
+  "text": "저주가 딸려 오는 상속",
+  "model": "claude-opus-5",
+  "source_sha256": "c303c9d2a412b4bfaf47ecf081d815a321dda0d164f87d7272fdef1569dad0e7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-inherited-blade-carries-its-history",
+  "field": "title",
+  "lang": "ko",
+  "text": "물려받은 칼에 밴 내력",
+  "model": "claude-opus-5",
+  "source_sha256": "ad1d6766f4a587934b8ed03b7633f5d2f394286bdeb1ae47c5f7ab5dc37b6fe9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-inherited-object-as-open-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "아물지 않은 상처, 물려받은 물건",
+  "model": "claude-opus-5",
+  "source_sha256": "98257b66e5cef3c83e72c919873e5db5bf4626d0abd1a80071d8f12fe7e5d2e4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-inherited-voice-that-must-become-her-own",
+  "field": "title",
+  "lang": "ko",
+  "text": "물려받은 목소리를 제 것으로 만들기까지",
+  "model": "claude-opus-5",
+  "source_sha256": "6b2395b22ff395beeb5dd78d76c7065586a4140919847aa09cb4b5779a468fae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-innocence-that-knew-and-looked-away",
+  "field": "title",
+  "lang": "ko",
+  "text": "알면서 고개를 돌린 순수",
+  "model": "claude-opus-5",
+  "source_sha256": "94a09cbc5be73312c5da0e4bde6746deb75580e0688d5aaa77d08198149388db"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-innocent-slain-by-cold-calculus",
+  "field": "title",
+  "lang": "ko",
+  "text": "차가운 계산이 죽인 무고한 이",
+  "model": "claude-opus-5",
+  "source_sha256": "4dfb105d438053b5c45e8a7565e20da06ef8272729a273ebf807954a033ccfb3"
+ }
+]

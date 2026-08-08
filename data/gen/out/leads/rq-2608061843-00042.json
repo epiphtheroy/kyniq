@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "always-2025",
+  "field": "lead",
+  "film_id": "6c5b4818-6274-47a9-ae4d-9257886a200b",
+  "lang": "en",
+  "text": "Youbin is eight, lives with his father and two grandparents in the mountains of Hunan, and writes poetry. The family is poor and eats what it can grow; the village school is where something else gets in, since the children there are taught classical Chinese verse and one of them takes it personally. Eight is young for a vocation. Deming Chen has eighty-eight minutes and a subject that resists filming — the interval between a feeling and the words that would hold it, which is where poems come from and which a camera cannot point at directly. So the film rests on patience with ordinary hours: the weather, the work, the walk to class. What it waits for is the moment a boy finds that language will do for him what his circumstances will not, and that this happens at a village school desk is the whole of its interest.",
+  "model": "claude-opus-5",
+  "source_sha256": "f777e7641bf2605d468e5fd87219dcfdda8421cfb3954b05ed1480932b021d29"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "margaret-2011",
+  "field": "lead",
+  "film_id": "721078ae-1d1c-4f79-94b0-552ee6e38bfb",
+  "lang": "en",
+  "text": "A teenager decides she is partly to blame for a stranger's death, and then discovers that nobody around her is organized to receive that information. Lisa is seventeen, articulate well past her own understanding, and convinced that an apology ought to repair something. Kenneth Lonergan gives her a hundred and fifty minutes to be wrong at length — in front of her family, her teachers, the friends she starts punishing for not caring correctly — and never steps in to make her easier to sit with. The Guardian's hundred best films of this century carries it now. The moral clarity she was raised on keeps running into people with insurance, procedures, jobs to keep, and Lonergan lets that collision go on well past comfort: an unbroken run of adults explaining, in different vocabularies, that being right is not the same as being owed something.",
+  "model": "claude-opus-5",
+  "source_sha256": "64eb4d248b29fa01f6a7e55c486cb202d21f29662d52dc58818d0584ba8fe5e5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-thin-man-1934",
+  "field": "lead",
+  "film_id": "b638b79e-2de9-490b-bca1-e7b887423d7f",
+  "lang": "en",
+  "text": "A vanished inventor sets the plot going, and then the picture hands itself to the two detectives on the case, who are married to each other. The mystery is real enough — a disappearance, a widening ring of people with reasons to lie, a couple who come close to being killed for their trouble — but the engine is a marriage that enjoys itself and treats an investigation as something to do together. Studio crime pictures of the period generally used a wife as an obstacle or a reward; here she is the method. Ninety-one minutes, no slack. W.S. Van Dyke keeps the talk at a speed that assumes nobody in the room needs help following it, and the National Film Registry has held on to the result, which survives less for its solution than for its tempo: two people amusing themselves in the middle of a felony.",
+  "model": "claude-opus-5",
+  "source_sha256": "e950ad16bd3115f0de88db46f70468d3445f22ae3f26148c448c7b194ef4aa24"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "she-done-him-wrong-1933",
+  "field": "lead",
+  "film_id": "a721f24a-7f2f-4efa-ad6a-673a369d66a7",
+  "lang": "en",
+  "text": "A nightclub owner with more male admirers than she can keep straight, and the neighborhood's temperance captain arriving in the same sixty-five minutes. New York, a room she owns, a queue of men who each believe they hold some claim on her: an escaped convict on his way back to a girl he assumes has waited, a young reformer with a league behind him and better intentions than information. Lady Lou treats all of it as scheduling, and the picture is not scandalized by her. At sixty-five minutes there is no space for anything but entrances, so the plot advances by who walks in, while the crime running underneath stays serious enough to keep the comedy from floating off. Nothing here is about virtue; all of it is about a woman who does not consider herself in any difficulty.",
+  "model": "claude-opus-5",
+  "source_sha256": "076a5c7c26b1f7d0f1d506906adf9914e224f9898c8a4e5d1a7d3e2aed81fc1c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "chimes-at-midnight-1965",
+  "field": "lead",
+  "film_id": "37639221-aa0d-48ec-8dfa-cd9deb66f3e0",
+  "lang": "en",
+  "text": "Shakespeare's English history plays, shot in Spain, and counted ever since among the hundred best of Spanish cinema by Caimán. Orson Welles compressed a usurped throne, a rebellion under the Northumberland scion Hotspur, and a chronicle's worth of court business into something narrower: a prince with two fathers. One is a king who needs an heir capable of holding the country together. The other is rotund, broke, endlessly talking, has taught him everything about pleasure and nothing about consequence, and takes the friendship for permanent. Both have claims on him. Hal knows what the crown will eventually ask of him, and so, at some level, does everyone drinking beside him; that knowledge sits under the tavern scenes while the comedy plays on top of it, never quite clear of it, which is why the funniest passages are also the least comfortable.",
+  "model": "claude-opus-5",
+  "source_sha256": "88aff831607ac5a16e2c274bc67aba4baa5ebaa2d5dde06500a7db92cffb4e4d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "love-me-tonight-1932",
+  "field": "lead",
+  "film_id": "6679ee90-04a4-4935-bc15-f22ec7de83e1",
+  "lang": "en",
+  "text": "The château has a debt problem, and the man walking up the drive to collect it is a tailor. That is the whole engine: an unpaid bill, a tradesman with a legitimate claim, and a household organized on the assumption that people like him wait outside. Rouben Mamoulian never pretends the situation is about anything other than rank, and never slows down long enough to moralize about it. The princess is aloof and bored in a house where boredom is the principal occupation; the tailor is the first man through the door with somewhere else to be. Eighty-nine minutes, and TSPDT's thousand greatest has kept hold of it, which is not the usual fate of a comedy this willing to be light. What holds up is the timing of the class joke: everyone in the château behaving impeccably while an invoice sits in a pocket, unmentioned and unpaid.",
+  "model": "claude-opus-5",
+  "source_sha256": "11e9fbeba94020ca388f5563872137b35911b8da5385167d1e4c90a0df8bc0e1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "foolish-wives-1922",
+  "field": "lead",
+  "film_id": "c3b8c897-0bc8-4503-8d28-683f0227a54c",
+  "lang": "en",
+  "text": "The count is not a count; what he has instead is a manner, an accent, and an accurate reading of what Americans abroad are prepared to believe about titles. Erich von Stroheim built the film to a scale the swindle does not require — a hundred and forty-three minutes on one impostor working one household — and the excess turns out to be the argument. Nothing about the fraud is improvised. A con of this kind needs rooms, servants, dinners, an entire apparatus of appearances, before it can ask anyone for money. The mark is the wife of an American diplomat, a woman whose own position abroad depends on being able to tell who people are. The picture is patient about how long good manners will keep a lie standing upright, and the pleasure and the discomfort of watching are the same thing.",
+  "model": "claude-opus-5",
+  "source_sha256": "6699b211225ddf51384f31ae1a095836240173e21a52af1f3031d15d9ad3c692"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "air-2023",
+  "field": "lead",
+  "film_id": "cd3f81ff-9c06-48d9-8ebf-ac17dc0d428b",
+  "lang": "en",
+  "text": "The whole picture is a negotiation over a shoe, and everyone watching knows the outcome before the first scene. Ben Affleck takes that as the working condition rather than a defect: Air Jordans exist, so nothing about the result is in doubt, and the only thing left to dramatize is the persuading. So the film is about a pitch and takes pitches seriously — the arithmetic of a percentage, the etiquette of asking, the particular embarrassment of a division nobody at Nike expects anything from trying to sign a player nobody has signed yet. A hundred and twelve minutes of adults in rooms talking each other into a risk. It is a sports story with no game in it, which suits the subject: the shoe was always the point, and the sale is the event.",
+  "model": "claude-opus-5",
+  "source_sha256": "ccd24ed141cbd004c885ec9d01652ae80d47efecac3272efe172d43a936fe428"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "margin-call-2011",
+  "field": "lead",
+  "film_id": "f3ae4217-66e4-4c61-adc8-a10e2acd8c41",
+  "lang": "en",
+  "text": "Everything happens inside twenty-four hours, most of it in offices where the lights stay on because nobody has been told to go home. An entry-level analyst finishes a piece of work somebody else left behind, finds a number, and understands what it means; the rest is that number climbing the building rank by rank, each person checking it and then waking someone with a better title. J.C. Chandor's first feature is less interested in blame than in procedure: what a firm does in the middle of the night when the calculation is not in dispute and the only question left is who moves first. The vocabulary is technical and the fear is not. Careers get settled in corridors between meetings, by people being scrupulously polite to one another, and 2008 arrives as a morning of paperwork rather than a catastrophe.",
+  "model": "claude-opus-5",
+  "source_sha256": "9da85d25b0e7aac770b8438860a20e25d444a3715607c67cd8282395b8a5fd46"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-edge-of-seventeen-2016",
+  "field": "lead",
+  "film_id": "91125dff-1b34-4139-8265-3d56d7da1098",
+  "lang": "en",
+  "text": "The picture is built around a teenager who is hard to like, and Kelly Fremon Craig declines to soften her. The situation would fit on an index card: a best friend starts seeing the older brother, and a girl loses the one person she did not have to perform for. Its smallness is the trouble, since nothing here rises to the level of an emergency a household would recognize, and a grief nobody will certify has to find another way to get itself acknowledged. So she manufactures one. She is cruel to the brother she has cast as her enemy, harder on the friend, worst of all on herself, and the film keeps looking at her past the point where a high school comedy usually starts arranging sympathy. What arrives instead has to be earned somewhere in the middle, which is the harder trick and the truer one.",
+  "model": "claude-opus-5",
+  "source_sha256": "3c5f48100b570f61f1e88e7ffc14c805a6dde813ae07f5e0fe2b3f8b4202c477"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-adventures-of-robin-hood-1938",
+  "field": "lead",
+  "film_id": "22b1ba73-6a78-4b71-be8d-8a0869ec889a",
+  "lang": "en",
+  "text": "The moral arithmetic is settled in the first reel: the outlaw is right, Sir Guy of Gisbourne is wrong, and everything after that is movement. Treating that as a limitation misses what it buys — with nothing left to argue, a hundred and two minutes can go entirely into ambushes, archery, the geometry of an escape, and a large cast plainly enjoying itself in costume. By 1938 the studios knew exactly how to build this kind of adventure, and the ease shows in the pacing: nothing is hurried, nothing is explained twice, no scene apologizes for being simple. The score took an Academy Award and earns it, doing most of the suspense work a more suspicious story would get out of plot. The only thing genuinely in doubt is Marian, and the film makes winning her a different labor from winning the fights.",
+  "model": "claude-opus-5",
+  "source_sha256": "6812bb57b62696c9bcbbb4a6cb57dcd3801bde88f17709d94153171320dc2077"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mr-jones-2019",
+  "field": "lead",
+  "film_id": "82be53d9-16a8-47a0-8286-a5cd04b158bf",
+  "lang": "en",
+  "text": "In 1933 a Welsh journalist got himself to Ukraine and found the thing an entire apparatus had been built to keep out of print. Agnieszka Holland films it first as a logistics problem and only then as a moral one: the permissions, the secret service men who turn up wherever he goes, the trains, the distance between what Gareth Jones has seen and what an editor will run. Forced collectivisation had emptied the countryside, and what he keeps meeting is not argument but administration — employees whose work is to see that the emptiness goes unreported. Gdynia's Golden Lions went to it, which put a Polish production about the Ukrainian famine in front of Polish audiences as the film of its year. A hundred and nineteen minutes, in English, because the story only counted once it had crossed a border.",
+  "model": "claude-opus-5",
+  "source_sha256": "b5c56d6e6d13c607b8882c19a13570a595ca8b713abee3c1bc26bd77916d5f8f"
+ }
+]

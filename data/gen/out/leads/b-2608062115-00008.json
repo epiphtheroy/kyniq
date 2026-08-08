@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "reverted-1994",
+  "field": "lead",
+  "film_id": "6a02d7c7-7df1-4b07-91b5-3498e7a4e087",
+  "lang": "en",
+  "text": "The chase is played for laughs, which is itself a piece of information. Kazimierz Kutz gives the pursuit seventy-nine minutes and not one more: a young democracy activist, a police force behind him, and a comic register that treats the whole apparatus as something a person can outrun. The premise is thin by design, one man and one hunt, so the weight falls on timing — on how long a gag can be sustained before it cools into something else, and on the fact that the man being chased is not a criminal but an inconvenience. Kutz keeps the tone light and the situation exact. Poland in 1994 could tell this joke out loud, which is a different thing from the joke being harmless, and the film seems to know the difference.",
+  "model": "claude-opus-5",
+  "source_sha256": "b0dce59acefecd7cf35428c2242a2919592751775cf22155a8d5d993b6f33fdc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "girl-guide-1995",
+  "field": "lead",
+  "film_id": "3d655350-ef5c-4633-ad0e-87acf6af86dc",
+  "lang": "en",
+  "text": "An out-of-work English teacher takes on a single private pupil, and she is engaged to a man nobody can quite account for. Juliusz Machulski lets the comedy drift toward action once the American disappears: the teacher, hired to drill verb forms, is asked instead to go and find him. The joke is occupational. A man whose only asset is a language other people will pay to learn gets pulled into a plot that has no use for grammar, and the film keeps its balance by treating the romance and the search as work he cannot afford to turn down. Poland in 1995 is the right setting for that arithmetic. What holds the thing together is the tutoring itself — two people in a room with a textbook between them and a missing man somewhere outside it.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ccc50b8fa93e5ba38bdf6a552a31044db209054f8cf62dcf931180f500b3d02"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-mother-of-the-kings-1982",
+  "field": "lead",
+  "film_id": "b45f4fcb-b014-4f8d-98e5-65f3ca6905dc",
+  "lang": "en",
+  "text": "Political upheaval is usually filmed from the ministries; this one is filmed from a household with four boys in it and no father. Janusz Zaorski takes 127 minutes over the years in which a Polish woman raises those sons while the state around her changes shape more than once, and the vantage point has consequences: a kitchen registers a purge differently than an office does, and a mother who cannot afford to disown anyone ends up holding every position at once. The sons grow into different men, as sons do, and in a period like that the differences are not private. War reaches Matka Królów at the level of who is in the house and who is elsewhere, and she is left with the one job that admits no politics.",
+  "model": "claude-opus-5",
+  "source_sha256": "d9780738e56be811ae4b2da88ca0856dd41f812223b8fe807b6859a70bee41f7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-beads-of-one-rosary-1980",
+  "field": "lead",
+  "film_id": "d26138b6-2034-4c6b-9268-973eb5e1cf65",
+  "lang": "en",
+  "text": "The offer is reasonable — a flat in a new block in exchange for a house due for demolition — and the old miner turns it down. That refusal is the whole engine of Kazimierz Kutz's film. Habryka has the medals a working life earns, a son and a daughter-in-law under his roof, and a street being bought out around him one door at a time. There is no villain in it: the clearance arrives as paperwork, as fair terms, as neighbours who have already packed, which leaves one man's stubbornness looking from the outside like the only unreasonable thing left standing. Kutz stays inside the house, where the argument is not about property but about whether a man who spent his life underground gets to decide where he sleeps.",
+  "model": "claude-opus-5",
+  "source_sha256": "b522bea3e71f2e91052e1f1239995b278169962b663125b0e4a42be43e1316d7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "woman-in-a-hat-1984",
+  "field": "lead",
+  "film_id": "df6a8f7d-e0da-424a-9e55-370853a39e04",
+  "lang": "en",
+  "text": "She is cast as a mannequin and wants to be Cordelia, and the distance between those two parts is most of her life. Stanisław Różewicz follows Ewa through a theatre season: a small role in Jasieński's The Ball of Mannequins, a poor neighbour who needs looking after, evenings with an older actress who has already had the career Ewa is still rehearsing for, and a mother who will not hear the truth about how the girl's father died. The film gives all of it the same weight, which is the argument — the audition matters no more than the quarrel, and both are the same work of deciding what she is willing to say out loud. A hundred and one minutes, no manufactured crisis, one young woman revising herself in increments.",
+  "model": "claude-opus-5",
+  "source_sha256": "a50362c4369b5c6126ab3fd1e8ec01f9d8a7fb2c7fa5e8e69a936ad3225f3720"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-siege-diary-2020",
+  "field": "lead",
+  "film_id": "a85a138f-e193-4969-8aeb-0afeab70d6a3",
+  "lang": "en",
+  "text": "Two and a half million civilians were inside the ring, and Andrey Zaytsev follows one of them on foot. Olga sets out across Leningrad in the first winter of the siege to reach her father, to say goodbye and to ask his forgiveness, and that walk is the whole architecture of the film: a distance any other year would swallow in an hour, stretched over 118 minutes of cold and weight and the arithmetic of a body that has not eaten. The camera keeps finding what a city does once hunger becomes municipal — the queues, the sledges, the courtesies that hold and the ones that give way. It took the Golden George, though the discipline that matters is smaller than a prize: the film will not let the walk move faster than a starving woman can walk.",
+  "model": "claude-opus-5",
+  "source_sha256": "751e2147d8124fdc514c4f046e4d8f1f465b69620163eb356a4736cf4a28a5e9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "passion-1978",
+  "field": "lead",
+  "film_id": "c17b4d69-d9fe-4ac2-b4b2-6374e3a30177",
+  "lang": "en",
+  "text": "Most of the fighting in this one happens in rooms, at tables, in the middle of a sentence. Stanisław Różewicz builds Pasja around Edward Dembowski in 1846, when the Kraków Uprising was still an argument among men with different amounts to lose: he wants the Polish lands unified and the peasants released from their obligations, and he has to get others to agree in words they can carry back to their own. Period drama with the pageantry taken out. What remains is persuasion — the unglamorous business of assembling a rising from people who each want a slightly different rising — and one man's conviction that his two demands are a single demand, which is precisely what his allies keep asking him to separate.",
+  "model": "claude-opus-5",
+  "source_sha256": "469488c778211821e44975e3c8b79ca1da11c2191e652de29d3165a441715da8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-case-of-bronek-pekosinski-1993",
+  "field": "lead",
+  "film_id": "903a4c5f-87cd-4f12-bf41-639a9096d37f",
+  "lang": "en",
+  "text": "The surname came off a charity's abbreviation and the birthday was assigned to the day the war began. Grzegorz Królikiewicz made this film out of a man in Zamosc whose identity is entirely administrative invention: a mother who put him over the wire of a camp, guardians who turned out to be something other than guardians, an age nobody can fix. It moves between document and staging, which may be the only honest form available for a life whose paperwork is fiction. Two institutions competed for him, the church and the state, and neither is really the subject; the subject is what a person assembles when the record hands him nothing. In Bronek's case, chess — a game of fixed rules, taken up by a man whose own were written by strangers.",
+  "model": "claude-opus-5",
+  "source_sha256": "3a370acd45da8c85a2fc43634e08198efd5b485c5f49a3d22d0285e206847e74"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "all-that-really-matters-1992",
+  "field": "lead",
+  "film_id": "b5197ef1-8004-46d8-922e-371303d03194",
+  "lang": "en",
+  "text": "A Polish-language film with Kazakhstan on its papers: the geography gives away the distance before the story gets to it. Robert Gliński takes Ola and Aleksander Wat at the point where a marriage stops being a private arrangement — the war breaks out, the two are separated, and what follows is a life conducted at the length of a continent. Ninety-eight minutes is a tight frame for that, and the tightness is useful; there is no room for panorama, only for the small logistics of staying alive and the wearing question of whether the other one is still where the last word placed them. It was entered as a submission to the Academy Awards. Its interest is not scale but persistence: two names, held on to for the duration.",
+  "model": "claude-opus-5",
+  "source_sha256": "31960a3cb29362e9595026b85f6bb62ac735390d5b67d04844a6c049f2badd57"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "slay-bells-ring-the-story-of-silent-night-deadly-night-2017",
+  "field": "lead",
+  "film_id": "ec48a766-5ee0-40ae-b89d-99193002346d",
+  "lang": "en",
+  "text": "Documentaries about cult films live or die on access — on whether the people worth asking will still sit down. Justin Beahm takes up Silent Night, Deadly Night, a Christmas horror picture that acquired a following well past its release, and works at forty-five minutes rather than feature length, which rules out the grand thesis about the genre and leaves the practical record instead: who did what, in what order, and why the thing came out looking the way it does. The interest is manufacture rather than fright. A horror film with a Christmas hook gets made by people doing a job, and then something happens to it out in the world that none of them planned; this is that second part, told by the ones who were there for the first.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd304c126311e1c0a4b1898fd036d68187fa9a38fe330d1c661fad890bdd69c3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-hard-day-s-night-1964",
+  "field": "lead",
+  "film_id": "00a6c6c2-52b6-4e5a-a167-29b02a31fcb0",
+  "lang": "en",
+  "text": "Four young men who cannot walk down a street are given eighty-eight minutes, a train, and a schedule. Richard Lester filmed the Beatles in 1964, at the point where their lives stopped belonging to them, and treats the confinement as comedy rather than complaint: corridors, platforms, fans and press at every exit, a television performance that has to be reached on time, a grandfather making trouble at each stop. The tone does the work — flippant, quick, entirely uninterested in explaining the band to anyone who needs it explained — and the songs turn up as labour rather than as numbers. TIME later put it on a list of a hundred. The more useful fact is that it was shot from inside the thing it is joking about.",
+  "model": "claude-opus-5",
+  "source_sha256": "704248dfed3db7b2b6120a7e0fdeb72985ccba6fbeecfb696c87910777703bb4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lola-montes-1955",
+  "field": "lead",
+  "film_id": "797d5a33-50bf-4e26-be4c-2dbe98ffa5f7",
+  "lang": "en",
+  "text": "A woman is billed as the attraction of a circus, and what she exhibits is her own history. Lola Montès had been the lover of important men; Max Ophüls meets her after the fact, once the affairs have turned into material — a life converted into an act and sold by the ticket. The 116 minutes go on the conversion itself, which is why this sits oddly as a romance and squarely as an account of what happens to a woman's past when other people can charge admission to it. The men are named, remembered, historical. She is the one required to perform them again. Nothing in the arrangement is consoling and the film does not pretend otherwise; it stays with the spectacle and lets the polish of the presentation stand as the evidence.",
+  "model": "claude-opus-5",
+  "source_sha256": "8866220aa991f4b0e83daae311ee2fcca94f2086716a19dfc7458883557ad0a2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-hour-of-the-furnaces-1968",
+  "field": "lead",
+  "film_id": "9765791f-69fb-4cc0-965d-7a6b4f2230ad",
+  "lang": "en",
+  "text": "Two hundred and sixty minutes, three parts, and by the last one the film has stopped describing and started demanding. Fernando E. Solanas opens with analysis — Argentina's land, its economy, the mechanics by which a continent's wealth leaves it — then narrows to the ten years of Juan Perón's government and what his movement did after he fell, then turns to violence and the case that liberation requires it. None of the structure is neutral and the film never claims it is. A documentary that closes on a call for action assumes an audience still in the room, which is why the length is not indulgence: the third part is unusable unless the first two have done their work, and Solanas builds them to be used.",
+  "model": "claude-opus-5",
+  "source_sha256": "fe37e6f7e9b4475d0d929a1a63e13dc3dad850cd6f05b04325d1b5683caeeb30"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "twenty-years-later-1984",
+  "field": "lead",
+  "film_id": "fdc88eb1-295d-4ab0-b8b2-d33b3cef3fbf",
+  "lang": "en",
+  "text": "A crew stopped filming in 1964 because the army took the country, and the same director came back to the same fields in 1981 to finish. Eduardo Coutinho had been making a picture about a murdered leader of country people; by the time he returned, his footage was seventeen years old and the family in it had scattered. What he assembles is two films at once — the material he had to abandon, and the search for everyone who appears in it — with the second interrogating the first: what a face looked like then, what the same face is prepared to say now. His method is patient to the point of obstinacy, sitting with people and letting an account come out at its own speed. The history of a country sits in the gap between the halves.",
+  "model": "claude-opus-5",
+  "source_sha256": "59d488093a8672f0fc46e289a1f621df207187c9ec06baddf6c585ff6b3be252"
+ }
+]

@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "heroes-all-1920",
+  "field": "lead",
+  "film_id": "065907d4-bcaa-46cb-b7c3-848bf54db79d",
+  "lang": "en",
+  "text": "At Walter Reed in 1920 the war was still arriving, one wounded man at a time. Sixteen minutes is what this record runs, and it spends them moving between the hospital and the monuments of Washington, D.C. — treatment in one half, marble and avenues in the other, a few miles and an entire vocabulary apart. The cut between them is the whole of the film's thinking. Recovery is presented as work rather than as pathos, which was not the only option a producer had in 1920, when the wounded were still coming home and the question of what a public could stand to see was open. Then the camera goes sightseeing. Whatever irony a viewer supplies now, the pairing was deliberate: a city that sends men out, and the ward where some of them are put back together.",
+  "model": "claude-opus-5",
+  "source_sha256": "8a9e058e1e9b6b66ce57e868828154ac88e97cbb69a27147dcc9134c3f7819c8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "navajo-film-themselves-1966",
+  "field": "lead",
+  "film_id": "3443e04a-7ccc-48e0-b1c3-4b025d9a1e22",
+  "lang": "en",
+  "text": "A silversmith, a weaver, a second weaver, a lake, a shallow well: five of these seven shorts take their titles from a trade or a piece of water. The set runs a little over two hours in total, so no single film is long enough to explain itself, and explanation does not appear to be the ambition. Craft has its own duration — silverwork and weaving are processes, and a camera either keeps their time or reduces them to illustration. The remaining two, Intrepid Shadows and The Spirit of the Navajos, promise something less literal. Susan Benally is among those credited. Taken together the seven describe a place through what is done in it and by whom, which is a different proposition from a documentary made by someone who drove in for a week.",
+  "model": "claude-opus-5",
+  "source_sha256": "7349c67c005b973ab470bb10de507437c41d9ee1ab72b5a8bc475be71e2c300e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bohulano-family-film-collection-1950",
+  "field": "lead",
+  "film_id": "3698bc83-9415-4099-9644-5f8f213e6b93",
+  "lang": "en",
+  "text": "In Stockton, California — for a time the largest Filipino community in the country — one family kept a camera going for twenty years. Fifteen reels, close to five hours: family gatherings, community events, road trips to New York, Atlantic City, Washington. Home movies record what people think is worth standing still for, and repeated across two decades that becomes a document of a migration nobody had been assigned to record. Then, in 1967, the direction reverses and the Bohulanos take the camera to the Philippines. A family that had been filming its arrival films a return. Concepcion Bohulano's name is on the collection. Nothing in it was composed for strangers, which is why it runs longer than an argument would, and why the least eventful footage is the part that holds.",
+  "model": "claude-opus-5",
+  "source_sha256": "047593e6c9010f209feb420221ea2095f4dc19f9c8079d59bd90e9701d0a0491"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "zora-lathan-student-films-1975",
+  "field": "lead",
+  "film_id": "36a1640a-0c3a-4f6c-b1fe-44fc8178c0bf",
+  "lang": "en",
+  "text": "Six short films on 16mm, made by Adaora \"Zora\" Lathan while she was a film student at the University of Illinois. Student reels are shaped by their conditions: equipment signed out and due back, stock counted by the foot, subjects who are nearby and willing. Most such reels end in a closet. These ended in the National Film Registry, an odd destination for coursework and a reminder of how much of the 1970s was recorded by people who had not yet been handed permission to record anything. A beginner's decisions stay legible in a way a working professional's are not; the thinking is still on the surface, not yet folded into habit. The films are short. They were made by someone with no reason to assume anyone would keep them.",
+  "model": "claude-opus-5",
+  "source_sha256": "22e27ee2f7c7e0612a4c19334949221a5786ad757dda272d460608f9bf1ec714"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "free-radicals-1979",
+  "field": "lead",
+  "film_id": "3cb0df4c-4d78-4a62-8ec0-d6fa2accd097",
+  "lang": "en",
+  "text": "One of them cannot leave the house; the other cannot stop moving. That pairing is the entire engine — an ailing woman, a young man on the run from whatever is behind him, and the arithmetic of who needs what from whom in rooms neither of them chose to share. Illness sets the tempo. Sickness runs on a schedule of medicine and rest, and an intruder either works around that schedule or breaks it, and either choice tells the other person something. Thrillers usually let their captives run. This one removes the option before the story starts, and removes it by diagnosis rather than by rope, which changes the shape fear takes on screen. Xia Magnus is working with two people and a confined space: the cheapest premise available, and the least forgiving.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b023fb81dc266c581ad016caa7b8d1e403fad13a33e3bff517b3000c49f8822"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mama-loves-papa-1933",
+  "field": "lead",
+  "film_id": "4e5ab99e-d18f-4256-a23f-d30e349e743b",
+  "lang": "en",
+  "text": "A sixty-eight-minute domestic farce turned up among the National Board of Review's ten best films of 1933. Comedies that size were built to fill out the underside of a double bill, and the economy is right there in the setup: a wife who will not let up, a husband who goes drinking rather than keep arguing, and an acquaintance made along the way. At this length nothing can be repeated. A scene lands or it is gone, and Norman Z. McLeod's task is to keep the situation escalating faster than an audience can object. What has aged strangely is the marriage — in 1933 a comedy could make a joke of a bad husband and a premise of a difficult wife, and assume nobody would ask for a verdict. The bender is played for laughs, with no warning attached.",
+  "model": "claude-opus-5",
+  "source_sha256": "3b8306f142facdcfd275f337e95bdbd69bc06721ff11444d9987523bffeea4d9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "president-mckinley-inauguration-footage-1901",
+  "field": "lead",
+  "film_id": "57acd966-6892-4f74-8dd1-8ebbfcebfc78",
+  "lang": "en",
+  "text": "An inauguration, and sixty seconds of film to hold it. That was the working unit in 1901: a camera took what its magazine could carry and then stopped, so whatever fell outside the minute never entered the record. The operator's only real decision was where to stand. Nothing intervenes between the lens and the event to make it legible — no cutting, no voice pointing out the important man, just a fixed position and a public occasion moving past it, which is close to the whole grammar of film at that date, before newsreel convention hardened into something readable at a glance. A minute of 1901 is not much. It is also a president and a morning that happened exactly once, which is the entire proposition of photographing anything.",
+  "model": "claude-opus-5",
+  "source_sha256": "46be0eb4ad800cbca3f751a362254ec9c604beecc8ea3be18bdad656b2fc62f3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-lighted-field-1987",
+  "field": "lead",
+  "film_id": "69e86938-3232-4e76-8679-aa3fbb7b8e71",
+  "lang": "en",
+  "text": "Andrew Noren's ghosts do not come from anywhere else; the other world in this film is the one everybody is already standing in. What he photographs is light — how it behaves on a surface, the shapes it throws, the trick it plays on an eye that keeps wanting an object instead. His own description of the work calls it a comedy of mirrors, which at least rules out solemnity, and abstract film at feature length is rarely willing to rule that out. Sixty-two minutes is a long stretch to spend on reflections. The duration is the wager: past some point a viewer stops waiting for a subject to arrive and starts watching the surfaces on their own terms. The memento mori Noren hangs on the end of that description is not decoration.",
+  "model": "claude-opus-5",
+  "source_sha256": "c443b1416e2155968e64259b117d1a971c3b506f51dca49034706aa83123e9d3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-oath-of-the-sword-1914",
+  "field": "lead",
+  "film_id": "6a2f44ce-3e0f-42f4-9089-7361f9d90068",
+  "lang": "en",
+  "text": "A young man leaves Japan for a university in California, and the film keeps both ends of the departure in view: the ambition, and the person left standing where he came from. Three reels, thirty-one minutes, 1914 — room for one situation and no subplots. The Oath of the Sword is catalogued as a Japanese production carrying English titles, which puts it in an unusual seam of the silent era, its story divided between a home treated as real and a Berkeley campus where a life is meant to be settled. Obligation is what holds it together: a promise made before boarding, and the ordinary work distance does on promises. Frank Shaw directed. At this length every scene has to carry some part of the parting, because there is nothing else to carry.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ab76fa5eb6d4932a1b4c6dd37cb8510e977a1130a145b5407c4bab5b9d893ce"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "itam-hakim-hopiit-1984",
+  "field": "lead",
+  "film_id": "6cd1861e-c2a7-4cdb-b61e-5af0658dd6af",
+  "lang": "en",
+  "text": "Three hundred years after the Pueblo Revolt of 1680, a film made for the anniversary sets itself against the shape of anniversaries. Victor Masayesva Jr. builds his hour around an elder speaking Hopi: emergence stories, the Bow Clan migrations as his father told them, recollections belonging at once to one life and to a much longer account. Centenaries count forward in a straight line. The film proposes a world that starts, ends and starts again, then has to find pictures for that, which is the real labour here — what a camera, a machine for recording one instant after another, can do with time understood as a cycle. Fifty-eight minutes, one voice, a language most viewers will not have. The elder is not explaining Hopi history to an outsider. He is telling it.",
+  "model": "claude-opus-5",
+  "source_sha256": "e8f79bd6b700155a735a81ae369066c6139387e2c5adc0111ea948de6abe4c55"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "cruisin-j-town-1975",
+  "field": "lead",
+  "film_id": "714d0dc7-59eb-4dc6-8f60-346153f6bc4a",
+  "lang": "en",
+  "text": "Three musicians and the band they had built: Dan Kuramoto, June Okida Kuramoto and Johnny Mori, playing under the name Hiroshima. Duane Kubo gives them thirty minutes in 1975, enough for the music and some talk and not much else, so the film has to settle early on what a jazz fusion group is a story about. It settles on inheritance — what the players bring into the sound from outside it, and what the surrounding culture has already put there. A band called Hiroshima in the mid-1970s was carrying a charge, and the film lets that go unexplained. Visual Communications and the Academy Film Archive preserved the print in 2011, which is how work about a particular neighbourhood usually reaches anyone: somebody with a stake in it holds on.",
+  "model": "claude-opus-5",
+  "source_sha256": "28350a58dfa24cdf1dc8cd779f3aed299e74b1b620ec4899e3af246bbed52ce6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-maid-of-mcmillan-1916",
+  "field": "lead",
+  "film_id": "aa2e145f-dcd8-40c6-8ff6-85847f83e0aa",
+  "lang": "en",
+  "text": "In 1916 a group of law students at Washington University in St. Louis made a fourteen-minute romance, and it may be the earliest student film anyone has been able to point to. Amateur is not quite the right word for what that produces. People trained to argue were assembling a story out of a form they knew only from the seats, which tends to show up as too much incident for the length and a heavy appetite for the joke. The whimsy is the tell. Fourteen minutes was a single reel, the smallest complete unit the medium sold, and one reel imposed a beginning, a middle and an end on whoever picked up the camera. D. W. Stewart has the credit. What survives is a record of what some law students in 1916 thought a movie was.",
+  "model": "claude-opus-5",
+  "source_sha256": "272ff29f98209fce262261761036fbf14ff7775a801ed77f1e94c0025a9951cf"
+ }
+]

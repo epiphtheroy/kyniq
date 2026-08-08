@@ -1,0 +1,82 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "poor-but-beautiful-1957",
+  "field": "lead",
+  "film_id": "ed8ad73f-8e98-4c04-85fe-74f1dfedd974",
+  "lang": "en",
+  "text": "Piazza Navona in 1957 is an address here, not a monument. Salvatore and Romolo live with their parents on the square, own almost nothing, and are handsome, which the film treats as a form of working capital and the only kind either of them holds. Then Giovanna arrives, and the friendship acquires an accounting problem. Risi runs it at ninety-seven minutes and keeps it outdoors, where courtship happens in earshot of families who already know everyone's business; poverty in this comedy is largely a shortage of privacy, and most of the jokes are about proximity. Italy later put the film on 100 film italiani da salvare, its list of pictures to keep. What it keeps is small and exact: how a Roman block talked, flirted and argued in the middle of the fifties.",
+  "model": "claude-opus-5",
+  "source_sha256": "9d0bd45e52a91af2f4c9dfdf14e3c20ec3bc733d9039a104327e29bc8a56b28d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-bucket-list-2007",
+  "field": "lead",
+  "film_id": "4b74ec6a-0bcb-4012-b10a-3240e691d4c2",
+  "lang": "en",
+  "text": "A billionaire and a garage mechanic are assigned the same hospital room, an arrangement neither would have chosen and neither can do much about. Rob Reiner has ninety-seven minutes, and the first stretch is the durable part: two men with nothing in common but a diagnosis, negotiating the volume of the television, the visitors, the etiquette of a room with two beds. Edward Cole has money and nobody in particular to spend it on. Carter Chambers has a family and a working life mostly given to other people's cars. The list they write and the travelling that follows are the engine, but the friction before either is where the writing is honest. The National Board of Review named it among the year's ten best. What most people remember is the itinerary; the better half is the ward.",
+  "model": "claude-opus-5",
+  "source_sha256": "34b0f7394ecfd6a84ed56ed5f615228fe97c13696fe6d53c0ed300ca839d39e2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "everyone-says-i-love-you-1996",
+  "field": "lead",
+  "film_id": "3d5fd1f2-34e8-4b23-a5e5-b4df41d750cc",
+  "lang": "en",
+  "text": "The matchmaker is a teenager and her first client is her own father. She lines him up with a woman whose marriage is already unsteady, which she appears to regard as an advantage rather than an obstacle. Woody Allen keeps all of it among the comfortable, a household where a half sister's engagement arrives at the dinner table and everyone has a position ready before the plates are cleared. What carries the hundred and one minutes is the conviction, shared by most of the family, that other people's feelings can be organised like a seating plan. European voters handed it their prize for the best non-European film of the year, an odd honour for something this local: the money, the apartments, the manners, all of it inside a few streets.",
+  "model": "claude-opus-5",
+  "source_sha256": "d0e23d2f9dc921ebad445ea67542ef698c76577ab392cfa332a041135400a201"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-face-in-the-crowd-1957",
+  "field": "lead",
+  "film_id": "6833a55a-aa9c-4110-8832-974722dc32c0",
+  "lang": "en",
+  "text": "Marcia Jeffries goes into a back-country jail looking for a voice for her radio show and comes out with Lonesome Rhodes. He is an Ozark drifter with a guitar and an instinct for the microphone; he can address a listener as though the two of them were alone in the room, and the listeners believe him. Kazan spends more than two hours on the ascent, and the length is the argument: every rung, from the local station to the network to the men who want an endorsement, is a business decision taken by people who assume they are the ones doing the hiring. Marcia stays nearest the machinery and is the first to be charmed by it. Critics keep returning to the crowd of the title, the mass counted in ratings and addressed, one at a time, as a friend.",
+  "model": "claude-opus-5",
+  "source_sha256": "b47fbaadb792a18e52e7e669f8ead5ee6d298240d9a6ec38e7ea54876db3d5d6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "starlet-2012",
+  "field": "lead",
+  "film_id": "0016fcc6-e6bf-4b20-bec9-da0cf860c082",
+  "lang": "en",
+  "text": "A thing bought for small change at a yard sale turns out to have a great deal of money hidden inside it. Jane is twenty-one; Sadie, who sold it, is old and does not appear to be looking for company. The friendship that follows sits on top of that fact, unmentioned and unmentionable, which loads ordinary errands with a pressure they would not otherwise carry: a supermarket run, a drive, an afternoon with nothing in it. Sean Baker takes a hundred and three minutes and spends them on duration rather than incident, two people who would never have met filling time while one of them keeps something back. What interests the film is generosity that is also restitution, and how long a person can go on not saying the one thing.",
+  "model": "claude-opus-5",
+  "source_sha256": "3cf8a34c7be47fe1b7cfb101c57695a6bd980c2a738f517d4a561eb4a5d78b50"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "spring-2014",
+  "field": "lead",
+  "film_id": "0df2c62e-e2a8-4c67-822d-d48ab1f09bbd",
+  "lang": "en",
+  "text": "The flight to Italy is not a holiday, it is an exit: a young man leaving a collapse at home with nothing arranged past the next town. What he finds is a woman, and a courtship that proceeds through the usual stages, meals and walks and the slow trade of histories, while one party is editing heavily. Justin Benson lets the romance be a romance first. The horror grows as a condition inside it rather than arriving from outside to interrupt, and that patience is what makes the tilt hold; by the time the ground moves, the relationship is real enough to be worth the trouble. A hundred and ten minutes, mostly two people talking in a coastal town, with something a good deal older than the town sitting in the conversation.",
+  "model": "claude-opus-5",
+  "source_sha256": "b879069714bd80753cbcf3eb73b4fbb4cb88109b3e19456a5577bd03aa91a970"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "blue-bayou-2021",
+  "field": "lead",
+  "film_id": "291247db-4754-4a2a-a8d2-f3095afb0b26",
+  "lang": "en",
+  "text": "He has lived in Louisiana since childhood and can still be deported from it. Justin Chon puts that fact inside a working life, a Korean-American man in the bayou with a family to keep fed and the ordinary arithmetic of hours and rent to do, so the threat when it comes is administrative rather than dramatic, a matter of records and dates held by other people. The past he had settled with returns because the state wants documentation of it. Most of the hundred and seventeen minutes are domestic, and that is the argument: the marriage, the child, the accumulated small proofs that a life here was actually built. Belonging is never debated in the abstract. It is counted in the people who would notice the empty chair.",
+  "model": "claude-opus-5",
+  "source_sha256": "06e09c0b4b640c774cb81065bd7a83552833663d87254ace181ea4a22b571fe5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "chocolate-2025",
+  "field": "lead",
+  "film_id": "dee108e8-92c9-401b-b9f2-c56e75926811",
+  "lang": "en",
+  "text": "The film states its own arc without hedging: a herbivore becomes a carnivore. Yeon-hee is what is left after money broke her family apart, and she moves through a world that has decided her situation is nobody's business. Seo-jin is the exception, or at least the gap in the wall, wild where everything around her is closed and correct, and for a while the only place she can breathe. A hundred minutes is not long for a change of appetite, so the pressure falls on small things: how someone trained to absorb everything stops absorbing it, what the first refusal costs her, who is standing nearby when it happens. Yang Ji-eun is after an instinct rather than a revenge plot. Hunger is patient, learns by watching, and gives very little warning before it acts.",
+  "model": "claude-opus-5",
+  "source_sha256": "9808ef6e039d3f70ce140d89576b2664005fe2c566f46cbba5ba90c1248fec6e"
+ }
+]

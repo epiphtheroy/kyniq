@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ashik-kerib-1988",
+  "field": "lead",
+  "film_id": "8323eacb-5845-41ba-9e0e-e0e535824bcc",
+  "lang": "en",
+  "text": "A minstrel is refused by a merchant who wants a wealthier man for his daughter, and the refusal comes with a term: a thousand and one nights on the road. Sergei Parajanov shot it in Georgian, in 1988, and gave it seventy-six minutes, too little time to dramatize a journey and exactly enough to arrange it, one stopping place after another, each with its own colour and rule. Folklore keeps a fixed arithmetic and the film keeps it too: a count of nights, a bargain, a debt. Ashik Kerib plays for whoever is poor enough to be standing in front of him, and that becomes the working definition of an audience. The European Film Academy singled out its art direction, a fair signal of where the effort went: cloth, ornament, the surface of things, almost nothing spent on interior states.",
+  "model": "claude-opus-5",
+  "source_sha256": "a7b6a0793945d150797d8ef0d2a25a48a3e16fa607334a1313eea8eaba91c957"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "confessions-of-a-nazi-spy-1939",
+  "field": "lead",
+  "film_id": "190e3e07-0c04-49a3-ac51-2af31d185f0f",
+  "lang": "en",
+  "text": "A studio picture from 1939 calls its own subject pre-War espionage, which is a forecast as much as a description. Anatole Litvak routes the German-American Bund through the shape of an investigation, with an FBI man, Ed Renard, building a case out of what can be documented, and that choice does most of the film's arguing for it. A hundred and four minutes of evidence-gathering keeps the matter domestic and procedural: an organization operating inside the country, handled by federal agents, filmed as police work rather than as news from across an ocean. The National Board of Review named it the year's best film. The interest now is less in the plot than in the decision underneath it, which was to be specific about a name at a moment when the drama could have been set anywhere and called anything.",
+  "model": "claude-opus-5",
+  "source_sha256": "b62cb24071e3559c5462a5b811daff4a77b8b918fc481852e08cb87c975bd2b1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "i-married-a-strange-person-1997",
+  "field": "lead",
+  "film_id": "2331b68c-1869-41d3-bf3e-46fd2f5ef0c7",
+  "lang": "en",
+  "text": "On his wedding night a man finds that whatever he pictures becomes real, and his wife wakes into a house rearranged by someone else's imagination. The premise belongs to animation and would be unplayable anywhere else: seventy-two minutes in which no shape holds, bodies included, and Grant has no say over what occurs to him. Bill Plympton keeps it domestic as long as he can before the institutions turn up, a company head who sees an asset, a military sent to collect it. The comedy is physical and unembarrassed the whole way through. Annecy gave it the Cristal for a feature, and the film earns that by putting its entire load on what animation can do without warning. Under the transformations sits a marriage a few hours old, finding out what it married.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb85da85efee51bfd45e9d974b11e5b2fb1fce201f455a55186c8007a5ac39c4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "rio-2096-a-story-of-love-and-fury-2013",
+  "field": "lead",
+  "film_id": "f703f26e-37ad-439e-a835-82be44bd75e8",
+  "lang": "en",
+  "text": "Six hundred years of one love, four eras of Brazilian history, seventy-four minutes of film. Luiz Bolognesi runs one immortal man through colonization, through slavery, through the years of the Military Regime and out into a 2096 where the fighting is over water, and asks him to go on loving the same woman, Janaína, for all of it. Animation is what makes that arithmetic affordable; no other form could hold four Brazils inside a running time this short. The romance is not decoration; it is the constant against which each period gets measured, so that a change of century registers first as a change in what the two of them are allowed. The Cristal for a feature went to it at Annecy. The last of the four Brazils fights over water; the first three fought over land, over labour, over speech. The sequence is not offered as coincidence.",
+  "model": "claude-opus-5",
+  "source_sha256": "2fe1ce420dae40633b516fab821fd616c2a4a7c8d7790186d3d8208abed7c795"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "aradhana-1969",
+  "field": "lead",
+  "film_id": "44666249-fa15-4783-acb7-f375995fdd64",
+  "lang": "en",
+  "text": "A wedding with no witnesses is, afterwards, hard to tell apart from no wedding at all. That is where Vandana is left: married in secret, unable to have the marriage acknowledged, separated from the child that follows, and then raising him anyway as somebody else's employee, under a job title that forbids her from saying what she is. Shakti Samanta takes a hundred and sixty-nine minutes over this, and the length is the argument, because the cost is not dramatic but cumulative, built out of years of proximity and small daily lies. Filmfare's music prize went to it, and the songs carry what the script cannot: the years skipped between sections, the sentences the woman is not permitted to speak. Everything else in the household proceeds normally. That is the difficult part.",
+  "model": "claude-opus-5",
+  "source_sha256": "ff32ceb6098754a087eefa69c8cde4dad420289133208d92afef6c9c0e30812a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dosti-1964",
+  "field": "lead",
+  "film_id": "acd00808-a29d-4f77-b740-a23df3aeb0ba",
+  "lang": "en",
+  "text": "One boy plays the harmonica, the other sings, and between them, on the streets of Bombay, they make what a day costs. Ramnath cannot use his left leg; Mohan cannot see. Satyen Bose is honest that this starts as an arrangement rather than a friendship. School fees, rent, the price of a doctor: every sum is small and every sum decides something, and a hundred and sixty-three minutes is time enough to show how slowly such money gathers and how fast it goes. Other claims keep arriving. A sister working somewhere in a hospital and not yet found, a girl who is ill, the next term's tuition. Filmfare's best-film prize went to it. The proposition is unfashionable and made without apology: that two people with nothing between them can, for a while, serve as each other's entire institution.",
+  "model": "claude-opus-5",
+  "source_sha256": "28c7cc662d1c6fb16e466679357329bd46cbdbd9cb636387440a1516b47bba93"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "silent-heart-2014",
+  "field": "lead",
+  "film_id": "69f7d492-7060-4fc6-8f1b-1609f7003728",
+  "lang": "en",
+  "text": "The weekend is arranged the way family weekends are, with beds assigned and meals timed and three generations under one roof. Everyone who arrives knows what it has been called for. Sanne and Heidi have agreed to their mother's decision to die before the illness takes anything more, and Bille August is interested in the distance between agreeing to that and living inside a house where it is scheduled. Ninety-eight minutes, one address, no argument that settles anything. Old grievances come in with the luggage, and a request granted in principle turns out to need granting again at breakfast, and again after dinner. The Bodil for best Danish film went to it, and the acting is where the evidence sits: a position held in a face for one more hour, then adjusted when somebody else walks in.",
+  "model": "claude-opus-5",
+  "source_sha256": "ebbb12bc13e0dbba0d49d2bc1cae89abc5197273c4a01c9995c7c3f6c2f24c29"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ardh-satya-1983",
+  "field": "lead",
+  "film_id": "e78a17ff-a590-4e04-a6e8-2f0fc8e02f4a",
+  "lang": "en",
+  "text": "A new policeman is handed a uniform and a set of instructions that cancel each other out. Govind Nihalani makes the corruption around him procedural rather than scandalous: it arrives as workload, a case that must not proceed, a call from above, an arrest undone by morning, and the rookie's education consists of learning which of his orders are real. Two hours, nearly all of it at the level of the beat, and Filmfare's best-film prize went to a picture with no interest in being good company. The brutality runs in both directions, which is the part that stays. A man finds out that the only power the job reliably confers is the power to hurt someone in a room, and then finds out how available it is. There is a romance, and it works as the ledger where the damage shows up first.",
+  "model": "claude-opus-5",
+  "source_sha256": "52c4f934d456aa7a8c6910c080af0d4814fbcd2850796550db56d30a2a4531aa"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "khubsoorat-1980",
+  "field": "lead",
+  "film_id": "6b82adb2-a8a1-4849-a55a-92776243f8f4",
+  "lang": "en",
+  "text": "The house runs to a timetable and the timetable belongs to Nirmala Gupta. Everyone under her roof resents it and everyone keeps to it, which is the arrangement a visitor walks into when the daughter-in-law's sister comes to stay a few days. Hrishikesh Mukherjee builds a hundred and twenty-six minutes of comedy out of nothing more forceful than that: a guest who never agreed to the rules, and a household discovering how much of its obedience was only habit. Nobody is a villain, and the film would be duller if anyone were. Nirmala's authority is the ordinary sort, gathered over decades and spent in small corrections, defended because losing it would mean asking what the decades were for. Filmfare's best-actress award went to it. The pleasure is watching an order lose one rule at a time.",
+  "model": "claude-opus-5",
+  "source_sha256": "e5a52516d5a9a3422379d22a13ca6b787c89f4cb01e142899163fd6a9bfc2d2b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-district-2004",
+  "field": "lead",
+  "film_id": "a7ccd8d8-ae9c-4360-85a8-1d34885e4442",
+  "lang": "en",
+  "text": "The plan is to travel back to the ice age, kill enough mammoths, and wait a few thousand years for the ground under the neighbourhood to fill with oil. It is thought up by a teenager who mainly wants the feuding families on his street to stop, and Áron Gauder follows it as far as such a plan goes, which is further than expected and nowhere near where it was aimed. Eighty-seven minutes in Hungarian, pitched at the speed of a shouted argument. Everything national or geological in the premise turns out to be about one street and who owes what to whom on it. The Cristal at Annecy went to it, a strange prize to sit beside a cartoon this crude and this local. Money, the film suspects, would not have settled a single quarrel it was dug up to end.",
+  "model": "claude-opus-5",
+  "source_sha256": "c8d4c2900ae0346275877d43aeb5e2d11d1982d309106c3af03b6d114f9fbae1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sahib-bibi-aur-ghulam-1962",
+  "field": "lead",
+  "film_id": "f90575b1-9410-499b-a49d-7b365d2394b4",
+  "lang": "en",
+  "text": "A villager arrives in Calcutta looking for a fortune and takes work inside a mansion already some way into its own decline. Abrar Alvi keeps him at the bottom of the household and lets him see it all from there: a landowner who spends his nights elsewhere, rooms built for more people than remain in them, and the wife of the house, alone in it, whom he cannot stop watching. A hundred and fifty-two minutes made in 1962 and set in the 1890s, which lets the decay be filmed as architecture, lamps and staircases and doors between floors that are not supposed to communicate. India sent it to the Academy Awards. The music is not relief from the drama but the household's own noise, paid for by a family that takes no pleasure in it any more.",
+  "model": "claude-opus-5",
+  "source_sha256": "7b40cccf47688df1034b2f959c0f5efbe39858802232b381fcc270963de7190d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "kotch-1971",
+  "field": "lead",
+  "film_id": "6891827d-a235-4213-8867-1df75cb8cbce",
+  "lang": "en",
+  "text": "Nobody in the house ever says the words move out, but the house has other ways of putting it. A brochure left where it will be found, a remark about the stairs, the arithmetic of who sleeps where; Joseph Kotcher, who sold things for a living, recognizes a pitch. So he goes, on his own terms, by road. Jack Lemmon directs, and patience is the whole method: an old man talking, at length, frequently past the point where the person opposite has stopped listening. He falls in with Erica, once his grandson's nanny, now pregnant and equally short of somewhere to be, and the two of them assemble something practical that neither will name. The Writers Guild gave its adaptation the year's prize. A hundred and thirteen minutes about a man refusing the room picked out for him.",
+  "model": "claude-opus-5",
+  "source_sha256": "db0dda8c0eafd692fee16c005bd5edb3055b06e25e1f13260856207213da81cb"
+ }
+]

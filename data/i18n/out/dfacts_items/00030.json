@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ingmar-bergman#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "음울하고 실존적인 영화의 대명사로 통했지만, 정작 그의 개인 시사실에서는 미국산 블록버스터 코미디와 액션물이 자주 돌아갔다. 《블루스 브라더스》와 《다이 하드》는 그가 가장 아낀 축에 든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6b90a43ea750f5fec8769a058cf598649360835fe57cf4d430dec32f61c7dcee"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ingmar-bergman#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "결혼은 다섯 번, 자식은 아홉이었다. 그중에는 감독 다니엘 베리만과 작가 린 울만이 있다. 린은 배우 리브 울만과의 5년에 걸친 그 유명한 연인 관계에서 태어났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "203cd844476bbc961d5f5cdf851e408671cc3fd7da670566f704e833c30b5129"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ingmar-bergman#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자신의 여주인공들과 사랑에 빠지고 다시 그들을 캐스팅하는 일이 반복됐다. 하리에트 안데르손, 비비 안데르손, 리브 울만. 뜨거웠던 연애는 대개 평생 가는 창작의 우정으로 옮겨 갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e46c9409def45510cdfa5bdca3176fec1b8daf571b28ccd38589e20be23311d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ingmar-bergman#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1976년 1월, 스톡홀름 왕립극장에서 스트린드베리의 《죽음의 무도》를 연습하던 중 사복 경찰이 들이닥쳐 그를 탈세 혐의로 체포했다. 그 충격으로 신경쇠약이 왔고, 정신병동 신세를 졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "934f29045b0161a7a66906bf2a1ffec72544980230d932e8e2e8e488b1953f56"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ingmar-bergman#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "탈세 파문 뒤 그는 스스로 스웨덴을 떠나 독일 뮌헨에 자리 잡았다. 거기서 독립 제작사를 차렸고, 근 10년 동안 고국에서는 카메라를 들지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "124f1bdff477a5416d6049d753346f06fc47dfd079bec9b1b996e5c9eba96af9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ingmar-bergman#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장뤽 고다르의 작업을 몹시 싫어했다. 프랑스 누벨바그의 개척자를 두고 그가 남긴 말은 이랬다. \"작위적이고, 지식인인 척하고, 완전히 죽어 있다.\"",
+  "model": "claude-opus-5",
+  "source_sha256": "59c0f9bdc8518bf3b8f78212bd87da30aeac836a82b2f0e03b9b85455c7f5756"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ingmar-bergman#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오슨 웰스를 향한 반감은 평생 갔다. \"한없이 과대평가된\" 사기라는 것이 그의 평가였다. 웰스 쪽도 베리만의 영화를 깎아내리며 그 적의를 되돌려 주었다고 전해진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d5a21b5a8b9f405d1ca7e0fc4c947ce9dc704cbb211070fd774fb862b6cefee"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ingmar-bergman#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "반대로 러시아 감독 안드레이 타르콥스키는 깊이 우러렀다. \"그들 모두 중 가장 위대한 사람\"이라고 불렀을 정도다. 타르콥스키의 유작 《희생》은 베리만이 아끼던 고틀란드에서, 그의 단골 촬영감독 스벤 뉘크비스트의 손으로 찍혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "642b34e2c3c427aa1d3cfe7d41fea8d68d6b280f7f8a478d9a6f93a0bbb0a669"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ingmar-bergman#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "요한 제바스티안 바흐의 음악에 사로잡혀 있었다. 영화 속에서 바흐의 첼로 모음곡은 신의 현존을 대신하는 세속의 자리로 거듭 불려 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cf4ec800b971abce91abbfe87c601d1211be6cc2eabd53308813f08d047deb78"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ingmar-bergman#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "어머니 카린 오케르블롬은 아들에게 정을 주지 않았다. 대신 아들에 관한 방대한 일기를 남겼는데, 그 문장들 역시 서늘하게 거리를 둔 것이었다. 베리만은 어머니가 죽고 나서야 그 일기를 읽었고, 그것을 밑절미 삼아 시나리오 《최선의 의도》를 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "93b77e745746123cf86f7b934fdd1a729f8471ab7400d7677eacdf6ee86265cb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ingmar-bergman#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1997년 칸영화제는 그에게 '황금종려상 중의 황금종려상(Palm of the Palms)'을 주었다. 필생의 작업 전체를 기리는 특별상이었고, 지금까지 이 상을 받은 영화감독은 그가 유일하다. 정작 본인은 시상식장에 나타나지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6cf064feaed7b134a2a833e9d7bdca0196e09a0489a1a3c9ad5ba58da8d491b8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ingmar-bergman#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "세계가 그를 영화감독으로 기억하는 동안, 그는 자신을 무엇보다 연극인이라 여겼다. 평생 무대에 올린 작품이 170편을 넘는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "90c5b3c9208f91db80879b014b7dca918e45bf3e6f51df36f3787abda4847a7d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ingmar-bergman#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "불안에도 이름을 붙였다. '재앙 악마', '까다로운 악마' 하는 식으로 종류별 인물을 만들어 두었는데, 수시로 찾아오는 공황 발작을 다루기 위한 방편이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b48971ec8db7aa0865bdf842632cfddecb72f76b97cb5217f12739326c44b3f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ingmar-bergman#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "촬영장에서는 절대적인 침묵을 요구하기로 유명했다. 휘파람도 콧노래도 금지였다. 오랜 촬영감독 스벤 뉘크비스트와는 말 대신 미묘한 눈짓 몇 번으로 소통했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d65d0cefbf4160f6f26aafb8dd125fa4362ae38353cf7a140c95cadb64b8e4f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ingmar-bergman#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2007년 7월 30일, 포뢰의 자택에서 잠든 채 조용히 눈을 감았다. 같은 날 로마에서는 또 한 명의 거장 미켈란젤로 안토니오니가 세상을 떠났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7669a915dedca7e89719ccd7f79824339b5061009991790386e52873614464c4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "isao-takahata#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "다카하타 이사오는 우지야마다에서 태어났다. 아홉 살이던 1945년 6월, 미군의 오카야마 소이탄 폭격에서 살아남았다. 맨발로 누나와 함께 시체가 널브러진 거리를 달아났던 밤. 그 기억을 그는 훗날 《반딧불이의 묘》에 한 치의 어긋남 없이 복원한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "13772bfa3b46b77109da91fe1ea8a004e6864ca4c7946c579a4cd561bc82649e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "isao-takahata#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "애니메이션 역사상 가장 높이 평가받는 감독이면서도, 정작 본인은 그림 한 장 그리지 못했다. 그는 실사 영화감독처럼 일했다. 오쓰카 야스오, 곤도 요시후미 같은 최고의 애니메이터들 곁에 붙어 앉아 하나하나 방향을 잡아 주는 방식으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8c3a3746d9a6f544fcaffae3f735d3eb840b49dc0fc181d32e4868086ad29cc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "isao-takahata#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "'파쿠 상'이라는 별명은 도에이 동화 시절에 붙어 평생 따라다녔다. 늘 지각해서는 빵을 허겁지겁 밀어 넣으며 출근 카드를 찍었기 때문이다. '파쿠파쿠'는 급하게 먹는 소리를 옮긴 일본어 의성어다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5449e0be060d10b0b8d0aef9e4a344756412139cad3caf80da5eda86c6423478"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "isao-takahata#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "도쿄대에서 프랑스 문학을 공부하던 시절, 폴 그리모의 애니메이션 《왕과 새》가 그를 뒤흔들었다. 이 매체로도 복잡하고 어른스러운 주제를 다룰 수 있다는 확신이 거기서 왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bb21255c674816c0e61dfb6054bda31230b94fe2c98bf39d27aea7102f2b64d2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "isao-takahata#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "도에이 동화 초년병 시절 그는 노동조합 부위원장이었다. 임금과 노동조건을 놓고 사측과 싸우던 그 옆에 열혈 서기장 미야자키 하야오라는 젊은이가 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "64cf0dfd73ee4bbdedf475c8b87d9dae86e6a72ccba188e39e956155fbbae31d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "isao-takahata#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편 데뷔작 《태양의 왕자 호루스의 대모험》(1968)은 꼬박 3년을 갈아 넣고서야 완성됐다. 흥행 참패의 규모가 워낙 커서 도에이 경영진은 그를 강등시켰고, 이후 10년 넘게 그의 장편 경력은 멈춰 섰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e485a601265086eff9b6eef713fa54d4a2df50f145d93032279ef68dca8b1358"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "isao-takahata#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "지브리가 생기기 한참 전인 1971년, 다카하타와 미야자키는 아스트리드 린드그렌의 《말괄량이 삐삐》 애니메이션 판권을 따내려 했다. 스웨덴까지 날아갔으나 작가는 면담조차 딱 잘라 거절했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a3e007a8cde40d7c993d3d85e29c8f82f246b0afcc4186249f20cd6460ce59fd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "isao-takahata#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1974년 TV 시리즈 《알프스 소녀 하이디》를 만들면서 그는 스위스 현지 헌팅을 고집했다. 당시 TV 애니메이션으로서는 전례 없는 지출이었다. 알프스의 건축과 식생을 하나하나 기록해 오기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "442de482b4d98035962247486fef8398d8e7994d15f1d94bdad4560917b5cbdb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "isao-takahata#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1985년 스튜디오 지브리를 세우는 데 지적 동���을 댄 사람이 그였다. 그럼에도 스튜디오에 자기 이름을 붙이는 것도, 공식 직함을 갖는 것도 끝내 마다했다. 자유로운 신분으로 남고 싶었던 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0af637ee9706aae5c6b878b178861b8fd01aa0d17690ae43eb95951cbfe31a3f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "isao-takahata#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1988년 《반딧불이의 묘》는 미야자키의 《이웃집 토토로》와 동시상영으로 개봉했다. 참혹한 전쟁 비극과 포근한 숲의 정령 사이에서 일본 관객은 갈피를 잃었고, 초반 흥행은 고전을 면치 못했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0759a20e38c82bf24a1004b8b3e162763462a4982606ca1707b5eaa65a743402"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "isao-takahata#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《폼포코 너구리 대작전》(1994)을 연출하면서 그는 너구리의 민속과 생태를 파고들었다. 변신에 쓰이는 그 마법의 고환마저도 해부학적으로, 또 역사적으로 정확하게 그리라고 요구했다. 근거는 에도 시대 우키요에 목판화였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d91ac29f204c8fa9fe78f4836e9d0e5a3017ad7aabe9a48d05c3f1e6c3ce873b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "isao-takahata#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "철저한 사실성을 향한 그의 요구는 스태프를 육체의 한계까지 몰아붙이기로 악명 높았다. 미야자키 하야오는 훗날 이렇게 털어놓았다. 다카하타 밑에서 일하다 재능 있던 후배 애니메이터 곤도 요시후미의 몸이 '망가졌다'고.",
+  "model": "claude-opus-5",
+  "source_sha256": "f8bd4ace9d0227e7f8fef47a297bc3340fb3efeed0a1103aef8e16d6167b14bb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "isao-takahata#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "50년을 함께한 사이였지만 둘의 관계는 치열한 경쟁이자 끝없는 속 터짐이었다. 미야자키는 답답할 만큼 느린 동료를 두고 공공연히 '거대 나무늘보의 후손'이라 불렀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "654ef85803690fea5c048129b71b2260e10d5e09681892dc63c3b661a69b16dc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "isao-takahata#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "유작 《가구야 공주 이야기》(2013)에는 8년과 50억 엔이 넘는 돈이 들어갔다. 당시 일본 영화 사상 최고 제작비다. 거친 스케치 선을 화면에 그대로 남겨 두는, 그 전에 없던 수채화풍 기법이 거기서 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0c8b90d8e3a7bf78c3a5f8e87591ca812a4aabf4cde92813305983d68ee5ec59"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "isao-takahata#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《가구야 공주 이야기》의 제작이 하염없이 길어지자 프로듀서 스즈키 도시오는 '스튜디오 7'이라는 별도의 비밀 작업장을 차렸다. 다카하타와 그의 팀을 지브리 본진에서 떼어 놓기 위해서였다. 빙하 같은 그 속도가 다른 애니메이터들의 사기를 꺾을까 봐.",
+  "model": "claude-opus-5",
+  "source_sha256": "46cdfd9352097adbcedf1bdbaca4f8195d6ee6495a69fa8afa9f372fd4895f64"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "isao-takahata#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "12세기 일본의 두루마리 그림 《조수인물희화(鳥獣人物戯画)》에 흠뻑 빠져 책 한 권을 통째로 썼다. 뛰노는 개구리와 토끼를 그린 이 옛 먹그림이야말로 일본 애니메이션의 진짜 기원이라는 주장이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cee905a138f0f57f421fdf893ca172d86f9cfe668996f732b4d6f6fceb29c124"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "isao-takahata#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생 프랑스를 사랑했다. 초현실주의 시인 자크 프레베르의 시를 일본어로 옮겼고, 미셸 오슬로의 프랑스 애니메이션 《키리쿠와 마녀》 일본어 더빙판은 직접 연출했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "15a53e1e27aa425497d4225fee07bab1c74fce9118afb800cb805b9a9ffebc98"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "isao-takahata#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2015년 프랑스 정부는 그에게 예술문화훈장 오피시에를 수여했다. 일본 애니메이션과 프랑스의 문학·예술 전통을 잇는 데 평생을 바친 공로였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4592b222089b20888b35635fcaa9b01dbe7a4cca2775fb9119ca9ecfc4470e4c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "isao-takahata#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2015년 할리우드 영화예술과학아카데미의 회원 초청을 그는 사양했다. 거대 영화산업의 상과 서구 기업형 제도를 향한 뿌리 깊은 회의가 끝까지 남아 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7b2cd10474c87d70655ea941e6338fd936c05ec9f93cc518faa96ef8f1b32ba8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "isao-takahata#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생 줄담배를 놓지 않았다. 결국 그 습관이 폐암으로 이어졌고, 82세에 도쿄 데이쿄대학병원에서 숨을 거두었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f6d74fabbcd910edb4e999f6d2b1681cd6650d86263de3195d0d8e067f30fd16"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "isao-takahata#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "지브리 미술관에서 열린 장례식. 눈물을 참지 못한 미야자키 하야오는 가슴이 미어지는 조사를 읽었다. 그 고집불통 '파쿠 상'만은 자기보다 오래, 아흔다섯까지는 살아남으리라 늘 믿었노라고.",
+  "model": "claude-opus-5",
+  "source_sha256": "640b11f25d70a066cf028717f56bfcff0b3f0ad37064dafe6fa00c41b98bdfd0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "j-j-abrams#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "열 살 때 에이브럼스는 맨해튼의 루 태넌 매직 숍에서 '태넌즈 미스터리 매직 박스'를 샀다. 40년이 넘도록 그 상자는 뜯지 않은 채 그의 사무실에 놓여 있다. 무한한 가능성이 밝혀진 답보다 짜릿하다는 사실을 잊지 않기 위해서다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a01db25a6e8c0d7cf7f9c702c03fe86f118abcede85b443ab3893e483296f20"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "j-j-abrams#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "열다섯 살 무렵, 프로듀서 캐슬린 케네디가 《로스앤젤레스 타임스》에서 십 대들의 슈퍼8 영화제 기사를 읽었다. 기사 속 소년이 에이브럼스였다. 케네디는 그와 어린 시절 친구 맷 리브스를 300달러에 고용했다. 스티븐 스필버그가 어릴 적 찍은 8mm 홈무비를 손보고 이어 붙이는 일이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9a95f4fdf4921923e820a45bf37c6e98e05dce03f89b0983f20af15a2ad21044"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "j-j-abrams#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "열여섯에 딴 첫 직업적 일감은 연출이 아니라 작곡이었다. 돈 돌러의 1982년 저예산 SF 호러 《나이트비스트》에 신시사이저 스코어를 붙였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "33b10a851bcd287c5252af2fceb1969527d4678bfb16e4c73357d478045ed05f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "j-j-abrams#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화 전문 학교 대신 그는 세라 로런스 칼리지를 택했다. TV 프로듀서인 아버지 제럴드 에이브럼스의 조언 때문이었다. 영화를 어떻게 만드는지보다 무엇에 관해 만들지를 배우는 편이 중요하다는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "35640442170b141f9d4de4f91db27a8ca418df9a97e6eab64247b39367b35436"
+ }
+]

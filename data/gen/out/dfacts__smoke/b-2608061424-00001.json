@@ -1,0 +1,56 @@
+[
+ {
+  "director_slug": "terry-jones",
+  "intro": "Terry Jones was the Monty Python who moved the group into cinema, directing Life of Brian alone in 1979 after a fraught shared credit with Terry Gilliam on Holy Grail. He built comedy inside worlds that behaved as though they were real, an instinct fed by the medieval scholarship he pursued in parallel and published seriously.",
+  "name_meaning": "His full name, Terence Graham Parry Jones, carries two Welsh patronymics: Jones, from John's son, and Parry, a contraction of the Welsh 'ap Harry', meaning son of Harry.",
+  "facts": [
+   {
+    "n": 1,
+    "text": "Jones matriculated at St Edmund Hall, Oxford, in 1961 to read English Language and Literature. The college elected him to an Honorary Fellowship in 1999, and in 2012 he gave its library more than 700 books from his medieval collection.",
+    "source": "https://www.seh.ox.ac.uk/news/teddy-hall-alumnus-and-monty-python-star-terry-jones-dies-aged-77"
+   },
+   {
+    "n": 2,
+    "text": "Co-directing Holy Grail with Terry Gilliam exposed a split in method: Gilliam cut for the visual information in each frame, while Jones chose takes by their emotional context, recalling what the day and the atmosphere on set had been like.",
+    "source": "https://www.avclub.com/terry-jones-monty-python-and-the-holy-grail-beating-heart"
+   },
+   {
+    "n": 3,
+    "text": "Days before shooting was to start in Tunisia, EMI's Bernard Delfont read the Life of Brian script and withdrew the money. George Harrison mortgaged his Henley-on-Thames house and set up HandMade Films to cover the roughly $4 million budget.",
+    "source": "https://www.goldradio.com/news/tv-film/george-harrison-monty-python-life-of-brian/"
+   },
+   {
+    "n": 4,
+    "text": "Answering charges of blasphemy, Jones drew a distinction: the film \"isn't blasphemous because it doesn't touch on belief at all. It is heretical, because it touches on dogma and the interpretation of belief, rather than belief itself.\"",
+    "source": "https://en.wikipedia.org/wiki/Monty_Python%27s_Life_of_Brian"
+   },
+   {
+    "n": 5,
+    "text": "Aberystwyth was one of eleven town councils to ban the film on its 1979 release. The ban stood until 2009, when Sue Jones-Davies, who had played Judith in it and was by then the town's mayor, sponsored a screening that Jones and Michael Palin attended.",
+    "source": "https://nation.cymru/culture/hes-not-the-messiah-hes-a-very-naughty-boy-the-resurrection-of-the-life-of-brian-in-aberystwyth/"
+   },
+   {
+    "n": 6,
+    "text": "Chaucer's Knight (1980) argued that the Knight of the Canterbury Tales was no Christian ideal but a mercenary in the mould of Sir John Hawkwood. Jones worked from battle accounts, period garments and the Ellesmere manuscript under magnification.",
+    "source": "https://theconversation.com/terry-jones-professional-comic-amateur-historian-accomplished-human-being-130514"
+   },
+   {
+    "n": 7,
+    "text": "At Cannes in 1983 The Meaning of Life took the Grand Prix, the festival's second honour after the Palme d'Or, from a jury led by William Styron that was otherwise fiercely divided over the competition.",
+    "source": "https://en.wikipedia.org/wiki/Monty_Python%27s_The_Meaning_of_Life"
+   },
+   {
+    "n": 8,
+    "text": "\"I'd never had any particular interest in comedy,\" Jones said. \"Humour was just something that came with everything.\" He questioned why laughter should be shut out of any part of life.",
+    "source": "https://www.bfi.org.uk/news-opinion/sight-sound-magazine/comment/obituaries/terry-jones-monty-python-life-brian-writer-director-historian-comedian"
+   },
+   {
+    "n": 9,
+    "text": "A 2015 diagnosis of primary progressive aphasia, a form of frontotemporal dementia, cost him his speech. BAFTA Cymru gave him a lifetime achievement award in 2016, and he left his brain to dementia research.",
+    "source": "https://en.wikipedia.org/wiki/Terry_Jones"
+   }
+  ],
+  "model": "claude-opus-5",
+  "source_sha256": "c23baad2886d1410120b7092cc472e549b426ef702bdb4610cf9882361b65c29"
+ }
+]

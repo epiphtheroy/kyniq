@@ -1,0 +1,132 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "zulu-1964",
+  "field": "lead",
+  "film_id": "61b6f272-2c1f-44a1-9718-c0c9158eaf91",
+  "lang": "en",
+  "text": "A mission station in Natal, converted into a hospital and a store, becomes a fort because there is nothing else to hold. Zulu spends much of its first hour on inventory and rank: how many rounds, how many men fit to stand, and which of the two lieutenants in nominal command gives the orders - an engineer risen by work, or a gentleman risen by commission. Cy Endfield keeps the 1879 landscape wide and largely empty, so that waiting takes up more of the film than fighting does. Mealie bags stacked into a wall, a hospital that cannot be moved, a perimeter measured in paces: the interest is logistical, and the tension comes out of arithmetic. Filmed in 1964, it treats the British ranks as a set of frictions rather than one body, which is where the drama actually lives.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac4a8d8ffbb8fe194315b561b866a12da594350e6c8dce90f4dc93ce44a38c70"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bad-education-2019",
+  "field": "lead",
+  "film_id": "63083855-d53c-4552-ad91-103ab3b67d9c",
+  "lang": "en",
+  "text": "The theft is not dramatic; it is paperwork, and it accumulates for years inside a school district that is, by its own measures, succeeding. Cory Finley builds the film out of the small vanities of public administration - a superintendent who remembers every parent's name, an office culture of favours, reimbursements and rounded figures - and lets the embezzlement surface the way such things do, slowly and from an unimportant direction. Nobody here is a criminal by trade. What the 109 minutes press on is that the fraud and the achievement come from the same man, working the same long hours, with the same appetite for being thought indispensable. The comedy is dry and largely a matter of tone: adults using the language of service while the ledger says something else. It stays inside the district, where the sums are small enough to picture.",
+  "model": "claude-opus-5",
+  "source_sha256": "945c5333d0f05bb9ea7adfb95f3b68f1340d6e920c56a13e7a911d30406d386a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "peninsula-2020",
+  "field": "lead",
+  "film_id": "1561800f-6bc0-47d7-8a7c-6e8232161d81",
+  "lang": "en",
+  "text": "Whatever ended the country has already ended it; the film begins in the aftermath, with a soldier and a small team sent into ground that has been given up on. Yeon Sang-ho is less interested in the dead than in what the living organise inside a quarantined territory once no authority is coming: units with ranks nobody granted them, salvage economies, floodlights and engines. Horror sets the terms and action takes them over, much of it staged around vehicles moving fast through streets where noise gathers a crowd. The register is broad - this is a film that wants a crying scene as much as a chase - and the 116 minutes spend freely on both. What holds attention is the geography: Korean roads and Korean apartment blocks filmed as ruin, and a mission that goes back into the peninsula rather than away from it.",
+  "model": "claude-opus-5",
+  "source_sha256": "8399724624275b529a48e1cb693d340f15a263fcbe85c4a6ae561bfe4d4e2edd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "get-carter-1971",
+  "field": "lead",
+  "film_id": "c5f621ce-8293-4018-889d-e1dfe28968af",
+  "lang": "en",
+  "text": "A London hood boards a train north for a funeral and does not behave like a mourner. Jack Carter's method in Newcastle is to knock on doors, ask the same question in progressively flatter tones, and treat every drink offered to him as a delay. Mike Hodges films the 1971 city plainly - new concrete, rented rooms, a river still doing business - and lets his man move through it as a stranger better dressed than anyone he meets. The police have written the brother's death down as suicide. Carter does not argue the point; he keeps asking, which turns out to be a different and worse kind of pressure. Most of the running time goes to landladies, telephone calls and the discomfort of people visited by a relative they hoped had stayed away. The violence, when it comes, is quick and unceremonious.",
+  "model": "claude-opus-5",
+  "source_sha256": "55bbd13ab229af90d566dbe9d98e8f4b9074942a0e8a0426d0fe428ba7e397b8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-ladykillers-1955",
+  "field": "lead",
+  "film_id": "20d03514-1a05-42e7-827b-3556c60fa7df",
+  "lang": "en",
+  "text": "Five men take rooms in a cul-de-sac and tell their landlady they are a string quintet, which obliges them to put a record on whenever she brings tea. The joke of these 91 minutes is that the lie needs more upkeep than the robbery. Alexander Mackendrick keeps the octogenarian widow at the centre and never lets her be merely a dupe: she has opinions, callers, a household routine, and a politeness that cannot be argued with. Around her the five are written as separate temperaments rather than a crew, so the plan strains at five points at once. The Academy Award for Best Writing, Original Screenplay went to a structure in which every courtesy she extends costs them something, and the costs compound. Nothing hurries. The trouble grows out of good manners, and out of nobody being able to be rude to her.",
+  "model": "claude-opus-5",
+  "source_sha256": "b45993befcd40d97464a8ebc1fc4e59d61ee561adb15a9bc5cc504483dc7dd24"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-long-good-friday-1980",
+  "field": "lead",
+  "film_id": "42d8f1c3-111d-41c1-9845-316b06ee4fb5",
+  "lang": "en",
+  "text": "A London gangster has a pitch ready: clear the derelict riverside, take American money for a share of it, and put a future Olympic Games on the site. He is delivering it across one weekend in the late 1970s, in good suits, with hospitality arranged, when his own property begins to explode. The film is a business presentation under interruption, which leaves Harold Shand doing two jobs at once - hosting the Mafia and hunting whoever is behind the bombs - and neither job will tolerate the other. The lead performance took the BAFTA Award for Best Actor in a Leading Role, and it runs on the distance between the vocabulary Shand has learned for investors and the one he uses in a lock-up. John Mackenzie keeps the surroundings ordinary: pubs, wharves, land waiting to be worth something, men who call him a friend.",
+  "model": "claude-opus-5",
+  "source_sha256": "9ffb9b040a52c464747031c50c760b44c1ab89f18b70ec2d81cc40fad9bb049c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "pat-garrett-billy-the-kid-1973",
+  "field": "lead",
+  "film_id": "761b8e54-d00b-4365-ad33-d654e3254110",
+  "lang": "en",
+  "text": "Pat Garrett takes a badge from men who own cattle and want a former friend dead, and the film treats that arrangement as the only fact worth examining. Listed among They Shoot Pictures Don't They? 1,000 Greatest Films, it is a Western with the momentum deliberately taken out. Sam Peckinpah gives Billy the Kid little to want; he lingers instead on the slow business of being hunted across New Mexico by someone who knows which bars to check. Scenes run past their point, holding on people standing about after the shooting stops. The outcome is not in question and the film knows it, so what remains is a matter of employment: who pays, who signs, and what a man tells himself about the terms. 115 minutes of dust, whiskey and talk, with violence arriving as an interruption rather than a destination.",
+  "model": "claude-opus-5",
+  "source_sha256": "04857ddca71b9b7425f2a4baffae04056f2a5ac11dc1ba5ec78f1e41e25cae9b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "brassed-off-1996",
+  "field": "lead",
+  "film_id": "b2c74a30-3c91-4988-aeca-c3823ccc5aa1",
+  "lang": "en",
+  "text": "A colliery band rehearses on the same evenings that the closure of the pit is being decided, and the two facts will not stay apart. Brassed Off puts a national brass competition where another film about the coalfield would put a picket, and it takes the music as work: parts to learn, instruments to pay for, a draw to survive. Gloria arrives with a flugelhorn and is treated as an intrusion until the arithmetic of the band comes to require her. Mark Herman keeps the comedy in the ordinary register of Yorkshire men avoiding a subject, jokes standing in for the letter nobody wants to open, and the romance stays subordinate to the rehearsal schedule. The Cesar Award for Best Foreign Film it collected in France suggests how little of the situation needed translating in 1996.",
+  "model": "claude-opus-5",
+  "source_sha256": "5ffc0acbc75a3926d2535e5c5dc653c315273cae427fac5a878108ca054df15a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-ipcress-file-1965",
+  "field": "lead",
+  "film_id": "7b408a6d-3da6-4a52-81f2-103980f0aa93",
+  "lang": "en",
+  "text": "The assignment is an internal audit: find out why British Intelligence leaks, and file reports on colleagues. Harry Palmer treats this as the office job it is, dry about his superiors and slower to alarm than the circumstances warrant, which makes the 1965 film feel shot inside a department rather than a fantasy of one. The traitor is somewhere in the building. Sidney J. Furie shoots the search obliquely, through doorways and past furniture, the camera taking awkward positions that leave the important thing half-blocked. Kidnap and murder occur, but the working currency is requisitions, transfer orders and rank. What lingers is the temperature: an agent insubordinate about pay grades and mildly bored by peril, employed by an institution he suspects is more dangerous to him than the opposition is.",
+  "model": "claude-opus-5",
+  "source_sha256": "cca13adcd2f765fec5dd762a547d68c712a83b3c71eb98c60d6bd15205833baa"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "oliver-twist-1948",
+  "field": "lead",
+  "film_id": "b6b4e0fb-86d6-47fc-ad69-096d59910281",
+  "lang": "en",
+  "text": "A boy asks for a second helping of gruel and is punished with an apprenticeship. David Lean's 1948 Dickens works by weight rather than talk: low ceilings, ledgers, wet stone, a studio London whose streets seem to narrow behind whoever walks them. Oliver is passive by design, an object handed between institutions and then between criminals, and the energy belongs to the adults trading him - a parish officer in love with his own title, a fence with a pot on the fire, a housebreaker who settles disputes with his hands. Comedy and cruelty arrive in the same beat, which is faithful to the novel in the way that matters. At 121 minutes it declines to rush the workhouse in order to reach the thieves, and those early scenes of official charity are the coldest thing in it. A shadow and a doorway do the rest.",
+  "model": "claude-opus-5",
+  "source_sha256": "f925ed2d0d5ec05adccc27cca21179fdad6e4098c5f583bb76f570f33c8f1189"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "all-about-lily-chou-chou-2001",
+  "field": "lead",
+  "film_id": "d34b0d5b-2dbe-433f-a503-8b58f739d1e6",
+  "lang": "en",
+  "text": "Lily Chou-Chou does not exist outside the film, and the film spends 146 minutes on what her music is asked to carry. Yūichi Hasumi and Shūsuke Hoshino begin on roughly equal terms; by the middle of Shunji Iwai's picture the balance between them has shifted more than once, and each shift arrives through errands, small sums and permissions rather than through a confrontation. Iwai keeps the camera close and the scenes fragmentary - a song heard privately, a summer street, a conversation with a hierarchy inside it - so that the crime in the story accrues at the level of who is told to do what. Named in Kinema Junpo Best of the 2000s, it earns its length: the drift of authority from one boy to the other is only visible over time, and the film will not announce the moments when it moves.",
+  "model": "claude-opus-5",
+  "source_sha256": "53c25fec0c823d2e383e0fbc6232edb3bd7dd59dba31370c6bf2d25aeb549d30"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-dam-busters-1955",
+  "field": "lead",
+  "film_id": "d8fa95a5-e08c-428f-9e07-bb5fb6de453f",
+  "lang": "en",
+  "text": "Half of this film is an engineering problem: a weapon that must skip across water before anyone will trust it with a target. The Dam Busters gives the development as much room as the raid, so a good part of the 124 minutes goes to meetings, tests, revised specifications and a squadron practising low flying until the height above water is exact. Michael Anderson keeps the register flat - officers speak in measurements, and the nearest thing to rhetoric is a number. The Academy Award for Best Special Effects recognised work that had to convince physically, since the premise rests on water behaving one particular way at one particular speed. Made in 1955, ten years after the war, it is built around calculation, and the men doing the calculating get the same attention as the men flying.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d54af54a45130e39e2fc13c2a6e83b0dc194e3f18bd4b4c78f63080041d5b5c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-draughtsman-s-contract-1982",
+  "field": "lead",
+  "film_id": "a2f149ef-6622-46cf-9ed5-6100e9f2e073",
+  "lang": "en",
+  "text": "The contract is specific: twelve drawings of a house and its grounds, made at fixed hours from fixed positions, with payment in money and in the wife's body. Peter Greenaway makes that document the engine, and the film proceeds as a series of appointments - a viewing frame planted on the lawn, the hours kept, the estate required to hold still while Neville works. Objects turn up where they should not be and end up on paper, and the drawings become the only evidence anyone will accept. Then a body is found. The dialogue is dense and mannered, unhelpful on purpose; conversations are contests over property and phrasing, closer to litigation than to banter. What holds the 108 minutes is the discipline of the conceit: a draughtsman who insists he records only what is in front of him, hired by people who arrange what is in front of him.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a82c533f8611ba061a8122434121ed993ea6259481bb20440f83cb98882aa82"
+ }
+]

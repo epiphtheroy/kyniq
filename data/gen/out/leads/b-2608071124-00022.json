@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "on-the-town-1949",
+  "field": "lead",
+  "film_id": "5e327361-475b-4460-a409-7223f2b5d2ea",
+  "lang": "en",
+  "text": "Twenty-four hours of shore leave is not a holiday, it is a deadline, and the clock is running before anyone decides where to go. Three sailors take New York at that speed, ninety-eight minutes for a day that refuses to stretch, and the comedy comes out of the gap between an itinerary and an appetite. They want to see the city and they want to be in love by morning, and the two errands keep interfering. The women they meet have jobs, shifts, and somewhere else to be, which is both the joke and the ballast. Gene Kelly lets movement carry the plot: much of what happens is settled by where people go rather than by what they say. The Academy's award went to the score, and that is right, since the music is what keeps the day from collapsing into a list of stops.",
+  "model": "claude-opus-5",
+  "source_sha256": "db68e53228f85cea69429fe07fe0185b8b75b14b15be5793ae557b1e3a54fa81"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "silent-movie-1976",
+  "field": "lead",
+  "film_id": "252fd7cd-cea6-44dd-bf6b-27105ea03ed9",
+  "lang": "en",
+  "text": "Three men walk into a studio that is losing money and offer to rescue it with a picture nobody will have to hear. Mel Funn, Marty Eggs and Dom Bell then take on the harder half of the job, getting famous people to sign on, while the studio's creditors pull in the opposite direction. That shape hands Mel Brooks eighty-seven minutes of small mechanical problems: a door to get through, a hand to shake off, a celebrity to be cornered before anyone can say no. Jokes made this way have to be built rather than explained, and the building is visible, which is much of the pleasure. The National Board of Review placed it among the year's ten. Under the slapstick sits a comedy about a payroll, and about who inside a studio is actually permitted to say yes.",
+  "model": "claude-opus-5",
+  "source_sha256": "f85f4407ea7766b42daee5eb6b49a50e25a938085f8d298a7c73e2aec206857d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "running-on-empty-1988",
+  "field": "lead",
+  "film_id": "b01b8a04-fa89-40bb-bfeb-9aafdc680b27",
+  "lang": "en",
+  "text": "A weapons lab was set alight in the late sixties, and the two people who did it have been raising children under borrowed names ever since. Sidney Lumet treats this as a household matter rather than a manhunt. The Popes practise new surnames the way other families practise a phone number; nothing gets signed, nothing gets kept, no address outlives the season. Then the eldest son falls in love, and love turns out to be the one activity that needs a real name and a future tense. The argument that follows is about a boy's plans, and neither parent can say aloud that it is also about the war. The Academy's screenplay award was earned there, in exchanges where an ordinary sentence carries a second job, and where a father and mother learn the size of what they decided for other people.",
+  "model": "claude-opus-5",
+  "source_sha256": "80239a34745b14daecab5b243659316ba4c67cb3c5c5aaf866c2b75675e2bc07"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mister-roberts-1955",
+  "field": "lead",
+  "film_id": "1e016144-325d-4ad3-adc6-1f1d66c4a5c4",
+  "lang": "en",
+  "text": "The war is happening somewhere else, which is the whole trouble. Roberts serves on a cargo ship well behind the fighting, applying for transfer the way other men apply for leave, and his daily opponent is not an enemy navy but Captain Morton, who runs the vessel as a small kingdom of refused requests. Ten years after the fact, John Ford builds two hours out of that arrangement: the same deck, the same faces, a horizon nobody is permitted to cross. Boredom is the antagonist here and morale is the plot. The comedy comes from men manufacturing occasions where none exist; the drama comes from an officer noticing that the crew's state of mind has quietly become his job, and that the job is not the one he wanted. A war picture whose enemy is the chain of command.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f84a818a63358f4f964386a82b86f2fee9b6ca3687fdf280ea8fcbe25e0af74"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "high-society-1956",
+  "field": "lead",
+  "film_id": "d5dfff90-77cc-48f3-8c02-4dc58235502c",
+  "lang": "en",
+  "text": "The wedding is two days off, and Tracy Lord's first husband intends to spend every one of those hours arguing with the arrangement. He has help: a reporter assigned to cover the event who ends up inside it instead. Charles Walters keeps almost everything in and around one wealthy household, which is what makes the comedy run, since the house admits outsiders only on professional pretexts and everyone who gets in has an opinion about the bride. Songs do the work that quarrels would do elsewhere; the score took an Academy Award, and the music is where people say what a drawing room will not permit. Tracy is discussed by every man in the film. What holds the attention across a hundred and twelve minutes is whether she will be allowed a position of her own before the ceremony.",
+  "model": "claude-opus-5",
+  "source_sha256": "09f89cd7a09e855ea977562f9eb0b6989e3858e9f1e6156ddd0dfcefa40a77f0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-alamo-1960",
+  "field": "lead",
+  "film_id": "3a589271-c1b1-4955-8058-7a2d6019e945",
+  "lang": "en",
+  "text": "Two hundred and two minutes, and most of them are not battle. John Wayne directs a siege picture that spends its length on the interval before the fighting: men inside a walled mission arguing about whether to stay, riders sent out for help that may not come, an arithmetic that never balances however often it is counted. The Republic of Texas is new and its army is elsewhere. What the film actually stages is a decision made again each morning by the same people, with better information than they had the day before. It was built in 1960 at a scale that shows in every frame, in colour, distance and crowds, and in a fort designed to be looked at from every side. Whether it earns the running time is a fair argument. That it knows what to do with waiting is not.",
+  "model": "claude-opus-5",
+  "source_sha256": "e359843c1f05a5fda4a1a762bc07bd9432ae0ff9250ed9fd64f717f31338cbc9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-face-in-the-crowd-1957",
+  "field": "lead",
+  "film_id": "6833a55a-aa9c-4110-8832-974722dc32c0",
+  "lang": "en",
+  "text": "A man with a guitar is let out of a back-country jail to sing into a radio microphone, and within a few reels he is telling a state how to vote. Elia Kazan tracks the whole ascent, from local station to national television to the rooms where candidates are assembled, and talent is never the only engine. It is Marcia Jeffries, educated and decent, who finds Lonesome Rhodes and keeps vouching for him a beat longer than she should. Scholars have kept returning to the crowd itself: the film is unusually interested in the faces on the far side of the camera, in an audience being manufactured alongside the star. The year is 1957, and the picture already treats warmth as a product with a delivery schedule, metered and sold by the minute.",
+  "model": "claude-opus-5",
+  "source_sha256": "b47fbaadb792a18e52e7e669f8ead5ee6d298240d9a6ec38e7ea54876db3d5d6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "house-party-1990",
+  "field": "lead",
+  "film_id": "26b92fe7-4f15-44e6-9228-27401236f270",
+  "lang": "en",
+  "text": "Kid is grounded, the party is at Play's house tonight, and the distance between those two facts is the whole film. Reginald Hudlin builds it as a night of obstacles rather than a story: a father who has to stay asleep, a school fight still owed its sequel, three older boys waiting somewhere on the route, and an hour approaching when an empty bed gets noticed. The comedy lives in the timing of bodies, in getting through a doorway, holding a rhythm, keeping a lie going for one more exchange. Sundance gave it the filmmaker trophy in the dramatic competition, an odd honour for something this light on its feet and also the correct one, since the pleasure is structural: a hundred and four minutes covering a single evening, timed like clockwork.",
+  "model": "claude-opus-5",
+  "source_sha256": "3771910b4949c9612cb6752d45bfa25eecf0e642f664d4fcf9139d2cd9cca51d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "quo-vadis-1951",
+  "field": "lead",
+  "film_id": "59eae71e-c9e9-4672-8390-ab5b538f4395",
+  "lang": "en",
+  "text": "A Roman commander wants a Christian hostage, and wanting her forces him to look properly at the man he serves. That is a narrow door into a very large building: nearly three hours, an empire, and an emperor whose moods are policy. The honours here run to surfaces, art direction, costume, colour photography, which is no slight in a film of this kind. Its case about power is made by showing what power spends: rooms too big for the people standing in them, cloth worth more than a household, a court where taste has replaced judgement. Against all that, plainness is made to look like an argument. Marcus Vinicius spends the picture stranded between the two visual worlds, and Mervyn LeRoy is patient about how slowly a professional soldier changes his mind about his commander.",
+  "model": "claude-opus-5",
+  "source_sha256": "200a09d20f04486cadd2d44166fba3912e99106de940bc075be4d006dac8d2b5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "till-2022",
+  "field": "lead",
+  "film_id": "c747d165-3ddd-4977-9334-ed5b3d5a4cb3",
+  "lang": "en",
+  "text": "The case is usually told as a crime committed in Mississippi; this film tells it as a campaign conducted from Chicago by a mother. Her fourteen-year-old son went to visit cousins in the summer of 1955, and Mamie Till Mobley spent what followed refusing the version of events she was handed. Chinonye Chukwu gives the picture to her: two hours and eleven minutes in which grief is not a condition to be depicted but work to be done, in rooms with lawyers, reporters, officials and people who would prefer the matter closed. The pursuit, not the crime, is the subject. The Producers Guild's Stanley Kramer Award goes to films that take on public questions, and the public question here begins as one parent's decision about what will be looked at and by whom.",
+  "model": "claude-opus-5",
+  "source_sha256": "41e68262fdb6b9a56844e8b3e9a994e46d276c9dea14afbc3b531deea9907209"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "stage-fright-1950",
+  "field": "lead",
+  "film_id": "ea2e0d44-0a89-4390-859e-32763ff60993",
+  "lang": "en",
+  "text": "An actress who cannot get cast takes on a part nobody offered her. Her friend stands accused of killing the husband of a woman who performs for high society, and the only equipment she brings to his defence is what she has been training in: becoming someone else, convincingly, in a room where being caught would finish everything. Alfred Hitchcock made it in Britain in 1950, and the theatrical setting supplies more than décor, it supplies the measure of danger. Suspense here is not a gun under a table but a performance that might slip, through a wrong accent, an unanswerable question, a face recognised. Class runs through it too, since the woman she has to get near lives several floors above her. A hundred and ten minutes, and most of the risk is social.",
+  "model": "claude-opus-5",
+  "source_sha256": "b59a1837e0930f4502c0ad83b80c52ed6553c8dee6e38786f44a25830067394e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-naked-city-1948",
+  "field": "lead",
+  "film_id": "f23696e7-e1b9-49e8-9538-afa7bb94729b",
+  "lang": "en",
+  "text": "A former model is found dead in her bathtub before the picture has properly begun, and what follows is not a puzzle but a timesheet. Detective Halloran and Lieutenant Muldoon work the case the way it would actually be worked: names, addresses, alibis that hold until they stop holding, one more flight of stairs, one more person who saw nothing. Jules Dassin allows ninety-six minutes and no shortcuts. The Academy's black-and-white cinematography award indicates where the film's interest sits, in New York as a physical inventory of windows, kerbs and crowds, a place large enough that police work reduces to the patience for asking again. The killing is a job of work. The city is the file, and the detectives are two men with sore feet.",
+  "model": "claude-opus-5",
+  "source_sha256": "418c316fe86bb40a3f9e84a1be00e8d3a09d56ba61b297ffe30afce7d7394468"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "leave-her-to-heaven-1945",
+  "field": "lead",
+  "film_id": "08c808d0-0085-4a28-86c3-fd34ab93a143",
+  "lang": "en",
+  "text": "A socialite marries a novelist she has only just met, and that is the last simple thing that happens. What makes the film strange is the light: a 1945 story of jealousy turning dangerous, with its honours running to colour, art direction and cinematography, so that nothing is permitted to hide in shadow. The obsession proceeds in daylight, in handsome rooms, in good clothes. John M. Stahl keeps the surface immaculate and lets the pressure gather inside a marriage where one person's attention has no off position, and where devotion and control are performed with the same gestures. Being loved this closely is the problem, and it takes most of an hour before anyone is allowed to say so. Everything alarming early on is technically an act of love.",
+  "model": "claude-opus-5",
+  "source_sha256": "7fe18dda372e2b351f0d8396183b2d7b123af307ff6ba5de1c3c756879dd73b3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "old-yeller-1957",
+  "field": "lead",
+  "film_id": "aae4b8a7-84a5-4d74-ac2b-8b268fe9ddf5",
+  "lang": "en",
+  "text": "The 1860s, a family ranch, and the man of the house gone for weeks behind a herd of cattle. What remains is a mother, two boys, and work that does not adjust itself to who is available. Travis, the elder, inherits a grown man's day: the authority, which he wants, and the responsibility, which he has not thought about. Then a yellow mongrel turns up uninvited, eats what it likes and stays, and the boy takes it on with no enthusiasm at all. Robert Stevenson holds the whole thing to eighty-four minutes and to a child's eye level, and the frontier in it is chores rather than adventure, all animals and weather and the distance to the nearest help. Family pictures seldom grant a boy this much ordinary competence, or let his affection start out as an irritation.",
+  "model": "claude-opus-5",
+  "source_sha256": "f3801f3ad3792ac095654048cfa3821f036588ec5241a60c78b83026ac6dd905"
+ }
+]

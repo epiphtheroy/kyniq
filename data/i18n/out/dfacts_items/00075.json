@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sidney-lumet#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《밤으로의 긴 여로》를 찍을 때 뤼멧은 캐서린 헵번과 랠프 리처드슨을 데리고 순서대로 촬영했다. 한 테이크를 10분씩 끊지 않고 돌리는 일도 잦았다. 영화 세트를 연극 무대처럼 다뤘던 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "05a5496e52b863e02239c9f01089b6d4df2c9a949b9884160ae19c58bff9841e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sidney-lumet#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《오리엔트 특급 살인》의 클라이맥스에서 앨버트 피니는 여덟 페이지짜리 독백을 감당해야 했다. 뤼멧은 카메라 여러 대를 동시에 돌려 그 장면을 잡았다. 숀 코너리와 로렌 바콜을 비롯한 호화 배역진에게 세팅을 끝없이 다시 시켰다가는 반응의 즉흥성이 죽는다는 것을 알았기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "91e9c7143f27101fad10546ee113cd78324689cc2026f10f971de50a0f7f732b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sidney-lumet#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1978년, 전원 흑인 배우로 만든 뮤지컬 《The Wiz》를 연출하면서 뤼멧은 과감한 선택을 한다. '에메랄드 시티' 시퀀스를 갓 완공된 세계무역센터 광장에서 찍기로 한 것이다. 무용수 400명이 동원됐고, 그 거대한 단지가 일주일간 폐쇄됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0f1e80ca8d7dd28e387f5eeb6e62edccd99cd32c132fb9447efb2d1e777f62fc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sidney-lumet#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "핵 오폭을 다룬 냉전 스릴러 《Fail Safe》는 농담이 한 줄도 없는 영화다. 뤼멧은 음악을 전혀 쓰지 않기로 했다. 종말의 시나리오가 지닌 헐벗은 사실성, 그 공포를 음악으로 덮고 싶지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f535f0cd19f5d5ba0f94ff43bc5be9ab3bb87830fa112543619ab530644f7ae"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sion-sono#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "엄격한 가정이 답답했던 그는 열일곱에 도쿄로 달아났다. 파친코 가게에서 일해 생활비를 벌면서 도시의 언더그라운드 예술판에 몸을 담갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d0ebde8b1b6b0beb45cc66f86519feb2d60a0b184933c21c5ec7c13ff40f9d94"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sion-sono#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "첫 8mm 단편의 제목은 《나는 소노 시온이다!!》(1985). 그 나르시시즘적인 제목대로, 영화는 젊은 감독이 카메라를 향해 제 시를 격하게 낭독하는 장면이 전부였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8905fb6759c745034d4042867b1d76068420fcddd9545aacdde852a94d1382f0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sion-sono#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1987년 피아 영화제에서 수상한 뒤 장학금을 받아 UC 버클리로 유학을 갔다. 수업에는 거의 들어가지 않았다. 샌프란시스코를 쏘다니며 싸구려 B급 영화를 삼키는 쪽이 좋았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "923d578712255267a9a72e548f4c7c7b7c40588971853d1ce692153e27030be9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sion-sono#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1993년 그는 '도쿄 가가가'를 만들었다. 회원 2,000명이 넘는 과격한 거리 퍼포먼스 집단이었고, 시부야와 신주쿠의 붐비는 교차로에서 확성기를 들고 대규모 불법 시 낭독을 벌였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c74698cf95f46d344c0e860c78395826666c4ba1e801f7f26932c518a3647a0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sion-sono#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "극단적인 고어와 허무주의, 성폭력으로 이름을 얻은 감독이지만, 소노가 인생 최고의 영화로 자주 꼽는 작품은 말하는 돼지가 나오는 1995년 호주 영화 《베이브》다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb8e002e6d0ccab980d08123614262766264967b032e0d7b9fb4131db8aa781e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sion-sono#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "실제로 벌어진 연쇄 집단자살을 일본 뉴스 앵커들이 아무 감정 없이 무균질하게 전하는 모습에 그는 깊이 흔들렸다. 국제적 도약작이 된 《자살 클럽》(2001)의 각본은 그로부터 며칠 만에 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a2d1aae354a1059b64f2b94d89977d96cb31faa854138d11cca50b8bc17c01bd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sion-sono#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《자살 클럽》을 대중이 읽어낸 방식이 마음에 들지 않았던 소노는 2002년 소설 《자살 서클: 완전판》을 따로 썼다. 극 중 죽음의 교단이 어떤 톱니로 굴러가는지를 대놓고 상세히 밝히기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d92e466f4bd90a33cad3be0bf6ab70adef582701e89f907ffb2994bce7f9278c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sion-sono#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "어린 시절의 종교적 상처는 네 시간짜리 대표작 《아이 엠 러브: 사랑의 죄》(2008)의 각본으로 흘러들었다. 싸구려 호텔 방에 틀어박혀 237쪽에 이르는 그 방대한 원고를 단 2주 만에 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e1522c93bc97e4aeccd393dfd27e0d5b3ebb84145e7b7cdf7215ac00501ea153"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sion-sono#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2011년 도호쿠 대지진과 쓰나미가 덮친 뒤, 소노는 만화 원작 《히미즈》의 각본을 통째로 다시 썼다. 재난이 있고 겨우 몇 주 뒤, 그는 스태프를 몰아 미야기현의 방사능 잔해 한복판에서 촬영을 강행했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5e887dea33e6babe98d7507ac82e8d12692ecef1c4e32ec1378342ee6c9383ec"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sion-sono#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "SF 《속삭이는 별》의 각본은 1990년에 구상됐다. 그러나 카메라를 돌리기까지 25년이 걸렸다. 결국 그는 후쿠시마 출입금지구역의 스산한 폐허를 배경 삼아, 죽어가는 인류의 이야기를 찍었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d3d95dc0ce39872d6aac65bb1fcb66ae2ee1bfeb153de14a268cd363b875ac29"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sion-sono#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아내는 그라비아 아이돌 출신 가구라자카 메구미다. 소노는 자기 영화에 그를 거듭 세웠고, 《차가운 열대어》나 《사랑의 죄》처럼 육체적으로도 정신적으로도 혹독한 역할을 맡겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bae67f1156a7e400b3246655cb1e360d02ff6c4064ff80a590ff0a483b5616a6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sion-sono#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화와 시만이 아니다. 소노는 그림에도 몰두하는 화가로, 2015년 도쿄 와타리움 현대미술관에서 첫 대규모 개인전 '예술의 사냥개들'을 열었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "555d4ee392701a09c9a40ed5f5e115f3f519b007ee0402d9bebbc6e4b73cf560"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sion-sono#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2019년 2월, 소노는 자택에서 심근경색으로 쓰러졌다. 응급구조대가 그를 되살리기 전까지 그는 임상적으로 사망한 상태였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "39b7c7820634068eadb113ba2a49c69ec7b39bc3338cda63185ea31a859ce11b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sion-sono#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이 별난 감독과의 작업은 니컬러스 케이지에게도 잊지 못할 경험이었던 모양이다. 그는 《프리즈너스 오브 고스트랜드》를 두고 \"내가 만든 영화 중 가장 미친 영화\"라고 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e6c8a2d30e5950c7305fd7c7e2ea824c16d4fa8ae578aebfec85c582ade7ae5c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sion-sono#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2022년 4월, 일본 잡지 《주간여성》이 폭탄 같은 폭로 기사를 실었다. 익명의 여배우 여럿이 소노에게 성희롱을 당했고, 배역을 대가로 성관계를 요구받았다고 증언했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f3fa652adf7cb08c7665da26b767862c586bb94e0d55b87b1b4b90d12c751b0a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sion-sono#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "컬트 감독 이시이 데루오의 유작 《맹수 대 일촌법사》(2001)에는 변태 의사로 그가 직접 나온다. 소노가 배우로 얼굴을 비친 드문 사례다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e066d8aa947ce6db5159e7044f3a67f68aa19dc96fc3e263ebe3d8fb77bc7119"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sion-sono#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 오늘의 일본 영화 산업을 공공연히, 또 자주 헐뜯는다. 위원회가 굴리는 안전한 애니메이션과 만화 각색물이 지배하는 \"비겁한\" 시스템이라는 것. 정작 본인도 자기 기획의 자금을 대려고 그런 각색물을 이따금 연출한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2397f08d5fdf4cbf03c66d7c0365a43dff8ccfbfa1beed8b5d45211e59029af2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sion-sono#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2019년 넷플릭스 작품 《사랑의 숲으로》는 실제 사건에서 직접 나왔다. 심리적 고문으로 피해자들을 서로 죽이게 만든 일본의 연쇄살인범 마쓰나가 후토시의 범죄다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d14ef1a3f17502a148792d4913bc1a2c626334bf83b49590dcaacf9f52cca2f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sion-sono#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "심근경색에서 회복하고 얼마 지나지 않아 그는 《에셔 거리의 붉은 우체통》(2020)을 찍었다. 연기 워크숍에서 태어난 영화였고, 그는 무명 배우들만 골라 캐스팅해 일본 영화계의 경직되고 폭력적인 위계를 정면으로 겨눴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "06f4d43df40d4ecd994b72184ecc68ef8fb33d118239307ce62055544543e97a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sofia-coppola#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아버지 프랜시스 포드 코폴라가 《대부》를 편집하던 무렵, 그는 뉴욕에서 태어났다. 그리고 그 영화의 클라이맥스인 세��식 몽타주에서 사내아기 마이클 프랜시스 리치로 스크린에 데뷔했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c06a34a785fe77c94e7d997536df00321eb6cf6a8a2390525d797ecd43b70424"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sofia-coppola#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "족벌이라는 말을 듣기 싫어 어린 시절 배우로 나설 때는 '도미노'라는 예명을 썼다. 《아웃사이더》, 《럼블 피시》, 팀 버튼의 단편 《프랑켄위니》가 그 이름으로 남았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "441d2904fdc93335f95a259a7a612ce96d1ce6fbc7523a0599e5d8d38220f646"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sofia-coppola#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "유년의 상당 부분은 필리핀 정글에서 흘러갔다. 태풍과 혼란으로 악명 높았던 《지옥의 묵시록》 촬영 현장이다. 진흙탕에서 놀던 그 아이는 헬기 장면에 크레딧 없이 잠깐 등장한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "10ce0ef9a5751a98d316a71d3a038428e737d6ddb7f4fb73ce36ab1cfe8ae35d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sofia-coppola#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "열다섯 살 여름, 파리 샤넬 본사에서 인턴 자리를 얻었다. 카를 라거펠트에게 커피를 날랐고, 하이패션의 감각을 몸에 새겼다. 훗날 그의 영화적 화면을 지배하게 될 감각이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "680b21bdd03ca6e990cc6e4a93d259bef687d2a7b231bede2efc37c8ae111341"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sofia-coppola#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "같은 열다섯 살에 그는 스물두 살 오빠 지안카를로를 잃었다. 어이없는 모터보트 사고였다. 우울에 잠긴 고립된 젊음, 그가 평생 붙들게 될 예술적 집착은 이 상실에서 자랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f51d7ae8231922418789d6a60844586902bf796ef2bbf36d4e9a845cdbb2b908"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sofia-coppola#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "위노나 라이더가 신경쇠약으로 《대부 3》에서 하차하자, 열여덟의 소피아가 급히 메리 코를레오네 역에 투입됐다. 결과는 참혹한 혹평과 골든 라즈베리 2관왕. 배우가 되겠다는 마음은 거기서 영영 끝났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ccb85d70fa9693bc38137221fd5c78b7a124b45ce22a138b1e7fddfe564f3fb0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sofia-coppola#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이십 대의 그는 1990년대 얼터너티브 신의 붙박이였다. 소닉 유스와 마돈나의 뮤직비디오에 얼굴을 내밀었고, 절친 조 카사베츠와 함께 코미디 센트럴의 단명한 매거진 쇼 《하이 옥테인》을 진행했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f449346533b79902feea2efa473afb997655adb1696e9d9da91fc0c72f040a3e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sofia-coppola#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1994년, 그는 일본에서만 파는 스트리트웨어 브랜드 밀크페드를 차렸다. 장편 데뷔는 아직 한참 뒤의 일이었지만, 이 옷 장사가 초기 작업의 자금줄이 되어주었고 도쿄에 거대한 컬트 팬층을 남겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "50800205e3f22d52b77694c73fbaaf8438341d8467b787785d541efe095dbba8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sofia-coppola#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "캘리포니아 예술대학에 들어가 회화와 사진을 공부했으나 결국 중퇴했다. 집안이 쌓아 올린 영화 왕조의 무게 아래에서 영화를 만든다는 생각이 그를 마비시켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd74f11226d903c2af79f9f1fda898cf0d225f138876b15a931994628e424c47"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sofia-coppola#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "조지 루커스의 《스타워즈 에피소드 1: 보이지 않는 위험》에서 아미달라 여왕의 시녀 사셰로 나온다. 자청한 배역이었다. 거대한 CGI 블록버스터가 어떤 톱니로 굴러가는지 곁에서 보고 싶었을 뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c1172a8600e8ef56c3044b25fcc9b0db985e5e601d298da88bbbe11da61e80c6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sofia-coppola#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《처녀 자살 소동》 촬영장에서 그는 십 대의 커스틴 던스트를 지켰다. 치아를 \"고쳐야\" 한다고 나선 할리우드 제작자들 앞에서, 지금 이대로 아름답다고 배우에게 못 박아 말했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5005653d1573427a18f79169a449fd08faf9a50e72a9e21d543d7ec3020cbea3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sofia-coppola#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "두 번째 남편 토마 마르스와의 인연은 음악에서 시작됐다. 《처녀 자살 소동》 사운드트랙에 곡을 하나 넣어달라고 그의 프랑스 인디팝 밴드 피닉스에 부탁한 것이다. 그렇게 오래갈 연애이자 창작의 동반 관계가 시작됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e4ac727c0ce7e9c20780833b72fab7a5379109e7ca4505cd7b6297683ac2ed69"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sofia-coppola#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오스카를 안긴 《사랑도 통역이 되나요?》의 각본에는 무너져가던 결혼 생활이 짙게 배어 있다. 상대는 감독 스파이크 존즈였다. 조반니 리비시가 연기한, 늘 딴 데 정신이 팔린 셀럽 사진가는 존즈를 그대로 옮겨놓은 인물로 널리 읽혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "65ce770362c092903ae7a868a5dda86b610c8218189d8e887e537778a6864c09"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sofia-coppola#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《사랑도 통역이 되나요?》의 주연을 맡기려고 그는 몇 달 동안 빌 머리를 쫓아다녔다. 답 없는 음성 메시지를 수백 통 남겼고, 웨스 앤더슨까지 동원해 그의 행방을 수소문했다. 그가 아니면 이 영화는 만들지 않겠다고 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3294d9eb318a4e514e72c1a044c8155ab70b910090776ed3298460b77942dd52"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sofia-coppola#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《사랑도 통역이 되나요?》로 그는 아카데미 감독상 후보에 오른 최초의 미국 여성이 됐다. 전 세계를 통틀어도 세 번째였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f1e1f0bbc22704b5acc0bc91b5c2d125d4c19817fd9e75c494c41f391099830"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sofia-coppola#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2003년 화이트 스트라입스의 \"I Just Don't Know What to Do with Myself\" 뮤직비디오를 연출했다. 검은 란제리 차림의 슈퍼모델 케이트 모스가 끊김 없이 이어가는 관능적인 폴 댄스, 그 한 장면으로 유명해진 영상이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "841fb816c6641da0e09a7376d653f48d3edf747f2a35c23af4a1ef0d0a9a1fa1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sofia-coppola#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《마리 앙투아네트》를 위해 그는 전례 없는 베르사유 궁 촬영 허가를 받아냈다. 실제 왕비가 잠들던 침실에서 카메라를 돌리는, 좀처럼 나오지 않는 허락까지 얻었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5779dd79d803834f33553e15dc160b39d3299bc3f4b4ced32176f36e5b0b8d25"
+ }
+]

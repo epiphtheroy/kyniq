@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "jean-de-florette-1987",
+  "field": "lead",
+  "film_id": "a6d7afce-38fb-4ca9-b8d8-4b71f0afee30",
+  "lang": "en",
+  "text": "Two men block up a spring, cover what they have done, and then wait. What follows is patience of the worst kind: the neighbour who has inherited the land above them plants his crops, hauls water from wells far afield through a hot summer, and works himself down while the two of them watch from a courteous distance. Claude Berri films this corner of rural France without hurry and lets the calendar do the damage. The sun holds, the wells recede, the crops need more than the sky will give. The greed is small and entirely legible: they want the water for flowers, they can see a wife and a daughter breaking, and they go on wanting it. The 122 minutes hold because of that. The crime is finished early and then merely maintained, by two ordinary men who have arranged to be looking elsewhere.",
+  "model": "claude-opus-5",
+  "source_sha256": "410ec1bf6566d161580cd20d4c1a5ee8db6f50d80c2b041c4922742425010a21"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "prince-avalanche-2013",
+  "field": "lead",
+  "film_id": "d8a711f4-a5dd-4137-b369-9d031a509f75",
+  "lang": "en",
+  "text": "Summer of 1988, a stretch of highway, two men assigned to keep it in repair. Prince Avalanche gives itself almost nothing to work with, a road and a crew of two and ninety-four minutes, and turns that scarcity into the subject. The men are not friends, only colleagues at close quarters, and the women they left behind in the city stay inside the argument even at that distance. David Gordon Green keeps the comedy dry and faintly cruel, then drops it out of a scene without warning. Work fills the days. The isolated ground gives them nothing to hide behind. The misadventures come from having nowhere else to put the hours, and from two temperaments grinding along with no third person present to absorb the friction. Around them sits a landscape with no opinion about either man and considerably more time than both.",
+  "model": "claude-opus-5",
+  "source_sha256": "8dd65fc149c3a0274503c941a318ff609a7802db9f62ecddcaf7335699b793d4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tales-from-the-darkside-the-movie-1990",
+  "field": "lead",
+  "film_id": "d281f985-2548-45c7-aede-e1d4b3665070",
+  "lang": "en",
+  "text": "A boy talks to stay alive, and the currency is stories: three of them, told to a witch who has already decided to eat him. The frame is as old as the form, and Tales from the Darkside: The Movie plays it half for laughs, which sets the terms for everything inside. Ninety-three minutes divided four ways leaves each segment about twenty, and twenty is the right length for a nasty idea, a turn, and a payoff delivered with a straight face. Then out. The film moves between horror, fantasy and low comedy segment by segment rather than blending them, so the tone resets at every join and nothing has time to sag. What keeps it pinned is the boy. His stalling has a deadline, both parties know it, and the stories have to be good enough to hold a listener who is hungry.",
+  "model": "claude-opus-5",
+  "source_sha256": "36462677d091361ffedbdf1f6ce12e944db80cc857bd7a3700fd1b58e5145a9b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-bookshop-2016",
+  "field": "lead",
+  "film_id": "1879b1bd-83ce-4e22-8060-018fdd5a5a75",
+  "lang": "en",
+  "text": "In a small English town in 1959, a woman opens a bookshop and finds the opposition to it unfailingly polite. Nobody refuses her outright. The pressure arrives as courtesy, as delay, as a word placed in the right ear, and Isabel Coixet lets it work at the speed such pressure actually works, across 110 minutes. What stands to be lost is stranger than a business. It is whether a provincial place will tolerate a person who decided something on her own without asking first, and that gets negotiated entirely in rooms where everyone is being pleasant. The Goya for Best Film went to it, a German production made in English about the English talent for saying no by saying nothing much. The period is not decoration either. The town behaves as though a shop full of new books were a proposal it had never agreed to hear.",
+  "model": "claude-opus-5",
+  "source_sha256": "518754bbb7f5e8518d3d2ebe1172a874e92f6cd7250208f0cd4f1509f95cee63"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "richard-iii-1995",
+  "field": "lead",
+  "film_id": "96d0aa9d-29c5-43a8-9618-db91b563c670",
+  "lang": "en",
+  "text": "Richard announces what he intends to do and then does it, which is the problem every screen version of this play has to solve. Richard Loncraine's answer is speed. A hundred and four minutes for a royal court that spends all of them being outmanoeuvred by a man who has already published his method, his eventual wife and his own brother included. Drama and war are both listed, and the second word is not a formality. England here is a country where succession is settled by soldiers, so every private betrayal inside the household is a troop movement that has not happened yet. The costumes and the rooms carry an unusual share of the argument. What keeps the film clear of pageantry is how briskly it treats a throne as property, something acquired by whoever is willing to spend the most on it.",
+  "model": "claude-opus-5",
+  "source_sha256": "3a53acc7a7a9ec4ea36667ccd2b699f22eeec71b5958213e0067bd23c030acbb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-last-circus-2010",
+  "field": "lead",
+  "film_id": "275c4104-d0ad-4102-aa00-15521ef452cd",
+  "lang": "en",
+  "text": "A circus keeps two clowns on the payroll, one happy and one sad, and the film builds a love triangle on that division of labour. The trapeze artist between them is not choosing temperaments. She is choosing between two men damaged in ways the job has actively encouraged, and Álex de la Iglesia declines to make either of them the safe option. Adventure, comedy and horror run at once here rather than in sequence, so a routine can be funny and frightening in the same gesture, and 106 minutes is long enough for the greasepaint to stop being funny by degrees rather than all at once. Spanish-language, Belgian-produced, pitched at a volume the big top only partly explains. The premise does the rest: a trade that requires a man to perform joy or misery on cue, and what that eventually does to whoever has been assigned the face.",
+  "model": "claude-opus-5",
+  "source_sha256": "22dfc20535edabe9946f51f9c282205fad1e4bffdfddc968eec871b9f0d72e9c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-good-boss-2020",
+  "field": "lead",
+  "film_id": "4c7467df-cf0f-4da5-9cfd-408299741b21",
+  "lang": "en",
+  "text": "The factory makes industrial scales, and its owner has a great deal to say about balance. A committee is coming to decide whether Básculas Blanco deserves a local award for business excellence, which leaves Julio Blanco very little time to make every human problem on the property disappear. He is charming about it. Fernando León de Aranoa stays close to that charm for 120 minutes, watching a man who sincerely believes his interference in his employees' lives is a form of care, and who will cross any line he can afterwards describe as generosity. The comedy is a matter of proportion, enormous effort spent on a plaque nobody outside the province will ever hear about. The drama is that the people being rearranged to win it have their entire lives inside that province, and no committee is coming to look at them.",
+  "model": "claude-opus-5",
+  "source_sha256": "fcdf9aae66de95e5d4f6560573e00254342670d2e4cbe9815e85288b0b8ef100"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "things-to-come-2016",
+  "field": "lead",
+  "film_id": "10fa577f-a403-4a3d-b529-64db03086686",
+  "lang": "en",
+  "text": "A woman who teaches philosophy is handed the kind of freedom her subject recommends, and it arrives looking like a loss. Nathalie's husband leaves for someone else. Her mother wants more than anyone can give, her former students have views about how she ought to be living, and the classroom stays the one place where she knows exactly what she is doing. Mia Hansen-Løve keeps the register level throughout: books carried from one Paris apartment to another, teaching continued, arrangements quietly redone. L'Avenir runs 102 minutes and never mistakes rearrangement for catastrophe, which is the harder and truer choice. What it watches is a person finding out how much of her life had been arrangement rather than decision, and how little a lifetime of thinking about how to live turns out to say about that.",
+  "model": "claude-opus-5",
+  "source_sha256": "7b2c10c5f7c17349a22764e9adafdf741599f16a62ebe2f36cdb889fdda9afa6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-clan-2015",
+  "field": "lead",
+  "film_id": "81d48ab1-7d7b-4713-afa5-5935a86a57a8",
+  "lang": "en",
+  "text": "Between 1982 and 1985, a well-established family in one of the wealthier suburbs of Buenos Aires held kidnapped people for ransom while the household went on running normally. The Clan takes the Puccios of San Isidro at exactly that level. Meals served, the house kept, the family business continuing, and the arrangement left to speak for itself. The dates are the point. Those years in Argentina were the last of the military government and the first after it, a period when disappearance was a state habit, and Pablo Trapero puts a private version of it inside a respectable address without stopping to explain the rhyme. A hundred and nine minutes, most of them indoors. The hardest part is the domestic logistics: somebody has to buy the food, answer the telephone, and keep the neighbours from asking.",
+  "model": "claude-opus-5",
+  "source_sha256": "1528ef899677b27326e2645e3e112c133246bd9691ddb77f58c52b8f7548feff"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "samaritan-girl-2004",
+  "field": "lead",
+  "film_id": "53ebd505-33e0-4ed3-b24c-8d4bad07b118",
+  "lang": "en",
+  "text": "A girl sells sex; her best friend fixes the dates, holds the money and keeps watch at the door. Kim Ki-duk films the arrangement as work, and early on that is the hardest thing about it, the schedule and the cash and the practised efficiency of two people who have decided this is manageable. Then Jae-Young falls in love with one of the men and hides it, out of consideration for Yeo-Jin, and the friendship becomes the thing with something at stake. Ninety-six minutes, mostly two faces. The Silver Bear for Best Director marks where the weight sits: a camera that neither shames the girls nor argues for them, held still long enough that the moral question stops being an abstraction and turns into the plainer matter of what one of them owes the other.",
+  "model": "claude-opus-5",
+  "source_sha256": "76ccc6f53dd9f3783f6a34f864f0036f8a93817242e397327cc4182019afb87e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-other-side-of-hope-2017",
+  "field": "lead",
+  "film_id": "7aeb4037-c738-49d6-abdc-d58722888f5b",
+  "lang": "en",
+  "text": "The jokes are delivered slowly, by people who look as though they have been waiting in a corridor for years. That deadpan is the instrument Aki Kaurismäki brings to a story about a Syrian man's first weeks in Finland and the restaurant owner who decides to be useful to him. What the flatness protects is an argument. A country's obligations come down to small unglamorous decisions taken by individual people who could just as easily have stayed home, and practical favours do the work that speeches do elsewhere. The European Film Awards gave it best film and best director, and their audience chose it as well. A hundred and one minutes, kept to restaurant hours, opening and closing on schedule, and funniest precisely where a more earnest treatment would bring in the strings.",
+  "model": "claude-opus-5",
+  "source_sha256": "f2d7ed4e4fb8b70f4ab41369f09b574885c30ef717b497a8c9e615c6bec40eaa"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "truman-2014",
+  "field": "lead",
+  "film_id": "035efc7c-2a8a-4165-9d4c-5ebda99b070b",
+  "lang": "en",
+  "text": "Tomás flies from Canada to Madrid to spend a few days with Julián, and the visit has no agenda beyond being there for it. Cesc Gay builds the film out of errands. Meals, taxis, appointments, and the dog Truman needing to be walked whatever else is going on. Julián is going through something hard, and the discipline of the film is that his friend does not try to solve it. Two men and a dog, 105 minutes, almost no plot in the usual sense, which is why the European Film Award for Best Actor points straight at where the load is carried. Comedy sits beside drama in the description and earns its place. People who have known each other a very long time are funny in a register nobody else in the room can hear, and the jokes do not stop when the subject turns serious.",
+  "model": "claude-opus-5",
+  "source_sha256": "dde15b83fdd6abd444684021a20abb69966bd197262462e3a49afad5765417f7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-secret-life-of-words-2004",
+  "field": "lead",
+  "film_id": "2fc069e3-27a0-405a-8291-4fdab867e6d4",
+  "lang": "en",
+  "text": "A man badly burned in an accident on an oil rig, and a nurse who says as little as she can get away with, are put in a room together for the length of his recovery. Nearly everything happens in that room. Isabel Coixet takes 115 minutes to let two people who have each decided against talking find a use for it, and the pacing is deliberate to the point of obstinacy, intimacy accumulating in increments rather than scenes. What passes between them is not courtship so much as disclosure, rationed. Both have reasons for the silence, and speech costs each of them something specific. The European Film Award for Best Actress went to the performance at the centre, which is largely a question of what a face does while withholding, on a rig built for work and equipped with no vocabulary for anything else.",
+  "model": "claude-opus-5",
+  "source_sha256": "4c15047a5d4c6c369152e68e444fd2708ee26345c180157f1c1872049e91e075"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-fury-of-a-patient-man-2015",
+  "field": "lead",
+  "film_id": "7d76d2e6-16e4-4cb1-a3dc-8bc569dbc679",
+  "lang": "en",
+  "text": "Jose is quiet, attentive, and courting a woman in a cafe for reasons that have nothing to do with her. The film gives this away early, which is a decision rather than a slip: once the shape of his intention is known, the ordinary business of a new relationship becomes something to sit through rather than watch. Raúl Arévalo works in the plainest register the Spanish thriller allows, small rooms and flat daylight and 92 minutes with nothing spare in them. Ana is not a device. The film keeps taking her seriously even as the plot uses her, and that is where the discomfort actually lives, well before any threat of violence. What is at stake is not whether a patient man gets what he came for, but what it will cost the person who happened to be standing beside him.",
+  "model": "claude-opus-5",
+  "source_sha256": "da396e693d5585d95bf8143160b4217089cddfabb0b5d42d1db2726496a868d3"
+ }
+]

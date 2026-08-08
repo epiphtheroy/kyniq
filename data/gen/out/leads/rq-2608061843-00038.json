@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-viking-watch-of-the-danish-seaman-1948",
+  "field": "lead",
+  "film_id": "c13933c6-a8a1-499b-b788-7b18db34bd65",
+  "lang": "en",
+  "text": "A merchant crew takes a vote in open water, and the result keeps every man aboard away from home for five years. The news reaches them on 9 April 1940: Germany has entered Denmark, and the ship is far enough out that the choice is genuinely theirs, an occupied harbour behind them or England ahead. Lau Lauritzen Jr. follows not convoy action so much as the long consequence of a show of hands. Rations, watches, rank. Men who have chosen each other over their own households and must then live at close quarters with that choice until the war lets them go. The Bodil for best Danish film came to it three years after the last of those years ended, which is close work on recent memory. A hundred and five minutes, most of them on a deck nobody can walk off, in a war experienced almost entirely at second hand.",
+  "model": "claude-opus-5",
+  "source_sha256": "0abac8d8b5aa2a74338bd1467d2667f58c17b41eed1a6425816c501286775dfb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "pa-tro-og-love-1955",
+  "field": "lead",
+  "film_id": "90e608ae-62f6-4949-ba3f-e01da0684a95",
+  "lang": "en",
+  "text": "The arithmetic works: two incomes taxed as one household cost more than the same two taxed apart. So Hans, who writes advertising, and Grete, who fills teeth, decide to divorce and go on living precisely as before. Their friend Georg, a lawyer, takes some persuading, and his hesitation is the first entry in a column the couple have not thought to keep. Torben Anton Svendsen plays it straight: same flat, same breakfasts, one legal document quietly withdrawn from underneath. The tax office is never made a villain here; it is only the pressure that reveals what the arrangement was resting on. What the film has noticed is that a marriage is held in place partly by the plain fact of being married, and that two people who have removed the fact will start noticing other people at about the speed of anyone else who is single. Ninety minutes of a household running on a technicality.",
+  "model": "claude-opus-5",
+  "source_sha256": "22cfbf80c929ebb7583b1faf269d470de7f875c5d3cc1942e71f60f1407808f2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-escape-1973",
+  "field": "lead",
+  "film_id": "de3c5a2f-471e-4759-8e40-36b4b83f1396",
+  "lang": "en",
+  "text": "Dropped by the men who trained him the moment he draws attention, Per settles on a revenge that costs nothing and requires no courage. He will work his way through their girlfriends. It is a small plan by a small thief, and Hans Kristensen's 1973 film declines to inflate it: the mentors are a few older criminals with a habit of cutting loose whoever has become inconvenient, and Per is a young man whose competence has been overestimated chiefly by himself. Ninety-nine minutes is a long time to spend beside someone with no talent for what he has chosen, and the film stays close, never once arranging a rescue. The scheme rests on an assumption that other people will hold the positions he has assigned them, and the rate at which that assumption stops paying is the real subject.",
+  "model": "claude-opus-5",
+  "source_sha256": "93aa7cdfe7d411cc153d386d35738f0502ca0e9f34b9f0b5db45cc5a814df29d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "that-brief-summer-1976",
+  "field": "lead",
+  "film_id": "e619694b-c052-45c9-bcd4-79843ca82ff3",
+  "lang": "en",
+  "text": "There comes a point in the occupation when the outcome begins to tilt, and it is exactly then that Kirsten falls in love with a German officer. She is in her early forties, newly divorced, living with her son in her parents' house in Hjørring, so the affair is conducted inside somebody else's household in a town small enough to keep accounts. Edward Fleming's 1976 film sets a private feeling down in a place that has already decided such feelings are communal property, and holds the two in frame together. The pressure is concrete throughout: a mother's front door, a child in the rooms, neighbours who can read a calendar even when she declines to. What is unexpected is that she is never staged as a lesson for anyone to draw. She is a woman who wants something, at the worst imaginable moment to want it.",
+  "model": "claude-opus-5",
+  "source_sha256": "87ef9cd917aa1dc4a3641ee8de37951b7fc761d5c6edf6933281ac21ab8d9a4f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-dark-side-of-the-moon-1986",
+  "field": "lead",
+  "film_id": "7dbca8a5-3af6-488c-a956-dc640815d333",
+  "lang": "en",
+  "text": "Sixteen years inside, and the country he walks back into has people in it who were not there when he went away. He killed his wife; he has served for it; what he wants now is ordinary, meaning work, a room, and some word from his daughter, who wants nothing from him at all. The company Erik Clausen gives him is Turkish, among immigrants with their own reasons for standing slightly outside the street they live on, and the film is clear-eyed about how little that fellowship is being asked to redeem. Denmark sent it to the Academy Awards as its entry that year, an odd choice of ambassador for a picture so unsoftened about a man nobody is obliged to forgive. The daughter's refusal is the spine of it, and ninety minutes is nowhere near long enough to wear a refusal like that down.",
+  "model": "claude-opus-5",
+  "source_sha256": "3c39af3f3c5d85055cdbf36fc996b70e71d7114befef8a99e4f4be72a8bf1897"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "adam-and-eve-1953",
+  "field": "lead",
+  "film_id": "b96d10c6-73cd-4c69-8c09-aa096fc44a6d",
+  "lang": "en",
+  "text": "A small grey book with nothing on the cover comes in from Paris and refuses to stay in any one pair of hands. Erik Balling built his 1953 comedy as a relay: the thing is passed, borrowed, hidden, passed again, and each new owner gives away more about himself in the handling of it than the pages ever disclose. A borrowed copy makes hypocrites of borrowers, which is among the oldest engines in comedy and still turns over on the first pull. The contents are never the joke. The film has no intention of reading them aloud and does not need to, since everything funny is happening in the machinery of respectability that assembles around an object nobody will admit to having opened. Ninety-six minutes, and the pace is a function of circulation: while the book keeps moving there is always another household to embarrass.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c6fe716395bff9caa7691e45b5af36e3c3d0793fe7fde58b71115f306ac3998"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "robinson-and-company-1991",
+  "field": "lead",
+  "film_id": "c4849390-0e14-4296-8e27-239c378953ef",
+  "lang": "en",
+  "text": "Animation and solitude make an awkward pair, since a drawn world can hold anything and this story requires that it hold almost nothing. Jacques Colombat starts with a boy who wants to go to sea and a wreck that grants the wish in the worst available way, then settles into the stretch with no incident in it: an island, one survivor, and years to be filled by the invention of a routine. Seventy minutes is short for a feature and about right here, because repetition is the material and repetition has a ceiling past which an audience stops counting the days alongside him. It took the Cristal at Annecy, that festival's prize for a feature, which suggests the drawing is doing more than illustrating. What being drawn rather than photographed buys is an island as bare as the sentence describing it, which no real location has ever managed to be.",
+  "model": "claude-opus-5",
+  "source_sha256": "619415b6ab71bbafbcee258ccbc6c5c5212023e67ce8d4a5c80b9a32c48aba53"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "der-kom-en-dag-1955",
+  "field": "lead",
+  "film_id": "fdaba22d-2f57-4372-8591-2d647315f85d",
+  "lang": "en",
+  "text": "The surrender was made under protest, and that phrase had an enormous amount of work to do in Denmark afterwards. Sven Methling's 1955 film comes from Flemming B. Muus's novel of the same name, drawn in turn from things that happened, and its subject is what followed: not the morning of 9 April 1940 but the slow assembly of people who decided the war remained theirs to fight. It was made a decade after the occupation ended, and it keeps both Muus's title and his insistence that a country can be taken without being handed over. The pressure falls on recruitment rather than combat, which is the harder half. Who is approached. Who agrees. What a household does with the answer once it has been given, and how much of a hundred and two minutes can be spent in ordinary rooms deciding.",
+  "model": "claude-opus-5",
+  "source_sha256": "22cf08dd103a66464a741f9fd3d999a464af421757cf6a35507fa06be332821a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "metal-monsters-the-righteous-redeemer-2023",
+  "field": "lead",
+  "film_id": "ef4b7cef-1c5f-4e58-bb17-0127ac731f3c",
+  "lang": "en",
+  "text": "A television production needs a monster truck, and the order goes to a family shop in a small American town. Forty minutes is enough to show what fabrication consists of: measuring, cutting, welding, the argument over tolerances, the piece that has to be made a second time because the first came out wrong. Rick Disharoon's crew at The Metal Shop are working to somebody else's schedule, for a client whose name is Danny McBride, on a build spoken of around the shop as the chance of a lifetime, which is another way of saying there is no version of this where they get a second attempt. Films about craft tend to promise a transformation, a man changed by the work. This one has a delivery date instead, and its whole tension is whether metal can be persuaded to arrive on time.",
+  "model": "claude-opus-5",
+  "source_sha256": "8a9bc792c4470fbfa100dcdf2b8185cd8dfd00a28fef54e9ae83a782ed2f7016"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-face-of-truth-1951",
+  "field": "lead",
+  "film_id": "6989c66a-6882-4b5f-9d52-87d84ddad29f",
+  "lang": "en",
+  "text": "His wife and his uncle are not certain he didn't do it, and they have decided not to tell him. Bodil Ipsen gives her architect an entirely ordinary life first, a household and a son and a profession that runs on being trusted, then attaches to him the killing of a ten-year-old girl, after which the town reaches its verdict well in advance of any court. Ninety-two minutes, and the criminal case is nearly beside the point, since the trial that matters is being held inside his own household. What the 1951 film watches is a man learning to read faces he has known for years and finding fresh information in them. Ipsen is interested in the effort belief costs once it has stopped being automatic, and in the peculiar kindness of relatives who withhold their doubt and think they are being merciful.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd07ea5dc22a4db4306870925e7c6a354f9322dd8e06ecbff5be7c461cf3db6a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "susanne-1950",
+  "field": "lead",
+  "film_id": "d0a286c1-244b-47cb-b791-ecc979615ece",
+  "lang": "en",
+  "text": "Stenvig lives on its summer, when the market town fills up and the tills move. The weeks that settle the year's trade are the same weeks that settle who is walking out with whom, one calendar doing both jobs. Susanne, the baker's daughter, finds herself at the centre of the second without having applied for the position. Torben Anton Svendsen's 1950 film is attentive to the way a young woman's name in a place that size is communal property, maintained by everybody and controlled by her least of all, so that when Otto misjudges how near he is entitled to stand, the bill for his misjudgement is presented to her. Ninety-nine minutes in a town where nobody goes unobserved. Nothing in the situation is exceptional, and that is the point it keeps returning to.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ace1f74015a4187a03160c542ab759e6e85c796ddc5eb41f56ce92d8e46d514"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "street-without-end-1964",
+  "field": "lead",
+  "film_id": "7e6f40be-2ebb-42ca-8c3a-746a4702a816",
+  "lang": "en",
+  "text": "The film treats it as work, and follows the hours accordingly: three women, one Copenhagen street, a night broken into arithmetic. Sunny is twenty-two and was told by a friend that the money would be easy. Doris works the expensive end and wants to be loved. Connie drinks. Mogens Vemmer made this in 1964 as documentary and drama at once, which lets him stay with duration instead of explanation, and duration is the honest part: waiting, weather, the walk back, the next one. It took the Bodil for best Danish film, a curious prize for a picture so uninterested in accounting for itself. The camera keeps to the pavement and to the hours between customers, which is where most of a night actually goes, and it leaves the causes where it found them, outside the frame.",
+  "model": "claude-opus-5",
+  "source_sha256": "776ace45bc0e8267bacdcb1d6be9b9d52b2061c1b31270bfd08e4b1391850776"
+ }
+]

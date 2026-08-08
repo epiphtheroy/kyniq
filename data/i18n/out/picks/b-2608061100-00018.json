@@ -1,0 +1,210 @@
+[
+ {
+  "entity_type": "director_pick",
+  "entity_key": "paul-verhoeven#total-recall-1990",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《토탈 리콜》은 그 신나는 과잉을 한 번 더 밀어붙인다. 슈워제네거, 화성, 돌연변이, 현실이 휘어지는 편집증. 베르호벤은 블록버스터의 스펙터클을 무기로 쓰면서도, 눈앞에 보이는 것을 끝까지 믿게 놔두지 않는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "paul-verhoeven#starship-troopers-1997",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《스타쉽 트루퍼스》는 그의 미국 시절 풍자가 도달한 정점이다. 벌레와의 전쟁을 다룬 액션물로 위장한 파시즘 선전영화, 그것도 너무 태연한 얼굴로 찍어서 많은 관객이 농담임을 알아채지 못했다. 그의 방법이 가장 또렷하게 드러난 한 편.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "paul-verhoeven#turkish-delight-1973",
+  "field": "reason",
+  "lang": "ko",
+  "text": "거칠고 노골적인 네덜란드 시절의 돌파구가 《Turkish Delight》다. 한 조각가의 파괴적인 연애를 육체의 날것과 다정함으로 동시에 그려낸다. 그의 경력 전체를 밀고 간 도발이 여기서 시작된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "paul-verhoeven#soldier-of-orange-1977",
+  "field": "reason",
+  "lang": "ko",
+  "text": "2차 세계대전 레지스탕스를 다룬 대작이 《Soldier of Orange》다. 영웅심도 배신도 감상 없이 다루며, 도덕적으로 간단하지 않다. 도발자 뒤에 서 있던 진지한 극작가의 얼굴이 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "paul-verhoeven#the-fourth-man-1983",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《The Fourth Man》은 최면 같은 네덜란드산 누아르다. 양성애자 작가가 검은 과부일지도 모를 여자에게 걸려든다. 종교적 상징, 꿈의 논리, 치명적인 욕망. 할리우드 에로틱 스릴러로 건너가는 다리다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "paul-verhoeven#elle-2016",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《엘르》는 대담한 프랑스 복귀작이다. 이자벨 위페르는 성폭행을 당한 뒤에도 피해자의 자리를 거부하는 여자를 연기한다. 차갑게 웃기고 도덕적으로 미끄러운 인물 연구, 베르호벤 말고 누가 이런 걸 시도하겠나.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pedro-costa#vitalina-varela-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《비탈리나 바렐라》(2019)가 코스타의 가장 낮은 문턱이다. 빛나는 연기 하나, 렘브란트처럼 깎아낸 조명, 너무 늦게 리스본에 도착한 미망인이라는 또렷한 감정의 선. 그의 느리고 조각 같은 화면을 어떻게 읽어야 하는지 이 영화가 가르쳐 준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pedro-costa#colossal-youth-2006",
+  "field": "reason",
+  "lang": "ko",
+  "text": "폰타이냐스 연작의 가장 완전한 진술은 《Colossal Youth》(2006)다. 이주민 벤투라를 따라 철거된 빈민가와 새 공영주택 ��지를 오간다. 우뚝 선 구도와 유령이 깃든 독백 앞에서, 그의 참을성 있는 방법이 왜 중요한지 납득된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pedro-costa#horse-money-2014",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《Horse Money》(2014)는 벤투라를 열에 들뜬 지하 세계로 밀어 넣는다. 기억이 뒤엉키고, 과거와 현재가 한자리에 무너진다. 이미 빠져든 뒤라면 그 유령 같은 엘리베이터 대면과 꿈의 논리가 보일 것이다. 다큐멘터리적 관찰에서 순전한 야행성 내면으로 옮겨가는 코스타가 거기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pedro-costa#in-vanda-s-room-2000",
+  "field": "reason",
+  "lang": "ko",
+  "text": "거친 출발점은 《In Vanda's Room》(2000)이다. 초기 디지털 카메라로 좁은 방 안에서 세 시간 가까이 찍었다. 동네가 철거되는 사이 반다는 담배를 피우고 이야기한다. 훗날의 영화들이 변용해 갈 그 꾸밈없는 기록.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pete-docter#monsters-inc-2001",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 편한 시작은 《몬스터 주식회사》다. 공포를 뒤집은 영리한 설정 위에 세운 버디 코미디. 큰 개념을 따뜻한 인물극으로 바꿔놓는 재능이 여기서 처음 보인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pete-docter#inside-out-2015",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《인사이드 아웃》은 마음을 서로 다투는 감정들로 문자 그대로 옮겨놓는다. 도터의 구조적 발상 중 가장 과감하고, 그가 왜 중요한지 설명해 주는 영화다. 추상적인 심리를 몸으로 느끼게 만들고, 슬픔 자체를 감정의 엔진으로 돌린다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pete-docter#up-2009",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《업》은 결혼 생활을 말 없는 몽타주로 열고, 풍선과 애도의 모험으로 이어간다. 한 생애의 감정을 몇 분에 압축하는 일이 가능하다는 증거.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pete-docter#soul-2020",
+  "field": "reason",
+  "lang": "ko",
+  "text": "명상적인 보상은 《소울》이다. 재즈 피아니스트가 태어나기 전의 세계로 잘못 들어서는 동안, 도터는 무엇이 삶을 살 만하게 만드는지 묻는다. 그의 영화 가운데 가장 철학적으로 파고든 편.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "peter-jackson#the-lord-of-the-rings-the-fellowship-of-the-ring-2001",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《반지의 제왕: 반지 원정대》부터 시작하면 된다. 중간계를 바닥부터 짓고, 여정이 험해지기 전에 아늑한 샤이어에 서사의 무게를 앉힌다. 처음 온 사람을 붙드는 건 결국 인물이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "peter-jackson#the-lord-of-the-rings-the-two-towers-2002",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《반지의 제왕: 두 개의 탑》은 원정대를 흩어놓고 헬름 협곡 전투를 벌인다. 하룻밤 사이에 긴장을 쌓아올리고 대규모 전투를 배치하는 법, 비에 젖은 잭슨의 시범 강의다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "peter-jackson#the-lord-of-the-rings-the-return-of-the-king-2003",
+  "field": "reason",
+  "lang": "ko",
+  "text": "정점은 《반지의 제왕: 왕의 귀환》이다. 여러 군대가 한곳으로 모여들고, 봉화가 차례로 오르고, 사적인 감정의 값이 치러진다. 스펙터클과 감정을 함께 다루는 잭슨의 방식이 왜 중요한지 여기서 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "peter-jackson#the-hobbit-the-desolation-of-smaug-2013",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《호빗: 스마우그의 폐허》에는 이 시리즈에서 가장 기발한 장면들이 몰려 있다. 통을 타고 강을 내려가는 추격에서 용 스마우그까지. 모션 캡처에 크게 기댄 후기 잭슨의 장난기와 운동감이 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "peter-jackson#the-hobbit-an-unexpected-journey-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《호빗: 뜻밖의 여정》은 샤이어로 되돌아가는 회고다. 느리고 가벼운 프리퀄이니 이미 이 세계에 빠진 사람에게 값을 한다. 10년 뒤 잭슨이 같은 세계에 어떻게 다시 다가갔는지 보이는 것이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pier-paolo-pasolini#mamma-roma-1962",
+  "field": "reason",
+  "lang": "ko",
+  "text": "안나 마냐니의 맹렬한 연기와, 로마 빈민가를 다정하게 바라보는 파솔리니의 자연주의가 만난다. 감정으로 들어가기엔 《맘마 로마》가 가장 쉽다. 도시 빈민과 가톨릭적 죄의식이라는 그의 집착도 여기서 소개된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pier-paolo-pasolini#the-gospel-according-to-st-matthew-1965",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《마태복음》은 비전문 배우와 메마른 다큐멘터리적 리얼리즘으로 그리스도를 찍는다. 마르크스주의자가 경건하게 옮긴 복음. 성스러운 것과 땅에 붙은 것을 한 몸으로 만드는 파솔리니의 힘이 온전히 나온다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pier-paolo-pasolini#accattone-1961",
+  "field": "reason",
+  "lang": "ko",
+  "text": "데뷔작 《아카토네》는 로마의 포주를 따라 보르가테를 헤맨다. 거친 얼굴들 위로 바흐가 흐른다. 이후의 모든 것을 출발시킨 하위프롤레타리아의 세계, 그리고 시각적 본능이 거기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pier-paolo-pasolini#teorema-1968",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《테오레마》에서 리얼리즘은 버려지고 차가운 우화(寓話)가 들어선다. 정체 모를 손님이 부르주아 가족을 하나씩 유혹한다. 파솔리니가 알레고리와 성(性), 부르주아 비판으로 넘어가는 지점이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pier-paolo-pasolini#salo-or-the-120-days-of-sodom-1976",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《살로 소돔의 120일》은 사드를 파시스트 이탈리아로 옮겨, 권력과 타락을 한순간도 놓아주지 않고 들여다본다. 마지막 영화이자 가장 가혹한 영화다. 그의 정치가 어디까지 갔는지 마주할 준비가 된 사람에게만 권한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "quentin-tarantino#pulp-fiction-1994",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《펄프 픽션》이 첫 문으로 완벽하다. 맞물린 시간선, 식당에서의 대치, 대중문화 수다가 한 덩어리로 터지며 타란티노의 목소리를 확정한다. 비선형으로 짠 이야기에 처음 온 사람을 여기서 맞으면 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "quentin-tarantino#reservoir-dogs-1992",
+  "field": "reason",
+  "lang": "ko",
+  "text": "데뷔작의 설계도는 《저수지의 개들》에 있다. 강도극을 사후(事後)로만 이야기하고, 무대는 창고 하나로 묶었다. 쥐꼬리 예산에서도 긴장과 탁탁 튀는 대화를 만들어내는 재능.",
+  "model": "claude-opus-5"
+ }
+]

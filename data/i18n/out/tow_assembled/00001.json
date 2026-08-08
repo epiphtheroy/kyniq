@@ -2038,7 +2038,7 @@
   "entity_key": "black-coal-thin-ice-2014",
   "field": "rationale",
   "lang": "ko",
-  "text": "황금곰상과 은곰상 주연상에서 인정받은 작품, 어느 정도 알려진 · 국가 정전: CN · 사조: Chinese Sixth Generation. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "text": "황금곰상과 은곰상 주연상에서 인정받은 작품이고, 어느 정도 알려져 있다 · 국가 정전: CN · 사조: Chinese Sixth Generation. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
   "model": "claude-opus-5",
   "source_sha256": "511daa3ea037e49662056c7a42a3e4f6246479bdaf5d6aaa946bb763fe1cb36e"
  },
@@ -2056,7 +2056,7 @@
   "entity_key": "black-friday-2007",
   "field": "rationale",
   "lang": "ko",
-  "text": "작가 Anurag Kashyap의 정전화된 작업 세계가 떠받치는 작품, 어느 정도 알려진 · 국가 정전: IN. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "text": "아누라그 카시압 감독의 정전화된 작업이 떠받치는 작품이고, 어느 정도 알려져 있다 · 국가 정전: IN. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
   "model": "claude-opus-5",
   "source_sha256": "3d8c154ff9dc92f231e42bfc348d3f14c920bb9df22f9e19f1d31c4216636eae"
  },
@@ -2227,7 +2227,7 @@
   "entity_key": "blackberry-2023",
   "field": "rationale",
   "lang": "ko",
-  "text": "Canadian Screen Award for Best Motion Picture가 예우한 영화, 널리 알려진 · 국가 정전: CA. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "text": "캐나다 스크린 어워드 작품상을 받은 영화이고, 널리 알려져 있다 · 국가 정전: CA. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
   "model": "claude-opus-5",
   "source_sha256": "369db6503311c5fb8ea95e4c85811d50026d902a3b1e5295b2662da2aa760cc4"
  },
@@ -2371,7 +2371,7 @@
   "entity_key": "blind-chance-1981",
   "field": "rationale",
   "lang": "ko",
-  "text": "Najlepsze filmy polskie에 오른 작품, 어느 정도 알려진 · 국가 정전: PL · 감독 Krzysztof Kieślowski의 작가 계보 안에서 다시 값이 매겨진다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "text": "Najlepsze filmy polskie에서 인정받은 작품이고, 어느 정도 알려져 있다 · 국가 정전: PL · 감독 Krzysztof Kieślowski의 작가 계보 안에서 다시 값이 매겨진다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
   "model": "claude-opus-5",
   "source_sha256": "104278c7e024e964192db672f5cd56ef1ada6b8ebcff9b3611fba69fa7762c8e"
  },
@@ -2569,7 +2569,7 @@
   "entity_key": "blue-moon-2025",
   "field": "rationale",
   "lang": "ko",
-  "text": "작가 Richard Linklater의 정전화된 작업 세계가 떠받치는 작품, 어느 정도 알려진 · 국가 정전: IE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "text": "리처드 링클레이터 감독의 정전화된 작업이 떠받치는 작품이고, 어느 정도 알려져 있다 · 국가 정전: IE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
   "model": "claude-opus-5",
   "source_sha256": "ac955b86b24e938fc115dbd032621a600a9c79d0ce0b0761cd03709ad598a762"
  },
@@ -2704,7 +2704,7 @@
   "entity_key": "bohemian-rhapsody-2018",
   "field": "rationale",
   "lang": "ko",
-  "text": "Best Actor와 Golden Globe Best Motion Picture Drama가 예우한 영화, 일반 관객에게 대단히 유명한 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "text": "남우주연상과 골든글로브 드라마 작품상을 받은 영화이고, 대중에게 대단히 유명하다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
   "model": "claude-opus-5",
   "source_sha256": "bff55810dc774506517b1e503aedb7424c6c2fcc9b4c8c9058e240df9ebaf2e1"
  },
@@ -2920,7 +2920,7 @@
   "entity_key": "bowling-for-columbine-2002",
   "field": "rationale",
   "lang": "ko",
-  "text": "WGA Best Original Screenplay가 예우한 영화, 널리 알려진 · 국가 정전: CA. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "text": "WGA 각본상을 받은 영화이고, 널리 알려져 있다 · 국가 정전: CA. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
   "model": "claude-opus-5",
   "source_sha256": "845ae973a3d84ca5c566f3e08b0f47c0be954c9388ddd4c0b6592017459869c9"
  },
@@ -3082,7 +3082,7 @@
   "entity_key": "brazil-1985",
   "field": "rationale",
   "lang": "ko",
-  "text": "정전 중심에 놓인 작품. TSPDT 1,000 Greatest Films와 Los Angeles Film Critics Association Best Picture에 이름을 올렸고, 널리 알려져 있다 · 국가 정전: GB · 작가 Terry Gilliam의 계보를 통해 다시 값이 매겨진. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "text": "정전 중심에 놓인 작품. TSPDT 1,000 Greatest Films와 Los Angeles Film Critics Association Best Picture에 이름을 올렸고, 널리 알려져 있다 · 국가 정전: GB · 테리 길리엄 감독의 작가 계보를 통해 값이 다시 매겨진다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
   "model": "claude-opus-5",
   "source_sha256": "b05dbf8e0933a88c3a0a0b28920ddb06893dee55bb0cb6a35ff0297490a3b3df"
  },
@@ -3334,7 +3334,7 @@
   "entity_key": "broadway-danny-rose-1984",
   "field": "rationale",
   "lang": "ko",
-  "text": "WGA Best Original Screenplay에 오른 작품, 어느 정도 알려진 · 국가 정전: US · 감독 우디 앨런의 작가 계보를 통해 다시 평가된다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "text": "WGA 각본상에서 인정받은 작품이고, 어느 정도 알려져 있다 · 국가 정전: US · 감독 우디 앨런의 작가 계보를 통해 다시 평가된다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
   "model": "claude-opus-5",
   "source_sha256": "ef43a47e6f5dc687cdad43b97ece3cb2c520a2a9b2ecd46a06712c6ac45959d6"
  },
@@ -3361,7 +3361,7 @@
   "entity_key": "broken-embraces-2009",
   "field": "rationale",
   "lang": "ko",
-  "text": "작가 Pedro Almodóvar의 정전화된 작업 세계가 떠받치는 작품, 어느 정도 알려진 · 국가 정전: ES. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "text": "페드로 알모도바르 감독의 정전화된 작업이 떠받치는 작품이고, 어느 정도 알려져 있다 · 국가 정전: ES. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
   "model": "claude-opus-5",
   "source_sha256": "a4e5ed460c09ef8ad4075362f19c66f3d18ce05662aef50ef59ebfd99bc7f54d"
  },
@@ -3505,7 +3505,7 @@
   "entity_key": "bull-durham-1988",
   "field": "rationale",
   "lang": "ko",
-  "text": "WGA Best Original Screenplay가 예우한 영화, 널리 알려진 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "text": "WGA 각본상을 받은 영화이고, 널리 알려져 있다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
   "model": "claude-opus-5",
   "source_sha256": "9d70caa7dc4c8cfff42f2a93587f4dc96bc7fb6b8a7709c078670a6d47f1b6a0"
  },
@@ -3676,7 +3676,7 @@
   "entity_key": "by-the-grace-of-god-2019",
   "field": "rationale",
   "lang": "ko",
-  "text": "Silver Bear Grand Jury Prize가 인정한 작품, 대중에게는 거의 알려지지 않았다 · 국가 정전: BE · 작가 Francois Ozon의 계보를 통해 다시 값이 매겨진. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "text": "Silver Bear Grand Jury Prize가 인정한 작품, 대중에게는 거의 알려지지 않았다 · 국가 정전: BE · 프랑수아 오종 감독의 작가 계보를 통해 값이 다시 매겨진다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
   "model": "claude-opus-5",
   "source_sha256": "78d795383d2d4d3edbda8f718849c91dce2c67d3be6b71ccb67b3ae19154c8d0"
  },
@@ -3910,7 +3910,7 @@
   "entity_key": "call-me-by-your-name-2017",
   "field": "rationale",
   "lang": "ko",
-  "text": "Best Adapted Screenplay와 Los Angeles Film Critics Association Best Picture가 인정한 작품. 일반 관객에게도 대단히 유명하다 · 국가 정전: BR · 작가 Luca Guadagnino의 계보를 통해 다시 값이 매겨진. 출발점으로 좋다. 정전에 들면서도 다가가기 쉽다.",
+  "text": "Best Adapted Screenplay와 Los Angeles Film Critics Association Best Picture가 인정한 작품. 일반 관객에게도 대단히 유명하다 · 국가 정전: BR · 루카 구아다니노 감독의 작가 계보를 통해 값이 다시 매겨진다. 출발점으로 좋다. 정전에 들면서도 다가가기 쉽다.",
   "model": "claude-opus-5",
   "source_sha256": "a08d450ab77b1f601969ffe8a63bda5168a2fe33346a1c27d128d8f624901a83"
  },
@@ -4054,7 +4054,7 @@
   "entity_key": "capernaum-2018",
   "field": "rationale",
   "lang": "ko",
-  "text": "Jury Prize와 The Guardian: 100 Best Films of the 21st Century가 인정한 작품. 널리 알려져 있다 · 국가 정전: FR · 작가 Nadine Labaki의 계보를 통해 다시 값이 매겨진. 출발점으로 좋다. 정전에 들면서도 다가가기 쉽다.",
+  "text": "Jury Prize와 The Guardian: 100 Best Films of the 21st Century가 인정한 작품. 널리 알려져 있다 · 국가 정전: FR · 나딘 라바키 감독의 작가 계보를 통해 값이 다시 매겨진다. 출발점으로 좋다. 정전에 들면서도 다가가기 쉽다.",
   "model": "claude-opus-5",
   "source_sha256": "c0b05d90059ae4a937ed0d2c850bf1e09566c88f65ad1af67e584dfedf06ed50"
  },
@@ -4135,7 +4135,7 @@
   "entity_key": "captains-courageous-1937",
   "field": "rationale",
   "lang": "ko",
-  "text": "Best Actor와 1001 Movies to See Before You Die에 오른 작품, 어느 정도 알려진 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "text": "남우주연상과 1001 Movies to See Before You Die가 인정한 작품이고, 어느 정도 알려져 있다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
   "model": "claude-opus-5",
   "source_sha256": "031b9ef1c065f88d93b7856863954c98fe671294ca3c9d48a18e3be7df355e02"
  },

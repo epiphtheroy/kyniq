@@ -1,0 +1,132 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "las-grandes-aguas-1979",
+  "field": "lead",
+  "film_id": "0cf1e450-0da4-42f2-af8a-e59ad48099a9",
+  "lang": "en",
+  "text": "A big public-works job arrives with a corrupt local businessman already attached to it. That is the situation Servando González hands his engineer in 1979, and the interest lies in how little separation the man is allowed: the project follows him home, and what is wrong at home follows him back to the project. Corruption here is part of the working conditions, and the engineer has to keep building anyway. Mexican production of the period could carry a story like this under three labels at once — adventure, drama, thriller — and the mixture is a fair account of how such a job feels from inside. In 103 minutes there is time to watch a competent man sort his problems into the ones with a technical solution and the ones without. The sorting is the film.",
+  "model": "claude-opus-5",
+  "source_sha256": "aeaa4ced06501d920b72edec0e944246f3bad71d0e281bdb328ab56680ed630c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "la-pachanga-1981",
+  "field": "lead",
+  "film_id": "f68a0e1f-51b6-4151-b975-193216b00bf0",
+  "lang": "en",
+  "text": "In one building, on one evening, a girl's birthday is celebrated while an old man who died of the cold is watched over. José Estrada put both occasions inside the same 79 minutes and called the result a comedy. Comedy, in that pairing, is a claim about proportion. A birthday and a body under the same roof is an arrangement the building made before any of the characters did. The Ariel for direction went to Estrada, and direction is most of what a premise like this needs: how near the party and the vigil are set, how long either is allowed to hold the film before it gives way to the other. Mexico in 1981 could treat that as ordinary. One address, one night, two gatherings that cannot help knowing about each other. Nobody has to explain how the two belong together, because the address has already done it.",
+  "model": "claude-opus-5",
+  "source_sha256": "aad255e20df67160b49c9ed61e7f0f04b346e6a81ae4a03d80cc3db729a5b257"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ora-si-tenemos-que-ganar-1980",
+  "field": "lead",
+  "film_id": "a12d045b-4ae6-4610-82f3-e2cce4a1f216",
+  "lang": "en",
+  "text": "Clandestine is a practical word before it is a political one: who can be told, where two men can talk, how long a meeting can run before someone is missed. Raúl Kamffer's 1980 film puts that problem in a Mexican mining town where power is not in dispute but simply held, and the workers begin organizing out of its sight. Ninety minutes rules out a panorama of an industry, and the material works instead at the scale of trust, which is the scale the town runs on. In a place built around a single mine, the closeness that makes organizing possible is the same closeness that makes it dangerous. Nothing said aloud stays where it was said. What the workers are counting, each time, is who else is in the room.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6e9c4ab71a02f2b598987f08411b0b17277ea32b29b3b8e2b5be7f0ff9bc589"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "adrien-s-story-1980",
+  "field": "lead",
+  "film_id": "71489799-0f2b-4fef-bd8c-46e7eda5cdb9",
+  "lang": "en",
+  "text": "The dialogue is Occitan, not French, and the story begins with a birth in an open field. Adrien's mother had lived as a shepherdess; she dies as he arrives, and he is raised by a grandfather who is hard with him. Jean-Pierre Denis sets that childhood at the front of the century, so the First World War and the labor unrest around it stay in the background, which is where a boy on the land would meet them: in the talk of adults, at a distance, as something the year is doing. The Caméra d'Or came to it. Ninety-five minutes carry a life from that field toward work and a place among other people, and the method is patience — the years pass at about the speed the work does, and the film waits for the morning Adrien decides he has had enough of his grandfather's house.",
+  "model": "claude-opus-5",
+  "source_sha256": "cbe8bb1aff90c8e47a96746c5539aa3b1412c4f21e2ed8468a9631708fc290c5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "os-cornos-de-cronos-1991",
+  "field": "lead",
+  "film_id": "63377f28-1eb3-4254-8acd-cdc27a3058cd",
+  "lang": "en",
+  "text": "One age is exact and the other is not: a man of forty-two, a girl described only as young. That asymmetry is the whole of the given situation, and José Fonseca e Costa takes 109 minutes with it in the Portugal of 1991, long enough that the film cannot live on the shock of the pairing and has to find out what the two of them do with an afternoon. Forty-two is a specific number. It is the age at which a man can still tell himself something is beginning while keeping a private count of what believing it costs him. A film built on that gap is seldom interesting for whether the affair happens. It is interesting for which of the two watches the clock, and for what the other one has not yet thought about.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e8a1c9edc8d6ca509c0e0b1c5c8f35ef92db4ccdf2606e5eb68d5beaf9040d9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ben-imana-2026",
+  "field": "lead",
+  "film_id": "15d4f60a-abfb-4317-9a7a-986f9b167ef3",
+  "lang": "en",
+  "text": "Rwanda, 2012: the country is putting people's courts in place, eighteen years after the genocide against the Tutsi, with justice and reconciliation named as the same job. Veneranda survived, and she believes in the courts enough to go further than they do, organizing sessions where those who lost people and the families of those who did the killing sit in one room and speak. There are pressures against it, and she holds the sessions anyway. Some come out calling it treatment. Others call it betrayal. Marie-Clémentine Dusabejambo shot this in Kinyarwanda at 101 minutes, and the difficulty her film finds is not in getting anyone to talk — it is that talk, once started, will not stay inside the case that was opened, and the woman keeping the sessions in order has a memory of her own that is not.",
+  "model": "claude-opus-5",
+  "source_sha256": "5519e005bc0a706807593e27f5a60faafba3221675df18bcecb94f9a31a04e61"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "jack-and-jill-a-postscript-1969",
+  "field": "lead",
+  "film_id": "349e86ca-8934-4462-9b6a-306445f6410e",
+  "lang": "en",
+  "text": "Ten thousand dollars, spread across five years, and a script assembled largely out of nursery rhymes. What came of that in Australia in 1969 runs 64 minutes and shows both halves of the arrangement: the places where money was not available, and the inventions that stood in for it. The narrative is episodic, staged material cut against actuality footage, so the joins belong to the design. Sixty-four minutes assembled that way will not move like a feature shot in six weeks. Nursery rhymes make a strange foundation and a shrewd one, since everybody already knows the words, which leaves the film free to be doing something else while they play. It took two awards in the year it appeared. A picture made this slowly ends up recording the period of its making as much as whatever it set out to be about.",
+  "model": "claude-opus-5",
+  "source_sha256": "50b1caaaa317bd80569c6e158df338e3db5a9528d2d5c19994aefba3c675b6c0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "three-to-go-michael-1970",
+  "field": "lead",
+  "film_id": "448ad30a-2c54-4ac7-a26b-2d5c207f5e5a",
+  "lang": "en",
+  "text": "Michael has a middle-class future arranged for him and thirty-one minutes in which to notice. Peter Weir directed this in 1970 as one segment of the anthology feature Three to Go, and the compression shows in the design: one young man, one encounter with a group living by the ideas then moving through the end of the sixties, and no time to argue the case at length. The ideas arrive as people he can actually meet, which is how they tend to arrive at that age. What half an hour permits is a before and an after. Australia is present here as an environment: the household Michael comes from, the expectations attached to him, the version of his life that was settled before he had any view on it. A film this short can leave the question standing where a feature would be obliged to close it.",
+  "model": "claude-opus-5",
+  "source_sha256": "c0ad2a3e0e560ab13816e734b4663fa1d3b04f0cbf7c281bac868f946bd4dc89"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sender-unknown-1995",
+  "field": "lead",
+  "film_id": "d6cf9ee3-de2e-4cd9-a099-bb7c3b455f8b",
+  "lang": "en",
+  "text": "The packages come on Saturdays, one a week, and each is stranger than the one before. Grace's life is arranged and looks it, which is what gives the deliveries their leverage: nothing is broken into, no threat is spoken, an appointment she never made simply keeps itself. Lauren Coggiola has twelve minutes. At that length there is no room for investigation or explanation, and what fits instead is the effect of a schedule on one person. A weekly delivery is a small thing. Repetition is what turns it into a structure. Anxiety that arrives punctually cannot be reasoned with, and it does not need a sender to be identified before it starts working. After a few Saturdays the week has a shape it did not have before, and Grace is the one keeping it.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c88be85ebcefeaff7f597111c8566c3d014c4db09190af07ebb634783acf19f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ciao-ufo-2025",
+  "field": "lead",
+  "film_id": "da70cf54-60b7-4ffc-81c0-8f351cc33732",
+  "lang": "en",
+  "text": "For five minutes one night in the 1980s, residents of Wah Fu Estate in Aberdeen turned their heads to the sky and looked at something none of them could account for. The estate keeps a stock of urban legends, and this is the most outlandish of them. No one could prove it happened or explain it away, which is the condition of most of what a neighborhood remembers about itself. Patrick Leung Pak-Kin gives the sighting 121 minutes and three young people, for whom it becomes the hinge their lives turn on. An estate is the right setting: the same windows, the same corridors, the same patch of sky over all of them. Whatever was up there, they saw it together. What each of them does with it afterwards is a separate matter, and that is the part the film follows.",
+  "model": "claude-opus-5",
+  "source_sha256": "1533258a7f94193d41553625002691af1549567f1489d426179e646ad550c04a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "flirting-with-magic-1990",
+  "field": "lead",
+  "film_id": "f3f16d3a-4213-411e-8570-3e91be0d682e",
+  "lang": "en",
+  "text": "Forty-seven minutes of instruction, recorded in 1990, on folding card tricks into the business of meeting women. The tape is in earnest: a course, with a promise attached, that learning the moves will turn a social life around. Whether the technique works is not the interesting question at this distance. What the video preserves is the shape of an anxiety and the small market that formed around it, in years when instruction in almost anything could be bought and studied alone at home. It is filed as a documentary and it is one, though not quite of the subject it names. Robert Kubilos directed a sales pitch and left a portrait behind: of what a man of that moment was told he was missing, and of the assurance with which somebody offered to sell it back.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ef7f6678eefee9685a2a570214579202f4d6008c457dd4b7a440fbd90c97659"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-president-s-cake-2025",
+  "field": "lead",
+  "film_id": "f72913a1-63aa-4748-9345-57d0d7aefff2",
+  "lang": "en",
+  "text": "Every school in Iraq is ordered to produce a cake for the president's birthday, and Lamia's class has to put forward a name. She is nine, and she had tried not to be chosen. It is the 1990s: the country is living on shortages, the war is not finished, and the ingredients are now her problem. Hasan Hadi's film, which took the Caméra d'Or, keeps the scale exactly where a child would hold it, in eggs and sugar and what can be traded for what, with a deadline set by the state rather than by anyone she can bargain with. That is where the comedy and the danger arrive together: the errand is trivial and refusing it is not. The list is short. Nothing on it is easy to get.",
+  "model": "claude-opus-5",
+  "source_sha256": "f798846c2b331306f5a91728546946a2563c78600ece30157d84cb95166b3919"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tabu-a-story-of-the-south-seas-1931",
+  "field": "lead",
+  "film_id": "f5e71252-0f15-4891-9a77-9c9aa2fcd43c",
+  "lang": "en",
+  "text": "Two people in love on an island where the decision about them has already been made by somebody else. On Bora Bora a chief declares the girl sacred, and from that moment the young man stands on the wrong side of a rule with no physical existence at all. F. W. Murnau filmed this in 1931, and the Academy gave it the cinematography award, which for once names the actual work: a prohibition cannot be photographed, so it has to be built out of distance — who stands where, how much water lies between them, how long a look may last before somebody counts it. The premise fits in a sentence. The 86 minutes go to what the sentence leaves out, and the weight of the thing comes from the number of people who accept the rule and act accordingly.",
+  "model": "claude-opus-5",
+  "source_sha256": "e608a6b8a35b0e64f91c111bf3a9dc565b7ef29a016f741f98702ff0b5a84526"
+ }
+]

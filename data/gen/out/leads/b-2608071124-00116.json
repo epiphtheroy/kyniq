@@ -1,0 +1,72 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-last-princess-2008",
+  "field": "lead",
+  "film_id": "ca267943-5a8f-47f0-b2b5-ce78013454f7",
+  "lang": "en",
+  "text": "The gold has to move, and the only way it moves is on someone's back. The Akizuku have lost their war to the Yamana and withdrawn into a hidden fortress with what remains of the clan and the entire treasury, which is less a comfort than a problem: heavy, conspicuous, and every road out watched. The labour available is two miners, Takezo and Shinhachi, who blunder into the hideout by accident and negotiate their share before agreeing to anything. So Princess Yuki dresses as a man and walks into enemy country with General Rokurota, the miners, and assassins already behind her. Shinji Higuchi keeps all 118 minutes at ground level — footsore, hungry, argumentative, the treasury measured in what four people can carry. Much of the interest is in watching a princess discover the price of a day's walking.",
+  "model": "claude-opus-5",
+  "source_sha256": "e8d1945f5664f4d989ea9bf851788dd2cb142f93531e59c6bffece4c4917b90e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "welcome-to-the-rileys-2010",
+  "field": "lead",
+  "film_id": "ca57218f-63ad-48da-8109-fe656d78f801",
+  "lang": "en",
+  "text": "Lois and Doug Riley lost their daughter years ago and have organised the time since around not saying so. A business trip takes Doug to New Orleans, where he attaches himself to a teenage girl who sells sex — not as a client but as a self-appointed guardian — and the film is careful to admit that he cannot explain the impulse to himself. That admission keeps it upright. What follows is closer to housekeeping than to melodrama: two strangers negotiating rules under one roof. Lois stays in Indiana with the house and the routine that kept them both still. Jake Scott lets the discomfort sit unresolved across 110 minutes, and the interest lies in whether help given for reasons nobody understands is still help.",
+  "model": "claude-opus-5",
+  "source_sha256": "c9d974ae8d0288807b76de00fe3acbeb3a31e1762ef18ccee41e5676b42fc311"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "august-rush-2007",
+  "field": "lead",
+  "film_id": "cb1f667a-1c52-420b-aad9-ffea6c99cd4a",
+  "lang": "en",
+  "text": "A homeless man living in an abandoned theatre hears a boy play and immediately starts working out his percentage. The boy is Evan, an orphan who has left the institution to look for his birth parents somewhere in New York; the man christens him August Rush, a stage name that also makes him harder for anyone to find — and Lyla and Louis are looking. Kirsten Sheridan treats coincidence as a working principle rather than an embarrassment, which is the only way a story built like this can be told at all. The Broadcast Film Critics Association gave it their family prize, and the category fits: the film asks for the credulity a child brings to a fairy tale and returns music for it. Whether an adult can lend that credulity for 114 minutes is the entire matter.",
+  "model": "claude-opus-5",
+  "source_sha256": "75bd8c92d49cf578fc6d85aed2527dfc353d4f7d73f8904412a54050e8b9e18c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "leaving-2009",
+  "field": "lead",
+  "film_id": "cb2628eb-4b0f-4899-a1b0-4c3aed00c000",
+  "lang": "en",
+  "text": "Eighty-five minutes is not long in which to take apart twenty years. She was a physiotherapist before the husband, the two children and the good house, and the plan to practise again is what puts a Spanish builder in her path; from there the film is less interested in desire than in accounting. The affair is the easy part. She has not earned money in two decades. Catherine Corsini stays close to a woman working out, item by item, whose name her comfort is in, and the César for Best Actress went to the face doing that arithmetic. At this length nothing pads the distance between a decision and its bill; what looked like a class position turns out to be a set of practical dependencies — money, a house, permission to be in a room.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d31c7947a842f54fd3574d298911340522fc8f990567e129df48e1fb71a1781"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "captain-fantastic-2016",
+  "field": "lead",
+  "film_id": "cb269c7d-b17a-42db-9dc4-9b8c69aae6ff",
+  "lang": "en",
+  "text": "The education was designed by one man, at home, and until now it has never been tested against strangers. Six children have grown up in the forests of the Pacific Northwest under a father who can give a reasoned defence of every hour of their training, physical and intellectual, and who is about to be pulled out of it and into the ordinary country with the whole family in tow. Matt Ross keeps the joke and the charge in the same frame. The children are formidable and unfitted at once; the father is the cause of both, and the film declines to let him lose the argument cheaply. Over 119 minutes the question of how to raise a person stops being a position anyone can hold at a dinner table and becomes a matter of what happens when other people are in the room.",
+  "model": "claude-opus-5",
+  "source_sha256": "b50cb912aaffcc2745f344f840a159bf81a45fdcb6872efd900641362981f034"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-girl-on-a-bulldozer-2022",
+  "field": "lead",
+  "film_id": "ce7f11ea-ad37-4f6d-acb9-e06901406e25",
+  "lang": "en",
+  "text": "The restaurant still has to open in the morning, whatever has happened to the man who runs it. Hae-young is introduced as a girl with nothing much ahead of her; within a day of her father's accident she is the head of a household, the guardian of a younger sibling, and the only person interested in what actually happened. Park Ri-woong runs the mystery without ever suspending the other two jobs, so the questions get asked between shifts, by someone who also has to cook and collect a child. Anger is the engine, and it is not filed down. Over 113 minutes the film stays with the unglamorous administration of a catastrophe, and with a young woman handed full responsibility and no authority at all.",
+  "model": "claude-opus-5",
+  "source_sha256": "99266108c6f553017fdf96909bdaec8d5fc9e235909c1caabd943c5216046b39"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "grave-of-the-fireflies-2005",
+  "field": "lead",
+  "film_id": "ceafb150-d698-4f37-9f3e-b253a7f5cf50",
+  "lang": "en",
+  "text": "The arithmetic is simple and it does not work: one house, four children, and food for fewer. Hisako loses her Tokyo home to Allied bombing and takes her two children to a suburb of Kobe, moving in with her cousin Kyoko on the reasonable assumption that the war is elsewhere; her husband is fighting somewhere in Asia. Then Kobe is bombed as well, and Hisako finds herself answerable for Kyoko's two children on top of her own. Tōya Satō gives this 148 minutes and spends them on the adult in the room — the woman who has to decide, several times a day, whose bowl gets less. The sympathy sits with the person doing the rationing, and she is allowed to be hard to like without any pretence that someone else was going to hold the house together.",
+  "model": "claude-opus-5",
+  "source_sha256": "35391ef9c738ddabc0d4a4cfc5cfe9b4f87ead49f817a4a773c55d0d0ce9b711"
+ }
+]

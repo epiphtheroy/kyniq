@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "our-day-1938",
+  "field": "lead",
+  "film_id": "222c182c-a4ce-46b6-b380-d591d5fa9360",
+  "lang": "en",
+  "text": "A home movie with an author: in 1938 Wallace Kelly filmed his own family in Lebanon, Kentucky, and gave the footage the shape of a single day. Amateur film from that decade usually reaches us in scraps, unsigned and undated. This one has a town, a year, and a hand behind it, and the day-in-the-life frame is a conceit — hours that need no beginning or end are given both. Twelve minutes. Later the National Film Registry took it in, which sets one Kentucky household's ordinary afternoon in the same ledger as the studio releases of its year. The interest is not event but attention: where a man who was not paid to look chose to stand, and how relatives carry themselves once they know the lens is on them. Ratings have no idea what to do with it.",
+  "model": "claude-opus-5",
+  "source_sha256": "6b5b0ffc49d5270c3fa9d15ee46aa8950ecee3021d39bc15c32a65fd17f3ae37"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "peege-1973",
+  "field": "lead",
+  "film_id": "5cf22019-c917-4832-b8f5-82579e8bf198",
+  "lang": "en",
+  "text": "The visit goes wrong the way visits go wrong: bright voices, filled silences, an old woman nobody can reach. Twenty-eight minutes is the right length for it — long enough for a family's cheer to run out, too short for the afternoon to be arranged into a lesson. Randal Kleiser shot it in 1973, and the nursing home is not used as a set for illness; the illness is a given and the subject is the visitors, their volume, their relief at having come and their relief at leaving. The grandson does the one thing the others do not, which is stop delivering news and start describing a past that belongs to the two of them. The film later entered the National Film Registry — an odd berth for twenty-eight minutes about a family failing at ordinary kindness.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c41637181abb34a3c039ec6b4705b92d426774a832295bb95d247a28e7353bd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "growing-up-female-1971",
+  "field": "lead",
+  "film_id": "6689be95-ea93-4b49-bdca-6c0cde348dcc",
+  "lang": "en",
+  "text": "Instruction starts early, and nobody involved calls it instruction. Jim Klein's 1971 documentary sets six lives beside each other — the youngest four years old, the oldest thirty-five — and lets the arithmetic do the arguing: what a small girl is already fluent in, what a woman of thirty-five has finished paying for. Family, school, television and the expectation of marriage are treated as one continuous curriculum. Forty-nine minutes, plainly made, given over to people describing their own lives. It arrives early in the decade when these questions were being asked out loud, before the answers hardened into slogans. It sits on the National Film Registry. The part that stays is the youngest end of the range, where the training is already complete enough to look like personality.",
+  "model": "claude-opus-5",
+  "source_sha256": "16a51ec67c4a646031222c2ecf4405d4e198353ed0c097af75788997f68e9a1b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-march-of-fools-1975",
+  "field": "lead",
+  "film_id": "cd596c7c-241f-4d32-8a93-1d8d42bf27bf",
+  "lang": "en",
+  "text": "Schools keep closing, and the students keep organizing group blind dates. Byung-tae is at university in a South Korea run by the military, and his answer to a country with no visible prospects is to go looking for a girl; at one of these mass introductions he meets Young-ja, who is studying French literature. Ha Gil-jong made the film in 1975, inside the conditions it describes, and the politics arrive as weather rather than argument — the shut campus, the postponed year, decisions taken elsewhere by people who will not explain them. The jokes are real jokes. That is what makes them cost something. Two hours gives the talk time to thicken. The Korean Film Archive keeps it among a hundred Korean films; what holds up is the accuracy of the boredom, and of what young men do with the hours a closed university hands back.",
+  "model": "claude-opus-5",
+  "source_sha256": "20ecae917df792a41e9c205071f8858e5c1b2a9e38979cdc468501a2aceef6b0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "union-maids-1976",
+  "field": "lead",
+  "film_id": "da1323c5-e826-43e2-aa96-09206fc45f86",
+  "lang": "en",
+  "text": "The film is three women talking, and that is a decision rather than a shortage. Fifty-one minutes go to three narrators instead of one narrator, so the history of organizing a 1930s shop floor arrives in the grammar of people who were in the building: names, wages, who could be trusted, what the boss said next. Jim Klein assembled it in 1976, four decades downstream, far enough for the speakers to be funny about things that were not funny then. The comedy is the evidence — practice audible in it, stories told many times before any camera showed up. Nobody on screen is explaining the labor movement to anyone. Three women are recalling weeks of their own lives in which showing up was the whole argument, and the film is content to let a sentence finish.",
+  "model": "claude-opus-5",
+  "source_sha256": "e687e5326a72efbf6cea61b236024f30b92981ec09255c2d9c0537290f12e9cc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "commandment-keeper-church-beaufort-south-carolina-may-1940-1940",
+  "field": "lead",
+  "film_id": "27d85732-549b-48fe-8a2b-7212afd4e856",
+  "lang": "en",
+  "text": "Beaufort, South Carolina, May 1940: a camera set up inside a church while the service went on. The title is an address and a date, which is a fair description of the whole undertaking — Zora Neale Hurston was there as a fieldworker rather than as someone hunting a subject, and the forty-two minutes hold what occurred in front of the lens instead of what a picture would have preferred. Gullah worship has its own order of song, response and movement, and the film leaves the impression that none of it was rearranged for an outsider's eye. Footage made for study rather than exhibition does not usually survive. In 2005 the Library of Congress placed it on the National Film Registry. What is strange now is the ordinariness: a congregation, an hour, a woman with a camera standing where she was permitted to stand.",
+  "model": "claude-opus-5",
+  "source_sha256": "f33bee426bde5a4cc5378463f19f2bd3f8a4c84d1d8376cef01e088403900c40"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mist-1967",
+  "field": "lead",
+  "film_id": "a211f65f-6835-4b65-8849-6602809e08ab",
+  "lang": "en",
+  "text": "A man who married into his job is sent out of town for a few days while the shareholders meet without him. His title at the pharmaceutical company came by way of a widow whose father owns the firm, and it is she who proposes the trip to Mujin, the town he left — a suggestion carrying the weight of an instruction. Seventy-nine minutes, 1967: Kim Soo-yong keeps the frame tight around a man with nothing to do and no authority to exercise. Old acquaintances, empty afternoons, and a place that knew him before the marriage begin loosening the executive back into whoever he used to be. Mujin is neither refuge nor punishment. It is an errand somebody else arranged, and it takes very little, out of the office, for Yun Gi-jun to stop recognizing himself.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9201970532f10b5e4ee8ccc5085abfa5a7d8b486c0e335d1ae51c3df05f2380"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "jagko-1980",
+  "field": "lead",
+  "film_id": "a954a353-0671-48ac-8bdd-5f96b6f8508d",
+  "lang": "en",
+  "text": "Thirty years after the chase ended without an arrest, both men turn up in the same rehabilitation center with nowhere else to go. The policeman is destitute; the guerrilla who eluded him is another old man in the same institution. Im Kwon-taek made this in 1980, and the premise is a hard joke: a career organized around one man who got away, and the man himself finally to hand, worth nothing to anybody. A hundred and three minutes leaves room for two versions of the same pursuit, thirty years from the events and some distance from each other. The Korean Film Archive lists it among a hundred Korean films. Nothing here consoles — two ruined men, and a grudge that has outlived the argument which produced it, still the most substantial thing either of them owns.",
+  "model": "claude-opus-5",
+  "source_sha256": "cafbc83a80a792f720b78d4d3b9243cc7addae504d26b825398fca63a45dae4d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-red-book-1994",
+  "field": "lead",
+  "film_id": "6accc80b-23eb-4f11-b895-02831e89909c",
+  "lang": "en",
+  "text": "Flat painted figures, cut paper, and a woman who cannot remember her name. Eleven minutes of animation from 1994 that gives up most of what animation usually offers: no rounded bodies, no continuous space, no events in order. Janie Geiser works pictographically — an image used the way a written sign is used, standing for the thing rather than showing it — and moves her cutouts through settings that are sometimes flat and sometimes shallow constructed rooms. The form matches the subject exactly. Amnesia is not a blur; it is a set of perfectly clear fragments with the connective tissue gone, and collage that leaves its seams showing is the honest way to render that. The National Film Registry has it. Eleven minutes, and the pieces keep almost fitting together.",
+  "model": "claude-opus-5",
+  "source_sha256": "793a72bc7ec6ad069f9eaa6fdb25071f9f17178bcd86dde105e8ad8bff86a2be"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "parable-1964",
+  "field": "lead",
+  "film_id": "925d7963-17c3-498d-8469-e2a3444ddab9",
+  "lang": "en",
+  "text": "The circus is literal and so is the weight: burdens that would ordinarily be figures of speech are set on people's backs where they can be seen. Rolf Forsberg's twenty-four minutes run on gesture and costume more than on speech, and at the center is a puppeteer named Magnus, working his troupe on strings whether or not the strings are visible. Then a clown arrives and begins taking the loads onto himself. Allegory this bare is a risky register — a degree too plain and it becomes a Sunday-school panel, a degree too oblique and it becomes decoration. Forsberg holds the balance by treating the circus as a workplace rather than a symbol, which keeps the misery specific. It was made in 1964, and it plays less like a story than like a ceremony walked in on.",
+  "model": "claude-opus-5",
+  "source_sha256": "f0294f2450e745743643bcf03a20733a593e43ccbbcb932fc03fee75724354c9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "moon-breath-beat-1980",
+  "field": "lead",
+  "film_id": "2fb270f3-d146-4e2a-9978-d90cf9e577a8",
+  "lang": "en",
+  "text": "Five minutes, hand-drawn, one woman and two cats. Everything that happens to them comes from outside: birds, and the moon, which does to household animals what it has always done. Lisze Bechtold made it in 1980, when a few minutes of independent animation meant months of one person's hand over paper, and that economy shows in the result — nothing to explain, no plot to service, only the tightening and slackening of attention in a room where three creatures are watching different things. The cats are not characters with wants; they are barometers. The Academy Film Archive preserved it in 2016, which is how a five-minute drawing survives at all. And five minutes is not a fragment here. It is the exact duration of something that would come apart at ten.",
+  "model": "claude-opus-5",
+  "source_sha256": "5abe5dfd2f357859ec2190ad22d12df5e21ae5cb53a5e5e8f4a03095c47eb27d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "owd-bob-1938",
+  "field": "lead",
+  "film_id": "80d552aa-e0ed-42ba-a9b7-b12cf5a92f0f",
+  "lang": "en",
+  "text": "A dog is accused, and a valley appoints itself the jury. Adam McAdam is old and sour and organized around three loyalties — his sheepdog, his bottle, his daughter Jeannie — and when the other shepherds of the district decide the animal has been killing sheep, they set about having it destroyed by every means a small community affords. Seventy-eight minutes, Britain, 1938: a farming picture in which law arrives as the settled opinion of neighbors rather than as a courtroom. What keeps it out of sentiment is that the charge is not obviously false and the man defending the dog is not likable. The National Board of Review put it among its ten films of the year. Romance runs alongside, but the pressure is elsewhere: a working district agreeing about something, and one household refusing to.",
+  "model": "claude-opus-5",
+  "source_sha256": "d5474036cc0b47cec73dffb6bb90eae6c27b2c25f75831fa9fc2d92a4fc0d2dc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "suzanne-suzanne-1982",
+  "field": "lead",
+  "film_id": "2394f2e2-a854-4979-abee-7d9adcfa910d",
+  "lang": "en",
+  "text": "A daughter and a mother lived in the same house for years, each keeping the same beatings to herself. Twenty-six minutes, 1982: a young Black woman tracing why her life kept turning toward drugs and arriving at a father whose violence set the terms of the household, and at a mother who did not intervene, having been hit as well. James Hatch's film does not prosecute anybody. It stays with the maintenance costs of silence — the arrangement by which two women struck by the same man never compared accounts. The camera asks little and waits a long time. The National Film Registry holds it: a good deal of institutional weight for twenty-six minutes about one family and what nobody in it would say out loud.",
+  "model": "claude-opus-5",
+  "source_sha256": "5caf4b88fcd258547046ebf63767f96075a35ab58ec128ddf7022e032585a896"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hot-dogs-for-gauguin-1972",
+  "field": "lead",
+  "film_id": "a5b85597-54a5-48c3-a14a-36d49127f6be",
+  "lang": "en",
+  "text": "The plan is to destroy the Statue of Liberty in order to be the man who photographed it going down. Twenty-two minutes of 1972 comedy built by following one piece of logic all the way out: a photographer with no luck and large ambitions concludes that the image he needs cannot be found, only caused, so the work becomes timing, preparation, and a camera aimed at the right spot at the right second. Martin Brest plays it as farce rather than menace — the scheme is elaborate the way fantasies are elaborate, with more care given to the picture than to the crime. It has since been taken into the National Film Registry. What lasts is the shape of the ambition: fame recast as a technical problem, solvable with sufficient explosive and one correctly timed exposure.",
+  "model": "claude-opus-5",
+  "source_sha256": "784d7428441b956b495cc7abfc740c320cff051c48ddf8c61d2ce37e1fec3290"
+ }
+]

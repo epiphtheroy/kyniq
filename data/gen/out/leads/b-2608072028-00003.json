@@ -1,0 +1,92 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "to-fly-1976",
+  "field": "lead",
+  "film_id": "26f2282e-9caf-44c9-bfdc-eadee0e6b9be",
+  "lang": "en",
+  "text": "Twenty-seven minutes long, and built for a screen the size of a building. To Fly! belongs to the first years of IMAX, when the format was less a delivery system than the reason a film existed: someone had a camera that could fill peripheral vision and needed a subject equal to it. Human flight is close to the perfect answer, since the pleasure of the format and the pleasure of the subject are the same — being carried, effortlessly, above ground that is otherwise walked. There is no story to follow and no argument to win. The film is a demonstration and knows it. It sits on the National Film Registry, an odd home for a picture whose whole effect depends on a projection system almost nobody has, and whose ambitions run no further than the sensation in the stomach when the horizon tilts.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac092034ca77937b3499337dcdbff6386883757e04cc9839bd4ebc33b8388861"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "so-s-your-old-man-1926",
+  "field": "lead",
+  "film_id": "efa9dab8-6853-4ce2-991b-454bcb22eecd",
+  "lang": "en",
+  "text": "The invention works: unbreakable windshield glass, made by a man whose own household has already written him off. W.C. Fields plays the inventor, mostly drunk, outranked at home by a nagging wife and a daughter with ambitions well above the street she lives on. Gregory La Cava keeps it to sixty-seven minutes, about as long as one error can keep multiplying before it stops being funny. Silence helps. A man whose problem is that nobody listens to him is oddly well served by a medium in which nobody can be heard, and the humiliations have to be carried by gesture and by the arrangement of bodies in a room. Fields never plays for sympathy; he plays a man convinced the next demonstration will settle everything, which keeps the film from curdling even as the family closes ranks.",
+  "model": "claude-opus-5",
+  "source_sha256": "214a771a5be894bcc4c6a46fcaf7c1041e0ee0cc9d95c6cca7cfed1e3503db6c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "think-of-me-first-as-a-person-1960",
+  "field": "lead",
+  "film_id": "4f883154-0344-46cf-a553-50497e75d272",
+  "lang": "en",
+  "text": "For two decades a father kept a camera pointed at his son, with no plan for the footage beyond the family. Dwight Core Sr. filmed Dwight Core Jr., who had Down syndrome, through the 1960s and the 1970s. Years later George Ingmire, his grandson, found the reels and cut nine minutes from them. That arithmetic is the film's real work: every surviving frame was chosen twice, once by a man who loved the boy and once by a relative who was not in the room when it was shot. Home movies flatter their subjects and their makers both, and this one has passed through a second pair of hands with its own reasons. It sits on the National Film Registry now as a document about a life, which is not what a father with a camera thought he was making on a Saturday afternoon.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc3aa5f8e58a92f1712d72d4ab62d44dccc35a12b7e70fdf1bf0f9f2f6a91e1d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lady-helen-s-escapade-1909",
+  "field": "lead",
+  "film_id": "eacd9913-c71c-4f26-9dd3-0568d5a9faf4",
+  "lang": "en",
+  "text": "A titled woman, bored with her own house, hires herself out as a servant in a boarding house to see how it feels. Ten minutes is all the film has, and one reel must carry a change of class, a courtship with a young musician, and the suspicion of the other women in the house, who decide the newcomer is after his violin. That density was ordinary in 1909, and it is also the interest: with intertitles too slow to explain anything, the disguise has to live in how a hand holds a broom. D.W. Griffith directs a comedy also billed as an adventure, which suggests how loose those words still were. The condescension in the premise is not concealed — slumming is the plot — and the film is sharpest when the working women decline to be charmed.",
+  "model": "claude-opus-5",
+  "source_sha256": "1751cbe4da68c9daaa6bdf5b4a7d76b219c4b721be9243d3b10621c3a35c44c2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "reverend-solomon-sir-jones-films-1924",
+  "field": "lead",
+  "film_id": "24f495cc-eebc-4490-bf71-5edb554241ba",
+  "lang": "en",
+  "text": "Twelve thousand eight hundred feet, twenty-nine reels, one of them partly on orange base. The catalogue describes this work the way a laboratory describes stock, because for a long time that description was all there was. Between 1924 and 1928 Reverend Solomon Sir Jones filmed African-American communities in Oklahoma, silent, black and white, nearly six hours in all. Nothing here was made for a distributor: no argument, no commentary, no order a projectionist is obliged to respect. What there is instead is duration, and a camera held by someone from inside the communities it records rather than a visitor passing through. The National Film Registry took it in as a single title, which is a convenient fiction; it is twenty-nine reels shot across four years, and the accumulation is the point.",
+  "model": "claude-opus-5",
+  "source_sha256": "a079e97fef5f5bcc786e1bb985ba52756f3950515abf0dd8cdb7358904b2636d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "with-car-and-camera-around-the-world-1929",
+  "field": "lead",
+  "film_id": "7d29de39-f71e-43b1-b8d2-ef513bb303f1",
+  "lang": "en",
+  "text": "Two people, one car, 35 mm film stock, and a decade in which distance had become a hobby. The travelogue was a going concern in 1929, and this one — shot by Walter and Aloha Wanderwell, with Aloha directing — sells the machine as much as the places: ninety minutes in which arriving somewhere matters less than the fact that wheels did the getting. Worth noticing who holds the credit. A woman's name on a feature of this kind was not the arrangement audiences of the period expected, and the draw was the pair themselves, not any territory they crossed. The film is a record of an appetite, kept by the two people most invested in feeding it, which makes it unreliable as geography and considerably better as evidence. The National Film Registry has it.",
+  "model": "claude-opus-5",
+  "source_sha256": "f28bc820c4a4d3c943314b7f8230a638411dd64b50259f6f6ae14616bf9bf4f5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "phantom-of-the-paradise-1974",
+  "field": "lead",
+  "film_id": "2ab6afd6-2158-4973-bfc3-fec8970d7e61",
+  "lang": "en",
+  "text": "Swan is opening a rock palace and needs music he has not paid for. He takes it from Winslow Leach, who wrote it, and takes the singer Winslow wanted for it as well, and Brian De Palma spends ninety-two minutes on what a man can do about theft when the thief owns the label, the act and the building. Comedy, horror and music are all listed, and the film does not alternate between them; the contract that is funny is the same contract that is frightening, and one lighting cue serves a gag and a threat. Songs carry the plot rather than pausing it. The Paradise itself is the joke — a temple erected to open with somebody else's work, before an audience that will not ask whose. A rock musical shot as a revenge picture, with the paperwork left in.",
+  "model": "claude-opus-5",
+  "source_sha256": "585f71786b052929fce8e74a05258ee695878523a5ea2a79d52720e813808b0e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-trial-1962",
+  "field": "lead",
+  "film_id": "8b9fd59c-b00e-4957-9651-02cc779575b3",
+  "lang": "en",
+  "text": "The charge is never named, and that is the condition the whole film is built to withstand. Josef K. is arrested in his room and then left free to move, which turns out to be worse: he must go looking for the accusation himself, through offices that keep expanding, and every official he finds is a minor one. Welles shot it in France, in English, and released it as Le Procès. Two hours, mostly interiors, and the interiors do the arguing — ceilings too high for the desks beneath them, doors opening onto more room than a building should hold. The comedy is real and it is not a relief. The insistence is on procedure: forms filed, appointments kept, courtesy maintained by men who cannot say what K. has done, while K. behaves as though the next corridor contains someone with an answer.",
+  "model": "claude-opus-5",
+  "source_sha256": "8cfd10b5a99a67843dc64ed656f4493a33eccb7c961647c136987e189fc757bf"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "zelig-1983",
+  "field": "lead",
+  "film_id": "2c98d767-0c01-4086-890d-2bb3e0b92712",
+  "lang": "en",
+  "text": "Leonard Zelig becomes whoever he stands beside: accent, posture, opinions, sometimes more. The film reports this as fact, in the voice of a documentary — witnesses, experts, archives, and newsreel footage of Woodrow Wilson and Babe Ruth with a nobody at the edge of the frame. Seventy-nine minutes, and nothing in it winks. The Academy Award for Best Cinematography went to photography that had to look damaged, mismatched and taken by someone who did not care, a stranger assignment than looking good. Zelig's fame in the 1920s follows naturally from the condition: a man with no self to defend is the most useful sort of public figure, endlessly agreeable, endlessly quotable by whoever reaches him first. The jokes are dry and arrive at the tempo of an institutional film, which is where the loneliness gets in.",
+  "model": "claude-opus-5",
+  "source_sha256": "cabb795e1ceec9fce956c085d4f0aec1af33403b5069a04f07196d8437df5f32"
+ }
+]

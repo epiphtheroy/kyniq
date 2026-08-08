@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "days-of-hope-1940",
+  "field": "lead",
+  "film_id": "a676dbad-bef5-4f2c-be30-78a888941e35",
+  "lang": "en",
+  "text": "Seventy-one minutes, and nearly all of them belong to a bridge on the road to Zaragoza. A platoon of Republican soldiers means to bring it down and halt the rebel advance, and the peasants around Linás work with them, which in 1937 meant guiding and hauling and hiding as much as it meant firing. André Malraux filmed it in French, and the shape is a job rather than a story: an objective, an obstacle, bombardment that arrives and arrives again. Nothing is explained. The film assumes an audience that already knows who holds which road and what Zaragoza is worth, and it moves faster for the assumption. The Louis Delluc Prize went to it. What stays is how much of a war it locates in logistics: whether a thing can be reached at all, and who has to be asked for help along the way.",
+  "model": "claude-opus-5",
+  "source_sha256": "f5e13cfbfebf0c4a25ae3dbf5152baab457875130583618e16acd0b3b00dc79f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "la-vida-en-un-hilo-1945",
+  "field": "lead",
+  "film_id": "adda208c-dc72-4045-846b-6695d29cd3fc",
+  "lang": "en",
+  "text": "A widow boards a train out of her small town, and the stranger sharing her compartment begins describing the husband she never met. She is leaving for the city to start again; the compartment gets to her first. Edgar Neville builds the film on that offer, one life lived and one life narrated, with a fortune teller holding the licence to narrate. The second existence arrives secondhand, which is the constraint worth watching: every detail in it has been chosen by someone else for its effect on the listener, and the widow can only sit and receive. Ninety-two minutes, nearly all of it talk, and the talkers are quick. Caimán's hundred-film canon of Spanish cinema keeps a place for it. Comedy and grief share the seat, since the marriage that ended was real and the one being sketched can never be tested.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c7309102babbc54e1ba31a1a3285eade81af8b4852d21f7274ed02ae165b9c0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-borrowed-life-1995",
+  "field": "lead",
+  "film_id": "2a74997c-281a-41c6-b4fa-08c431a1d8ae",
+  "lang": "en",
+  "text": "A father formed under Japanese rule raises children born into Chinese rule, and the household splits along that line. Wu Nien-jen takes 167 minutes for it, and the length is the decision that makes the film work: a rift this old cannot be delivered in a scene, it has to accumulate, year over year, until the children can name exactly what separates them from him and still cannot cross it. Sega is not put on trial for what he loves. It is what a man carries out of the decades that formed him, and inside his own house it turns untranslatable, to people who share his name. Taiwan in 1995 stood close enough to all of it that the film's patience reads as tact rather than technique. The Golden Horse hundred of Chinese-language cinema includes it. The running time is not padding; it is the argument.",
+  "model": "claude-opus-5",
+  "source_sha256": "e795e09060eee7181aafee4e7ea36847475553e1bc7900968989cb773ae3d878"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "warsaw-bridge-1990",
+  "field": "lead",
+  "film_id": "72c145a5-0c99-4252-b3a3-0a584ca60104",
+  "lang": "en",
+  "text": "A novelist takes a prize for a book whose plot he cannot summarize. A journalist asks, and asks again, and he answers everything else fluently and arrives at nothing; the only honest reply left is that people will have to read it. Pere Portabella made that the premise and then, in Catalan, in 1990, built eighty-five minutes that hold themselves to the same rule. Three characters, two couples, one grand literary cocktail party thick with people who have opinions. Scenes carry the confidence of narrative without conceding the connective tissue a synopsis would need. It sits in Caimán's hundred-film canon of Spanish cinema as one of the least obliging entries there, a film that treats the gap between an experience and its summary as material rather than a fault to be repaired.",
+  "model": "claude-opus-5",
+  "source_sha256": "313e2f9bd0a1ed6567efad6bb9dd4c24868babd3712f19816d21e5d371fc87d4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-big-road-1935",
+  "field": "lead",
+  "film_id": "456a29b6-1215-4269-992d-22a0f9169b46",
+  "lang": "en",
+  "text": "Six men from the city, one road, and an army waiting for it to be finished. Sun Yu logs the job as comedy and music as much as war picture, which is less a contradiction than a working theory: songs are how a crew keeps time, and labour here is something performed together or not performed at all. The Golden Horse hundred of Chinese-language cinema carries it, though the film is oddly indifferent to grandeur, spending its hundred and four minutes on digging rather than battle, on friendships built across a stretch of unfinished ground. What the road is for presses in from outside the frame. China in 1935 gave that pressure a specificity nobody on screen needs to articulate, and Sun Yu leaves it out past the last of the gravel while the men in front of him sing and dig.",
+  "model": "claude-opus-5",
+  "source_sha256": "b6e526c8df2ec5546d8ef1ed8fc5a58da8be876262a5be4a2045336afcfed3f6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-delinquents-1960",
+  "field": "lead",
+  "film_id": "514bb604-695c-4045-aff6-04a45ff94310",
+  "lang": "en",
+  "text": "The plan is to steal in small amounts until there is enough to buy one of them a debut in the bullring. Carlos Saura's friends live at the edge of Madrid in 1960, and the film treats their thefts as a financing problem rather than a moral event: a career in the ring costs money long before it returns any, and none of them has money. The bullring is not glamour here but the one trade any of them can name that pays. Eighty-three minutes, and the thefts arrive as logistics rather than as sin. The single route out requires capital to enter, so the capital has to come from somewhere, and the somewhere is other people's pockets. Saura keeps his tone level throughout, which is what makes the whole enterprise feel less like drama than like a schedule being met on time.",
+  "model": "claude-opus-5",
+  "source_sha256": "a1e590f2432a3b135de01d081b45f75cf804bf3c8533714cf55aad12cb641874"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "life-in-shadows-1948",
+  "field": "lead",
+  "film_id": "4971d317-d638-41ab-95c8-038e803a51a0",
+  "lang": "en",
+  "text": "A young man who loves films works his way into a job behind a camera; then it is 1936 and he is Spanish. Lorenzo Llobet Gràcia builds Carlos slowly, the enthusiast who wants the apparatus, the apprentice, the professional operator, and then Ana, who takes longer to arrive than the work does. Seventy-four minutes for a life means the film jumps, dwelling where it chooses and skipping the rest, and its attention never strays from one question: what becomes of a man whose habit is to look at things through a lens when the thing in front of the lens is his own country at war. Caimán's hundred-film canon of Spanish cinema carries it. A film about filming, made in 1948 by someone who evidently could not stop thinking about the instrument, or about what it costs to keep looking when looking is the only trained skill on hand.",
+  "model": "claude-opus-5",
+  "source_sha256": "ec96426212afcc2477cacf4b144709545475f66c4d75816e9269da7e90f9c513"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "darkness-and-light-1999",
+  "field": "lead",
+  "film_id": "0ebb2398-9bf7-494d-ba3e-2bc61eb919f4",
+  "lang": "en",
+  "text": "Keelung is a working port on the edge of Taipei, and a seventeen-year-old comes home to it for the summer with a university term behind her. The boy she falls for belongs to a local gang, which in a place this size is less a career than an address; the turf war that catches him was running before either of them looked up. Chang Tso-chi spends most of his 104 minutes elsewhere, though, on families who love each other and on the flat light of a coastal summer, the hours in which nothing is at issue. That is the wager. Tenderness is not a pause from the danger, it is the scale the danger gets weighed on, and Chang builds it patiently enough that the weighing costs something. The Golden Horse hundred of Chinese-language cinema includes the film; what it does with a first love in a harbour town is quieter than that suggests.",
+  "model": "claude-opus-5",
+  "source_sha256": "0bcee0687a2b2c139853e72c7651ba5978853cf4a75788b5d64d6b864c992554"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "songs-for-after-a-war-1976",
+  "field": "lead",
+  "film_id": "e65d8227-b58f-4ea3-bc7a-e94a7074776a",
+  "lang": "en",
+  "text": "Every image and every song in it was made by someone else, for other purposes, years earlier. Basilio Martín Patino assembled the film out of the popular culture of Spain's post-war decade, the radio songs, the magazine covers, the newsreels, the footage from the era's own movies, and let that material speak about the famine and the censorship it had been manufactured to accompany. The method is exact rather than ironic. A cheerful tune, set against the year people were singing it, does work no narration could do without arguing. And 1976 is the date on the film, which puts it at the very near edge of what it examines: an audience old enough to have sung along was sitting in the room. A hundred and one minutes, built entirely from things already lying around.",
+  "model": "claude-opus-5",
+  "source_sha256": "61397b1dc5cd56da3a6aebff41fd7acf59ef1ad15bcc51e3dda92055d4badc94"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-cursed-village-1930",
+  "field": "lead",
+  "film_id": "5236bf1f-c3bb-4396-829d-f0aa123a03ea",
+  "lang": "en",
+  "text": "Drought comes first and debt comes after it: in Luján the harvest fails and the moneylender's business does not. Juan farms, keeps a wife and a small son fed, and goes to that man's door with an argument instead of a payment, which is how he ends up in a cell. Florián Rey takes fifty-seven minutes, and the compression suits the material, because a Castilian farming year has one thing in it that matters and when that thing fails the rest follows in a straight line. The story is set early in the century and the film was made in 1930, a gap short enough to be memory rather than history. What holds La aldea maldita in Caimán's hundred-film canon of Spanish cinema is less the plot than the register: hunger treated as weather, the loan as a second and colder season.",
+  "model": "claude-opus-5",
+  "source_sha256": "8222823e080e18410c0b208dd825726ad3bedd0495d0518d13f8bad6bb05f10c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "nine-letters-to-berta-1966",
+  "field": "lead",
+  "film_id": "11811cf9-4d6b-4668-b17e-fd42130041b4",
+  "lang": "en",
+  "text": "Nine letters leave Spain for England, and the film is what it costs to write them. Lorenzo has come back from a stay abroad, where he met Berta, whose parents emigrated; now he sets out to describe to her the country they chose to leave, and to make it sound like somewhere a person might stay. The strain in that is the subject. Every sentence he composes has to survive comparison with a Spain she knows only through her parents and a Spain he can see out of his own window, and the two do not agree. Basilio Martín Patino keeps the address intimate: ninety minutes of one young man talking to someone who is not in the room. What accumulates is less a romance than an argument with the place he came home to, conducted politely, in writing, at a distance he chose.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c99ddf80f84aa59aca8edf1de61c46446720fda2818ae65c5b1894b38b350ee"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "life-ahead-1958",
+  "field": "lead",
+  "film_id": "0d49bb9f-c7ff-4ff0-a4d1-37b7e3af4886",
+  "lang": "en",
+  "text": "Two new degrees, one in law and one in medicine, and nowhere to live. Antonio Redondo and Josefina Castro marry and then spend the film doing what the qualifications were supposed to make unnecessary, hunting for work, any work, that converts into a flat of their own. Fernando Fernán Gómez plays it for comedy, and the comedy comes from how reasonable everybody is: nobody here is a villain, the couple are not fools, the obstacle is arithmetic. Ninety minutes of hustle, briskly kept. Scholars have since gone at the film for exactly this, the ethics of home ownership in Spain's early technocratic years, a heavy phrase for a picture that wants to be funny about a deposit, and a fair one for a comedy that runs two educated people through a housing market.",
+  "model": "claude-opus-5",
+  "source_sha256": "c627c8dfe52c2056d40521684fa54a77e324a467e76f810fd5f30afc7d5467a2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-last-message-1975",
+  "field": "lead",
+  "film_id": "b09b6571-0ce5-486b-b4d3-a0b583090069",
+  "lang": "en",
+  "text": "A male nurse and a handyman are the last two people who should be left alone with a patient's luggage. Michael Hui Koon-Man directs and takes the handyman, Sam Hui plays the nurse, and the bag that comes through the sanatorium door holds antique fragments. The patient carrying it is a stranger to both of them, which is all the licence either needs. Word of a sunken vessel then converts a workplace comedy into a treasure hunt without improving either man in the slightest, and that refusal to upgrade them is the engine. The Golden Horse hundred of Chinese-language cinema has room for it. Ninety-eight minutes, Hong Kong, 1975, and the scheming is done by two whose actual trades are care and repair: greed as one more shift to be clocked.",
+  "model": "claude-opus-5",
+  "source_sha256": "127e0b7ad12900e2167f71344ab6654c3ffbe8e7acf5a19a96891f7e8484a91e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "carnival-sunday-1945",
+  "field": "lead",
+  "film_id": "c09e2197-6a44-476e-b8ff-d9937d6ee7ec",
+  "lang": "en",
+  "text": "A night watchman finds a body on carnival Sunday, in a city where nobody's face is evidence. The dead woman lent money at rates that made her rich and disliked; the man who owed her most repairs watches for a living, which makes him precise, poor, and the obvious suspect within the hour. Edgar Neville runs seventy-seven minutes at a clip, in a comic register that keeps sliding toward something colder, and lets the date do the plotting, an investigation pushed through a crowd that is deliberately disguised, in a Madrid where everybody is somewhere they would not otherwise be. Caimán's hundred-film canon of Spanish cinema lists it among far more solemn company. On an ordinary Sunday half these difficulties would not exist, and half the pleasure would go with them.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e57f17e02f6f5a9b018e0a740b18f8abc70908e6d194041d069e0f6ce887177"
+ }
+]

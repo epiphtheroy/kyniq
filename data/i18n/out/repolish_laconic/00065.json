@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stand-in-exposes-the-vacancy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대역을 세우는 순간, 원래 있던 것도 사람이 아니라 자리였음이 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8bd697eb8abb7d216e76fd6e0cb4e8c14bf51a851f6581bb9f13a241088679bd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stand-in-soil-that-reenacts-the-war",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어떤 땅이 베트남을 대신 연기한다. 그 대체 속에 역사가 숨어 들어온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f77207a55de97519300f0da3de7e0071feb40eb3cda038c0d8fa0806544c9808"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stand-in-village-for-an-unfilmable-region",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 한 마을이 사헬 전체를 떠맡도록 징발되다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d34826d6da584ed780097a6ba0abbae85a64e8e90abe1e925e1a623d46a4b4d6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-star-cast-as-his-own-obsolescence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한 배우의 배역이 그가 속한 시대의 공개 장례가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2dec0804cdd2df8861f2f07c98300629d31713ba0be215b057f13a6e83c7ccc3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-star-consumed-by-her-own-audience",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "완령옥. 죽음에서 거꾸로 읽히고, 소문과 숭배에 먹힌 이름.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd876d79c44989ee68eca1e130e603eb8df08c0e849b36cec15e902d9a68b8e6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-star-mistaking-worship-for-love",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "명성의 시선은 흠모한다. 그 아래 여자는 굶는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cce7c742917b36da50a70c67269a8d5987fc8d715c4573e0514bd6e339469317"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-star-persona-turned-against-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아이콘을 불러다 그가 짊어진 명성을 그 자리에서 터뜨리기.",
+  "model": "claude-opus-5",
+  "source_sha256": "8888ba478cdb7b50e944f90e7a2b2a164d0238af10af3d9a28435c3458264910"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stare-into-the-lens-that-indicts-us",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "카메라를 똑바로 보는 얼굴. 관객은 피고가 되고 증인이 되고 공범이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6eadb8e5810b6350ae82db6306f2b07d2d110a1f1ff245faf2ce5e0399652b78"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stare-of-the-already-dead",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "오래 붙들린 시선. 영화가 죽음 쪽에서 이쪽을 돌아본다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bd6bd19a55464ed28d70aca1d47de9255a1746a249d43d52727f15df428c875d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-starving-wanderer-drifting-toward-ruin",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "굶주림에 시달리는 함순적 부랑자. 가진 것도 갈 곳도 없이 무(無)를 향해 걷는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7fb15b157c62cea3c835104dad23079799658c8144b4dfdffcfafbb3bc99d172"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-and-underworld-share-one-file",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "경찰과 범죄자. 한 몸에 번갈아 씌우는 두 개의 가면일 뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8852e0a5fa0e9fc0a6f9340a466fa1c97c24e1a756d4b2c4fd38ff437cedec07"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-as-secret-author-of-the-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보이지 않는 제도가 주체의 의지를 몰래 대신 쓴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "42be9cae5dca29b93fd122faa067e5abfd0338cbfac55db1a3d70978bc493450"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-cedes-judgment-to-another-sovereign",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "누가 심판할 권리를 갖는가. 법정인가 교회인가, 공동체인가 국가인가.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ff0043eac8188b7e41b641522fe51e9343b9af0106686c9e62a08858e8b3484"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-conscripting-the-womb",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권력이 출산을 국가의 기간시설로 징발한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "60fed09cbe328379faf70e7eeed735fb30ed11c69a66e08885af63c8385abc3e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-fails-so-citizens-take-up-arms",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제도가 무너진 자리에서 사적 정의가 솟는다. 자경단은 국가의 부도에서 태어난 자식이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4142c247a43f8f60daae8b61bb1d217f70c068e68e4ea5cdd059e768a81a1f14"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-founded-on-a-sacrificial-corpse",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바쳐지고 삼켜지고 순교한 몸 위에 세워진 정치 질서.",
+  "model": "claude-opus-5",
+  "source_sha256": "30f8ee12b40b53dffecd3f968bc45698bb2bc44731097998db00ef38452a6cc6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-manufactured-into-being",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "존재하기도 전에, 혹은 존재를 거슬러 불려 나온 국가.",
+  "model": "claude-opus-5",
+  "source_sha256": "6b8a60eaa3390abe10faf06878f5b9eb694c57196cd6213aa943867e0227e52e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-must-manufacture-the-guilt-it-punishes",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "관료 권력은 제가 부술 죄를 먼저 만들어 놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "adc3f40f49266b1611d40c801eeeabaff5a42410e3bc460fc07b27c072b8fa26"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-of-nature-without-a-sovereign",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "문명이라는 얇은 막이 벗겨지면 만인의 만인에 대한 투쟁이 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d800836034b53146ddf7096e0ac4ad14170d464313f7f24f36dc27e3b9b76e60"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-outsourced-to-one-beautiful-man",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제국도 주권도 면허받은 육체 하나로 사유화된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c60a8676746debbbf48d49830dddf7e111ebc5318ed1d6c6ee58ea6bf64ef770"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-outsources-its-sovereign-violence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권력은 살인을 만들어내거나 남에게 맡긴다. 책임에서 빠져나가려고.",
+  "model": "claude-opus-5",
+  "source_sha256": "25697271c5985d0d298fcb420b2314822ef9c1c7fb79fb90c6aeabc6d2617b98"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-s-disowned-debt-to-its-soldiers",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전쟁이 치른 값은 참전한 개인의 몸과 정신에 떠넘겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ced462bc147ad265e205642cbe646e012d061dd0f7e6e022a42929004a8aba6a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-s-errand-run-by-one-citizen",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국가가 드러내놓고 못 하는 외교를 민간인 하나가 대신 뛴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c794b830944fc1d231d796e7e3f5d2ba8f048dd3315c223977fa9bf2450e263b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-s-monopoly-on-violence-refused",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽일 권리는 질서의 것이라는 주장. 이방인이 그것을 비웃거나 빼앗는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "53f8ed1d9ff613d6139d39196ca987d42f7597959462c0f44df00bb5e4920d20"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-s-power-to-disappear-a-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지워버릴 권한은 주권의 특권이며, 계급과 코드에 따라 나뉜다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4e7fa0dcda950657f01694526ea21bda776ad20bdb92d57cdc513bb9a8477335"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-sacrifices-the-soldier-s-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전쟁의 패배가 스스로 목숨을 끊어야 할 한 개인에게 넘겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "554d2becf21fbb059b77e2ccfae61e092a25126365e81513a09a0150f128dc84"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-spends-the-bodies-it-rules",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전쟁과 지휘가 폭로한다. 권력이 누구의 목숨을 소모품으로 치는지.",
+  "model": "claude-opus-5",
+  "source_sha256": "7935e0056253c3cb9e05e0fde028cbb4a4684f673269f76161afe7d5b34225d1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-stages-a-killing-to-launder-its-power",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "처형과 머리기사. 국가가 누구를 죽여도 되는지 승인해주는 의례다.",
+  "model": "claude-opus-5",
+  "source_sha256": "be74ad15bbea11de8e6678ca72167140726032c6cde97493ba7fafa375aadd4b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-surrenders-its-monopoly-on-violence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "폭력이 국가를 떠나 시민에게, 자경단에게, 끝내 아이들 손으로 옮겨간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb979faaf4d658dc5b569fd2213a6dc059d0eb10194c0e386dc9dd868fbb749a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-that-abandons-its-children",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "버려도 되는 아이. 복지국가가 작정하고 손을 뗀 자리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a8421154cb056c1a63008a49deab66ce447a73a2656987f3ee4ebc31218cf5b8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-that-cannot-abide-its-artists",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이스라엘 영화를 그것이 불러온 공식 견책을 통해 읽기.",
+  "model": "claude-opus-5",
+  "source_sha256": "346aeead9274bd142fe77e50cbf36ef7abafc25eef4fda4c3d30711102410686"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-that-colonized-the-womb",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정권이 출산을 관리하고 범죄로 만들고 결국 지하로 몰아낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f8e44085a81ef09b7ab8515b4353fc78ba0134bff92547b73cba155ad4475fe9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-that-disowns-its-own-agents",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주권은 저를 위해 일한 도구를 부인하면서 살아남는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "65b078a8129356ee9b8a7de639a5723d8829c74b5c85717f6b7ca0f850062d39"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-that-manufactures-its-own-criminals",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "치안은 생산이다. 법이 제가 처벌할 범죄를 지어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca3af14726a454327a8d655b7f770b0b383d9789a148b9f292849eadd9850fff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-that-manufactures-its-own-reality",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "관리들이 현실을 불러내고, 그 현실을 다시 관리하고 단속한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "78a10ebcb74f48ca55e8365b82661ef90d019cd3c08fa0de0543e55de6a21c4f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-that-manufactures-its-own-witnesses",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권력은 폭력을 찍고, 외주 주고, 부인할 수 있는 형태로 고쳐 쓴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ad58e9f8c9c81e9f954c159f5244730d191018f5a9679785c09422ed987a0041"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-that-outsourced-its-sovereign-functions",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공화국이 돌봄과 정의와 폭력을 하청 주면 시민은 그 틈으로 떨어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5f7564d4163c5df002876380a42770204e9d746180fed983f52b1f03c8c96d3c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-that-pursues-its-people-past-its-borders",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주권이 국경 밖으로 샌다. 국가는 해외의 동포를 쫓다가 그대로 버린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d9636eef0f918179f8c0c56e0b07ab83c888fdc2924604fc0b3b43e557d3d027"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-that-watches-yet-cannot-see",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감시 기구가 제 눈먼 시야, 연기에 불과한 시선에 스스로 걸려 넘어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "539f610915de73b2770c896466a1d485f9aff975ab8e6e89e3515f4aac8c91ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stateless-body-as-political-cartography",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시민권이 없는 몸. 미등록의 신체가 위기를 그린 지도가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "43364052382b2fd7f7daa330c0519973454e176a7ba2c3ad3db8bd9fef4a358e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stateless-cinema-funding-its-own-sovereignty",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "돈과 형식 양쪽에서 자기결정을 감행하는 행위로 읽히는 국민 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "a8c1de542ecd622ee58a3bfb62279cfc7491b39fead96a082e5124cbff6563d7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-steward-who-renounced-mastery",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지배를 내려놓고 땅을 말없이 지키기로 한 사람.",
+  "model": "claude-opus-5",
+  "source_sha256": "44792c9be4196893e34dc565ceeee62607a662a38cc4433f0d8f65b4a0fda3d3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-still-life-that-names-the-dead",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목의 말장난. 장르를 가리키던 단어가 애도받지 못한 자의 비문이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e7b4a1a57d5dbf82f24a5dddd2d597ab050005472e95f042d2b3c3cc826b588f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stilled-face-holds-a-suppressed-history",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "꿈쩍 않는 얼굴 하나가 영화가 끝내 말하지 않을 것을 전부 들여온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "58816c2027efeb407fbc37edf3edcb2560f435e34a863abf1ade4d1c77212cc0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stillness-that-earns-its-mourning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "슬픔을 참는 일이 오히려 슬픔에 필요한 주의를 만들어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6eeb7fb16fc23b7e5e9ee380f52a391cb5ab0d7bd2f469aa1e0272cb494cd332"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stock-as-manufactured-truth-claim",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "필름의 공정이 제가 담아낸 객관성과 근대성을 먼저 발명한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d4cc15f912cddd175c5ceaa796626d137108c88091f9fee108f5dfa339b6dbd3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stolen-name-that-devours-its-wearer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남의 이름을 뒤집어쓰는 일. 그것은 자신을 지우는 빙의로 끝난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "779ff267f94dd53cbbf117dcabf5baa6c0e5369d4a67f78a54338166bcc798d7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stolen-object-hides-a-stolen-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "훔치는 이야기는 소유의 문제가 아니다. 묻어둔 상처를 무대에 올리는 일이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cefac7a8bc1606174a621ea1112a95c73f1f3c3619c6b44229cdada9c226c171"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stone-as-hermeneutic-key",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "돌 하나가 영화 전체를 푸는 암호가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6b7730b47e41ff069c2f3c83d697a213c1a0304291debf02363632284b1bee88"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stone-that-punishes-the-wish-to-possess",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "탐낸 값을 반드시 받아내는 돌.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd0afb0dcacb394065ac058d1fafecf6842042751eff369332774438e6119aab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stopwatch-that-measures-the-body-away",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "과학적 관리법을 안무로 찍는다. 그 안무 속에서 노동자가 녹아 사라진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "632fbe3e2f3ca0d69304d3bd3aa3bf99607f4feed3e7744557ee0f68d1b58b9e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-storm-as-the-return-of-the-repressed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "욕망을 입 밖에 낼 수 없는 곳에서 날씨가 터진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0dedeac258f953c46fac5c66de2a60562e825900de8476e9ca3c7eac551aeb09"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-story-already-set-in-purgatory",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "산 자의 세계가 아니라 사후의 간이역으로 읽히는 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "786216c91c61613c9b3268de42b45ca8ffe88d681206b97ccde3b9ce8ae55f8f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-story-that-survives-by-replicating",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "관념도 저주도 선의도 의미 따위엔 무관심한 채 스스로 번식하는 밈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cfb802198eab93205f171cbb45ec63ffdf58d001df7957888a9ec307867507ec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-story-withheld-as-the-moral-act",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "저널리즘의 윤리는 쓰는 데 있지 않고 참는 데 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "749cd3cb92b54acdec662ba69791896fc7e1c67a1bc417f78dc53947eb3a2804"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stranger-names-the-self-s-estrangement",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "타자성이 안으로 접힌다. 알 수 없는 연인, 알 수 없는 쌍둥이, 끝내 알 수 없는 나.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc170b53ee1c9dcd5f5979299695a8de62ae6c75389619608bbed4350d2cc4d3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stranger-s-sun-camus-s-indifferent-killer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "뫼르소의 태양. 텅 비고 동기도 없는 그 빛 아래서 벌어지는 살인.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d435f53241a847c145b6a981e646fe5eae577645d0f382d21471c40704d1909"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stranger-welcomed-as-ethical-test",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이방인에게 문을 여는 일이 도덕과 철학의 시험대가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d139bb4eb455e4537897541e543a57e2ed85c6a0b962be27ff0f773825446ea6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stranger-who-is-the-self-from-time",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "결국 주인공의 과거였거나 미래였던 인물.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd961808d0cafe9dc8cdb887d750c4eab0473ec32d95652fb3f4782ef87b92b4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-striptease-that-indicts-its-watchers",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "벗는 대신 몸짓만 남는다. 드러나는 것은 살이 아니라 검열하는 관객이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7df7b455a16bcc8688a5928f4991f4a2d6272781c2b1d1d5bcdadd68fac67002"
+ }
+]

@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-haigh#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1850년대 포경선을 다룬 《The North Water》(2021)를 찍으려고 헤이는 배우와 스태프를 북극해의 스발바르 제도까지 끌고 갔다. 촬영 지점은 북위 81도. 텔레비전 드라마가 촬영된 최북단 기록이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "80068fe7f214ed98cb43c01bb4c5a1e2440f9b3af4fb7f6bfc863424150aa533"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-haigh#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "야마다 다이치의 1987년 일본 유령 소설 《이인들》을 《All of Us Strangers》(2023)로 옮기면서, 헤이는 주인공을 이성애자 남성에서 게이 남성으로 과감히 바꿨다. 퀴어 남성과 그들의 이성애자 부모 사이에 놓인 세대의 골을 파고들기 위한 선택이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9f03a70ca84ddd1fc717212e004ab5601ddb8c6a2a01898506e2a2f87d325b4f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-haigh#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《All of Us Strangers》의 로케이션을 물색하던 중 기적 같은 행운이 찾아왔다. 크로이던 샌더스테드에 있는 헤이 자신의 어린 시절 집이 비어 있었고, 쓸 수 있었던 것이다. 부모가 나오는 장면들은 그가 자란 바로 그 방에서 찍혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7a63869f46b5cbecce6aab01baefac97137f44ea48f9dd015fc4f55932ff100d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-haigh#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《All of Us Strangers》의 주제가로 헤이가 프랭키 고즈 투 할리우드의 'The Power of Love'를 콕 집어 고른 데는 이유가 있다. 커밍아웃하지 않은 아이였던 시절, 그 밴드가 공공연히 게이임을 밝히고 〈Top of the Pops〉에서 이 곡을 부르는 것을 보며 느낀 복잡한 감정이 또렷이 남아 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a30a2237e3324c2298d6889a4052cfd5ced94c16414d808c97a6fb65e6f5be4d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-stanton#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1980년대에 캘리포니아 예술대학(CalArts)을 다녔다. 그곳에서 만든 학생 단편 두 편 《A Story》와 《Somewhere in the Arctic》이 초기 컴퓨터 애니메이션 개척자들의 눈에 들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b46f1697c4e98456fbb57e55744ec2001a29ad04d24970cc151518f1ffc337b6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-stanton#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "첫 직업 애니메이터 일자리는 1987년 텔레비전 부활판 《Mighty Mouse: The New Adventures》였다. 요구가 혹독하기로 악명 높던 랠프 백시와 존 크리스팔루시 콤비 밑에서 일했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "26252ca45f542bf252019eff42cc80c47f5c0769819211387df268d0f78953cb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-stanton#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1990년 1월, 스탠턴은 갓 출범한 픽사 애니메이션 스튜디오의 아홉 번째 직원이자 두 번째 애니메이터로 합류했다. 처음 맡은 일은 존 래시터와 함께 텔레비전 광고를 만드는 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf3a0a364ff20af03972acc22a5ea44e85b218c8fceec3bcabfa5f9e7725107e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-stanton#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "래시터, 피트 닥터, 조 랜프트와 함께 픽사의 전설적인 \"브레인트러스트\" 창립 멤버였다. 잔인할 만큼 솔직하되 자존심은 끼어들지 않는 동료 검토 체계, 스튜디오의 황금기를 만든 것이 이 방식이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6ec2fbaf3f2d1fb3ed696d4d6ca65b03d106aa73a57920793d62dfe377620d2e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-stanton#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1994년 캘리포니아 포인트리치먼드의 히든시티 카페. 지금은 전설이 된 그 점심 자리에서 스탠턴과 동료들은 《벅스 라이프》 《몬스터 주식회사》 《니모를 찾아서》 《월-E》의 핵심 아이디어를 냅킨 한 묶음 위에 쏟아냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "559775d4aa83ebf6211ccf8d3f2ec08455382e87a75caac457e27febc3eb2098"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-stanton#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《니모를 찾아서》에서 느긋한 서퍼 말투의 바다거북 크러시, 그 목소리가 스탠턴이다. 이 캐릭터의 대사는 전부 공동감독 리 언크리치의 사무실 소파에 반듯이 드러누운 채 녹음했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "18a7af34576d039e24434f6f8e8bca2104461bb50ae754ed271aa5f8a0de2a38"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-stanton#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "크러시만이 아니다. 《토이 스토리 2》의 악당 저그 황제, 《니모를 찾아서》에서 \"내 거!\"를 악쓰며 텃세를 부리는 갈매기들도 그의 목소리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "101fb1511996302bce36fe931ac5719152dc7900297f12a9074bb67e76e0474c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-stanton#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《니모를 찾아서》를 쓰는 동안 스탠턴은 토머스 뉴먼이 《쇼생크 탈출》과 《작은 아씨들》에 붙인 음악을 끝없이 돌려 들었다. 결국 그 영화의 작곡가로 뉴먼을 부르게 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a7145979e2131fa68e2be13e0c4fde19bff75c9af61b589c6bad66251a3f2b1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-stanton#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《월-E》의 황폐한 쓰레기 지구는 1970년대 생태 운동에서 큰 영향을 받았다. 여기에 환경 문제를 정면으로 다룬 1972년 SF 《Silent Running》을 어린 시절 아꼈던 기억이 겹친다.",
+  "model": "claude-opus-5",
+  "source_sha256": "223c3b36d0129591959aab6b656dc8af9fc1fcd6effca429059d8608a2a07e71"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-stanton#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "삭막한 기계 폐허와 대비를 만들려고 스탠턴은 《월-E》의 사랑 이야기를 1969년 뮤지컬 영화 《헬로, 돌리!》의 노래들 위에 의도적으로 세웠다. 결정적인 이유는 \"Put On Your Sunday Clothes\"였다. 이어지고 싶다는 로봇의 갈망이 그 곡에 고스란히 들어 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6151e0acf965f7d37a15780a0bb834fec58b8793415ea302230998e2aef942df"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-stanton#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1막 내내 사람의 대사가 거의 없는 영화. 그 소리 풍경을 지으려고 스탠턴은 《스타워즈》의 음향을 만들어낸 전설적 사운드 디자이너 벤 버트를 《월-E》에 콕 집어 청했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb6491ae0140d170c9edca6fb4fbe7cf004f4dedcf33f4ffd39a3a0e7c60820c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-stanton#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "실사 서사시를 연출하겠다는 평생의 꿈을 이루며, 그는 2012년 디즈니 대작 《존 카터: 바숨 전쟁의 서막》의 지휘봉을 잡았다. 원작은 어린 시절부터 그가 흠뻑 빠져 있던 에드거 라이스 버로스의 펄프 소설이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "53a07511001e82dc5d985c08991baeae4981621850abc4e44ba36ff08592c422"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-stanton#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《존 카터》는 영화사에 남을 최악의 흥행 참사 중 하나가 되었고, 디즈니는 2억 달러를 손실 처리했다. 자기 연출력을 향한 스탠턴의 회의는 그렇게 만인이 지켜보는 앞에서 무너져 내렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "779dd6af53d49d1202ffb55cd649ad0a25686f5a5b2bfb03e64ddce470446068"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-stanton#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "애니메이션으로 돌아와 2016년 속편 《도리를 찾아서》를 연출했다. 계기는 《니모를 찾아서》를 다시 본 일이었다. 단기 기억을 잃은 도리가 저 바다에서 과연 살아남을 수 있을까, 그 걱정이 좀처럼 가시지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "893a9a1a6d12cf5f413f542c74efd947dfd40057e9e9e2381e92213eea72be15"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrew-stanton#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2024년 서치라이트 픽처스는 스탠턴이 오래 미뤄둔 실사 장편 복귀작 《In the Blink of an Eye》를 연출한다고 발표했다. 케이트 매키넌과 라시다 존스가 출연하는 SF 서사시다.",
+  "model": "claude-opus-5",
+  "source_sha256": "91b6ee6f12144fd601d15a0db5fb42f4e82a1bbcb014aa34066ff8ee669fc428"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrey-zvyagintsev#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "시베리아의 도시 노보시비르스크에서 태어났다. 즈뱌긴체프가 다섯 살일 때 아버지 표트르는 가족을 버렸고, 그는 학교 교사였던 어머니 갈리나의 손에서 자랐다. 이 최초의 상처가 데뷔작 《리턴》의 아버지와 아들 관계에 짙게 배어 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b599ced21ad57ab8ed4c28ce91a3da28ce7cd9582becece59f4d087ba6d2579"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrey-zvyagintsev#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "처음 배운 것은 연기였다. 노보시비르스크 연극학교를 1984년에 졸업했고, 곧 소련군에 징집되어 군 소속 연극단의 연예병으로 복무했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b06ce06798ba2bd8931c0262ee2164694f89847454bbc1b7baf1aa66ef9f7686"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrey-zvyagintsev#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1986년 모스크바로 올라가 명문 GITIS에서 예브게니 라자레프에게 연기를 배웠다. 그러나 러시아 연극계의 실상에 깊이 환멸을 느낀 그는 1990년 졸업과 동시에 연기를 완전히 접었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "293de034b10e3e749677e3c6cb93fa37f3260a285c97e2f9982d09f642636805"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrey-zvyagintsev#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "연출로 들어선 통로는 한 가��� 회사의 이름 없는 텔레비전 광고였다. 그 광고가 REN TV 설립자 드미트리 레스넵스키의 눈에 띄었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "87b52ce44f0ac9f014c3599f1a1a05969a09f6b4b07f7f94aeaf97ea3de2e483"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrey-zvyagintsev#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "레스넵스키는 무명의 이 감독에게 크게 걸었다. 2000년 스릴러 옴니버스 시리즈 《The Black Room》의 세 편을 맡긴 데 이어, 데뷔 장편의 제작비를 전액 댔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d2f78d94705577b46cfefda9f0be90bd935c5cac980a50b4854919e6cd4e6c86"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrey-zvyagintsev#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《리턴》의 두 어린 주연을 정하기까지 즈뱌긴체프가 만난 아이는 600명이 넘는다. 소년들과 직관적으로, 온전히 통했다는 느낌이 오기 전까지 그는 촬영을 시작하려 하지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f5f65db28618b64ca983807aeb2d61f87887672665724a9b78b0de9e28fb4387"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrey-zvyagintsev#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《리턴》은 2003년 베네치아 영화제에서 황금사자상을 받았다. 그러나 그 승리에는 그늘이 드리웠다. 촬영을 마친 직후, 열다섯 살의 주연 블라디미르 가린이 호수에서 익사했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0828854e8b10056401a1a0953a5448dbe42a72a5ef23677bb64e5f4b46a1c4f1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrey-zvyagintsev#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "촬영감독 미하일 크리치만과는 평생의 창작 동반자로 지내왔다. 공대생 출신에 영화 교육은 정식으로 받은 적 없는 인물로, 광고를 편집하던 시절에 만났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "33c36af7d58bba7272b1aa792713ea0ef9089d874c3b69d86327326e8d745e86"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrey-zvyagintsev#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "은둔하기로 소문난 각본가 올레크 네긴과도 자주 손을 잡는다. 전직 문학 교사인 네긴이 거칠고 상스러운 대사를 초안으로 뽑아내면, 감독이 그것을 한 줄씩 다듬어 나간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6fcb74b37e358e6a73d0d10575507dc4681d89934ac402fa6c881209f8de3a2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrey-zvyagintsev#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "두 번째 장편 《추방》은 몰도바 공화국에서 찍었다. 스태프는 불카네슈티 인근에 집 한 채와 교회, 묘지까지 맨땅에서 지어 올렸다. 그리고 촬영이 끝나자 그 전부를 도로 헐었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ef047ecf2f4aeca5cfb5d98e87df07d524a24994f2a14892cd6bde16373eec0e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrey-zvyagintsev#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2011년 계급 드라마 《엘레나》는 애초 영국 프로듀서 올리버 던지를 위해 런던을 배경으로 한 영어 영화로 구상되었다. 하지만 즈뱌긴체프는 물러서지 않았다. 간병인이 부유한 남편을 죽이는 이야기는 오늘날 모스크바의 가혹한 계층 격차 안에서만 말이 된다는 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9807bf70076a4520eaca629e23d9950b148281d3c7345deac1df291765092154"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrey-zvyagintsev#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《엘레나》에는 새로 쓴 음악을 쓰지 않았다. 대신 미국 미니멀리스트 필립 글래스의 교향곡 3번, 그 음울한 현악을 집요하게 반복해 깔며 주인공이 살인으로 내려앉는 길을 받쳤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c403aa5a1dfe8de1824deef9221c168ae1c42e3176079ea1ade40cfffd952dea"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrey-zvyagintsev#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "부패를 정면으로 겨눈 러시아 서사시 《리바이어던》의 씨앗은 뜻밖에도 미국의 비극이었다. 2004년, 콜로라도에서 머플러 가게를 하던 마빈 히미어가 용도지역 분쟁 끝에 불도저로 마을을 밀어버린 사건이 즈뱌긴체프를 움직였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "524c3baf64ce28fb6c3b95f894e980fb47d1186290944ef636e631b540ff4ab4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrey-zvyagintsev#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《리바이어던》은 러시아 기득권을 격분시켰다. 문화부 장관 블라디미르 메딘스키는 '실존적 절망'을 이유로 이 영화를 공개적으로 성토했고, 서방 영화제 상을 타려고 러시아를 먹칠했다고 감독을 몰아세웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5bd2bc6df477d1357313f5cd8acd5c320c5c3fa8afa3dbbabbd3caca15465339"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrey-zvyagintsev#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2014년 러시아가 예술에서의 욕설을 법으로 금지한 탓에, 《리바이어던》의 자국 극장판은 보드카에 취한 인물들의 잦은 욕설을 지우려 대대적으로 더빙을 다시 해야 했다. 즈뱌긴체프는 이 국가 검열을 대놓고 경멸했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5f4acb4044c31ccdf2481b8b0604223971130f2d27e7bdb33b474fad8d522ed1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrey-zvyagintsev#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2017년의 걸작 《러브리스》는 처음에 잉마르 베리만의 《결혼의 풍경》을 러시아식으로 느슨하게 옮기는 기획이었다. 판권을 확보하지 못하자 그와 네긴은 방향을 틀었다. 아이가 사라진 뒤의 절차를 뒤쫓는, 견디기 힘든 이야기로.",
+  "model": "claude-opus-5",
+  "source_sha256": "796921aa293c8e0b118998fd9464e10603a467609eca88dd1a5c9442e2841b5c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrey-zvyagintsev#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《러브리스》에 다큐멘터리 같은 질감을 입히려고 즈뱌긴체프는 실제 러시아 자원봉사 수색구조 조직 리자 얼러트에 몸을 담갔다. 그들의 실제 코디네이터가 자문을 맡았고, 화면 뒤편에도 그대로 섰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a02326d2756ce7657a422d400a6c8a39b4a3a527abc9423815d967f6429d0b5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrey-zvyagintsev#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "동향의 안드레이 타르콥스키와 늘 비교되지만, 정작 그가 연출을 하고 싶다고 깨달은 순간은 다른 데 있다. 1990년대 모스크바 영화박물관에서 본 미켈란젤로 안토니오니의 《정사》. 그것이 그를 뒤흔든 계시였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a994c385d3d1d9a75c0b8ec2bc70be14ea5e04eb4eb80c5c560e1c6636bac78"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrey-zvyagintsev#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "블라디미르 푸틴 정부를 향해 목소리를 내는 비판자가 되었다. 수감된 동료 감독 키릴 세레브렌니코프를 공개적으로 옹호했고, 예술에 대한 국가 검열을 규탄하는 공개서한을 발표했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e7eb313df3ebd711db6d32ae94bd2d5806fe8d0fb5b7f012a729c2199c311ef4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrey-zvyagintsev#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2021년 7월, 즈뱌긴체프는 코로나19에 걸려 폐의 92%가 손상되는 지경에 이르렀다. 의료진은 그를 인위적 혼수 상태에 두었고, 독일 하노버의 전문 병원으로 항공 이송했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1da53244914f9b4692c7c4fd66fbeb9c734def5d59db53024c9da8cd1d6f1ea4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "andrey-zvyagintsev#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "죽음의 문턱까지 갔다가 돌아왔지만 심한 다발신경병증이 남았다. 말하는 법과 걷는 법을 다시 익히는 데만 1년이 넘게 걸렸고, 파리에서 휠체어에 앉은 채 고된 재활을 견뎠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd37b2ec505258b6e74952024619a30c4cfcfd49baa96d9f0de3b066175d623e"
+ }
+]

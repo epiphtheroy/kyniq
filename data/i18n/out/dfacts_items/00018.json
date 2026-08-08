@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "derek-cianfrance#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "다큐멘터리에서 출발한 사람답게, 그는 《The Place Beyond the Pines》를 뉴욕주 스키넥터디 현지에서 찍었다. 모호크어로 그 도시 이름은 곧 \"솔밭 너머의 땅\"이라는 뜻이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e28f7be6812b1b7461ae57457a805483814c968e71e74a7f7117f5223fd5fee"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "derek-cianfrance#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《The Place Beyond the Pines》 촬영장에서 그는 엑스트라로 쓴 실제 은행 창구 직원들에게 지시했다. 라이언 고슬링이 대본 없이 몰아붙일 때 연기하지 말고 그냥 반응하라고. 카메라에 담긴 공포와 눈물은 진짜였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d7a916c20216ca4558a82acdaeb1d5578dcbb7346ef87498aef305ff6d2a919"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "derek-cianfrance#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《The Place Beyond the Pines》의 은행 강도 장면을 두고 그는 물러서지 않았다. 라이언 고슬링이 실제 차량 사이를 고속으로 직접 달려야 한다는 것. 결국 배우는 차 36대를 헤집고 지나가는 위험한 스턴트를 컷 없이 한 번에 해냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0746a9b89c03459ebe74cf8a226087bd2825bc0d4dbe808ba91d0267af271518"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "derek-cianfrance#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《The Light Between Oceans》에서는 마이클 패스벤더와 알리시아 비칸데르를 뉴질랜드 외딴 케이프 캠벨의 등대에 몇 주간 실제로 살게 했다. 바람이 사정없이 때리는 고립된 곳. 인물이 겪는 고립을 몸으로 알아야 한다는 요구였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "87b8e3e899cbb9290a76f12543787aaaa3852fcd6797f6a8a41ba5ec980b28ae"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "derek-cianfrance#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "월리 램의 소설을 옮긴 HBO 미니시리즈 《I Know This Much Is True》에서, 그는 주연 마크 러팔로에게 촬영 중간에 6주를 쉬라고 요구했다. 30파운드를 늘려 몸을 바꾼 뒤, 자기가 연기하는 뚱뚱한 쌍둥이 형제로 돌아오라는 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9f604e46e1e70e0a57e18d88a389e489ab8cd2223a9f0e6fcdd79ca254a6c9ef"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "derek-cianfrance#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《I Know This Much Is True》를 만들며 시안프랜스와 마크 러팔로를 묶은 것은 각자의 상실이었다. 러팔로는 형제를 잃은 적이 있었고, 시안프랜스는 얼마 전 세상을 떠난 누이를 삭이는 중이었다. 두 사람의 애도가 그대로 이 황량한 작업에 쏟아졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8319010941168e86db272cfa5341b5d89ad5ab99286ed039abaa0e6d8749bb93"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "derek-cianfrance#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 통상적인 리허설을 몹시 꺼린다. 배우가 한 장면의 감정을 처음 겪는 순간이 카메라가 돌아가는 순간이기를 바라는 것이다. 그래야 \"사고\"와 즉흥적인 반응이 걸린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "51004c36fb4e421a888a23a120be573dccf7cbb82c730968f240ce6d04c627ee"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "derek-cianfrance#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아내는 영화감독이자 퍼포먼스 아티스트인 섀넌 플럼이다. 그가 미공개로 남긴 초기작 《Brother Tied》의 주연이었고, 그는 그를 가장 냉혹하면서도 없어서는 안 될 창작의 상대라고 자주 말한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "108f20946d7023874ae7c714ba6f49869ec0efb73986505ee52234809c1504fa"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "douglas-sirk#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "뮌헨과 예나, 함부르크에서 대학을 다니며 그는 법학과 철학, 미술사에 파묻혀 지냈다. 전설적인 미술사가 에르빈 파노프스키의 강의도 그때 들었고, 그것이 이후를 결정했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d020650d4791963ad79690a4f3a7028df5313000cc6e4c7a5333292557e8a62"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "douglas-sirk#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "바이마르 공화국 시기, 그는 브레멘과 라이프치히에서 이름난 연극 연출가로 올라섰다. 브레히트와 쿠르트 바일의 《서푼짜리 오페라》를 가장 이른 시기에, 가장 성공적으로 무대에 올린 사람 가운데 하나가 그였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2400eb3072662def002dd633721cb8ca04151aadf5dc65034ec5537a2035cd15"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "douglas-sirk#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "배우 리디아 브링켄과의 첫 결혼은 험한 이혼으로 끝났다. 그 뒤 그녀는 열성적인 나치 당원이 되었고, 법적으로 서크가 아들 클라우스 데틀레프 지르크를 다시는 만나지 못하도록 막았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b2c8d25ab65079310865c87271daa2ed3594c1274b2830fa1fbefb46e362999"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "douglas-sirk#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "두 번째 아내인 배우 힐데 야리가 유대인이었기에, 1930년대 독일에서 부부를 향한 박해는 갈수록 조여들었다. 제3제국을 빠져나갈 계획을 몰래 세우는 수밖에 없었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "59f1a8722da33c95c5eeedf61f56450fda5500363c74cd8d63674b16c443e0d1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "douglas-sirk#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "반나치 신념을 품고도 서크는 국가가 통제하는 UFA의 간판 감독이 된다. 그곳에서 그는 스웨덴 출신 가수 차라 레안더를 1937년 대흥행작 《La Habanera》로 체제 최고의 여성 스타로 만들어냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3b5a1c753b085846f8d710dc6ac608a762c9b6bcce03e75c5b3d3f8828fe03a5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "douglas-sirk#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "나치가 된 전처 때문에 아들과 완전히 끊긴 서크는 독일 극장에 조용히 들어가 앉곤 했다. 《Kadetten》 같은 선전영화의 유명 아동 배우가 된 클라우스를, 스크린에서 잠깐이라도 보기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "533fb02cde69f54d3e69a67f118d95cf87b8cc166eb9a6a65eb993b4e252d545"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "douglas-sirk#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1937년, 서크는 마침내 독일을 떠난다. 다음 UFA 작품의 촬영지를 테네리페에서 물색해야 한다고 구실을 댄 뒤, 그대로 스위스로 망명했고 종착지는 미국이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c1b81b22557f0ed64ed2d27fe1ae7d21bf5421221583c528d8b933f53dc1a4a6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "douglas-sirk#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아들 클라우스는 국방군에 징집되어 1944년 동부전선에서 열여덟에 죽었다. 서크의 후기 가족 멜로드라마 밑을 흐르는 우울과 운명론은 이 참혹한 상실에서 나온 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a53a2d8d5d82fc4ed53084c6202558af5e52dab3a4f9809d44ea9561279399c6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "douglas-sirk#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "할리우드 초년, 일이 좀처럼 들어오지 않던 시절이 있었다. 서크와 아내는 샌퍼낸도 밸리에서 알팔파를 기르고 닭을 치며 한동안 생계를 버텼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "46586d6d0a605f1203cc967a532c1fd3869bd2d8699a9c7ec73cae8232b3e387"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "douglas-sirk#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미국에서 처음 맡은 연출은 독립 제작자가 불러준 자리였다. 나치 고위 인물 라인하르트 하이드리히 암살을 다룬 스릴러 《Hitler's Madman》(1943)이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "138c7030fd7bb6278b67a9fe7c005cf567c14afc643a3eaaa5ea334ddc90a1b4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "douglas-sirk#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1950년대 유니버설에서의 절정기, 그는 제작자 로스 헌터와 자주 부딪쳤다. 화려한 도피처를 원하는 쪽과 사회를 찔러보려는 본능이 매번 맞섰던 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ad60a0475f26cff59d6b1a75745ec6e2d3d1fdc13cfd4f3c733cab40f35c9111"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "douglas-sirk#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "록 허드슨의 경력을 만들어낸 사람이 서크였다. 아직 설익은 배우를 《Magnificent Obsession》과 《All That Heaven Allows》에 앉히면서, 그를 세기 중반 할리우드를 대표하는 남자 주인공으로 바꿔놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aece1227bacec65e8b831148fbcbd62fbbb81ff4339d136803950717d0fc6a69"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "douglas-sirk#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "촬영감독 러셀 메티와 함께 그는 아주 구체적인 화면 어법을 벼려냈다. 창틀과 계단, 거울을 통과해 인물을 찍는 것. 억압적인 부르주아 가정 안에 인물을 눈으로 보이게 가둬버리는 방식이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "24a779939f7cd0ae65394405c8406e883aeb17ac78c0000345fecebddfaa9bc3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "douglas-sirk#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "교양이 깊은 지식인이었던 서크는 유니버설 사무실 책상에 고대 그리스 비극을 놓아두었다. 미국 교외의 통속극을 짜는 골격으로 그것을 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4aee267045ce3e4e09750b50d9a9b4b1617e3f90093904dd770f5f6a57a01dbb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "douglas-sirk#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Imitation of Life》가 엄청난 흥행을 거둔 직후, 예순두 살의 서크는 할리우드를 돌연 떠났다. 상업적 힘이 가장 셌던 바로 그 정점에서.",
+  "model": "claude-opus-5",
+  "source_sha256": "e412de1aab2475fcf117fb8709cf7e4f2f247657bf183ac328c3c3d0b8d7e40b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "douglas-sirk#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그와 힐데는 스위스 루가노에 자리를 잡았다. 영화 만들기는 사실상 접고, 처음 사랑했던 일로 돌��갔다. 뮌헨 영화학교에서 연극과 영화를 가르치는 일이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "91b65b0641c81b31f51b40760717ece05ddeb93b2a78f92735d386675bee2993"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "douglas-sirk#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "수십 년간 미국 비평은 그의 유니버설 시기 영화를 주부용 '눈물 짜기' 삼류 소모품으로 취급했다. 미국 자본주의와 인종주의, 순응주의를 향한 아이러니를 통째로 놓친 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "00654ff5da9ddfb096fa3d3376a7995e172c59fe2f463bd60473ae5335de4ed6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "douglas-sirk#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그의 비평적 명예를 되살린 것은 1971년 독일 감독 라이너 베르너 파스빈더, 사실상 한 사람이었다. 루가노로 서크를 찾아간 그는 「더글러스 서크의 영화 여섯 편」이라는 글을 썼고, 그 글이 서크의 자리를 다시 정의했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "83f29f66c413d90a141d8e655a42f33d3541c1bf14bcbaed6c2a6f6dc5fefdac"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "douglas-sirk#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1958년 그는 에리히 마리아 레마르크의 2차 대전 소설을 《A Time to Love and a Time to Die》로 옮겼다. 그러면서 레마르크 본인을 캐스팅해, 인물에게 마음을 여는 교수 역의 조연으로 세웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "edc47ac034fcfb11fb0bbda21f6047a3ca8bf099d342b73f47774563067b68d8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "douglas-sirk#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1978년, 시력이 급격히 나빠지고 있었지만 서크는 잠시 연출 의자로 돌아온다. 뮌헨의 제자들과 함께 테네시 윌리엄스의 단막극을 옮긴 단편 《Bourbon Street Blues》를 찍었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "88417a3e3f230a89ebcaa0e3b9289bbd1bf22c1f29ceda36a15a38e403900dfb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "douglas-sirk#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1987년 그가 세상을 떠난 뒤, 그의 유산은 퀴어 시네마의 토대가 되었다. 토드 헤인스 같은 감독은 2002년의 걸작 《파 프롬 헤븐》에서 서크의 세기 중반 미학을 한 겹씩 되짜 맞췄다.",
+  "model": "claude-opus-5",
+  "source_sha256": "72fb860194af3261ee843d20d51da5971710524e707a035654d504b5c404ddc4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edgar-wright#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "태어난 곳은 풀이지만 자란 곳은 서머싯의 조용한 성당 도시 웰스였다. 그림 같은 풍경과 남 얘기가 끝없이 도는 공기, 라이트는 그 고향을 시골 경찰 코미디 《뜨거운 녀석들》의 착상과 주요 촬영지로 그대로 가져다 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb60566a1ceb09ff59ce868adb3551b1077c5c310cea55bbadf8e3fa5a717d98"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edgar-wright#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "열네 살에 그는 캠코더를 상으로 받았다. BBC 어린이 프로그램 《Going Live!》의 코믹 릴리프 공모전에 〈I Want to Get into the Movies〉라는 스톱모션 단편을 보낸 것이 계기였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d3e6cb836f21e1a58b8c3781e02027499b1fefd8d5141f27131e9e66df53c80b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edgar-wright#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "십대 시절에는 돈 한 푼 없이 《더티 해리》 패러디 《Dead Right》를 연출했다. 서머싯 지역 노인들을 엑스트라로 동원하고 동네 슈퍼마켓을 가로지르는 난장판 추격전까지 넣은, 야심만은 대단한 작품이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e455c959f39a979de7779a21a904d25142c150b9977df0538fd82a59140c5c8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edgar-wright#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "본머스·풀 미술디자인 칼리지에 다니던 그는 강사들과 잦게 부딪쳤다. 장르 색이 짙은 그의 코미디 영상 과제를 진지하지 않고 남의 것 베낀 물건으로 치부했기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "79b12ee818ffb4b22ac9e4bc240db292594d4867db2be3d02d0ad270875ddd30"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edgar-wright#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "초저예산 데뷔작에 감탄한 루카스와 월리엄스는 스물한 살의 라이트를 불러 파라마운트 코미디 채널 시리즈 《Mash and Peas》의 연출을 맡겼다. 그의 방송계 입문이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b3b4ad70f084523e79b3fa9d8da8a046fa32abef0d185f21c690cdbbcf2bc838"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edgar-wright#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《베이비 드라이버》의 발상은 1994년에 이미 다 있었다. 스무 살의 라이트가 존 스펜서 블루스 익스플로전의 \"Bellbottoms\"를 듣다가, 그 곡에 완벽히 맞아 들어가는 은행 강도 장면을 머릿속에서 본 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca4c249a3e4970f510bbc60de64335cbd9a6658a62bd59e6389dbf085ab6e0e7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edgar-wright#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그 착상을 처음 시험한 것은 2003년, 민트 로열의 \"Blue Song\" 뮤직비디오였다. 음악에 빠진 도주 운전자로 코미디언 노엘 필딩이 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c58a4256411fe54e7fe3c013d61afdaeeae13a5e1181bf95de33876b2b1d12a3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edgar-wright#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《새벽의 황당한 저주》는 그와 사이먼 페그가 우상 조지 A. 로메로에게 잘 보이려고 쓴 영화였다. 로메로는 그 영화를 어찌나 좋아했던지, 2005년작 《랜드 오브 데드》의 사진 부스 좀비 역으로 두 사람을 불렀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "572e7b7514a7f5db801a0a45d204bdcf0d976fed0dc775ca87405a9148d93ba5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edgar-wright#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "\"세 가지 맛 코르네토\" 3부작은 농담에서 시작됐다. 《뜨거운 녀석들》 홍보 자리에서 한 인터뷰어가 반복되는 아이스크림 개그를 짚자, 라이트가 페그와 만든 영화들을 뒤늦게 묶어 3부작으로 이름 붙인 것이다. 키에슬로프스키의 《세 가지 색》을 비튼 작명이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "781f89e806ef671e58488e7b08add4ae8e793cf38d57e0759bccec6397009a54"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edgar-wright#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 자기 영화에 A급 스타를 몰래 심어 넣는 습벽이 있다. 《뜨거운 녀석들》에서 마스크를 쓴 과학수사 요원이 크레딧에 없는 케이트 블란쳇이고, 실성한 산타클로스가 피터 잭슨이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9f0100fb42b7aa4c78966ca52a5d4c94886039b8f4569a56698f7de3a91aad5f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edgar-wright#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "쿠엔틴 타란티노와 로베르토 로드리게스의 2007년 동시상영 기획 《그라인드하우스》에서 라이트는 가짜 예고편 〈Don't〉을 맡았다. 1970년대 호러를 흉내 낸 그 영상은 주말 하루이틀 만에 전부 찍었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d2d803b0d21122090f202b61329d36cfe41f3c1789d2e614b8806b082994351"
+ }
+]

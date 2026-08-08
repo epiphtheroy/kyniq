@@ -1,0 +1,92 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lamb-2021",
+  "field": "lead",
+  "film_id": "6c5a2bf2-2677-4fac-a0de-24b60496d78d",
+  "lang": "en",
+  "text": "A farm in Iceland, a herd of sheep, and a newborn found on the land that belongs to no one who can be asked about it. The couple bring it inside and raise it, and Valdimar Jóhannsson's interest is not the shock of that but the housekeeping around it: chores that do not pause, animals that still need feeding, weather arriving on its own schedule. The film took a European Film Award for visual effects, an odd prize for something so committed to mud, wool and low cloud — the work being plausibility rather than spectacle, a creature the household treats as ordinary. Horror is on the label and comes in slowly, out of the fact that happiness this particular has to be defended. A hundred and six minutes, most of them quiet, at a long distance from anyone who might ask questions.",
+  "model": "claude-opus-5",
+  "source_sha256": "3677cd7e46db2dd6a8fe2d67d2fa37f62fe4a5d3d210655e6f4babaf2ea51368"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "snow-2008",
+  "field": "lead",
+  "film_id": "8b9584c8-5e59-4557-960b-f5e4e7475e9d",
+  "lang": "en",
+  "text": "The men are gone, and what is left in the village is widows, children, and a day's work that still has to be finished. Aida Begić set her first feature in Bosnia after the 1992–95 war and withheld everything such a film usually supplies: no shelling, no bodies, no atrocity to account for the arithmetic of who is missing. A hundred minutes of chores instead, of bargaining and small decisions taken by women who never expected to be the ones deciding. The dead are present as paperwork, as rumour, as fields that need someone, as questions with no office to send them to. It was named European Discovery of the Year; the discovery is a way of filming aftermath in which nothing detonates and nobody is spared.",
+  "model": "claude-opus-5",
+  "source_sha256": "3444697e929f9e053b37f2b34f2b9e68e46d14b94a1b42960679e57b4a9a8dbf"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "in-the-dusk-2019",
+  "field": "lead",
+  "film_id": "741e6977-c1bd-4a14-937a-741d21360098",
+  "lang": "en",
+  "text": "Three years after the war ended, the shooting in Lithuania has not stopped. Untė is nineteen and part of the partisan resistance to Soviet occupation, in a fight Šarūnas Bartas concedes from the outset is not conducted on equal terms: too few of them, nothing coming, and an occupier who can simply wait. Across 128 minutes the danger is less a matter of battle than of company — who sits at the table, who leaves early, who repeats what was said there. Treachery is not a device in this film but a working condition, and a nineteen-year-old absorbs it at the same age he absorbs everything else. A Czech production spoken in Lithuanian, set in a country whose ruins are three years old and already look permanent.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6a65d9bfa333cba8e1d918a552080f8186a75e3e24c346cb9874af9d91469b5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "strange-days-1995",
+  "field": "lead",
+  "film_id": "1d8fec07-30a0-476d-828b-41f0d7a7c58a",
+  "lang": "en",
+  "text": "The commodity is recorded experience, sold by the disc, and one disc has a murder on it. Lenny Nero, ex-cop and street hustler, is the man holding it, which is how a black market turns into a case. Kathryn Bigelow set this in the final days of 1999 and shot it in 1995, giving the future a lease of four years: same streets, same cars, more crowds, one new product. At 145 minutes there is room for the trade to acquire a whole social order — who buys, who sells, who won't touch the stuff — and for Lenny to be far better at that trade than at his own life. Mace, hired to keep him breathing, does the driving and most of the thinking. What comes at him is blackmail before it is violence, and underneath it the countdown to midnight keeps running while the crowds get larger.",
+  "model": "claude-opus-5",
+  "source_sha256": "85adbf79f3103c0f80d3cf5aebec96ae95e0bf67089f8751b56a0a79eb92de74"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-bride-for-rip-van-winkle-2016",
+  "field": "lead",
+  "film_id": "119504f3-03fa-4f64-bade-40b6b5375bbd",
+  "lang": "en",
+  "text": "The wedding photographs will be accurate about one person only; everyone else in them has been hired. Shunji Iwai gives that arrangement 179 minutes, and the length is the whole decision: in twenty minutes it is a joke about loneliness, at three hours it becomes an occupation, with costs, rehearsals, instructions and people who need paying afterwards. A woman who can commission relatives on request has already worked out what her real ones are worth. What holds the film is not the deception but what the deception produces — paid strangers behaving warmly, warmth that is genuine for the length of the booking, and the difficulty of saying where the difference lies. Three hours is long enough for the hired family to start meaning something, which is the risk the premise runs.",
+  "model": "claude-opus-5",
+  "source_sha256": "10d8b0ad9f3fea12cee4bf188e668f1a8e4db2b16186a20f628fb4118851ed58"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-new-girlfriend-2014",
+  "field": "lead",
+  "film_id": "769bd468-1b4d-4004-ad04-c18d9e03cd0d",
+  "lang": "en",
+  "text": "A woman dies young, and her closest friend keeps turning up at the widower's door. François Ozon builds from a plain fact about grief: two people can share exactly one person to miss, and find that nobody else wants to hear about her. What the friend discovers there is the film's own business, and it stays there — the summaries flag it as a surprise, and it is better met without warning. What can be said is that the pressure is domestic rather than lurid: how fast a household reorganises, how obliging people become when they want something they cannot yet name, how much a friendship will carry as long as nobody demands a word for it. A hundred and five minutes that depend on two performances keeping their composure while the arrangement changes shape.",
+  "model": "claude-opus-5",
+  "source_sha256": "17a36d43642190eedd4013ba3f6a1c7f82938f3a13ac92fbc70719ba638ad5d4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "valmont-1989",
+  "field": "lead",
+  "film_id": "78439933-6631-49b6-ab43-d45568c48b6b",
+  "lang": "en",
+  "text": "The wager is agreed before the woman it concerns has said a word: a widow and her lover bet on whether her virtue can be dismantled, and stake each other as the prize. Miloš Forman takes 137 minutes over Baroque France and spends them on procedure — visits paid, invitations accepted, appearances managed, a campaign conducted at the pace of a season rather than a night. The Academy's award went to the costume design, which in this story is equipment rather than decoration: who may touch whom is legible in cloth before anyone speaks. Valmont's confidence rests on an assumption he has never had cause to test, that a man who arranges feeling is himself out of reach. The married woman is called honourable, and the film treats that as a fact about her, not a score to be settled.",
+  "model": "claude-opus-5",
+  "source_sha256": "2c3710e1a6090eb86e75c518d89b792f86bbadb398aa463f03bba72caf97f616"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "manhattan-murder-mystery-1993",
+  "field": "lead",
+  "film_id": "b5747a50-a6fd-40e3-9dc1-98cbb42b3641",
+  "lang": "en",
+  "text": "The neighbour's wife drops dead, and the couple across the hall decline to accept the obvious. Woody Allen's comedy runs on suspicion as a marital pastime: a husband and wife with evenings to fill, a theory neither will quite abandon, and an investigation carried out mostly by loitering. The mystery is solid enough to keep 104 minutes moving, but the pleasure is in watching a long-settled pair discover they disagree about what a free evening is for — one of them has found a project, the other has found an argument. Middle age is not treated as an affliction here; it is a cover story for behaving badly in lobbies and stairwells. Manhattan supplies the conditions: apartments where neighbours are visible, audible, and just far enough off to be misread.",
+  "model": "claude-opus-5",
+  "source_sha256": "bc03783b2a66f77df1d7724c138a245faea4d3e409e20d01c672648a575f5b1e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "born-to-be-blue-2015",
+  "field": "lead",
+  "film_id": "bc029bab-5298-4638-b25f-02ea5836cabe",
+  "lang": "en",
+  "text": "A biopic in which the subject is hired to act in a film about his own life. Chet Baker's comeback, as Robert Budreau arranges it, runs through a film set: the trumpet player cast as himself, a director requesting takes of his worst years, a crew waiting for him to get it right. The doubling does work a music picture usually hands to montage — every performance happens twice, once for the camera inside the story and once for the one outside it. Love arrives tied to the project, and so does the recovery, which leaves both dependent on the picture continuing and on him staying employable. Ninety-seven minutes in which the question is never whether he can play, but whether anyone still expects him to arrive.",
+  "model": "claude-opus-5",
+  "source_sha256": "19481692f3fb1a8fcfd0788727519fd5b2a8dafdacbd31ae72ca9f1c220d0653"
+ }
+]

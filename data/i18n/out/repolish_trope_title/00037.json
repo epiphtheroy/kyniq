@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-splintered-into-heteronyms",
+  "field": "title",
+  "lang": "ko",
+  "text": "이명(異名)으로 흩어진 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "0e4fdd29ec45bfdf62d7ed04b1d1df67bd8dc2e00b883689882b1a6250837b28"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-subtracted-held-in-remission",
+  "field": "title",
+  "lang": "ko",
+  "text": "덜어낸 자아, 잠시 멎은 채로",
+  "model": "claude-opus-5",
+  "source_sha256": "1204c52ccc40e4401df9abcfc1338bb9314fd1fed92f6691eed9bfef8d5ff1f6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-surrendered-to-become-another",
+  "field": "title",
+  "lang": "ko",
+  "text": "남이 되려고 내어준 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "e9d953b3c591ea014f68c3adf65796eba89efb4e26e8a6b3d50f6e3823d4779f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-that-lives-only-in-the-present",
+  "field": "title",
+  "lang": "ko",
+  "text": "현재에만 사는 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "3467771be4781819b1cab519463b7721a56ea98708fc7e71b70671955a0a667d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-that-needs-its-opposite-to-exist",
+  "field": "title",
+  "lang": "ko",
+  "text": "반대편이 있어야 존재하는 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "57e6a91ca7bb2ec1cb71b8a280cb73ac124e9b1a011c5a15bc709df9cfab27d9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-that-walks-beside-herself",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 옆을 나란히 걷는 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "61cb9664b4518c357e8f0d4fcabbd7d7d38fb6d3189e52e4905a5ef8e45991d6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-that-will-not-hold-its-image",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 얼굴을 붙들지 못하는 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "65bb7d3a94135f34df6a8e398c34fc9b78978a82510f20b5a4542050fa7c437e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-used-as-a-means",
+  "field": "title",
+  "lang": "ko",
+  "text": "수단이 된 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "3bb372c6aac3a5694c1978dd0f578a19c2f48932c91534b3889956f68cde5931"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-withheld-from-those-who-love",
+  "field": "title",
+  "lang": "ko",
+  "text": "사랑하는 이에게만 감추는 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "7ba639dd5d618074f8cc1d040f289fa189f2565b0cd93ae0762dad9d09c0f38b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-worn-as-borrowed-persona",
+  "field": "title",
+  "lang": "ko",
+  "text": "빌려 입은 페르소나",
+  "model": "claude-opus-5",
+  "source_sha256": "ae21d0e5425eabd8503e68ce55924238c9efe41213889dd274c0a1d0f3239943"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sent-down-generation-read-as-surface",
+  "field": "title",
+  "lang": "ko",
+  "text": "표면으로만 읽히는 하방 세대",
+  "model": "claude-opus-5",
+  "source_sha256": "237b077259ddf20c20816e35dcbf881de45970c6457b3308bf6f308c93523d6a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sentimentality-charge-as-critical-cowardice",
+  "field": "title",
+  "lang": "ko",
+  "text": "감상적이라는 혐의, 비평의 비겁",
+  "model": "claude-opus-5",
+  "source_sha256": "640fc28640fdf6660817bcb8fe4d642ce434aca9ec1619c6acaa59debb97907c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-seoul-stairs-that-devour-their-climbers",
+  "field": "title",
+  "lang": "ko",
+  "text": "오르는 자를 삼키는 서울의 계단",
+  "model": "claude-opus-5",
+  "source_sha256": "90ec684e1f3a97dce85315a660d77ff290b2ea506118f93ba153ddc37015224b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sequel-critics-forgave-for-mourning",
+  "field": "title",
+  "lang": "ko",
+  "text": "애도했기에 용서받은 속편",
+  "model": "claude-opus-5",
+  "source_sha256": "1513e09911c5b768d8a532867becdf174e31fdbb8616343e823a388c257833b4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sequel-number-as-its-own-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "속편의 숫자가 곧 주제다",
+  "model": "claude-opus-5",
+  "source_sha256": "620e946870a04ed88bb36750996ff3c10c9594f7e4bc1526327bbb9345451f33"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sequel-that-fears-its-own-forebear",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 전작을 두려워하는 속편",
+  "model": "claude-opus-5",
+  "source_sha256": "8948b5cc5b3ef1ba7f1283db6d44780208bf0bf7d1dd70ffadfc4dfb060a6db4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sermon-weaponized-into-performance",
+  "field": "title",
+  "lang": "ko",
+  "text": "무기가 된 설교, 쇼가 된 설교",
+  "model": "claude-opus-5",
+  "source_sha256": "c1519b98ee82268a55804e9a047c39000e541037a961aea342a05d3e92ea52f0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sert-o-as-brazil-s-mythic-backland",
+  "field": "title",
+  "lang": "ko",
+  "text": "브라질의 신화적 오지, 세르탕",
+  "model": "claude-opus-5",
+  "source_sha256": "a2779766835b7658aa219694dc898ea83a494ee3fbe9a94faaf0501ab25adc9e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-servant-holds-the-sharpest-knife",
+  "field": "title",
+  "lang": "ko",
+  "text": "가장 날 선 칼은 하인이 쥔다",
+  "model": "claude-opus-5",
+  "source_sha256": "8f0ca6f73aeacc8c2bae7c3fcb3c5cac2abb5642cd06d91721c52ba898821c9f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-servant-who-carries-the-house-s-disavowal",
+  "field": "title",
+  "lang": "ko",
+  "text": "집이 부인한 것을 짊어진 하인",
+  "model": "claude-opus-5",
+  "source_sha256": "5f1e3fad91f61de73ca5531ddd1e938628ad04ba6e4b18928cf347c21168fcf7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-servant-who-exposes-the-master",
+  "field": "title",
+  "lang": "ko",
+  "text": "주인을 까발리는 하인",
+  "model": "claude-opus-5",
+  "source_sha256": "8d51baf51bee4911b8afcd223918a980f435d9386b077cf256024a08112a43f0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-servant-who-manages-her-master-s-sleep",
+  "field": "title",
+  "lang": "ko",
+  "text": "주인의 잠을 관리하는 하녀",
+  "model": "claude-opus-5",
+  "source_sha256": "3b0da75df59794f81d1cd4f5a4f0cb34243b5f8ef9c84bcee3ce221c7b511b12"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-servant-who-secretly-runs-the-house",
+  "field": "title",
+  "lang": "ko",
+  "text": "실은 하인이 집을 굴린다",
+  "model": "claude-opus-5",
+  "source_sha256": "75f7dd59c079a1ac9c71295a9dfeab51a4135076deb955b85a9eaaee06bc8ed2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-servant-whose-worship-conceals-forbidden-desire",
+  "field": "title",
+  "lang": "ko",
+  "text": "숭배로 위장한 금지된 욕망",
+  "model": "claude-opus-5",
+  "source_sha256": "bd83e25ad2b10e20ab6de1f717281c9aace0bdf515f1612236c14e7be821b006"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-served-who-quietly-becomes-sovereign",
+  "field": "title",
+  "lang": "ko",
+  "text": "조용히 왕이 되는 섬김받는 자",
+  "model": "claude-opus-5",
+  "source_sha256": "a57b17ef3877554a7a0d00262744dd58b9d86a66933c8be963b1085238a30924"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-set-is-a-world-with-no-outside",
+  "field": "title",
+  "lang": "ko",
+  "text": "바깥이 없는 세계, 세트",
+  "model": "claude-opus-5",
+  "source_sha256": "03c660235cf2e962ae2962067cbc84f84310f5e5939e51642800e13ccbb10583"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-set-more-honest-than-the-real",
+  "field": "title",
+  "lang": "ko",
+  "text": "실물보다 정직한 세트",
+  "model": "claude-opus-5",
+  "source_sha256": "094655b1d2cc122cffaaa7dbd59572e606f7a6cfddfd26d0b3ea4458f96a64d0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-set-that-indicts-its-own-building",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 지어졌음을 고발하는 세트",
+  "model": "claude-opus-5",
+  "source_sha256": "9d60fd4bdfe453bc414918c4b7fc053cebd6cdcf0e1a529eab4389907ecd4781"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-set-that-lies-to-tell-the-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "진실을 위해 거짓말하는 세트",
+  "model": "claude-opus-5",
+  "source_sha256": "96887558e2002ff80a0d1c49acdfe8ae2093d665a0deeb810db7176bf1bbcf46"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-set-that-refuses-its-geography",
+  "field": "title",
+  "lang": "ko",
+  "text": "지리를 거부하는 세트",
+  "model": "claude-opus-5",
+  "source_sha256": "40ec919e3abd49f8c7f0bbd5aef3697da320f166b00114422ef7cbd12c75794c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-settlement-as-a-devouring-gut",
+  "field": "title",
+  "lang": "ko",
+  "text": "먹어치우는 창자로서의 정착지",
+  "model": "claude-opus-5",
+  "source_sha256": "58541b999e2e1952b0e70a758e7e18325bb808e64c2f2feefd3f9c583050ca65"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-settler-who-mistakes-possession-for-belonging",
+  "field": "title",
+  "lang": "ko",
+  "text": "가진 것을 속한 것으로 착각하는 정착민",
+  "model": "claude-opus-5",
+  "source_sha256": "99ca867d794c94a5831290149f831f55b61b008890b35bd917cc18307ee51ac6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-severed-body-part-as-symbolic-castration",
+  "field": "title",
+  "lang": "ko",
+  "text": "잘려나간 신체, 상징적 거세",
+  "model": "claude-opus-5",
+  "source_sha256": "70d72e835c24e0c95ad2134e7b93b94a7bbb76c2d7a8f2a2167f8a20be64fdfc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-severed-hair-as-seized-sovereignty",
+  "field": "title",
+  "lang": "ko",
+  "text": "잘린 머리카락은 빼앗긴 주권이다",
+  "model": "claude-opus-5",
+  "source_sha256": "e4ae109ea25746acab8d70fa6ebf43e98c4878b298820b6fa1eca01fb7bb7300"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-severed-hand-as-disavowal-of-castration",
+  "field": "title",
+  "lang": "ko",
+  "text": "거세를 부인하는 잘린 손",
+  "model": "claude-opus-5",
+  "source_sha256": "9c39480732a631a295de4073b689136907b9cf9715a5c3eab58b3b8a618c4aab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-severed-head-that-outlives-its-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸보다 오래 사는 잘린 머리",
+  "model": "claude-opus-5",
+  "source_sha256": "92a450caf8af20787afbed3b7f96d469ffcbc4b7a0e90dfe577f74697f53b382"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-severed-limb-is-the-repressed-made-flesh",
+  "field": "title",
+  "lang": "ko",
+  "text": "잘린 사지, 살이 된 억압",
+  "model": "claude-opus-5",
+  "source_sha256": "0758810ad69d623db4f8e55def91979d713fd77101b96d93d38ce5cf14dcb37d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-severing-that-avenges-a-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "상처를 갚는 절단",
+  "model": "claude-opus-5",
+  "source_sha256": "0283be38fba2651f393869ea57d9ec2ab25655dd01a6c2915a391c5cf2a3842d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sex-worker-who-authored-her-own-image",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 이미지를 직접 쓴 성노동자",
+  "model": "claude-opus-5",
+  "source_sha256": "d85581b5e79a200045935737c2fb4ebd7bcf2f160f9015306fd8dac080b8cb51"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-shadow-as-an-autonomous-disavowed-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "부인당한 채 홀로 움직이는 그림자",
+  "model": "claude-opus-5",
+  "source_sha256": "c1b97bcdaf68d2089f27f5079e34845417e9fb9750ff74df146eabee5ca203ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-shadow-as-refusal-of-studio-light",
+  "field": "title",
+  "lang": "ko",
+  "text": "스튜디오 조명을 거부하는 그림자",
+  "model": "claude-opus-5",
+  "source_sha256": "75f36754ce45872a4aa7047c073eb608d877cfd6bd29954119a4c4bbec4ccbd8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-shallow-focus-as-moral-confinement",
+  "field": "title",
+  "lang": "ko",
+  "text": "얕은 심도, 도덕의 감방",
+  "model": "claude-opus-5",
+  "source_sha256": "8877cbd64b18373bcb56f90e9a5a2933b70e0f181c83df7165e16e3782dea458"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ship-of-theseus-replaces-its-parts",
+  "field": "title",
+  "lang": "ko",
+  "text": "테세우스의 배가 제 부품을 갈아 끼운다",
+  "model": "claude-opus-5",
+  "source_sha256": "1c433b98c4650579383b4de3e2d39368695cf64bdfdc2b35f8f3304812736e2b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-shoot-s-duration-bled-into-the-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "촬영에 걸린 시간이 화면에 배어들다",
+  "model": "claude-opus-5",
+  "source_sha256": "53103ca86ed3aa5efd28ad194a3679a2444b59330be1088ed4c0ef15ef4bd83c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-shorn-head-as-violent-unmaking-of-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "삭발, 자아를 부수는 폭력",
+  "model": "claude-opus-5",
+  "source_sha256": "35859bb6740366a87f82038c50180eb5efc5de8172d243a76f05a7e955ed0665"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-shot-held-past-its-dramatic-use",
+  "field": "title",
+  "lang": "ko",
+  "text": "쓸모가 끝난 뒤에도 놓지 않는 쇼트",
+  "model": "claude-opus-5",
+  "source_sha256": "c55fb10d2970abcd6a2dfb715a20a99ecf7983777c183d3d138096f59d03b5d1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-showman-who-trades-in-your-gaze",
+  "field": "title",
+  "lang": "ko",
+  "text": "당신의 시선을 팔아먹는 흥행사",
+  "model": "claude-opus-5",
+  "source_sha256": "c2a45e53e264a8e67d3621e88bfbeb54b5f20afcdd10b8066d603cd6f16cafa5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-showman-who-weaponizes-skepticism",
+  "field": "title",
+  "lang": "ko",
+  "text": "의심을 밑천 삼는 흥행사",
+  "model": "claude-opus-5",
+  "source_sha256": "6c436f5a8233ee9556ad71175b086ca5cba50fbbc5176d997b32d1b7e3ca0482"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sibling-as-buried-family-symptom",
+  "field": "title",
+  "lang": "ko",
+  "text": "형제라는 이름의 묻힌 가족 증상",
+  "model": "claude-opus-5",
+  "source_sha256": "49b1618ba61f05d8e453005ec1397a426a42f5283cdb4c999966736aaa23adc5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sibling-as-unspeakable-incest-object",
+  "field": "title",
+  "lang": "ko",
+  "text": "입에 담을 수 없는 욕망의 대상, 형제",
+  "model": "claude-opus-5",
+  "source_sha256": "2ead5af3bfeff56635ad13bb77c87e91af8bcb51e25ae4faa1a1f892e3e1749a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sign-detached-from-its-referent",
+  "field": "title",
+  "lang": "ko",
+  "text": "지시체에서 떨어져 나온 기호",
+  "model": "claude-opus-5",
+  "source_sha256": "2769e7496c3f117ab9db4e837b02e79a25bd0f530a49886bfd22c88ed6b9d722"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sign-that-points-at-nothing",
+  "field": "title",
+  "lang": "ko",
+  "text": "아무것도 가리키지 않는 기호",
+  "model": "claude-opus-5",
+  "source_sha256": "e7f5a3ec766483c48fdf539cffa45c43f8edd4af45cef86a8ba820fe2804bf4d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-signature-as-instrument-of-state-capture",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가가 사람을 잡는 도구, 서명",
+  "model": "claude-opus-5",
+  "source_sha256": "d81db273eab59054b4e60f5cfe24e57ee7b7f3fad4469ab5d48bb003f32ec55c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-signature-that-erases-the-witness",
+  "field": "title",
+  "lang": "ko",
+  "text": "증인을 지우는 서명",
+  "model": "claude-opus-5",
+  "source_sha256": "9e90bbe12b36b82150020044c0187eda46d20715ebbbb92bb9401231aa75300d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-silence-that-cannot-mourn",
+  "field": "title",
+  "lang": "ko",
+  "text": "애도하지 못하는 침묵",
+  "model": "claude-opus-5",
+  "source_sha256": "7f47b866f82647d84cb0c7f629461731ea22692e3ad7ca9af4e088fec710e1c5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-silence-that-confesses-what-speech-cannot",
+  "field": "title",
+  "lang": "ko",
+  "text": "말이 못 하는 고백을 하는 침묵",
+  "model": "claude-opus-5",
+  "source_sha256": "07581f81a618a905958bbdb8fe09a382f3f6cc5e41bf6d23eed54b26f2131066"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-silence-that-hardens-into-a-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸으로 굳는 침묵",
+  "model": "claude-opus-5",
+  "source_sha256": "9b88c9a65327d993e17f43d694914ee5558399c2c1aaaf87aa4b79f3046cdab1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-silence-that-heals-the-cosmos",
+  "field": "title",
+  "lang": "ko",
+  "text": "우주를 낫게 하는 침묵",
+  "model": "claude-opus-5",
+  "source_sha256": "b357b3a2b82be8d9ed4e0251dc61bddbe1d752a19e76d6b1c718a930d74359ec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-silenced-tongue-as-colonial-subjection",
+  "field": "title",
+  "lang": "ko",
+  "text": "입 막힌 혀, 식민의 예속",
+  "model": "claude-opus-5",
+  "source_sha256": "31ceaeaeb734bba188f6f18aabc08d2fb06c96a582df26fec3e8463391329c3d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-silent-clown-who-speaks-in-slaughter",
+  "field": "title",
+  "lang": "ko",
+  "text": "말 없는 광대는 살육으로 말한다",
+  "model": "claude-opus-5",
+  "source_sha256": "de1aaa8577e00ca7f3c1c9dac7ae025033bd9306db22258779b271ae2e983ad0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sin-committed-by-looking-away",
+  "field": "title",
+  "lang": "ko",
+  "text": "눈 돌려서 짓는 죄",
+  "model": "claude-opus-5",
+  "source_sha256": "44abe00fa6b19757ebe0c7a59b1f785e663c0d2c6da920c1e6d9f26a09014d27"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-singer-who-voices-another-s-grief",
+  "field": "title",
+  "lang": "ko",
+  "text": "남의 슬픔을 대신 부르는 가수",
+  "model": "claude-opus-5",
+  "source_sha256": "27c85fddeb2ab32c445586741d41f958b2108c775e12e6ca13db94f48c1cf26c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-single-building-as-whole-world",
+  "field": "title",
+  "lang": "ko",
+  "text": "건물 한 채가 세계 전부",
+  "model": "claude-opus-5",
+  "source_sha256": "47cca8cfa81cfeb998ffd53dc1a1e3431eb172ee679151e383d7e918aeaa9d40"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-single-cipher-that-unlocks-everything",
+  "field": "title",
+  "lang": "ko",
+  "text": "전부를 여는 암호 하나",
+  "model": "claude-opus-5",
+  "source_sha256": "5089a81d4e8cfdc900befdcd6da6ad9f8ba280d9b9d032d86a916b295f77c4b3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-single-conveyor-belt-of-abandonment",
+  "field": "title",
+  "lang": "ko",
+  "text": "버림이라는 하나의 컨베이어 벨트",
+  "model": "claude-opus-5",
+  "source_sha256": "9e9680069625b6fa381a5b72c9188dc373489df162e854a1960f86a896fcb9d7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-single-day-dilated-into-eternity",
+  "field": "title",
+  "lang": "ko",
+  "text": "영원으로 늘어난 하루",
+  "model": "claude-opus-5",
+  "source_sha256": "45aa672038f1bee099d5e117cee7b46cd65cd2bc46d425351ef3ee82d3a9d258"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-single-detail-that-detonates-the-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화를 터뜨리는 디테일 하나",
+  "model": "claude-opus-5",
+  "source_sha256": "8ded85e7386a2f8549d9a0a0a7d76c38bfda6354d3137ea726faa224611af3e7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-single-detail-that-solves-everything",
+  "field": "title",
+  "lang": "ko",
+  "text": "전부를 풀어내는 디테일 하나",
+  "model": "claude-opus-5",
+  "source_sha256": "3b8142693f6eb58559b63c2d72fcc5ec5e08579b9a2fb502799b5fdbc2d24cb2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-single-object-that-decodes-the-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화를 해독하는 사물 하나",
+  "model": "claude-opus-5",
+  "source_sha256": "32dd0a5fdbca88fe550abb71bb8d3717ea69447028ba4ae08f499791a3921414"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-single-object-that-decodes-the-whole",
+  "field": "title",
+  "lang": "ko",
+  "text": "전체를 해독하는 사물 하나",
+  "model": "claude-opus-5",
+  "source_sha256": "01b100260a8ea7410a55eac0bf16c41e33bd50b6b20fe87876871ef9ec744e51"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-single-object-that-solves-the-whole-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화 전체를 푸는 사물 하나",
+  "model": "claude-opus-5",
+  "source_sha256": "bc9f7313d527f663956857cf09f0f17eea0753834d58509986586d4726dd6433"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-single-stain-that-returns-the-repressed",
+  "field": "title",
+  "lang": "ko",
+  "text": "억압된 것을 불러오는 얼룩 하나",
+  "model": "claude-opus-5",
+  "source_sha256": "a850278ddcf3182d9311fb8e26da9debdccb518078d9c59dc217b3a5af29e750"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-single-touch-that-decodes-everything",
+  "field": "title",
+  "lang": "ko",
+  "text": "전부를 해독하는 손길 하나",
+  "model": "claude-opus-5",
+  "source_sha256": "7c368aff8a4172bcf2846ee2bcad7a89969366334985f3e80a14c93e26565409"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sinking-city-knows-what-the-plot-denies",
+  "field": "title",
+  "lang": "ko",
+  "text": "가라앉는 도시는 플롯이 부정하는 것을 안다",
+  "model": "claude-opus-5",
+  "source_sha256": "19ccce35cacb51521e0246229eba182bb5e243ac50f30f185193150e73364f5d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-skin-as-the-self-not-its-cover",
+  "field": "title",
+  "lang": "ko",
+  "text": "피부는 껍데기가 아니라 자기 자신",
+  "model": "claude-opus-5",
+  "source_sha256": "961c558a348ae54c1b72e938ce7fa75abe5ce198d1c9ee0cc8a0827ae4393fa0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-skin-tattooed-into-a-commodity",
+  "field": "title",
+  "lang": "ko",
+  "text": "문신을 새겨 상품이 된 피부",
+  "model": "claude-opus-5",
+  "source_sha256": "b9ff82a1851b64cb135d2b3c9d1205fccad35db2a7ac2f66f68150e2ec6eb59c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-skyline-as-vertical-class-map",
+  "field": "title",
+  "lang": "ko",
+  "text": "스카이라인, 수직으로 그린 계급 지도",
+  "model": "claude-opus-5",
+  "source_sha256": "f53044ec431cd1c0280a82873bd73990f192caf37d48afe532a1f2b1676aca17"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-slap-that-stakes-the-right-to-refuse-service",
+  "field": "title",
+  "lang": "ko",
+  "text": "시중들기를 거부할 권리를 건 따귀",
+  "model": "claude-opus-5",
+  "source_sha256": "ecf31699857a05b741a9c9eba411b86c6b106d96c433cdd4c2cd0fd0ab6dd080"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-slasher-s-sexual-contract-refused",
+  "field": "title",
+  "lang": "ko",
+  "text": "슬래셔의 성적 계약을 거부하다",
+  "model": "claude-opus-5",
+  "source_sha256": "924abb3bd5556e2b70a083e372c2506c6dd0d67aeb7c1f3500e6aadafe7ec30f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sleeping-body-refuses-its-waking-life",
+  "field": "title",
+  "lang": "ko",
+  "text": "잠든 몸이 깨어 있는 삶을 거부한다",
+  "model": "claude-opus-5",
+  "source_sha256": "3f45fb045b08ea9b7bac96e612ba0afda61c77680608471339d5a353f9f7fe10"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-slur-as-diagnostic-symptom-not-insult",
+  "field": "title",
+  "lang": "ko",
+  "text": "멸칭은 모욕이 아니라 진단이다",
+  "model": "claude-opus-5",
+  "source_sha256": "1ac1116c12a5cdfc7201d72741e6a114eb49da6f15cb1e526556ad68e7b115fa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-small-detail-that-is-the-whole-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "작은 디테일이 곧 영화 전부",
+  "model": "claude-opus-5",
+  "source_sha256": "d1ba2a35562c86fa74f7fe732fb98f0094738186b509cad05f5a0c5c196eb2ae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-small-device-that-decodes-its-logic",
+  "field": "title",
+  "lang": "ko",
+  "text": "그 논리를 풀어주는 사소한 장치",
+  "model": "claude-opus-5",
+  "source_sha256": "294448a14f13c21988e5ca7ad4084362557480876b3961a623c76273d7c5aa59"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-small-gesture-that-decodes-the-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화를 해독하는 작은 몸짓",
+  "model": "claude-opus-5",
+  "source_sha256": "1b9f4ddfa6b14cc291f13f0bea7586f6259035b76b8d84dbb1c1896214c52504"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-small-object-that-unlocks-everything",
+  "field": "title",
+  "lang": "ko",
+  "text": "전부를 여는 작은 사물",
+  "model": "claude-opus-5",
+  "source_sha256": "e28ddbdbd9333cfbfb4bb649c92e7393f015e24ba65df28a986684e426fc5587"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-smartphone-as-co-author-and-witness",
+  "field": "title",
+  "lang": "ko",
+  "text": "스마트폰, 공동저자이자 목격자",
+  "model": "claude-opus-5",
+  "source_sha256": "b75821877cc40b822fda003b4c2002cefd96a4ec7871167c2df77db1febac7ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-smartphone-entering-the-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "프레임 안으로 들어온 스마트폰",
+  "model": "claude-opus-5",
+  "source_sha256": "b4cee5cd1c4e80f03760b7401f6629ee0218f706c323b9ce16c3aa51e2cb1086"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-smile-as-coerced-mask-over-the-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "상처 위에 억지로 씌운 가면, 미소",
+  "model": "claude-opus-5",
+  "source_sha256": "9a1e283871f45109e5bc7fff82b0beb693a27e608976b8088fe28f9b84a567e4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-smile-as-labor-worn-over-emptiness",
+  "field": "title",
+  "lang": "ko",
+  "text": "공허 위에 걸친 노동, 미소",
+  "model": "claude-opus-5",
+  "source_sha256": "c4d8918237fece32f0e892c496e9811b3c71605a3338c4a18e89b2ed98d59569"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-smile-as-mandatory-performance",
+  "field": "title",
+  "lang": "ko",
+  "text": "의무가 된 미소",
+  "model": "claude-opus-5",
+  "source_sha256": "26a2e3130b8f245c813672143fde596578720c1921c95b94c4b39383616b1885"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-smile-as-the-murder-weapon",
+  "field": "title",
+  "lang": "ko",
+  "text": "미소가 곧 흉기다",
+  "model": "claude-opus-5",
+  "source_sha256": "6435062392f17c09a9d2897157688b7a65946e4243b6ee82b951f2abf58b6114"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-smile-that-masters-the-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "상처를 다스리는 미소",
+  "model": "claude-opus-5",
+  "source_sha256": "cec47df2d5f8c964abea369cd6213b337e13f33df7bbca5bf21067e2b93f8274"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-smile-that-solves-the-plot",
+  "field": "title",
+  "lang": "ko",
+  "text": "플롯을 푸는 미소",
+  "model": "claude-opus-5",
+  "source_sha256": "b7ea2d9f476207e2926f4800141ecab8f5e6217a24bea0e81706b19a80d25383"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-smiling-self-who-owns-no-guilt",
+  "field": "title",
+  "lang": "ko",
+  "text": "죄를 제 것으로 삼지 않는 웃는 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "c16f8fa6810aeba451df1b1c2df07d709ae9606b093fcd069e502fbf32a0e5da"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-smoke-that-returns-to-the-breast",
+  "field": "title",
+  "lang": "ko",
+  "text": "가슴으로 되돌아오는 연기",
+  "model": "claude-opus-5",
+  "source_sha256": "518f1d824edf1123476e3ff4631e11a7d4f92c999c7fa21fde15d3be9709a0f1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-snow-as-indifferent-white-witness",
+  "field": "title",
+  "lang": "ko",
+  "text": "무심한 흰 목격자, 눈",
+  "model": "claude-opus-5",
+  "source_sha256": "8514389a988264fdd9da6d8e79ae4ea5802c52838e74ced7f7b34d760c5e55d2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-snow-edge-of-a-vanishing-country",
+  "field": "title",
+  "lang": "ko",
+  "text": "사라지는 나라의 눈 덮인 변두리",
+  "model": "claude-opus-5",
+  "source_sha256": "0126d1e24da3d9049f18ae2d8b632d110aa8ebaa9718085cdc9d771bcec3fabe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-snow-that-betrays-its-soundstage",
+  "field": "title",
+  "lang": "ko",
+  "text": "촬영소를 들키고 마는 눈",
+  "model": "claude-opus-5",
+  "source_sha256": "c033efbf21d8d1e84bc7b062255847d36d4ce688e266f3be79c01ee1712635ac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-snow-that-erases-the-world",
+  "field": "title",
+  "lang": "ko",
+  "text": "세계를 지우는 눈",
+  "model": "claude-opus-5",
+  "source_sha256": "e889c2329b642ce458deaf737af75e66072979646695d82562413cd749ec697c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-snub-as-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "외면이라는 고백",
+  "model": "claude-opus-5",
+  "source_sha256": "ad31fedf68e2cd07fc131b76ffb5ac9dc503eb1de2077d4fc901f4c9f0a261e0"
+ }
+]

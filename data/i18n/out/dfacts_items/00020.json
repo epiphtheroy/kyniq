@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-kazan#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1947년, 셰릴 크로퍼드·로버트 루이스와 함께 그는 맨해튼에 액터스 스튜디오를 세웠다. 심리적 몰입을 앞세운 \"메소드\" 연기법이 여기서 제도로 자리 잡았고, 미국 연기의 판도가 바뀌었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8508e910a660b0a0643f9ebb77dcd44072f6a777ff8f24b03725060b6f8f9d41"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-kazan#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1951년 그는 아직 무명이던 마릴린 먼로와 짧고 뜨거운 관계를 가졌다. 그리고 얄궂게도, 훗날 그녀의 남편이 될 절친한 벗 아서 밀러에게 그녀를 소개한 사람도 그였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ddd1906da61462d38f38a38f57ac7d1b3adc54766b4e37bed494e49b9c620a6a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-kazan#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "생애를 가른 사건은 1952년 4월 10일에 일어났다. 하원 반미활동위원회(HUAC) 증언대에 선 그는 그룹 시어터 시절 동료 여덟 명을 공산주의자로 지목했다. 그들의 경력은 그것으로 끝났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5a7618206485f71c35ab78972b2a6ace8389293998b1347bf24ee072cf718980"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-kazan#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "HUAC 증언 이틀 뒤, 그는 《뉴욕 타임스》에 \"A Statement\"라는 제목의 전면 광고를 실었다. 물러설 뜻이 없다는 선언이었다. 다른 자유주의자들도 이름을 대고 소비에트의 위협에 맞서라는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "10541fbfabf195b61cb89390c90390b29973386d55e910dfcbdd9081a535425e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-kazan#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "밀고를 택하면서 극작가 아서 밀러와의 두터운 우정은 부서졌다. 밀러의 답은 《시련》이었다. 매카시 마녀사냥을 겨눈 것임을 굳이 감추지도 않은 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "a51ebe93274d7b988abcd0b96674e01c3adb3697db8ada1bddd58f5d204e0388"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-kazan#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "밀러의 《시련》에 대한 정면 응답으로, 카잔은 같은 HUAC 밀고자였던 버드 슐버그와 손잡고 《워터프론트》(1954)를 만든다. 부패한 동료를 고발하는 행위를 찬미하겠다는 목적이 노골적으로 박힌 알레고리의 걸작이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "efa3438f0650a9f3c2b83b8488b5c2a147c3dccf23802f5735794ab1426698c0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-kazan#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《워터프론트》의 테리 맬로이 역에 그가 처음 원한 배우는 프랭크 시나트라였다. 그런데 제작자 샘 스피걸이 뒤로 말런 브랜도를 끌어들였고, 격분한 시나트라는 계약 위반 소송을 걸었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fe1875a1dcd6c667fd46c70637f04f26d4793c71891eb8d1d62a8887bf5a2e6f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-kazan#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《에덴의 동쪽》에서 레이먼드 매시의 적대감을 진짜로 끌어내려고, 카잔은 이 보수적인 노배우를 일부러 자극했다. 젊은 제임스 딘에게 촬영장에서 끊임없이 애드리브를 치고 매시를 무시하라고 부추긴 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "db1bc2c2cc83098f2b2ac0360749c64032cc41d97a96c1edecc408bd0d4a0978"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-kazan#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그의 손에서 첫 스크린 데뷔를 치른 이름들이 놀랍다. 제임스 딘, 워런 비티, 앤디 그리피스, 리 레믹, 일라이 월랙. 문화의 아이콘이 될 배우들의 영화 경력이 여기서 시작됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "609a3c37c75ab5545deedb1e62166d6f92c52753d1eb3d695ef0fa35b113a13d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-kazan#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "배우를 다루는 감독으로 그를 따를 사람은 없었다. 비비언 리, 칼 몰든, 에바 마리 세인트, 조 밴 플리트, 앤서니 퀸을 비롯해 아홉 명이 그의 연출 아래 아카데미 연기상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "beb5786a426f5035186cce1335dcec87f7b89d7f03527218ab19efb9baf4fa19"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-kazan#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "작품마다 그는 \"감독 노트\"를 빼곡히 남겼다. 인물 하나하나의 심리 전기를 길게 써 내려갔고, 그 기록으로 촬영 중 배우들의 실제 신경증을 다뤘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "32bfcd38f18882a39e94cd26172a626ef917d4c3752378440ac026616adc4e84"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-kazan#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1956년 미시시피주 베노이트에서 《베이비 돌》을 찍는 동안, 그는 지역의 인종분리 관행을 정면으로 거슬렀다. 흑백이 섞인 제작진이 한자리에서 식사해야 한다고 고집한 것이다. 백인우월주의자들의 괴롭힘이 촬영 내내 이어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b0d8e0c33a9430dc242b1d5a82454a794155debf2111033266656e5153b268e9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-kazan#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "HUAC로 갈라선 정치적 앙금은 쓰라렸지만, 아서 밀러는 결국 1964년 희곡 《After the Fall》의 초연 연출을 카잔에게 맡겼다. 마릴린 먼로와의 파탄 난 결혼을 얄팍하게 각색한, 논란투성이의 작품이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e11abe7a13ae4be93bccc2f7dd469b0f6442fa9be485159cd24159f25c0d1e3c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-kazan#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1960년대 후반 할리우드에서의 입지가 기울자 그는 소설가로 다시 섰고, 베스트셀러를 냈다. 자전적 색채가 짙은 《The Arrangement》가 그중 하나다. 이 소설을 그는 1969년 커크 더글러스 주연의 영화로 직접 옮겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ef05ec9c1bd6ba08995da08891c76b6623800149b90a60fb0e478a53a43ba880"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-kazan#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1967년 그는 배우 바버라 로든과 재혼했다. 아내는 늘 그의 그늘에 가려 있었지만, 1970년 독립영화의 이정표가 된 페미니즘 영화 《완다》를 직접 쓰고 연출했다. 그 성취를 카잔이 못마땅해했다는 이야기가 전한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ce1edf8e9f5903040412af45d5691ea1430b50ffcdd0291289ecdde33dcd1598"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-kazan#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1988년 자서전 《A Life》는 잔인할 만큼 솔직했다. HUAC 증언에 대한 뉘우침은 한 줄도 없었다. 경멸하던 공산당을 위해 경력을 버리느니 자신이 한 대로 하겠다고, 그는 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6ba0147a2f84a9c55c93da0d605107a539194800ca3187a77fbdfaa6d1430e67"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-kazan#23",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1999년 그가 받은 아카데미 공로상은 오스카 역사상 손꼽히는 분열의 장면을 낳았다. 한쪽에서는 기립박수가 터졌고, 닉 놀테와 에드 해리스 같은 배우들은 팔짱을 낀 채 굳은 얼굴로 앉아 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "977cb305db9f63a4db7bc642196a19f1269db3a94ade3cd77df4773a6156e5e6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-kazan#24",
+  "field": "fact",
+  "lang": "ko",
+  "text": "논란의 1999년 공로상을 함께 시상한 사람은 마틴 스코세이지와 로버트 드 니로였다. 쏟아질 대중의 반발로부터 그를 가리려는 자리였다. 스코세이지에게 카잔은 영화의 아버지나 다름없는 존재였으니까.",
+  "model": "claude-opus-5",
+  "source_sha256": "793795464cfff446ad7ce171c24a8d3b212825d67fe2a6f3cf67db0bf8f8fd9d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-suleiman#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1960년 나사렛의 그리스정교회 팔레스타인 가정에서 태어난 술레이만은 아버지의 정비소를 드나들던 동네의 별난 이야기꾼들 틈에서 자랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "df57587eff5feda3d29db0363fe578be709a07bd06e0c12390ec83ad2f4825e8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-suleiman#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아버지 푸아드는 1948년 아랍-이스라엘 전쟁에 참전한 저항 전사였다. 이스라엘군에 붙잡혀 심하게 구타당했고, 처형 직전에 가까스로 살아남았다. 그 상처를 술레이만은 훗날 스크린 위에 하나하나 되살려 놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "39c8c1eaea5534880f2e63325388724436cb3874deb0ffacebf458dec7c19f9f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-suleiman#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화를 정식으로 배운 적은 없다. 그런데도 그는 캐나다 예술가 제이스 살룸과 함께 만든 1990년 비디오 에세이 〈Introduction to the End of an Argument〉로 실험영화계에 단숨에 들어섰다. 할리우드가 아랍인을 어떻게 그려 왔는지, 그 인종주의를 날카롭게 겨눈 작업이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7fb9218f3dfe28375f1e7cd54fcbbd9d625e1feccc8ca59c964cec58d0c4d9df"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-suleiman#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1994년 예루살렘으로 거처를 옮긴다. 유럽위원회가 서안지구 비르자이트 대학교에 영화·미디어 학과를 세우는 일을 그에게 맡겼기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e347a717d3132c8127e80e97192a473ada54b9c95e2abbd9d886c5b81296ec32"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-suleiman#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "술레이만은 \"E.S.\"라는 자기만의 스크린 페르소나를 만들어냈다. 말없이 무표정하게 지켜보기만 하는 관찰자. 이스라엘-팔레스타인 분쟁의 부조리 속을 그는 대사 한 마디 없이 통과한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4eccb8247ddd76af6a9cd9f56597f40b8042f828ddf868abd43b6b09e8090a1c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-suleiman#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2002년의 걸작 〈Divine Intervention〉은 칸영화제 심사위원상을 받았다. 그러나 아카데미 출품은 거부당했다. 팔레스타인은 승인된 주권국가가 아니라는 AMPAS 규정 탓이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b7d682b54d2323d5843cf08916a7a075ea29c2fb345e25adb72bdbfd68519fa2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-suleiman#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "〈Divine Intervention〉을 거부한 아카데미를 향해 국제적인 반발이 거세게 일었고, 제작자 위베르 발상이 그 선두에 섰다. 결국 오스카는 지정학적 규정을 손봤다. 3년 뒤 팔레스타인 출품작 〈파라다이스 나우〉가 받아들여진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "df72cd8752de373c1e1ea9cae4d6bf937ed10135114cb0df85a8a9105fff9db6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-suleiman#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2006년 칸영화제에서는 왕가위, 헬레나 보넘 카터, 새뮤얼 L. 잭슨과 나란히 경쟁부문 심사위원을 맡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d6a2b5f3955af76eac2a1934c820fe04993ab58fa68b6e33d82122074f83b11a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-suleiman#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2008년 암스테르담에서 그는 프린스 클라우스상을 받는다. 교조적인 정치 메시지 대신 블랙 유머와 시각적 시정으로 팔레스타인 영화의 정체성을 세워 온 공로였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fae0656dfd539b7f8aab060bac4cd5f3a8fe7ceb5cf288c2010d4f29372715cb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-suleiman#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스위스 자스페의 유러피언 대학원에서는 초빙교수로 대학원 영화 강의를 맡았다. 유머의 철학과 침묵의 미학이 그가 다룬 주제였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "457bb62533f4944bcfa539dfc3eb611ff03807324d05f8c71cdd43b85929ef3d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-suleiman#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2022년 유럽영화아카데미는 레이캬비크에서 그에게 유럽 월드시네마 공로상을 안겼다. 팔레스타인의 경험을 보편적인 비희극(悲喜劇)의 렌즈로 옮겨 온 평생의 작업에 대한 인정이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d86f0cb3b93b73cd892be6d7950cdf14ae3cfbc1dda0fcf1706ab10492b7c510"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-suleiman#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2019년작 〈It Must Be Heaven〉에서 술레이만은 도하 영화연구소의 지원을 확보하고 파리와 뉴욕에서 대부분을 찍었다. 고향 나사렛 바깥으로 카메라를 크게 옮긴 첫 작업이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b0e2c2b3d8eef2d6a51cdabc06fb23bb9647d74dbac514d0c03e9486965b9bf8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "eric-rohmer#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "에릭 로메르는 자신이 영화를 만든다는 사실을 보수적인 가톨릭 신자였던 어머니에게 끝내 숨겼다. 1970년 세상을 떠날 때까지 어머니는 아들 장마리 모리스 셰레르를 지방 고등학교 문학 교사로만 알고 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a85205c4d983bcb49d0165fc5ce77608f45b21daf3fdac777ecb5e00d287814"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "eric-rohmer#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "동생은 철학자 르네 셰레르. 미셸 푸코의 동료였고, 자신이 게이임을 감추지 않은 급진 좌파였다. 독실한 가톨릭 전통주의자로 살아온 형과는 정반대의 삶이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c2f15ed7bf03750920cb4a4bd1d109135a750aeee4ef1ffd77b96ee76ea61099"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "eric-rohmer#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "누벨바그의 창건자 중 하나였음에도, 그는 1963년 《카이에 뒤 시네마》 편집장 자리에서 밀려났다. 그를 몰아낸 것은 프랑수아 트뤼포와 자크 리베트를 비롯한 후배들이었다. 고전적이고 정치와 거리를 둔 그의 취향이 시대에 비해 너무 보수적으로 보였던 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c25999f6d10636310444fa6396720488183a13b8d49c4bf8c86a208cc8587c2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "eric-rohmer#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《카이에》에서 쫓겨난 뒤 영화를 찍을 돈을 마련하려고, 그는 몇 해 동안 프랑스 교육부의 교육용 텔레비전 다큐멘터리를 연출했다. 딱딱하기 이를 데 없는 물건들이었다. 산업혁명에서 콘크리트의 역사까지 주제도 가지가지였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b8d4262afdb2404f68cd0b3881f4eb30c9f05e37134cc7eba4caec01a15d083"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "eric-rohmer#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "공간의 연속성에 대한 그의 집착은 병적인 데가 있었다. 인물이 파리의 어느 거리를 걷다 모퉁이를 돌면, 그 동선은 실제 도시의 지도와 정확히 맞아떨어져야 했다. 장소를 속이는 일은 결코 없었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fcc8de1857aaa698a4dd75f72facd9f9232aacd18654b8326ac8a00b0fd2da16"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "eric-rohmer#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "감독이 되기 전, 1946년에 그는 소설 한 권을 냈다. 제목은 《Élisabeth》. 질베르 코르디에라는 또 다른 필명으로 발표했고, 지금은 거의 잊혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "19e5b710bf9cdd1ca645a459a7ccc009332a77eb2004921e75309e3babb1261f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "eric-rohmer#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "정치적으로는 보수였으나 만년의 그는 급진적인 환경주의자가 된다. 1993년작 《나무, 시장, 미디어테크》로 그는 사회당 정부의 농촌 근대화 정책과 현대 파리를 뒤덮은 흉한 건축을 대놓고 공격했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c4bc3701d3881d8af095d44612010398d7a6b16cbbbf389338a1012bed6f649d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "eric-rohmer#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1962년 그는 당시 스물한 살이던 바르베 슈뢰데르와 함께 전설적인 제작사 레 필름 뒤 로장주를 차렸다. 로메르의 초기 단편 자금은 슈뢰데르가 어머니의 친구인 화가 피에르 술라주의 그림 한 점을 팔아 댔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "340af7b27391e16b4e68c67eb16b0d4d78a8a3086ed965991254e410b8b3500b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "eric-rohmer#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "쉰둘의 나이, 이미 국제적인 명성을 얻은 지 한참 지난 뒤에 그는 소르본에서 박사학위 논문을 통과시켰다. 주제는 F.W. 무르나우의 《파우스트》에 나타난 영화적 공간의 조직이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "baac157ecd6e866b8741133f9323033302454dd78846a8aad7318cf9b3bf7332"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "eric-rohmer#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1999년까지 그는 파리 1대학에서 영화를 가르쳤다. 영화적 공간에 관한 자신의 이론을 학생들에게 먼저 시험해 보고, 그런 다음 차기작에 적용하곤 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2e1186a911a526ad0b7992a243c1b8fe4159fd166c53ae8892d2cfc6122c26fd"
+ }
+]

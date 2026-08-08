@@ -1,0 +1,82 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-table-2017",
+  "field": "lead",
+  "film_id": "44f0d81d-dbce-43b3-9dff-f9d598cbd162",
+  "lang": "en",
+  "text": "A cafe table in Seoul is occupied four times in one day, and each time the two people sitting at it want different things from the hour. Seventy minutes is the whole film, which means Kim Jong-kwan can spend real time on the small delays of talk: the pause before an answer, the sentence started and abandoned, the coffee that arrives at the wrong moment. Everything happens within earshot of strangers, so nothing can be said too loudly. The women are meeting people from earlier in their lives, or people they are trying to place in the next part of it, and the difference between those two situations is often only a matter of tone. No one leaves to have a private crisis elsewhere. Whatever gets settled here gets settled between one order and the next.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f5c6c4f198c8de831a84953eba9e1772dd6d5dc5d796f190f338a3167139513"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "honey-and-clover-2006",
+  "field": "lead",
+  "film_id": "459195e1-a4a2-4f06-8529-04a9d370c793",
+  "lang": "en",
+  "text": "The last stretch of art school is the subject: five students at Hama Art College, and a departure date none of them chose. The widely read manga behind the film hands over a situation rather than a plot — a group whose entire life is one building and one schedule, with both about to stop. Nearly two hours go to that slow subtraction, which is generous for a story with no crisis to organise it. Feeling inside such a group is never tidy, since the person someone is drawn to is also the person whose work hangs next to theirs, and whose talent may turn out to be larger. Nothing is settled by an argument. What gets watched instead is the ordinary business of finishing: plans announced with more confidence than anyone has, and the slow discovery of which friendships were made of proximity.",
+  "model": "claude-opus-5",
+  "source_sha256": "303d6aff2d814f0f4c691c633c0cacc2502e76f654936cd136e20b8cc872fa79"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-railroad-2007",
+  "field": "lead",
+  "film_id": "46153880-637b-44bd-9f31-55a14d259fff",
+  "lang": "en",
+  "text": "Two people board the last train of the night, drunk, at different stations. Neither is going anywhere in particular; both are riding out an injury the film is in no hurry to name, and the timetable supplies the only deadline available, since a last train has a terminus and after that everyone has to stand up. Park Heung-sik takes 107 minutes over an encounter a shorter film would settle in one scene. The romance, if that is the word, has to be assembled from leftovers: sobriety in the morning, the embarrassment of having said too much to a stranger, the obligations still waiting back at each station. Grief travels badly in company. Both passengers seem to be carrying a conversation held with someone who is not on the train.",
+  "model": "claude-opus-5",
+  "source_sha256": "bbee5f0b90634d9c2428add903fc6ed1a54fae140a61d4427ee46e9bab72b1e0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "everybody-knows-2018",
+  "field": "lead",
+  "film_id": "4681053f-5299-48a5-aecd-49c452d9a43a",
+  "lang": "en",
+  "text": "Coming home is a paperwork problem before it is an emotional one: property, old arrangements, who left and who stayed to manage what was left behind. Laura arrives from Buenos Aires with her Argentinian husband and children, and the town outside Madrid receives them with the warmth of people who have been keeping accounts. Asghar Farhadi, working in Spanish, builds the early stretch out of family logistics, and then something happens that converts every earlier pleasantry into evidence. Two hours and twelve minutes leaves suspicion room to circulate at its own speed. The genre labels undersell how much of this is conducted at kitchen tables, between people who cannot walk out of the room because they are related to everyone in it. Distrust here is a form of intimacy.",
+  "model": "claude-opus-5",
+  "source_sha256": "16c5625aedcc2f10f9b87754251da1fe5eb1fa7bf21e2259402562c8efb374ef"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dreamland-2013",
+  "field": "lead",
+  "film_id": "48786b33-ffaf-4b53-b1f0-0a2b240a654d",
+  "lang": "en",
+  "text": "The snow arrives over an affluent city and stays, which suits a film that wants everyone in one day and nobody able to drive fast. Rolf is trying to be a father again; Lena is pregnant and has a household that runs; Judith does social work and keeps a private elsewhere in her head; Maria, widowed, has asked a man to dinner. Each of these is a negotiation conducted indoors, on its own terms. Mia works in the red-light trade, which makes her the only person here whose day is priced, and she is Bulgarian, which sets the exchange rate. Petra Biondina Volpe keeps the ninety-eight minutes tight around that asymmetry; the Swiss Film Award for Best Fiction Film followed. The crossings themselves are brief. That is the design.",
+  "model": "claude-opus-5",
+  "source_sha256": "60bcc4f3c7c5a298d225e6084bf91eb76372a93de6a2dbcfda4b7dbb0d4a756f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "death-and-the-maiden-1994",
+  "field": "lead",
+  "film_id": "48a390ab-8e62-4da5-9f8e-b19c286e2243",
+  "lang": "en",
+  "text": "The accusation comes first and whatever might support it has to be assembled afterwards: a woman is certain that the man she is entertaining once tortured her on the government's behalf. Everything rests on a sense no court can subpoena. She recognises him, or she needs to; his courtesy is either innocence or practice. Polanski runs it for a hundred and three minutes in the shape of a thriller, so the tension is not whether something dreadful is buried somewhere but whether one person's certainty can carry the weight being put on it. The house has to go on behaving like a house. The political history stays offscreen and presses in through insistence alone, which is harder to argue with than a document and easier to dismiss.",
+  "model": "claude-opus-5",
+  "source_sha256": "f717c8d4f19e3e0df72c77309f347ecfda958800b022a08e5c7d4c70f1946911"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "red-army-2015",
+  "field": "lead",
+  "film_id": "48e07775-4a60-4ffc-8a25-a997b1887ada",
+  "lang": "en",
+  "text": "A national hero can be reclassified as an enemy without ever changing his job. Slava Fetisov captained the hockey team the Soviet Union used as proof of itself, and Red Army follows him across that reclassification in eighty-five minutes — short for a life, about right for an argument. The programme behind the team is the real subject: a training culture that did not so much develop players as employ them, rank them, account for them. The film's questions stay practical ones about how the drilling ran, what the status was worth, and what leaving would require. Sport is rarely filmed as labour. When the hockey does arrive, it makes the case by itself: passing patterns that only work if no one on the ice is playing for himself.",
+  "model": "claude-opus-5",
+  "source_sha256": "223a6c6877b27b74a80e81ed09c371e114fc22d9a3f6c5ed190b75d185a09d78"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sakuran-2006",
+  "field": "lead",
+  "film_id": "49304c84-b535-4f06-8b51-f82f6ebe376e",
+  "lang": "en",
+  "text": "Kiyoha did not choose the district, but she means to set her own terms inside it. Yoshiwara ran on rank, and Sakuran takes the ladder seriously: the lower ranks of the house up to Oiran, each step decided by other people's appetites and policed by women who climbed the same rungs first. Mika Ninagawa gives a hundred and eleven minutes to a career. Ambition looks much the same everywhere; what differs here is that the merchandise is the woman herself, and every kindness inside the house carries a price, including the kindnesses between the women. The period trappings are not there to make anyone delicate. Kiyoha's willfulness is the engine, and the decorum of the trade is what she keeps colliding with.",
+  "model": "claude-opus-5",
+  "source_sha256": "8751049c9808047f687519595a07cf467a1b4b6a19a321f97304a24d2829d7f6"
+ }
+]

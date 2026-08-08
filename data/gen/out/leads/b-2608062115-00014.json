@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-perfect-candidate-2019",
+  "field": "lead",
+  "film_id": "34c79fec-0a3f-4d3a-a0af-8f28a870eff0",
+  "lang": "en",
+  "text": "A doctor spends her mornings on patients and her afternoons asking permission to appear on a ballot. Haifaa al-Mansour keeps the film at the level of procedure - the paperwork, the endorsements, the speech that has to be delivered to whoever agrees to sit and hear it - because that is where a municipal seat is actually won. Made in Arabic through a German production, it gives a small local race the patience usually reserved for a national one. Prejudice, in this telling, is rarely a speech. It is a delay, a rule cited politely, a man who does not look up from his desk. Across 104 minutes the town does not become a different place; she becomes a person who can keep talking after a room has gone quiet, which is the smaller change and the harder one.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b77213613a9862f8106e7b0006fa7cf5b554de35d22483ef86af397d0adb24c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "maidan-2014",
+  "field": "lead",
+  "film_id": "7e4c3289-738e-4d8a-9649-461cbc11568a",
+  "lang": "en",
+  "text": "Half a million people stand in one square in Kyiv, and the film's method is to be there while they do. Sergei Loznitsa gives the winter of 2013/14 two hours and ten minutes and no single figure to follow: the subject is the crowd, the rallies it holds, the announcements it makes to itself, the long stretches in which an uprising consists of people waiting in the cold. It was produced out of the Netherlands and later counted among the hundred best films in the history of Ukrainian cinema, an unusual passport for a documentary. Chronology does the work an interviewer would normally do. The square is the same square from one week to the next, and everything that changes, changes in the bearing of the people standing in it.",
+  "model": "claude-opus-5",
+  "source_sha256": "b6c19f7263c5a0d870d5f5b4a421b1b764fee007769a359f29a88e371f9b98c0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-innocents-1961",
+  "field": "lead",
+  "film_id": "4b34af1d-3029-4ce6-a235-b06bd11f04c3",
+  "lang": "en",
+  "text": "The governess is certain, and the film never once tells her she is wrong. In an Essex country house in the middle of the nineteenth century, a young woman is left with two children, a great deal of quiet, and the growing conviction that the grounds are occupied. Jack Clayton organises his hundred minutes around a problem of evidence: everything arrives through her attention, so a child's good manners can carry an ordinary explanation or a monstrous one, and the film refuses to arbitrate. The fear is procedural rather than sudden, a matter of noticing one thing too many. And it is all conducted with enormous courtesy. Everyone speaks kindly, the arrangements are correct, and the question that matters is the one nobody in the household will put into words.",
+  "model": "claude-opus-5",
+  "source_sha256": "882414af6ee71748333b7531711f8ab941c84298fabc824e3694713c9fe35c9a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-hawks-and-the-sparrows-1966",
+  "field": "lead",
+  "film_id": "90b5507c-6f80-456a-a3be-705120917b40",
+  "lang": "en",
+  "text": "The bird talks, and what it talks about is politics, history, and the correct analysis of both. Pier Paolo Pasolini sends a father and son down a road in the company of this creature, and the comedy is in the mismatch: two men with somewhere to be, one voice that will not stop explaining the world to them. Ninety minutes, mostly outdoors, mostly walking. The fantasy is handled without ceremony - nobody is startled that a bird can speak - which leaves all the strangeness to the argument being made, and lets the film interrupt its own parable whenever the parable grows pleased with itself. Later chosen as one of the hundred Italian films worth saving, it keeps the road going and the lecture going and declines to say which will outlast the other.",
+  "model": "claude-opus-5",
+  "source_sha256": "ce777d0549e72b43e49f1a8da89f3cf72935f7b0c393c13024380590a2677880"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "band-of-outsiders-1964",
+  "field": "lead",
+  "film_id": "270ce71d-047d-4258-9736-3254215ad3ee",
+  "lang": "en",
+  "text": "Three people who learned about crime from the movies decide to commit one. Franz, Arthur and Odile spend most of the film doing anything else: a dance worked out on a café floor, a run through the Louvre, the elaborate loafing of a trio whose idea of an outlaw is secondhand, borrowed from Hollywood noirs and Westerns. Jean-Luc Godard shoots the delays with far more care than the plan. Ninety-seven minutes, and the robbery stays in the future for most of them, while the camera stays with the time in between - an afternoon that has to be filled, an attitude that has to be rehearsed, the small embarrassment of performing for friends who are performing back. Style, here, is what these three do instead of deciding anything.",
+  "model": "claude-opus-5",
+  "source_sha256": "062e4f30a02ca1b295ec9c6004f26eb717df87f574130f135a5625591d20034e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "chelsea-girls-1966",
+  "field": "lead",
+  "film_id": "8fdfce9b-c643-4742-ae13-8748eef861c8",
+  "lang": "en",
+  "text": "Two projectors run side by side for three and a half hours, and that was the intention. Andy Warhol made the film to be shown in halves that compete, so attention has to pick one and let the other continue unwatched. What is on the reels: residents of the Chelsea Hotel in New York in 1966, filmed in their rooms with no story to get through and nothing scheduled to happen. Time is the material, and the residents are left to spend it. The National Film Registry took it in, an institutional gesture toward a work that cannot really be finished. Without a plot the pressure falls elsewhere - on how long a person stays interesting to a camera that has stopped asking anything of them, and on what people do when the machine declines to cut away.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e90dc5738d3187ccf5ab1d8a937cbdee5a463536eceda2578261c95d793cffe"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "orlando-1992",
+  "field": "lead",
+  "film_id": "acff4787-ece5-447e-ad50-36968c116a32",
+  "lang": "en",
+  "text": "A queen offers a young man a house and an income, on a condition nobody could reasonably promise to keep. England, 1600: Orlando is a nobleman with a weakness for poetry, and Elizabeth I decides she would like him preserved. Sally Potter stages the bargain as costume before she stages it as plot, and the Academy Award the film took for costume design is the right place to look - the clothes are the terms of the arrangement, setting out what may be worn, by whom, in which room, and what a person is allowed to be while wearing it. Ninety-four minutes, and much of the fantasy is administrative: land, title, a contract with clauses that cannot be renegotiated. It rests on a promise made in a room where refusal was not among the available answers.",
+  "model": "claude-opus-5",
+  "source_sha256": "bcdcba70c13d847e5090ab64d233fc1846a1ba7ee67ba7247fc6868b7b36812a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-story-of-a-cheat-1936",
+  "field": "lead",
+  "film_id": "40c5dbca-097d-4120-b736-fcf78c634130",
+  "lang": "en",
+  "text": "A boy is sent to bed without supper as punishment for stealing, and that is why he is the only member of the family to survive the mushrooms. From this he draws the obvious conclusion. Sacha Guitry then tells the rest of the scoundrel's life almost entirely in his own voice - the pictures run, the narration runs over them, dialogue barely gets a turn - so that a career of small frauds arrives as an argument made by the man who profited from it. Eighty-one minutes, and the voice stays a step ahead of the image, naming what a scene will amount to before it has finished amounting to anything. Cahiers du Cinéma later placed it among the hundred most beautiful films in the world. The comedy lives in the distance between what he claims and what the frame is prepared to show.",
+  "model": "claude-opus-5",
+  "source_sha256": "d3410c9cd7828ac96f16db95479d15952cb4c06ef02bba678c4548fdb27635eb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "brooklyn-2015",
+  "field": "lead",
+  "film_id": "eaabbf0c-ed30-4332-a1fe-d3ed7a4e3741",
+  "lang": "en",
+  "text": "Eilis Lacey leaves Ireland for New York in the 1950s, and the film understands that the leaving was the easy part. The premise hands her two men and two countries; the difficulty is that both futures are livable, so the choice cannot be made by elimination and has to be made by preference, which is harder. John Crowley shoots this without emergency. A hundred and eleven minutes of work, lodging, letters and the small obligations that accumulate into a life that would have to be given up. The 1950s arrive as a set of arrangements rather than as a period. What the film is best at is the ordinary arithmetic of homesickness - arriving somewhere and belonging there are two separate labours, and only one of them can ever be finished.",
+  "model": "claude-opus-5",
+  "source_sha256": "652317ffcedb793cd0271cf7ae1d6f5ea38bfd5cb8aafa1ce8d1c86335ab88af"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "limelight-1952",
+  "field": "lead",
+  "film_id": "cb3f243b-4d56-4102-97e2-9bb884d78f85",
+  "lang": "en",
+  "text": "The dancer has to learn to walk again; the comedian has to learn that the laugh is not coming. Charlie Chaplin gives this 137 minutes, a long stretch for so contained a situation: two performers, one who has lost her legs to despair and one who has lost his audience to time, talking each other back toward a stage. The Academy Award the film received was for its score, and the music carries structure as much as feeling - what these two share is not a language but a trade, its timing, its ear for the moment a house goes cold. Chaplin lets scenes run at the pace of conversation. Encouragement, in his hands, is not a speech but a job of work: repeated daily, offered without guarantee, hardest to perform for someone whose trouble is a version of one's own.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b6bacd15dc2b09027e3b664a291f22bf3559ced1849158a36bccaa22a8c941c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-cameraman-1928",
+  "field": "lead",
+  "film_id": "569e7e65-79df-4cf1-8b02-6288ce40d447",
+  "lang": "en",
+  "text": "To impress a secretary, a photographer takes on a job he has no idea how to do: shooting newsreel footage in a city that will not hold still for him. Seventy-four minutes, 1928, and the comedy is machined out of the equipment itself - a device that faithfully records everything except the thing it was aimed at, operated by a man who cannot yet tell the difference between being present at an event and having it on film. Edward Sedgwick keeps the joke on the apparatus rather than on the fool, which is the more generous arrangement and the funnier one. The National Film Registry has kept a copy of it. The subject, finally, is the distance between what happened and whatever the camera happened to be doing while it did.",
+  "model": "claude-opus-5",
+  "source_sha256": "5f934d71aa39b749ebf8b18ae16f1ddb15169b1539f6e60c4cfbbbbf5bbe2ccd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "koyaanisqatsi-1982",
+  "field": "lead",
+  "film_id": "d4dbb86c-7f53-45b2-86ad-c4df9127d2fe",
+  "lang": "en",
+  "text": "For eighty-six minutes no one speaks, and the film never stops to explain itself. Godfrey Reggio assembled it from footage gathered across the United States and set it to a score by Philip Glass, dispensing with the two supports a documentary usually leans on: a narrator and an interview. What is left is sequence. One image follows another, and the following is the argument - a stretch of land, then what has been built across it, then the rate at which people move through what has been built. The National Film Registry holds it. Because nothing is asserted aloud, the case about technology and what it costs the earth and the people on it has to be assembled in the watching, which is slower than being told and harder to set down.",
+  "model": "claude-opus-5",
+  "source_sha256": "df65a558cb8c806731c7357b68b712a8604a1a7881f97e7b82e8f56de1441299"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "charade-1963",
+  "field": "lead",
+  "film_id": "a5c2d6f4-4dfd-4af2-a403-f387ebeb221e",
+  "lang": "en",
+  "text": "A quarter of a million dollars went missing behind enemy lines during the war, and three of the men who lost it have come to Paris to ask a widow where it is. She has returned from a skiing holiday in the French Alps to find her husband murdered while she was away, and she has no idea. Stanley Donen runs the film at two temperatures at once: the chase is genuinely dangerous and the dialogue behaves as though nothing is, a trick that has to hold for a hundred and thirteen minutes and does. Regina Lampert is grieving, hunted and courted inside the same week, and the courting is the part she has least information about. The pleasure is a romance conducted as an interrogation, each party declining to be the first to say anything that could be checked.",
+  "model": "claude-opus-5",
+  "source_sha256": "60a4196eb00d75e7e45a0cc32b49322561fe3b7563e86b4777f2f8f78144d198"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "shanghai-express-1932",
+  "field": "lead",
+  "film_id": "ca344643-ebcc-4c9e-95c3-ea1711c9b98e",
+  "lang": "en",
+  "text": "A train is an efficient machine for a film about reputation: nobody can get off, and everybody has already heard the stories. Josef von Sternberg puts a woman with a past aboard one, together with the man she used to love and a carriage of strangers confident they know what she is. The journey supplies the pressure the plot never has to manufacture: a schedule, a corridor, no privacy in which to be someone else. Eighty-two minutes, and the Academy Award went to the cinematography, which is not a footnote - the film thinks in faces and light, and the question of who someone is keeps getting answered by how she is lit and by what she declines to explain. She is not after exoneration. She would like the conversation to move on.",
+  "model": "claude-opus-5",
+  "source_sha256": "f70cdf7e910d716ffd7e1d3510d0e95316caab139dcaf2ab95a7e9a56d8ec46b"
+ }
+]

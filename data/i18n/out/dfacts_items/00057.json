@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "na-hong-jin#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자기가 만든 세계를 직접 연출하지 않고 넓히는 방법. 나홍진은 2021년 페이크 다큐멘터리 《랑종》을 제작하고 공동 각본을 썼다. 촬영지로 태국 이산 지방을 고른 이유는 분명했다. 그곳의 정령 신앙이 한국 무속과 닮아 있었기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ecd1d550eea4bb21edfa1b40c7495ed2feda95ea865d0a29f151f49ac0e97af1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "na-hong-jin#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "차기작 SF 스릴러 《Hope》에는 마이클 파스벤더와 알리시아 비칸데르가 붙었다. 타협 없는 구상을 들이밀어 두 할리우드 A급 배우를 설득해낸 것이다. 서구권 스타와의 첫 작업이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f21986e5d3a693de868b5a207828fc7f49d0b71bf19378266cc4fa79b18ea59"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nadav-lapid#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "텔아비브에서 태어났고, 집안 전체가 예술로 돌아갔다. 아버지 하임 라피드는 이름난 소설가였고, 어머니 에라 라피드는 두터운 신망을 받던 영화 편집기사였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c2f40eed3a74ad5f8fb3c675a52f491b98b4d8ac01b02e9e053a825638f381b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nadav-lapid#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화로 오기 전에는 텔아비브 대학에서 철학을 공부했다. 잠깐 스포츠 기자로 지역 축구 경기를 따라다니기도 했다. 2001년에는 『Continue Dancing』이라는 소설 한 권을 내놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aaa9db9dfc1e2f61dac4db3b22c158a507e23f55ebe108789802f5c40b50e644"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nadav-lapid#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "군 복무를 마친 뒤 그는 이스라엘이라는 국민 정체성에 깊은 혐오를 품게 된다. 그리고 파리로 달아났다. 다시 돌아오지 않고, 히브리어를 입에 올리지 않고, 과거를 통째로 지워버릴 작정이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c399a2635c9357dca97254920dc90e0d1a020cbf04107575b2bd94ebbc4b4231"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nadav-lapid#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "파리에서 그는 가난했다. 거리를 쏘다니며 프랑스어 사전의 단어를 강박적으로 중얼거렸다. 모국어 위에 다른 말을 덮어씌우려는 시도였다. 자기를 지우려던 그 기이한 시기가 황금곰상을 받은 《Synonyms》로 곧장 이어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "87cf67f6905733cf559f37b61d3df34ad2d62d8186993643ed159b38d9ea42be"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nadav-lapid#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "완전한 프랑스인이 되겠다는 기획은 결국 접었다. 이스라엘로 돌아온 그는 예루살렘의 명문 샘 슈피겔 영화TV학교에 들어간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "be66ac8ef92af2565eeabf92f21d6f6c627f166c6fa3b208c08de468b8cee04f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nadav-lapid#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "어머니 에라 라피드는 아들의 모든 영화를 도맡아 편집했다. 그 협업은 2018년에 끊긴다. 폐암으로 갑작스레 세상을 떠났을 때, 그는 《Synonyms》 편집 한복판에 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5fd324672605566eafed9d4e78827d78f6c55715f12e03b060c20bae4b704dee"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nadav-lapid#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "어머니의 죽음을 견디면서 《Synonyms》를 끝내기 위해 라피드는 편집기사 프랑수아 제디지에를 불렀다. 다만 크레딧에서 에라의 이름은 지우지 않았다. 한 몸처럼 붙어 일해온 그 창작 관계에 바치는 헌사였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "72b93e294322a7e41688f24fc3a210d13a6024ee33fd07544e78c313b8d87578"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nadav-lapid#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "칸 심사위원상을 받은 《Ahed's Knee》는 어머니가 떠나고 몇 달 만에, 슬픔이 터져 나오던 2주 동안 한꺼번에 쓰였다. 개인의 애도가 이스라엘 국가를 향한 분노로 바뀐 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "db497b819c024746c02fe359a0f3bd6a4ba72eac31cee4e759ff1532080d88b0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nadav-lapid#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Ahed's Knee》의 이야기는 실제 있었던 일에서 나왔다. 라피드는 외딴 아라바 사막에서 《The Kindergarten Teacher》 상영에 초청받았는데, 그 자리에서 문화부 관료가 문서 한 장에 서명하라고 요구했다. 무엇을 말해도 되는지를 제한하는 문서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1367df38314d604de33454c3f8ca411c9081dfe51c51d5dbe4178dd5d67d54e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nadav-lapid#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2022년 고아에서 열린 인도국제영화제. 심사위원장을 맡은 라피드는 힌디어 영화 《The Kashmir Files》를 두고 \"프로파간다\"이자 \"저속한 영화\"라고 공개적으로 못 박았고, 그 한마디가 국제적인 외교 파문으로 번졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "444a380519ba5b6b82f23abca3020a4d2a6fe10edba24a6ee5881522573e408d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nadav-lapid#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《The Kashmir Files》 발언 직후, 주인도 이스라엘 대사 나오르 길론이 공개서한을 냈다. 인도의 환대를 저버렸고 양국 관계를 해쳤다는 것이다. 이후 감독에게 살해 협박이 쏟아졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "35be9cd812861f0dccbf5fc354bfaa413f87adcd7f297a928e3681c8428eab60"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nadav-lapid#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "인도와 이스라엘 양쪽 당국이 사과를 압박했고 지정학적 역풍도 거셌다. 라피드는 물러서지 않았다. 이어진 인터뷰에서 그는 영화적 조작을 두고 사실대로 말하는 것이 영화제 심사위원의 의무라고 되풀이했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a7cca6b7e7300427b71683c8398a85960ad8946f88f4c1ce49965da552a4bb13"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nadav-lapid#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "비직업 배우나 거의 알려지지 않은 얼굴을 즐겨 쓴다. 기준은 관습을 벗어난 강렬한 신체성이다. 《Synonyms》의 몸을 극한까지 쓰는 주연 자리에 앉힌 전 유도 선수 톰 메르시에가 그렇게 발굴됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5e6aa16c3ceaea4de508c14c4c0d3ad476d55162e30a72acf3c9be74aa21d080"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nadav-lapid#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "프랑스어로 찍은 《Synonyms》로 제69회 베를린국제영화제에서 황금곰상과 FIPRESCI상을 함께 받았다. 흔치 않은 기록이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dbf2a98ac7432da2b0f67c6f7cff63491b264b10f5825589961d5989446f2bce"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nadav-lapid#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2019년 프랑스 예술문화훈장 슈발리에를 받았다. 한때 필사적으로 동화되려 애썼던 바로 그 문화가 이제 그를 기린다. 기묘한 위치다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9acf8ffabbe82601db00b42de8518d0c4e449518a797f42bd0bccb39c62d0ee9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nadav-lapid#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "촬영감독 샤이 골드만과 자주 손잡는다. 둘이 벼려낸 화면은 프레이밍의 통념을 일부러 어긴다. 배우의 머리를 잘라내고, 대화 장면에서 무릎만 붙들고 놓지 않는 식이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0f6f4ebc8152f494666609a7cbe0a3d0d7b23a83603ddc2d67c7cad7dc838ae4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nagisa-oshima#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "교토대 학생회장 시절, 그는 1951년의 대규모 캠퍼스 파업을 이끌었다. 기동대가 그것을 무참히 짓밟았다. 조직화된 좌익 운동을 향한 쓰디쓴 환멸이 그때부터 평생 그를 떠나지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ace1d82d23a1fa1958fd59ead530497fc7a9da040b572f88534784cd49e50ef9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nagisa-oshima#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1959년 데뷔작의 원래 제목은 《비둘기를 판 소년》이었다. 암울한 영화였다. 겁먹은 스튜디오 간부들은 어떻게든 상업적으로 들리게 만들려고 제목을 《사랑과 희망의 거리》로 갈아치웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3ba1a8147f4ce01061cc7dae3b8206dcccabf6ee3a20f82aee16e2c77ca9c7f7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nagisa-oshima#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "독립 제작사 소조샤를 차렸다. 위태롭던 초창기를 버티게 해준 것은 대개 새 아내 고야마 아키코가 배우로 벌어온 돈이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "69970f3e469d99651862fcdb94571acad22487a32fa80dc24b625e3e910dc2e8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nagisa-oshima#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "동시대 일본 감독으로는 드물게, 그는 차별받는 재일 조선인 문제를 평생 물고 늘어졌다. 브레히트적 블랙코미디 《교사형》은 그 처지를 정면에 세운 영화다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a8e234d92ffa0d5cc57346bf69e9a3703ed67d4a65f29890b19e793763aa162"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nagisa-oshima#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "한국 여행에서 목격한 가난이 그를 흔들었다. 1965년 다큐멘터리 《윤복이의 일기》는 그가 거리의 아이들을 찍어온 정지 사진만을 몽타주로 이어 붙여 만들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb916f7bd7139d581871e5dd46216c744e77f79146610ef3db4ab750300ecd98"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nagisa-oshima#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "성기 노출을 금하는 일본의 엄격한 검열을 피하려고 그는 《감각의 제국》(1976)을 도쿄에서 찍되 프랑스 합작으로 돌렸다. 현상하지 않은 네거티브는 파리로 몰래 빼돌려 현상과 편집을 마쳤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c58eb318783a0eef2cdd051dd7136444913125b841eaf798a57d7c43978ba1f3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nagisa-oshima#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "일본 경찰이 문제의 《감각의 제국》 네거티브를 압수하려 도쿄 사무실을 덮쳤을 때, 법적으로 손쓸 방법이 없었다. 필름 실물의 소유권은 이미 프랑스 제작자 아나톨 도망에게 있었고, 물건은 유럽 금고 안에 안전히 들어 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "49687b070a76633d32c13872bd79437463a818416bf1ba4d36911cfb2c142391"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nagisa-oshima#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1990년 결혼 30주년 파티. 축사를 시킬 사람 명단에서 자기를 빠뜨렸다는 이유로 취한 노사카 아키유키가 오시마의 얼굴을 갈겼다. 오시마는 마이크를 집어 그 유명 소설가를 되받아쳤다. 텔레비전으로 중계된 전설적인 난투극이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ab25d2460af7919638bfd6f005cecc12c174204d89568fdbd4e9b0607878948"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nagisa-oshima#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "브로드웨이 무대의 《엘리펀트 맨》에서 데이비드 보위를 본 순간, 그는 《전장의 크리스마스》(1983) 배역을 즉석에서 정했다. 보위의 일정이 비기까지 꼬박 2년을 기다렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7208328eb22198a839436119360b37ccdbb22fe2089237f2e0d40cfd387b078d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nagisa-oshima#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "공동 주연으로는 옐로 매직 오케스트라의 건반 주자 사카모토 류이치를 불렀다. 사카모토는 음악도 자기가 맡는다는 조건을 걸고서야 수락했다. 영화음악 경험이 전무했는데도, 그렇게 나온 사운드트랙은 BAFTA를 받으며 전설이 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "11ca2707d6201139ff2458cb27c8f58dbefdb0c8ea0eff319b0cb8fbb07dca72"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nagisa-oshima#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1996년, 로케이션 헌팅 중 런던 히스로 공항에서 대형 뇌졸중이 그를 쓰러뜨렸다. 오른쪽 몸이 마비됐고, 경력은 그것으로 끝난 듯 보였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c6807540f539ef9ccae9c5239ea35e847dac7dffcd0829667793d3c7d12ac36"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nagisa-oshima#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "의학적 예상은 빗나갔다. 그는 돌아와 마지막 영화 사무라이 시대극 《고하토》(1999)를 찍었다. 휠체어에 앉은 채, 모니터로 화면을 지켜보며 처음부터 끝까지 연출했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d7ad69a7be960b8c55a46d7dfd569e4b235614b568ae52d2002862fc7d06be3c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "noah-baumbach#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "브루클린 파크슬로프에서 자란 바움백은 태어날 때부터 영화에 잠겨 있었다. 아버지는 실험소설가 조너선 바움백, 어머니는 《빌리지 보이스》의 영화평론가 조지아 브라운. 저녁 식탁에서 두 사람은 영화를 놓고 치열하게 다퉜다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7185976cd977aba09aae68f058bb3433843aa43e185c529124319c7a1dcc9bf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "noah-baumbach#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "연출 경력이 궤도에 오르기 전, 젊은 바움백은 《뉴요커》에서 심부름꾼으로 일했다. 훗날 같은 잡지 'Shouts & Murmurs' 난에 자기 유머 에세이를 싣게 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "21621260bd7e5a1e02a4e4f418fb54b2d7551080b37969404dfb10d455b3e8ba"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "noah-baumbach#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스물넷에 《Kicking and Screaming》(1995)으로 연출 데뷔했다. 말만 번드르르한 대졸자들의 코미디. 배서 칼리지에서 영문학 학위를 마치고 얼마 지나지 않아 쓴 각본이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7b0a0caa4ef2b5d2fd874787f081193870eece02fce92916a7be5d5438391d38"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "noah-baumbach#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1997년작 《Highball》은 편집이 끝나지 않은 상태에서 제작자와 험하게 부딪쳤다. 바움백은 아예 작품을 내쳤다. 연출 크레딧은 'Ernie Fusco', 각본 크레딧은 'Jesse Carter'라는 가명으로 바꿔 달았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6eb808f68514061b7ddd124ec68e1f8a6b1e9aa1fd1933654ba893d86801b7d9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "noah-baumbach#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "웨스 앤더슨과는 가깝게 어울리며 함께 쓰는 사이가 됐다. 《스티브 지소와의 해저 생활》(2004), 그리고 로알드 달을 스톱모션으로 옮긴 《판타스틱 Mr. 폭스》(2009)의 각본을 같이 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "abd9d2ef1cfc294bea34c2de824d6f928730e8c77f785457308ef48e96834a4d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "noah-baumbach#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오랜 반려이자 단골 협업자인 그레타 거윅과는 2010년 코미디 드라마 《그린버그》에서 만났다. 벤 스틸러의 상대역으로 그가 그를 캐스팅하면서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2c456576c3fbc7e7f2ba6cdcd05ddbf1f5d60fcc343d0504aedcd8cc8b400d6b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "noah-baumbach#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "신경증적인 뉴욕 인디의 뿌리에서 한참 벗어난 선택도 있다. 드림웍스의 흥행 애니메이션 속편 《마다가스카 3: 이번엔 서커스다》(2012)의 각본에 그의 이름이 올라 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d622bb7a511dbae1cbfc7b6f5ef4bd137fbbba8576da89fe727edb076bb86d7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "noah-baumbach#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "배우 애덤 드라이버는 그에게 최고의 뮤즈다. 힙스터 코미디 《위 아 영》부터 종말론적 풍자 《화이트 노이즈》까지, 서로 다른 다섯 편에 그를 세웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "93f5c951e2b562d3708f7b9765690fc7b6d0a59b78bc5f51e05a55b26fde9268"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "noah-baumbach#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "동생 니코 바움백은 컬럼비아 대학에서 영화·미디어 연구를 가르친다. 영화를 분석하는 일에 대를 이어 매달리는 집안인 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a9e36e209b7124ffa4fdf737bb09343d4b29d8914d3e8679ceaa71e8cbe7179a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "noah-baumbach#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "거윅과 함께 쓴 10억 달러짜리 흥행작 《바비》(2023)의 각본은 코로나19 팬데믹 기간에 나왔다. 두 사람에게 그 일은 초현실적이면서 판돈 큰 창작 실험이었다. 워너브러더스가 실제로 제작을 승인하리라고는 애초에 기대하지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1332cbfb9a41960dbf6ff41ad72eea70cc15ab581fc7a0f7b5bfaf429c83387a"
+ }
+]

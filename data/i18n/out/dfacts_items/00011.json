@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "carl-theodor-dreyer#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화로 오기 전 그는 신문 《Ekstra Bladet》에서 '토멘(Tommen)'이라는 필명으로 뛰던 공격적인 젊은 기자였다. 시청 비리를 캐내고 항공 소식을 쓰는 일이 그의 전문이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7310e61015045ea46a430d49d2e1ec85251d391989de571958ab403c2f251f3c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "carl-theodor-dreyer#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1932년의 기묘한 초기 유성영화 《Vampyr》의 제작비는 전액 한 사람의 주머니에서 나왔다. 네덜란드의 젊은 부유한 귀족 니콜라 드 귄즈부르. 대가는 분명했다. 연기 경험이라곤 없는 이 남작을 '줄리안 웨스트'라는 가명으로 주연에 앉히는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "8729f09d5e6ef4cac37010b33ffffae1475c80ed726dcf17a1dff0f456bce6da"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "carl-theodor-dreyer#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1949년 드레이어는 미국인 프로듀서와 예수의 생애를 다룬 영화 계약을 맺는다. 여기서 시작된 광적인 집착이 이후 이십 년, 그의 남은 생애와 경력을 통째로 삼켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b7209728cc4d93f8235199b117d4b5b69193cdd32bd63449767a35e22c918459"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "carl-theodor-dreyer#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "끝내 만들지 못한 예수 영화를 위해 그는 역사와 언어 양쪽에서 한 치의 오차도 없기를 바랐다. 히브리어를 독학해 읽었고, 이스라엘로 여러 차례 긴 취재 여행을 떠났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e08140a90b2ffc642ac6cbb7aff32d429b556d2f00d3dce30f28b39722746c8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "carl-theodor-dreyer#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "타협을 모르는 성격 탓에, 그리고 연출작 사이의 공백이 워낙 길었던 탓에 드레이어는 생의 마지막 십육 년 동안 코펜하겐의 이름난 극장 다그마르 테아트레트의 운영을 맡아 가족을 먹여 살렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "30d5151aaf52785324e91c9d459e1217c63c2c5195a67904178ac9dd870eee05"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "carl-theodor-dreyer#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "나치 점령기의 덴마크에서 《분노의 날》을 개봉시킨 직후, 드레이어는 스웨덴 배급사에 판권을 넘긴다. 그리고 출장이라는 구실로 외레순 해협을 건너 중립국 스웨덴으로 달아났다. 그가 돌아온 것은 2차대전이 끝난 뒤였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0dbb49bc77fac4ad7e48782c11c7d9895af9180f7d63636d123d2ed4a388c0f5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "carl-theodor-dreyer#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스웨덴 망명 시절에 만든 《Two People》(1945)을 그는 완성하자마자 자기 작품이 아니라고 부인했다. 배역에 전혀 맞지 않는다고 본 배우를 스벤스크 필름인두스트리 스튜디오가 억지로 앉힌 탓이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "21ed11dce5353ede4c8d970ad387103208577c6c4903fb52a081bd503a33c7b6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "carl-theodor-dreyer#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마지막 영화 《게르트루드》(1964)의 파리 오페라 극장 시사는 악명 높은 참사로 남았다. 관객 절반은 느려터진 리듬에 항의하며 자리를 떴고, 남은 절반은 끝나자 사납게 야유를 퍼부었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "65b4c752deb1f929af25a7375daf4df7d4a8d46a05a035d84cd489f16939aa74"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "carl-theodor-dreyer#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "십구 년을 매달린 끝에 1968년 초, 드레이어는 마침내 예수 영화에 필요한 300만 달러를 이탈리아 국영방송에서 따냈다. 촬영 개시를 몇 주 앞두고 폐렴으로 세상을 떠났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "44560984521e29a51f273aff6df2f4d0345b4510d5c563f23c5cc0748394abb3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "celine-sciamma#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화를 하기 전 그가 꿈꾼 직업은 문학평론가였다. 파리 낭테르 대학에서 프랑스 문학 석사를 마쳤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6fa4d5c7d56b11d6227dc1847f84e677e22e8faee838a172557f003f2222d65f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "celine-sciamma#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "명문 라 페미스에 들어간 목적은 오직 시나리오 공부였다. 졸업반이 되기까지 연출은 그의 야심에 아예 없었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4bf644d5a4d3768cbd6eac0195888cb9282f18961a79e57be4fb11c33b858dfd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "celine-sciamma#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "음악은 거의 전적으로 한 사람에게 맡긴다. 라 페미스에서 만난 전자음악가 장바티스트 드 로비에, 활동명 파라 원(Para One). 그의 영화 대부분에 흐르는 고동치고 시대착오적인 스코어가 이 사람 손에서 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a7f08e7ab3eee1f5c45a339c5e8189e6d528664a1df60b4eab75ef07a16afe32"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "celine-sciamma#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "성별의 경계를 흔드는 두 번째 장편 *Tomboy*의 각본은 삼 주 만에 몰아쳐 썼다. 촬영도 20일로 밀어붙였는데, 곧 사라질 여름 날씨와 아역들의 그 어색한 몸짓을 지금이 아니면 붙잡을 수 없었기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e7bc3e6c57b6b4f4e91f3b5c7c78cb00fcef90e044e92e8f11f8c5315f3124ee"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "celine-sciamma#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "현대 영화에서 '여성적 응시(female gaze)'를 세운 대표적인 설계자다. 그는 촬영 현장에서 남성의 시점 자체를 걷어낸다. 시대극 걸작 *Portrait of a Lady on Fire*에는 도입부 몇 분이 지나면 화면에 남자가 사실상 등장하지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "afdcda3cb7a99162a05ff74a53117f8de719acfb80ec5edcd5206943d3c97200"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "celine-sciamma#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "*Portrait of a Lady on Fire*는 아델 에넬을 위해 쓴 각본이었다. 그러나 촬영에 들어가기 전 두 사람은 연인 관계를 원만히 정리했고, 제작은 각자가 겪은 실제 이별을 함께 통과하는 깊은 작업이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "86c09c64fb6d6ce2dc2a32af193b2c3e56cb98242ce2e7ad942650b787ccd1e0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "celine-sciamma#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "프랑스 영화계의 성평등을 밀어붙이는 활동가이기도 하다. 그가 공동 창립한 Collectif 50/50은 칸 영화제를 압박해 집행부 성비 균형 서약을 받아냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a1346329b1709d2262049b75e110d2fe0087aba7f5c2dc992573a4cc4a2f52a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "celine-sciamma#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2020년 제45회 세자르상 시상식. 로만 폴란스키가 감독상을 받자 시아마와 에넬은 살 플레옐을 박차고 나갔다. 나가면서 에넬이 외쳤다. \"수치다!\" 이 장면은 곧바로 전 세계 헤드라인을 탔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "37de648d216f746d51168a484c63e528e972b1fba8ce0ae08cb5a1243addaa82"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "celine-sciamma#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자기 연출작 바깥에서도 각본가·공동각본가로 몸값이 높다. 클로드 바라스 감독의 스톱모션 애니메이션 *My Life as a Zucchini* 각색으로는 아카데미 후보에 올랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1d667a67bd34c22bff47b922e2d38b77b2f7dbd40fc69425891eeff58e82b76"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "celine-sciamma#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자크 오디아르의 흑백 밀레니얼 드라마 *Paris, 13th District* 각본에도 공동으로 이름을 올렸다. 미국 만화가 에이드리언 토마인의 그래픽노블이 원작이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "05564bc28d1bc1cd165750cc6743b6742132e8af544253378be9405f0f8a8c07"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "celine-sciamma#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "경력 초기에는 호평받은 초자연 드라마 시리즈 *The Returned*(Les Revenants)의 초고를 함께 개발하고 썼다. 그러다 *Tomboy* 연출에 집중하려 프로젝트에서 손을 뗐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "95e2fb4dc054415d326441abdb2f98034127e34e60223bd4635a309e23adf9f6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "celine-sciamma#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "파리의 거리나 쇼핑몰에서 직접 찾아낸 비전문 배우를 즐겨 쓴다. *Girlhood*의 그 생생한 십대 앙상블도, 주연 카리자 투레도 그렇게 발굴했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0ca10dd31793d0689c654523557b23039df5402a973df168a3fcbf2cd2eeb325"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "celine-sciamma#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "*Petite Maman*의 캐스팅에서는 기적 같은 일이 일어났다. 실제 쌍둥이 자매인 조제핀 상즈와 가브리엘 상즈를 찾아내 엄마와 딸로 세운 것이다. 둘 사이의 타고난 유대가 마술적 사실주의의 전제를 떠받쳤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "56a464075a8a1412ff5b3c72fb310a6961d487a0ab3591c53316dca66dcb14a0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "celine-sciamma#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화적 시금석으로 꼽는 작품은 데이비드 린치의 *Mulholland Drive*다. 여성 정체성을 초현실적인 꿈결로 파고드는 그 영화를 새 작업에 들어가기 전 자주 다시 본다.",
+  "model": "claude-opus-5",
+  "source_sha256": "04252a86ea775e0cf37752eed006d8ebf7b02a81a00468872b9c6791a8cb07a4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chad-stahelski#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "열 살 때 브루스 리의 《용쟁호투》를 보고 무술을 시작했다. 훗날 이노산토 아카데미에서 브루스 리의 전설적인 제자 댄 이노산토에게 오래 배웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "08911fd65c85e4566afbe9573bd20946bfa6c7f29d83458780c3f0fdb689602c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chad-stahelski#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "할리우드에서의 도약은 비극과 함��� 왔다. 1993년, 알렉스 프로야스의 고딕 스릴러 《크로우》에서 브랜든 리의 스턴트 대역으로 기용된 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6312168f42dd213bcf3808b20d0c90dc24a67b1100c551de2ca9669066924fc0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chad-stahelski#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "브랜든 리가 촬영 중 총상으로 사망하자 스타헬스키가 그 자리를 대신해 영화를 마무리했다. 특수효과팀은 마지막 장면들에서 스타헬스키의 몸 위에 리의 얼굴을 입혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d7c9619c311af838115cb841d93ffe762301a9b64f37073b2d2c91a8849ac26"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chad-stahelski#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1997년 《매트릭스》 오디션은 한 시간 반짜리 지옥이었다. 홍콩 무술감독의 전설 원화평이 지켜보는 앞에서 발차기와 공중회전, 와이어 훈련이 쉬지 않고 이어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e45ab6e8b10611ee242b21c9a050e998d43cb07f1ea12e4decbc1bd3150bac4a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chad-stahelski#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《매트릭스》에서 키아누 리브스의 대역을 따낸 데는 신체 비율이 배우와 정확히 맞아떨어진 이유도 있었다. 여기서 수십 년짜리 창작 동반 관계와 두터운 우정이 시작된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b1ff3a3b161859a90273960ce704754337cdc0f7dfd3202b852a52d0cf8c74a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chad-stahelski#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1997년 그는 동료 스턴트맨 데이비드 리치와 87Eleven Action Design을 차렸다. 잉글우드의 널찍한 창고를 개조한 이 '액션 도장'에서 A급 배우들이 몇 달씩 혹독한 무술 훈련을 견딘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d627276ad8591f8cc1f1dc75465528fad971e393b3246f3134f48a0df04f31a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chad-stahelski#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《매트릭스 리로디드》와 《매트릭스 레볼루션》의 무술 스턴트 코디네이터를 맡았다. 네오와 수십 명의 스미스 요원이 빗속에서 뒤엉키는 그 유명한 '벌리 브롤'을 직접 짰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6334b2f0072e3471b1afe2ab36ebc4a5b2c4276ff8d1bd433054208a0949826"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chad-stahelski#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "연출로의 전환은 키아누 리브스가 먼저 물꼬를 텄다. 당시 제목이 《Scorn》이던 데릭 콜스타드의 각본을 보내며 87Eleven이 액션 디자인을 맡아줄 수 있겠냐고 물은 것이다. 스타헬스키의 대답은 자신이 감독을 하겠다는 제안이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9fa3db9cef856ea870e7294481239d8677104313a218b24cf74aca3d2fd150bc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chad-stahelski#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "공동연출 크레딧에 관한 미국감독조합의 규정이 엄격한 탓에 《존 윅》(2014)의 감독 크레딧은 스타헬스키 단독으로 올라갔다. 함께 만든 데이비드 리치는 프로듀서로만 이름을 남겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "75e136e7e2f222cf35618460c684cde0aa3389fed64d833684058028447a50c3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chad-stahelski#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "고전 무용과 뮤지컬을 향한 애정이 그의 액션 안무에 깊이 박혀 있다. 몸 전체의 움직임과 리듬을 어떻게 화면에 담을지, 그는 밥 포시와 진 켈리를 첫 번째 스승으로 꼽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "045c80fe5d072b9d68728232680b1d0085ad06138c0833d98d901c7f3322469a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chad-stahelski#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 액션을 넓은 화각과 길게 끊기지 않는 테이크로 찍겠다고 고집한다. 본 시리즈가 퍼뜨린 흔들리는 카메라와 잘게 자른 컷에 대한 명백한 거부다. 그가 기대는 쪽은 홍콩 영화와 버스터 키튼이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "55d4fc7b6c7404524e69f95994879adbd879c34b649ba8908fb7e4c6b13b3880"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chad-stahelski#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "한때 정상급 스턴트 배우 하이디 머니메이커와 부부였다. 마블 시네마틱 유니버스에서 스칼릿 조핸슨의 블랙 위도우 대역을 오래 맡아온 인물이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b456463a76286a402c35593e1bb0ea2c8e889401c1b0bc8da76fd628e4b4cc69"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chad-stahelski#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생 애니메이션과 만화의 팬으로 살아온 그는 《고스트 오브 쓰시마》 같은 판권의 실사화를 직접 개발해왔고, 와타나베 신이치로의 《카우보이 비밥》을 스타일의 시금석으로 자주 언급한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "82a011d2e55166bd0a16ad7ac75d65410ac10f5ceae0aaebd5cd1e990001cf44"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chad-stahelski#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그리스 신화와 아서왕 전설에 단단히 사로잡혀 있다. 존 윅 속편들의 뼈대를 저승과 하이 테이블, 벗어날 수 없는 운명이라는 고전적 모티프 위에 일부러 세운 이유다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d0c4d7332904160df07d14a6b24ec96d9c116e85a7ce18de24fe54bf00c4b657"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chad-stahelski#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "할리우드에서 스턴트 배우의 위상을 끌어올리려 목소리를 낸다. 스턴트 코디네이션 부문 오스카를 신설하라고 미국 영화예술과학아카데미를 향해 공개적으로 요구해왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f03b7f438e2a4a2f099417e1fc8df1599cbeb4851cc8dee4fb7ded5049c57d75"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chad-stahelski#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "메인 유닛 감독으로 자리를 잡은 뒤에도 그는 이따금 뿌리로 돌아가 다른 감독의 작품에서 2군 액션 시퀀스를 연출한다. 《헝거게임: 캣칭 파이어》나 《캡틴 아메리카: 시빌 워》 같은 대작이 그렇게 그의 손을 거쳤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "169a999bf8466538b95b6ba8717262c70a63919a9576c408237d099bc9ac63eb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chad-stahelski#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "러셀 멀케이의 1986년 판타지 《하이랜더》라면 사족을 못 쓴다고 스스로 밝힌 바 있다. 업계에서 쌓은 영향력을 써서 헨리 카빌 주연 리부트의 연출권을 손에 넣었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a987c732ed4d68c56392435e30b88b47a10bc51e67af362db575ff775f9b392d"
+ }
+]

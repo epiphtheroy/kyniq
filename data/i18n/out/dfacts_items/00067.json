@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rob-reiner#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "가족이 캘리포니아로 이사한 뒤 라이너는 비벌리힐스 고등학교를 다녔다. 같은 반, 같은 연극 무대에 섰던 친구들 중에는 훗날 할리우드의 거물이 되는 리처드 드레이퍼스와 앨버트 브룩스가 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "52f0145d2490fc6da4e3fe415a3ac05bc0639ff660b55f9a9ed4cfd7cb70cf1a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rob-reiner#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "배우로 이름을 알리기 전, 라이너의 직업은 텔레비전 작가였다. 1968년 논란의 버라이어티 쇼 《The Smothers Brothers Comedy Hour》에서 스티브 마틴과 함께 대본을 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "755218a3dc4eac19a3efa30e6f0ffc31794a40693df06de12c44289798ce8534"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rob-reiner#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "텔레비전 프로듀서 노먼 리어는 로스앤젤레스의 한 소극장 무대에서 라이너를 보고 《All in the Family》의 진보적인 사위 마이클 '미트헤드' 스티빅 역에 그를 캐스팅했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aeeea9d8ced724e34ff10f5fd10ecace8e98e42dfa73a9ca14f83890d4a09681"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rob-reiner#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "시트콤이 끝난 뒤에도 '미트헤드'라는 배역은 그를 놓아주지 않았다. 그 낙인에서 빠져나오려는 시도가 번번이 좌절되자 라이너는 결국 카메라 뒤로 옮겨 갔다. 감독이라는 새 이름을 스스로 만들기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "35442d8fde6e219221bc52dbf3858aca063c54dcc1539398f00af8e70650d630"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rob-reiner#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1987년 라이너는 제작사 Castle Rock Entertainment를 공동 설립한다. 이름은 스티븐 킹의 여러 소설에 무대로 등장하는 메인주의 가상 도시에서 따왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ef66d992733f5476014bea8cdbc0ea9d5b6da1ff8b64eb976cbc176657ef4ab"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rob-reiner#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "비벌리힐스의 한 사설 시사실에서 《스탠 바이 미》를 본 스티븐 킹은 자리를 뜨더니 십오 분 동안 돌아오지 않았다. 마음을 추스르고 온 그가 라이너에게 건넨 말은 이랬다. 자기 글의 그 우울한 결이 영화로 옮겨진 것은 처음이라고.",
+  "model": "claude-opus-5",
+  "source_sha256": "78bee9ff2d7d5004f26d9d903165f7cd81942a943cac523147d7908b3cf5be3a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rob-reiner#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "킹은 소설 《미저리》를 유난히 아껴 누구에게도 영화화 권리를 팔지 않았다. 라이너가 직접 청했을 때만 허락이 떨어졌고, 이유는 오직 하나, 《스탠 바이 미》에 대한 깊은 존경이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "049514a12e0eb0b0649d830f777dcae3c40e107132e20d7b12460aa04568f5ad"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rob-reiner#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《프린세스 브라이드》는 프랑수아 트뤼포, 로버트 레드퍼드, 노먼 주이슨이 차례로 달려들었다가 투자를 못 붙이고 물러난 기획이었다. 그 까다로운 판타지 코미디를 끝내 영화로 만들어낸 사람이 라이너다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9defbb826864cbc73f705768cf14aa6f55534ca175beea79bc9a903236c6602e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rob-reiner#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《해리가 샐리를 만났을 때》의 해리 번스, 죽음에 사로잡힌 그 지독한 비관주의자는 라이너 자신에게서 나왔다. 배우이자 감독인 페니 마셜과의 고통스러운 이혼 뒤 그를 덮친 우울과 공황 발작이 그대로 인물이 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "92e0e8497f28615c7851e45d0ddaa2a2995c358d39db507fb4fff3249ab76e6e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rob-reiner#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《해리가 샐리를 만났을 때》의 결말은 원래 쓸쓸했다. 두 주인공이 끝내 맺어지지 않는 이야기였다. 촬영 도중 두 번째 아내가 될 사진가 미셸 싱어와 사랑에 빠진 라이너는 결말을 해피엔딩으로 바꿨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d40f997eafb2e65f14c6b464d5dfe35347925776589c5e4006bccfc0d21fe8dc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rob-reiner#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《해리가 샐리를 만났을 때》의 그 유명한 카츠 델리카트슨 장면을 완성한 것은 캐스팅 하나였다. 라이너는 마지막 한 방, \"나도 저 여자가 먹는 걸로 주세요\"를 자기 어머니 에스텔 라이너에게 맡겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0ffb15e1310fe66dbab85c68b5d88cac961b6e436848ff8cec6699f549118451"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rob-reiner#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《어 퓨 굿 맨》 촬영장에서 잭 니컬슨은 \"진실을 감당할 수 없을 거야!\" 독백을 카메라 밖에서도 몇 번이고 전력으로 쏟아냈다. 톰 크루즈가 받아칠 진짜 반응을 얻게 하려고, 라이너는 그 소모적인 연기를 그렇게 반복시켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5795c7d4c53a2eb4b329b3406573156832baa79ba85b82b671d2206034d2604b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rob-reiner#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《미저리》의 갇힌 작가 폴 셸던 역은 처음에 워런 비티에게 갔다. 영화 내내 침대에 수동적으로 누워만 있는 인물이 내키지 않았던 비티는 거절했고, 그 자리는 제임스 칸에게 돌아갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "340982ae25bcfc52f2004350132282eeb2e1b8f935962a30739fd0e987b052e5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rob-reiner#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "유아 발달 문제에 열성적으로 목소리를 낸 라이너는 1998년 캘리포니아 주민발의 10호를 앞장서 관철시켰다. 담배세를 걷어 'First 5 California' 사업으로 유아 교육 프로그램에 쓰도록 한 법안이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "92dc6bddfa7c0c618c1838fa22b9bca48514dcaab479df12b4717a2ae46211ea"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rob-reiner#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2006년 라이너는 현직 아널드 슈워제네거에 맞서 캘리포니아 주지사 출마를 진지하게 저울질했다. 결국 접었다. 진흙탕 선거전이 가족에게 남길 상처가 너무 크다는 이유였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e4a9ede80d326a4c3792e1218948245a70236474ef81741d5b658af7b1dff13a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rob-reiner#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2009년 그가 공동 설립한 American Foundation for Equal Rights는 동성혼을 금지한 캘리포니아 주민발의 8호를 무효화하기 위한 연방 소송에 자금을 대고 그 싸움을 이끌어 승리했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "befeb52bd6c43d2cf5031fb55dae4fe01c0f29c611c7fe30b81813b3f4e61c1f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rob-reiner#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오랜 연기 공백에서 라이너를 끌어낸 사람은 마틴 스코세이지였다. 《더 울프 오브 월 스트리트》에서 레오나르도 디캐프리오의 불같은 아버지 맥스 벨포트 역, 십 년 넘게 남의 영화에 출연하지 않던 그가 다시 카메라 앞에 선 배역이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a38d253ce736e39d7ee90ade7a7e9641c74214bac8cb89da0424dc797ddbc79f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rob-reiner#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "라이너의 제작사 Castle Rock Entertainment는 전설적인 시트콤 《사인펠드》를 만들었다. 재방영 수익이 워낙 막대해 수년간 이 스튜디오의 극영화 라인업 전체가 사실상 그 돈으로 돌아갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f66c67055d42793087dd07232351a0dce750f8c648b7d4388565cd427b67946"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rob-reiner#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "사담 후세인에게 대량살상무기가 없다고 정확히 보도한 나이트리더 기자들, 라이너는 그 실화를 기록하려 2017년 《쇼크 앤 어웨이》를 연출했다. 이라크 전쟁에 공개적으로 반대해온 그의 목소리에서 나온 기획이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "28656a2f943af36c26496d95bd5cedd074102233f655282663f1e2a8318353e7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-bresson#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오베르뉴 시골 마을 브로몽라모트에서 태어난 브레송은 수십 년 동안 제 나이를 여섯 살 줄여 말했다. 1907년생이라 우겼지만 1999년 세상을 떠나면서 실제 출생 연도가 1901년임이 드러났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "98270fbc57910c56440e3e4c5a6ea6374b96c8ce15700a55a0bd6927269d5e1d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-bresson#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2차 대전 중 프랑스군에 징집된 그는 1940년 독일군에 붙잡혔다. 바덴뷔르템베르크의 슈탈라크 V-A 포로수용소에서 일 년 넘게 갇혀 지냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "019ade2e473677e4c23067be8f5a4a31f856e0e749c1ecd24363ef63973e8477"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-bresson#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 '시네마'라는 말을 극도로 싫어했다. 촬영된 연극이 떠올랐기 때문이다. 대신 '시네마토그래피(cinématographie)'라는 말을 지어내 움직이는 이미지로 글을 쓰는 자기만의 예술을 가리켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ca2f9f9dbaa36027081ecd2730825f1686df0736ad8b0824fdbdf532ef4eeda"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-bresson#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1945년작 《불로뉴 숲의 여인들》 현장에서 그는 스타 마리아 카자레스의 몸에 밴 연극적 습관에 깊이 진저리를 쳤다. 그 뒤로 직업 배우를 쓰지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "14300daa4c13e102b96a0546ad57c22a5bcffcc470aa9034b58a1df7e4e70fe6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-bresson#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "배우 대신 그가 세운 것은 비전문인, 스스로 '모델'이라 부른 이들이었다. 브레송은 수십 번, 때로 쉰 번까지 같은 테이크를 반복시켰다. 대사가 완전히 밋밋해지고 기계적으로 나올 때까지, 의식적인 감정이 하나도 남지 않을 때까지.",
+  "model": "claude-opus-5",
+  "source_sha256": "e6b580298862bf261be0839cdcc8b567c12978cd0d28065ae68fbc38b8e623dc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-bresson#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《소매치기》의 절대적인 진짜다움을 위해 그는 실제 직업 도둑 앙리 카사기를 데려왔다. 카사기는 기술 자문을 맡아 영화 속 정교한 절도 장면들을 발레처럼 짜냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "331178eeefb2b27c8932a7aad7ed9735737ac6e654c1671e6138c24b58cfa760"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-bresson#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그의 엄격한 예술론은 1975년 책 《시네마토그래프에 대한 노트》로 응축됐다. 잠언 형식의 이 선언문은 이후 전 세계 영화인들에게 경전처럼 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "942e229d99060dcc0fe78b10fdc36d394affa1a2bed7355bbb95286761f9c14e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-bresson#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "귀가 눈보다 깊다고 믿은 그는 영화를 만드는 이들에게 이렇게 일렀다. 소리가 이미지를 대신할 수 있다면 그 이미지는 완전히 중립화하거나 잘라내라고.",
+  "model": "claude-opus-5",
+  "source_sha256": "8dc9e9f62030c4b5048d9d666d929812e1ea2f744303016ed51fc1c12571ab77"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-bresson#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그의 이야기에는 동물이 자주 중심에 놓인다. 《당나귀 발타자르》의 그 당나귀가 가장 유명하다. 동물은 애초에 '연기'라는 걸 할 수 없고, 렌즈 앞에서 그저 존재할 뿐이기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "64d96d3a8215a8b79ea10365b932a34858abf6f64c5985d568ee2edff94798ae"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-bresson#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "예정설에 짙게 물든 가톨릭 세계관 탓에 그는 흔히 '얀선주의자'로 불렸다. 정작 본인은 그 신학적 딱지를 밀어냈다. 물질 안에 깃든 영적인 것을 붙잡으려 할 뿐이라는 게 그의 말이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "277158e9d77d09b4f6d1f70ac1f9ad3aeebe213c7dcd94f97172da0f01414d10"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-bresson#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "데뷔 장편 《죄악의 천사들》은 수녀원을 무대로 한 드라마였다. 대사는 도미니크회 사제 레몽 브뤼크베르제 신부와 저명한 극작가 장 지로두가 함께 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e27dae9021fa217c48ce0283eb4ef25dbba84b087f1b41ef532b32f06921facd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-bresson#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "창세기를 문자 그대로 옮긴 대작을 그는 수십 년간 준비했다. 번번이 무산됐다. 자금이 막혔고, 노아의 방주를 특수효과 없이 진짜 동물로 찍겠다는 고집이 끝내 꺾이지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8e3c9f747081dc51e4825a288750bc9029e8200f208d0f384b5aeaf8519dc7c3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-bresson#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장뤼크 고다르는 그를 이렇게 못 박아 정전에 올렸다. \"로베르 브레송은 프랑스 영화다. 도스토옙스키가 러시아 소설이고 모차르트가 독일 음악인 것처럼.\"",
+  "model": "claude-opus-5",
+  "source_sha256": "9af5d72c589dcbed0ebaa0a75f9c50a5c9d5b415d0d76efb48307ca0a2f723b8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-bresson#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미국 감독 폴 슈레이더는 브레송의 엄정한 미학에 크게 흔들렸고, 1972년 《영화의 초월적 스타일》을 써서 브레송을 오즈 야스지로, 칼 테오도르 드레이어와 나란히 분석했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c8065d4a2506e57ef5007ac0f56bdb090561bc835f6a7f28ae559323c6a4b15b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-bresson#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "초기에는 모차르트와 슈베르트의 곡을 썼다. 그러나 화면 밖 음악은 관객에게 인위적인 감정의 목발을 쥐여줄 뿐이라 여겨, 결국 자기 영화에서 거의 완전히 걷어냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "db9a1758b17e411c2b18c89cdc7a041e365af3802735eae0ff3c84a87eeb9066"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-bresson#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "컬러를 그는 오래 거부했다. 1969년 도스토옙스키 각색작 《온화한 여인》에 이르러 처음 받아들이면서도, 그가 '산만함'이라 부른 화려한 색조를 피하려 팔레트를 바싹 조였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "461fbd1ba57d6a6d0d399e6928c399f782a40f1595c9827884e3cc01c8c32267"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-bresson#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "도스토옙스키의 격렬한 러시아식 심리 서사를 그는 감정이 억눌린 현대 프랑스로 여러 차례 옮겨 심었다. 《온화한 여인》과 《몽상가의 나흘 밤》이 대표적이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "62611174b2ebc91e6214fa06d1110179fa39c9ec7fb387a4f58e9e6e5b709e87"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-bresson#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "두 번째 아내 밀렌 반 데르 메르슈는 원래 그의 조감독이었다. 훗날 그녀는 유산의 완강한 수호자가 되어, 좀처럼 구하기 어렵기로 악명 높던 그의 영화들을 복원하는 일을 도맡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d429d1e45601ff04c7d4767d7c0f29d54037a179745df624cf39bda77f34771"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-bresson#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "여든두 살에 그는 마지막 영화 《돈》을 찍어 칸에서 감독상을 받았다. 금욕적이고 군더더기 없는 그 스타일은 경력의 마지막 순간까지 조금도 타협하지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "22da99b1b9a5f3b4f46b4f71b4eec206379ecb014e12af212cc89ab5205f7829"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-eggers#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 문학과 무대 예술이 배어 있는 집에서 자랐다. 어머니 켈리는 연극배우였고, 아버지 월터는 셰익스피어를 가르치는 교수이자 뉴햄프셔 대학 학무처장이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "da0958d3fa772b141931bd0fe7b5153e9e4cf4eb9ac836e5c76706c03f6c11c4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-eggers#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "음산한 것에 끌리는 아이였다. 오컬트에 붙들린 나머지 그는 부모를 졸라 주말마다 가까운 마녀재판의 진원지, 매사추세츠 세일럼으로 가자고 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "767970d93111ca7496255b05fe0bad4272d52fdb165788ddc466126ee3fbcda0"
+ }
+]

@@ -1,0 +1,72 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-blue-room-2014",
+  "field": "lead",
+  "film_id": "83e26a25-24c0-4bf0-a79f-816ade1a7803",
+  "lang": "en",
+  "text": "Seventy-six minutes is barely enough to lay out a crime, let alone settle one. Two people meet in a rented room; both are married, neither to the other, and they use the time they have to describe a future that cannot be arranged. Then the questions start. Mathieu Amalric's film is filed as crime, romance and thriller at once, which is less a hedge than a description of how it works: every tender thing the lovers said becomes material for someone else to read, and the affair turns into a body of evidence before anyone has established that a crime took place. The brevity matters. At this length there is no room for the scene in which an investigator lays out what is known, so the weight falls on the couple, and on the plain problem of telling an innocent from a sinner.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1d645edd442bc68fc4093d440a1f336c465049537563b3e2ef59b1be87dba98"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "love-me-forever-or-never-1986",
+  "field": "lead",
+  "film_id": "8e88eb85-5e29-4c4e-8d1f-7dd2e161bc66",
+  "lang": "en",
+  "text": "The marriage is over before the film begins, which leaves two people a house and the problem of what to call what happened in it. They are young, recently separated, and they have agreed to meet in a modern interior that offers them nothing to look at but each other. Arnaldo Jabor lets that be the entire event. Since reconciliation is not really the question, the pressure moves to accounting: whose version of the relationship will stand, and how much of it either will concede out loud. Brazil, 1986, in Portuguese, a hundred and three minutes with almost nowhere to go. The record attaches one honor to it, a best-actress award, and that reads correctly, since a film built this way asks a performer to hold a room for its full length with nothing but talk to carry her.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d407340eff955a6376bfc7258c8b0ff824daa103c2dfead7cabe9833bae7133"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "aniceto-2008",
+  "field": "lead",
+  "film_id": "0232af4e-e99c-4db5-8d48-dd9374c9bb78",
+  "lang": "en",
+  "text": "The three corners of this love triangle are filled by dancers, and the casting is the whole proposition. Hernán Piquín, Natalia Pelayo and Alejandra Baldón play Aniceto, Francisca and Lucía in a film Leonardo Favio made in Argentina in 2008 and filed under music as much as drama. Eighty-two minutes is a short span for wanting, being preferred and being set aside, though compression suits a form in which a refusal lasts one gesture. What performers trained this way bring to it is exposure: feeling has to be legible at full body length, held, with no line reading available to soften it or take it back afterward. It took the Silver Condor for best film. Nobody in it is permitted to be vague about what they want, which is not how most love triangles prefer to operate.",
+  "model": "claude-opus-5",
+  "source_sha256": "a697cf64eecc211b2b7e6969c738f415768e95138d297858c0828410a592b23d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "give-me-back-my-daughter-2012",
+  "field": "lead",
+  "film_id": "095c0817-f1f6-4da2-822c-ae105391fe18",
+  "lang": "en",
+  "text": "The job interview that might have ended the homelessness is the reason the child was left alone in the car. Renee loses her work first, then the housing that depended on it, and then, after an arrest, the right to keep Imani without a judge's agreement. Kelley Kalí's film runs ninety minutes and was made for television, which commits it to rooms: the interview, the booking, the hearings where a woman accounts for conditions she did not choose in front of people paid to read them as choices. Gabourey Sidibe plays Renee, Cadence Reese plays her daughter, and the pressure is procedural rather than dramatic. No one involved has to be malicious for this to go badly. The machinery is doing what it was built to do, at the speed it does it, to a family with no margin left.",
+  "model": "claude-opus-5",
+  "source_sha256": "110af0eb2c8fa6ea6c97f60530dff5e9c5a2cace1d6a3a79c9f7680af4cf6889"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "kira-s-reason-a-love-story-2001",
+  "field": "lead",
+  "film_id": "84998075-ae34-490f-8272-0a8cf83d77dc",
+  "lang": "en",
+  "text": "Kira comes home from two years in a psychiatric institution, and what is asked of her first is that she seem fine. The marriage she and Mads are trying to repair has to be rebuilt by two people who spent that time in incompatible ways: she under treatment, he keeping a household upright and finding words for where his wife had gone. Ole Christian Madsen makes the discomfort structural rather than dramatic. Every gesture Kira makes is available to be read as a symptom, including the ones that are only feeling, and she knows she is being read while she makes them. It took both the Bodil and the Robert for best Danish film of its year, a lot of official weight for something this domestic. Ninety-three minutes is too short to reach the safe part, where a couple settles into whatever they have decided to become.",
+  "model": "claude-opus-5",
+  "source_sha256": "4dc4708887c6dd26b299e2cbbdbd38ccd494de40be6d35c083009bcfdc75f69e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dracula-1931-39259",
+  "field": "lead",
+  "film_id": "b8eca0e0-ae6f-4acc-804f-eed62b9a512f",
+  "lang": "en",
+  "text": "In 1931 an American studio made a vampire picture in Spanish, at full length, for audiences it expected to pay for horror in their own language. Talking pictures were only a few years old, and language had abruptly become a wall inside a business that never had one; George Melford's answer was not a subtitle. His Drácula spends 104 unhurried minutes on material a studio could have rushed, the trip to Transylvania, the courteous negotiation over a London property, the estate agent's conversion into something better described as a patient, and lets dread accumulate long before the Count reaches the city where his appetite has somewhere to go. It sits on the National Film Registry. The eeriest stretch is the early one, when the arrangement is still commercial and everyone at the table is being extremely polite.",
+  "model": "claude-opus-5",
+  "source_sha256": "bb3a4d83c6c805f4b0cb79a34fecc25d4a2bdc99e4dd7249b9c96faea3cde86a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "my-soul-brother-1994",
+  "field": "lead",
+  "film_id": "ac6d6a3e-f088-4dd8-bf7f-40cd4163ef4a",
+  "lang": "en",
+  "text": "One brother has a wife, a career and a great deal to lose; the other has arrived with none of that, which in a thriller is a form of leverage. Mariano Barroso brings Carlos and Toni back into contact and lets the unwritten debts do the work, the family kind, where one man's comfortable life can be read from outside as something taken from the other. Working in Spain in 1994, Barroso keeps the register sliding: Toni asks things of his brother, and some of what he asks is perfectly ordinary, which is what makes the rest legible as threat. It won a Crystal Globe, a Sant Jordi Prize, and the Goya given to a director at the start of a career. What stands to be lost is not a life but an arrangement, built over years, undoable in an afternoon by the one person who knew Carlos before he built it.",
+  "model": "claude-opus-5",
+  "source_sha256": "0c228f07a75358e2edfc8aeb144ef2ab20859c64974a7576b90c1b700604087e"
+ }
+]

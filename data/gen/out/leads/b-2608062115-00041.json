@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "no-way-spider-1970",
+  "field": "lead",
+  "film_id": "daa6f206-5d1e-47a9-b062-070a57af4dc2",
+  "lang": "en",
+  "text": "Comedy is the harsher option here: tragedy about a rich man would grant him a stature this film has no intention of granting. Spider is a banker; he lives with three women, and he is presented as a specimen rather than a scandal. The distinction matters, since scandal implies a rule being broken and a specimen implies a rule being described. The talk runs on and on — money, appetite, self-regard, the state of the country — and Rogério Sganzerla lets it pile up across ninety-two minutes without stepping in to correct any of it. Satire needs a standard to measure against. This needs only a man who cannot stop explaining himself and a camera patient enough to stay in the room, and what comes out is less a story than a diagnosis delivered at length by the patient, in property he owns.",
+  "model": "claude-opus-5",
+  "source_sha256": "baba18a86c7f3d02bbd145b37602cbba7f8332affc666e298ac5ca68fbfd3ef3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-traitors-1973",
+  "field": "lead",
+  "film_id": "153847f8-0c66-4020-8509-7048da6024c5",
+  "lang": "en",
+  "text": "The union leader is an invention; the true story he was built to carry is not. Los Traidores follows a Peronist organizer through years of militancy and into the union office he finally wins in the 1960s, then goes on watching after the victory, which is the stretch most films about labor hand over to a closing title. Power here is a job with hours. Corruption arrives as a sequence of reasonable accommodations, each defensible on the day it is made, none of them the moment anyone would later name as the betrayal, and Raymundo Gleyzer takes a hundred and thirteen minutes because the change has to look ordinary or the argument fails. It appears in the Museo del Cine's survey of Argentine cinema. Made in 1973, it carries the plainness of testimony rather than exposé, an account given to a room that already knows the type.",
+  "model": "claude-opus-5",
+  "source_sha256": "476714e5eb874a8de650368e8b0332b9f95d0a686142fcbc369cdb6d1ec788ae"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "conjugal-warfare-1975",
+  "field": "lead",
+  "film_id": "02960ad0-7d09-4059-a1dc-984400a8bac5",
+  "lang": "en",
+  "text": "Hating a spouse costs nothing; leaving one costs money that this couple does not have. Guerra Conjugal keeps a poor husband and wife under the same roof for eighty-nine minutes and plays the deadlock as comedy. Their poverty is not background. It sets the rent, the rooms, the number of doors, and therefore the number of ways any argument between them can end. Joaquim Pedro de Andrade builds the film out of several stories that keep circling back to the pair, so the marriage works less as a plot than as a climate other lives pass through. The cruelty is served at room temperature, since nobody here is escalating toward anything and escalation would imply somewhere to go. What gets satirized is not two disagreeable people but the arrangement that keeps them within arm's reach of each other. The laughs are real, and they are not free.",
+  "model": "claude-opus-5",
+  "source_sha256": "80dcc406b2c57d0c648076fd1504933631635f3450c6511bbf7a9fb5d6374dcc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "summer-showers-1977",
+  "field": "lead",
+  "film_id": "1243674a-1780-4fcc-9665-9e9a792b8b7a",
+  "lang": "en",
+  "text": "At seventy, a widower on the poor edge of Rio de Janeiro meets a woman near his own age, and the film declines to treat that as a curiosity. Carlos Diegues runs three registers at once across eighty-eight minutes — drama, comedy, romance — roughly the number a late courtship gets through in an ordinary week. The neighborhood supplies the obstacle, and it is not made of villains. It is routine: the fixed opinions of people who have watched each other grow old, a day already assigned by habit, the small public that any street keeps on its residents. The comedy comes from a schedule being rearranged by something it has no slot for. Whatever tenderness the picture earns, it earns at street level, among people who count hours and money, where a second attempt at love has to be fitted into rooms that were not expecting it.",
+  "model": "claude-opus-5",
+  "source_sha256": "69d7e760601971a3be27ff0b67fff28217bf70b8608b03b4dcd2cb4fb71c9e98"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "pajarito-gomez-1965",
+  "field": "lead",
+  "film_id": "b649ead0-329b-4cf8-8f66-900ca408c030",
+  "lang": "en",
+  "text": "Managers, photographers, interviewers: the people who speak on the singer's behalf take up more of this film than the singing does. Pajarito Gómez comes from nothing, becomes popular, and is then processed, his career laid out as a chronicle with the machinery left visible at every stage. In 1965 a hit singer was a small industry with a face on it, and Rodolfo Kuhn keeps the face in frame while the industry does the talking. Argentina put it forward as its submission to the Academy Awards. Eighty-three minutes is a short measure for a life, and the compression is the argument: a career like this is built to be summarized, packaged and replayed, and the summary is assembled by people with a financial stake in it. The comedy is in the vocabulary the industry uses about him. The drama is in everything that vocabulary has no words for.",
+  "model": "claude-opus-5",
+  "source_sha256": "d3de7354b6cedd096337e6504c5bf7baa3567172bec1b985176d306673642181"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "traveller-1999",
+  "field": "lead",
+  "film_id": "b13652a9-8067-45ca-9d44-0da69ff072d0",
+  "lang": "en",
+  "text": "A stranger arrives in the interior of Minas Gerais the way a comet arrives, on a schedule nobody in the town has been told. Rafael turns up during the feast of the patron saint, and around him Paulo César Saraceni arranges people with nowhere else to be: Ana de Lara, a proud and wealthy widow; Missy, still a child, whose beauty gets likened to the Tiê-Sangue, a red bird; and Juca do Vale, a criminal whose capacity for feeling is the most human thing about him. The vocabulary is old — passion, sin, forgiveness, resurrection — and in 1999 it is used with no irony held in reserve as insurance. A hundred and fourteen minutes in a place where the visitor is the only moving part, and everyone else has to decide what to do about the attention he brings.",
+  "model": "claude-opus-5",
+  "source_sha256": "6b2a8d5d5be9d05a217cc7d1681f66399c4286cd1740191e370e97660ee66f66"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-angel-was-born-1969",
+  "field": "lead",
+  "film_id": "0312ce2a-0636-40f2-be45-2607300a1288",
+  "lang": "en",
+  "text": "Sixty-four minutes is barely enough for two men on the run to take a house and start living in it, and that is most of what happens. Santamaria is waiting for an angel to arrive and purify things; his companion, who follows him everywhere and helps with the crimes, wants less and asks nothing. One is white and one is black, stated flatly and left to carry its own weight. A crime film usually runs on a deadline: a job to pull, a road to reach, someone counting down. Júlio Bressane takes the deadline away and leaves the two of them in a stranger's rooms with their hostages and their disagreement about what is coming, so the pressure has nowhere to go and simply thickens. Short, dry, and stranger than any summary of the plot can account for, closer to a wait than to a chase.",
+  "model": "claude-opus-5",
+  "source_sha256": "b1c21ef3b2d9f07d0b54b23dbb9cb6f6f2d19a283ab02db5641ede1f93357118"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sea-of-roses-1977",
+  "field": "lead",
+  "film_id": "559454ec-d3e8-4f10-8bf3-28d8f6d094cc",
+  "lang": "en",
+  "text": "A woman runs, and the person she takes with her is the least convenient one available: her own daughter, a specialist in making things worse. The journey supplies the structure; the child supplies the friction. Whatever the mother is escaping, she cannot outrun a passenger who treats every stop as an opportunity, and Ana Carolina fills the road with events strange enough that none of them explains the one before. Ninety-nine minutes pass and the situation never clarifies, it only accumulates. Comedy and drama share the wheel with no handover. Brazil in 1977 produced a flight in which the adult holds the plan and the child holds the power, and the country they cross is neither backdrop nor destination, only the place where the two of them keep having to stop and deal with whoever is standing there.",
+  "model": "claude-opus-5",
+  "source_sha256": "110e5f1e6caffb874e38161351ce532a7ec88fdf256202cfcb2467b1a255cf9b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "buccaneer-soul-1993",
+  "field": "lead",
+  "film_id": "fd7b9927-ac4e-4f05-bd77-9df1c7faf52b",
+  "lang": "en",
+  "text": "Fifty years of a country, measured through one friendship between two men who read a great deal and keep turning up in each other's lives. That is a steep exchange rate, and Carlos Reichenbach accepts it: a hundred and twelve minutes is a lot of time for two people and almost none for half a century. History gets in as anecdote, as work, as the things friends can and cannot say to each other after decades of practice. The comedy is companionable; the accounting is not. What the film keeps testing is whether the terms the friendship was founded on still hold after fifty years of the country changing around them. Made in 1993, with enough distance to see a whole adult life and enough affection to stop short of a verdict on it.",
+  "model": "claude-opus-5",
+  "source_sha256": "ba13ab29ee7837d201f172c76e071e98c8091686be7b2e47c7e6ceeb2e3b9f98"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "two-streams-1999",
+  "field": "lead",
+  "film_id": "7d94e131-8b0b-43e7-8c9e-9700eea30dbe",
+  "lang": "en",
+  "text": "The drive back to Dois Córregos carries a woman with an executive's calendar into a season of the late 1960s she never finished having. Her uncle was in the town then, keeping clear of the military government, and the film's attention falls less on what he was avoiding than on what a hidden man does to the ordinary household around him: the meals, the questions no one asks, the summer of a young relative old enough to notice and too young to be told. Carlos Reichenbach sets the two time frames against each other across a hundred and twelve minutes and does not hurry the older one along. The dictatorship stays offscreen and is entirely present. What comes back to her is not information but weather, rooms, heat, an adult who could not be asked anything.",
+  "model": "claude-opus-5",
+  "source_sha256": "b60e025f9033e5324344132f620b20ad6699965ec575455ac735db33f3310102"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-hills-of-disorder-2006",
+  "field": "lead",
+  "film_id": "c09e06e2-a8b1-4348-99d2-0c7fa01c1d3c",
+  "lang": "en",
+  "text": "Carapiru knew his stretch of forest the way other people know a street — which plants fed him, which were useful, which to leave alone — and then he was out of it, alone. A hundred and thirty-five minutes lets a walk take the time a walk takes, and Andrea Tonacci spends that length rather than compressing years into summary. Abraccine's hundred-best list of Brazilian films counts this documentary among them, and the man it follows is not a character. What the film has is time, which it gives to a displacement that happened at the pace of a life rather than a news cycle. The second existence Carapiru assembles, with help from settlers who take his side, is made of unfamiliar parts, and the picture stays with the practical business of it: shelter, food, distance, the arithmetic of living among people who are not his own.",
+  "model": "claude-opus-5",
+  "source_sha256": "153478dc22f5c6ed98e53039a161aab378b913401ec59da08da62ee332144f8d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-sign-of-chaos-2003",
+  "field": "lead",
+  "film_id": "8751679b-a56b-41fb-82eb-054bacc6a9d7",
+  "lang": "en",
+  "text": "The reels on the inspection table are footage Orson Welles shot in Brazil, and the customs officer holding them up to the light is named Amnésio. A censor called Forgetting is not a subtle joke, and Rogério Sganzerla is not attempting subtlety; he wants it understood on contact so the film can get to the colder business underneath, which is what an office does to work it has decided should not circulate. Eighty minutes, two movements: an examination, then a party thrown by the people who do the examining. Confiscation is shown as an act with a person attached to it, a desk, a signature, a man who goes home afterward. The reels at the center belong to somebody else's film, and the whole picture rests on that: one man's work in the hands of another whose job is to decide whether it travels.",
+  "model": "claude-opus-5",
+  "source_sha256": "ad0f87265164fe3e997922b0ff603a999802ed880b0ccdb5375b675ccdfff34d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "suburban-angels-1987",
+  "field": "lead",
+  "film_id": "b09d215c-d8fc-485f-b526-b427c6a182f6",
+  "lang": "en",
+  "text": "Three teachers work the outskirts of São Paulo, and the film puts their classrooms, their love affairs and their households on one continuous shift. Where the school stands decides most of what happens inside it. Poverty is not a topic anyone discusses; it is the street they walk home along, and it arrives with the students every morning. Three of them rather than one means the same street can be shown producing three different lives, none of them a lesson. The picture sits between drama and crime, which is honest bookkeeping, since in that district the two are not adjacent categories but overlapping ones. Ninety minutes, and none of the arc that stories about teaching usually borrow, in which dedication is tested and then rewarded. Carlos Reichenbach lets them be tenants and lovers and relatives as well, and declines to rank the roles.",
+  "model": "claude-opus-5",
+  "source_sha256": "6542f2c4655dcec71312fb3e5fc47b7ad369badfc18a4b4c9b050a0feae6a505"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-lyre-of-delight-1978",
+  "field": "lead",
+  "film_id": "63e0b7f7-67ac-4303-8e5d-2ddc6400e7a1",
+  "lang": "en",
+  "text": "Carnival is at full volume in Niterói when a dancer at the Lira do Delírio has her son taken from her. A journalist she knows goes with her into the criminal parts of Rio de Janeiro, so the search runs through the one week of the year when the entire city is outdoors and nobody is where they usually are. The noise is not atmosphere; it is the obstacle. A city with its guard down is also a city that cannot be searched. Walter Lima Jr. also runs the story backward into an earlier carnival, on the mother's belief that whoever is responsible was already standing among people she knew. A hundred and five minutes of looking for one face in a crowd, twice, in two different years. The crowd is the only witness available, and it does not hold still long enough to be questioned.",
+  "model": "claude-opus-5",
+  "source_sha256": "5980b12083e6315fe6af7a29e40dba983c050f861dadb77b9d5bd6c730582587"
+ }
+]

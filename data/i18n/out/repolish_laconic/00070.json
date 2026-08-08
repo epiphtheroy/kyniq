@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-trembling-hand-that-refuses-to-mourn",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "떨림. 금지된 슬픔을 몸이 대신 기억하는 방식.",
+  "model": "claude-opus-5",
+  "source_sha256": "89dfc6f8e62388dc8d2d0f1dfc992c1349cad00b0fec69695626936cfdc7f2e1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-trial-as-society-s-rigged-verdict",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "법정과 공적 기구는 체제가 누구의 말을 듣지 않기로 했는지를 무대에 올린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "454c7979b2c13628fd70b4cc70b39d8f5063952a67cb7544c7e1dda32573f2dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-trial-as-theology-of-the-litigious-republic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세속 신앙의 성소가 된 법정.",
+  "model": "claude-opus-5",
+  "source_sha256": "a46d02aec96a8f15bea975ea70633544992618188c5a75129bc4833cb77f199a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-trial-as-verdict-machine-without-truth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "법정은 유죄를 제조한다. 진실 자리에 절차가 들어선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a31a8e9f672dc54ed0bdb4904e1ddf466d5cc5d467c7c065afad5fe756bdbaeb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-trial-shadowed-by-its-era-s-persecution",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바깥의 정치적 기류가 어른거리는 법정.",
+  "model": "claude-opus-5",
+  "source_sha256": "c8c42886e33db54425b5bb214b83126baf29ab460f780270afdec1a02c627b33"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-trial-that-tries-the-father",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "모든 평결은 아들이 부인해온 아버지와 벌이는 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bc7004b256ec687bed4282ec7325f0ad009134778b403700122b6a7c3023a313"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tribunal-where-existence-is-the-charge",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고발장 없는 박해. 죄보다 판결이 먼저 와 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "adff040bca3eaee1b20c5d244f8f36a891d77b6a01478b4016071d1d2d58ca1d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tribunal-without-a-state-stages-its-own-power",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권위가 사라진 자리에서 급조된 법정이 주권을 흉내 낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2974f33e614d7287dcf63a6303ce9e2461014c16676461cec3dd6d46cfe6c3cd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-trolley-problem-made-flesh",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "희생의 산술이 실제 선택으로 내려온다. 자를 것인가, 빠뜨릴 것인가, 건질 것인가.",
+  "model": "claude-opus-5",
+  "source_sha256": "5c9fc8bf482e7ecd2b759458992fc243da2312bbc882ec8e68a2b7eef03da642"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-trolley-with-no-brakes",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "레버는 고장 났고, 맞바꿈은 피할 수 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "244a03294e76a96ea3c815355a03f16c7bccd775030c04facf6f9c66d7e6cb43"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tropical-light-that-lies",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "리우의 눈부신 풍요. 감금의 알리바이이거나, 감금을 더 잔인하게 비추는 배경.",
+  "model": "claude-opus-5",
+  "source_sha256": "f365bf222e921771ee8cf38e3456dad5403310dcb414c01a7ddfdfc5cb44acd5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tropical-paradise-filmed-as-dread",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "섬의 목가가 뒤집힌다. 감옥으로, 일몰로, 방사능 낀 황혼으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "b1c813fb09d9645637965e0895937a7a96056e9f31cb44586a7f7ba3c7f74e1e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-trust-test-the-world-won-t-permit",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미덕이 무너지는 자리는 영혼이 아니라 조건이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "10424389da053eab1e91bc2bdf50cb13588e8cccff739c7943ad0fc6ec5089cb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-trusted-man-doomed-by-a-hidden-truth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 편에 들통날 위험을 안고 이어가는 충성.",
+  "model": "claude-opus-5",
+  "source_sha256": "be02a1919b29bf1da475ff4002861d087ef634aeedb2ee5f32dacd7b31107943"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-truth-told-or-withheld-as-moral-choice",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "말할 것인가 말 것인가가 윤리가 된다. 숨김이 자비고, 밝힘이 배신이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b26c2edbe2c10c0579ad309bb891c31c3f8571682ba3e7ccdf8831bc2829aa0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tune-that-outlives-the-lovers",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽은 이도 사랑한 이도 남지 못한 자리에 멜로디만 남는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f750999eb84e238392a934e9242df3e0f48f84ea3d73eacf8b9c8e7f55fc0c44"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tunnel-as-rite-of-passage-made-architecture",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지하 통로를 지나는 일이 입문이 되고, 퇴행이 되고, 다시 치르는 원초적 장면이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0afb7f1c08e643a246853d5340ad7cecd552a8a3f68cf3ddad9ff31ad812d561"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tunnel-that-births-a-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "좁은 통로를 빠져나가는 일. 거꾸로 치러지는 폭력적인 재탄생.",
+  "model": "claude-opus-5",
+  "source_sha256": "f0906ebf7bcdcecf6ae8304f58fc6d946e72a9390097f120c31c73035ff850c4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-turing-test-as-dramatic-engine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "모방 게임으로 짜인 영화. 두 정신이 서로 구별되지 않음을 증명하는 자리.",
+  "model": "claude-opus-5",
+  "source_sha256": "2858cc7783f3ab68dd9f45b3982a6a0ff14d721a6427c85b0867effe39a43db8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-twin-made-real-by-the-camera",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "분신이 믿기는 것은 기계가 그것을 물리적 사실로 만들어놓았기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "51af15ffa9750ec68cb172bd494ffb6023ed62063322ef148631460c918a9c21"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-twist-as-symptom-of-a-solving-culture",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "수용은 반전에만 매달린다. 느끼기보다 푸는 데 중독된 관객이 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bb81ea156fee4126c16083c00fd0161cde3c7324d2787233a902ac9f8f9532ee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-twist-born-from-the-empty-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "예산이 비워둔 자리가 공포의 반전을 결정한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aa190da1a8d21f4f8ea4b879557f6a9b61179e202a0e1915c2436cac72626b1c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-two-monads-that-never-quite-touch",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "라이프니츠의 모나드(monad)처럼 놓인 두 삶. 끝내 부딪히지 않은 채 조화를 이룬다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d68a9bf71c1785bc1a46190a7b3e6a3623cb2f7942c822e4591418e5c6be1d09"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-two-strands-that-are-one-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "둘로 갈라진 서사가 실은 쪼개진 하나의 영혼, 하나의 시선이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f4058ad0ba30e0a11f309d7dac0adef58c63cb39939c24b8091e90f25f612881"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-two-that-are-one-divided-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "둘을 가리키는 제목이 실은 한 쌍이 아니라 갈라진 자아를 부른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3da466dda8aac303c0445397c62d90e11c508fc3e268fad2d6635b709745322d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-two-who-are-secretly-one-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "짝을 이룬 두 인물. 견딜 수 없는 압력에 하나의 주체가 쪼개진 결과로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c8c06f24c1471c07ce787b50aa746892ef4cf581183b5f32375f28941e9c7d22"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tycoon-entombed-in-his-hoard",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거물이 쌓아 올린 잉여가 그를 묻는 궁전이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d77879dfe6aeba1946830b6452c27bde2039790e8bc8e8293873c049bc86b0f9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tyranny-of-the-maxim",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세상을 다스리던 규칙이 그 규칙을 휘두른 자들에게 되돌아온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e26423023f1f5fa4ee21cd6538ae0be35d8869b5eeff0fcde330b491eb7741f6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tyrant-convinced-he-is-the-hero",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화를 굴리는 진짜 동력은 악당의 자기 정당화다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0ae7e9a152ff0662284e8fe7bf36c5e2b33c1b868cb497000e1a3cf94b96a107"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tyrant-played-as-clown",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "코미디는 독재자를 우스꽝스럽게 만들어 그에게서 공포를 걷어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "639bf84b42c8e0d1060ca37917e696d9793b61963ae56fba361d2780c5ea259d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unanswerable-plot-hole-as-critical-symptom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "틈을 메우려 드는 관객의 집착. 모호함을 견디지 못한다는 자백이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8a3f07210ee6de278a3775a9f21afd3f24b063b2f7eb7bfdb579f34ad236825"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unblinking-take-as-lie-detector",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "컷이었다면 감췄을 진실을, 버티는 시간이 드러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c44006eaad25d44c19c2d41db5de5e2c3217e22622d6d174ccae1a69bc6e1bdd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unborn-as-the-film-s-hidden-verdict",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "임신이 영화 전체의 열쇠가 되고, 한계가 되고, 조용한 대답이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "10907309e9e99c518807e07189070e122b86117cbaac5179df3af06fcfa1836e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unbroken-camera-move-as-moral-argument",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "크레인이나 롱테이크가 기교에 그치지 않고 하나의 주장이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3f041e8df82554de7333cffbd14a4ada117bee6dbe8f28649593492520165070"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unbroken-take-becomes-a-dream-s-duration",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끊기지 않는 숏이 시계의 시간을 녹여 꿈의 리듬으로 바꾼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e220034fc3e2077cf5bbb92c1b8c5dd48f0ced196473e6a962216f0dd34db421"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-uncanny-as-made-literal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "두려움이 만져지는 것이 된다. 지면에서 살로, 코드에서 이미지로.",
+  "model": "claude-opus-5",
+  "source_sha256": "b05725407c54756c19a350c08a3eceac194a83bb3ace5a8477a824a2ad62ecd6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-uncanny-valley-speaks-against-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인간에 가까운 합성물이 이미지를 배반하고, 그 배반이 무엇이 실재인지를 드러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b218e707fe3515bf9f1550c739a56b9d70856d1a9c109f1a05971f2a639b6de"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-undead-as-dead-labor-reanimated",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "좀비를 읽는 법. 프롤레타리아가 된 소비자, 남아도는 노동, 자본이 되살려낸 시체.",
+  "model": "claude-opus-5",
+  "source_sha256": "f49bff277eb1c558c9bee8146f0f0415e9b7187f60806f45775880842da31608"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-underclass-that-cannot-represent-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영원한 주변인. 재현되지 못하고, 뜯기고, 끝내 묻히는 노동.",
+  "model": "claude-opus-5",
+  "source_sha256": "f5f47d91336c3e5190fb8d424db1a86ecb6479a75db339b50686124e3070d9d4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-undercover-self-as-lethal-bad-faith",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거짓 정체로 사는 일이 굳어 목숨을 위협한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "87acfa4bb914b09ed952974391e9f4789f9279e1e7bfb018bd5cedac92a01233"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-undercover-who-forgets-the-way-back",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "잠입한 자가 잠시뿐이어야 했던 역할 속으로 녹아 사라진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e807d45dc04f031441921ef3478345cbb0c07980c1b3f9b262115772248ea88c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-underling-who-indicts-the-order",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권위를 무너뜨릴 앎을 쥔 쪽은 신참이거나 하인이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b8361bb33a9dfe0d5f74167eafedbcf3d37994478710c58bea42448ae53e427f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-underworld-as-surviving-aristocracy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "범죄 조직이 마지막까지 굴러가는 귀족으로 남는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "32917f4c61115eeb1967c72c83304f85219d985b048c097d2cd262abf9b1b6c2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-undying-curse-of-endless-consciousness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흡혈이라는 영원. 죽어서 놓여날 수조차 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1661c4798f672a801c5dc491adc9224ef64c1337dbf572014ba623d49fba3bfa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unfilmable-verdict-as-nostalgia-for-narrative",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "못 보겠다는 말은 관습적인 이야기가 그립다는 고백이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "38948625cdb6db6cbe2f3b353800a1d111ce5a0edbf12a77c2a268ae9926f7e4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unfinished-greek-national-mythos",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영원히 완성되지 않는 국민국가 그리스. 그 신화의 막이 내리는 중이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d0000bcfadb193ddff1ace48ad319f2f5492f5ee4207713134413f0292c7fd3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unhidden-kill-witnessed-in-full",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "오래 보여줄 것. 그렇게 폭력은 제 대가를 치른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "99b42b5f7769523b252c88f3eb4e56756e0e57ac86d349804b8274da5fbb7afd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unhurried-dead-embody-death-s-patience",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "느림은 위협이 아니라 죽음의 확실함으로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "00c447afc5547c5a8ac1900ab559b4f845ca3c5fea5b619540f99128cd2a12ec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-uniform-as-speech-act-not-disguise",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "의상을 걸치는 일은 감추는 일이 아니라 행하는 일이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6253e834f36770a576ffec862dc8cbdb89efb02e267aaaa73f43d9f65aec4b08"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-uniform-that-wears-the-state",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "갑옷과 헬멧과 제복. 전후(戰後) 권력이 입은 몸.",
+  "model": "claude-opus-5",
+  "source_sha256": "965999a347caa69d83060ab757d5d619d1606fae7a6f4af32164686a26b06855"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-universal-backlot-wearing-a-new-face",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다른 곳인 척 다시 꾸며진, 늘 같은 스튜디오 야외 세트.",
+  "model": "claude-opus-5",
+  "source_sha256": "66fe3d4a5e1b4f6866f732f3706d0ef998e1022a248e612550d68955c8792929"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-universal-monster-rebuilt-from-a-franchise-s-ruin",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무너진 시네마틱 유니버스와 미끼용 브랜드가 되살려낸 고전 괴물들.",
+  "model": "claude-opus-5",
+  "source_sha256": "58889f131a2b77aa4d0b2cc964b71d157bd0abea679a643dc65d4008c0e1dac9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-universalizing-praise-that-disarms-the-specific",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비평가는 보편성을 칭송하며 영화의 뾰족한 정치적 날을 무디게 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bacb9b9350ccbd4ca6e1925b87e133b07e551c23fb0249190777808025406d00"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-universe-that-does-not-care",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "우주의 무관심, 그것이 이 영화의 진짜 주제다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c8c1ffdbc3a7f6f9415d3f92047dba416ac7ac45a8f935bfb035aeaec2afc26"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unknown-whose-casting-is-the-trick",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "낯선 얼굴 하나가 영화를 몰래 굴리는 동력이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ebe19e20d1673936a7e79226440e348567435253121c3a0eda60d07245de8ab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unlikable-woman-as-critical-symptom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그녀가 불편하다는 비평은 그녀가 아니라 비평가를 진단한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "82c5e8d3647a6f1613f94e7fc351801dcfbd36266444b5de708da73ada832877"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unmasking-as-death-of-privacy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "모두에게 보이는 순간 지워진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd92c6704fa97d5a75a569201f94b4846a59f9782f8ab3a883fbfd8e64b40e6a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unopened-box-that-must-stay-sealed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끝내 쓰지 않아야 값이 살아 있는 물건.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbd45be79fb113cc8d945e4ec774f2c83303513933c8446414f45fd0bf9fc1b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unreachable-distance-as-moral-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끝내 좁혀지지 않는 거리. 영화를 떠받치는 죄가 거기 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf2a76ae8045d0b2cc620092e844f7cbcc4fe235cabe974a646fea7a9a3e41a0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unresolved-tone-as-metaphysics",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "풀리지 않고 매달린 불협화음이 영화의 우주론 전부가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7080a75cc3b0757a03d37a3a1d455b0d80a4771f27804bc2b0e4e8f6c28766fe"
+ }
+]

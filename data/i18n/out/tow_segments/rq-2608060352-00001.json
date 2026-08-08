@@ -1,0 +1,119 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "16f39f39825bd4ce",
+  "field": "text",
+  "lang": "ko",
+  "text": "남우주연상과 1001 Movies to See Before You Die가 인정한 작품이고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "16f39f39825bd4ceb65879bf1b776912876ca8341113b88330d9796e772a0ec8"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a08e4f60e0db6844",
+  "field": "text",
+  "lang": "ko",
+  "text": "황금곰상과 Abraccine: 100 melhores filmes brasileiros가 인정한 작품이고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "a08e4f60e0db684430e32755108f535ef7febd1227b65460a4d84bc0dd7a4ec7"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "715d45354f7eae43",
+  "field": "text",
+  "lang": "ko",
+  "text": "켈리 라이카트 감독의 정전화된 작품군이 떠받치는 작품이고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "715d45354f7eae43460bfc759305448b1e51d8fbd9bd585ed567ef7350762c7f"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "49c216a36b46ab8c",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품으로, TSPDT 1,000 Greatest Films와 Caimán: 100 mejores películas del cine español에 올랐고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "49c216a36b46ab8cc37b0742a4ed3de032e7ec15ef68e6d5f08a0017e5174092"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "00ce55205af31e4c",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품으로, TSPDT 1,000 Greatest Films와 심사위원대상에 올랐고, 대중에게 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "00ce55205af31e4cea1aef75d1fbae0f3a30206bb3539ae25c8ffa9b71ed95ee"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "3674765a6cab2348",
+  "field": "text",
+  "lang": "ko",
+  "text": "올리비에 아사야스 감독의 정전화된 작품군이 떠받치는 작품이고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "3674765a6cab2348dbd8794b9b1a356bc1016e3db5e915f83ae3a0d202e8670b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "4fbde8d363b25f92",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품으로, TSPDT 1,000 Greatest Films와 BBC: 100 Greatest Films Directed by Women에 올랐고, 대중에게 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "4fbde8d363b25f921747635bc2fa232ba4211aa5d0686f5fa7c8fd38cb1b8d03"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "1948f78d3dd91932",
+  "field": "text",
+  "lang": "ko",
+  "text": "에이미 헤컬링 감독의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1948f78d3dd91932dab13003a21c901e0c931a88417669422bf8c95048abe3a5"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b7924741a99f533a",
+  "field": "text",
+  "lang": "ko",
+  "text": "파벨 파블리코프스키 감독의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b7924741a99f533a63a1ebf4b9988777530c8862b9a4d0ba4393884a1971d5c3"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "63787045d173b71b",
+  "field": "text",
+  "lang": "ko",
+  "text": "얀 코마사 감독의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "63787045d173b71bad314e9a2395ff4a796ee98cdc168a53e0df27e4185bfa2e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b8f9ba275d1bd567",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품으로, TSPDT 1,000 Greatest Films와 뉴욕비평가협회 작품상에 올랐고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "b8f9ba275d1bd567d1e1dd55a5dfee15763c9aa63c12b8f69f9c4564b5ef85db"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "a95cd57678947f9c",
+  "field": "text",
+  "lang": "ko",
+  "text": "데이비드 크로넨버그 감독의 정전화된 작품군이 떠받치는 작품이고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "a95cd57678947f9ce61d6bab7084c085c5229a6f2c735629f90df81fc3825189"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cf59ad163390115e",
+  "field": "text",
+  "lang": "ko",
+  "text": "오시마 나기사 감독의 작가 계보를 통해 다시 평가된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cf59ad163390115eb164f9e2bbfc50e293a549472bae04d797a94b47914021cd"
+ }
+]

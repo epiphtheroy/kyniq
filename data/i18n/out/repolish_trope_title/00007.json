@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "names-of-gravity-that-bind-and-orient",
+  "field": "title",
+  "lang": "ko",
+  "text": "묶고 방향을 주는 중력의 이름들",
+  "model": "claude-opus-5",
+  "source_sha256": "a00dea0cfada12067f31263df9360ff770287532b5635f8b9b858134e2314e74"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "naming-as-conscription-into-reproduction",
+  "field": "title",
+  "lang": "ko",
+  "text": "이름을 붙여 재생산에 징집하다",
+  "model": "claude-opus-5",
+  "source_sha256": "9ec37f311a521e5433410568b2d867abf3656e124eb27fe744bf3342527f50bb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "naming-people-by-their-function-to-mourn-them",
+  "field": "title",
+  "lang": "ko",
+  "text": "애도하기 위해 기능으로 부르는 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "e5c1d4e121e978057a9ab65f223444d4dfac5d2c51d04f68fa31912514cec87a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "naming-the-film-after-the-absence-at-its-center",
+  "field": "title",
+  "lang": "ko",
+  "text": "중심의 부재에서 따온 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "29be1d5a04799d208a97958cd7865040cd2bb88a1ac11da41af1d6c13a89fd7c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "narrated-from-inside-death-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽음 안쪽에서 들려오는 이야기",
+  "model": "claude-opus-5",
+  "source_sha256": "30d6cb638737e1673de8f15ab39c0c992ce2d2bc93319c6b7362e8b93cc3e4d9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "narrated-from-the-aftermath-of-an-ending",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝나버린 뒤에서 말하는 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "ccc6c399f6ea392872e93374da4e2f7a89a5aff8d59482c5f40e1692b98c96b2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "narration-performed-for-a-listener",
+  "field": "title",
+  "lang": "ko",
+  "text": "듣는 이 앞에서 연기되는 내레이션",
+  "model": "claude-opus-5",
+  "source_sha256": "c2a3104ffc39b580eb7ffbe0c15795cd041ca7e463982bec93daa558d7e78efc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "natural-light-as-moral-verdict",
+  "field": "title",
+  "lang": "ko",
+  "text": "판결을 내리는 자연광",
+  "model": "claude-opus-5",
+  "source_sha256": "8f0bc5e4e646d0f7a18a082e354408a2adbb1da45470dafd904ad0c1c4d71245"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "nature-as-predation-without-innocence",
+  "field": "title",
+  "lang": "ko",
+  "text": "무구함 없는 포식, 그것이 자연",
+  "model": "claude-opus-5",
+  "source_sha256": "8ad20fda0f6815904f14341e28d897f4548abd845d3f14be280121019d564192"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "nature-bled-for-capital-s-dream-of-immortality",
+  "field": "title",
+  "lang": "ko",
+  "text": "자본의 불멸을 위해 피 흘리는 자연",
+  "model": "claude-opus-5",
+  "source_sha256": "20ab64a781edfac9f42c5b8ea6fe40ea52a536d49acab82307af42f9bffaeb7e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "neorealism-haunting-its-own-afterlife",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 사후를 떠도는 네오리얼리즘",
+  "model": "claude-opus-5",
+  "source_sha256": "62f064de0cbdfb5c202072478f232d801ab0bd5951eb5987299b2b5719320968"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "neutrality-as-the-alibi-of-power",
+  "field": "title",
+  "lang": "ko",
+  "text": "중립이라는 권력의 알리바이",
+  "model": "claude-opus-5",
+  "source_sha256": "942a6294760ebc138021ddebeedbdd91fec2922ba50bdbdd3e1c3f04b21884a7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "neutrality-is-the-choice-that-cannot-be-made",
+  "field": "title",
+  "lang": "ko",
+  "text": "중립, 결코 고를 수 없는 선택지",
+  "model": "claude-opus-5",
+  "source_sha256": "6672b8e5d862d181d39658f028fb7d83d6e82b9fd137e3898e0bd9754c3268cd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "new-england-s-calm-as-containment-vessel",
+  "field": "title",
+  "lang": "ko",
+  "text": "뉴잉글랜드의 고요, 무언가를 가둔 그릇",
+  "model": "claude-opus-5",
+  "source_sha256": "241ee4d80258658aec11ebe3c3be3190adb63a1fed1871ff83e079c65c180651"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "new-mexico-plays-the-dying-west",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽어가는 서부를 연기하는 뉴멕시코",
+  "model": "claude-opus-5",
+  "source_sha256": "e6ec0fddc99bb08220856cbc6595e6d200538117f990ccc748871d042b69d3ee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "new-orleans-filmed-as-stylized-unreality",
+  "field": "title",
+  "lang": "ko",
+  "text": "양식화된 비현실로 찍힌 뉴올리언스",
+  "model": "claude-opus-5",
+  "source_sha256": "459e6059a42bfb4a5ddcceb5359e299242f035717c165931e344b8d516018979"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "new-york-filmed-over-its-fiscal-crisis-grave",
+  "field": "title",
+  "lang": "ko",
+  "text": "재정 위기의 무덤 위에서 찍은 뉴욕",
+  "model": "claude-opus-5",
+  "source_sha256": "25422f5e78f4d062e22cae14db914b9748ffba59e15f6b2d4fd8c5e7c0c83d19"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "new-zealand-wearing-another-world-s-face",
+  "field": "title",
+  "lang": "ko",
+  "text": "다른 세계의 얼굴을 쓴 뉴질랜드",
+  "model": "claude-opus-5",
+  "source_sha256": "5a73be9ec92f76445f97099bfe0f1b7fa0c7a12e2f4fe1845d56c2cfe99e929c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "new-zealand-wearing-another-world-s-mask",
+  "field": "title",
+  "lang": "ko",
+  "text": "다른 세계의 가면을 쓴 뉴질랜드",
+  "model": "claude-opus-5",
+  "source_sha256": "8f07703e76db3ba8f121ff013b9d82fb76522e31cd29d56b7d6e566eeb5c54e9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "nietzsche-s-demon-made-literal-the-loop-as-test",
+  "field": "title",
+  "lang": "ko",
+  "text": "니체의 악마가 실물이 되다: 시험대가 된 루프",
+  "model": "claude-opus-5",
+  "source_sha256": "94927b40aff54d605100e286799dea999935d5d60451e16cd1fabb6c084ab8d5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "no-freedom-no-guilt-no-goodness",
+  "field": "title",
+  "lang": "ko",
+  "text": "자유도 죄도 선도 없다",
+  "model": "claude-opus-5",
+  "source_sha256": "e8cb0abd5a060de1f1afb1102aa322e0fe6b5c8eb0e964dd12f6cba7be452ffe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "no-self-beneath-the-performance-or-costume",
+  "field": "title",
+  "lang": "ko",
+  "text": "연기와 의상을 벗겨도 자아는 없다",
+  "model": "claude-opus-5",
+  "source_sha256": "d74f99916dd61692307949de7c66845f3f99ae22a56788b61b7a70146d8448e9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "nostalgia-as-the-west-s-self-absolution",
+  "field": "title",
+  "lang": "ko",
+  "text": "향수로 스스로를 사면하는 서구",
+  "model": "claude-opus-5",
+  "source_sha256": "52ce3b4f544319b680bc381ef3e1260a0e965571cdadff0617e9e619b47cad34"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "nostalgia-s-beauty-as-moral-anesthetic",
+  "field": "title",
+  "lang": "ko",
+  "text": "마취제가 된 향수의 아름다움",
+  "model": "claude-opus-5",
+  "source_sha256": "f2fadc4db1e3f93a5fb0f95bc72e080342ef0a0114ba0709eedf658e88e97730"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "nothing-is-real-until-it-is-seen",
+  "field": "title",
+  "lang": "ko",
+  "text": "눈에 담기기 전에는 아무것도 실재하지 않는다",
+  "model": "claude-opus-5",
+  "source_sha256": "3190f1696da8f2ef757a2f82b58c5926c185e65b99bb755cc09d6cd4f97b9786"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "o-keeffe-s-bleached-west-as-sacred-emptiness",
+  "field": "title",
+  "lang": "ko",
+  "text": "오키프의 표백된 서부, 성스러운 텅 빔",
+  "model": "claude-opus-5",
+  "source_sha256": "c15a03927a24bdb9ec63ae130bafb74e18c8123c99411605b52e23a7ce1ef99a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "oakland-as-decaying-promised-land",
+  "field": "title",
+  "lang": "ko",
+  "text": "썩어가는 약속의 땅 오클랜드",
+  "model": "claude-opus-5",
+  "source_sha256": "e38ea38d974f3f78a61ed3beca59d1945dd41010973dd6014387b55e16bd6386"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "obsolescence-as-a-mode-of-being",
+  "field": "title",
+  "lang": "ko",
+  "text": "낡아간다는 존재 방식",
+  "model": "claude-opus-5",
+  "source_sha256": "25ed14ceff1faff7328aa787bdd575538a8737e2af86d24010f4eb9f036efcf5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "one-actor-acting-against-himself",
+  "field": "title",
+  "lang": "ko",
+  "text": "자기 자신과 맞붙는 배우",
+  "model": "claude-opus-5",
+  "source_sha256": "897d9f0c27535bccb1e053c0993b7332088c30f1239692c1a918c07471a43eb9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "one-actress-two-women-the-split-psyche",
+  "field": "title",
+  "lang": "ko",
+  "text": "한 배우, 두 여자: 갈라진 정신",
+  "model": "claude-opus-5",
+  "source_sha256": "6c1511f7dbef70700213f89f23120097a921f4157b7027abc676ae92f8b99c86"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "one-block-made-to-carry-a-nation",
+  "field": "title",
+  "lang": "ko",
+  "text": "한 블록이 나라 전체를 짊어지다",
+  "model": "claude-opus-5",
+  "source_sha256": "f305d53ccabee3bd0f2c0dc8d7a11428251fc5fd69e98ab78e57af4f549e6710"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "one-city-cast-as-another",
+  "field": "title",
+  "lang": "ko",
+  "text": "다른 도시 역을 맡은 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "7ab49d006c8cbaf71c0acb71037d9e687e1ef180027aa61c85e5992bb6fe59d7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "one-day-dilated-into-everything",
+  "field": "title",
+  "lang": "ko",
+  "text": "하루가 부풀어 전부가 되다",
+  "model": "claude-opus-5",
+  "source_sha256": "043f33f4e1ad29771516cdb30ca15bb7a5190233ca7150abaf79e84d431276cc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "one-geography-wearing-another-s-mask",
+  "field": "title",
+  "lang": "ko",
+  "text": "남의 가면을 쓴 지형",
+  "model": "claude-opus-5",
+  "source_sha256": "c691dcd664e37415b0ee91f9c4e0b4f96c32ea7c815fcb01fdc875492d41bc01"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "one-honest-place-in-an-untrustworthy-paris",
+  "field": "title",
+  "lang": "ko",
+  "text": "믿을 수 없는 파리에서 유일하게 정직한 곳",
+  "model": "claude-opus-5",
+  "source_sha256": "52f1d0a166d34da9506047e909f505cecf316b822cfb76a543c1d5e584cee23a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "one-land-wearing-another-s-face",
+  "field": "title",
+  "lang": "ko",
+  "text": "남의 얼굴을 쓴 땅",
+  "model": "claude-opus-5",
+  "source_sha256": "ba830e27d8b74fef0b77509e5f7e0eeef1f5351c0a0d63d55208c24197fd40a9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "one-pavement-stands-for-the-whole-society",
+  "field": "title",
+  "lang": "ko",
+  "text": "보도 한 조각이 사회 전부를 떠맡다",
+  "model": "claude-opus-5",
+  "source_sha256": "183a539d0022be636ac4786ceb28bae56e3bb689304ef530b3f76e2ffbc9c257"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "one-war-s-rubble-standing-in-for-another",
+  "field": "title",
+  "lang": "ko",
+  "text": "다른 전쟁을 대신 연기하는 잔해",
+  "model": "claude-opus-5",
+  "source_sha256": "abab9953cfb391052f8614ad997e53f2691647a65e61f09e8423a2c94da80951"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "opacity-as-the-subaltern-s-last-sovereignty",
+  "field": "title",
+  "lang": "ko",
+  "text": "서발턴(subaltern)에게 남은 마지막 주권, 불투명함",
+  "model": "claude-opus-5",
+  "source_sha256": "22a3fbf4539fba3bb9752c8bf5c7c2e00c552f3feca50e2ad30c336e3bf5217d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "oregon-cast-as-the-frontier-s-bitter-end",
+  "field": "title",
+  "lang": "ko",
+  "text": "변경의 쓴 끝자락을 맡은 오리건",
+  "model": "claude-opus-5",
+  "source_sha256": "eae05529660bdbfc79d938b0c541be0dce864261f3d1c248fab1b9e36a87e089"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "orpheus-who-cannot-refuse-the-backward-look",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 뒤를 돌아보고 마는 오르페우스",
+  "model": "claude-opus-5",
+  "source_sha256": "da5287fe492fb30c20d5b4fb41ad950333527735a481adcbf41765cf9ef3068a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "osaka-as-tender-anchor-for-the-unreal",
+  "field": "title",
+  "lang": "ko",
+  "text": "비현실을 붙드는 다정한 닻, 오사카",
+  "model": "claude-opus-5",
+  "source_sha256": "1833cbf64c49368352922aa2cb1bff106a0cb1af92d66f13ed7ec1ca7b5261ac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "overlapping-talk-as-engineered-spontaneity",
+  "field": "title",
+  "lang": "ko",
+  "text": "겹쳐 말하기, 설계된 즉흥",
+  "model": "claude-opus-5",
+  "source_sha256": "c6493be1f1e7f896ba253c83e212134d2e52b6afc6e2f86224ceecf98bc97608"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "ozu-s-color-was-an-industrial-loan",
+  "field": "title",
+  "lang": "ko",
+  "text": "오즈의 색은 산업이 빌려준 것",
+  "model": "claude-opus-5",
+  "source_sha256": "7c28ed22c011fee608c9695967defe55c7862e7694f180657374fc6d42c673f3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "pain-as-the-only-proof-of-the-real",
+  "field": "title",
+  "lang": "ko",
+  "text": "실재를 증명하는 것은 고통뿐",
+  "model": "claude-opus-5",
+  "source_sha256": "6b59c89e748b3fa4634a77315db2778a40d3a2dbb0694b15df09be11c339618f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "pain-conscripts-the-one-who-feels-it",
+  "field": "title",
+  "lang": "ko",
+  "text": "고통은 느끼는 자를 징집한다",
+  "model": "claude-opus-5",
+  "source_sha256": "43c71a5dacaf8ae10d2ac299a0f80376511a61cc60c9d87ce65b6b1a0360a65b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "pain-refined-into-surplus",
+  "field": "title",
+  "lang": "ko",
+  "text": "잉여로 정제되는 고통",
+  "model": "claude-opus-5",
+  "source_sha256": "08d337c92376b4b1afa727dc89a02657f5b808630cb1c3deb2223c70318f2e35"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "paradise-photographed-as-a-trap",
+  "field": "title",
+  "lang": "ko",
+  "text": "덫으로 찍힌 낙원",
+  "model": "claude-opus-5",
+  "source_sha256": "8b1132fc13a000bbee5ada82799ef19085d5158a78b923b0bcb9031ce9f83d22"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "paris-drained-to-anonymous-non-place",
+  "field": "title",
+  "lang": "ko",
+  "text": "익명의 비장소로 비워진 파리",
+  "model": "claude-opus-5",
+  "source_sha256": "d6b50e2cd7b80ae28e98a8184a7743e575f0368e22f19156bd52c66171f1cd94"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "paris-faked-built-elsewhere-to-be-erased",
+  "field": "title",
+  "lang": "ko",
+  "text": "지우려고 딴 데 세운 가짜 파리",
+  "model": "claude-opus-5",
+  "source_sha256": "741dc3322c98c4e8e5006793e5df47d7f7c1ab1faf1113d825eb633b902086db"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "pascal-s-wager-staged-as-theology",
+  "field": "title",
+  "lang": "ko",
+  "text": "신학으로 무대에 오른 파스칼의 내기",
+  "model": "claude-opus-5",
+  "source_sha256": "7fa880b51396e954b30707ae1e4574283b9280cb6e72d929481575808e6dc850"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "passion-as-sacred-suffering-named",
+  "field": "title",
+  "lang": "ko",
+  "text": "수난(passion)이라 이름 붙은 성스러운 고통",
+  "model": "claude-opus-5",
+  "source_sha256": "2a6604d191cb28c0c9d60b50199f04158e175e87dad85f6a67ec01c86b5cdeba"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "pastel-wrapping-on-disposable-life",
+  "field": "title",
+  "lang": "ko",
+  "text": "일회용 생명을 감싼 파스텔 포장지",
+  "model": "claude-opus-5",
+  "source_sha256": "dfebf4711b638aeea9e4b953284905832e190ae264f09cc8735656c68c42b1d4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "patience-weaponized-for-theatrical-shock",
+  "field": "title",
+  "lang": "ko",
+  "text": "충격을 위해 벼려진 인내",
+  "model": "claude-opus-5",
+  "source_sha256": "03d19c80861d05bae681b969c5d89f0e2d1549bf7f0f1218324146ebbb933768"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "patriarchal-sovereignty-over-the-daughter",
+  "field": "title",
+  "lang": "ko",
+  "text": "딸을 지배하는 아버지의 주권",
+  "model": "claude-opus-5",
+  "source_sha256": "e3645ecc9097e9fbbcdd6aba691cd53c5aee21bdd6d90f76dc94ad5ebf252271"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "patriarchy-as-a-self-consuming-function",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 몸을 갉아먹는 함수, 가부장제",
+  "model": "claude-opus-5",
+  "source_sha256": "1c15bde09e05f6e8efd741daf028ff1666c43db62e34487cf413e3f8b0d067b1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "patriarchy-encoded-in-the-frame-s-atmosphere",
+  "field": "title",
+  "lang": "ko",
+  "text": "화면의 공기에 새겨진 가부장제",
+  "model": "claude-opus-5",
+  "source_sha256": "921799582b133d1c81460f075c09404bb0e0b92b0d2e028afc495708d49c691d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "penance-without-the-absolution-it-begs",
+  "field": "title",
+  "lang": "ko",
+  "text": "빌어도 사면은 오지 않는 참회",
+  "model": "claude-opus-5",
+  "source_sha256": "a664425d7eb99eda62bba403b1614d55e1b5b129908fe5c1ed18de824704af95"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "penury-forced-the-ear-to-see",
+  "field": "title",
+  "lang": "ko",
+  "text": "궁핍이 귀로 보게 만들었다",
+  "model": "claude-opus-5",
+  "source_sha256": "1e397f502ac0606baf89a928cf9ba3aa3b238196916b17e785decec6df5411f3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "perfection-chosen-as-self-erasure",
+  "field": "title",
+  "lang": "ko",
+  "text": "자기를 지우는 길로 고른 완벽",
+  "model": "claude-opus-5",
+  "source_sha256": "e6df5f9f06251e9ac0f1f5d67cb2f20176d254dc3330330469c9226d2bf38084"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "performance-as-survival-under-threat",
+  "field": "title",
+  "lang": "ko",
+  "text": "살아남으려 하는 연기",
+  "model": "claude-opus-5",
+  "source_sha256": "ae760ee65afe7f5e287cc9cde01a84224e9c3ddddcc1aabdde093b6288a3948c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "performance-devouring-the-person",
+  "field": "title",
+  "lang": "ko",
+  "text": "사람을 삼켜버린 연기",
+  "model": "claude-opus-5",
+  "source_sha256": "34a097a171a5c474c6d1b09ce016354a4a9aad0e56e4648492fc3e71bffe82db"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "personhood-conferred-against-the-law-s-denial",
+  "field": "title",
+  "lang": "ko",
+  "text": "법이 부인해도 끝내 부여되는 인격",
+  "model": "claude-opus-5",
+  "source_sha256": "7d96edbf1ee354db951cd15e78ac9ab9bf0b32338b36c587387eaa17149f59ad"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "persons-as-means-never-as-ends",
+  "field": "title",
+  "lang": "ko",
+  "text": "수단일 뿐 목적이 아닌 사람들",
+  "model": "claude-opus-5",
+  "source_sha256": "83f10252eeca557bf44ee69a4e2e9424e0c596a929671dff5d48e0fa06093668"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "pessoa-s-trunk-of-multiplied-selves",
+  "field": "title",
+  "lang": "ko",
+  "text": "불어난 자아들��� 담긴 페소아의 궤짝",
+  "model": "claude-opus-5",
+  "source_sha256": "a9f2a835351737a1e2e65e780d37662733786037aa5f542f6b270895d655a2c1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "philadelphia-city-of-brotherly-love-betrayed",
+  "field": "title",
+  "lang": "ko",
+  "text": "형제애의 도시, 배신당한 필라델피아",
+  "model": "claude-opus-5",
+  "source_sha256": "41901bb0f737ff52938e873fb92b5a3ff8b0ded20e3f8bda2381b1cdea8d24f2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "pi-as-the-irrational-that-resists-mastery",
+  "field": "title",
+  "lang": "ko",
+  "text": "정복을 거부하는 무리수, 파이",
+  "model": "claude-opus-5",
+  "source_sha256": "a1f45a70e6064d7358b6ff38f7135b4eceee6f10a559131d3958c5c47ee39e20"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "pinochet-smuggled-into-the-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "화면 안에 밀반입된 피노체트",
+  "model": "claude-opus-5",
+  "source_sha256": "b7e12b92fb0c952ed77178d8dcc3c9465df5c9a5d73eb9d67950996d79e3356d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "play-as-the-anaesthetic-against-death",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽음을 견디게 하는 마취제, 놀이",
+  "model": "claude-opus-5",
+  "source_sha256": "7e4e0357af7fa0ff7406a03588e4594f376a5fa9d6f92f5e4515aeb6b710e087"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "pleasure-built-on-hidden-extraction",
+  "field": "title",
+  "lang": "ko",
+  "text": "보이지 않는 수탈 위에 세운 쾌락",
+  "model": "claude-opus-5",
+  "source_sha256": "4c8e13004289d6090a7abd93ef93406f12bf23505a6293fd2584f6e71788fb33"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "plotlessness-promoted-to-argument",
+  "field": "title",
+  "lang": "ko",
+  "text": "주장으로 격상된 무플롯",
+  "model": "claude-opus-5",
+  "source_sha256": "8b2ef38c5f4f703ad96c21b6088c2c7299d74c094352d033652cf10e47711cf2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "poetry-as-the-logic-defeating-axiom",
+  "field": "title",
+  "lang": "ko",
+  "text": "논리를 이기는 공리, 시",
+  "model": "claude-opus-5",
+  "source_sha256": "6da4a5b431dfbedf30d10402f961e7338ca1b1cf313a046b1860ec13978a16a4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "pop-as-the-era-s-carbon-layer",
+  "field": "title",
+  "lang": "ko",
+  "text": "한 시대가 남긴 탄소층, 팝",
+  "model": "claude-opus-5",
+  "source_sha256": "3d65edf884fe0670a9572e5aa6013ed9ec9097b1068b7ec727297d2b01cd0d23"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "pop-image-as-the-only-reality-left",
+  "field": "title",
+  "lang": "ko",
+  "text": "남은 현실은 팝 이미지뿐",
+  "model": "claude-opus-5",
+  "source_sha256": "f2124ecc1e6970314522887c3b04d95a87ae72955e93f9cc226d1afe5014b44f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "possessing-the-dead-without-decay",
+  "field": "title",
+  "lang": "ko",
+  "text": "썩지 않는 죽은 자를 소유하기",
+  "model": "claude-opus-5",
+  "source_sha256": "9fc68e405b815366c2ed64803c5edfd1067a2df1170db4cf5fcb30898220280d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "possession-as-the-film-s-hidden-contract",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화가 숨긴 계약, 소유",
+  "model": "claude-opus-5",
+  "source_sha256": "b8b8e56b09c338089dc17911e1baa9d7c0bb60b31cfd573334ef735f6d3d30bc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "post-soviet-russia-as-unlivable-architecture",
+  "field": "title",
+  "lang": "ko",
+  "text": "살 수 없는 건축이 된 포스트소비에트 러시아",
+  "model": "claude-opus-5",
+  "source_sha256": "657588d78f46ac61129ad8b8f8c02a9eca1fe2edcb13089ed2448d135e48368a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "postwar-japan-as-a-body-sweating-out-its-guilt",
+  "field": "title",
+  "lang": "ko",
+  "text": "죄를 땀으로 흘려보내는 전후 일본이라는 몸",
+  "model": "claude-opus-5",
+  "source_sha256": "456a5538ee1d979558da1b75de490bd69ec39b29cfba29c0d238ffa2a42fe84d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "postwar-japan-re-litigating-its-own-pacifism",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 평화주의를 다시 심판대에 올린 전후 일본",
+  "model": "claude-opus-5",
+  "source_sha256": "2b5c3ea66f8dcb39b49f83a772b00e794746f17ec2c6bfbdd319efcec598b3aa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "postwar-japan-s-disavowed-inheritance-in-a-child",
+  "field": "title",
+  "lang": "ko",
+  "text": "한 아이가 짊어진, 전후 일본이 부인한 유산",
+  "model": "claude-opus-5",
+  "source_sha256": "88d76482b8d69e202ad90dc1cc6cdd8a83b090cb18f0a0c2bb94e03351da5605"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "poverty-made-the-single-room-a-virtue",
+  "field": "title",
+  "lang": "ko",
+  "text": "가난이 단칸방을 미덕으로 바꾸다",
+  "model": "claude-opus-5",
+  "source_sha256": "0288dd8a351c0c7c14a2ce084a6843f1b4209f1e2f2ba3a31dbf8d47b801a854"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "power-as-the-diversion-of-flows",
+  "field": "title",
+  "lang": "ko",
+  "text": "흐름의 물길을 돌리는 힘",
+  "model": "claude-opus-5",
+  "source_sha256": "61b490c20b7993626ef1c41d8c87d8bda1781ad0603080e24e786e8df68fb3b4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "practical-effects-confessing-cgi-s-anxiety",
+  "field": "title",
+  "lang": "ko",
+  "text": "CGI의 불안을 자백하는 실물 효과",
+  "model": "claude-opus-5",
+  "source_sha256": "95f5294101f2dce822a6614c438728525fbc50f86485ddf669479b20231ec179"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "practical-flesh-against-the-cgi-tide",
+  "field": "title",
+  "lang": "ko",
+  "text": "CGI의 파도에 맞선 실물의 살",
+  "model": "claude-opus-5",
+  "source_sha256": "7b2a53c30df690232daf190f79d7bdd72a1cc6356bc4fcd169e43adba1c48b69"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "practical-weight-as-the-proof-of-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "진짜라는 증거, 실물의 무게",
+  "model": "claude-opus-5",
+  "source_sha256": "97b3ca126516d47c434efad5a1b9a1e468d57ed6eae88dfb98055f333b659fd6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "praise-word-as-critic-s-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "찬사의 단어가 곧 비평가의 고백",
+  "model": "claude-opus-5",
+  "source_sha256": "8fa41de7fc43d549bd53562263c0d859425ac4ca7e8b75e5abb7d88d08aa7813"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "praised-for-the-wrong-thing",
+  "field": "title",
+  "lang": "ko",
+  "text": "엉뚱한 이유로 상찬받다",
+  "model": "claude-opus-5",
+  "source_sha256": "01f7d0aa093e8187229375595d74f8dcc1a50ab7fad6e8c9fce72fa189f9ae3a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "pre-mourning-one-s-own-expendability",
+  "field": "title",
+  "lang": "ko",
+  "text": "버려질 제 몫을 미리 애도하기",
+  "model": "claude-opus-5",
+  "source_sha256": "27a32bdca5d0b6d8047d4bc26b8db862ef6ce55a0aede9642c983da8df0f4b04"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "predation-dressed-as-cosmic-law",
+  "field": "title",
+  "lang": "ko",
+  "text": "우주의 법칙으로 차려입은 포식",
+  "model": "claude-opus-5",
+  "source_sha256": "fbfa82cd8376175773b2ddea077bec5c9df428e4bc175f0556fc5fa293e43091"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "premiered-into-its-own-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 주제 한복판에서 개봉하다",
+  "model": "claude-opus-5",
+  "source_sha256": "ccc42b1bd3717888b16d3a08ea66e4106af0461cb576635f8d461c20b26c1892"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "private-care-indicts-the-state-s-abdication",
+  "field": "title",
+  "lang": "ko",
+  "text": "사적인 돌봄이 국가의 직무 유기를 고발한다",
+  "model": "claude-opus-5",
+  "source_sha256": "798296899db2a7bc76ed79f637da7307ea78d01d60c612c298170915f1f1fbea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "privatized-sovereignty-of-the-employment-contract",
+  "field": "title",
+  "lang": "ko",
+  "text": "고용 계약이 쥔 사유화된 주권",
+  "model": "claude-opus-5",
+  "source_sha256": "8ca6644ab19f50d22146f7c9f68265afe99a987a39f1c46f0f9b3f76239c52e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "procedure-as-the-film-s-true-protagonist",
+  "field": "title",
+  "lang": "ko",
+  "text": "진짜 주인공은 절차다",
+  "model": "claude-opus-5",
+  "source_sha256": "1dec337a97ab3fa7e1c4614c84b8617b73ff497e0b1f9642217f69d0d93b0d69"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "property-as-the-only-real-substance",
+  "field": "title",
+  "lang": "ko",
+  "text": "실체라 할 것은 소유뿐",
+  "model": "claude-opus-5",
+  "source_sha256": "ceaba2ad1463c84d59545e5d829bf3ae265c69ae5e8162bc554ffedb8d99db2f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "property-worn-as-skin",
+  "field": "title",
+  "lang": "ko",
+  "text": "살갗처럼 걸친 소유물",
+  "model": "claude-opus-5",
+  "source_sha256": "d791099e11b895be52b2fde2d5fe228c2f0bf692d899801dde469efef1a94220"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "prophecy-as-the-tyrant-that-devours-time",
+  "field": "title",
+  "lang": "ko",
+  "text": "시간을 삼키는 폭군, 예언",
+  "model": "claude-opus-5",
+  "source_sha256": "cec305573e6c7e894df6cf7ea08e332069586a82628c8d576a57af43f5c962f0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "provincial-paris-in-disguise",
+  "field": "title",
+  "lang": "ko",
+  "text": "변장한 지방, 파리 행세",
+  "model": "claude-opus-5",
+  "source_sha256": "516fcb60834f5d8b76ffe4d9da1ac3b66c747534405539160bbe332148913dac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "publishing-as-duty-beyond-consequence",
+  "field": "title",
+  "lang": "ko",
+  "text": "결과를 따지지 않는 의무로서의 보도",
+  "model": "claude-opus-5",
+  "source_sha256": "40e67c4610bdef09a7eed988154c77841f79e639f72c4adaed48f7702deb6463"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "purity-as-the-thing-marked-for-destruction",
+  "field": "title",
+  "lang": "ko",
+  "text": "파괴하라고 표시된 것, 순결",
+  "model": "claude-opus-5",
+  "source_sha256": "727eb2a491c5c35696fff0c222b768138c6aab772c1a40068fabd5c2bb704b06"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "purity-that-engineers-consent-to-annihilation",
+  "field": "title",
+  "lang": "ko",
+  "text": "절멸에 대한 동의를 빚어내는 순수",
+  "model": "claude-opus-5",
+  "source_sha256": "6183ded49f93025bf995ea49596520f067eea0adca030c8a007e420e34119903"
+ }
+]

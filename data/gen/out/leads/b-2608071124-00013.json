@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-ides-of-march-2011",
+  "field": "lead",
+  "film_id": "4454da07-32b1-4fad-8db8-fe6fe3775c08",
+  "lang": "en",
+  "text": "Campaigns run on people who believe, and the believers are the cheapest thing on the payroll. The press spokesman here works for a candidate he admires, in a primary where victory has been quietly redefined to mean whatever can still be salvaged. Clooney keeps it to 101 minutes and to the rooms where the work happens: hotel suites, a parking garage, a phone call taken in a corridor, a favour asked in a tone that allows no refusal. What holds attention is not the outcome of the race but the moment a young man notices that the skills he is proud of — reading a room, shaping a sentence, knowing what a reporter needs by Thursday — are the same skills that make him useful to people he would rather not resemble.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c4e4e7a5723ae22b1894bc872d083efc16b96109e393e66ea7f1bdeacb9fe7a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "straight-outta-compton-2015",
+  "field": "lead",
+  "film_id": "5468673b-acbc-423f-bf7a-e72dcbd9b7d5",
+  "lang": "en",
+  "text": "In 1987 a group of young men from Compton worked out that a verse could travel further than a complaint. F. Gary Gray takes 147 minutes over the forming and fracturing of N.W.A, and the length is the point: the film wants the studio hours, the argument over a contract, the tour bus, the encounter with police that becomes material the following week. Music biography usually flattens into a sequence of hits. Here the hits arrive as labour — someone at a desk deciding what a snare should sound like, someone else insisting on a line he will be asked about for the rest of his life. The group's opponents are not only the authorities named in the songs but the men holding the pen over the paperwork, and that fight gets as much room as the concerts.",
+  "model": "claude-opus-5",
+  "source_sha256": "c384da8225eaf0b5e368c5fefa96041015b0542dbbecc37f886d95d17c2a2630"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-last-duel-2021",
+  "field": "lead",
+  "film_id": "e50e1c09-d1a4-47f3-bca2-54c57f89ce39",
+  "lang": "en",
+  "text": "A knight and his squire could not settle a dispute, so Charles VI settled it for them: they would fight, and the winner would be right. Ridley Scott spends 153 minutes on the machinery that produces such a verdict — land held at a lord's pleasure, marriage as a transfer of property, testimony weighed by men who have already decided what they wish to have happened. Jean de Carrouges and Jacques Le Gris move through the same court, one rising while the other calculates, and the film is patient about how rank and money curdle into grievance. The armour is heavy, the ground is wet, and nobody on screen looks capable of chivalry. Trial by combat here is less a climax the picture builds toward than a bill coming due.",
+  "model": "claude-opus-5",
+  "source_sha256": "221ba4e34611f5ffc7d74ea365845536c6120c6cf8726964241cfc05477a511e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "unbroken-2014",
+  "field": "lead",
+  "film_id": "62750b8e-d9a7-40f9-9d0a-190d9f8e0931",
+  "lang": "en",
+  "text": "Before the war Louis Zamperini was a distance runner, and distance running is the discipline of managing pain over time. Angelina Jolie takes that as her structure. 137 minutes go largely to what a body can absorb: the track, then the Pacific, then a prison camp where the cruelty works by repetition rather than variety. The film declines most of the consolations available to war pictures — little forward motion, few victories that can be photographed, no long stretch of company to belong to. What it offers instead is duration, a clock that will not be hurried, and captors who treat time itself as an instrument. Endurance is easy to admire and hard to dramatise; this is a film willing to put in the hours rather than cut around them.",
+  "model": "claude-opus-5",
+  "source_sha256": "37e2982110dacbddfa1402d6848145e0cb68805f63483b9f0cb8243f1253a858"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "memoirs-of-a-geisha-2005",
+  "field": "lead",
+  "film_id": "66b66791-b37f-4274-ab61-5475aab90464",
+  "lang": "en",
+  "text": "A geisha house is a business, and the child brought into it arrives as an expense to be recouped. Rob Marshall's film is most alert when it follows that arithmetic: the debts a maid accrues for her food and her lessons, the ranking of women inside one household, the established performer with an interest in seeing a younger one fail. Around this sits a large American production about Japan before the war — 146 minutes, an Academy Award for its costume design, every kimono and lantern chosen for the camera — and the friction between ledger and lacquer never fully resolves. The training passages play as choreography: walking, pouring, turning, the hundred rehearsed gestures that add up to a professional. What is being learned is a trade, and the film knows the price list.",
+  "model": "claude-opus-5",
+  "source_sha256": "17d8072d2fd34031eddf11ef8a8a504c329954581ba493b448ee771ca9dcc2e6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "war-horse-2011",
+  "field": "lead",
+  "film_id": "a729f2c3-305f-4760-8f77-047c84284279",
+  "lang": "en",
+  "text": "The protagonist is a horse, so the film cannot explain itself in dialogue and must work through hands, weather and eyes. Joey is sold off the family farm into the Cavalry by Albert's father and passed along from there, which makes the story episodic by construction: a stretch with a boy, a stretch with an officer, a stretch with strangers on the wrong side of a line, each chapter closing when the animal changes owners. Spielberg is filming a war in which mounted troops were being overtaken by machinery, and he does not hide the mismatch. 146 minutes, staged for scale — hills, mud, sky, and a search across France that keeps being interrupted. What holds it together is the succession of people who briefly own the horse and reveal themselves in how they handle a frightened animal.",
+  "model": "claude-opus-5",
+  "source_sha256": "b835605b4d74acf76db2a45e0096b3205b7f176376188f6d1ea93135f0c4e78c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "awakenings-1990",
+  "field": "lead",
+  "film_id": "ccaa4005-46f8-4c21-99e9-bb61f471a2bd",
+  "lang": "en",
+  "text": "On a chronic ward, a room of patients has been motionless for decades, and the staff have organised themselves around the assumption that nothing inside them is still awake. The physician who suspects otherwise can barely hold a conversation himself. Penny Marshall gives the first hour to observation rather than breakthrough: a doctor testing reflexes that are not supposed to be there, filling notebooks while colleagues watch the clock. When the experimental drug works, the real subject arrives, and it is not medicine but manners — how a man restarts a life in a body that aged without him, and how a hospital copes with someone who now has preferences and opinions. 120 minutes, mostly interiors, mostly two men talking. The comedy and the dread occupy the same scenes.",
+  "model": "claude-opus-5",
+  "source_sha256": "2010b2981a3d44a74dd44ebf9730fe02098a97b3cbbbd1dc8bf8cb017c5e5598"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sleeping-beauty-1959",
+  "field": "lead",
+  "film_id": "97949387-1ba9-4ab1-9727-174149d69e34",
+  "lang": "en",
+  "text": "Aurora spends much of her own story elsewhere. The curse is spoken in the opening minutes, the child is carried off into hiding, and the figure who actually pursues an aim across the film is Maleficent, hunting a girl she has never met. 75 minutes is a short measure, and it is spent with unusual formality: heraldry, ceremony, whole stretches carried by the orchestra rather than by gags, the comedy left to the three fairies charged with raising a princess in secret. Since Aurora is protected by being kept ignorant of who she is, the drama sits with the adults keeping the secret and the enemy who has all the initiative. Everything is arranged like a pageant — animation built to be looked at as decoration, then set moving.",
+  "model": "claude-opus-5",
+  "source_sha256": "5966cee3e6ddf821bd192cd8b51360efe61eba17da4be2bba204819368cd04fe"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lars-and-the-real-girl-2007",
+  "field": "lead",
+  "film_id": "19071579-049e-485b-a0be-dfc9a7191571",
+  "lang": "en",
+  "text": "The premise is a joke the film declines to tell. Lars, who cannot manage a conversation, presents his brother and sister-in-law with a girlfriend ordered over the internet, and she is made of plastic; a doctor advises the family to accept her, and the town follows. What results is a study in collective good manners: a place set at the table, neighbours who stop asking questions, a workplace that adjusts. Craig Gillespie never nudges the audience, which is why the 107 minutes hold. The interest lies less in Lars than in the people around him agreeing to inhabit a fiction they know to be one, and in what the agreement costs a household that has to keep it up daily. Comedy and courtesy turn out to be the same skill.",
+  "model": "claude-opus-5",
+  "source_sha256": "962160169ec0b826ab12b1a5f9553038724841df75ae21b89d34b1bde3922626"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lady-and-the-tramp-1955",
+  "field": "lead",
+  "film_id": "259310ca-b484-4cb9-8b31-e8a768a5fcf3",
+  "lang": "en",
+  "text": "A well-kept spaniel with a collar meets a dog who has neither collar nor address, and the difference is the film. Something changes in Lady's household that she cannot ask about, so she leaves it — briefly, she tells herself — with the Tramp, whose freedom includes not knowing where dinner comes from. 76 minutes told almost entirely at the height of an animal: human beings arrive as legs, hands and voices from above, and a leash becomes the central fact of a life. The romance is a class romance conducted by creatures with no vocabulary for class, which is why it works; what one dog calls loyalty the other calls a fence. The durable part is the ordinary business of being an animal in somebody's house: rules that cannot be explained, affection delivered as food, a gate.",
+  "model": "claude-opus-5",
+  "source_sha256": "469b34c0e96a9bae8ee2248fc3b4c30d4897f01e8f24ee6c37d29eb987439031"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "defiance-2008",
+  "field": "lead",
+  "film_id": "99e2f254-e0d4-40a3-822b-ad882801b74c",
+  "lang": "en",
+  "text": "Twelve hundred people hiding in a forest have to eat every day, and the film is honest about that being the problem. Four brothers escape occupied West Belarus, fall in with Soviet partisans, and end up running something closer to a village than a unit: shelters, a kitchen, discipline, arguments over who counts as a fighter and who is a burden. Edward Zwick gives 137 minutes to the trees and the mud, and the pressure comes less from combat than from arithmetic — food taken from peasants who have little, a camp grown too large to move quickly, a line redrawn each time more survivors arrive from the ghettos. The brothers do not agree with one another, and the disagreement is allowed to stand rather than resolve into a speech. Rescue here is a supply problem.",
+  "model": "claude-opus-5",
+  "source_sha256": "e631838b015f93a55dc7a38ba712bb8a25042b26a686b371d95c04d0106fc227"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "billy-elliot-2000",
+  "field": "lead",
+  "film_id": "9759346d-cb41-4ffe-bb62-eb5b807f8272",
+  "lang": "en",
+  "text": "A boxing gym and a ballet class share the same hall, and the door between them carries the film. County Durham, 1984: the pits are out on strike, police have been shipped in from London, and an eleven-year-old is being paid for to learn to hit people. Stephen Daldry keeps both things in frame — a picket line and a barre, a father counting money he does not have, Mrs Wilkinson correcting posture without flattering the boy. The dancing is never offered as escape or as proof of anything; it is work, repeated until it holds, which is why the audition in Newcastle-upon-Tyne registers as household economics as much as talent. 111 minutes, and the hardest scenes take place in kitchens, where nobody can say the thing they have decided.",
+  "model": "claude-opus-5",
+  "source_sha256": "449777cae413476ad7c1dad6640f9d83cf0b05e7554780b2e7d397165b021f11"
+ }
+]

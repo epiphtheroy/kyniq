@@ -1,0 +1,82 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "22-july-2018",
+  "field": "lead",
+  "film_id": "aa04c3d1-c8e3-4fd4-a403-919edf8f4520",
+  "lang": "en",
+  "text": "A country's answer to a massacre is a hospital ward, a defence lawyer's office and a prime minister's desk, and the film gives time to all three. Norway, 2011: seventy-seven young people at a Labour Party youth camp on Utøya are murdered by a neo-Nazi, and the remaining two hours belong to what a state does next. Survivors relearning how to stand. Ministers asked why help took so long. An attorney obliged to build the defence that the law guarantees a man who despises the law. The three strands are held apart rather than braided, so recovery, politics and procedure keep their own clocks. Genre lists it as a thriller; its temperament is closer to paperwork and physiotherapy, and the tension it finds lies in whether ordinary machinery can absorb something built to break it.",
+  "model": "claude-opus-5",
+  "source_sha256": "b15aeba688d8c4be93bb9c06f834a3546ca81e806719b5b21c12a427868ea2bb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "farewell-my-queen-2012",
+  "field": "lead",
+  "film_id": "ab2c937a-42ec-4287-8044-6aea70958c9f",
+  "lang": "en",
+  "text": "The job is to read aloud — whatever the queen asks for, at whatever hour, for as long as she cares to listen. Versailles in July 1789, and the film attaches itself not to the throne but to a woman employed beside it, so the service corridors and the rumours running through them occupy the space that ceremony usually takes. News from Paris arrives late and secondhand. A hundred minutes, almost all of it indoors. Benoît Jacquot's period surfaces took a César for costume, but the currency being traded here is favour: who is spoken to, who is packed for, who is sent on an errand before dawn and told to say nothing about it. Revolution reaches a household first as a change in the behaviour of employers, and devotion, in a place run this way, is hard to tell apart from employment.",
+  "model": "claude-opus-5",
+  "source_sha256": "edef85a598feaac9e05bde2950baf14a9b739c06e6715ed9c2086e0e6555f370"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-smell-of-us-2015",
+  "field": "lead",
+  "film_id": "ab8bcaf7-29f2-402a-83fd-752a0fc6098b",
+  "lang": "en",
+  "text": "Paris here is a set of hard flat surfaces to ride across, and the teenagers riding them are also for sale. Ninety-two minutes, drama by genre and inventory by method: skateboarding, drugs, clients, the long stretches of nothing in between that adolescence mostly consists of. The discomfort is structural rather than incidental. A film about young people who are paid to be looked at cannot easily separate its own attention from the transaction it describes, and this one shows no interest in trying. Some will read that as candour and some as complicity; the film leaves the question exactly where it found it. What is not in dispute is the texture — bodies at rest, flat afternoon light, a capital treated as terrain instead of scenery, and children who have worked out what they are worth.",
+  "model": "claude-opus-5",
+  "source_sha256": "ebf57fb72198cc4b0f349b35d9e9c6d7e07eaf5164c384c60622a3c044a929a0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "and-while-we-were-here-2012",
+  "field": "lead",
+  "film_id": "ad7ea435-78b8-44fc-987b-fe2f2d3045d8",
+  "lang": "en",
+  "text": "Eighty-three minutes is not long enough for an affair to turn into a life, and the film is built on that arithmetic. A writer travels to Italy with a husband and a marriage that has gone quiet; a younger American with no visible obligations appears and treats the trip as pleasure rather than duty. The premise has a shelf of its own by now, so whatever interest exists has to come from particulars: a marriage that is not cruel and is therefore harder to leave, and a woman whose profession is putting words in order while her own situation goes unsaid. Kat Coiro keeps the scale domestic. A few rooms, a coastline, meals. Romance is the genre tag, though the temperature is closer to boredom conducting an argument with itself and finding, abroad, someone willing to take the other side.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b5693d131115d89ef29117847e4e6ae032601bccf368326e9ae286ef346730c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "filth-2013",
+  "field": "lead",
+  "film_id": "addfd0d9-7f1e-48d3-8cf0-77ceebdc85d2",
+  "lang": "en",
+  "text": "The promotion is real; almost nothing else on screen can be taken at face value. Ninety-seven minutes inside the head of an officer who grades his colleagues as obstacles and doses himself well past the point where a scheme can be told apart from a hallucination, and the method is to run his version of events without a correcting voice anywhere in the frame. Crime and comedy share the billing, which is honest labelling: the jokes arrive at the speed of a man performing wellness for a room, and they stop being funny in exactly the way he does. What keeps the thing from becoming an endurance test is that the manipulation stays legible as symptom — a mind arranging other people because it cannot arrange itself. Subtlety is not among the instruments. Point of view is, and it never lets up.",
+  "model": "claude-opus-5",
+  "source_sha256": "a153b21ad4609470da8adaa51841f1809dfe444b5ee61c1878000ea207de77da"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "jiro-dreams-of-sushi-2011",
+  "field": "lead",
+  "film_id": "af7407d1-0119-4a92-abfb-7d32f1e3a20a",
+  "lang": "en",
+  "text": "The most interesting person in the film is not the chef in the title but the son standing beside him. Eighty-two minutes on a man who has made one thing for decades and refuses to consider it finished, and on Yoshikazu, the eldest, who has spent those same decades in the same room being measured against him daily. David Gelb films the work as work: repetition, correction, the narrow margin between adequate and acceptable. Devotion at this pitch is usually shot as inspiration; here it also reads as a family arrangement with a bill attached, since a father who will not stop cannot hand anything over. The documentary admires its subject and still lets the arithmetic sit in plain view. One lifetime of refinement, one lifetime spent waiting behind it, both of them served at the same counter.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d1c4cc89d904979be7304c87c1bf2eef84d8170e3ddd4a0955e3a8d6b50290b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "death-proof-2007",
+  "field": "lead",
+  "film_id": "af9136ec-fc35-4336-b068-1e78932e0f6e",
+  "lang": "en",
+  "text": "Three women talk in an Austin bar for a very long time, and outside, a car is idling. The film arrived as half of a Grindhouse double bill, which sets an expectation of speed, then declines it: across 113 minutes most of the screen time goes to conversation that is not plot — where to go next, who is behaving badly, whose phone number got handed out without permission. The threat sits at the end of the bar. A scarred man leering from behind the wheel of a muscle car, revving a few feet away, content to wait through every digression. Tarantino builds danger out of proximity and patience rather than incident, so pleasure and unease come from one source: the company being enjoyed is also being cased. The genre tag says action. For a long stretch it plays as hangout comedy with the engine running.",
+  "model": "claude-opus-5",
+  "source_sha256": "6183a3f1a9d462eea60c850d45062ac42e051bd20aeb78fa33cf5ffac91a8bb3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-unknown-girl-2016",
+  "field": "lead",
+  "film_id": "b0551556-6d8c-4d84-8b4c-1fceaf641f00",
+  "lang": "en",
+  "text": "A doctor does not answer the surgery buzzer after hours, and the rest of the film is the invoice. Jenny's search for the dead girl's name happens between appointments — blood pressure, home visits, the examination table — because the only authority she holds is that people tell their doctor things. No badge, no leverage. Just a professional voice asking one question more than the consultation requires. The genre listing says thriller; the tempo is a working week in general practice, the case advancing by a name here, a door held open there. Jean-Pierre Dardenne cares less about who the girl was than about the bookkeeping inside a woman settling an account nobody asked her to settle. Guilt, in this version, is practical: extra mileage, missed meals, knocking on doors shut for reasons.",
+  "model": "claude-opus-5",
+  "source_sha256": "f97b95a86220ca04e16f5f694d8919a8b4bcc6d28c565c16bb40b8284f154132"
+ }
+]

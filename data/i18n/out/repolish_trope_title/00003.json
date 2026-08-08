@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "degraded-texture-as-the-argument-for-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "닳고 뭉개진 질감이 진실을 증명한다",
+  "model": "claude-opus-5",
+  "source_sha256": "b7340e69436e51b2639a4b616e848824819d219355a632c966768466ee3d577b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "democracy-as-rehearsed-performance",
+  "field": "title",
+  "lang": "ko",
+  "text": "대본대로 연습된 공연, 민주주의",
+  "model": "claude-opus-5",
+  "source_sha256": "8839806a39c45a1fd804b2b89d96baa0a41925f538eb927bb64c03c6396e8cb0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "desaturation-as-the-refusal-of-spectacle",
+  "field": "title",
+  "lang": "ko",
+  "text": "색을 빼는 것은 스펙터클을 거부하는 일",
+  "model": "claude-opus-5",
+  "source_sha256": "3ddffd0d844b823f83ccdf34faad36ebb2c07f75fbdc2e3dbb3543219362a98a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "desertion-as-the-only-moral-act",
+  "field": "title",
+  "lang": "ko",
+  "text": "도망치는 것만이 유일한 윤리",
+  "model": "claude-opus-5",
+  "source_sha256": "821730b156d664613728a0fce6b11319512b28d361b0ee28797d86b14829c084"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "desire-as-the-death-drive-in-disguise",
+  "field": "title",
+  "lang": "ko",
+  "text": "욕망은 변장한 죽음 충동",
+  "model": "claude-opus-5",
+  "source_sha256": "4b35e60e66ebafdf63e73ae9bb638eda8d8c71d9379acd914220c9aa65ca6f1d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "desire-borrowed-through-another-s-wanting",
+  "field": "title",
+  "lang": "ko",
+  "text": "남이 원하는 것을 빌려 온 욕망",
+  "model": "claude-opus-5",
+  "source_sha256": "fda67e783ee16ba41b1b62639d8aaaef5eba84b57a718899c2144edfc6b803ed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "desire-is-manufactured-not-found",
+  "field": "title",
+  "lang": "ko",
+  "text": "욕망은 찾는 것이 아니라 만들어진다",
+  "model": "claude-opus-5",
+  "source_sha256": "feeaabcf2fc23d6a5d833fecffa8ae96c3e1fadbca71f4245da6613b71a8e30b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "desire-needs-its-lost-object",
+  "field": "title",
+  "lang": "ko",
+  "text": "욕망에는 잃어버린 대상이 있어야 한다",
+  "model": "claude-opus-5",
+  "source_sha256": "0f8ed6eeb1b35ce2bdaf07af3c52707b2a3d389af4a15d8c0167d3d84e34109a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "desire-smuggled-past-the-censor-s-code",
+  "field": "title",
+  "lang": "ko",
+  "text": "검열의 눈을 피해 밀수된 욕망",
+  "model": "claude-opus-5",
+  "source_sha256": "69decd5f10268c57b98e835aa1eea84c700aac8edc57a771e67482b1db1b75ac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "desire-smuggled-through-disavowing-speech",
+  "field": "title",
+  "lang": "ko",
+  "text": "아니라고 말하면서 실어 나르는 욕망",
+  "model": "claude-opus-5",
+  "source_sha256": "8f596207d507cc49aaa8945393389b74cb187bbd0fa8ab13c77b792c3dca6214"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "desire-sustained-by-its-own-impossibility",
+  "field": "title",
+  "lang": "ko",
+  "text": "불가능하기에 꺼지지 않는 욕망",
+  "model": "claude-opus-5",
+  "source_sha256": "415c5669b947b391c9b55fa068ed7f924c93aa98f4fd61e2f8b8e48e82c1f6f9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "desire-that-feeds-on-its-own-frustration",
+  "field": "title",
+  "lang": "ko",
+  "text": "좌절을 양분 삼는 욕망",
+  "model": "claude-opus-5",
+  "source_sha256": "ea5793b41a75c5e44549756a40cf9e9b7ee4d24b1325b8e4832463189bfcbe7c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "desire-that-refuses-renunciation-s-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "체념의 틀을 걷어차는 욕망",
+  "model": "claude-opus-5",
+  "source_sha256": "5295dc642d61b0108cb09b92545e5146acd2b4eca7bded92d63d6d81fd8792f1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "desire-that-requires-its-own-object-stay-missing",
+  "field": "title",
+  "lang": "ko",
+  "text": "대상이 끝내 없어야만 하는 욕망",
+  "model": "claude-opus-5",
+  "source_sha256": "ab721c1ed1723cc1849d4c7d41c2b21af99b2068c80518bf78c9701aa0d54aa2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "desire-versus-the-censoring-institution",
+  "field": "title",
+  "lang": "ko",
+  "text": "욕망 대 검열 기구",
+  "model": "claude-opus-5",
+  "source_sha256": "eed53d462856974a8415fd1c863408ab96bb4fdd57f44651e88d8c509645ae1f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "desire-was-always-cybernetic",
+  "field": "title",
+  "lang": "ko",
+  "text": "욕망은 처음부터 사이버네틱했다",
+  "model": "claude-opus-5",
+  "source_sha256": "9856b20644e82cc2d98e325ab0fc174effccb2f009f1e80f366c16e311e149b4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "desire-wearing-the-mask-of-its-opposite",
+  "field": "title",
+  "lang": "ko",
+  "text": "정반대의 가면을 쓴 욕망",
+  "model": "claude-opus-5",
+  "source_sha256": "7832859cd325253b17bf0489057e64451eb3670e619789d2e38c77c07ff95b26"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "desire-whose-true-object-stays-hidden",
+  "field": "title",
+  "lang": "ko",
+  "text": "진짜 대상은 끝내 드러나지 않는 욕망",
+  "model": "claude-opus-5",
+  "source_sha256": "e5e0f9284478188c4c10c3b02fdf0871dfe7ae58f70704f58232b0321fadd9e8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "despair-as-the-air-a-nation-breathes",
+  "field": "title",
+  "lang": "ko",
+  "text": "한 나라가 숨 쉬는 공기가 절망일 때",
+  "model": "claude-opus-5",
+  "source_sha256": "6585db5be438e610fed982278092e9704946f582b8995d6e5a1588208f64e2a6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "determinism-wearing-the-mask-of-choice",
+  "field": "title",
+  "lang": "ko",
+  "text": "선택의 가면을 쓴 결정론",
+  "model": "claude-opus-5",
+  "source_sha256": "8649685224538e5d293f3ff54238a41212d28a2c332252b410076758e00d1c26"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "detroit-as-the-corpse-of-fordism",
+  "field": "title",
+  "lang": "ko",
+  "text": "디트로이트, 포드주의의 주검",
+  "model": "claude-opus-5",
+  "source_sha256": "8b6c6df56c38545eae91fb321903aecf86e004a43d142b422f35e438f7bd3d5d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "detroit-worn-as-a-death-mask",
+  "field": "title",
+  "lang": "ko",
+  "text": "데스마스크처럼 쓰고 다니는 디트로이트",
+  "model": "claude-opus-5",
+  "source_sha256": "0eb154ed15094262493030bedbbb453cd68abcdc17e716c94d7040bac7bc97ef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "devotion-aimed-at-no-recipient",
+  "field": "title",
+  "lang": "ko",
+  "text": "받을 이 없는 헌신",
+  "model": "claude-opus-5",
+  "source_sha256": "40f47fe2b815d75c98bdf486307c56c26d43273ba2465d26999b09a0db857b46"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "diagnosis-as-the-velvet-glove-of-power",
+  "field": "title",
+  "lang": "ko",
+  "text": "진단, 권력이 낀 벨벳 장갑",
+  "model": "claude-opus-5",
+  "source_sha256": "4a48a3cd2a4203269edc6fff66658fa137fb1505bb93ba3cbb8ae41393aeb9d3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "dialogue-scored-as-jazz-improvisation",
+  "field": "title",
+  "lang": "ko",
+  "text": "재즈 즉흥처럼 짜인 대사",
+  "model": "claude-opus-5",
+  "source_sha256": "3f57d5724e20c5e9e093d3183927664b0914ad2782525e26b09a329ceebd16fc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "diane-arbus-s-pitiless-lens-made-cinema",
+  "field": "title",
+  "lang": "ko",
+  "text": "다이앤 아버스의 무자비한 렌즈가 영화가 되다",
+  "model": "claude-opus-5",
+  "source_sha256": "de069fe41b60f7b27466f2b9ee15f788df7a04e51fffd94e7c3259e70cd02363"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "dignity-as-borrowed-costume-not-birthright",
+  "field": "title",
+  "lang": "ko",
+  "text": "존엄은 타고나는 것이 아니라 빌려 입는 의상",
+  "model": "claude-opus-5",
+  "source_sha256": "779d4c9bdd333eb5a41b860736134c7949c0b5b7e6fa4e2ab954b583b6a190f8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "diogenes-in-his-jar-reincarnated",
+  "field": "title",
+  "lang": "ko",
+  "text": "항아리 속 디오게네스, 다시 태어나다",
+  "model": "claude-opus-5",
+  "source_sha256": "2684c7925eb21e8f251ba316c350bd1cec815a7ab9a9bde88a6e58abbd543eed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "diogenes-in-the-slacker-s-robe",
+  "field": "title",
+  "lang": "ko",
+  "text": "백수의 옷을 입은 디오게네스",
+  "model": "claude-opus-5",
+  "source_sha256": "f00cc3bba54bf2cc65b5917451594669b311fc99ab26ff807cedb143bf56c4d4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "dirt-as-the-visible-mark-of-class",
+  "field": "title",
+  "lang": "ko",
+  "text": "때, 눈에 보이는 계급의 표식",
+  "model": "claude-opus-5",
+  "source_sha256": "ebff4b3c40e40a2109f482e4a40e78b676bd2197d54694bee8c3db8069fd406e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "disability-worn-borrowed-or-discarded",
+  "field": "title",
+  "lang": "ko",
+  "text": "입고 빌리고 벗어던지는 장애",
+  "model": "claude-opus-5",
+  "source_sha256": "f00a4fc67613558ca92649d78fe8aea56b44faf656b3d012c6a2792191e66b5a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "disavowal-as-the-self-s-load-bearing-wall",
+  "field": "title",
+  "lang": "ko",
+  "text": "자아를 떠받치는 내력벽, 부인",
+  "model": "claude-opus-5",
+  "source_sha256": "9fefd8aa8a408bc27c889afd86a7e69e27f410b0d6697e56ec8bc4cf597b662b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "discipline-without-a-subject-to-reform",
+  "field": "title",
+  "lang": "ko",
+  "text": "교화할 대상이 없는 규율",
+  "model": "claude-opus-5",
+  "source_sha256": "0bac68c45426085ebd70cf0bd87779c8438c876a170c043bd49969854bf7ccc1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "disease-as-the-confession-of-poverty",
+  "field": "title",
+  "lang": "ko",
+  "text": "병이 가난을 실토한다",
+  "model": "claude-opus-5",
+  "source_sha256": "62f7cbfdec719940cfc293909f5099f36768c35b8088baefbb7c0b29cdb59fac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "dismissed-for-refusing-the-genre-s-weapon",
+  "field": "title",
+  "lang": "ko",
+  "text": "장르의 무기를 거부했다는 이유로 폄하되다",
+  "model": "claude-opus-5",
+  "source_sha256": "2c78ea12757c65051c853162a7a7d90a9f8b1694303f746b0c77ed9a58b37a4b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "distance-earned-by-refusing-identification",
+  "field": "title",
+  "lang": "ko",
+  "text": "동일시를 거부해 얻어낸 거리",
+  "model": "claude-opus-5",
+  "source_sha256": "d4fd3c35cba95c7a2a7ca85e9a452f29491dac7445f35cc7d6ed9ed1271cd889"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "doctrine-as-the-disavowal-of-desire",
+  "field": "title",
+  "lang": "ko",
+  "text": "교리는 욕망을 부인하는 방식",
+  "model": "claude-opus-5",
+  "source_sha256": "45434f0d850b8c57877d2c63866f17830e20caa5d174c73ab400880560cdc5d2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "dogme-s-vow-outlives-its-manifesto",
+  "field": "title",
+  "lang": "ko",
+  "text": "선언문은 죽고 도그마의 서약만 살아남다",
+  "model": "claude-opus-5",
+  "source_sha256": "9731490e6d0dbfef7e7e587f9863bcbafddebe7a7530fd15f4b0c7ac81ca76ef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "domination-survives-every-revolution-intact",
+  "field": "title",
+  "lang": "ko",
+  "text": "어떤 혁명에도 지배는 흠집 하나 없다",
+  "model": "claude-opus-5",
+  "source_sha256": "31dae05ad3d42bed20c661794fba8d1242384c54e4fff6d19684891f126fb96c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "dostoevsky-s-underground-man-walks-among-us",
+  "field": "title",
+  "lang": "ko",
+  "text": "도스토옙스키의 지하생활자가 우리 곁을 걷는다",
+  "model": "claude-opus-5",
+  "source_sha256": "a4b8cd9fba9ddb6ae84c561afc42d37348c465a06f8fb58532e3e72f6c8b295e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "doubt-as-the-engine-of-catastrophe",
+  "field": "title",
+  "lang": "ko",
+  "text": "의심이 재앙을 굴린다",
+  "model": "claude-opus-5",
+  "source_sha256": "9a04656d26f39ee36d3af2d6634f4fe93b65890709cb07e1006708e074990b74"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "doubt-as-the-ground-of-authority",
+  "field": "title",
+  "lang": "ko",
+  "text": "권위를 떠받치는 바닥, 의심",
+  "model": "claude-opus-5",
+  "source_sha256": "2958dca6a307aa619580b72a4da678f5d13ff37a6c4c91f0fc42ed7b48f83dae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "doyle-s-style-forged-in-constraint",
+  "field": "title",
+  "lang": "ko",
+  "text": "제약이 벼려낸 두기봉 촬영감독 크리스토퍼 도일의 스타일",
+  "model": "claude-opus-5",
+  "source_sha256": "c2f9ca65693dbfecd054da063efc7f78b8ff7c43b5bf747cbfa181723419a049"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "dread-as-a-manufactured-apparatus",
+  "field": "title",
+  "lang": "ko",
+  "text": "공포는 조립된 장치다",
+  "model": "claude-opus-5",
+  "source_sha256": "cb5d055b4994ac7a2d72888f49b8ed9a87bd36640734756d9d2d6d148f048e75"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "dread-conjured-from-the-known-ending",
+  "field": "title",
+  "lang": "ko",
+  "text": "이미 아는 결말에서 불러낸 공포",
+  "model": "claude-opus-5",
+  "source_sha256": "16bbbdba728febed80e2a37dcc94126b4ae769804da871ef1032ef561f2cc49f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "dread-engineered-by-refusing-the-cut",
+  "field": "title",
+  "lang": "ko",
+  "text": "컷을 거부해 설계한 공포",
+  "model": "claude-opus-5",
+  "source_sha256": "27c0e5563d474198d3c1183a61cd755867f5317776109c28d22732ee5936a579"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "dreyer-s-face-of-mortifying-suffering",
+  "field": "title",
+  "lang": "ko",
+  "text": "드레이어가 찍은 고행의 얼굴",
+  "model": "claude-opus-5",
+  "source_sha256": "1d80858834f58479e0b0db2c8bc297f9fcd1be8f38be043b32fbc31720f57c40"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "drive-names-the-compulsion-not-the-profession",
+  "field": "title",
+  "lang": "ko",
+  "text": "드라이브는 직업이 아니라 충동의 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "d1abd55f323302f5eafe2ae65e2e73a64125f83ca6f4a463931d15a961ffb200"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "drowning-as-substitution-not-death",
+  "field": "title",
+  "lang": "ko",
+  "text": "익사는 죽음이 아니라 자리바꿈",
+  "model": "claude-opus-5",
+  "source_sha256": "421503a1e63a738e38c3fae4df3e563a45e274021d95614991e9a7ee61b99c94"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "drunkenness-as-the-only-honest-speech",
+  "field": "title",
+  "lang": "ko",
+  "text": "취해야만 정직해지는 말",
+  "model": "claude-opus-5",
+  "source_sha256": "dd86f9c08f4cae04072ed8fd9e59cde45c7a6d3b5d4c4f2ecc83c4473038601f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "duration-itself-becomes-the-weapon",
+  "field": "title",
+  "lang": "ko",
+  "text": "지속 그 자체가 무기가 된다",
+  "model": "claude-opus-5",
+  "source_sha256": "aa55d93ee14408881a4725f56dbf7225505b248610e6bb77c5abcd3658885092"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "duty-and-flourishing-cannot-be-reconciled",
+  "field": "title",
+  "lang": "ko",
+  "text": "의무와 잘 사는 삶은 끝내 화해하지 못한다",
+  "model": "claude-opus-5",
+  "source_sha256": "5473bf4ec7ce7622c298664b30ec32d09b9500b95880948439582966da16cc5e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "duty-as-categorical-imperative-against-consequence",
+  "field": "title",
+  "lang": "ko",
+  "text": "결과에 맞선 정언명령(kategorischer Imperativ)으로서의 의무",
+  "model": "claude-opus-5",
+  "source_sha256": "2a0be9f490b849bb5a7f5a594c9ef3b624396a94ac25c9fc9a17112585bcaeb6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "duty-as-the-maxim-made-universal",
+  "field": "title",
+  "lang": "ko",
+  "text": "보편이 된 준칙, 그것이 의무",
+  "model": "claude-opus-5",
+  "source_sha256": "a8935a49baa591202f65293239e55ea1288df1a19568091fa152505b8c5d1912"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "duty-cleaved-against-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 안에서 갈라진 의무",
+  "model": "claude-opus-5",
+  "source_sha256": "6c14f8d673dc3ce04234505a37f4d45419ad6d12e0f5fcc7e3ff0ae410512a89"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "duty-conscripts-the-lover-against-desire",
+  "field": "title",
+  "lang": "ko",
+  "text": "의무가 연인을 욕망의 반대편으로 징집한다",
+  "model": "claude-opus-5",
+  "source_sha256": "50b030a39ea57948b8e3ecb0d8f27ee5f97ae7673a99146b0506648b2488404a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "duty-severed-from-the-living-person",
+  "field": "title",
+  "lang": "ko",
+  "text": "살아 있는 사람에게서 떨어져 나간 의무",
+  "model": "claude-opus-5",
+  "source_sha256": "2020ab780908dd3420e877e6a2376d32caea4a49ea217a007855744ac55f7354"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "eastmancolor-as-argument-against-its-era",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 시대에 반박하는 이스트먼컬러",
+  "model": "claude-opus-5",
+  "source_sha256": "fc0a93805aee612d474fbd95f8cefd52a1d08be1a1ee0fabdd4e909cdf5d2a12"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "eastwood-auteur-as-self-penance",
+  "field": "title",
+  "lang": "ko",
+  "text": "작가 이스트우드, 스스로에게 부과한 속죄",
+  "model": "claude-opus-5",
+  "source_sha256": "7dce935874c5ad7db9f6e6a293e490396d10abeee0b3a9af7b390646aa66cf1b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "eating-as-the-self-consuming-act",
+  "field": "title",
+  "lang": "ko",
+  "text": "먹는 일이 곧 저를 삼키는 일",
+  "model": "claude-opus-5",
+  "source_sha256": "9090daefa7cd5bf38a1e6fb332675a25effdd08432af2306122f7fff85adb60b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "eating-the-beloved-as-forbidden-union",
+  "field": "title",
+  "lang": "ko",
+  "text": "연인을 먹는 것, 금지된 합일",
+  "model": "claude-opus-5",
+  "source_sha256": "7a7411b687a7e4ba9dcaa13464eb62500e5db0783473f02eaff8150feee643e4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "eden-as-trap-crime-scene-death-dream",
+  "field": "title",
+  "lang": "ko",
+  "text": "덫이자 범죄 현장이자 죽음의 꿈인 에덴",
+  "model": "claude-opus-5",
+  "source_sha256": "b44d78a50cead1a30e21d892d12008af965037335c6180b9ccf78a74c83c9a79"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "eden-is-real-because-it-was-first-fiction",
+  "field": "title",
+  "lang": "ko",
+  "text": "에덴은 먼저 허구였기에 실재한다",
+  "model": "claude-opus-5",
+  "source_sha256": "1bc415a70aba09abfb0cbfd4515f072c510e07176fca11debc69c21a7e9e86b8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "editing-as-mortality-engine",
+  "field": "title",
+  "lang": "ko",
+  "text": "편집, 죽음을 돌리는 엔진",
+  "model": "claude-opus-5",
+  "source_sha256": "39f813a577c71defaa4a45187aad7a3ee0056b4010a8f05060b62adfc879030b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "editing-as-the-true-author",
+  "field": "title",
+  "lang": "ko",
+  "text": "진짜 작가는 편집이다",
+  "model": "claude-opus-5",
+  "source_sha256": "458d760a910d1143eb36ef5e716368e913e687a6b867d72ec142ee4e85e7f8eb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "edo-resurrected-as-constructed-afterworld",
+  "field": "title",
+  "lang": "ko",
+  "text": "세트로 지어 올린 저승, 되살아난 에도",
+  "model": "claude-opus-5",
+  "source_sha256": "27fbace0240ec9c3c00a1b71d0d3491627ae01e2f6e4e0a2c23a61ee95045f85"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "elegance-worn-as-armor",
+  "field": "title",
+  "lang": "ko",
+  "text": "갑옷으로 걸친 우아함",
+  "model": "claude-opus-5",
+  "source_sha256": "04c1342147d9866762dd727ab72a1e6b5216dcd548f9be0e4e59cf5b18aee3fa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "ellison-s-invisible-man-made-visible-again",
+  "field": "title",
+  "lang": "ko",
+  "text": "엘리슨의 투명인간, 다시 보이게 되다",
+  "model": "claude-opus-5",
+  "source_sha256": "51c8ad75cebbd03a4800d9e01351ab30b17839a494e403b4caf3d1498def2336"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "empire-devoured-by-its-own-salvage",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 남긴 고철에 먹히는 제국",
+  "model": "claude-opus-5",
+  "source_sha256": "8342681593ae645ab7b2b7f3a9b57abc6213e3e99b8bd0a4289e6b33d165dc43"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "empire-reasserted-on-borrowed-ground",
+  "field": "title",
+  "lang": "ko",
+  "text": "빌린 땅 위에서 다시 목소리를 높이는 제국",
+  "model": "claude-opus-5",
+  "source_sha256": "a1e53d375c839bc6fd2e41f4cfcc8f4742af7630e702dab91b90c074996d42d7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "empty-spectacle-as-mistaking-subject-for-sin",
+  "field": "title",
+  "lang": "ko",
+  "text": "'공허한 스펙터클'이라는 오독, 소재를 죄로 착각하다",
+  "model": "claude-opus-5",
+  "source_sha256": "3ebafec0d6f40f341f7a91cc298ca0e02d3993a4fb70b14b577ae19f90035dad"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "empty-virtuosity-as-fear-of-the-machine-eye",
+  "field": "title",
+  "lang": "ko",
+  "text": "기계-눈이 두려워 기교를 공허하다 부르다",
+  "model": "claude-opus-5",
+  "source_sha256": "a70f1adbaf4c746d0522757d538358c57fd9ae7c5de786fac92c0f923165f747"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "endurance-itself-as-a-mode-of-being",
+  "field": "title",
+  "lang": "ko",
+  "text": "견딤이 곧 존재하는 방식",
+  "model": "claude-opus-5",
+  "source_sha256": "7ca33b31bb6684106683668d9aef52ff22b8e3084cd105d4482de247e639e5fb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "engineered-silence-as-instrument-of-power",
+  "field": "title",
+  "lang": "ko",
+  "text": "설계된 침묵, 권력의 연장",
+  "model": "claude-opus-5",
+  "source_sha256": "837585ed13891ff5526fcfea1545fd4ff3fdb986225ef955a0f30c6656c168a0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "entropy-as-the-film-s-hidden-physics",
+  "field": "title",
+  "lang": "ko",
+  "text": "이 영화를 지배하는 숨은 물리학, 엔트로피",
+  "model": "claude-opus-5",
+  "source_sha256": "fe14835453151ce23335804296d6c7981ce6cb62ee48591783c9e69231575c4b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "envy-as-the-master-key-to-slaughter",
+  "field": "title",
+  "lang": "ko",
+  "text": "학살로 통하는 만능열쇠, 시기",
+  "model": "claude-opus-5",
+  "source_sha256": "6ad99e84c7c660a54d330bae253c7144aaf8ddccb058faca3bd6c2ef43ac12cb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "eros-as-the-return-of-the-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "에로스는 상처가 돌아오는 방식",
+  "model": "claude-opus-5",
+  "source_sha256": "a154c0a5c1b31acf1e225591f55a83009ea1139f6054ec233e29d778475124f4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "eros-as-the-shadow-government",
+  "field": "title",
+  "lang": "ko",
+  "text": "에로스라는 그림자 정부",
+  "model": "claude-opus-5",
+  "source_sha256": "4bbaed226496b2ff72ce9374ea7eadc6db5a9a3a43ec31ab3568aaf4aaae2bfa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "eros-consummated-as-the-bullfight-kill",
+  "field": "title",
+  "lang": "ko",
+  "text": "투우의 마지막 일격으로 완성되는 에로스",
+  "model": "claude-opus-5",
+  "source_sha256": "e00dd462cffadc8238a1d47d2a475c51f4c7e6d051942e7320145fb5ece6c01a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "eros-renamed-as-sin-by-the-watching-crowd",
+  "field": "title",
+  "lang": "ko",
+  "text": "구경하는 군중이 에로스에 죄라는 이름을 붙인다",
+  "model": "claude-opus-5",
+  "source_sha256": "4f10493e40651c806ea69e7855a91200e223a5aae8bb9da3189cf678a9f04c4b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "eternal-recurrence-as-the-film-s-ontological-engine",
+  "field": "title",
+  "lang": "ko",
+  "text": "영원회귀가 이 영화의 존재론을 굴린다",
+  "model": "claude-opus-5",
+  "source_sha256": "81c1d4e9f91e5f63e9b34be11da5e3a2390f9d98ad7d5d4d47663bd6e540f09d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "eternal-return-reframed-against-its-own-dread",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 낳은 공포에 맞서 다시 짜인 영원회귀",
+  "model": "claude-opus-5",
+  "source_sha256": "27aaa74eb8ce75b0531b58895a715ec1399069e196b4a7da4398cf38a47b8fb3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "etiquette-mistaken-for-ethics",
+  "field": "title",
+  "lang": "ko",
+  "text": "윤리로 착각된 예절",
+  "model": "claude-opus-5",
+  "source_sha256": "d3d45b34c932a5462b826fa40ae8e7dcd110757f38e19f0bdb8233d74afb164f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "europe-embalmed-in-its-own-archive",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 아카이브 속에 방부 처리된 유럽",
+  "model": "claude-opus-5",
+  "source_sha256": "d1f8fd855616873b4728b5c1f8ee4635d15c226c1747f2443a0d5300e807a716"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "europe-s-borders-filmed-as-open-wounds",
+  "field": "title",
+  "lang": "ko",
+  "text": "벌어진 상처처럼 찍힌 유럽의 국경",
+  "model": "claude-opus-5",
+  "source_sha256": "b932e78dfd96614d0a014b678398013ffbf88d547e6996c9529e19f06c7f96c2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "every-choice-is-already-a-murder",
+  "field": "title",
+  "lang": "ko",
+  "text": "모든 선택은 이미 살인이다",
+  "model": "claude-opus-5",
+  "source_sha256": "7c60fc6c19a8e41a30fda381732e2a5541d4eea511096b0fccbc581b47afeab4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "every-frame-reads-the-1997-clock",
+  "field": "title",
+  "lang": "ko",
+  "text": "모든 프레임이 1997년 시계를 읽는다",
+  "model": "claude-opus-5",
+  "source_sha256": "a8db416d4f134be38e0879ccd716b6b8013ec1febd16bfbad5f0669d63f28a7e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "everything-becomes-a-warhol-surface",
+  "field": "title",
+  "lang": "ko",
+  "text": "모든 것이 워홀의 표면이 된다",
+  "model": "claude-opus-5",
+  "source_sha256": "7b29f265e1a2bfdfed508cff8e8666b9e632e40fe83976c9eb4d9f13ba18427e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "everything-is-reaganomics-in-disguise",
+  "field": "title",
+  "lang": "ko",
+  "text": "전부 변장한 레이거노믹스",
+  "model": "claude-opus-5",
+  "source_sha256": "ca8340b2489120fe6384287658c20c0f23aa20ccb4ed17c58de3088c51d9d9a0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "evidence-that-outlives-the-witness",
+  "field": "title",
+  "lang": "ko",
+  "text": "증인보다 오래 사는 증거",
+  "model": "claude-opus-5",
+  "source_sha256": "90b4d2d122c3d24f2a346eba49027cf4423c19f9562517e6b62544b2da1dde44"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "evil-as-administration-not-monstrosity",
+  "field": "title",
+  "lang": "ko",
+  "text": "악은 괴물이 아니라 행정이다",
+  "model": "claude-opus-5",
+  "source_sha256": "d345fd644c8bccaf095539d0695a0ae3d54444330fe4be22467b3b49b062d3a6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "evil-wears-the-pleasant-face",
+  "field": "title",
+  "lang": "ko",
+  "text": "악은 상냥한 얼굴로 온다",
+  "model": "claude-opus-5",
+  "source_sha256": "f1dd1040d6ea74cc7f049a78417033fc36b8a8ff31539fc3ae40c81f23cfb5fb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "evolution-without-telos-made-from-our-waste",
+  "field": "title",
+  "lang": "ko",
+  "text": "우리가 버린 것에서 자라난, 목적 없는 진화",
+  "model": "claude-opus-5",
+  "source_sha256": "8605407ef3b03db912f7170a398923705bc62898112ae562331fd08dc5b33d49"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "excess-engineered-to-defeat-its-era",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 시대를 무너뜨리려 설계된 과잉",
+  "model": "claude-opus-5",
+  "source_sha256": "9a1a3b3ff05c023c627295bef2fd64071d954415cc258e6029eb7fc47da51123"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "f-r-the-island-that-becomes-the-soul",
+  "field": "title",
+  "lang": "ko",
+  "text": "파뢰, 영혼이 되어버린 섬",
+  "model": "claude-opus-5",
+  "source_sha256": "b6353344afa5527059f8ed0c6f0b4114a2e75c6f62c3898f81e713f9e2c26000"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "faith-as-the-internalized-cop",
+  "field": "title",
+  "lang": "ko",
+  "text": "신앙, 안으로 들여앉힌 경찰",
+  "model": "claude-opus-5",
+  "source_sha256": "290286773ad5e3806cfc04fe5653112cf32c8a65c400435d3fc98d0db0dd46c4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "faith-wins-by-leaping-past-reason",
+  "field": "title",
+  "lang": "ko",
+  "text": "신앙은 이성을 건너뛰어 이긴다",
+  "model": "claude-opus-5",
+  "source_sha256": "575a23419df003baf7b51099d8a32076733a6c7fb6d0c0d4dd44514fdd5db92a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fan-backlash-as-ownership-anxiety",
+  "field": "title",
+  "lang": "ko",
+  "text": "팬들의 반발은 소유 불안이다",
+  "model": "claude-opus-5",
+  "source_sha256": "3529f5ea55a4a42a151c91dc6ed4d921978b237dc04c044d4e8774573b9c7c81"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "farewell-addressed-to-the-lost-past",
+  "field": "title",
+  "lang": "ko",
+  "text": "잃어버린 과거 앞으로 부치는 작별",
+  "model": "claude-opus-5",
+  "source_sha256": "a827c60aea355646cbf4d8570902c24a9226da43a06f4de8c7c6cfa9d4bd75cb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fascism-as-erotic-surrender-of-the-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "파시즘, 자아를 바치는 에로틱한 항복",
+  "model": "claude-opus-5",
+  "source_sha256": "1f1b86e4be4ec85b2ca937bb6f6a8a39e5a6066b55703b6874dccba3d19092e8"
+ }
+]

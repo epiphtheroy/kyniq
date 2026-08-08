@@ -1,0 +1,112 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "el-misterio-del-trinidad-2003",
+  "field": "lead",
+  "film_id": "b1f4f9db-3094-4bbf-aab0-362879f80710",
+  "lang": "en",
+  "text": "Two brothers, and something between them that the plot summary can only call strange. Ninety-two minutes is not long for a Spanish drama built on a relationship that resists being named, and the brevity is the point: a chamber piece has no room for the explanatory scene that would settle everything, so the film has to let the strangeness sit there, working on the audience the way it works on the family. The Ariel voters gave it their best-picture prize, which means someone in the room recognized the risk of a story whose engine is withheld information. Barely more than a hundred people have registered a rating for it. Whatever it does, it does for very few, and it has been doing it for two decades without much help.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c44468041a3675f138a68fb9eacf5f093b63f9b86c80d8dcfe3e91de6609884"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "father-and-son-1981",
+  "field": "lead",
+  "film_id": "585967c1-a67c-43de-ae90-975f4d2b32cd",
+  "lang": "en",
+  "text": "A boy wants to draw comics and make films; his father sells everything he owns to send him to school instead. Hong Kong in 1981 was not short of movies about ambition, but Allen Fong builds his around the quieter arithmetic of a household — what a formal education costs when a family has no margin, and who absorbs that cost without discussing it. Ninety-seven minutes, mostly interiors and the texture of getting by. The film took the territory's best-picture award, though its real interest is smaller than a prize: a father's conviction that his son's dream is a luxury, held with total sincerity and no cruelty at all. That gap between love and imposition is where the drama lives, and it never resolves into anyone being wrong.",
+  "model": "claude-opus-5",
+  "source_sha256": "60181dcb155ec2c63ed0f370a13d7ca5301b62c1afc74f2e9465e5d945a16eb2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "la-choca-1973",
+  "field": "lead",
+  "film_id": "8e9f8033-2019-4b98-a626-04d36238b3bf",
+  "lang": "en",
+  "text": "A hut in the jungle, a smuggler's family living in it, and one day men walking out of the trees with an accusation. Emilio Fernández places almost nothing between these people and the terms of a Western — the isolation, the arriving strangers, the charge of betrayal that needs no court — except that the household here includes a wife, a son, and a sister-in-law, and the film is named for the wife. Ninety-four minutes, far from any town, where whatever the men decide will be decided on the spot. The genre usually spends its energy on who draws first; this one spends it on the four people who were living there before the visitors came and who have nowhere else to go afterward.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b089f7d95d8d604ef908b5cc2066ebdf213975b051fffdce69bfeefe1a558be"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-boy-and-the-fog-1951",
+  "field": "lead",
+  "film_id": "5b4582d4-7a3c-4f0c-b2e7-a897adbc4e53",
+  "lang": "en",
+  "text": "Marta believes schizophrenia runs in her blood, and she has not told her husband. That secret organizes the entire household: a mother watching her son for signs, interpreting ordinary childhood as symptom, and managing a marriage built on an omission she cannot undo. Roberto Gavaldón shoots it as mystery and thriller, which is the right instinct, because the danger is entirely interior — nobody in the house knows what Marta knows, so every protective act she performs reads to them as something else. A hundred and eleven minutes in 1951 Mexico, a period when melodrama was the national dialect and this film uses that fluency against itself. The suspense is not whether the boy is ill. It is what a mother's certainty does to a family that has not been let in on it.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ee4d07c9d44798c07525e05596bb3a959959e88bddfc3dfa207ff46ed7f91c6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "libido-1973",
+  "field": "lead",
+  "film_id": "5f5914d3-8abe-4d62-a502-6f307ae831ca",
+  "lang": "en",
+  "text": "Four writers, four stories, one country in the middle of changing its mind about sex. David Williamson, Thomas Keneally, Hal Porter and Craig McGregor each supplied a segment — adultery and the fantasies that attend it, the end of innocence, a priest and a nun in love — and the seams between them are part of what Tim Burstall is doing. An anthology cannot pretend to a single thesis. Two hours of Australian film from 1973, made while the culture was still arguing about what could be shown and said, and the arguments are audible inside the stories rather than resolved above them. The women are looked at, and the looking is one of the subjects. Four voices working the same territory produce disagreement, not a survey.",
+  "model": "claude-opus-5",
+  "source_sha256": "9090d6496e89ce38cdb890bf42a6b1c2af02df739b5065cf149d57c1a1b8eaf1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mezcal-2005",
+  "field": "lead",
+  "film_id": "27e68ae7-1128-4dc9-a252-4a2ce6039d46",
+  "lang": "en",
+  "text": "A storm, a cantina, and everyone in the town of Parián arriving at the same door. Ignacio Ortiz gathers his characters by weather rather than by plot: people carrying guilt, injury, unreturned love, and an intention or two involving revenge, all of them stuck in one room for the length of the downpour. Parián is invented, which frees the film from having to be a portrait of anywhere real. Ninety minutes. The drinking is not decoration — it is the mechanism by which strangers start telling each other things, and the film's wager is that misery gets more bearable in the presence of someone else's. Whether the storm ends anything is a separate question from whether it brings them together, and the film keeps those two questions apart.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a8cf590deb5b3ead4519820cb24c111cd2424ea3272df0b9b83b4afe7e8eb8f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "goitia-a-god-for-himself-1988",
+  "field": "lead",
+  "film_id": "729f67c7-23e2-4f6e-acd3-b10e3501c4da",
+  "lang": "en",
+  "text": "A dying painter goes back over his own life and finds it will not arrange itself. Francisco Goitia, Mexican, near the end, reckoning with a country he left and returned to, an identity he pursued as a man and as an artist, appetites he fought, and a religious conversion that came after all of it. Diego López Rivera gives this a hundred and ten minutes and the structure of recollection rather than chronicle, which suits a subject whose search never concluded. Biographical films usually explain the work by the life. This one is more interested in the unfinished argument the painter was having with himself, and the Ariel jury singled out the performance carrying it. The struggle described here is not metaphorical: a body, its demons, and a man who finally knelt.",
+  "model": "claude-opus-5",
+  "source_sha256": "9222bc0ab5dc02625ec4b4bf39439d0121f01910a7e5625972b80aad3f247dcb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "los-fernandez-de-peralvillo-1953",
+  "field": "lead",
+  "film_id": "ff3209e0-99de-4515-9e4d-834c24b99cdf",
+  "lang": "en",
+  "text": "He cannot sell household goods door to door. She cannot stand another year of it, and leaves with a criminal. Alejandro Galindo builds nearly two hours out of one family's downward pressure in a working-class Mexico City neighborhood, and the pairing of brother and sister is the whole design — two exits from the same poverty, one legal and failing, one illegal and immediate. The crime genre is present but subordinate; the film's attention stays on the arithmetic of a household that cannot make rent. 1953, when Mexican cinema had the industrial confidence to make something this unglamorous at length. Galindo does not treat the sister's choice as a fall. He treats it as a calculation, made by someone who ran the numbers.",
+  "model": "claude-opus-5",
+  "source_sha256": "b0604bc4e1f1eae6375f93aa963b572a3d2d8c51008412edd50f3374b9f41e81"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-prize-2012",
+  "field": "lead",
+  "film_id": "4e1d7201-bc61-4dcc-8448-8f771f5cbfd9",
+  "lang": "en",
+  "text": "Alexander Beck has won an architecture prize and a commission to modernize the GDR housing blocks of rural Thuringia, which happens to be where he grew up. The people there remember him from the Free German Youth. Elke Hauck's film runs eighty-six minutes and turns on that recognition — a man arriving with plans for buildings, met by neighbors whose memory of him predates his career and does not much care about it. Modernization here means altering the specific concrete slabs that other people still live in. Germany has made a great many films about the East; this one narrows the question to a single professional who has to be both the expert and the boy from the youth organization, in rooms where the second identity is the one that counts.",
+  "model": "claude-opus-5",
+  "source_sha256": "711ed5d2eb87ea1fc959fae13155fdc91e069a149af30850fa5124066574af42"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-road-of-life-1955",
+  "field": "lead",
+  "film_id": "f61e18d6-8543-4e56-811e-e5facc871ab8",
+  "lang": "en",
+  "text": "Three boys wait in Mexico City's Juvenile Court for a judge to decide what they are. One killed his stepfather to stop him hurting his mother. One was taunted until he blinded the boy taunting him. One steals because the family eats otherwise. Alfonso Corona Blake keeps all three cases in play across ninety-six minutes without merging them into a single lesson, which is the harder construction and the reason the Ariel jury gave him its direction prize. The court is the film's fixed point: an institution obliged to produce a sentence, faced with circumstances that do not sort into guilt cleanly. 1955, and the state is the one being examined, though the boys are the ones in the room being looked at.",
+  "model": "claude-opus-5",
+  "source_sha256": "b178b6d9445d9eec0a1af75b87f53692f6a05b13cfdd0575de55a58c9a25a52c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "27a-1973",
+  "field": "lead",
+  "film_id": "360c03f9-056f-47a8-acca-540eb36f6ae4",
+  "lang": "en",
+  "text": "Six weeks for a minor offense becomes an indefinite stay, and the mechanism is a clause. Section 27A of the Queensland Mental Health Act permits a hospital to hold a man until its own authorities declare him fit to leave — so an alcoholic sentenced to a short term finds his release date has quietly become a matter of someone else's judgment rather than the court's. Esben Storm made this in Australia in 1973, eighty-six minutes, and the film's discipline is that it stays inside the institution and lets the paperwork do the work no villain would need to do. Very few people have seen it. What it understands is that the cruelty is not in anyone's intention; it is in a sentence with no end written into it, administered by people who believe they are helping.",
+  "model": "claude-opus-5",
+  "source_sha256": "e5851a0203d9c0f265fff3fc8c5bfc25dd2a27524010ee65df19b59eec6f9189"
+ }
+]

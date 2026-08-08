@@ -1,0 +1,282 @@
+[
+ {
+  "entity_type": "director_pick",
+  "entity_key": "francois-ozon#summer-of-85-2020",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《썸머 85》는 바닷가에서 만난 두 소년의 여름 연애다. 햇빛이 흠뻑 밴 화면 아래로 집착과 불안이 흐른다. 어린 욕망과 상실을 다루는 오종의 손길이 얼마나 부드럽고 감각적인지 보여준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "francois-ozon#under-the-sand-2001",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《사랑의 추억》에서 샬롯 램플링은 남편의 실종을 끝내 받아들이지 않는 여자를 연기한다. 초기작 특유의 메마른 드라마이며, 부정(否認)의 심리라는 오종의 주제에 이미 귀가 열린 관객에게 값어치를 한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "francois-ozon#by-the-grace-of-god-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《신의 은총으로》는 성직자의 학대에 맞서는 세 남자를 따라간다. 오종이 즐기던 양식화된 유희와는 멀리 떨어진, 사실에 기댄 담담한 앙상블 드라마. 제도의 침묵을 기록하는 진지한 연대기 작가로서 그의 폭을 증명한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "francois-truffaut#the-400-blows-1959",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《400번의 구타》로 앙투안 두아넬이 세상에 나온다. 유년을 바라보는 트뤼포의 다정한 자전적 시선, 그리고 바다를 향해 달리는 그 유명한 장면까지. 가장 따뜻하고 가장 대표적인 입구다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "francois-truffaut#jules-and-jim-1962",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《쥴 앤 짐》에는 누벨바그의 자유가 응축돼 있다. 정지 화면, 보이스오버, 들뜬 카메라 움직임이 수십 년에 걸친 삼각관계를 따라간다. 트뤼포의 서정과 잔 모로가 왜 지금도 유효한지 알게 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "francois-truffaut#day-for-night-1973",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《아메리카의 밤》은 영화 만들기에 부친 트뤼포의 연애편지다. 그가 직접 촬영장의 위기를 수습하는 감독으로 나온다. 방금 본 모든 것의 뒤편을 애정 어리고 자각적인 눈으로 들여다본 작품.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "francois-truffaut#shoot-the-piano-player-1960",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《피아니스트를 쏴라》는 느와르에서 슬랩스틱으로, 다시 비탄으로 방향을 튼다. 장르를 가지고 노는 트뤼포의 그 안절부절못하는 장난기, 미국 범죄영화를 향한 애정이 고스란히 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "francois-truffaut#stolen-kisses-1968",
+  "field": "reason",
+  "lang": "ko",
+  "text": "성인이 된 앙투안 두아넬이 탐정 일과 연애 사이를 어설프게 오간다. 《훔친 키스》는 그 인물에게 돌아가는 경쾌하고 사랑스러운 귀환이며, 트뤼포의 가볍고 희극적인 음역을 들려준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "francois-truffaut#the-story-of-adele-h-1975",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《아델 H 이야기》는 빅토르 위고의 딸이 집착적 사랑을 지나 광기로 걸어 들어가는 길을 따라간다. 이자벨 아자니의 들뜬 연기가 그 길을 밀고 간다. 덜 알려진, 더 어두운 사랑의 파괴 보고서.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "francois-truffaut#the-wild-child-1970",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《야생의 아이》에서는 트뤼포 자신이 야생 소년을 가르치는 의사로 나온다. 자연과 문명, 가르침에 관한 메마르고 뭉클한 명상이며, 그가 평생 붙들었던 유년의 주제를 그대로 비춘다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "francois-truffaut#the-last-metro-1980",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《마지막 지하철》은 점령기 파리에서 살아남으려는 극단을 무대에 올린다. 로맨스와 서스펜스, 무대 기술이 뒤섞인다. 드뇌브와 드파르디외를 데리고 예술과 역사를 겹쳐 놓은, 트뤼포의 원숙하고 고전적인 종합.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "frank-capra#it-happened-one-night-1934",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《어느 날 밤에 생긴 일》은 스크루볼 로맨스의 경쾌한 원형이다. 가출한 상속녀와 입담 좋은 기자가 버스에 나란히 앉는다. 빠른 말싸움을 다루는 카프라의 재능, 그리고 평범한 미국인들이 서로에게 홀려가는 과정.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "frank-capra#it-s-a-wonderful-life-1946",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《멋진 인생》은 카프라의 세계관 전체를 작은 마을 한 사람의 생애 안에 응축한다. 진짜 절망을 공동체의 온기와 저울에 나란히 올린다. 그의 감상 밑바닥에 어둠이 깔려 있다는 증거다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "frank-capra#mr-smith-goes-to-washington-1939",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《스미스씨 워싱턴 가다》는 화가 난 카프라를 드러낸다. 순진한 이상주의자 대 부패한 상원. 그 유명한 필리버스터에 이르면 낙관은 기진맥진한 항거로 바뀐다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "fritz-lang#m-1931",
+  "field": "reason",
+  "lang": "ko",
+  "text": "랑에게 들어서기 가장 쉬운 문은 《M》이다. 페터 로레가 연기한 아동 살인범을 경찰과 뒷세계가 동시에 쫓는다. 휘파람으로 불리는 그리그의 선율 하나로 소리가 서늘하게 쓰인다. 팽팽하고, 인간적이고, 잊히지 않는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "fritz-lang#metropolis-1927",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《메트로폴리스》는 랑의 비전을 규정하는 무성영화 대작이다. 노동자와 지배층을 위아래로 갈라놓은 수직 도시, 로봇 마리아, 그리고 이후 백 년의 SF를 만든 세트 디자인.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "fritz-lang#the-big-heat-1953",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《빅 히트》는 미국 느와르 모드의 랑이다. 조직범죄를 향한 형사의 복수가 잔혹할 만큼 사적인 것으로 변해간다. 글렌 포드와 글로리아 그레이엄이 그 차갑고 폭력적인 도덕주의를 뚫고 타오른다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "fritz-lang#the-testament-of-dr-mabuse-1933",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《마부제 ��사의 유언》은 범죄 천재의 헛소리를 무기로 삼아 다가오는 폭정을 섬뜩하게 논평한다. 나치가 상영을 금지한 랑의 마지막 독일 영화이며, 범죄 스릴러와 예언적 불안이 한 몸으로 붙어 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "fritz-lang#scarlet-street-1945",
+  "field": "reason",
+  "lang": "ko",
+  "text": "랑의 가장 캄캄한 느와르. 《주홍 거리》에서 에드워드 G. 로빈슨은 조앤 베넷에게 이끌려 파멸로 걸어 들어가는 온순한 회사원이다. 집착과 자기기만에 대한 무자비한 보고서인데, 입문자는 좀처럼 모른다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "fritz-lang#spies-1928",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《스파이》는 현대 첩보 스릴러의 틀을 발명했다. 범죄의 두목, 암호 전문, 아슬아슬한 추격. 군더더기 없이 밀고 나가는 이 영화에 랑이 유성영화와 할리우드로 들고 갈 장르의 유전자가 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "fritz-lang#die-nibelungen-1924",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《니벨룽겐》은 랑의 기념비적인 2부작 북구 서사시다. 지크프리트와 용이 성당처럼 양식화된 구도 안에 놓인다. 이미 빠져든 관객에게는 그의 무성기 야심이 가장 웅장하게 펼쳐진 지점.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "gaspar-noe#climax-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《클라이맥스》는 노에에게 들어가는 가장 추진력 있는 통로다. 무용단의 상그리아에 약이 섞이고, 한 장소에서 벌어지던 파티가 지옥으로 무너진다. 휘몰아치는 롱테이크와 두들기는 음악. 그의 감각 폭행을 거의 실시간으로, 삼킬 만한 크기로 내놓는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "gaspar-noe#enter-the-void-2010",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《엔터 더 보이드》는 그의 최대치 선언이다. 처음엔 1인칭으로, 이후엔 떠도는 혼이 되어 네온의 도쿄를 훑는다. 명멸하며 부유하는 카메라와 환각의 미학. 순수한 영화적 체험을 짓는 건축가로서 노에가 왜 중요한지가 여기서 분명해진다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "gaspar-noe#vortex-2021",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《보텍스》는 화면을 둘로 갈라 치매와 쇠락을 지나는 노부부를 따라간다. 가장 조용하고 가장 인간적인 노에. 걸려든 관객에게 도발 대신 절제로 답한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "george-lucas#star-wars-1977",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《스타워즈》(1977)는 가장 직선적인 루카스다. 연속극 마티네의 스릴, 핫로드의 운동감, 시대를 앞선 실물 특수효과로 지은 군더더기 없는 영웅 서사. 순수하고 완결된 입구.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "george-lucas#star-wars-episode-iii-revenge-of-the-sith-2005",
+  "field": "reason",
+  "lang": "ko",
+  "text": "루카스가 가장 크게 벌인 무대는 《시스의 복수》(2005)다. 오페라 같은 정치 비극, 전면 디지털로 지은 세계, 굴러떨어지며 이어지는 광선검 결투. 몰락의 이야기로 스펙터클을 밀어붙이는 그의 식욕이 보인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "george-lucas#star-wars-episode-i-the-phantom-menace-1999",
+  "field": "reason",
+  "lang": "ko",
+  "text": "이미 걸려들었다면 《보이지 않는 위험》(1999)이 보상이다. 개척자적 CGI로 만든 포드레이스, 빽빽한 은하 정치, 그리고 짧지만 전류가 흐르는 다스 몰의 결투. 호오가 갈리지만 세계를 짓는 루카스가 여기 그대로 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "george-miller#mad-max-fury-road-2015",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《매드맥스: 분노의 도로》는 밀러의 비전을 순도 높게 졸여낸다. 대사는 최소, 추진력은 최대, 스턴트는 실물. 이미지로 이야기하는 그의 방식에 들어서는 가장 선명하고 친절한 문이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "george-miller#mad-max-2-the-road-warrior-1981",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《매드맥스 2》는 이후 영화들이 빌려 쓸 종말 이후의 어휘를 통째로 만들어낸다. 유조차 추격으로 치닫는 마지막이 밀러의 공간 감각과 점점 커지는 차량 아수라장의 통제력을 증명한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "george-miller#mad-max-1979",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《매드맥스》(1979)는 군살 없는 저예산 기원이다. 복수가 연료인 고속도로 스릴러이며, 밀러의 날것 그대로의 편집 본능과 아직 땅에 발을 붙이고 있던 황무지의 첫 모습을 볼 수 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "george-miller#furiosa-a-mad-max-saga-2024",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《퓨리오사: 매드맥스 사가》는 세계를 장(章)으로 나눈 오페라풍 전사(前史)로 넓힌다. 쉼 없는 추격 대신 방대한 복수 서사시를 택했고, 그만큼 《분노의 도로》의 세계가 두꺼워진다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "george-miller#mad-max-beyond-thunderdome-1985",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《매드맥스 3》은 기묘하고 야심찬 샛길이다. 티나 터너의 바터타운과 길 잃은 아이들의 부족. 순수한 도로 전쟁 너머 신화와 볼거리로 손을 뻗는 밀러가 보인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "greta-gerwig#lady-bird-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《레이디 버드》에는 거윅의 목소리가 가장 사적인 밀도로 담겨 있다. 새크라멘토의 모녀 이야기, 구체적이고 까슬까슬한 애정, 날이 선 대사. 그의 유머와 다정함으로 들어가는 가장 깨끗한 입구다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "greta-gerwig#little-women-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《작은 아씨들》은 거윅의 구조적 야심을 보여준다. 올컷의 시간선을 다시 섞어 예술과 돈과 여자로 사는 일을 두 갈래로 사유한다. 앙상블을 다루는 솜씨와 각색의 힘이 여기서 가장 크게 펼쳐진다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "greta-gerwig#barbie-2023",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《바비》는 크게 휘두른 한 방이다. 사탕색 스튜디오 스펙터클 안에, 플라스틱 광택 아래로 정체성과 젠더에 관한 뾰족한 생각을 몰래 들여보낸다. 거윅의 감각이 블록버스터 규격으로 확대되는 광경을 볼 준비가 된 관객에게.",
+  "model": "claude-opus-5"
+ }
+]

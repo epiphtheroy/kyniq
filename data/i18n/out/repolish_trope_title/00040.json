@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-surgeon-s-knife-as-sovereign-power-over-life",
+  "field": "title",
+  "lang": "ko",
+  "text": "외과의의 칼, 생사를 쥔 주권",
+  "model": "claude-opus-5",
+  "source_sha256": "7001e2d5123aeb245f47b17f58dccf1734d747f4d686c16175127300ec57450a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-surgeon-who-assembles-but-cannot-heal",
+  "field": "title",
+  "lang": "ko",
+  "text": "짜맞출 뿐 낫게 하지 못하는 외과의",
+  "model": "claude-opus-5",
+  "source_sha256": "be09a060933d7ea500a4ff6074187cda892bc76a035344e58e91eab66f824dea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-surname-as-inherited-creed",
+  "field": "title",
+  "lang": "ko",
+  "text": "신조로 물려받는 성(姓)",
+  "model": "claude-opus-5",
+  "source_sha256": "b88e19f1db5e849612af7629b0eafc91e188d79b51ae134b91c86837cdec858e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-surname-that-eats-the-man",
+  "field": "title",
+  "lang": "ko",
+  "text": "사람을 잡아먹는 성(姓)",
+  "model": "claude-opus-5",
+  "source_sha256": "a7bc3e0168404590ad34bb8a5530304b3e12106ccda1fe226d2656ea64b90667"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-surplus-commodity-as-discarded-life",
+  "field": "title",
+  "lang": "ko",
+  "text": "잉여 상품이 된 버려진 목숨",
+  "model": "claude-opus-5",
+  "source_sha256": "66c63e52a2cfd615d156c2900787f2796d20a98de0d1ed378b223bc3fb39943d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-surveillance-state-as-total-system",
+  "field": "title",
+  "lang": "ko",
+  "text": "빈틈없는 체제, 감시 국가",
+  "model": "claude-opus-5",
+  "source_sha256": "5d844e35d192cb6d2e2e6c6532be4b023b113c0344f7ce8d58c099ab480cdf5d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-surveillance-that-indicts-its-watcher",
+  "field": "title",
+  "lang": "ko",
+  "text": "감시자를 되레 고발하는 감시",
+  "model": "claude-opus-5",
+  "source_sha256": "0873f514acf259dee28f6371bcd86cc2e7e3dbfe44f11622734421be2d768ada"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-survey-line-that-erases-what-it-charts",
+  "field": "title",
+  "lang": "ko",
+  "text": "그려 넣는 순간 지워버리는 측량선",
+  "model": "claude-opus-5",
+  "source_sha256": "4c9f828c09f0e018de55207e53af634634b5d51c33c190d65a289ba0eb7389ce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-survival-that-refuses-its-grief",
+  "field": "title",
+  "lang": "ko",
+  "text": "슬픔을 밀쳐낸 생존",
+  "model": "claude-opus-5",
+  "source_sha256": "279d6546be83b9b3e00d12129fecf2d7a2a42af4830e4b3aefcc2a4b0ca9f93d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-surviving-witness-who-cannot-read-his-own-survival",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 생존을 끝내 읽어내지 못하는 증인",
+  "model": "claude-opus-5",
+  "source_sha256": "81e436b78135441dc2cae7a2d977ce98e816338daf7bd37109160197bd163f27"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-survivor-becomes-the-archive",
+  "field": "title",
+  "lang": "ko",
+  "text": "생존자가 곧 기록보관소가 된다",
+  "model": "claude-opus-5",
+  "source_sha256": "4fd6a702d2d3b5d50fecf9dd6d4db605955be125a658c3cac53ab805f8c90b36"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-survivor-who-becomes-her-own-evidence",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 몸이 증거가 된 생존자",
+  "model": "claude-opus-5",
+  "source_sha256": "88dab29041fe3da6d5b06d007882b51c7c229ee7a7a699054dcbc5f663b92ef2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-survivor-who-demands-his-own-punishment",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 벌을 달라고 요구하는 생존자",
+  "model": "claude-opus-5",
+  "source_sha256": "aa71037716c26f268dc8826f2cb7b9a838cf624725b1a9c04ad88665dda8b66f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-survivor-who-lives-by-method",
+  "field": "title",
+  "lang": "ko",
+  "text": "규율로 버티는 생존자",
+  "model": "claude-opus-5",
+  "source_sha256": "2e8c2459990804ea04b1c702754aecc68100e118db07a1008b4bc1986cd8db7c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-suspension-of-the-ethical",
+  "field": "title",
+  "lang": "ko",
+  "text": "윤리의 정지",
+  "model": "claude-opus-5",
+  "source_sha256": "6c25705fc250036104ce9870b1aaaffd0fab82773a170059d01f1c94d2c884d0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sweet-as-commodity-form",
+  "field": "title",
+  "lang": "ko",
+  "text": "단것, 상품 형식의 얼굴",
+  "model": "claude-opus-5",
+  "source_sha256": "84b387ad7d129e5659e5faf5891f3324e25a74a8c95b1c681285824c6b53bef2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sweet-title-that-names-a-trap",
+  "field": "title",
+  "lang": "ko",
+  "text": "덫에 붙인 달콤한 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "2628badf99ebf5c1e10001619751b375b82a638b00207abe33981ae039b2b829"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sweet-voice-scoring-the-slaughter",
+  "field": "title",
+  "lang": "ko",
+  "text": "학살에 얹히는 달콤한 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "b7f7aaf3d741d2da282550546f7b6eaa2e644ed74c8b5ac70de981fd8430217d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sweetness-the-title-doesn-t-mean",
+  "field": "title",
+  "lang": "ko",
+  "text": "제목이 뜻하지 않는 달콤함",
+  "model": "claude-opus-5",
+  "source_sha256": "30f228c83d7542da7ddcc34dc0b940c094e59b5f35171376bc4e7b0355e3dde4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-swinging-lamp-that-judges-the-soul",
+  "field": "title",
+  "lang": "ko",
+  "text": "흔들리며 영혼을 심판하는 램프",
+  "model": "claude-opus-5",
+  "source_sha256": "548dd68e4ffbaf020f8a1a714fefd4afd1a751a1a71223c88cffd25231a03e73"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sword-stripped-warrior-caste-unmade-by-the-peasant",
+  "field": "title",
+  "lang": "ko",
+  "text": "칼을 빼앗기다: 농민 손에 무너진 무사 계급",
+  "model": "claude-opus-5",
+  "source_sha256": "4047b59369327bcd8c6a7fc5903b0a9fbdf990e4189b33eb0b0cf0f01db0da72"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sworn-oath-as-engine-of-submission",
+  "field": "title",
+  "lang": "ko",
+  "text": "복종을 굴리는 엔진, 맹세",
+  "model": "claude-opus-5",
+  "source_sha256": "7d30b3b42e50e90f9d9f388cce10306ae9cd7581f6929031ebe2e26cb3ba8cda"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-symbol-worshipped-above-the-man",
+  "field": "title",
+  "lang": "ko",
+  "text": "사람보다 높이 떠받들린 상징",
+  "model": "claude-opus-5",
+  "source_sha256": "c7316ac00a2c56dc69923dcd0be1dfbf255b82619a9750f5d5aae345523403d8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-symbolic-order-collapsing-into-the-real",
+  "field": "title",
+  "lang": "ko",
+  "text": "실재(the Real)로 무너져 내리는 상징 질서",
+  "model": "claude-opus-5",
+  "source_sha256": "dbe1e91f38a77799334c41c5096fc54c4cb9096754fc105746fe60dc37c707b2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-symbolic-order-fails-to-hold",
+  "field": "title",
+  "lang": "ko",
+  "text": "상징 질서가 버티지 못한다",
+  "model": "claude-opus-5",
+  "source_sha256": "8802b8e0f66d3d74768dbb19d8bb8b19e999423c8fbed4f419e209c5e6754783"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-symmetry-that-made-it-bearable",
+  "field": "title",
+  "lang": "ko",
+  "text": "견딜 만하게 해준 대칭",
+  "model": "claude-opus-5",
+  "source_sha256": "bb7fa5d4ad94a3820877d98b98cd191d8125099cc762e6372cd8f59a4253e6a1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-symptom-as-cipher-to-be-decoded",
+  "field": "title",
+  "lang": "ko",
+  "text": "해독을 기다리는 암호, 증상",
+  "model": "claude-opus-5",
+  "source_sha256": "b46c0199ade5d0b04bdef729e2a4f3de08664c1b0c293fb2c107d194e94517ad"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-symptom-as-disavowal-of-power",
+  "field": "title",
+  "lang": "ko",
+  "text": "권력을 부인하는 증상",
+  "model": "claude-opus-5",
+  "source_sha256": "354b308ebb7b7c83a1994efa84d0aa97d84e2c7d67d6d9ce0f5c386362e0c67a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-symptom-displaced-onto-the-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸으로 밀려난 증상",
+  "model": "claude-opus-5",
+  "source_sha256": "5234126deefe2bcdac2c519ab0d4e1c6bc491e566f7b593e0f63d03103545612"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-synthesized-instrument-as-cold-ghost",
+  "field": "title",
+  "lang": "ko",
+  "text": "차가운 유령으로 우는 신시사이저 음색",
+  "model": "claude-opus-5",
+  "source_sha256": "b78a9400da5310c41cb6d5241b9ac84f48170688118f90763583ee202855903d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-synthesizer-as-diegetic-engine",
+  "field": "title",
+  "lang": "ko",
+  "text": "이야기를 굴리는 신시사이저",
+  "model": "claude-opus-5",
+  "source_sha256": "af484808f14236d0baaee4dae7fe00772a66055ac7bcc51609035ebc399c44a0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-synthetic-image-that-rehearses-our-future",
+  "field": "title",
+  "lang": "ko",
+  "text": "우리 미래를 미리 연습하는 합성 이미지",
+  "model": "claude-opus-5",
+  "source_sha256": "ed8e963d459828baa2327a64debd9531cd842dc44ed97b5b1cba1b8f37fbdded"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-table-as-contested-polity",
+  "field": "title",
+  "lang": "ko",
+  "text": "식탁이라는 다툼의 정치체",
+  "model": "claude-opus-5",
+  "source_sha256": "57f16a5e2e5ccc486f12a390d1932534c9cddb65ad5e552fbfc1afe042530323"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-table-where-patriarchy-eats-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "가부장제가 제 살을 먹는 식탁",
+  "model": "claude-opus-5",
+  "source_sha256": "ea70f76cadb6a5f61649314ba6f8173f6635b30cdbf2f156c769e771aa6648d4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tailored-armor-of-lethal-privilege",
+  "field": "title",
+  "lang": "ko",
+  "text": "맞춤 정장이라는 갑옷, 사람 죽이는 특권",
+  "model": "claude-opus-5",
+  "source_sha256": "b6fda43079554c8b08817d93f68e53ea9b57c4330a06ad2f64261cac175fe716"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-take-held-until-performance-becomes-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "연기가 고백이 될 때까지 놓지 않은 테이크",
+  "model": "claude-opus-5",
+  "source_sha256": "8fb6bfc6d7b9671fe79bd74e22a4cc8cb32401e8227196431f6593a84be2777e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-talent-money-could-not-buy",
+  "field": "title",
+  "lang": "ko",
+  "text": "돈으로는 못 사던 재능",
+  "model": "claude-opus-5",
+  "source_sha256": "1a183a2d31d91341269824750f65343081813e3096c5da0041829be7701a57fd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tape-recorder-as-moral-court",
+  "field": "title",
+  "lang": "ko",
+  "text": "녹음기가 여는 도덕 법정",
+  "model": "claude-opus-5",
+  "source_sha256": "7168e333ef2733f6fa341dd443ee0f4cbc92082ef336a36407b290b815739f7e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tape-that-carries-the-contagion",
+  "field": "title",
+  "lang": "ko",
+  "text": "전염을 실어 나르는 테이프",
+  "model": "claude-opus-5",
+  "source_sha256": "f522804017a0dd17bfb345312d8723f3935cda964d9f3a11f726033ca703926b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tape-that-outlives-its-tyrant",
+  "field": "title",
+  "lang": "ko",
+  "text": "폭군보다 오래 사는 테이프",
+  "model": "claude-opus-5",
+  "source_sha256": "06a13e27526d4d6c96d6b9e9726f889c82865878d510ae547b07fc97410c18c7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tape-that-plays-its-listener",
+  "field": "title",
+  "lang": "ko",
+  "text": "듣는 자를 되레 재생하는 테이프",
+  "model": "claude-opus-5",
+  "source_sha256": "b3854a7e81b30d9752e1c83b36af61421ad099a03453f56b7963da84049ad827"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-teacher-as-arm-of-the-state",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가의 팔이 된 교사",
+  "model": "claude-opus-5",
+  "source_sha256": "89daf04a1fc3876b802676a18b96dc37341e0a67cda4b67f320b5731830a96a8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-teacher-as-screen-for-projected-desire",
+  "field": "title",
+  "lang": "ko",
+  "text": "욕망이 투사되는 스크린, 교사",
+  "model": "claude-opus-5",
+  "source_sha256": "ec4ab69f2e4cfd7045fc16c7fef19c7f2ebcbf70c793c74e8d1e15baec03bfed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-teacher-who-awakens-the-sealed-senses",
+  "field": "title",
+  "lang": "ko",
+  "text": "닫힌 감각을 깨우는 스승",
+  "model": "claude-opus-5",
+  "source_sha256": "40a19f7991afc5d2aa94a3cb4fc136b776668b085bb52171b5f17e19801c5994"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tear-that-decodes-the-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "눈물 한 방울이 영화를 푼다",
+  "model": "claude-opus-5",
+  "source_sha256": "08ef41662cb3b414adc4c1937ac4e2b85cd9aa0aab94c74248ebf316ef032361"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-technology-that-dictated-the-form",
+  "field": "title",
+  "lang": "ko",
+  "text": "형식을 받아쓰게 한 기술",
+  "model": "claude-opus-5",
+  "source_sha256": "219d19258e3111d836482670571d1bef1d32b8c54681461712df2215125493e4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-teen-film-as-covert-ethnography",
+  "field": "title",
+  "lang": "ko",
+  "text": "몰래 쓴 민족지, 하이틴 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "f11f5ca1f3cd16720997ce8f6e5ce800c3599e60c8322853b707a568ee1d8c60"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-teleological-suspension-of-the-ethical",
+  "field": "title",
+  "lang": "ko",
+  "text": "윤리의 목적론적 정지",
+  "model": "claude-opus-5",
+  "source_sha256": "7899e821cc5688185954df7575de3236c5a574553ef016ebc780aacc075fe8ab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-telephone-as-disembodied-instrument-of-command",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸 없이 명령하는 도구, 전화",
+  "model": "claude-opus-5",
+  "source_sha256": "6d7726bfc27591096a2c744a3684c225865987d3b22993384ed386a6c8071dec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-telephone-as-umbilical-to-the-dead",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽은 자와 이어진 탯줄, 전화",
+  "model": "claude-opus-5",
+  "source_sha256": "c84f61cd15c9fc2a8b4a4efedd860c9d0c4751a5e37bce03692b977810e73ae9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-telescope-that-studies-our-own-dust",
+  "field": "title",
+  "lang": "ko",
+  "text": "우리 먼지를 들여다보는 망원경",
+  "model": "claude-opus-5",
+  "source_sha256": "17cb16fcc8aeda70e7d6a49f6fd1f72b7278a1731c55ee28eb70fef6934e4c9d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-television-cut-smuggled-into-cinema",
+  "field": "title",
+  "lang": "ko",
+  "text": "극장으로 숨어든 텔레비전 판본",
+  "model": "claude-opus-5",
+  "source_sha256": "a611da0ff8547cb620c1e02070ec7f1a17d45f2df78f1e78832428058116ae48"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-television-set-as-colonial-furniture",
+  "field": "title",
+  "lang": "ko",
+  "text": "식민의 가구가 된 텔레비전",
+  "model": "claude-opus-5",
+  "source_sha256": "cb0a7cd1a1e7e208c87dac6a5c0e8b977275708a5d82e5132d80f99808c1430c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tender-lie-against-the-moral-law",
+  "field": "title",
+  "lang": "ko",
+  "text": "도덕법칙을 거스르는 다정한 거짓말",
+  "model": "claude-opus-5",
+  "source_sha256": "cee06cb75c2101d65ab0046f8e25b9159e758a821efdd266b79cd8fdded76066"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tenebrae-rite-of-extinguished-light",
+  "field": "title",
+  "lang": "ko",
+  "text": "빛을 하나씩 끄는 테네브레 예식",
+  "model": "claude-opus-5",
+  "source_sha256": "35621969b791fba6d4d54c34f391b4a23d6b427f842970fd3f30ec98c2a229f7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tennessee-cabin-as-underworld-stage",
+  "field": "title",
+  "lang": "ko",
+  "text": "저승의 무대가 된 테네시 오두막",
+  "model": "claude-opus-5",
+  "source_sha256": "2d6e4722d43fe42500565f85edd3fd06653751828eec48f8db8802c9481f6a01"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-terrain-as-belligerent-co-author",
+  "field": "title",
+  "lang": "ko",
+  "text": "싸움을 걸어오는 공동 저자, 지형",
+  "model": "claude-opus-5",
+  "source_sha256": "23ef34d116ccaddc1e73c782444b01d7db334d592c87131a3b1aed0e5f9f671a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-terror-built-in-the-soundtrack",
+  "field": "title",
+  "lang": "ko",
+  "text": "사운드트랙이 지어 올린 공포",
+  "model": "claude-opus-5",
+  "source_sha256": "251ea5bfa4c3a57d6fc375f4fad1b309c2e1c03aff638f6a29c51ece1e7bde78"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-terror-filmed-was-genuine",
+  "field": "title",
+  "lang": "ko",
+  "text": "카메라에 담긴 공포는 진짜였다",
+  "model": "claude-opus-5",
+  "source_sha256": "1fb22c6adfff9218094a29d8a9b128bc8370553855298cee0c086b06f75b87e8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-test-audience-as-ideology-s-hand",
+  "field": "title",
+  "lang": "ko",
+  "text": "이데올로기의 손이 된 시사 관객",
+  "model": "claude-opus-5",
+  "source_sha256": "9e1f187ddfae11bb0cbaeb26d6d884c63fb7c6d4f930a4b6a20f8c80d8617f40"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-theatre-director-smuggled-into-cinema",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화로 잠입한 연극 연출가",
+  "model": "claude-opus-5",
+  "source_sha256": "ec5e29abce00da7a5ca77cc7363d2dfd5fdd26432dbdca10454daedd8a22e362"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-theatrical-form-smuggled-into-the-feed",
+  "field": "title",
+  "lang": "ko",
+  "text": "피드로 잠입한 연극의 형식",
+  "model": "claude-opus-5",
+  "source_sha256": "83d4826482760913ff1228cbcbaf7431c2ab96f85f93c78b567b5654ad0df09a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-theme-that-already-knows-the-ending",
+  "field": "title",
+  "lang": "ko",
+  "text": "결말을 이미 아는 주제음악",
+  "model": "claude-opus-5",
+  "source_sha256": "0e7e1bce9c2e140fef0ba88bcfa47e0df9c9a7855627652a7e07f1518c31dd17"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-theme-that-loves-in-secret",
+  "field": "title",
+  "lang": "ko",
+  "text": "몰래 사랑하는 선율",
+  "model": "claude-opus-5",
+  "source_sha256": "86559c842dd4292a6067f9dfa428d0cdac4a9c39b69dc96095d67e7489132c3f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-theology-that-already-lost-its-god",
+  "field": "title",
+  "lang": "ko",
+  "text": "신을 이미 잃어버린 신학",
+  "model": "claude-opus-5",
+  "source_sha256": "9d2913b4f74854d33618b90bb08085a3a15d767fa7e91fb5e2528cfb6b638230"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-theology-with-its-cause-subtracted",
+  "field": "title",
+  "lang": "ko",
+  "text": "원인을 덜어낸 신학",
+  "model": "claude-opus-5",
+  "source_sha256": "2fe2e6a614d30a9d87ece917eaf453cb0106df932819f1710ccf6bd4cb503f54"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-theorem-as-narrative-form",
+  "field": "title",
+  "lang": "ko",
+  "text": "정리(定理)로 짜인 서사",
+  "model": "claude-opus-5",
+  "source_sha256": "24d817ab249fa6b6706c837a8ac00a1378136cb152175503a14bc7a4a40cf798"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-theorist-who-cannot-live-his-theory",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 이론대로 살지 못하는 이론가",
+  "model": "claude-opus-5",
+  "source_sha256": "4f7a3a3fba9b5116e5141dca6ebd09cf81020c05baa1a144a143a2d5a904e4e4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-thermal-gaze-that-unmakes-the-human",
+  "field": "title",
+  "lang": "ko",
+  "text": "인간을 지워버리는 열화상의 눈",
+  "model": "claude-opus-5",
+  "source_sha256": "82ae06907f9a18668408a41d333c8a1fdbf461ad98cb7385d3c46a72eab97bc3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-thought-made-literally-sovereign",
+  "field": "title",
+  "lang": "ko",
+  "text": "말 그대로 주권이 되어버린 생각",
+  "model": "claude-opus-5",
+  "source_sha256": "e18102897f62c293750a837feb69f58a108837ae75dfc9288b3eae05367677c2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-threshold-one-cannot-cross",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 넘지 못하는 문턱",
+  "model": "claude-opus-5",
+  "source_sha256": "f5d8406a35adf8f1d19078b1298d0b1525dad90183ae4b14eeeb9764af2f5cf8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-threshold-room-as-border-regime",
+  "field": "title",
+  "lang": "ko",
+  "text": "국경 체제가 된 문턱의 방",
+  "model": "claude-opus-5",
+  "source_sha256": "59ff686adcd96b9d4a985a7322b4c2374f6103e319a8b14a968ee78e74d25a39"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-threshold-that-refuses-to-become-a-door",
+  "field": "title",
+  "lang": "ko",
+  "text": "문이 되기를 마다하는 문턱",
+  "model": "claude-opus-5",
+  "source_sha256": "19761076801c841d62479577903dc2747699cdecefb2c5dda7c69e96dbd8e8ae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-threshold-that-was-always-open",
+  "field": "title",
+  "lang": "ko",
+  "text": "내내 열려 있던 문턱",
+  "model": "claude-opus-5",
+  "source_sha256": "49e9ff40fb21c8a9b8c056316513ccfccfd35081c70d6c290ed2bc541f7c2fc0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-threshold-where-practical-yields-to-digital",
+  "field": "title",
+  "lang": "ko",
+  "text": "실물 효과가 디지털에 자리를 내주는 문턱",
+  "model": "claude-opus-5",
+  "source_sha256": "2cb363ac77afb6f5780f6ae186508284d70ad9298f7604557c36c19ccf6b0c24"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-thriller-whose-real-subject-is-elsewhere",
+  "field": "title",
+  "lang": "ko",
+  "text": "진짜 이야기가 딴 데 있는 스릴러",
+  "model": "claude-opus-5",
+  "source_sha256": "a250dff6c7335aa2312bc6ce5054f51207eb06b399cb5bcda04c251343952695"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-throne-held-in-another-s-name",
+  "field": "title",
+  "lang": "ko",
+  "text": "남의 이름으로 지킨 왕좌",
+  "model": "claude-opus-5",
+  "source_sha256": "f98e80aa2e33c7cb3e34b95474614511c4b8ba35f3c47e24c44a0ea488791e4b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-throne-is-empty-the-power-performs",
+  "field": "title",
+  "lang": "ko",
+  "text": "왕좌는 비었고 권력은 연기 중",
+  "model": "claude-opus-5",
+  "source_sha256": "421c16f6741e2b4f63eaf6db187315b70e29de5d6d8fbe2f7d4641ec70aeae7d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tidy-functionary-who-launders-atrocity",
+  "field": "title",
+  "lang": "ko",
+  "text": "잔학을 세탁하는 말끔한 관료",
+  "model": "claude-opus-5",
+  "source_sha256": "872a3bc47979f6d0a29ae238635b556d7b1a65721caa469cb69a7ac6fccc5782"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tidy-house-conceals-the-real-haunting",
+  "field": "title",
+  "lang": "ko",
+  "text": "정갈한 집이 감춘 진짜 유령",
+  "model": "claude-opus-5",
+  "source_sha256": "a9f544ce15215f2256e930f0a16c72154fa3adc7e29c84087652d8a9737a14d8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tiger-as-externalized-survival-instinct",
+  "field": "title",
+  "lang": "ko",
+  "text": "밖으로 튀어나온 생존 본능, 호랑이",
+  "model": "claude-opus-5",
+  "source_sha256": "7f2a8afa3c30ff0a32662ba6cebc1c1c91344891223877b28997270ce4a2bda2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tiger-as-moral-law-in-fur",
+  "field": "title",
+  "lang": "ko",
+  "text": "털가죽을 쓴 도덕법, 호랑이",
+  "model": "claude-opus-5",
+  "source_sha256": "47918242e9a39c467d900fa9ddca5f707e6b7bbdf5907d6b000a7d6fbef47b29"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-time-loop-as-compulsion-to-repeat-guilt",
+  "field": "title",
+  "lang": "ko",
+  "text": "죄를 되풀이하는 강박, 시간 고리",
+  "model": "claude-opus-5",
+  "source_sha256": "9ca2e8cc85c2f371181840f0519610a1ca716cf4322a17f9f824536463a1fdcf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-timetable-as-sovereign-deity",
+  "field": "title",
+  "lang": "ko",
+  "text": "군림하는 신이 된 시간표",
+  "model": "claude-opus-5",
+  "source_sha256": "3d2166a06b062c1e87e612f42048513348131fa958dcbb48e60487833d6178be"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-as-diagnosis-of-cinema-s-own-failure",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화 자신의 실패를 짚는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "c034b076d29be128724775b75db871898c07dad1bf56ade7c60752c5174504a2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-as-repossessed-selfhood",
+  "field": "title",
+  "lang": "ko",
+  "text": "되찾아온 자기 자신, 그 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "e5f94b01bef0188b64a1007f597fa42fe9de75071761d49d867de1f90189f067"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-as-self-dissolving-oxymoron",
+  "field": "title",
+  "lang": "ko",
+  "text": "스스로 풀려버리는 모순어법, 그 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "4af7f2b11df81c9704c12c986030e84408c6df24d737df9fbf4c6dd6ae6fd932"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-as-time-code-euphemism",
+  "field": "title",
+  "lang": "ko",
+  "text": "시간 부호로 에두른 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "b8177fc399d5015523f6ce75c586399e03c80da0ff256619d4c80af0f0458e59"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-as-unfinished-or-withheld-address",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝맺지 못했거나 삼켜버린 부름, 그 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "6f846743ee583f537f20ffab613c1ba7803d0824bd6f1a0d2ffed0391fb5c0d4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-conjunction-is-the-whole-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "제목 속 접속사 하나가 영화 전부",
+  "model": "claude-opus-5",
+  "source_sha256": "5a7e6e90167c925b8aae8a06e935009cc6221ea4a8f3163212192594e8572533"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-crowns-a-man-who-isn-t",
+  "field": "title",
+  "lang": "ko",
+  "text": "제목이 아닌 자에게 왕관을 씌운다",
+  "model": "claude-opus-5",
+  "source_sha256": "20722a931f45f2afbef5b07f7b36007c3a2b7c68ec98b3d589456fc3c173d185"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-decodes-the-dread",
+  "field": "title",
+  "lang": "ko",
+  "text": "제목이 공포를 풀어낸다",
+  "model": "claude-opus-5",
+  "source_sha256": "817683a5211aaee2ab4992de92dc7f6a8ca82ae0672efd9f07ead1497ca63120"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-delivers-the-verdict-first",
+  "field": "title",
+  "lang": "ko",
+  "text": "판결을 먼저 내리는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "f9df4c568b5c7748da0427137707caf7ad7ac686eb2998ed16c411289bc5fd26"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-is-a-command-you-cannot-obey",
+  "field": "title",
+  "lang": "ko",
+  "text": "따를 수 없는 명령, 그 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "7e46f5103fc3e22d1b6eda5a10b67c7ae2e7c163f85c9ffdc61cf3c1c77d3dec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-is-a-name-already-hollowed",
+  "field": "title",
+  "lang": "ko",
+  "text": "이미 속이 빈 이름, 그 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "1272b6e21bf2af6e3266f589c889d39a1cb7d6033f9e6b0d3c8311260e0a27fa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-is-a-verb-that-hunts",
+  "field": "title",
+  "lang": "ko",
+  "text": "사냥하는 동사, 그 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "953f1c6bbffd0d4d401be9adb06c4fc38502f42a0a22f96117eb1fe3e521d6c0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-is-the-argument",
+  "field": "title",
+  "lang": "ko",
+  "text": "제목이 곧 논지다",
+  "model": "claude-opus-5",
+  "source_sha256": "d77ce77ac999b4b58bfacf739c9c3e1a8d1dc459c12aff92e71ebbecc6419f89"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-is-the-cage-it-names",
+  "field": "title",
+  "lang": "ko",
+  "text": "제목이 부르는 그 우리가 곧 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "b86a84d52aa54c8bf6b0fe3080b8ced0d4b961b337caf64e36dab6dcef975d05"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-is-the-cipher-to-the-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화를 여는 암호, 그 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "736297cde928bb68ba2f4b7f4ef26b0f25f70b0370a6035e238473b99b161b15"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-is-the-thesis-decoded",
+  "field": "title",
+  "lang": "ko",
+  "text": "제목에 이미 풀린 논제",
+  "model": "claude-opus-5",
+  "source_sha256": "5dc3a93f094a1fc5cb979bd17aa086ed0914280cde9adbf27eeef7e519c7303c"
+ }
+]

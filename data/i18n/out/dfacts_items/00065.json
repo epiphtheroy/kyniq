@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rainer-werner-fassbinder#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마이어의 자살은 파스빈더에게 죄책감으로 남았다. 그는 곧바로 《In a Year of 13 Moons》를 썼고, 연출하고, 찍고, 편집까지 25일 만에 끝냈다. 프랑크푸르트를 떠도는 트랜스젠더 여성의 황량한 이야기에 자기 슬픔을 그대로 흘려보낸 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6add24456cc0448a32ae127fd9229ffbeca9fc97f9a813528299b2199df6a890"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rainer-werner-fassbinder#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "촬영장에서의 심리전으로 악명이 높았다. 배우들을 일부러 서로 반목시켰고, '희생양'을 하나 골라 스태프 전체가 괴롭히게 두었다. 그런 잔인함이라야 날것의 진짜 연기가 나온다고 믿었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8869c907103190c1af19282ffd0e38c4e2f000cbb7961600902eb768bffb8b07"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rainer-werner-fassbinder#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "배우 이름 헤르만에게 가한 정서적 학대는 극단으로 치달았다. 결혼하겠다는 약속을 되풀이하면서 동시에 돈을 뜯어냈다. 헤르만은 자살을 시도했고, 그러고 나서야 그의 측근 무리에서 빠져나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1bc5d368dda1a2ccb9cc2cf8dfa6637b847e28d0ce86fe201fef14144e72fa72"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rainer-werner-fassbinder#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1975년, 희곡 《쓰레기, 도시 그리고 죽음》이 독일 전역을 뒤흔든 스캔들의 중심에 그를 세웠다. 문제는 '부자 유대인'이라고만 불리는 무자비한 부동산 개발업자였다. 좌파발 반유대주의라는 비난이 쏟아졌고, 주어캄프 출판사는 인쇄된 초판을 통째로 폐기했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fabc2414f207a322d840aa11677ce3cdd294de0032bfe4be25ade51c29e2516f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rainer-werner-fassbinder#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1982년 6월 10일, 연인 율리아네 로렌츠가 뮌헨 아파트에서 서른일곱의 그를 발견했다. 코카인과 수면제가 뒤섞인 치사량이 사인이었다. 입술 사이에는 담배가 아직 타고 있었고, 텔레비전은 켜진 채였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "538385486609b0ed47583f85579883635396d34e9e2b20df2d05711dab93df0d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rainer-werner-fassbinder#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "약물 과다복용으로 숨이 끊긴 그 순간, 그의 몸은 미완성 시나리오 위에 엎어져 있었다. 폴란드계 독일인 마르크스주의 혁명가 로자 룩셈부르크의 전기영화. 이 기획은 훗날 마르가레테 폰 트로타가 넘겨받아 연출했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "56cdf589c9c3f3290e29001866811b6983035c1e2e6804decb5a2ae16868e505"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rian-johnson#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "메릴랜드주 실버스프링에서 태어나 어린 나이에 캘리포니아의 해안 서핑 마을 샌클레멘테로 옮겨 갔다. 소년기는 묵직한 VHS 카메라를 들고 아마추어 영화를 찍으며 보냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f95f902427407c702f098a5f1386923f61e13a43490c260cb22d2e3091965882"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rian-johnson#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1992년 USC 영화예술대학 1학년 때 촬영감독 스티브 예들린을 만났다. 이후 존슨의 장편은 단 한 편도 빠짐없이 예들린이 찍었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ea032b5d87f2291d0c70d52541faf04e2aaf5706f18bb1c89995c80a6bc082b3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rian-johnson#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "데뷔작 제작비를 구하는 데 7년이 걸렸다. 그동안 디즈니 채널 예고편을 편집하고 청각장애인을 위한 수어 교습 영상을 연출하며 월세를 냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f29335fbc1b985d543ebb1b779f4da8ed5bb112b5e453008086f9050a3462a8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rian-johnson#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2003년, 마침내 네오누아르 데뷔작 《브릭》을 찍는다. 부모와 친구들에게서 긁어모은 45만 달러가 전부였고, 주요 촬영지는 그가 다닌 샌클레멘테 고등학교였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3c248198ab0191814bdfcdf614a2e6594d2d6e90539f4accf625847c15e4592a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rian-johnson#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "음악에도 재능이 있다. 밴조를 연주하며, 작곡가인 사촌 네이선과 함께 포크록 듀오 The Preserves에서 노래한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7501a13ba92aa80ce895fe62625a60c0bafd264559b283f78a380bbefcc1b1d8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rian-johnson#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "배우 조셉 고든레빗을 자신의 '행운의 부적'으로 여긴다. 그래서 자기가 연출하는 모든 영화에 최소한 목소리 카메오라도 몰래 넣는다. 《스타워즈: 라스트 제다이》의 외계인 슬로웬 로, 《글래스 어니언》의 시계 종소리가 그런 예다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e6b66437a316a689ad6a67393335cda23574c044f72f0bd3574b278ab1b9922f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rian-johnson#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "각본은 작고 검은 몰스킨 수첩에 촘촘히 개요로 짠다. 이야기 구조 전체를 깨알 같은 손글씨로 다 적기 전에는 대사 한 줄도 타이핑하지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "59a98a00790f6cd9efde6a5719c18147670bac59b08f366daa7264e06b4a9784"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rian-johnson#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아내는 저명한 영화사가 카리나 롱워스다. 고전 할리우드를 다룬 호평받는 팟캐스트 《You Must Remember This》를 만들고 진행한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bdda30ab9f3971d7770e5dd2a32fe77d9184096bbcbe4ee0986e4df94896eedf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rian-johnson#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《나이브스 아웃》 홍보차 나선 《배니티 페어》 인터뷰에서 할리우드의 큰 영업비밀 하나를 실수로 흘렸다. 애플은 영화에 아이폰이 나오는 것은 허용하지만, 악당이 화면에서 아이폰을 쓰는 것은 엄격히 금한다는 이야기였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "492d1ebca7570d3d9e214c1d9f72e0d5e0ac446b1d4c92ac9dea404613306b01"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rian-johnson#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "인디 밴드 더 마운틴 고츠에 깊이 빠져 있다. 2006년 이들의 곡 〈Woke Up New〉 뮤직비디오를 연출했고, 프런트맨 존 다니엘을 서사에 큰 영향을 준 인물로 자주 꼽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b86b5198524cf5cea1f393817345d4c0e422e663e099a1d2410f5f30284a411f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rian-johnson#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2018년에는 LCD 사운드시스템의 〈Oh Baby〉를 SF 뮤직비디오로 만들었다. 오스카 수상자 시시 스페이섹과 데이비드 스트라탄을 설득해 순간이동 장치를 발명하는 과학자로 출연시켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "08261128f6d32a01989e53477feeaea22c62e2841f2615c3d0ec906f97f3c8ef"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rian-johnson#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "브로드웨이의 전설 스티븐 손드하임과 배우 앤절라 랜즈베리의 마지막 스크린 출연을 그가 남겼다. 두 사람은 《글래스 어니언》에서 게임 《어몽 어스》를 하는 카메오를 찍었고, 얼마 지나지 않아 각각 세상을 떠났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "053b6511a28f5bddb98b1604384dfef7485f98a4ae4bdf19ce6b7c55eeb1c130"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rian-johnson#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자신의 살인 미스터리에 영국 고전 록 곡의 제목을 붙이는 버릇이 있다. 《나이브스 아웃》은 2001년 라디오헤드 곡에서, 《글래스 어니언》은 1968년 비틀스 곡에서 가져왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f81291892fcf427d35199d25d770e2df8fb9204c0052ce6f1081df9edcc9e437"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rian-johnson#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2021년 그는 스트리밍 역사상 손꼽히는 규모의 계약을 성사시킨다. 넷플릭스가 《나이브스 아웃》 속편 두 편의 권리에 4억 6,900만 달러를 내놓은 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c5a11b8d4349a0f074c85599875de7b9c69c4ad977ee5384661dcd086393f99"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rian-johnson#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《러시아 인형처럼》의 나타샤 리온을 본 뒤, 오로지 그를 위한 작품으로 피콕 시리즈 《포커 페이스》를 만들었다. 범인을 먼저 보여주고 잡는 과정을 좇는 형식은 1970년대 형사물 《형사 콜롬보》를 그대로 본떴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c8170ed33136458158152b8784f53260e687b2237cb5a3fd2b33a3ae8681179"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rian-johnson#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《라스트 제다이》 연출 후 유례없는 온라인 괴롭힘에 시달렸다. 그런데도 트위터를 떠나지 않았다. 성난 팬들을 유쾌하게 놀리고, 차단하고, 때로는 직접 논쟁하는 쪽을 택했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "95f351fd67262d700cd21fca1539ed909e5035cbd82022e2b8195c2ec285807b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rian-johnson#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2020년 코로나19 봉쇄 기간에는 로스앤젤레스 자택에서 원격으로만 《포켓몬 GO》 글로벌 광고를 연출했다. 뉴질랜드에 있는 촬영팀을 그렇게 지휘했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8650f04b118e65a612ce1a43bfe07c8a19124a5f43605ee519f6d135dc58d37b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rian-johnson#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2019년 오랜 파트너인 프로듀서 램 버그먼과 독립 제작사 T-Street를 세웠다. 오리지널 영화와 시리즈를 만들기 위해 밸런스 미디어로부터 수백만 달러 규모의 투자를 확보했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f6daa19561831d74091f3f0417724630aa65265ad856af61260a0037b0e7301c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rian-johnson#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "두 번째 영화 《브라더스 블룸》의 착상은 제임스 조이스의 《율리시스》를 읽고 나서 떠올랐다. 그 소설이 주는 방만하고 삽화적인 감각을 사기꾼 영화의 틀 안에 담아보고 싶었던 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0129fad0a52eda19db58795ef92a68ba6a4ef9e8f9fb375bb627e8e725c788d3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-donner#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "브롱크스에서 리처드 도널드 슈워츠버그라는 이름으로 태어났다. 1950년대 말 무명 연극배우에서 텔레비전 연출자로 방향을 틀면서 '도너'라는 예명을 쓰기 시작했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aa62a2637027ef1d5fe44adf3fcb56ff385e6971efa94ba3ce32ebea3a2abf6b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-donner#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "연출 인생의 출발점은 뜻밖에도 감독 마틴 리트였다. 리트는 도너에게 연기 재능이라곤 전혀 없다고 대놓고 말한 뒤, 대신 자기 조수나 하라고 시켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d089c87404c436404811ed90ecc2d884da3ac427d1116b1f16fa01f804faf653"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-donner#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "텔레비전에서 다작하던 시절, 1963년 《환상특급》의 그 유명한 에피소드 '2만 피트 상공의 악몽'을 맡았다. 비행기 날개 위의 그렘린과 겁에 질린 윌리엄 샤트너를 마주 세운 것이 그였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "05ff5a7196c074bf76b6b136ab4a0a09c1c2a3af25a5a9f186e9bcad69a57aed"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-donner#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "저주받은 듯했던 《오멘》 촬영 기간, 도너가 묵던 런던 힐튼 호텔이 아일랜드 공화국군 잠정파의 폭탄 공격을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3de711d2d2ef175d853712989e018702097f497a7ea603b627cc8ed68fc06e91"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-donner#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《슈퍼맨》(1978) 스태프가 원작 만화를 우스개로 취급하지 못하게 도너가 꺼낸 수는 이랬다. 'VERISIMILITUDE(핍진성)'라는 단어를 큼직하게 인쇄해 파인우드 스튜디오 제작 사무실 곳곳에 붙여둔 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "194b3503ef62c0ca8170cfbedb2cfcf6147cff86458b7e18b21a482fec9fc3f7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-donner#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "말런 브랜도는 슈퍼맨의 아버지 조엘을 빛나는 초록 여행가방이나 베이글로 연기하면 어떻겠느냐고 제안했다. 화면에 얼굴을 내밀지 않으려는 속셈이었다. 도너는 이 괴짜 전설을 극진한 아첨으로 구슬려 결국 맨얼굴로 카메라 앞에 세웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "95f265dcdff63f33c68a31b5867dccfacef619b65037f416acfcf4c088be541b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-donner#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "제작자 알렉산더와 일리야 살킨드 부자는 로버트 레드퍼드나 실베스터 스탤론 같은 흥행 스타를 원했다. 도너는 그 뜻을 꺾고 완전한 무명의 연극배우 크리스토퍼 리브를 강철의 사나이 자리에 앉혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c29aeb453bef605b375109022149b89eb79eb6a3cd78eb9c7966a58e8d69ad79"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-donner#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《슈퍼맨 2》의 75퍼센트를 1편과 동시에 찍어놓고도 도너는 자리를 지키지 못했다. 예산을 둘러싼 극심한 마찰 끝에 살킨드 부자가 그를 가차 없이 해고하고 리처드 레스터를 앉혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3ec621cdd7f1bcfd5c152c7abb79f3dd45e85ba20433c172afdd7ef90a60f126"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-donner#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "명예 회복은 26년이 지나서야 왔다. 팬들의 요구가 거세지자 워너브라더스는 2006년 《슈퍼맨 2: 리처드 도너 컷》을 내놓았고, 그의 원래 구상과 삭제됐던 브랜도의 장면이 되살아났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b6716bdf373bcdba47d81b97f382fa7cf3751e89ff6498f063309a7145098ad"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-donner#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "블록버스터 《슈퍼맨》의 압박을 지나온 뒤 그가 고른 것은 1980년 소품 독립영화 《인사이드 무브스》였다. 어느 술집에 모여드는 장애인들의 이야기. 도너는 자기 모든 영화 중 이 작품을 개인적으로 가장 아낀다고 자주 말했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a3280bb6282acb885ea4f96f5ac055fb96849141bde685006bab258f20c20994"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-donner#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "훗날의 아내이자 오랜 제작 동반자가 되는 로런 슐러 도너와는 1985년 중세 판타지 《레이디호크》에서 만났다. 뤼트허르 하우어와 미셸 파이퍼가 주연한 그 영화를 그가 제작했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1dad5b9fcd670adb2e1e96b7f6e6ccbd16649cd47ecebb578cec954b1060e7f5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-donner#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "확고한 진보주의자이자 총기 규제론자였던 그는 초폭력적인 《리썰 웨폰》 시리즈를 조용히 배반했다. 경찰서 세트 곳곳 배경에 낙태권 지지 포스터와 전미총기협회 반대 포스터를 붙여둔 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a393c5d5c0f6e5c395000430d93c87602245c064761b07e414e5060c261c6cae"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-donner#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《프리 윌리》(1993)의 총괄 제작자로서, 도너의 환경주의는 스크린 밖까지 뻗어 나갔다. 그가 앞장선 대규모 캠페인은 영화의 주인공이었던 사육 범고래 케이코를 아이슬란드의 바다 가두리로 옮기는 데 성공했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "66f6594c325b20381318357d3b10852348b6c998f791d258cc89b89827a9b695"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-donner#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "만화 산업의 또 다른 거물도 그의 손에서 자랐다. 도너의 제작부 조수로 출발한 제프 존스는 훗날 DC 엔터테인먼트 사장 겸 최고창작책임자가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "33b9ea7d3644f71e69225d70b80b12f86c6c07ef09bb6a66d3fca6b4b3e95c68"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-donner#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "경력은 한 바퀴를 돌아 제자리로 왔다. 2006년, 일흔여섯의 도너는 옛 조수 제프 존스와 함께 《액션 코믹스》 슈퍼맨 시리즈의 여러 호에 걸친 이야기를 공동 집필했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b8d69a07551f5b27970cf204971697d7353069139b0c5fec852940b2c8d98693"
+ }
+]

@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "coda-2021",
+  "field": "lead",
+  "film_id": "5b5cba6a-8be9-4152-9d3a-2872605c6d7d",
+  "lang": "en",
+  "text": "Everything the family says to the world outside passes through one person, and she is the only one of them who hears. Ruby's parents are deaf. The boat they fish from is a business, and a business needs someone to take the calls, which makes the interpreting labour rather than a favour done after school. That arithmetic is the film: an hour given to the family is an hour not given to the music she has only just admitted she wants. Sian Heder keeps the scale domestic, 112 minutes of kitchens and decks and rooms where somebody is singing, and lets the pressure come from scheduling instead of catastrophe. It took Best Picture at the Academy Awards; the Gotham prizes went to performances, one a breakthrough and one supporting, which is the right accounting for a picture where nearly every scene is two people negotiating terms in a room.",
+  "model": "claude-opus-5",
+  "source_sha256": "715711f126f747ab2feee94e016c624116d16e7c4e8536b7c78ee5ec6b6a3546"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "platoon-1986",
+  "field": "lead",
+  "film_id": "385cd8d6-16ab-46b7-9396-0c09eb601012",
+  "lang": "en",
+  "text": "Three of Platoon's Academy Awards went to craft - cinematography, editing, direction - which is a fair description of where its argument lives. Chris Taylor arrives in Vietnam knowing nothing, and the film declines to grant him any vantage above the men standing next to him. Two hours at the altitude of a rifleman. Oliver Stone keeps the enemy at a distance and puts the antagonism inside the unit, so the moral crisis comes not as debate but as a run of small decisions about whom to follow. It was made in 1986 for an audience that already held positions, and it works by refusing to confirm them quickly. AFI counts it among a hundred American films, though the thing it does best is smaller than a list: heat, weight, and the way rank stops explaining who is actually in charge.",
+  "model": "claude-opus-5",
+  "source_sha256": "32bad9db31a78d469c2141b98deffc4724211de8a14a7b1795e89b9c07738fdf"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-french-connection-1971",
+  "field": "lead",
+  "film_id": "3e563b70-0ee1-4458-93ef-aa0c9a42d249",
+  "lang": "en",
+  "text": "Popeye Doyle is not good police in the sense of being right; he is good in the sense of not stopping. William Friedkin hands his narcotics detective a hunch about a heroin shipment and a Frenchman with better manners than anyone on the American side of the case, then films the pursuit as labour - tail cars, doorways, hours of waiting the picture refuses to compress. Its Academy Awards, for the lead performance, the photography and the direction, describe a film concerned above all with the act of watching a man. 104 minutes, adapted, paced by surveillance rather than plot. Doyle's certainty is never quite separable from his appetite, and the film keeps declining to say which of the two is driving him across New York.",
+  "model": "claude-opus-5",
+  "source_sha256": "da07ca7161a3d6145dcf6f2afc0475154188ea34f00a71d5ba1082eaf4996a86"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-english-patient-1996",
+  "field": "lead",
+  "film_id": "7da9b7db-3f42-4708-9093-84f26bb712e9",
+  "lang": "en",
+  "text": "Count Almásy's job is to draw lines across a part of the Sahara that has never carried any. Anthony Minghella gives the survey its own weather and its own tedium before the war arrives to make those maps useful to somebody with an army. The BFI keeps the film among a hundred British ones, though the terrain organizing it is sand. What 162 minutes buys is patience: a romance conducted in the gaps between other people's schedules, small compromises accumulating at a rate that only later reads as betrayal. Both lead performances took Academy Awards, as did the photography, which carries the heaviest load here - desert filmed as geography, distances that have to be crossed rather than admired, a scale against which the arrangements of four or five people look both absurd and worth everything.",
+  "model": "claude-opus-5",
+  "source_sha256": "fcc213f8da4cf4746b571f550bbc9601a2b20143e9f484be01a00505afa6cef0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "patton-1970",
+  "field": "lead",
+  "film_id": "ff3ff6df-51f0-4dfe-9069-c76dc5980d51",
+  "lang": "en",
+  "text": "In 1970 an American studio spent nearly three hours on a general who was hard to be in a room with. Patton runs from the North African campaign to the collapse of the Third Reich, staged at the scale that budget implies, but the screenplay - original, not adapted - keeps returning to temper and insubordination, the same faults the film needs in order to account for the competence. Franklin J. Schaffner shoots the man against landscapes wide enough to flatter him, then lets him talk long enough to undo the flattery. The lead performance won an Academy Award. So did the direction and the photography. What holds 172 minutes together is neither admiration nor indictment but the patience to let one difficult person stay a subject and a problem at once.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c84a4637aa69ae42e96b34a9be12ad185b0d1c6de892f6443476413920472b0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ordinary-people-1980",
+  "field": "lead",
+  "film_id": "571359e2-2fae-488a-ae74-31c6cacf0df6",
+  "lang": "en",
+  "text": "Beth preferred the son who died, and everyone in the house is now living around that fact. Robert Redford builds the film inside a home where it can be neither said nor hidden: a mother managing appearances, a father trying to keep two people in the same room, a surviving boy in a therapist's office being taught what he is permitted to feel. Nothing is raised to the pitch of event. It is 124 minutes of breakfast tables, driveways and phone calls that end early, and the drama sits entirely in who speaks first and who lets the silence run. The Academy gave it Best Picture, Best Director and the award for the lead actress, and the Directors Guild agreed - a large reception for a film whose method is to photograph politeness at close range until it comes apart.",
+  "model": "claude-opus-5",
+  "source_sha256": "e15f244ef9dc4299404d1be44bbb3d2e658e6bdc911ced3373931bb454578cc2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "going-my-way-1944",
+  "field": "lead",
+  "film_id": "6368d518-ce4a-4e74-b6c8-d4c015907954",
+  "lang": "en",
+  "text": "The new priest sings, and that turns out to be the entire strategy. Father Chuck O'Malley arrives at a failing New York parish with a past in sport and song behind him, and Leo McCarey lets him work the neighbourhood the way a bandleader works a room: no sermon that carries, no crisis a good afternoon cannot postpone. The friction is generational and domestic - an older priest who has kept this church standing by other means, a set of boys with nothing to do. It was shot in black and white and honoured for it, and it treats a religious institution frankly as a workplace with a staffing problem. 126 minutes at a pace that assumes nobody is in a hurry, which is either the charm of the thing or its limit.",
+  "model": "claude-opus-5",
+  "source_sha256": "be374b8f50fbfa3038bb57f797847dfd25a259481d1d801ddc8a350a70100c3a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "shakespeare-in-love-1998",
+  "field": "lead",
+  "film_id": "d12d7698-4507-4832-96a9-3d2934ac40fb",
+  "lang": "en",
+  "text": "The play is sold before it exists, and the title on the bill is Romeo and Ethel, the Pirate's Daughter. That joke sets the terms: a writer past deadline, a theatre with money already committed, a company willing to rehearse whatever pages arrive in the morning. John Madden films Elizabethan playmaking as a trade - patrons, casting problems, a noblewoman who wants a part she is forbidden to take - so the romance grows out of the working conditions rather than running beside them. The Academy rewarded a lead performance, the photography and the costumes, which together describe a picture dressed with intent and lit so the seams of the stage stay visible. 124 minutes, written straight for the screen, and serious about exactly one thing: the deadline.",
+  "model": "claude-opus-5",
+  "source_sha256": "91cf9c67b0109b9165305bf0c9c0c81d07684fe0caa9b0372cbd1a359fc9124c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-beautiful-mind-2001",
+  "field": "lead",
+  "film_id": "d479deb2-0e44-4cc1-af0b-36efde51c542",
+  "lang": "en",
+  "text": "Mathematics is unwatchable, which is the first problem Ron Howard has to solve. John Forbes Nash Jr. is young, arrogant and right about something that matters, so the film must invent images for thinking before it can move him toward the secret cryptographic work that changes the texture of his life. The editing took an Academy Award, and the reason is structural: the shape of this picture depends on the order in which it releases information rather than on the information itself. Direction and the lead performance were honoured too. It has since drawn readers from outside film criticism altogether, clinical papers written about the character rather than the camera, which is an odd second life for a film a million people have rated and walked away from.",
+  "model": "claude-opus-5",
+  "source_sha256": "695d6ebecc53f5edf7429553a548a58fcfb31a5c4893d344545e1107c344c762"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sense-and-sensibility-1995",
+  "field": "lead",
+  "film_id": "61e2770e-04cc-4e52-b318-0f41462f1e40",
+  "lang": "en",
+  "text": "Property law does the damage here, long before anyone behaves badly. Henry Dashwood dies, the estate passes to his son because it must, and his widow and daughters are moved from comfort onto a fixed and inadequate income - a change the film handles with the precision of an account book. Ang Lee shoots the two sisters as a difference in tempo: Elinor holds a sentence back, Marianne spends it at once. Money is discussed constantly and never crudely, since money is the medium through which anyone here is permitted to say what they feel. A lead performance, the cinematography and the costumes took Academy Awards, and the BFI lists it among a hundred British films. 136 minutes, adapted, and built almost wholly of conversations in which something is being kept back.",
+  "model": "claude-opus-5",
+  "source_sha256": "631cba538ca4b3ea0eec51620541da4e916fd4cf4eec3e540f3460997251fece"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "gone-with-the-wind-1939",
+  "field": "lead",
+  "film_id": "30f1cd7f-cad6-4a24-918b-b623d4e3bc58",
+  "lang": "en",
+  "text": "Two hundred and thirty-three minutes, all of them organized around what one plantation owner's daughter wants. Released in 1939 in colour, with an Academy Award for the photography, Gone with the Wind operates at the scale of an industry: crowds, burning streets, a civil war treated as an interruption to a household's plans. The romance runs on mutual cynicism, which keeps it quick - she is spoiled, he is a profiteer, and neither pretends otherwise. The history runs on the vantage of the people who owned the place, and that is the standing difficulty of the film. It cannot be watched around. AFI ranks it, the thousand-and-one list carries it, and the spectacle and the trouble keep arriving in the same shot.",
+  "model": "claude-opus-5",
+  "source_sha256": "8679546feb464197cc42ad9239b05f6a5998b4759d312022f63bde906af01317"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "driving-miss-daisy-1989",
+  "field": "lead",
+  "film_id": "24b076e4-d29f-43ec-88de-ff7a1f3dd9b8",
+  "lang": "en",
+  "text": "Most of the important conversation happens with one person looking at the back of another's head. Daisy Werthan, an elderly Jewish widow, does not want a driver; Hoke is hired regardless, and the method of the film is accumulation - a decade passes in a cut, the car is replaced, the same argument returns with the stakes moved. Twenty-five years in ninety-nine minutes, adapted, with the economy of a chamber piece: few rooms, few people, a whole era admitted only when it gets into the vehicle. Both leads were recognized by the Academy, which is the correct reading of a picture that is structurally two performances and a windscreen. The arrangement that put one of them behind the wheel stays in the background, and that is where its difficulty sits.",
+  "model": "claude-opus-5",
+  "source_sha256": "b6e6976b9748ee5102ca7ea55f7bef9ba4a187e893dbdfa6987eba32edb46c8c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "pelle-the-conqueror-1987",
+  "field": "lead",
+  "film_id": "72e039e3-75d6-474b-8efc-0cb042e439b6",
+  "lang": "en",
+  "text": "A father and son come off a boat at Bornholm with the wrong accent and no leverage at all. Lasse and Pelle are Swedes looking for farm work in Denmark; America is the plan, and the plan needs wages the farm is in no hurry to pay. Bille August takes 157 minutes to lay out how a labouring year is arranged - who eats where, who sleeps near the animals, what a son learns about power by watching his father made small in front of other men. Both countries claimed it afterwards: Denmark's Bodil for best Danish film, Sweden's Guldbagge for best film, with the Academy's international award and a BAFTA on top. The Danish title is Pelle Erobreren, and the conquering the boy has in mind lies a long way from the field he is standing in.",
+  "model": "claude-opus-5",
+  "source_sha256": "b743045cac1652e943042fd1e8d5c13aa30eb7e205b2b96803eefee27872fc8c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "from-here-to-eternity-1953",
+  "field": "lead",
+  "film_id": "dfc5a991-155d-4533-9a26-3f32f76051bf",
+  "lang": "en",
+  "text": "A private is punished for declining to box for his unit, and the punishment is administered entirely within the rules. That describes the institution precisely: not brutal by policy, brutal by custom. Fred Zinnemann sets this in Hawaii in 1941, where duty is largely boredom and the officers' marriages are conducted within earshot of everyone. Two lines run in parallel - a man who cannot be persuaded, and an affair whose participants both know the price - and the film gives them equal weight rather than demoting one to subplot. It was honoured for black-and-white photography and for both leads, the Directors Guild added its own, and Best Picture followed. 118 minutes, adapted, and considerably sharper about rank than about romance.",
+  "model": "claude-opus-5",
+  "source_sha256": "8edc1aba9712015d46e1fc651cbf1e558209e11549669206882529ffd068d3a4"
+ }
+]

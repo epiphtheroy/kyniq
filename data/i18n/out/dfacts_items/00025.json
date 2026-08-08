@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "fritz-lang#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "실비아 시드니는 랑과 일하는 걸 진심으로 좋아한 몇 안 되는 배우였다. 그녀는 세 편을 함께 찍었는데, 랑의 가차 없이 깐깐한 요구가 자기 안에서 최고의 연기를 끌어낸다고 여겼기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae68a023e180c0d6c2551c034951d7bd5d12fc06c83aff0a9b7b31d8507c84fc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "fritz-lang#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "사람에게 잔인하다는 평판과 달리 랑은 반파시즘 운동에 깊이 헌신했다. 1936년 할리우드 반나치 연맹 창립 회원이 되었고, 난민 기금에 거액을 냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b890cefd7527fc0d9c5b17d0465e57f67eb402d6884f2f5b37dbd1987c27168f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "fritz-lang#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1941년, 랑은 애리조나의 나바호 보호구역에서 몇 주를 살았다. 원주민을 다룬 영화를 준비하며 자료를 모으기 위해서였다. 그 영화는 끝내 만들어지지 않았지만, 관습을 인류학자처럼 진지하게 파고드는 태도 덕에 부족 원로들의 신뢰를 얻었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4387a202334151f414f1d1df3f437da7c828231157d0c9ea0307dc742b1262ce"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "fritz-lang#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "같은 독일 망명자였던 베르톨트 브레히트와 함께 랑은 1943년 반나치 스릴러 《Hangmen Also Die!》의 각본을 썼다. 그러나 대본을 두고 벌인 다툼이 어찌나 험악했던지, 브레히트는 사석에서 랑의 독재적인 태도를 히틀러에 빗댔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e803b51afbcc8e13f4e40d7bf72bf1c88a8c4e93d35cc966e51d9f8a30c5b8bd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "fritz-lang#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "매카시 시대에 랑의 좌파 인맥과 할리우드 텐 지지는 조용한 블랙리스트로 돌아왔다. HUAC의 정식 소환장은 끝내 받지 않았지만, 1950년대 초 그는 연출 일감을 구하느라 애를 먹었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f63596ba6597de48e09657ce1ad57467be231fe81a5b1cf4e6d204eb31952021"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "fritz-lang#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마지막 연출작 《The Thousand Eyes of Dr. Mabuse》(1960)로 랑은 서독으로 돌아갔다. 사십 년 가까이 전 자기 손으로 시작한 범죄 두목 시리즈를 직접 끝맺은 것이다. 경력이 한 바퀴를 돌아 제자리로 왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d3b54ad9e1dc8c8616244ff9b547e9c0c4e1faf737bdc0a93996fcfcc48172b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "fritz-lang#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "일흔셋의 랑은 장뤽 고다르의 1963년작 《경멸》에 본인 역으로 출연했다. 저속한 미국인 제작자와 맞서는 현명하고 타협 없는 감독. 그의 전설적 위상을 영화 안으로 끌어들인 배역이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "66e8a65fb278860883e2383a0d8f66ad9e4262147fb89ecab4047abfb9dfe40f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "fritz-lang#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "삼십 년을 함께한 조수이자 동반자 릴리 라테와 랑은 1971년에야 정식으로 결혼했다. 격랑 같은 세월이었다. 라테는 그의 살림과 일을 도맡았고, 시력이 나빠지자 곁에서 책을 읽어주었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b887598beba425cf8d2b27e56ef3ba50a4d16139766e1bab015f825f4928f87"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "fritz-lang#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1976년 여든다섯에 세상을 떠난 랑은 할리우드 힐스의 포리스트 론 메모리얼 파크에 묻혔다. 그가 남긴 것은 필름 누아르를 설계한 건축가라는 이름이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "21101a3f4cfe41182bfa8bbaa426b4f6771e548dea4155e6009fd194be8e7395"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "gaspar-noe#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "가스파 노에의 아버지는 아르헨티나 신표현주의 회화의 대표 주자 루이스 펠리페 노에다. 아버지가 구겐하임 펠로십을 받으면서 가족은 뉴욕으로 옮겨갔고, 그때 가스파는 겨우 두 살이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "29a9a8d78f43ec277833a7c2eacbb4c6aea5782ea9a5b499d0d620b1c2435adf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "gaspar-noe#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1976년, 호르헤 라파엘 비델라의 잔혹한 우익 군사독재를 피해 가족은 아르헨티나를 떠나야 했다. 정착지는 파리였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3ddbb3c8c55c2d1f4512b156f591f5a9b271ddc62234e4098119a5b8e40118d0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "gaspar-noe#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "일곱 살 때 부에노스아이레스의 한 극장에서 스탠리 큐브릭의 《2001: 스페이스 오디세이》를 봤다. 본인 말로는 그 경험이 뇌 회로를 통째로 다시 깔았다고 한다. 영화를 만들겠다는 평생의 집착이 거기서 시작됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "86a217c7d22e103a43ab29d94f516824f5b00e59d79866da0eb1fb81daf3166e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "gaspar-noe#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《돌이킬 수 없는》의 첫 삼십 분 동안 관객의 몸에 진짜 공포 반응을 일으키려고, 노에와 음악을 맡은 토마 방갈테르는 사운드트랙에 들리지 않는 27헤르츠 저주파 진동을 깔았다. 메스꺼움과 어지럼증을 유발하도록 설계된 소리였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f5767ac59778c6ee276261f4b7d256c8d70b9cf103f5234a9749e48d2c073863"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "gaspar-noe#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2002년 칸영화제의 그 악명 높은 《돌이킬 수 없는》 상영. 잔혹한 폭력과 방향감각을 무너뜨리는 사운드 디자인을 견디지 못하고 250명가량이 자리를 떴다. 몇몇은 실신해 응급 산소 공급을 받아야 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7def3c8680925f5385bbc87e3caba56e1708ddfbcfd03c40c524821cb04dc0d4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "gaspar-noe#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 게랄트 카글의 1983년 오스트리아 연쇄살인마 영화 《Angst》를 알리는 데 열심이다. 거의 알려지지 않은 이 작품의 떠다니듯 불안정한 카메라야말로 자기 어지러운 촬영 스타일의 첫 번째 원천이라고 그는 거듭 말한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cf7050de65d93721c8a75330fa4baf5eeec8d93e211c4b85e3aa501a2e5aa852"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "gaspar-noe#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오랜 연인이자 작업 동료는 프랑스 감독 뤼실 하지할릴로비치다. 그녀는 노에의 출세작 《아이 스탠드 얼론》을 편집했고, 노에는 그녀의 2004년 미스터리 《Innocence》를 제작해 좋은 평을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9fa71bbcdd5f850e8af5a5045e9b1c9dae27c47e2b0572fa5e3ca8eae32624b6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "gaspar-noe#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2020년 초 노에는 심한 뇌출혈을 겪었다. 생존 확률 50퍼센트. 죽음 문턱까지 갔던 그 경험이 화면을 둘로 가른 치매 드라마 《보텍스》로 곧장 이어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b14207ec32dc7a35eb3b5f4ec7f983f3a9fb830f5c06f428f36a3b35afa03b7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "gaspar-noe#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《보텍스》의 주연으로 노에가 고른 사람은 이탈리아 호러의 거장 다리오 아르젠토였다. 여든의 노장을 설득해 병든 남편 역을 맡겼고, 아르젠토에게는 생애 첫 주연이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "33317982f188dc7990ace5e83863697fe4e367f2a0aa6b4d44bfa62dbe086d79"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "gaspar-noe#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "3D 에로틱 드라마 《러브》는 실제 성행위를 담고 3D 사정 장면까지 넣어 논란을 샀다. 연출 동기 하나는 이것이었다. 주류 영화가 인간의 번식이라는 물리적 현실을 자꾸만 깨끗하게 지워버리는 데 대한 불만.",
+  "model": "claude-opus-5",
+  "source_sha256": "62b310672e29d0857bc4a5a51d82bcfa3d9f9efaf61deb8fb07c2d390a2c96b4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "gaspar-noe#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "노에는 신뢰하는 촬영감독 브누아 데비 옆에서 직접 카메라를 잡는 일이 잦다. 크레인에 몸을 매달거나 배우와 나란히 달리면서, 몸이 사라진 듯 떠다니는 그 특유의 화면을 만들어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "42b065502bbdaaf56ff120682c0a2aa5b89cf09ce7e5f02124dac61bd89c4582"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "gaspar-noe#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "프랑스 심의 당국이 《아이 스탠드 얼론》을 세게 규제하려 하자, 노에는 절정 직전에 30초짜리 카운트다운을 화면에 띄웠다. 비위 약한 관객은 마지막 폭력이 오기 전에 나가보라는 도발이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0c314d8f26b65c471264873376cb8797d0b3acf25e86ec02edcffc012520449c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "gaspar-noe#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "닉 케이브 앤 더 배드 시즈의 \"We No Who U R\" 뮤직비디오도 그의 작품이다. 스트로브가 쉴 새 없이 터지는 화면에 담긴 것은 어두운 숲을 걸어가는 실루엣 하나뿐. 불편하기 짝이 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "504677b834b29972a11c7c762e8b66a204ab5789ae293d5bbbe4c8b31c60f86f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "캘리포니아 모데스토에서 자란 루카스는 엄격한 아버지의 문구점 L.M. Lucas를 물려받도록 길러졌다. 그는 끝내 거부했다. 서른이 되기 전에 백만장자가 되겠다고 아버지에게 선언하면서.",
+  "model": "claude-opus-5",
+  "source_sha256": "c46a8e9da0e933866e6b49bf0f3adffb4e3ff6916859fea37571c8c5a337357e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "프로 레이��가 되겠다는 십대의 꿈은 1962년 6월 12일에 끝났다. 그의 아우토비안키 비안키나를 과속하던 시보레 임팔라가 옆에서 들이받았다. 레이싱용 안전벨트가 끊어지면서 그는 차 밖으로 튕겨 나갔고, 직후 차는 호두나무를 감고 찌그러졌다. 벨트가 끊어진 덕에 살았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a0426beacbb4d6f46377a4fa998f1665b35c925985a8a578b4858ed7f78a1bd1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "서던캘리포니아대 영화예술학교 시절, 그의 기숙사 룸메이트는 훗날 《그리스》를 연출하는 랜들 클라이저였다. 떠들썩한 존 밀리어스와도 가까워졌는데, 밀리어스가 《지옥의 묵시록》 각본을 처음 쓴 것은 다름 아닌 루카스가 연출하라고였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "32490ccab3fdbbc474f70549dd4457d95f98971ec9dd88dbeb7a1edfade55950"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "학생 시절 워너브라더스 촬영장을 참관하는 장학 기회를 얻었다. 그는 《피니안의 무지개》 현장에서 프랜시스 포드 코폴라 곁에 붙어 다녔고, 평생 이어질 사제 관계이자 창작 동반 관계가 거기서 시작됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a3b4eebdf6983a1e9ed48b8599fe29321e3b3b65cc5c56d3a3dcaaa4d726a680"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "루카스와 코폴라는 샌프란시스코의 낡은 창고에 독립 스튜디오 아메리칸 조트로프를 세웠다. 할리우드 중역들의 간섭이 닿지 않는 곳에서 영화를 만드는 공동체, 일종의 유토피아를 꿈꾼 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "845873d8494e43eac653e1bb4789e3c3e565122948c602dc4717b9dbe583ec00"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "츄바카의 생김새는 그가 아끼던 알래스칸 맬러뮤트 인디애나에게서 왔다. 그 개는 루카스의 차 조수석에 늘 꼿꼿이 앉아 있었다. 거대한 털북숭이 부조종사처럼.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7f9b1da3d358da515926b2c931745b09c1a979e36ece0fb4c67d81e325dacef"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "같은 개의 이름이 나중에 모험가 고고학자 인디아나 존스가 된다. 루카스가 이 캐릭터를 스티븐 스필버그에게 처음 꺼낸 것은 1977년 하와이 해변, 둘이 모래성을 쌓던 중이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "69212ac0b701667ce3dcf7d7f6d740843fe51b400c6e6e12c6bd775c307bb958"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "20세기 폭스와 《스타워즈》 계약을 놓고 협상하면서 루카스는 연출료를 더 받는 대신 속편 권리와 상품화 권리 전부를 챙겼다. 당시로선 유례가 거의 없는 거래였고, 결국 그를 억만장자로 만들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "af9d2e6a776850ee05cdc1a58c7f10a0daabb179aefb125e745de073d8bcfd8a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "튀니지와 영국을 오간 《스타워즈》 촬영은 혼란과 스트레스의 연속이었다. 루카스는 심한 흉통에 시달리다 병원을 찾았고, 고혈압과 탈진 진단을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f696648ea4e066ebab0892ee4d0d5d7cb8f27363dc88660d54633bd71c9302e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "첫 아내 마르시아 루카스는 업계에서 인정받는 편집기사였다. 엉망이던 《스타워즈》 초기 편집본을 살려낸 공로로 아카데미상을 받았지만, 1983년 험악한 이혼 이후 그녀의 몫은 크게 축소되어 이야기되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9379dc646ddefef52e1e3520bc7bdf3940312c0ba94217fd6b1f46e8cce6341e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1981년 루카스는 미국감독조합을 탈퇴하고 25만 달러의 벌금을 자기 돈으로 냈다. 《제국의 역습》에서 감독 크레딧을 앞이 아닌 끝에 넣었다는 이유로 조합이 징계하려 들자 내린 결정이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6f723de9b855dc25cd8a36a7c0a9a40c9ee3b2e14a518349d4da6806d5d1dc15"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "머릿속의 복잡한 우주 전투를 화면에 옮기려고 루카스는 밴나이스의 창고에 ILM(Industrial Light & Magic)을 차렸다. 모션 컨트롤 촬영을 개척한 이 회사가 사실상 현대 시각효과를 발명했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "753d48d3cab4eed0e7d8b083f1b2d15152de0d426614b8af004fcf44bd387220"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "루카스필름 안에 컴퓨터 그래픽스 부문도 만들었다. 1986년 그는 이 부문을 500만 달러에 스티브 잡스에게 넘겼고, 회사는 곧 픽사로 이름을 바꾼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f6f5e7dc4a3648965ac95eb3eb26a956cac510c898d3aafdd5c23a514399d094"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "역사상 가장 성공한 주류 프랜차이즈를 만들어놓고도 루카스는 늘 자신을 실험영화 만드는 사람이라 여겼다. 결정적 영향으로 그가 자주 꼽는 이름은 캐나다의 추상 애니메이션 작가 노먼 매클래런이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e266f1ccb59fa0db5dd77ae489d394167560ce805ea56eba461329fc0f7af32a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "신화에 깊이 빠져 있던 루카스는 《스타워즈》의 서사 구조를 조지프 캠벨의 저작 《천의 얼굴을 가진 영웅》이 정리한 단일신화(monomyth)에 크게 기대어 짰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "46f68cbd19a058eff4459cd58c9e31681e87d3b92fbec72baa91149db634d928"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "센트럴밸리의 보수적인 감리교 집안에서 자랐다. 훗날 동양 사상을 파고들면서, 그는 자기 종교관을 '불교도 감리교인'이라 부르기 시작했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b4c9848ec6f55bd27c27edd83d21b8cfee174ae72787c646e2bbc62622832b7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "캘리포니아 마린 카운티에 4,700에이커 규모의 스카이워커 랜치를 지었다. 실제로 농사를 짓는 농장이자 후반작업 시설이다. 빅토리아풍 건축부터 인공 호수 이름까지 그가 하나하나 정했다. 호수 이름은 이워크 호.",
+  "model": "claude-opus-5",
+  "source_sha256": "32b1f2b13607f134b459bd734369d1196061f4a8daccab654da962157bea807f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "극장에서 흠 없는 소리를 듣겠다는 집념으로 그는 음향 엔지니어 톰린슨 홀먼을 데려와 고음질 재생 규격을 개발하게 했다. 이름은 THX. 자신의 첫 장편 《THX 1138》에 바치는 인사였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d81c12c7635baf88f05ada500aaf7b3f1c7b51c2fd9d24bcb077fb0c939c9dd2"
+ }
+]

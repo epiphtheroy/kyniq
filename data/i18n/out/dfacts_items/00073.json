@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "scott-derrickson#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Deliver Us from Evil》(2014)는 초자연 경찰 스릴러다. 실존 인물 랠프 사키의 이야기가 바탕이 됐다. 뉴욕시 경찰 경사로 일하면서 악마학자로도 활동했다고 주장한 사람, 그가 남긴 실화라는 기록이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fcdd9cc443b80688a752c61ec34704407bc9367d71475b94d19079ceb686b165"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "scott-derrickson#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2018년 11월, 그는 끔찍한 일을 겪었다. 캘리포니아 사우전드오크스의 집이 울시 산불로 전소된 것이다. 가족과 함께 몸에 걸친 옷 한 벌만 들고 대피해야 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1325398d0e51e036d3e39c37f2587feb3eb99ad913c92d5e515e13e69f124008"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "scott-derrickson#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2013년작 《Devil's Knot》의 각본을 공동으로 썼다. 아톰 에고이안이 연출한 전기 범죄 드라마로, 억울하게 유죄 판결을 받은 웨스트멤피스 스리의 실화를 다룬다.",
+  "model": "claude-opus-5",
+  "source_sha256": "450b8bf7f3d7564b688f08ae1dbb7195d54a5964cc4865d9d8b9a951588a6674"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "scott-derrickson#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "본래 스티븐 킹의 중편 《The Breathing Method》를 장편으로 옮길 계획이었다. 몇 해에 걸쳐 기획을 붙들었지만, 결국 방향을 틀어 킹의 아들 조 힐의 이야기를 택했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e8278019c7f82121331df486092bd73a986ca80855708dc4f2a34321a15d53a3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "scott-derrickson#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "슈퍼히어로 영화를 함께 만드는 제임스 건과는 가까운 친구 사이이며, 온라인에서 자주 그를 변호해왔다. 2018년 건이 과거의 문제적 트윗 때문에 디즈니에서 일시 해고됐을 때도 공개적으로 편에 섰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "035f1b937eca6282886e08fe2f9d8a53dc5766d431489267516690db7e6cf3fe"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "scott-derrickson#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "제작사 Crooked Highway를 세웠다. 신학적 물음과 심리적 공포를 뒤섞는 그 특유의 방식이 여기서 장르 기획으로 자라난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e897c35e13645ed27c8e6cd7a224dfe5b758581925821b00f5a50fe16bfbd1f6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sean-baker#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "뉴저지주 서밋에서 태어났다. 아버지는 특허 변호사, 어머니는 교사였다. 어머니가 동네 도서관 상영회에 그를 데려가 《프랑켄슈타인》과 《드라큘라》 같은 유니버설 몬스터 영화를 보여주면서, 평생 가는 영화 집착이 시작됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "52583a6bdf6e284af6c28c7808118d52799ccbc15c077a74417bd2fc05de51d5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sean-baker#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "독립영화계에 발을 들이기 전, 그는 컬트 인형극 코미디 시리즈 《Greg the Bunny》를 공동으로 만들었다. 뉴욕 퍼블릭 액세스 방송에서 출발해 IFC로, 다시 폭스 네트워크로 옮겨갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "db4511d6375de43fc9cb4b2af660628831c0a0b24219ee1dc79272dd65eee8cd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sean-baker#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2000년 데뷔작 《Four Letter Words》는 자기 돈으로 찍었다. 교외 남자들의 권태를 여러 인물에 걸쳐 펼쳐놓은 영화였고, 편집도 직접 했다. 구식 플랫베드 편집기, 그 거대한 물건 앞에서.",
+  "model": "claude-opus-5",
+  "source_sha256": "6ef7f928f34ab90cc1ec52b1326fbc39fb26c1c804194c766b111d5b018c5b0f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sean-baker#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오랫동안 그는 프리랜서 영상 편집으로 초저예산 독립영화의 제작비를 댔다. 리얼리티 프로그램을 자르고, 결혼식 영상과 기업 홍보물을 붙이며 생계를 이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "08ae0c987588c4de1058006a06361ae9208ffb3eb29285c3528856bdf5f2ecbf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sean-baker#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "제대로 된 카메라 장비를 살 형편이 못 됐다. 그래서 2015년 선댄스 화제작 《Tangerine》을 아이폰 5s 세 대로만 찍었다. 175달러짜리 문독랩스 아나모픽 렌즈를 물리고, 8달러짜리 FiLMiC Pro 앱을 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f6733a195c3db5e5fe072a39ee737faf46d9281b43bbd42afc484a82a0b6c726"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sean-baker#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Tangerine》의 두 주연 마이아 테일러와 키타나 키키 로드리게스는 할리우드에 있는 로스앤젤레스 LGBT 센터 안뜰에서 만났다. 그가 그곳을 어슬렁거리던 어느 날, 테일러가 먼저 다가왔다. 영화에 나오고 싶다는 이유 하나로.",
+  "model": "claude-opus-5",
+  "source_sha256": "73da18f574a7c0e17d99b1c81c66e76e5e2fcaba43f81f2d19a4aa383fc99080"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sean-baker#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《The Florida Project》는 키시미의 US 192번 국도변, 실제로 영업 중인 저가 모텔에서 촬영됐다. 클라이맥스는 진짜 월트 디즈니 월드 매직 킹덤 안에서 몰래 찍었다. 공원 경비를 피하려고 아이폰을 들고서.",
+  "model": "claude-opus-5",
+  "source_sha256": "36e8f2040119ccdcd2427d52808920e6f374baac83e62347ab50cea5d5cf71c3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sean-baker#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2024년, 그는 칸영화제 황금종려상을 받았다. 미국 감독으로는 2011년 테런스 맬릭 이후 처음이었다. 수상작은 성노동자를 다룬 활기찬 코미디 《Anora》.",
+  "model": "claude-opus-5",
+  "source_sha256": "64766c7f8580425e5020d3089f597d232b0a503303b22655150a9c50fc566b40"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sean-baker#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "코로나19로 규모가 큰 기획들이 멈춰 서자, 그는 곧장 방향을 틀었다. 최소 인원으로 텍사스에서 《Red Rocket》을 찍었고, 정유공장과 스트립 클럽에서 만난 현지 사람들을 조연으로 세웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "66db29476e3762d8246384b70c5283a4557025856d65c9e35e184ab753f5aa2d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sean-baker#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Red Rocket》의 나르시시스트 안티히어로 자리에 전직 MTV VJ 사이먼 렉스를 앉히려고, 그는 무작정 전화를 걸었다. 렉스는 휴대폰으로 오디션 영상을 찍어 보냈고, 봉쇄가 한창이던 때 렌터카를 몰아 조슈아트리에서 텍사스까지 곧장 달려왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "84966d98005fee24b2020c4cc4f668053852961c66e762d376125f9c281e7311"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sean-baker#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편 편집은 전부 직접 한다. 즉흥과 혼돈으로 굴러가는 로케이션 촬영을 마지막으로 다시 쓰는 자리, 그에게 편집실은 그런 곳이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "87292a717215242c84ce8d376d9d354dec2d62ff40867f8ed20c3c10633d8120"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sean-baker#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 켄 로치와 마이크 리의 사회의식적 영국 리얼리즘을 자기 예술의 북극성으로 자주 꼽는다. 노동계급을 향한 그들의 공감에 과포화된 미국 팝 문화의 감각을 겹쳐놓는 식이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c0fb1fbb486a6abf62a7d98b5ec48a043ef2cef626668392ec06d1cc6f6ba5a3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sergio-leone#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "로마에서 태어났다. 부모 모두 영화의 개척자였다. 아버지 빈첸초는 '로베르토 로베르티'라는 가명으로 활동한 무성영화 감독이었고, 어머니 에드비제 발카렝기는 '비체 발레리안'이라는 이름의 배우였다. 이탈리아 영화판이 곧 그가 자란 집이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1bcd717ca7fe940d341d5f2b171643be543fdcd7f0af0ac935d65df412b41cd7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sergio-leone#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1937년 로마 비알레 트라스테베레 초등학교 3학년 교실. 옆자리에 엔니오 모리코네가 앉아 있었다. 훗날 그의 영화 거의 전부에 휘파람 소리로 각인될 음악을 쓰게 될 소년이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "79b2932f5cdbb34b1785177b5c8d7fead22749e473d4a674c2292692dac3dab2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sergio-leone#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "열아홉 살 때 비토리오 데 시카의 네오리얼리즘 걸작 《자전거 도둑》(1948)에 크레딧 없는 엑스트라로 참여했다. 소나기를 만나 몰려드는 독일인 신학생 무리 가운데 잠깐 얼굴을 비친다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fa3eff95d1d3bfcca09e76474fef389b96c0b8d5e5dba968da500aeee7ca6672"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sergio-leone#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "할리우드 대작의 작동 원리는 조감독 일을 하며 몸으로 익혔다. 로마 치네치타 스튜디오에서 찍힌 미국 대형 제작물들, 머빈 르로이의 《쿠오 바디스》(1951)와 윌리엄 와일러의 《벤허》(1959)가 그 학교였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ed31e612c560b6554be0fe708f7aa5fbfb33166dd315e78b9c47ef2f3322ce6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sergio-leone#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "감독 데뷔는 사고처럼 왔다. 《폼페이 최후의 날》(1959) 촬영 도중 감독 마리오 보나르가 크게 앓아누웠고, 젊은 조감독이 대신 들어가 이 검투 서사극을 끝냈다. 크레딧에는 이름이 오르지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1fe5f4283b3b953f7bfa63ef62cb5d36e46f96fff621720258de648eb0bd943d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sergio-leone#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "출세작이 된 스파게티 웨스턴 《황야의 무법자》(1964)에서 그는 '밥 로버트슨'이라는 미국식 가��을 썼다. 블랙리스트에 올랐던 아버지의 옛 예명 로베르토 로베르티를 향한 헌사였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "91bc33730508c07923d3663dabf17929677488a00e837ccac2b3637035cca524"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sergio-leone#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이스트우드는 세 번째 선택이었다. 제임스 코번은 몸값이 너무 비쌌고 찰스 브론슨은 각본을 거절했다. 거의 무명이던 이스트우드는 1만 5천 달러의 출연료를 받아들였고, 의상도 직접 챙겨 왔다. 그 유명한 판초와 시가까지. 정작 그는 평생 담배를 피우지 않는 사람이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b6270428b9d5487a2ba1cf00b3e5d02d3a69f9ba27e4082e86ac9caa9510029c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sergio-leone#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장면의 감정 박자를 스스로 지휘하기 위해 그는 아주 별난 습관을 들였다. 엔니오 모리코네에게 촬영 전에 음악을 전부 완성하게 한 것이다. 현장에는 확성기가 놓였고, 배우들은 그 음악을 들으며 연기했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d1e04c3f1d1092be10728f814c2f443aec879f0b0181593632bc93a2292d96b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sergio-leone#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《석양의 무법자》(1966) 현장에서 배우 안전을 대하는 그의 태도는 악명 높았다. 일라이 월랙은 세 번이나 죽을 뻔했다. 소품 병에 남아 있던 산성 액체를 마셨고, 손이 묶인 채 올라탄 말이 날뛰었으며, 질주하는 기차에서 몇 센티미터 떨어진 곳에 누워 있다가 하마터면 잘려 나갈 뻔했다. 그가 머리를 들어야 했던 자리 바로 옆의 육중한 쇠 발판이 기차에 깎여 나갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "26b25e8080cf5fa7278aef4d39ce5216caef10b072f1114804f40bd1c28c0e10"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sergio-leone#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미국 서부의 시각 언어를 정의해놓고도, 정작 그는 1967년까지 미국 땅을 밟은 적이 없었다. 그 상징적인 변경의 풍경은 대부분 스페인 알메리아의 사막에서 찍힌 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9bc75286a01b95cc5be79df2355593adb3a6838184d636277aee130a247bf67f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sergio-leone#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Once Upon a Time in the West》(1968)의 잔혹한 악당 프랭크 역에 헨리 폰다를 앉히려고 그는 직접 미국으로 날아갔다. 망설이던 배우의 마음을 돌린 것은 일라이 월랙이었다. 레오네의 전작들을 한번 보라고 폰다를 설득한 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e904395775edf7d0d1b66696c6262ae3b7fe29592a3c90d3b6e332725135a751"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sergio-leone#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "폰다는 갈색 콘택트렌즈에 가짜 콧수염을 붙이고 현장에 나타났다. 미국적 선량함의 이미지를 지우려는 궁리였다. 레오네는 즉시 다 떼라고 했다. 그가 원한 것은 정확히 그 충격이었으니까. 관객이 익히 아는 폰다의 새파란 눈이 아이를 차갑게 내려다보다가, 그대로 쏜다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4e7641a12e391cec7e9c725b2a1f4ec9b0934098aeaaae0d87f6edeeadf8e374"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sergio-leone#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그가 집요하게 파고든 것은 할리우드가 지어낸 신화가 아니라 서부의 실제 역사였다. 19세기 총기를 수집하고 매슈 브래디가 찍은 남북전쟁 사진을 들여다보며, 인물들이 걸칠 거칠고 먼지 앉은 의상을 설계했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4c6e430bca3d83c1b4dd3a5608baa5ad80346d27c9dec831ed9134c0538ae368"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sergio-leone#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "파라마운트가 《대부》(1972)의 연출을 제안했지만 그는 거절했다. 오래 품어온 자신의 갱스터 서사시 《Once Upon a Time in America》에 매달리기 위해서였다. 훗날 그는 이 결정을 직업 인생에서 가장 후회하는 일로 꼽았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7fee642341b58de48f8e592d370ff9aa58022e5462048fd05d3af464d9930b87"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sergio-leone#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "코믹 웨스턴 《My Name Is Nobody》(1973)의 공동 제작자로 이름을 올렸지만, 실은 여러 장면을 크레딧 없이 직접 연출했다. 공식 감독 토니노 발레리와 충돌이 심했던 탓에, 이 영화의 진짜 연출자가 누구냐를 두고 영화사가들은 아직도 논쟁 중이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "86df97fbf50575e8eb6b7613344985e091ee87548e0b8d0a375c2ac0b3d59d11"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sergio-leone#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Once Upon a Time in America》 준비에만 10년이 걸렸다. 그 229분짜리 걸작을 래드 컴퍼니가 강제로 빼앗아 시간 순서대로 다시 편집했고, 139분으로 난도질한 판본을 미국에 내놓았다. 평단에서도 흥행에서도 참패였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dccf37a0b1fef5e3de67d382bb8d2b36e614035599034f72520f8d91962118a8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sergio-leone#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1980년대 후반, 그는 1억 달러의 독립 자본과 소련 정부의 전례 없는 협조를 얻어냈다. 900일에 걸친 포위를 다룬 2차 대전 대작 《Leningrad》를 찍기 위해서였고, 주연은 로버트 드 니로로 정해져 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "acd9a07ff1b30ad9b8d67a02ce4d477e3bb96170494903d93fc4a2714b8051f6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1926년 도쿄의 부유한 집안에서 태어났다. 아버지는 존경받는 의사였고, 그는 반항하는 아들이었다. 부르주아라는 출신, 그는 평생 그것을 밀어냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "33e595bca6fef68789be21af15b23c51f23276c8e36aad3e3f46638c55e02b76"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2차 대전이 남긴 폐허 속에서 그는 신주쿠 암시장에서 담배와 술을 팔며 버텼다. 야쿠자와 매춘부와 건달 틈에 섞여 지냈고, 훗날 그의 영화를 채우는 것도 바로 그들이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "67292ad516af61dd336c808e661fca7d7382496865f2d985f8c27ca950bbcbcb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "와세다에서 급진적인 좌익 학생 극단에 들어가면서 무대를 향한 열정에 불이 붙었다. 다만 연기에는 재능이 전혀 없다는 사실을 곧 깨달았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae1bb629902f4a5fa3b4a6e3ddb73cad6d20f01bcf2d840382d42a1f9e55421b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1951년, 경쟁이 치열한 입사 시험을 뚫고 쇼치쿠에 들어가며 영화계에 발을 디뎠다. 그곳에서 오즈 야스지로의 걸작 《초여름》과 《동경 이야기》의 조감독으로 일했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b2a97bd4fb76151f663c132f9c43ee0aea06adc8ef53db6191444f350ef88e8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 오즈가 그리는 중산층 일본, 그 빳빳하고 예의 바른 세계를 몹시 싫어했다. 훗날 이렇게 말했다. 오즈는 '공식적인' 일본만 찍었다고. 자신이 찍고 싶은 것은 지저분하고 욕망으로 들끓는 '진짜' 일본이라고.",
+  "model": "claude-opus-5",
+  "source_sha256": "ec00a878173224ff305922f607454dee10fc05dd2006b41e25afd4703e86f6d0"
+ }
+]

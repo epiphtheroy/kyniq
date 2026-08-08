@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "glory-1989",
+  "field": "lead",
+  "film_id": "a68d8112-511d-4879-b14c-927527160d9d",
+  "lang": "en",
+  "text": "The regiment has two enemies, and only one of them waits on the other side of the field. Edward Zwick's 1989 picture gives Robert Gould Shaw command of the first all-black volunteer company of the Civil War, and much of the resistance he meets comes from his own army, arriving as procedure rather than gunfire. Its three Academy Awards went to cinematography, editing and production design, which is a fair account of where the work sits, and where a period film of this kind lives or dies. A camp is a set of decisions about canvas and mud. A column on a road is a decision about lens and light. The men are photographed as men before they are photographed as an argument, and across 122 minutes the film keeps returning to the cost of being permitted to fight at all.",
+  "model": "claude-opus-5",
+  "source_sha256": "9a3d53d051a845c4228624fbc3c97b49a661ebc9b63eda8a97b8775fab7538c0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hail-caesar-2016",
+  "field": "lead",
+  "film_id": "8948483b-1ea7-4a94-9269-23e0f9c2e5f2",
+  "lang": "en",
+  "text": "A studio keeps a man on the payroll whose whole job is making problems disappear, and then its largest problem is a man who has disappeared. Joel Coen's 2016 comedy runs 106 minutes on that inversion: a star vanishes mid-production, and the fixer has to recover him before the schedule notices. The mystery is a scheduling emergency before it is a crime, since a missing lead is chiefly an accounting matter - days lost, sets standing idle, contracts with dates on them. The Academy Award for production design indicates where the attention went. A film joking about a studio has to build the studio first, stage by stage, or the joke has nothing to stand on, and detection here means walking out of one manufactured world and into the next.",
+  "model": "claude-opus-5",
+  "source_sha256": "22cff7f5cd69a769d9cc219a10552da95425500c4a1398574790ae412df2be84"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "syriana-2005",
+  "field": "lead",
+  "film_id": "8241449f-00a7-46e2-bd75-910e1d2262d8",
+  "lang": "en",
+  "text": "An oil merger has to look clean by a fixed date, and somebody is paid to decide how much dirt the thing can survive. That job belongs to Bennett Holiday in Stephen Gaghan's 2005 film, which sets him beside an energy analyst based in Switzerland doing business with an Arabian royal family, and a veteran CIA officer tracing an assassination plot back toward an uncomfortable origin. The strands never quite explain themselves to one another. Its Academy Award for original screenplay is the honor that counts, because the difficulty is structural: the order in which the audience learns things, how much is withheld between lines, which two facts are permitted to touch. Across 128 minutes the film runs on connective tissue rather than incident, and its pleasure is recognizing a chain of consequence several rooms before anyone inside it does.",
+  "model": "claude-opus-5",
+  "source_sha256": "32be023a4f25709223c8a3711391d32b6d94e20faa010e51b8ebfc7093bbf602"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "j-edgar-2011",
+  "field": "lead",
+  "film_id": "1586e73b-377a-4f2a-a7ef-51ef8ae22527",
+  "lang": "en",
+  "text": "Almost fifty years of American law enforcement had to be carried on a single face, which is why the makeup award among this film's honors is not a footnote. Clint Eastwood's 2011 account of J. Edgar Hoover runs 137 minutes across a career built on knowing things about other people, and it is organized around the gap the premise admits: a man feared and revered in public, holding material in private that would have ended him. That asymmetry sets the manner of the whole thing. Conversations happen in offices where the actual subject is never named aloud, and power is exercised by implication, on the understanding that a file exists. It is a biography shot mostly indoors, at desks, with the door shut, which is where the man arranged his life anyway.",
+  "model": "claude-opus-5",
+  "source_sha256": "a053b4be53e7400c8d71c66b674d3a5ecb36672f0bf2d8a326256004ca1465b0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "animal-house-1978",
+  "field": "lead",
+  "film_id": "8be3ef75-2099-476f-bf93-c6388d76d26a",
+  "lang": "en",
+  "text": "Set in 1962 and made in 1978, which is close enough for the clothes to be funny and far enough for nothing to sting. John Landis gives Dean Vernon Wormer a clear administrative objective - remove Delta Tau Chi from the college entirely - and then arranges 109 minutes of probation, evidence and paperwork against people who treat expulsion as a date on a calendar rather than a fate. It plays as a siege conducted by committee. What keeps it moving is that both sides are organized: the dean has procedure, the house has a repertoire, and each escalation obliges an answer. The National Film Registry keeps it, an odd berth for a comedy whose working principle is that an institution deserves precisely the respect it can enforce, and not a degree more.",
+  "model": "claude-opus-5",
+  "source_sha256": "167946322396bc0509be232bce236b8d533f1403735a224819c3c4602c57d7c8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "downsizing-2017",
+  "field": "lead",
+  "film_id": "95b4db5a-a33f-4fc5-9c98-4193b539594a",
+  "lang": "en",
+  "text": "The pitch bundles saving the planet with affording a nicer house, and never pauses over the difference. Alexander Payne's 2017 film takes a man whose profession is fitting people to their limitations - an occupational therapist, kind, unremarkable - and offers him a procedure that reduces him to four inches so that his household can cost less and count for more. Both motives are sold in the same breath. That is the joke, and the film declines to let it stay one: 135 minutes is a long time for a premise that could be spent in twenty, so what fills the rest is ordinary business at reduced scale - money, marriage, neighbors, the question of what a person does all day. The apparatus is science fiction. The arithmetic is household.",
+  "model": "claude-opus-5",
+  "source_sha256": "e9094189399a8a80d832089cf1ba11a8150a00c578c799771d0b7de5be637385"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "star-trek-ii-the-wrath-of-khan-1982",
+  "field": "lead",
+  "film_id": "cacb4142-ec52-4396-82e6-55803ac4d7c0",
+  "lang": "en",
+  "text": "Project Genesis is a device for making life where there was none, and the film puts it in the hands of a man carrying an old grievance. Nicholas Meyer's 1982 picture spends nothing on introductions: Khan arrives with his hostility already complete, which leaves the 113 minutes free for maneuver. Much of it plays as a naval engagement conducted in vacuum - two commanders who cannot see one another, working from information already out of date, each guessing what the other has just ordered. The technology is the pressure point, since a thing built to create can also be aimed. It sits in the National Film Registry, unusual company for the second entry in a series, and the reason is legible in its patience: a ship, a crew, and a grudge with no expiry date.",
+  "model": "claude-opus-5",
+  "source_sha256": "a13ab0d528fcfd9bd87409d2546b73642cd74a3cdb970611f737d345ea820094"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "flags-of-our-fathers-2006",
+  "field": "lead",
+  "film_id": "e437a0eb-77d1-4fd4-9930-1f9ea1632961",
+  "lang": "en",
+  "text": "One exposure, made on February 23, 1945, put six men into a photograph that quickly outgrew them. Clint Eastwood's 2006 film follows three - John 'Doc' Bradley, Rene Gagnon, Ira Hayes - through the battle for Iwo Jima and through what happens to men whose faces have become an image other people need. Its Academy Awards were for sound and sound editing, and that is where the sharpest work is: the difference between how ordnance registers on a beach and how a room sounds once nobody is shooting. Three men, one picture, two incompatible kinds of noise. The 135 minutes hold the combat and its afterlife in the same frame of mind, and the subject that emerges is the distance between an act and its reproduction, which widens each time the reproduction is put to use.",
+  "model": "claude-opus-5",
+  "source_sha256": "13d8486006a3c2cd739ece770787ce6813209b0c43de5ff388d07ff8e3ddbe35"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "spy-kids-2001",
+  "field": "lead",
+  "film_id": "6b228cd1-0d7e-4af8-8ac5-644ea10d9a62",
+  "lang": "en",
+  "text": "Carmen and Juni have concluded that their parents are boring, the one assessment in the house that is wrong. Gregorio and Ingrid Cortez worked as secret agents for different countries before they married and stopped, so the marriage was already a merger of rival services; Robert Rodriguez's 2001 film treats that retirement, rather than the hardware, as its premise. Old colleagues begin to vanish, the parents are pulled back, and the children arrive uninvited in the work. It runs 88 minutes and thinks at child scale, which is a discipline rather than a shortcut: gadgets a nine-year-old would draw, a family firm with an actual headquarters, danger measured by whether the grown-ups come home. One reversal drives the comedy - the most qualified people these kids will ever meet have been making their breakfast.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d2985d4f832f0ec6384db614b373d64881258a9240f8d76bc6eae387d5bb5ff"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "juror-2-2024",
+  "field": "lead",
+  "film_id": "b1ee70ff-1c8c-4204-abc7-6d3175005f8d",
+  "lang": "en",
+  "text": "A jury box is a machine for converting twelve private opinions into one public sentence, and this film jams it. Justin Kemp, a family man seated on a high-profile murder trial, brings into the room something that bears directly on the verdict, so the ordinary duties - attendance, argument, a show of hands - become a way of managing his own exposure. Clint Eastwood's 2024 film runs 114 minutes and stays where legal drama is cheapest to stage and hardest to sustain: tables, chairs, a corridor. It holds because of a structural bet. The audience knows more than most of the people in the room, which turns every reasonable point another juror makes into pressure on one man. Procedure is not a puzzle here. It is a schedule he cannot get off.",
+  "model": "claude-opus-5",
+  "source_sha256": "01cda137e09b40637bfce2f34630e7229dfeff3754e154b1c86efcb4eacf775a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "patriots-day-2016",
+  "field": "lead",
+  "film_id": "12f9b632-0fad-4911-be08-9212273e401b",
+  "lang": "en",
+  "text": "In a manhunt, the clock is the protagonist and the city is the room it ticks in. Peter Berg divides 133 minutes among a police sergeant, survivors, first responders and investigators working the Boston Marathon bombing and the search that followed, so no one figure holds the account for long - close to how such work actually happens, in shifts and jurisdictions, with information arriving out of order. Tommy Saunders is connective tissue rather than subject. The pressure is procedural and physical: hours of footage to comb, a city to shut, decisions made by people who have not slept, a deadline set by the chance that the men will move again. Reconstructing an event this recent puts the film's own conduct in question - what to show, what to withhold, whose face to hold on.",
+  "model": "claude-opus-5",
+  "source_sha256": "de12dd345b849bed149b6d99ff02f9e3fdad1cb59683089e6514d16bc0ca33ce"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "frost-nixon-2008",
+  "field": "lead",
+  "film_id": "6afcc9c9-51d4-441b-a9a5-a8ffbed51b91",
+  "lang": "en",
+  "text": "Two chairs, a lighting rig, and a former president convinced he is the abler talker in the room. Ron Howard's 2008 film takes the summer of 1977, three years into Nixon's silence, and stages the interviews he finally consented to as a contest neither camp expected its own man to win: Nixon picked a British television host he read as lightweight, and Frost's team doubted their boss. Everything then depends on preparation, and on what a camera does to a pause. The Academy Award for editing is the honor worth naming, since the picture is two men sitting down and its pressure is manufactured in the cut - when to stay on a face that has just heard a question it did not want. 122 minutes of talk, conducted like a dispute over ground.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae596cea2a862822bef3a3e74dd3a01121b4ef5940478112a644995efdf34dc2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-magnificent-seven-1960",
+  "field": "lead",
+  "film_id": "bf69d1e1-f127-4c6d-b7fa-74f8dc0d7e67",
+  "lang": "en",
+  "text": "Seven is an awkward number for a Western, a form that usually manages with one man and a horizon. John Sturges's 1960 film has a Mexican village, robbed as a matter of routine, hire that many gunfighters for its defense, and the arithmetic becomes the formal problem: 128 minutes in which seven hired men must be told apart, their reasons for taking underfunded work made plausible, and a village shown discovering what it has invited inside its walls. Assembly takes real time, and that is the strangest stretch - a run of small auditions in which each man states his terms. The score, which took the year's Academy Award, says openly what the dialogue keeps declining to say: that these are grand figures, arriving to music, in a story that keeps testing the claim.",
+  "model": "claude-opus-5",
+  "source_sha256": "76979da7116676d7a1a253f2dc6e5b9c693cecc0de49894447eb9861677fd9dd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "midnight-run-1988",
+  "field": "lead",
+  "film_id": "48c4b325-44e4-47eb-bd11-c59bebdf1ec7",
+  "lang": "en",
+  "text": "A skipped bail bond turns a man into freight, and the problem of the film is shipping him. The bounty hunter has a former Mafia accountant to deliver; a rival bounty hunter, the FBI, and the mob boss whose books the accountant once kept are all after the same parcel, which gives every practical decision - route, transport, who gets told anything by telephone - at least four wrong answers. Martin Brest's 1988 film runs 126 minutes and is filed under comedy, crime and thriller at once, an arrangement that obliges each scene to keep a joke and a threat breathing the same air. The humor comes out of logistics rather than material. Two men who would never choose each other's company are locked inside a schedule, and better-funded people keep wrecking it.",
+  "model": "claude-opus-5",
+  "source_sha256": "220782e2da0ef8e18295f7e3e7de24a9254d1e065d8322e6f55dfc8360f0f051"
+ }
+]

@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-stiller#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "열 살 때부터 그는 누나 에이미와 함께 슈퍼 8 카메라를 돌렸다. 자기를 괴롭히던 동네 아이들에게 복수하는 이야기를, 그것도 꽤 공들인 영화적 설정으로 짜 넣곤 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a65fc1a094fd17e6b9da30fbd5704c8fbea3c053ddfdcd14c97e27b9896125ec"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-stiller#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "캘훈 스쿨에 다니던 십 대 시절, 그는 Capital Punishment라는 포스트펑크 밴드에서 드럼을 쳤다. 1982년에 낸 무명 앨범 《Roadkill》은 36년이 지나 한 인디 레이블이 뜻밖에 재발매했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "077f3d84b9370f2a4f4fc014773b241a478c4807b3af04bc53fac0323c042827"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-stiller#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스티븐 스필버그의 1987년 2차대전 드라마 《태양의 제국》에 작은 배역으로 출연했다. 이때의 경험이 훗날 감독으로서 그가 품은 시각적 야심에 깊이 새겨졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8964a5b719435a85dae963e51a293f666f0cc752f338613fc3409484aeccce2c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-stiller#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《컬러 오브 머니》를 패러디한 단편 《The Hustler of Money》를 연출했고, 이 작품이 톰 크루즈와 《새터데이 나이트 라이브》를 만든 론 마이클스 양쪽의 눈에 들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b231f55cf7fdd284d81838c3bb4a76c7204e959cf674cbff1b98b4eb933d6c9e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-stiller#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "론 마이클스는 1989년 그를 《새터데이 나이트 라이브》의 작가 겸 출연자로 데려왔다. 그러나 사전 촬영한 단편을 틀게 해달라는 요구가 거절당하자 그는 네 편 만에 미련 없이 그만두었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "38583214e52b1a287281b151399b385e83b3169d8ccc3c937254f0efacaff0c1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-stiller#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "MTV에서 시작해 폭스로 옮겨간 스케치 코미디 《더 벤 스틸러 쇼》를 공동 제작했다. 시청률이 워낙 바닥이라 1993년 에미 각본상을 받기도 전에 폐지됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e4b9f27338cc16927517d0b97d851ddaa2bfff26f1589fdfec88c7f893768dd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-stiller#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생 《스타 트렉》 광이었던 그는 제작사 이름을 Red Hour Productions로 지었다. 오리지널 시리즈 에피소드 〈The Return of the Archons〉에 나오는 폭동 '레드 아워'에서 따온 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e3b178ece5888b2f75ebbbb4600c4386264863f49cc2cd4a953ecb4dc31d44c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-stiller#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "블랙코미디 《케이블 가이》(1996)는 당시 평도 흥행도 실패였다. 다만 주연 짐 캐리에게 2천만 달러라는 사상 최고 출연료를 안기며 기록 하나는 남겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d88a36831d7cf501c875bf7888543339bff70af5474935b6889746f4aef0520"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-stiller#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1999년 그가 연출한 SF 코미디 파일럿 《히트 비전 앤드 잭》은 지금도 전설로 남아 있다. 잭 블랙이 전직 우주비행사를, 오웬 윌슨이 말하는 오토바이 목소리를 맡았지만 폭스 경영진은 너무 괴상하다며 편성을 거절했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "12f9277c949844285b01f01c470f981ae8b4b24da6914b0e897aef31552c2697"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-stiller#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "결국 버려진 그 파일럿 《히트 비전 앤드 잭》을 찍던 현장에서 그는 배우 크리스틴 테일러를 만났고, 이듬해 결혼했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eafc8da7dbb0028ea2ea085adc595f8d8216dd80f69e7f00585c40a89b216c5d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-stiller#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2001년작 패션계 풍자 《주랜더》는 말레이시아 검열 당국이 상영을 전면 금지했다. 남성 모델을 세뇌해 말레이시아 총리를 암살하게 만든다는 것이 영화의 중심 줄거리였으니.",
+  "model": "claude-opus-5",
+  "source_sha256": "a74f53a797e35e53e2e807449a5e946c41e25a85034594556680ab62188257d6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-stiller#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 자신이 연출한 작품에 부모를 자주 출연시켰다. 가장 유명한 예가 《주랜더》의 괴짜 모델 에이전트 모리 볼스타인 역을 아버지 제리에게 맡긴 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fda1b8fa995715a526971c1edefc53c51f97c0a8fb7f290e6ee47291bd86b833"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-stiller#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《트로픽 썬더》 개봉과 함께 장애인 권익 단체들의 거센 항의와 보이콧이 쏟아졌다. 문제가 된 '심플 잭' 삽화를 두고 그는 장애인을 조롱한 것이 아니라 오스카에 목마른 배우들을 풍자한 것이라고 맞섰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e315c91f0c3faa03b11580b1be158abc831391c43947aec7debb504c301b91d6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-stiller#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《트로픽 썬더》의 입 걸은 제작사 임원 레스 그로스먼 역에 톰 크루즈를 대머리 가발과 뚱보 분장으로 세운 것도 그의 설득이었다. 크루즈는 할리우드 제작자들을 직접 겪은 기억을 밑천 삼아 이 인물을 거의 즉흥으로 만들어냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "65edfdda795e0a0d9e76662796a4e7969f4d86dcc3c32702f5b2810f6809b962"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-stiller#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2014년 그는 중간 위험군 전립선암 진단을 남몰래 받고 전립선 절제 수술을 무사히 마쳤다. 훗날 그는 논란 많은 PSA 혈액 검사가 자기 목숨을 구했다고 말했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c1e9affe9d2d65799794696ee678f3fca25e2fe4ccf80560e13a37282996428a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-stiller#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "세계에서 가장 긴 셀카봉, 8.56미터짜리 기네스 기록의 주인이 그다. 직접 주문 제작해 2016년 《주랜더 2》 런던 시사회에서 사진을 찍는 데 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "40943cd9ec8494e07c63d60de6c82506786a40be10bee8e36b9845686ecd9494"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-stiller#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2017년 그와 크리스틴 테일러는 결혼 17년 만에 별거를 알렸다. 그러나 코로나19 봉쇄 기간에 아이들과 지내려 그가 가족의 집으로 돌아가면서 두 사람은 완전히 재결합했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c90951acf14710803370fe33f515e97d14508748332cd215c5e3b8b55ac71f92"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-stiller#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "큰 웃음을 노리는 코미디에서 방향을 틀어, 2018년 거친 탈옥 미니시리즈 《에스케이프 앳 대너모라》 일곱 편 전부를 그가 연출했다. 촬영은 뉴욕주 북부 클린턴 교도소 실제 현장에서 이뤄졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "20f3c247e11fc260b0ef53b79c09076812d64ee341be71100cc3b55e6e41490e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-stiller#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "프레스티지 TV로의 선회는 계속된다. 호평받은 애플 TV+ 디스토피아 시리즈 《세브란스: 단절》(2022)에서 그는 주 연출자이자 총괄 프로듀서를 맡았고, 미국감독조합상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "41deb9a9ec439876ad98780275e41cf0fa5bc9173b585a64ca034edb163bb95a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-stiller#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2018년부터 유엔난민기구(UNHCR) 친선대사로 일해왔다. 레바논, 과테말라, 우크라이나의 분쟁 지역을 직접 찾아가 삶터를 잃은 가족들을 만난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6f87196ddcc531fdb86dc8dbbb3bb0a5fb76eb6cae1a745966b9dd527fc3959b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-stiller#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "러시아의 우크라이나 침공 와중이던 2022년, 인도적 방문차 키이우를 찾은 그는 볼로디미르 젤렌스키 대통령을 만났다. 같은 코미디 배우 출신인 그를 두고 스틸러는 공개적으로 '나의 영웅'이라 불렀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a7f5a6770f35f5b1b6ac4be0976148678f14cd0e8a45957799106c108c868974"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-stiller#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "테니스라면 보는 것도 치는 것도 열심이다. 퀸스에서 열리는 US 오픈 맨 앞줄에서 자주, 아주 눈에 띄게 목격되며, 프로 선수 라파엘 나달과는 가까운 사이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ddf287d2b578328f71136bcaa4a0cf30982f4c12a982d791f4c4b3a7c38c5dfd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "benny-safdie#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아버지 알베르토는 종잡을 수 없는 사람이었다. 어린 베니와 조시에게 수면제를 먹인 적도 있는데, 이유는 그저 자기가 좀 쉬려는 것이었다. 형제는 훗날 출세작 《Daddy Longlegs》에 이 장면을 그대로 되살려 놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4abd60a13e75de4b5b59daf703734112e9d341f5574b2636ff498c6c9be07ab2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "benny-safdie#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《언컷 젬스》의 아수라장 같은 다이아몬드 지구는 아버지 알베르토에게서 곧장 나왔다. 그가 맨해튼의 한 보석상 밑에서 심부름꾼으로 잠깐, 그것도 어수선하게 일한 적이 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a7be412e7145689f3a7e8c8553bceeee8a5f0e7274f6c7b34204611135ad0c63"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "benny-safdie#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "사프디 형제의 단골 배우 버디 듀레스는 라이커스 아일랜드에서 출소한 직후 이들에게 발견됐다. 《Heaven Knows What》에 그를 캐스팅했을 때 그는 마약 관련 혐의로 여��히 수사를 피해 다니는 중이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d993e9772c52a487b77e54a84015bf645a291ad4711850aef7528fce4848dee"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "benny-safdie#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Heaven Knows What》을 본 마틴 스코세이지는 형제가 빚어낸 1970년대풍 뉴욕의 거친 질감에 단번에 반했다. 그는 곧바로 자신의 제작사 시켈리아 프로덕션을 통해 《언컷 젬스》의 총괄 프로듀서로 합류했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d8c8dcff0313418d938a94e4104c48f5c8d2e80cc0c3569cb9c8889a431ede7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "benny-safdie#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2024년 초 베니는 사프디 형제라는 연출 듀오의 원만한 해체를 확인해주었다. 자기만의 목소리를 찾고 연기도 더 하고 싶다는 것, 그러면서 조시와의 사이는 망가뜨리지 않고 싶다는 것이 이유였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "17c629044091cda788ebd8230fa05bc9152e950e1d167a152295c314864fd5ec"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "benny-safdie#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "베니는 로널드 브론스틴과 함께 《언컷 젬스》를 편집했다. 대사를 겹치고 사운드를 사납게 밀어붙이는 그 과잉 속도의 편집은 관객의 몸에 실제로 공황을 일으키려고 설계된 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0430883f535f13a18bc67c4065072f8b45dc8ba8fed7f103e1dd4089c312959f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "benny-safdie#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "조시가 로널드 브론스틴을 소개해준 뒤로 베니의 행로는 영영 달라졌다. 타협을 모르는 이 독립영화 감독은 사프디 형제의 붙박이 공동 각본가이자 편집자가 됐고, 사실상 '셋째 형제' 노릇을 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "92f139d7052f6bc3316dbcb9717d1d3be44e0338a4ce1414f048572dd943cc76"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "benny-safdie#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "보스턴 대학 재학 중 베니는 창작 집단 Red Bucket Films를 공동으로 세웠다. 차이나타운의 비좁은 사무실 하나를 함께 쓰며 훔쳐 온 소품을 쌓아두고 초기 단편들을 편집했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "839efaaf6f5fb8b181080b402d4aa14d7f34c2a9f30afad385bbdb640f484d6a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "benny-safdie#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "존 카사베츠의 《영향 아래 있는 여자》가 베니를 근본에서 빚었다. 아버지가 보여주기엔 한참 이른 나이에 보여준 영화였고, 감정이 불안정하고 매끈하지 않은 영화를 향한 평생의 취향이 그때 굳었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ac620daf05c6547e7fe4d0dd281b8a7e10d25350642473dc3c9a253ac2325b4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "benny-safdie#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "디즈니+ 시리즈 《오비완 케노비》에 도망자 제다이 나리 역으로 깜짝 출연했다. 광선검을 휘두른다는 어린 시절의 꿈을 이룰 수 있다는 이유로 그는 기꺼이 이 배역을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0141e7036295128d4d1422291645b5455418cc264bc8cbfe08b19f433631ca90"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "benny-safdie#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "단독 연출 데뷔작으로 그가 고른 것은 《The Smashing Machine》. 직접 쓰고 연출한 이 잔혹하고 사적인 스포츠 전기 드라마에서 드웨인 존슨이 실존 종합격투기 전설 마크 커를 연기한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "109bc2ce69214e0943d30ff1b70293316ec5da11bbe6d2bd009fc81f6c2454a6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "benny-safdie#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2014년 베니는 독립 제작사 Elara Pictures를 공동 설립했다. 이후 형제가 만든 불안 스릴러들이 전부 여기서 나왔고, 맨해튼의 악명 높게 어수선한 사무실이 그 본거지다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd72b6e383397a45da2f14fbf340b7e341f52492edae2e2674786cb9c03b2cd8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "bernardo-bertolucci#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "베르톨루치는 파르마의 부유한 시골에서 자랐다. 아버지는 이탈리아의 저명한 시인이자 영화평론가 아틸리오 베르톨루치였고, 널찍한 저택에는 지역 지식인들이 수시로 드나들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3def6de9ee7397eb15a8e499383fa05b1c8cbcfbbf48b4b1b75d03d7310f5a51"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "bernardo-bertolucci#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "열다섯에 16mm 카메라를 빌려 첫 단편 《La teleferica》와 《La morte del maiale》를 찍었다. 아펜니노 산맥에 있던 집 주변의 시골 생활이 그 대상이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "75a6a96cb7dfdebfc776b98dd1320d4dc4c2c9f733eeb57ca84cb56745ca0f7d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "bernardo-bertolucci#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화에 뛰어들기 전 그는 아버지의 길, 곧 문학을 따라갔다. 스물한 살에 낸 1962년 첫 시집 《In cerca del mistero》로 이탈리아의 권위 있는 비아레조 상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3e5dd254c0ee5047612619be5496412c2f16f12b2a3ebc9687e9cb84f358b9a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "bernardo-bertolucci#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그가 영화로 들어선 경위는 문학적 신세 갚기였다. 아버지가 피에르 파올로 파솔리니의 첫 소설 출간을 도왔고, 그 답례로 파솔리니는 현장 경험이 전무한 스무 살 베르나르도를 1961년작 《아카토네》의 조감독으로 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a90bf20b751690fd517ac02b64beb24e2d07d109b2942b93236c4a4d4c03cddc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "bernardo-bertolucci#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "파솔리니의 제안을 받아들이면서 그는 로마 대학을 완전히 그만두었다. 그때까지 그가 배우던 것은 현대문학이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3aabc341fd4c46183fd303b512eeadbe84c699b8fc244a7e054afb807de93865"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "bernardo-bertolucci#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "세르조 레오네의 1968년 대작 《옛날 옛적 서부에서》의 원안을 다리오 아르젠토와 함께 썼다. 클라우디아 카르디날레가 연기한 여성 주인공을 이야기의 중심에 놓자고 레오네를 설득한 일화가 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e4a8c7da1aefff1bc5cf418be41aba323246a9e86bd91b938dc48a0d55f2f2f4"
+ }
+]

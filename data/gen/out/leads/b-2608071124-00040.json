@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "porky-in-wackyland-1938",
+  "field": "lead",
+  "film_id": "1f9e1f8b-f1cf-4732-a93a-7f65ee2297db",
+  "lang": "en",
+  "text": "The quarry is a Do-Do bird, reportedly the last of its kind, and it declines to hold any one shape long enough to be caught. Porky Pig goes after it anyway, which is the entire errand and all the plot seven minutes can carry. The rest is drawing. Robert Clampett fills the place Porky lands in with creatures assembled from mismatched halves and backgrounds that follow the logic of a dream being recounted badly, and the gags keep reaching past the edges of their own frame. A chase needs a fixed target; without one, pursuit collapses into digression, and the digressions are the film. Made in 1938 to run before a feature and be forgotten by the time the house lights came up, it sits now in the National Film Registry. Nothing in it is accounted for, and nothing needs to be.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d5f34907c54ff1c61f490c3685dcefb0431a0cf1450ddbf39b3641b3e374b12"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "return-of-the-secaucus-seven-1980",
+  "field": "lead",
+  "film_id": "4c10793f-cd53-4f80-a9a5-7ea865f5d77f",
+  "lang": "en",
+  "text": "A rented summer house in New Hampshire, a long weekend, and seven people whose shared history includes being arrested together on the way to a protest in Washington. That arrest has become an anecdote, and the anecdote has worn smooth. John Sayles builds the film almost entirely out of talk - kitchen talk, porch talk, the sentence someone decides not to finish - and lets the group's real arrangement show in who ends up sitting with whom. Newer friends are present as well, unable to be nostalgic on cue, which stops the reminiscing from closing into a circle. Nothing over the weekend is engineered to bring matters to a head, so the small frictions carry the weight, and the film lets that be undramatic. Years of separate lives do not dissolve across two days in a shared house. It is in the National Film Registry now, which suits a picture about what people keep.",
+  "model": "claude-opus-5",
+  "source_sha256": "c13c5f081f000cc3584edff23011786412153879016992155ef7933e8c8c3065"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-comedians-1967",
+  "field": "lead",
+  "film_id": "d53665b8-c739-4e4f-8ee4-4704238d0236",
+  "lang": "en",
+  "text": "Tourists are the wrong witnesses to a political crisis, which is precisely the use this film makes of them. Americans and Britons arrive in Haiti with itineraries, and the unrest around them is not their business until it becomes unavoidable; Peter Glenville keeps them talking while the country conducts its own affairs a few streets away. At a hundred and fifty-two minutes the film moves at the pace of a novel, letting scenes run well past the point a thriller would cut and allowing embarrassment to accumulate: the particular discomfort of foreigners with strong opinions about a place they can leave by air. The National Board of Review placed it among the ten best of 1967. The visitors' passports are the difference, and every character in the film knows it.",
+  "model": "claude-opus-5",
+  "source_sha256": "861cf758969e2c3c8896f9612b76db86ceab043299c130a4f1e6737a5fc8b879"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "wake-island-1942",
+  "field": "lead",
+  "film_id": "fae9c352-ddac-41e7-9504-63f4bc9de2a0",
+  "lang": "en",
+  "text": "There is no plan here, because there is nothing left to plan with. A small Marine garrison holds an island base against the Japanese Navy with no relief and no resupply coming, and John Farrow films the situation as a job of work: sandbags, gun positions, a radio, men counting what they have and dividing it by the days. The dramatic problem is unusual for a war picture. No reinforcement to await, no strategy to devise, only arithmetic and the hours between attacks, which throws the weight onto behaviour - who talks, who stops talking, how an order sounds when everyone in earshot understands the position. Eighty-seven minutes, and much of it is waiting made watchable. It was released in 1942, to an audience that did not yet know how the war would go, and it makes no pretence about the odds facing the men on the island.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c08c9388a1ba6d301fb7513fdb935e1f2e1995222b211b8a78d41ab664206c5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "high-school-1968",
+  "field": "lead",
+  "film_id": "0ff7be06-8d69-4863-8087-a51440c00425",
+  "lang": "en",
+  "text": "A camera stands in the corridors of Northeast High School in 1968 and declines to intervene. Frederick Wiseman shoots without narration or interviews, and the method is patience: exchanges between staff and students run their full length, past the point a news crew would cut, until the tone of an adult's voice becomes the subject and the words are secondary. Nobody here is a caricature, which is the difficulty. The teachers largely believe they are doing right by the young people in front of them, and conviction is harder to watch than malice. Seventy-five minutes, no thesis stated, and the pattern assembles itself out of rooms where rules are explained calmly to people who are not free to leave. Held in the National Film Registry, it functions as evidence gathered before anyone had decided what it proved.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b2dc62dcd150edf3b8e8039302131afcb34cd6f3112b4e89f536b39ffe17a7b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "country-1984",
+  "field": "lead",
+  "film_id": "1c7242ff-fe6d-4c83-9dc8-3b0781c9cbc1",
+  "lang": "en",
+  "text": "The farm makes food and no money, and the gap between those two facts is the engine of everything else. Jewell and Gil work land that will not produce a surplus; Gil stops believing the arithmetic can change, Jewell refuses the conclusion, and the distance between those positions has to be lived out daily in the same house. Richard Pearce holds the story at that scale. No speeches about the American farmer, no montage of amber fields: chores, weather, meals, and the silence of two people who have had this argument before. Academy recognition in the Best Actress category attached to Jewell, which is right, since the film belongs to whoever decides to keep going. Fighting, here, consists of refusal repeated without an audience, in a situation where quitting would be entirely reasonable and nobody would blame either of them.",
+  "model": "claude-opus-5",
+  "source_sha256": "3c9c641bca632741b74abcbcb8f34efdf0e0931409d244a7910535b8598c024b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-way-ahead-1945",
+  "field": "lead",
+  "film_id": "9a3fdad0-2acc-4f26-a968-9859b021b861",
+  "lang": "en",
+  "text": "Conscription does not select for aptitude, and the men handed to Lieutenant Jim Perry and Sergeant Ned Fletcher share nothing but the letter that arrived. They are replacements for an infantry battalion cut down at Dunkirk, which gives their training a weight it would not otherwise carry: someone else has already been where these men are going. Carol Reed spends most of the running time in the unglamorous middle - drill, grumbling, the slow and grudging conversion of civilians who resent the whole business into a unit that can depend on itself. The film does not pretend the conversion is inspired. Britain in 1945 watched this with the process fresh, which may account for the plainness; the strongest stretches are the least dramatic, where a collection of names stops being a list and nobody involved remarks on it.",
+  "model": "claude-opus-5",
+  "source_sha256": "b75534195630949cf7a3543b44c5c4a08aaf160efbb8d8f74aa51678fa501d43"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "romeo-and-juliet-1936",
+  "field": "lead",
+  "film_id": "5a44a689-884f-49f2-a683-b8eee9c0ba06",
+  "lang": "en",
+  "text": "Verona here is built rather than found: squares, staircases, and a balcony sized for a camera to move on. Academy attention went to that production design, a fair index of where a Hollywood studio in 1936 put its effort when it took on Shakespeare. Inside the plaster, George Cukor is unusually patient with the verse - lines are spoken at conversational weight rather than launched - and the feud is played as a civic nuisance that everyone is tired of and nobody will stop. Two hours and five minutes. The pacing is deliberate to the point of ceremony, a register that suits the feuding elders better than it suits two young people supposed to be in a hurry, and the picture is strongest in the rooms where adults calmly arrange other people's lives.",
+  "model": "claude-opus-5",
+  "source_sha256": "30ea2549e899aef628701d766edbc877f5575b7ca90a9a8a1d568479986c74de"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "snow-white-1933",
+  "field": "lead",
+  "film_id": "a5882310-edb2-4f38-8574-12c19aae9c26",
+  "lang": "en",
+  "text": "The mirror names Betty Boop, and the queen's household comes apart from there. Almost nothing else of the fairy tale survives these seven minutes; Dave Fleischer's crew keep the title and treat it as a licence for continuous transformation, in which the drawing refuses to settle and a figure becomes whatever the next gag requires. The music is not accompaniment but the spine - movement lands on the beat, and once that is established narrative logic can be dispensed with. Betty is the only fixed point in a picture where nothing holds a shape for long. It was added later to the National Film Registry, a solemn destination for something made in 1933 with this little interest in behaving. Nothing in it repeats.",
+  "model": "claude-opus-5",
+  "source_sha256": "90649be444557044995474d0cbfb81192f3d9bac3a6ad6d0fa9a0d84023697df"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "nothing-but-a-man-1964",
+  "field": "lead",
+  "film_id": "599149e4-78a4-4e17-9b33-ef9e2466950e",
+  "lang": "en",
+  "text": "Duff Anderson works the railroad, which pays and keeps him moving, and moving is the part that matters: a man who can leave is a man who can decline. Marrying a preacher's daughter ends that arrangement. Michael Roemer shot this in 1964, and the pressure it describes is not the mob but the daily sort - the employer's remark, the advice to be reasonable, the exact price attached to a man declining to lower his voice in a segregated town. The scale stays domestic: rooms, porches, rent, work, a marriage adjusting to what each of them will and will not put up with. Ninety-five minutes, no speeches. The National Film Registry took it in, and what it holds is the record of a man doing sums - what dignity costs this month, and whether he can cover it.",
+  "model": "claude-opus-5",
+  "source_sha256": "88d909b8436cbda75791afbae49adbe515c50bf045ef01a3cda3c04167107d78"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-last-american-hero-1973",
+  "field": "lead",
+  "film_id": "bec2dc62-0425-4a31-ae81-90654145d262",
+  "lang": "en",
+  "text": "Hauling moonshine at night teaches a driver things a racetrack cannot, and the young man at the centre of this one has learned them all before the film reaches a starting grid. He quits the family trade for stock car racing, where the driving transfers and nothing else does. Lamont Johnson is interested in the second part: owners, sponsorship, contracts, a sport happy to buy talent and set the terms afterwards. It is drawn loosely from the career of Junior Johnson. The racing has noise and dirt in it rather than glory, and the scenes at home are plainer still, built around a household long organised for a trade the law does not recognise. Ninety-five minutes, made in 1973, with no speech anywhere about freedom, which would only interrupt the argument the film is actually having about money.",
+  "model": "claude-opus-5",
+  "source_sha256": "603b991159dd74afabee827333a68ad57086c1be918dcf2ec2d27a2d56d80761"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-tell-tale-heart-1953",
+  "field": "lead",
+  "film_id": "f79b3ede-44f5-45d9-b8d3-b2d5b3e1c619",
+  "lang": "en",
+  "text": "Eight minutes of animation in 1953, narrated by a murderer, with no joke anywhere in it. The design carries the load: flattened perspective, colour used as pressure rather than description, rooms shaped like a state of mind instead of architecture. Drawing can do one thing photography cannot, which is take a narrator at his word - an eye becomes exactly as large as he claims, a floorboard exactly as loud. Since the man is confessing, the open question is never what he did but whether the surroundings he describes were there to be seen at all. Ted Parmelee's short took the Academy Award in the animated category. Horror at this length has no second act and nowhere to hide; the whole of it is one voice tightening while the images agree with everything it says.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9846f8387f391ba005ba4c903ce0bc904c38ad51458ff154bc985e9d0fbbfde"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "our-daily-bread-1934",
+  "field": "lead",
+  "film_id": "8e6ad7f0-d0f6-4da0-a224-1a667e2bbc61",
+  "lang": "en",
+  "text": "John and Mary Sims, broke in the city, take on a farm that neither of them knows how to work. The solution turns out to be other people. What grows around the land interests King Vidor more than what grows in it: a settlement of the equally desperate, pooling labour, dividing the result, inventing each rule at the moment a need for it appears - who decides, who eats first, what to do when the necessary skill belongs to nobody present. This was 1934, and the arrangement on screen was not a thought experiment for anyone in the audience. Drought arrives, the law arrives, and the film treats both as weather. Eighty minutes, much of it handed over to work itself, digging and hauling in plain sight, with utopia presented chiefly as a scheduling problem.",
+  "model": "claude-opus-5",
+  "source_sha256": "9bd937ef5a7966d03b04c273d92a030606dfcdf51f87d880a95b6615209e756a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "knute-rockne-all-american-1940",
+  "field": "lead",
+  "film_id": "5844b5d6-c5fd-4810-9b5c-c65d8b0788e2",
+  "lang": "en",
+  "text": "In 1940 a Hollywood studio decided the life of a college football coach was worth ninety-eight minutes. Knute Rockne is followed from playing at Notre Dame to coaching there, and Lloyd Bacon handles it the way biographies were handled then: chapters, milestones, a career that sorts itself into lessons as it goes. What survives the uplift is the practical thread - a man working out that a game can be coached rather than merely played, that a team is a design problem before it is a matter of spirit, that an institution can be built partly out of Saturday afternoons. The sentiment is thick and entirely unembarrassed, pitched at an audience who arrived knowing the name and wanting to hear it said properly. It is a monument rather than a portrait, and it is candid about being one.",
+  "model": "claude-opus-5",
+  "source_sha256": "9918e6e61e9e966ff7bef857bb1695b778613ad36650d0d1e89bcc810a97a161"
+ }
+]

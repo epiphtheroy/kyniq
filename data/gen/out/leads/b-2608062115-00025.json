@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-fugitive-from-the-past-1965",
+  "field": "lead",
+  "film_id": "a4d9a947-9361-4ee3-823c-a2baffca3263",
+  "lang": "en",
+  "text": "Two bodies wash ashore after a maritime disaster, and they would have been counted among its dead if one policeman had left the arithmetic alone. Tomu Uchida takes three hours over what that man will not drop. The heist is finished early; everything after belongs to the unglamorous business of pursuit, to ferry crossings and lodging houses and questions put twice to people who have already answered them. It sits on Kinema Junpo's all-time list of Japanese films, a strange berth for a picture this patient about paperwork. Made in 1965 and pitched nearer to a weather report than to a thriller, it lets the crime cool until what is left is the temperature of ordinary lives that were brushed, once, by money belonging to nobody.",
+  "model": "claude-opus-5",
+  "source_sha256": "6f3c3e15f1a44178b5de8491cff38b97d4867679aaadc97d573bdc5b21dd85f5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-man-who-stole-the-sun-1979",
+  "field": "lead",
+  "film_id": "8b9e4e27-e8fa-4a30-9b6f-6fea5c7f1383",
+  "lang": "en",
+  "text": "The bomb is built in a rented apartment, between classes, by a teacher his students treat as a joke. The school science room supplies the expertise; the apartment supplies the privacy. Kazuhiko Hasegawa runs 147 minutes on the distance between the size of that device and the smallness of the life around it: a school trip, a hijacked bus, a classroom of bored teenagers, a man who goes home and keeps working. Tokyo in 1979 is filmed as a city with no time to notice him, which is colder and funnier than any confrontation would be. The thriller machinery is intact and it moves fast. Underneath it sits a question the film is in no hurry to answer, about what a person actually wants once he holds the means to demand anything at all.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c1a727a825a3ec299ed588522456e289b2a8555d754616530f02971f733c274"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-sun-tribe-myth-from-the-bakumatsu-era-1957",
+  "field": "lead",
+  "film_id": "d41b94c3-2d37-4c0f-be2b-bf740be7b938",
+  "lang": "en",
+  "text": "A man cannot settle his bill at an expensive brothel, so he stays on and makes himself indispensable, taking a commission on every errand he runs. Yūzō Kawashima set that arrangement at the end of the shogunate and kept the history outside, audible through the walls, while the house worries about debts and bookings and its own private wars. Saheji is not reformed by any of it. He has understood that a man with no money and complete information is not the poorest person in the room, and the film admires the skill rather than sighing over the morals. It moves fast for 1957: 110 minutes of overlapping business, comedy built from timing instead of jokes, an entrance here, an interruption there, a debt called in at the worst possible moment.",
+  "model": "claude-opus-5",
+  "source_sha256": "adeb8faf16c8facddf1a3bcb541629ae64041b266fdfca0cd0c06f4b8a43206b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "what-did-the-lady-forget-1937",
+  "field": "lead",
+  "film_id": "7b7fb224-72d0-4df4-b62c-04fafeaa0751",
+  "lang": "en",
+  "text": "The niece arrives from Osaka, smokes where her aunt can see it, and treats her uncle's professorship as an entertainment fund. Seventy-one minutes is all Yasujirō Ozu needs to work that through a household: a wife who runs the place, a husband who has arranged not to notice, a student who can be telephoned when an evening goes sideways. Kinema Junpo's all-time list of Japanese films holds it, which is not the usual fate of a domestic trifle about a visiting teenager and one badly managed night out. Nobody raises a voice, and almost nothing is said outright. What the comedy is really tracking is manners as a system of power: who defers, who is permitted to be bored, who may leave a room and who has to ask first.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c0f9e33934f5c700523d92fc4ab97aebc4166798117f5b47eac9c149f8544e3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tange-sazen-and-the-pot-worth-a-million-ryo-1935",
+  "field": "lead",
+  "film_id": "bddfd706-9260-4bfd-ba37-814207b4e9cf",
+  "lang": "en",
+  "text": "A pot leaves the house as junk, and nobody there knows the map to a fortune is leaving with it. Once word gets around, a whole neighbourhood is hunting crockery. Sadao Yamanaka made this in 1935 and treated the treasure as the least interesting thing in it: the search keeps being interrupted by ordinary business, by meals and rent and obligations to people with no idea what is going on, and the interruptions are where the film lives. Half the comedy is in how seriously everyone takes an object nobody wanted yesterday. Ninety-two minutes, period costume worn lightly, comedy that never sharpens into cruelty. What stays afterward is the rhythm of a plot repeatedly distracted by the lives it passes through, which is much harder to build than the chase it keeps postponing.",
+  "model": "claude-opus-5",
+  "source_sha256": "ad867a32461f8a260d3567cc9b2b2f1894ebd2beb28437f1ec86b9c517ed13d2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "flowing-1956",
+  "field": "lead",
+  "film_id": "c09964f4-4d61-4cb5-b7ee-56617ecf8832",
+  "lang": "en",
+  "text": "A geisha house at midday, with no customers in it: the accounts, the laundry, a creditor to be managed, the women who work there listening for what the day will bring. Mikio Naruse spends nearly two hours on that side of the business. Otsuta, who runs the place, is deep in debt and will not let it go under; her daughter Katsuyo has done the arithmetic and wants a different life entirely. Between them stands a trade in its late days, which the film registers not as tragedy but as a run of practical adjustments made by women who are careful with money and careless with nothing else. The theme is never argued. It arrives as bills, as rooms, as a conversation that stops when somebody comes in.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b0cbe5202a8d5bb6cd1bf2e054a55d27c723286f360eab4f8817024c5ccd879"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "japan-s-longest-day-1967",
+  "field": "lead",
+  "film_id": "e7a41df4-b3a9-4e1f-ba29-d3e416074676",
+  "lang": "en",
+  "text": "One day of argument, filmed almost entirely indoors, among men deciding whether a country keeps fighting. Kihachi Okamoto brings the war to the screen as paperwork and telephone calls: a cabinet that cannot resolve, an order that has to travel down a chain of command, officers waiting in corridors for someone senior to decide on their behalf. The fighting is elsewhere. The Army Minister Anami is the pressure point, with officers who would fight to the last citizen on one side of him and his emperor's stated wish on the other, and the film declines to make that position either noble or simple. Two and a half hours, a clock running through all of them, and the terrible thing turns out to be procedural: who is told, in what order, and by whom.",
+  "model": "claude-opus-5",
+  "source_sha256": "d9410181104068f5fe2a7fd5881a29bd930dc0706a4b80b612f602d50e08723f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "moving-1993",
+  "field": "lead",
+  "film_id": "5123229e-d83d-4be4-9c2a-a699141518f4",
+  "lang": "en",
+  "text": "The separation has already happened when the film opens, and the daughter has not accepted it. Shinji Sōmai gives her two hours and no narrator to explain her: the arguments with a mother at the end of her rope, the visits arranged around a father who now lives somewhere else, the small campaigns a child runs once the adults have stopped consulting her. A grievance is the whole subject here, and this 1993 drama takes it seriously rather than treating it as a phase to be waited out. Nothing is done to make the girl charming, and nothing needs to be. What she is conducting, mostly alone and on her own schedule, is a negotiation about what can be kept and what cannot, and the film lets her set the terms.",
+  "model": "claude-opus-5",
+  "source_sha256": "6ab18c3f51e25f4ffba7ee5e4dc1eda8c6b5d660068f7c29247ba4b843c12cd2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-girl-who-leapt-through-time-1983",
+  "field": "lead",
+  "film_id": "b132a0f6-a056-4ff1-8ee1-0f54be9fa820",
+  "lang": "en",
+  "text": "Lavender, in a school laboratory after hours, and the girl who was cleaning it wakes on the floor with the days out of order. Nobuhiko Obayashi keeps his science fiction local and small: a junior high school, a cleaning rota, the same handful of people turning up in the same corridors, and one third-year student who now knows what is coming before it comes. That is the trap the film cares about. Knowing an afternoon in advance does not make it easier to live through; it turns feeling anything about it into a decision rather than an event. A romance sits inside the mechanism, and foreknowledge does it no favours. At 104 minutes the consequences stay domestic, and she is the only person carrying the earlier version of the day.",
+  "model": "claude-opus-5",
+  "source_sha256": "16e8faee6176232ca0e5a99e83c9464bd7733a5661e04c5e9ad8998ace1ff9ec"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bloody-spear-at-mount-fuji-1955",
+  "field": "lead",
+  "film_id": "ce3c4035-1410-47e1-a2aa-e507c45db3dc",
+  "lang": "en",
+  "text": "Genpachi carries the spear he does not own and will never be permitted to use. He walks behind the man who does own it, from one post town to the next, and that walk is the film. Tomu Uchida keeps his attention on the servants and on the strangers the road throws up, a policeman tracking a thief, a child with nowhere in particular to be, a woman being taken away to be sold, until the samurai at the head of the party is one traveller among many. Ninety-four minutes, Edo period, a tone that slides between comedy and something much harder without announcing the change. What it is counting is the cost of service, the hours a man spends waiting outside while somebody else eats.",
+  "model": "claude-opus-5",
+  "source_sha256": "44f060d0b35130c3fad44f02f1616f2e32cc564828be05b7a0cf6a586b2cdb42"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "suzaki-paradise-red-light-district-1956",
+  "field": "lead",
+  "film_id": "f88fa143-02de-49de-a85c-827acd6eb302",
+  "lang": "en",
+  "text": "They arrive at the edge of the district with no money and no plan, and the edge is where they stay. Yūzō Kawashima gives them eighty-one minutes: she talks her way into pouring sake at a small bar, he ends up delivering noodles from a shop nearby. Both jobs are immediate and neither leads anywhere. The district proper is a few steps off, offering a faster arrangement, and the film neither condemns that offer nor pretends it away, since the bar's older proprietor is decent, the customers are ordinary, the money is real. What it watches is a couple who cannot afford each other and cannot leave either, and which of those two facts gives way first. 1956, and it is over before it can moralize.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc5d6ed1cac43438d30be55305f0b4762bb98313ab9f7565b3c84459f3dd45a6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "carmen-comes-home-1951",
+  "field": "lead",
+  "film_id": "5dce8700-1521-4fcd-9847-601bff72c96d",
+  "lang": "en",
+  "text": "A village organizes a welcome for one of its daughters without quite understanding what she does for a living now. Keisuke Kinoshita sets a burlesque performer down among fields and speeches and lets both parties keep their footing: the elder with his programme of ceremonies, the neighbours who will not say the word aloud, the visitor who sees no reason to apologize for her act. The village is not the butt of it. The comedy runs on politeness rather than ridicule, since nobody wants to be first to admit what everyone knows, and across eighty-six minutes the joke never settles on one side. Made in 1951, it takes an imported idea of glamour arriving in a farming village as an occasion for laughter, and it is fonder of the dancer than of the decorum she disturbs.",
+  "model": "claude-opus-5",
+  "source_sha256": "81006151ee4610dd4ed2a690574318b018c04a6f8cf84f19fd52c85371e77b09"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tora-san-our-lovable-tramp-1969",
+  "field": "lead",
+  "film_id": "76f4bfaa-82cf-4202-ba8b-5f299af1b423",
+  "lang": "en",
+  "text": "Twenty years after his father threw him out, the peddler comes back to the family and is taken in. Peddling keeps him moving; the family is the one address that has any claim on him. Ninety-one minutes follow from that decision, most of them mortifying: the marriage meeting he attends drunk, the opinions delivered where none were invited, the affection he can only express as disruption. Yoji Yamada builds the film out of absorption, an aunt and an uncle and a sister named Sakura and a neighbourhood that already knows the whole story, and then out of the fact that absorption never quite takes. Nothing about the sentiment is disguised. It asks warmth for a man who would be exhausting to live with, and earns it without making him any easier.",
+  "model": "claude-opus-5",
+  "source_sha256": "2bc55e177618d8e4aca2c33a5c2c3190264fda4b1324d34d69cce618a4bb0bfd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "crazy-thunder-road-1980",
+  "field": "lead",
+  "film_id": "07d0028d-c1e0-4fae-ad7e-281ab067365c",
+  "lang": "en",
+  "text": "The gang's crisis is not the police; it is that their leader has met a woman and gone quiet. The war he built now has to continue without him. Gakuryu Ishii shoots that betrayal at engine speed across ninety-eight minutes, out on the edges of a Tokyo with no use for any of them. Made in 1980, it is a film about the labour of staying a rebel: the loyalty tests, the escalations, the younger member who needs the fight to mean something because nothing else in his life does. There is no nostalgia in it and no romance about the machines. Its sympathy sits with the kid who cannot let go rather than with the man who found something better, which is the least comfortable place to put it.",
+  "model": "claude-opus-5",
+  "source_sha256": "a3c2afccccf71aef3478531f4995c6a833dbc7200ed64f2d5449678f901b4af9"
+ }
+]

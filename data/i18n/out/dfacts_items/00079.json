@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sylvester-stallone#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2010년 《익스펜더블》을 연출하며 직접 출연하던 중, 전직 프로레슬러 스티브 오스틴과 격투 장면을 찍다 목뼈에 실금이 갔다. 결국 금속판을 넣는 수술을 받아야 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5baa585e50ed4e325e08cdb319139f1708845c3b5175c534498394803482570d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sylvester-stallone#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《록키 3》의 그 마른 근육을 만들려고 스탤론은 체지방률을 2.8퍼센트까지 떨어뜨렸다. 위험한 수치였다. 하루 식단은 달걀흰자 열 개, 토스트 한 조각, 파파야 반쪽, 그리고 커피 스물다섯 잔이 전부였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a885d391bf27144b3ec9ec96367c6b67a7302f3985fa3ce0ad2ade4eecf83177"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sylvester-stallone#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《비버리힐스 캅》의 액셀 폴리 역에 원래 캐스팅됐던 배우가 그다. 코미디 각본을 초폭력 액션물로 통째로 뜯어고쳤다가 하차당했다. 퇴짜 맞은 그 초고는 훗날 1986년작 《코브라》로 되살아났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac0e7ad8ee1be08faa90f218de0beffeddef35f77325c01a2f28485a51b6c512"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sylvester-stallone#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1976년 《록키》로 각본상과 남우주연상 후보에 동시에 오르며, 아카데미 역사상 같은 해 두 부문에 지명된 세 번째 인물이 됐다. 앞선 두 사람은 찰리 채플린과 오슨 웰스였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4cb0a5884e8e7643ddbe3308643cad729a6f77009cc67768f17e7443842320ed"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sylvester-stallone#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "흥행 성적은 어마어마했지만 2000년 골든 라즈베리는 그에게 '세기의 최악 배우'를 안겼다. 역대 어느 배우보다 많은 래지 후보 지명을 받은 결과다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9603e76dfe356463f8ab0588d882a0e41f81828892e4bedabf89b3917a209507"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sylvester-stallone#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "어머니 재키 스탤론은 실물보다 큰 인물이었다. 점성술사였고 1980년대 TV 쇼 《GLOW: Gorgeous Ladies of Wrestling》을 만들었으며, 엉덩이 주름을 살펴 미래를 읽는 '럼폴로지'를 유행시킨 것으로 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "56362299b4e0386395b38e025e2000556170f5d34336f7f6d4bf107e4a9b47cf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sylvester-stallone#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《록키 3》을 위해 그가 제작을 의뢰한 2톤짜리 청동 록키 동상은 필라델피아에서 수십 년짜리 논쟁에 불을 붙였다. 이게 진짜 예술이냐, 영화 소품이냐. 동상은 시내 여기저기로 몇 번이나 옮겨진 끝에 미술관 계단에 자리 잡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "33cc1cf0ae5df786d027e5ca759bafcf9548dbee2dc247e5ddd562e9c78b0023"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sylvester-stallone#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "폴로 실력이 상당하고 열정도 대단하다. 이 운동을 알려준 사람은 아버지 프랭크였다. 팜비치 폴로 앤드 컨트리클럽의 주목받는 경기에서는 동생 프랭크 주니어와 한 팀으로 출전한 적도 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b31c4ee406850850f3c2307b52b890f8925ae7210e16668208ab2092a411a6bc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sylvester-stallone#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《익스펜더블 3》에서 브루스 윌리스를 해고한 방식은 트위터였다. 나흘 일하는 데 하루 100만 달러를 요구했다는 이유로 그를 \"탐욕스럽고 게으르다\"고 공개 비난했고, 자리는 곧바로 해리슨 포드가 채웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "60dd6f3dbc8214e077a5e19053f315eda5af255795126c64bcaad7b35088a79f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sylvester-stallone#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "에드거 앨런 포의 전기 각본을 40년 넘게 쓰고 또 고쳐 왔다. 몇 번이고 직접 연출하려 달려든 꿈의 기획이지만, 아직 영화가 되지는 못했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "120d7a30500014b8e6b9e97927f491148dbe9d605130fef106ba6f17c9267a0b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sylvester-stallone#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2010년 국제복싱명예의전당에 비선수 부문으로 헌액됐다. 《록키》 시리즈로 복싱을 세계에 알리고 실제 파이터 여러 세대에게 영감을 준 공을 인정받은 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4879844663d65feba74470a5baaf4fdd36f970108e564c94fab140a485963895"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "taika-waititi#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "어머니는 러시아계 유대인, 아버지는 마오리다. 배우로 일하던 초기에는 어머니 성 '코언'을 썼다. '마오리 배우'로 못 박히고 싶지 않아서였다. 아버지 성 '와이티티'는 미술 작업에만 남겨 두었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0c0fc304c68abe0a82cab5c603a424f8a37d9a60ce9218611642b7d83892f49b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "taika-waititi#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "화가이자 농부였던 그의 아버지는 한때 뉴질랜드의 악명 높은 폭주족 갱단 Satan's Slaves의 일원이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d57052626cad603917f4ff1d151e49545c3b2195c704ea2f731d4781a8471f4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "taika-waititi#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "다섯 살에 부모가 갈라선 뒤로는 주로 교사인 어머니 손에 자랐다. 웰링턴의 노동계급 동네 아로 밸리에서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b7a71076320a4fb79043e7430a23abb2c6efc2505554a21aed02a936941c5a67"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "taika-waititi#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "웰링턴 빅토리아대학에서 연극을 공부하던 시절, 제마인 클레먼트와 코미디 듀오 The Humourbeasts를 결성했다. 1999년에는 뉴질랜드 코미디 최고 영예인 빌리 T 어워드까지 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1309b636ed825fc7ed46afd63f63a2ac88cdada6c8537039c142dff38001e25d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "taika-waititi#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편 데뷔작은 1999년 뉴질랜드 컬트 히트작 《Scarfies》. 빈둥거리는 웃긴 청년을 연기했고, 크레딧에는 타이카 코언이라는 이름이 올랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d41e64a36754cdb93553bc09d369b26cb4c93be3d2e1046085bac7a30a66fa4d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "taika-waititi#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2005년 단편 《Two Cars, One Night》이 아카데미 후보에 올랐을 때, 그는 전 세계 생중계로 후보가 호명되는 동안 잠든 척을 했다. 두고두고 회자되는 장면이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d5653a5e744ecf6deae4f3b80500518ec1fc1c2313ec26af3139b06f74b274c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "taika-waititi#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2011년 혹평 세례를 받은 슈퍼히어로 영화 《그린 랜턴》에서 토머스 칼마쿠를 연기했다. 이 경험을 두고 그는 공공연히 비웃었고, 완전히 잊어버렸다는 농담을 자주 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bdee836d3956a2012b2fc8431360e76f3f205a25e7e0cdddcb23e89c9501f9f6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "taika-waititi#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2016년 디즈니 애니메이션 히트작 《모아나》의 최초 각본을 쓴 사람이 그다. 다만 젠더 역학과 가족 구조에 지나치게 무게가 실린 초고였고, 디즈니는 그 대부분을 버리고 전형적인 모험담을 택했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f8a9e4e90214de5ea8509dc6e48b4b5bb01bf009b267de5ff4423bf19a0670db"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "taika-waititi#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "호주에서 《토르: 라그나로크》를 찍는 동안 그는 여러 부서에 호주 원주민을 고용하자고 고집했다. 촬영장에는 애버리지니 영화인을 위한 별도 교육 프로그램도 만들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ff95997f1821834a3bcdeb537f451aaec863687cf5da052c7123890ca40d0366"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "taika-waititi#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오스카를 안긴 《조조 래빗》(2019)의 출발점은 어머니였다. 크리스틴 뢰넨스의 어두운 소설 《Caging Skies》를 꼭 읽어 보라고 강하게 권한 사람이 그였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5a925010057c3e67c454c993b6da0839f23f767476e85dfd878f8e9ac0aaf301"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "taika-waititi#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《조조 래빗》의 아돌프 히틀러 역을 쓸 때 그는 자신이 연기할 생각이 전혀 없었다. 결국 맡은 이유는 단순하다. 폭스 서치라이트가 그가 그 독재자를 연기해야만 제작비를 대겠다고 했기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "57348770d59bf2d13a5459f854e226f39fe2ecdedda9a7fdc496a81e67da404d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "taika-waititi#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "훗날 그는 총통을 연기한 일이야말로 나치 지도자에게 던질 수 있는 최대의 모욕이라고 말했다. 자신이 \"폴리네시아 유대인\"이기 때문이라는 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a0cfa93081069cf8627fdd2d198a7f7c2956a35972aa823be69a8a042a88b0c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "taika-waititi#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《만달로리안》 시즌 1(2019)에서 현상금 사냥꾼 드로이드 IG-11의 목소리를 맡고 시즌 최종화를 연출했다. 그 목소리 연기로 프라임타임 에미상 후보에 올랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c04c033406d0145a5d65e48731133fa32f7c851cfff77f7b0830805cf0c9d960"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "taika-waititi#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2020년 《조조 래빗》으로 각색상을 받으면서, 와이티티는 아카데미 각본 부문에서 수상한 최초의 마오리 혈통 인물이 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8541923e0c600523c140b7b248e568e85fcc5f0961fb73e77628c9b0adbae4c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "taika-waititi#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오스카를 받은 ��후, 배우 브리 라슨의 카메라에 그가 돌비 극장 앞자리 밑으로 황금 트로피를 슬쩍 숨겨 두는 장면이 잡혔다. 영상은 곧장 퍼졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "530b50888f8925fe5c74a60511f24ee78c54d6b51fe37a85f462051792669e50"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "taika-waititi#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2020년 아카데미 시상식에서 그는 식장 사상 최초로 원주민 토지 인정 선언을 했다. 통바족, 타타비암족, 추마시족의 이름을 공식으로 불렀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1bb4cfc65047e0e5b7f0552ac86d1b08922d96eab377bcaa404f1d2cc94a54ab"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "taika-waititi#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2020년 여왕 탄생일 서훈에서 영화에 기여한 공로로 뉴질랜드 공로훈장 오피서(ONZM)에 임명됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc48de1c73ea5735e49b8bbd87e7c225438a9d986644bc58ac7d8e876367b766"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "taika-waititi#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2022년 영국 팝스타 리타 오라와 결혼했다. 로스앤젤레스에서 치른 비밀스럽고 즉흥적인 식이었고, 오라가 청혼한 뒤 준비 기간은 단 2주였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b8b35c0dff9501b8c3dbde84fefdadc838e8fd9729657d628679b38d26e7d96"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "taika-waititi#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《토르: 러브 앤 썬더》(2022)에는 두 딸 테 히네카후와 마테와 키리타푸를 납치된 아스가르드 아이들로 출연시켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "94ffc84ad19a421d21d621898c41de2218c9cee55a776a56b2fbfb50184dbe46"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "taika-waititi#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2022년 그가 타임 100인에 선정됐을 때 헌사를 쓴 사람은 코미디언 사샤 배런 코언이었다. 그를 \"영화계의 피카소\"라 불렀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ddbc7d5c25cd62766cbc35d8901ebbcad15a9be096ac28ccd51993146b583aa9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "takeshi-kitano#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "도쿄 아다치구의 노동계급 동네에서 태어났다. 아버지 기쿠지로는 술에 취해 폭력을 휘두르던 페인트공이자 전직 야쿠자였다. 기타노는 훗날 1999년 칸 초청작의 주인공에게 그 이름을 붙인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7807e446a2c109795f881a60d0f4813acea56c1c493a4940ad20aeb6e074294c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "takeshi-kitano#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "메이지대학 공학부를 중퇴하고 아사쿠사 유흥가의 스트립 클럽 프랑스자에서 엘리베이터 보이로 일했다. 전설적인 코미디언 후카미 센자부로 밑에서 배운 것이 거기서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "169d4d51199130d09fff8b04840d0073a06672fb5f6dea99e704ed92f7c7c673"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "takeshi-kitano#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "클럽에서 일하던 시절 후카미는 그에게 탭댄스를 가르쳤다. 그 리듬 감각을 수십 년간 놓지 않았고, 2003년 사무라이 영화 《자토이치》에서 마침내 화려한 클라이맥스로 써먹는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb50427d032ef961b36358731026b24748b0822a6ed17157c1cf6f0321a82fdf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "takeshi-kitano#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1970년대에 가네코 기요시와 만자이 콤비 '투 비트'를 결성하고 '비트 다케시'라는 예명을 얻었다. 노인, 가난한 사람, 장애인을 조롱하는 속사포 개그로 논란을 몰고 다니면서도 일본 TV를 장악했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5486e69f47a2f529708ea7f260c16fd565c69eed224cdc5436f1f8550a34512d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "takeshi-kitano#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1986년 12월, 《프라이데이》 파파라치가 여자친구를 거칠게 덮치자 기타노는 격분했다. 자기 코미디 사단 '다케시 군단' 열한 명을 이끌고 잡지사 도쿄 사무실로 쳐들어가 난동을 부렸다. 결과는 체포와 집행유예였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "44db510430587cec86b3dc21242a523398f61ad104be9d0d18b232018236494f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "takeshi-kitano#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1986년에는 악명 높도록 가학적인 패미컴 게임 《다케시의 도전장》을 직접 설계했다. 게임이 플레이어를 대놓고 조롱했고, 컨트롤러 마이크에 노래를 부르라거나 한 시간 동안 본체를 건드리지 말라는 황당한 요구를 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "30622f0da98d866df70e56867c25476ca7f6b83dd368c17e4d4b33c7b1ca8ae2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "takeshi-kitano#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "감독 데뷔작 《그 남자, 흉포하다》(1989)는 우연의 산물이었다. 원래 연출자였던 후카사쿠 긴지가 일정 문제로 빠지자, 제작사는 간판 코미디언에게 각본을 다시 쓴다는 조건으로 메가폰을 넘겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "266d7330b454e1798cfc18b5faf12d5281f4189c88d3bd30ffdb17c078fece38"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "takeshi-kitano#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1994년 8월 도쿄에서 음주 상태로 스쿠터를 몰다 거의 목숨을 잃을 뻔했다. 대대적인 재건 수술을 받았고 오른쪽 얼굴은 영구 마비로 남았다. 그의 상징이 된 얼굴 경련이 여기서 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f0216c0efb0a0f974484b48458a52f9ce40072d8c737a27799e77b87d5023d73"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "takeshi-kitano#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "사고 후 긴 재활 기간에 그는 그림을 그리기 시작했다. 동물과 꽃을 담은 강렬한 초현실주의 화폭이었다. 그 그림들은 곧 황금사자상을 받은 걸작 《하나비》의 핵심 이미지가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6ceb5c777ee9104be75a62e2dd8a602f0cd179baacdd65535c4f1ad4c5ee410d"
+ }
+]

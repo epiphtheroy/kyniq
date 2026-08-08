@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "simone-weil-s-attention-as-affliction",
+  "field": "title",
+  "lang": "ko",
+  "text": "고통이 되어버린 주의(attention), 시몬 베유",
+  "model": "claude-opus-5",
+  "source_sha256": "11406890debe16cd59dbe9fc35e8ea0fc228601494317f51d4430436874f0fd7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sin-as-the-only-road-to-grace",
+  "field": "title",
+  "lang": "ko",
+  "text": "죄를 거치지 않고는 은총에 닿지 못한다",
+  "model": "claude-opus-5",
+  "source_sha256": "2627823606668328dcbff1bf481fddae2f3512b32cc7179790bbab4ba8695af0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sincerity-misread-through-the-irony-economy",
+  "field": "title",
+  "lang": "ko",
+  "text": "아이러니의 회로가 진심을 오독할 때",
+  "model": "claude-opus-5",
+  "source_sha256": "9bebb46437bbd7e1fb1c562b4830e6573e3c312366c23f92a2b71956ebed1d52"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sisyphus-without-a-summit",
+  "field": "title",
+  "lang": "ko",
+  "text": "정상이 없는 시시포스",
+  "model": "claude-opus-5",
+  "source_sha256": "c986d3e4af6dfcea6c4772cbfd522bf38343c9b3cd45d4b03f5e94254a662eae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sketch-logic-smuggled-into-dread",
+  "field": "title",
+  "lang": "ko",
+  "text": "공포에 몰래 심어둔 콩트의 논리",
+  "model": "claude-opus-5",
+  "source_sha256": "93c25bfb05f3d8785bc6ded3d89c646147d39b6d744498bd1accd88371d2435a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "skin-as-apocalyptic-surface",
+  "field": "title",
+  "lang": "ko",
+  "text": "묵시록이 펼쳐지는 표면, 피부",
+  "model": "claude-opus-5",
+  "source_sha256": "e32858a6524e97fcb5c286abfe76f133f440414433f50299292deb8bf6cf8f36"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "slaughter-staged-as-beautiful-spectacle",
+  "field": "title",
+  "lang": "ko",
+  "text": "학살을 아름다운 볼거리로 연출하기",
+  "model": "claude-opus-5",
+  "source_sha256": "1da9aeb7ff6b481513c8dfe97f8a5d3bc065bb1d4932b0294c1216f36268329f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "slavery-as-the-hidden-logic-of-commodity",
+  "field": "title",
+  "lang": "ko",
+  "text": "상품을 굴리는 감춰진 논리, 노예제",
+  "model": "claude-opus-5",
+  "source_sha256": "86a12fb2a81a00a1b65bac291ebee7107c357d5b7fcbb588a39d331f88fcb66f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "slow-motion-as-the-aestheticizing-of-death",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽음을 아름답게 만드는 슬로모션",
+  "model": "claude-opus-5",
+  "source_sha256": "22933ebbffd70073a7327dc22cac9d612db78b4209a23d02635326c9bebc406a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "slowness-as-excision-not-decoration",
+  "field": "title",
+  "lang": "ko",
+  "text": "느림은 장식이 아니라 도려냄이다",
+  "model": "claude-opus-5",
+  "source_sha256": "dc3f4e1b2fc3af4b5eada935acd43c35d7d0c7f7e9a24b6d5acaf20dded5486d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "slowness-as-festival-alibi",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화제용 알리바이가 된 느림",
+  "model": "claude-opus-5",
+  "source_sha256": "d10aa32697134e279545e25fa401c0c9ffd9501ea8cce082e589a6b904a714dd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "smallness-as-moral-spiritual-geography",
+  "field": "title",
+  "lang": "ko",
+  "text": "작음이 그리는 도덕과 영혼의 지형",
+  "model": "claude-opus-5",
+  "source_sha256": "22fa485b2c2072af450840d4a9de36c06aced6a31979076f5d2dbd4598c37e8a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "smashing-property-to-free-the-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "자아를 놓아주려 세간을 부순다",
+  "model": "claude-opus-5",
+  "source_sha256": "ed185a361153d967404aa409c8489dfd5a2f718d80bdd9142ee90987bcafab3c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "smut-demanded-indictment-delivered",
+  "field": "title",
+  "lang": "ko",
+  "text": "음란물을 주문받고 고발장을 내밀다",
+  "model": "claude-opus-5",
+  "source_sha256": "88895306b3c03836a6e798837ba0e1437a9405fa650a17d6753d05a16c21265a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "soderbergh-as-his-own-crew",
+  "field": "title",
+  "lang": "ko",
+  "text": "소더버그, 혼자서 스태프 전부",
+  "model": "claude-opus-5",
+  "source_sha256": "612fdb99062f8e40ff56199ed370996e55097bf267a9ccaa3a2d729749fc9db4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "solidarity-as-scarcity-s-unaffordable-counter-logic",
+  "field": "title",
+  "lang": "ko",
+  "text": "결핍이 감당할 수 없는 반대 논리, 연대",
+  "model": "claude-opus-5",
+  "source_sha256": "c3d5441f600c9de402d3d0c3735b3c095b967c0ebdbb529f9a2dc913bc205f08"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sound-as-audible-politics-of-the-land",
+  "field": "title",
+  "lang": "ko",
+  "text": "땅의 정치가 소리로 들릴 때",
+  "model": "claude-opus-5",
+  "source_sha256": "e08be80b3fd1fbce71bd19d6289f6dfb8f75fd55d1a084fba0d9a17f3325d28c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sound-as-the-eye-that-cannot-see",
+  "field": "title",
+  "lang": "ko",
+  "text": "보지 못하는 눈이 된 소리",
+  "model": "claude-opus-5",
+  "source_sha256": "6274d6fb984266460c5339463110c6edc63e095b83221a6b20408658b8c6ba69"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sound-as-the-story-s-hidden-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "이야기가 감춘 상처, 소리",
+  "model": "claude-opus-5",
+  "source_sha256": "1714a05b829a6618a5b04d559314a32584b16e6845addce513c056e6eaa3ad50"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sound-design-as-the-secret-author",
+  "field": "title",
+  "lang": "ko",
+  "text": "진짜 작가는 사운드 디자인이었다",
+  "model": "claude-opus-5",
+  "source_sha256": "a87073b052c70ee932550e664b8f62c1b55e2b405a9d817caff0b9c3ebf37da5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sovereignty-as-the-processing-of-bodies",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸을 처리하는 일로서의 주권",
+  "model": "claude-opus-5",
+  "source_sha256": "5bed041671d4baea512ca47b1e11c71eeaa4c54715b838f33260e3295e912d0c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sovereignty-decides-who-lives-as-bare-life",
+  "field": "title",
+  "lang": "ko",
+  "text": "누가 벌거벗은 생명으로 살지는 주권이 정한다",
+  "model": "claude-opus-5",
+  "source_sha256": "e679b2a93997588f2d74d364c925a56bdfd5c433984ecbd94a924cae2353adea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sovereignty-is-the-power-to-decide-the-exception",
+  "field": "title",
+  "lang": "ko",
+  "text": "주권이란 예외를 결정하는 힘이다",
+  "model": "claude-opus-5",
+  "source_sha256": "2eaffab541b88e8a7da6c63eb02a6f8f2e624d7c3b47dc3c99f0f1d29f3e8b36"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sovereignty-that-punishes-the-future",
+  "field": "title",
+  "lang": "ko",
+  "text": "미래를 처벌하는 주권",
+  "model": "claude-opus-5",
+  "source_sha256": "ee975bbdc0e156717d13603b01a05c2a8acb60bbfa28fd6e745399960783e509"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sovereignty-withdrawn-into-private-hands",
+  "field": "title",
+  "lang": "ko",
+  "text": "사인(私人)의 손으로 넘어간 주권",
+  "model": "claude-opus-5",
+  "source_sha256": "2af98a8e28219458c693af02134aa196edf11a015296d7d9a7335ed20c8ec51f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "spain-s-unspoken-wound-bracketed-by-two-births",
+  "field": "title",
+  "lang": "ko",
+  "text": "두 번의 탄생 사이, 말해지지 않은 스페인의 상처",
+  "model": "claude-opus-5",
+  "source_sha256": "d9122b96689ca6068b22e31885b4be4a34bbbe48aab23c3f1943d429c48380ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "spectacle-engineered-against-industry-marginalization",
+  "field": "title",
+  "lang": "ko",
+  "text": "업계 변두리로 밀려나지 않으려 설계한 볼거리",
+  "model": "claude-opus-5",
+  "source_sha256": "a567147d45b7169bb0ad965d8ce024c81011c6db40d18ed606ef7ef895a14ae4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "spectatorship-mistaken-for-citizenship",
+  "field": "title",
+  "lang": "ko",
+  "text": "관람을 시민권으로 착각하다",
+  "model": "claude-opus-5",
+  "source_sha256": "df6d28800c99996e23a17875872797593f09b01520c039a107d755d52cb16d50"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "speech-aimed-at-the-unanswering",
+  "field": "title",
+  "lang": "ko",
+  "text": "대답하지 않는 것을 향한 말",
+  "model": "claude-opus-5",
+  "source_sha256": "739b9b84c5f9faa3b496d079d7d847f43369667b0f27471900af346cfa6e0d5f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "speech-as-instrument-of-power-and-death",
+  "field": "title",
+  "lang": "ko",
+  "text": "권력과 죽음을 부리는 도구, 말",
+  "model": "claude-opus-5",
+  "source_sha256": "657b1fcc77a06a91a35a3cdf62dd42f6f3aa02c76252b410a02069a2259ca26a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "spielberg-atones-for-his-own-spectacle",
+  "field": "title",
+  "lang": "ko",
+  "text": "스필버그가 제 볼거리를 속죄하다",
+  "model": "claude-opus-5",
+  "source_sha256": "2c082dd5a062105c4e3b07c644b5601491eb8984643fcbeb4344babf29050ce1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "splatter-as-eruptive-punchline",
+  "field": "title",
+  "lang": "ko",
+  "text": "터져 나오는 펀치라인, 스플래터",
+  "model": "claude-opus-5",
+  "source_sha256": "929f9dc7f437d526bccd7a50e6cef1727073536a2f859ba931c656fb40d06209"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "splicing-memory-against-the-state-s-history",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가의 역사에 맞서 기억을 잇는다",
+  "model": "claude-opus-5",
+  "source_sha256": "185eaccc9598c00d6efc57b476e1e46d2061424c27435103983b08c7652376be"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "stardom-demands-a-human-sacrifice",
+  "field": "title",
+  "lang": "ko",
+  "text": "스타덤은 산 사람을 제물로 받는다",
+  "model": "claude-opus-5",
+  "source_sha256": "54c15050c4b73527cb42218b50cb3d36423b0607a1754775fb15a30717ae22ec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "statecraft-as-aesthetics-death-as-bureaucracy",
+  "field": "title",
+  "lang": "ko",
+  "text": "통치는 미학으로, 죽음은 행정으로",
+  "model": "claude-opus-5",
+  "source_sha256": "acfb411d707f426f69e83d031945c4331c4d889405a572162e516328d00cbaf5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "stillness-as-refusal-of-spectacle",
+  "field": "title",
+  "lang": "ko",
+  "text": "볼거리를 거절하는 방식으로서의 정적",
+  "model": "claude-opus-5",
+  "source_sha256": "75c7f803f41cfb3fa7ac7460d0e928085f49a9f67fa29e5e115c18adb66abfd7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "stillness-as-stateless-sovereignty",
+  "field": "title",
+  "lang": "ko",
+  "text": "나라 없는 자의 주권, 정지",
+  "model": "claude-opus-5",
+  "source_sha256": "eb5ab42f121f8df0e2ea20d30249a547fd6a3b4062a439e49edac57ff1e65375"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "stillness-as-the-camera-s-withheld-gesture",
+  "field": "title",
+  "lang": "ko",
+  "text": "카메라가 삼킨 몸짓, 정지",
+  "model": "claude-opus-5",
+  "source_sha256": "c685a66a2574e1c3e798bb6c6f11c1ee21d394db6747a9a6c18458939264625f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "stillness-engineered-by-subtraction",
+  "field": "title",
+  "lang": "ko",
+  "text": "덜어내서 만든 고요",
+  "model": "claude-opus-5",
+  "source_sha256": "c3d82a133876ca1467774274d825faeec74f763eeeea5efb68ccefd65af1dbab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "strange-named-not-feared",
+  "field": "title",
+  "lang": "ko",
+  "text": "'낯선 것'에 이름만 붙일 뿐, 두려워하지 않는다",
+  "model": "claude-opus-5",
+  "source_sha256": "e7e1d21b587115a37b1eee254faadb177654d393de9bda6737a88b6d7a068a97"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "subjectivity-built-by-subtracting-sound",
+  "field": "title",
+  "lang": "ko",
+  "text": "소리를 빼면서 세운 주체",
+  "model": "claude-opus-5",
+  "source_sha256": "44c43cdb9412b662c1616f0bc905ac25eb9dd41b2ede314f67044576e9fa0a69"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "suffering-that-refuses-comparison",
+  "field": "title",
+  "lang": "ko",
+  "text": "견주기를 거부하는 고통",
+  "model": "claude-opus-5",
+  "source_sha256": "d4787c4b006d3fb3bb387e7992cd99f16d0c70f49b1ee0fb14e9068c571ba5b6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "suicide-as-the-last-free-act",
+  "field": "title",
+  "lang": "ko",
+  "text": "마지막 남은 자유로서의 자살",
+  "model": "claude-opus-5",
+  "source_sha256": "a9faec93257c1ebb2a3c156a18900d7bd981bf4e0e567dc13895de3dfa14caa1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sun-ra-s-cosmos-as-black-refusal",
+  "field": "title",
+  "lang": "ko",
+  "text": "선 라의 우주, 흑인의 거부",
+  "model": "claude-opus-5",
+  "source_sha256": "3c48aaf0330bca8f4fbc3d55f9d37c03a8b098fccfb668894fe9addef3df32f9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "surveillance-as-the-sin-of-wanting-to-see",
+  "field": "title",
+  "lang": "ko",
+  "text": "보고 싶다는 죄, 감시",
+  "model": "claude-opus-5",
+  "source_sha256": "f4974867fdcadee119032b9b1cbd5e5058d04113b88718554665c616992303dd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "surveillance-as-the-state-s-tender-embrace",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가가 다정하게 껴안는 방식, 감시",
+  "model": "claude-opus-5",
+  "source_sha256": "853346edd53622cf7e85273a7b56c0e30a2e8aaa86bef23f5841ce4a71eccaa1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "surveillance-mistaken-for-intimacy",
+  "field": "title",
+  "lang": "ko",
+  "text": "감시를 친밀함으로 착각하다",
+  "model": "claude-opus-5",
+  "source_sha256": "f69e43fa1d89b173d1f5e17296004ba8ca31a3c6fadeb9a8ffdab64591cd8fc0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "survival-as-accident-never-as-merit",
+  "field": "title",
+  "lang": "ko",
+  "text": "살아남음은 우연이지 자격이 아니다",
+  "model": "claude-opus-5",
+  "source_sha256": "00b9f15ed9ebcfddac9e422ed8a0646daafea762d3d26f626e4e1509ef251469"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "survival-bought-by-passing-the-curse-on",
+  "field": "title",
+  "lang": "ko",
+  "text": "저주를 떠넘기고 산 목숨",
+  "model": "claude-opus-5",
+  "source_sha256": "4df43e47d53b8fb7a3865fa68b9b9874fb22c4fe5cc11136c0bbabb66fba7889"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "survival-itself-as-the-moral-act",
+  "field": "title",
+  "lang": "ko",
+  "text": "살아남는 일 자체가 윤리다",
+  "model": "claude-opus-5",
+  "source_sha256": "89f8129bb32e99b7e422b70804bc1d06eefee1baad9a8e9deb6d88ba02396e38"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "survival-reduced-to-the-grain-of-rice",
+  "field": "title",
+  "lang": "ko",
+  "text": "쌀 한 톨로 줄어든 생존",
+  "model": "claude-opus-5",
+  "source_sha256": "f17b219e0cf0aa36766a782a2e361498b681b82ba321f07bf5b02c78b07a0256"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "suspense-bred-from-manners-not-mystery",
+  "field": "title",
+  "lang": "ko",
+  "text": "서스펜스는 수수께끼가 아니라 예법에서 자란다",
+  "model": "claude-opus-5",
+  "source_sha256": "6c708f13e6a481f1fab444f999f9998331c7189da0b3dd4a1c4742ae4c2c7ffe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "suspense-cut-into-being-not-shown",
+  "field": "title",
+  "lang": "ko",
+  "text": "서스펜스는 보여주는 게 아니라 잘라서 만든다",
+  "model": "claude-opus-5",
+  "source_sha256": "269bd0d3036ddf48c58ed20ee6875b12b089dc59649b56df180536db1ac3d01f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "suspense-earned-by-real-bodily-risk",
+  "field": "title",
+  "lang": "ko",
+  "text": "실제로 몸을 걸어 얻어낸 서스펜스",
+  "model": "claude-opus-5",
+  "source_sha256": "ba80f770088193ec31ee0260e44fbb43ecdbc4943f3476847083ef3c57a38bec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "suspense-engineered-by-who-knows-what",
+  "field": "title",
+  "lang": "ko",
+  "text": "누가 무엇을 아는가로 짜낸 서스펜스",
+  "model": "claude-opus-5",
+  "source_sha256": "20642cc51ee0982eb165951731628aafccd91fb0a465ed85960fe6411334ee41"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "symmetry-as-the-architecture-of-power",
+  "field": "title",
+  "lang": "ko",
+  "text": "권력이 지어 올린 건축, 대칭",
+  "model": "claude-opus-5",
+  "source_sha256": "219bb08205f65378deb9e671a479bd432c484a634607251af7fb5d77625490e6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "taipei-filmed-in-the-rubble-of-its-own-erasure",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 소멸의 잔해 위에서 찍힌 타이베이",
+  "model": "claude-opus-5",
+  "source_sha256": "20ae373cd254d7686e7046586ee29d51436e66270a4f4921a21af511297236b3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "talk-engineered-as-anti-spectacle-doctrine",
+  "field": "title",
+  "lang": "ko",
+  "text": "반(反)스펙터클 강령이 된 수다",
+  "model": "claude-opus-5",
+  "source_sha256": "13f14150b6ff2bc16e3e20bef3f75c8d4e36ad300ebaf7bd5cd021ff0a350ffe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "tanizaki-s-shadows-against-the-neon-city",
+  "field": "title",
+  "lang": "ko",
+  "text": "네온 도시에 맞선 다니자키의 그늘",
+  "model": "claude-opus-5",
+  "source_sha256": "7e19b4eafc6170cab7adf3cd33866d0f34421a4617c7df608ea2119870c14b42"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "technical-flaw-as-spiritual-signature",
+  "field": "title",
+  "lang": "ko",
+  "text": "기술적 결함이 남긴 영성의 서명",
+  "model": "claude-opus-5",
+  "source_sha256": "827971f71a0d398ce81a2822b1506fb27d0f729dc21c06dd0c9633611a4053f1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "technicolor-as-the-era-s-beautiful-lie",
+  "field": "title",
+  "lang": "ko",
+  "text": "시대가 꾸며낸 아름다운 거짓말, 테크니컬러",
+  "model": "claude-opus-5",
+  "source_sha256": "e4951cbdf0c30c618397586e2cd85d89c2bbf6bb9fe53c86cfaaecdccef9ba53"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "tedium-sculpted-into-the-form",
+  "field": "title",
+  "lang": "ko",
+  "text": "지루함을 깎아 형식으로 만들다",
+  "model": "claude-opus-5",
+  "source_sha256": "3f69a49959bff8c388ce29c3aef327b6d499f5d7e31ce63d3b14c3f6bd304785"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "tenderness-and-violence-share-one-hand",
+  "field": "title",
+  "lang": "ko",
+  "text": "다정과 폭력이 한 손에서 나온다",
+  "model": "claude-opus-5",
+  "source_sha256": "b642d0ec2d3244474effcdefb9020acc477f3c33cc50682932598ae05fad57ed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "tenderness-as-the-delivery-system-of-death",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽음을 실어 나르는 다정",
+  "model": "claude-opus-5",
+  "source_sha256": "43ab5f15a1bb6c936d1f0cbf058c3ad8f6c2ff2be641ce10d9e902b054b50b19"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "tenderness-authentic-only-as-performance",
+  "field": "title",
+  "lang": "ko",
+  "text": "연기일 때만 진짜인 다정",
+  "model": "claude-opus-5",
+  "source_sha256": "515bf053d6c480f7db88072a5d5c56f8733f44a42649963c2b0054a600bbd3a7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "tenderness-that-disguises-an-unequal-power",
+  "field": "title",
+  "lang": "ko",
+  "text": "기울어진 권력을 감추는 다정",
+  "model": "claude-opus-5",
+  "source_sha256": "decfeea6e9a00c8beb8d04e25271d089130665842474b8c997911b1ed36298c0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "terror-built-from-what-is-withheld",
+  "field": "title",
+  "lang": "ko",
+  "text": "보여주지 않은 것으로 지은 공포",
+  "model": "claude-opus-5",
+  "source_sha256": "7563d818e53ba7dcb3da63665758009714972fbcf54d8f4894a88d86ef72ab33"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "terror-wrought-by-hand-not-computer",
+  "field": "title",
+  "lang": "ko",
+  "text": "컴퓨터가 아니라 손으로 빚은 공포",
+  "model": "claude-opus-5",
+  "source_sha256": "2bcd46a30d63d7ef427aae32347c609888acf48fb12bd283572983384c8d76a3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "texas-as-linklater-s-only-possible-soundstage",
+  "field": "title",
+  "lang": "ko",
+  "text": "링클레이터에게 세트장은 텍사스뿐이었다",
+  "model": "claude-opus-5",
+  "source_sha256": "7b51b575da1fa614a32db9fa68c3c3566a4b46fd9e60eb4e027c49273c93c741"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-3-11-disaster-as-hidden-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "말하지 않은 채 말하는 주제, 3.11",
+  "model": "claude-opus-5",
+  "source_sha256": "cfa68133fa04f5405ced06be7152b2a361a6ef3b7f83eb8578c1731d0f194f3e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-a24-house-style-as-brand",
+  "field": "title",
+  "lang": "ko",
+  "text": "브랜드가 되어버린 A24의 하우스 스타일",
+  "model": "claude-opus-5",
+  "source_sha256": "69125b11d26e0a9b1dc43094cda491fb1133a9c4d9f277255506120a3cc2f759"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-abattoir-as-disavowed-engine-of-comfort",
+  "field": "title",
+  "lang": "ko",
+  "text": "안락을 돌리는 엔진, 아무도 인정하지 않는 도살장",
+  "model": "claude-opus-5",
+  "source_sha256": "9725aa7b2e1447c92ccf5b4a2bdd992850f6a8c08bda9e36b1822fea2ea43f0d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-abject-body-of-motherhood",
+  "field": "title",
+  "lang": "ko",
+  "text": "모성의 비체(abject)가 된 몸",
+  "model": "claude-opus-5",
+  "source_sha256": "b23823fbcfa12ff8931e189e26a7c57d8657e363d950bfc8419e9452db602b71"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-abject-made-sacrament-the-eaten-remainder",
+  "field": "title",
+  "lang": "ko",
+  "text": "성찬이 된 비체, 먹어치운 찌꺼기",
+  "model": "claude-opus-5",
+  "source_sha256": "85a02be93c9df6cbf460a0af49c8002d334ee2af8974f79a140bda4672ff8c72"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-abortion-choice-filmed-as-verdict",
+  "field": "title",
+  "lang": "ko",
+  "text": "판결처럼 찍힌 낙태의 선택",
+  "model": "claude-opus-5",
+  "source_sha256": "8c57d72b5e307ea37da5dccfe86970ad1d7ef58f907ec3fb25a718c6c9cb2462"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-abortion-smuggled-into-the-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "프레임 안으로 몰래 들여온 낙태",
+  "model": "claude-opus-5",
+  "source_sha256": "365224e3fd0218f03c6164eacc3468b85c1c6b1807e035cc02e5b08b043804b5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-absence-that-founds-the-whole",
+  "field": "title",
+  "lang": "ko",
+  "text": "전체를 떠받치는 부재",
+  "model": "claude-opus-5",
+  "source_sha256": "e3e4f4ae1f92d68736e93603e3a848052bc96b00c2d98223ee2d18bf276e4e78"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-absent-father-as-structuring-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "없는 아버지, 구조를 만드는 상처",
+  "model": "claude-opus-5",
+  "source_sha256": "4af98ca7fd7e9ab493c0539878dbd33233fcb9917f111209d7cc09b8402df443"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-absent-mother-conjured-back-by-will",
+  "field": "title",
+  "lang": "ko",
+  "text": "의지로 불러낸 없는 어머니",
+  "model": "claude-opus-5",
+  "source_sha256": "60534a116ce3b4861d7d388ce07473e0e266ae03b86582cce107b8ae52eb7f05"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-absent-one-who-rules-everything",
+  "field": "title",
+  "lang": "ko",
+  "text": "자리에 없으면서 전부를 지배하는 자",
+  "model": "claude-opus-5",
+  "source_sha256": "e27944123aa6aa1c17fd757fefa94a29c2fff58e55a0c29133d633d475126283"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-absent-score-speaks-louder-than-music",
+  "field": "title",
+  "lang": "ko",
+  "text": "없는 음악이 음악보다 크게 말한다",
+  "model": "claude-opus-5",
+  "source_sha256": "2d43cd26530b5437aa03f25639d4ad6b5bde1930a73c2d5b4d2ad88adbb0ffb4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-accident-that-was-always-intended",
+  "field": "title",
+  "lang": "ko",
+  "text": "처음부터 예정돼 있던 사고",
+  "model": "claude-opus-5",
+  "source_sha256": "c1f0dd92a6dd451647c479719e2de45505a932e6011a4486ea798db807fcb57a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-acclaim-as-the-symptom-it-indicts",
+  "field": "title",
+  "lang": "ko",
+  "text": "찬사 자체가 그 영화가 고발한 증상이다",
+  "model": "claude-opus-5",
+  "source_sha256": "8ceaaeec68230b75dba62ba11def937459efd24537b2859a2e82db4efee52f90"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-acclaim-that-grants-permission-to-enjoy-bond",
+  "field": "title",
+  "lang": "ko",
+  "text": "본드를 즐겨도 좋다는 허가증, 호평",
+  "model": "claude-opus-5",
+  "source_sha256": "8d0fc9466e647ea6c64563771acafa891939c6233aa6d0310f0a71645e2ad232"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-acclaim-that-tamed-the-margin",
+  "field": "title",
+  "lang": "ko",
+  "text": "변두리를 길들인 찬사",
+  "model": "claude-opus-5",
+  "source_sha256": "09bb51365e5833cd6abd4921e8d924965862c58965e646d8e2c95429329cfb6f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-accusation-as-the-return-of-the-repressed",
+  "field": "title",
+  "lang": "ko",
+  "text": "억압된 것이 고발의 얼굴로 돌아오다",
+  "model": "claude-opus-5",
+  "source_sha256": "f3ab9b5023469b7c79f0ee623c2628584b727879829d1f2d5546801f43bd4b40"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-accusation-that-indicts-its-accuser",
+  "field": "title",
+  "lang": "ko",
+  "text": "고발한 자를 되받아 고발하는 고발",
+  "model": "claude-opus-5",
+  "source_sha256": "5ddc8be9d8a837f9b3831a842690cc29ada4f937bc23bae5140d074e9f5880d7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-accused-who-becomes-the-accusation",
+  "field": "title",
+  "lang": "ko",
+  "text": "고발 그 자체가 되어버린 피고",
+  "model": "claude-opus-5",
+  "source_sha256": "49a66bfc719cd8bc53101bbdf31443ddb2e0decec0baa504fbbe60d029cdcef4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-acquirer-who-mistook-owning-for-living",
+  "field": "title",
+  "lang": "ko",
+  "text": "가지는 것을 사는 것으로 착각한 남자",
+  "model": "claude-opus-5",
+  "source_sha256": "69576089b0fb0d83fc343700632a98d88fa940c22e5b9f30249c435f50ae50a8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-acquittal-that-settles-nothing",
+  "field": "title",
+  "lang": "ko",
+  "text": "아무것도 끝내지 못한 무죄 판결",
+  "model": "claude-opus-5",
+  "source_sha256": "1943d8c7db8fe5995c158a05b73544f05d237c3e0eb9da51c6ae552438fb6bd7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-action-spectacle-as-anti-triumphalist-elegy",
+  "field": "title",
+  "lang": "ko",
+  "text": "승리를 노래하지 않는 비가(悲歌), 액션 스펙터클",
+  "model": "claude-opus-5",
+  "source_sha256": "a1f46f697ae6517bafaff1a72c84ad5357f95666d62a21d82ff632057139f6bb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-actor-exiled-inside-his-own-role",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 배역 안으로 유배된 배우",
+  "model": "claude-opus-5",
+  "source_sha256": "bf80280989d92fda5e94d8c86f0fff99aaff676da85efd604a04f1bd1f7ce0e2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-actor-s-distrust-of-his-own-face",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 얼굴을 믿지 못하는 배우",
+  "model": "claude-opus-5",
+  "source_sha256": "474d57e3f38ad93e1bfcbce91f5a5e7daf5a3574566983c913320d7281c86fe2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-actors-who-co-wrote-their-own-speech",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 대사를 함께 쓴 배우들",
+  "model": "claude-opus-5",
+  "source_sha256": "99e434841f7a2c93a4a7d5c41ccec02ad289f44de860553db6a16ab15b498b40"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-actress-cast-as-her-own-mother",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 어머니 역을 맡은 배우",
+  "model": "claude-opus-5",
+  "source_sha256": "dbeede6bfc11b1e05a85e20b604a00fd016e6d4dae8eab8b831f61d197955b2f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-actress-whose-self-is-her-last-role",
+  "field": "title",
+  "lang": "ko",
+  "text": "자기 자신이 마지막 배역인 배우",
+  "model": "claude-opus-5",
+  "source_sha256": "beecf912bb9fac03f40fc9a52ebcdf2691d76fe8a942ceb86255ae9bdc5ea4d0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-adaptation-that-confesses-its-own-limit",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 한계를 스스로 털어놓는 각색",
+  "model": "claude-opus-5",
+  "source_sha256": "a9f48163f4ef4796a105d03294121cbfb3286ea3629c5244fe5a0760f6d89d6b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-addict-as-the-author-s-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "작가의 고백을 대신 사는 중독자",
+  "model": "claude-opus-5",
+  "source_sha256": "538f40bc07b0b33bc59d6b229023fd951b5dad383112f0a1eb6fb83ee162c823"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-adjective-that-sentences-the-child",
+  "field": "title",
+  "lang": "ko",
+  "text": "아이에게 형을 선고한 형용사 하나",
+  "model": "claude-opus-5",
+  "source_sha256": "9e93c4d1d39dd25af8f7b1b7dcf4b974ae0c2cdd1bbde55bb31d506a179e3322"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-adman-s-craft-turned-against-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "광고쟁이의 솜씨가 제 목을 겨눈다",
+  "model": "claude-opus-5",
+  "source_sha256": "9e461959b7476bce4a752f1187ff239f5d0c390427e3316c9547f41109b7d4d1"
+ }
+]

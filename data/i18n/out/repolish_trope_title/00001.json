@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "black-and-white-born-of-accident-not-intent",
+  "field": "title",
+  "lang": "ko",
+  "text": "의도가 아니라 사고에서 나온 흑백",
+  "model": "claude-opus-5",
+  "source_sha256": "be361992ab2a873e137ff6535dc719eca129e7927b0ab024c5fa759a21af4c1a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "black-stardom-smuggled-through-white-genre-machinery",
+  "field": "title",
+  "lang": "ko",
+  "text": "백인 장르 기계를 통과해 밀반입된 흑인 스타덤",
+  "model": "claude-opus-5",
+  "source_sha256": "1d3f9f6433b222d3d98fd3c8296c81e7bb480a6e5ccfd55aaed39f2f4629c817"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "blackmail-as-privatized-patriarchal-law",
+  "field": "title",
+  "lang": "ko",
+  "text": "사유화된 가부장의 법, 협박",
+  "model": "claude-opus-5",
+  "source_sha256": "139a78f4010e9584d487f770889c0b481dc8885a9ee013a1d86ed25572abc32c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "blackmail-as-the-underclass-s-only-property",
+  "field": "title",
+  "lang": "ko",
+  "text": "하층민이 가진 유일한 재산, 협박",
+  "model": "claude-opus-5",
+  "source_sha256": "5bb613253578df3883e11d2da39db05aefa00d99e4b79e454ab245a16d610a95"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "blindness-as-the-eye-of-power",
+  "field": "title",
+  "lang": "ko",
+  "text": "권력의 눈이 된 실명",
+  "model": "claude-opus-5",
+  "source_sha256": "00b13de7e3eeaa135881e560efa0a99d883d2eb974758e43f11d517d022df745"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "blood-as-biopolitical-supply-chain",
+  "field": "title",
+  "lang": "ko",
+  "text": "생명정치(biopolitics)의 공급망이 된 피",
+  "model": "claude-opus-5",
+  "source_sha256": "f33c0dafdfdd9269bd919aafcd65c562d9691187d886e273649f81f26a4ade39"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "blood-as-sacrament-profaned-into-appetite",
+  "field": "title",
+  "lang": "ko",
+  "text": "성사에서 식욕으로 떨어진 피",
+  "model": "claude-opus-5",
+  "source_sha256": "97b930e7e78521c368ec797b9b00f933de63681f7a2ae78233344b6595bea701"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "blood-purity-as-the-law-of-belonging",
+  "field": "title",
+  "lang": "ko",
+  "text": "소속을 정하는 법, 혈통의 순수",
+  "model": "claude-opus-5",
+  "source_sha256": "f9cb574faeadf382f609e7fcf22a1d2fbffe0ad60099217ead5a7cf9683d0c95"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "blue-as-the-film-s-hidden-thermometer",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화의 숨은 온도계, 파랑",
+  "model": "claude-opus-5",
+  "source_sha256": "c67c2ea800bbb69156bac92acd0b30481caa45a795d1baa3033cc942815b2c63"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "bodies-drawn-in-schiele-s-tortured-line",
+  "field": "title",
+  "lang": "ko",
+  "text": "실레의 뒤틀린 선으로 그린 몸",
+  "model": "claude-opus-5",
+  "source_sha256": "8860f9ee6777c02df6489611c716d7482ea6eea67711827da0e9630d894283bb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "bodies-worn-like-garments",
+  "field": "title",
+  "lang": "ko",
+  "text": "옷처럼 갈아입는 몸",
+  "model": "claude-opus-5",
+  "source_sha256": "51f25b21c1d4717bf647d5f07996f2d24a3570922cbf61af04f75ad3cf34735a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "boredom-as-the-door-to-freedom",
+  "field": "title",
+  "lang": "ko",
+  "text": "자유로 나가는 문, 권태",
+  "model": "claude-opus-5",
+  "source_sha256": "e0d9c65c0cc7a027148fcda689fe122257d9179065921dfb68c7e639a2eb03c5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "boredom-as-the-last-luxury-of-privilege",
+  "field": "title",
+  "lang": "ko",
+  "text": "특권에 남은 마지막 사치, 권태",
+  "model": "claude-opus-5",
+  "source_sha256": "e5e43def0bd814faf9eaf4d934e88dd2ceea28a1a5ccb5bb76e44df8b518abd4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "boredom-wielded-as-a-weapon",
+  "field": "title",
+  "lang": "ko",
+  "text": "무기로 휘두르는 권태",
+  "model": "claude-opus-5",
+  "source_sha256": "ee12a7b8c5dfb3fb4659b248f0f2fd3af48d4e18efc431b08f41656d02493cdb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "borges-as-the-liar-s-patron-saint",
+  "field": "title",
+  "lang": "ko",
+  "text": "거짓말쟁이의 수호성인, 보르헤스",
+  "model": "claude-opus-5",
+  "source_sha256": "c81254c3c9418229423d26a57123dcbab8f1734e83cdd87e5a9e7e0c761a6d77"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "borges-s-unforgettable-forged-past",
+  "field": "title",
+  "lang": "ko",
+  "text": "보르헤스식으로 위조한, 잊히지 않는 과거",
+  "model": "claude-opus-5",
+  "source_sha256": "f08b2cda18b60b9b8eb7832dad5af458c5e162de48f9e6dac97b69839ea19293"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "born-at-the-threshold-of-the-consumer-web",
+  "field": "title",
+  "lang": "ko",
+  "text": "소비자 웹이 열리던 문턱에서 태어나다",
+  "model": "claude-opus-5",
+  "source_sha256": "7116eae20db36afb01740b5988d2878b071bb54349fd4028f05e532c7cb4347e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "born-from-the-headline-s-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "헤드라인이 낸 상처에서 태어나다",
+  "model": "claude-opus-5",
+  "source_sha256": "32b51c250f28109d1586427eab5b1fa02685ebad3263d1afffc294c991cd6f3c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "borrowed-civic-architecture-as-engine-of-belief",
+  "field": "title",
+  "lang": "ko",
+  "text": "빌려온 관공서 건축이 믿음을 굴린다",
+  "model": "claude-opus-5",
+  "source_sha256": "a9e6af8ad68c31477900c7b11e9cab7861f07bf2851be5104d4f1c5709c59bb7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "boston-s-real-geography-as-class-destiny",
+  "field": "title",
+  "lang": "ko",
+  "text": "보스턴의 실제 지리가 곧 계급의 운명",
+  "model": "claude-opus-5",
+  "source_sha256": "1d1aa765238bbb77dadcac63457d6690057be778ef719d0baa155f123fa129dd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "bourdieu-s-quiet-architecture-of-domination",
+  "field": "title",
+  "lang": "ko",
+  "text": "부르디외가 그린 조용한 지배의 구조",
+  "model": "claude-opus-5",
+  "source_sha256": "72e75653cd0c3896b73360e148d54a5408a4dc40ae60e811a1df96c3d0358a71"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "box-office-triumph-as-symptom-not-achievement",
+  "field": "title",
+  "lang": "ko",
+  "text": "업적이 아니라 증상인 흥행 대성공",
+  "model": "claude-opus-5",
+  "source_sha256": "b701d14b68f3d53d89b5a72435659786e5498a7c65e4862dbbc176db3f5dd734"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "brazil-s-sublime-played-by-a-body-double",
+  "field": "title",
+  "lang": "ko",
+  "text": "대역이 연기한 브라질의 숭고(崇高)",
+  "model": "claude-opus-5",
+  "source_sha256": "c876b2d29963c1651e363ec713668698152defaee6be545ee57595c4af4a6372"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "brecht-s-estrangement-smuggled-into-the-genre-machine",
+  "field": "title",
+  "lang": "ko",
+  "text": "장르 기계에 몰래 들어온 브레히트의 소외 효과",
+  "model": "claude-opus-5",
+  "source_sha256": "3d70bbf63530d4b8f113d7f99755c733513eceeb0c47e30cc3d778fd641d7113"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "bresson-forged-against-the-new-wave",
+  "field": "title",
+  "lang": "ko",
+  "text": "누벨바그에 맞서며 벼려진 브레송",
+  "model": "claude-opus-5",
+  "source_sha256": "f123693b0e60ff1c62b17c980b6dfbffb27cfd5ae8d5b52659ae555c3264a4a6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "bresson-s-donkey-as-theological-touchstone",
+  "field": "title",
+  "lang": "ko",
+  "text": "신학의 시금석이 된 브레송의 당나귀",
+  "model": "claude-opus-5",
+  "source_sha256": "aacfe0ecc3b3f8089cb44b4796c9d07e9c0ff1b3842d98be27e0a9eab816b371"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "bresson-s-withheld-performance-as-method",
+  "field": "title",
+  "lang": "ko",
+  "text": "연기를 거두는 것이 방법이다, 브레송",
+  "model": "claude-opus-5",
+  "source_sha256": "54f4ee729f22901f10d1a5e1b6d655a5fa6b302dc02522c1bf6c0665e31f11d0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "brighton-beach-as-migr-afterworld",
+  "field": "title",
+  "lang": "ko",
+  "text": "망명자들의 저승, 브라이턴 비치",
+  "model": "claude-opus-5",
+  "source_sha256": "b460254b63258f337e421e588e9e6e207a9b361a76f8bb8b0c35851c898caeba"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "brittany-standing-in-as-elsewhere",
+  "field": "title",
+  "lang": "ko",
+  "text": "다른 어딘가를 대신 연기하는 브르타뉴",
+  "model": "claude-opus-5",
+  "source_sha256": "e2ce84a3b8faa022e17de9471d6e0690e908bf90524616bc476be4f6a4b3ffe2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "bruegel-s-hunters-against-the-existential-void",
+  "field": "title",
+  "lang": "ko",
+  "text": "실존의 공허를 등진 브뤼헐의 사냥꾼들",
+  "model": "claude-opus-5",
+  "source_sha256": "1cf1c1d97971490308b43b4651dd68c6cca31a444c2d8a4cf86f1cfe25c77364"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "bu-uel-s-bourgeoisie-who-cannot-finish-the-meal",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 식사를 마치지 못하는 부뉴엘의 부르주아",
+  "model": "claude-opus-5",
+  "source_sha256": "567c9d056f0f1630f1d2bd21d17dea873f3a869aee7190ac53b8e14e0ea4e5e2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "budapest-wearing-another-city-s-face",
+  "field": "title",
+  "lang": "ko",
+  "text": "다른 도시의 얼굴을 쓴 부다페스트",
+  "model": "claude-opus-5",
+  "source_sha256": "1f95fdf44c47b62e1e02ba9c67596a0c5539cedf7ccd104a9d2361a3386279a7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "built-for-the-scroll-not-the-marquee",
+  "field": "title",
+  "lang": "ko",
+  "text": "극장 간판이 아니라 스크롤을 위해 만든 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "022fd06a865f6bda0af8e6b994d783c29c107807d31811453a36d20d7048441b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "burning-money-as-sovereign-refusal",
+  "field": "title",
+  "lang": "ko",
+  "text": "돈을 태우는 것, 주권적 거부",
+  "model": "claude-opus-5",
+  "source_sha256": "3e9c6b59f995ea409d38b3c3763212ac86f007fd2847b1ede5287f4f3aa91ae3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "burning-the-father-to-repeat-the-primal-loss",
+  "field": "title",
+  "lang": "ko",
+  "text": "아버지를 태워 최초의 상실을 되풀이하다",
+  "model": "claude-opus-5",
+  "source_sha256": "5a6c7f435eaf5db7c3cec73fbadef45f9e1557fa9e25ac631e6e6a1f8c24da86"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "california-wearing-another-state-s-face",
+  "field": "title",
+  "lang": "ko",
+  "text": "다른 주의 얼굴을 쓴 캘리포니아",
+  "model": "claude-opus-5",
+  "source_sha256": "6c66c45b5015f0b4474b1a5f173dbba80883cb74d500c26c132d694e77d50d17"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "calling-it-slow-confesses-an-impatient-culture",
+  "field": "title",
+  "lang": "ko",
+  "text": "'느리다'는 말이 조급한 문화를 실토한다",
+  "model": "claude-opus-5",
+  "source_sha256": "7696bca97b86e5c660f74f674813b9d0aeb0e0f8cc9edde021896b827a3e6f00"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "camille-claudel-s-maddening-smallness",
+  "field": "title",
+  "lang": "ko",
+  "text": "카미유 클로델을 미치게 한 작은 자리",
+  "model": "claude-opus-5",
+  "source_sha256": "dfdac1c0d5d100946e22ea5f27ec75eadc773b7ed78b638462e395224f87776e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "camp-as-the-critic-s-disarming-reflex",
+  "field": "title",
+  "lang": "ko",
+  "text": "'캠프'라 부르며 무장을 푸는 비평의 습관",
+  "model": "claude-opus-5",
+  "source_sha256": "90123c0cd17ae03cb5b42326a2a66806c95595b71116bdeb8eb4b6e1b1d1a1ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "canada-wearing-america-s-borrowed-face",
+  "field": "title",
+  "lang": "ko",
+  "text": "미국의 얼굴을 빌려 쓴 캐나다",
+  "model": "claude-opus-5",
+  "source_sha256": "6f17949d62a6a62286659f37d13eec6c2fae0a1e11259f4839596ff2f09694f1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "canada-wearing-america-s-wilderness-as-costume",
+  "field": "title",
+  "lang": "ko",
+  "text": "미국의 황야를 의상처럼 걸친 캐나다",
+  "model": "claude-opus-5",
+  "source_sha256": "0901ce3937ecda76ba45ecfda962d7abb5f62aa27da41bca69f4ffce7bf45d9c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cannibalism-as-the-truest-name-for-love",
+  "field": "title",
+  "lang": "ko",
+  "text": "사랑의 가장 정확한 이름, 식인",
+  "model": "claude-opus-5",
+  "source_sha256": "93b9b3a7f76049be37905e4d1352fff163fa9ca23001ddbe8e7ede6f17ffb09d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "canonization-as-political-defanging",
+  "field": "title",
+  "lang": "ko",
+  "text": "정전(正典)에 들이며 이빨을 뽑다",
+  "model": "claude-opus-5",
+  "source_sha256": "df9304d4c1721f99665a2f631d76a17ffe6ba3b4ded32d44eb8c3272e8bcf166"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "canonization-as-the-culture-s-self-absolution",
+  "field": "title",
+  "lang": "ko",
+  "text": "문화가 스스로에게 내리는 사면, 정전화",
+  "model": "claude-opus-5",
+  "source_sha256": "30e87ade08f9363467c64083152c29dca217fe9defe5b1b33083a3bd96cfba24"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "canonization-enacts-the-film-s-own-betrayal",
+  "field": "title",
+  "lang": "ko",
+  "text": "정전에 오르는 순간 영화는 배신당한다",
+  "model": "claude-opus-5",
+  "source_sha256": "8c83a4b8fcbd58e13aaf42a2281966f8b6d6937c31866c0754b53308cd1e4a49"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "capital-as-a-devouring-god",
+  "field": "title",
+  "lang": "ko",
+  "text": "집어삼키는 신, 자본",
+  "model": "claude-opus-5",
+  "source_sha256": "b8c74cf30b0e2cf515ef7a86134b01f48bbde3236b1012d15a77eed6b97f6ad1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "capital-as-the-force-that-dissolves-the-old-world",
+  "field": "title",
+  "lang": "ko",
+  "text": "옛 세계를 녹여 없애는 힘, 자본",
+  "model": "claude-opus-5",
+  "source_sha256": "d6cb080a56debfae6188e6c1e03afad4695902a10e515e7788d8b5bc80388a1b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "capital-as-undead-flesh-made-incarnate",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽지 않는 살로 육화한 자본",
+  "model": "claude-opus-5",
+  "source_sha256": "479405813368f77b41bc062bdba11296e56a4d037a2343c86c8ad10d019bef3a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "caravaggio-s-chiaroscuro-conscripted-for-the-image",
+  "field": "title",
+  "lang": "ko",
+  "text": "이미지에 징발된 카라바조의 명암법",
+  "model": "claude-opus-5",
+  "source_sha256": "365fdf1ed192b91738884baf4f469c6dc4868ade4ac6865ec83a8929e40a464e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "care-against-the-ledger-of-property",
+  "field": "title",
+  "lang": "ko",
+  "text": "소유의 장부에 맞선 돌봄",
+  "model": "claude-opus-5",
+  "source_sha256": "32a273df94b6bd8907f11af09d06b85c1ec857258f579e28eea380aff6c8e696"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "care-as-the-asymmetry-ledger-cannot-balance",
+  "field": "title",
+  "lang": "ko",
+  "text": "장부로는 맞출 수 없는 비대칭, 돌봄",
+  "model": "claude-opus-5",
+  "source_sha256": "4d0dce95c6dcfaf10e1342a8f667c6a466cfe90c664df6ef7988c74b1d703a67"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "care-defeats-law-calculus-and-control",
+  "field": "title",
+  "lang": "ko",
+  "text": "돌봄이 법을, 계산을, 통제를 이긴다",
+  "model": "claude-opus-5",
+  "source_sha256": "5200b32bc2d2b9bc692fc042aa604d80f0ff75d663a171f641bb73911fcf6f0d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "care-enacted-never-declared",
+  "field": "title",
+  "lang": "ko",
+  "text": "말하지 않고 행하는 돌봄",
+  "model": "claude-opus-5",
+  "source_sha256": "0979870c3a1f09f10dc8f24342d25314bbbaab0c44abbe2e27f65a6a6361cb40"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "care-ethics-at-its-tragic-limit",
+  "field": "title",
+  "lang": "ko",
+  "text": "비극에 다다른 돌봄의 윤리",
+  "model": "claude-opus-5",
+  "source_sha256": "06dbb308056f9dce107a9aacdb78400b0b148f022d10daaa805463de84fff3c8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "care-for-the-ungrateful-other",
+  "field": "title",
+  "lang": "ko",
+  "text": "고마워하지 않는 타자를 돌보다",
+  "model": "claude-opus-5",
+  "source_sha256": "3dded1af4c580751b7733b0de2188046b1c4ad12ce92aa126fc8a2c6056e7ca4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "care-rehearsed-at-the-threshold-of-death",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽음의 문턱에서 미리 해보는 돌봄",
+  "model": "claude-opus-5",
+  "source_sha256": "2cf20211a2f5e1cdea49f905a79a0b5a27f78e44c3b9a22a7fb4561455e3e7b8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "carlo-levi-s-south-as-sacred-ground",
+  "field": "title",
+  "lang": "ko",
+  "text": "성지가 된 카를로 레비의 남부",
+  "model": "claude-opus-5",
+  "source_sha256": "8ec4ff8b6899d330d2c53ab510623e742308ef65b20b5aac9d0c571d1bee495c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cassavetes-faces-without-his-catharsis",
+  "field": "title",
+  "lang": "ko",
+  "text": "카타르시스만 빠진 카사베츠의 얼굴들",
+  "model": "claude-opus-5",
+  "source_sha256": "dff34421be9970ddcfdb43d4102cf80d1a333021c7d1cab9d778244664d98dcb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "casting-against-type-forges-the-register",
+  "field": "title",
+  "lang": "ko",
+  "text": "이미지를 거스른 캐스팅이 톤을 만든다",
+  "model": "claude-opus-5",
+  "source_sha256": "cac97d88ca49e7d164b80fd55a5f09dd3dae73e96287a79b88e31d1a486bf012"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "casting-as-the-argument-it-stages",
+  "field": "title",
+  "lang": "ko",
+  "text": "캐스팅이 곧 무대에 올린 논증",
+  "model": "claude-opus-5",
+  "source_sha256": "5f0e08a5aef7271e1117c95ffd3a6bda3d3a693c296442d06cd559618f41454b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "casting-as-the-body-s-clock",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸의 시계가 된 캐스팅",
+  "model": "claude-opus-5",
+  "source_sha256": "5e9c42d95d563395da5fef2987e71bd049682e3319752aca6bf397fb87ee8338"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "casting-as-the-film-s-real-argument",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화의 진짜 주장은 캐스팅에 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "e7732380ac8dec085538de90cec2ff1f938c541911fd6103024901a00c6f4101"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "casting-real-people-to-forge-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "실존 인물을 세워 진실을 벼리다",
+  "model": "claude-opus-5",
+  "source_sha256": "e755fe5c7fddb9811a5778a6f342e174b21a5ac508cfe05433f22099267a1c90"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "casting-the-real-voice-as-fact",
+  "field": "title",
+  "lang": "ko",
+  "text": "진짜 목소리를 사실로 세우는 캐스팅",
+  "model": "claude-opus-5",
+  "source_sha256": "56a98f13a96637e73a38f8c73fb39cb1cf23d0d4d807ff931ddbff8c5d0c2f48"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "casting-the-untrained-to-make-the-camera-honest",
+  "field": "title",
+  "lang": "ko",
+  "text": "카메라를 정직하게 만드는 비전문 배우",
+  "model": "claude-opus-5",
+  "source_sha256": "4d8eada7e1aa02203e5a7790a1466be2dac05e009df3f4ec939ddb164bd01ea7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "castration-routed-through-the-father-s-law",
+  "field": "title",
+  "lang": "ko",
+  "text": "아버지의 법을 거쳐 오는 거세",
+  "model": "claude-opus-5",
+  "source_sha256": "5326bad91dfc4f26e8e2a07003715283ad24e4e28a52cfa916798d75c4b5fd5f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "catastrophe-sold-back-as-spectacle",
+  "field": "title",
+  "lang": "ko",
+  "text": "스펙터클로 되팔린 참사",
+  "model": "claude-opus-5",
+  "source_sha256": "40f1c3abfeaeba7823d5e5701a9ee3aa3a610bd72e820e7e756b534ca8f1dcb9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "caught-between-two-incompatible-times",
+  "field": "title",
+  "lang": "ko",
+  "text": "섞이지 않는 두 시간 사이에 끼다",
+  "model": "claude-opus-5",
+  "source_sha256": "c85b2be6451a3aebaa1769a754b3ebb12d9345e1d730a00920d3f65abc3d7b35"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "causation-as-an-aesthetic-not-a-law",
+  "field": "title",
+  "lang": "ko",
+  "text": "법칙이 아닌 미학으로서의 인과",
+  "model": "claude-opus-5",
+  "source_sha256": "1ac7aeed212cf56f1064b3de48df10fd5082fc6b8cc150b7dc57b373cbdd1534"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "celebrity-as-the-profaned-sacrament",
+  "field": "title",
+  "lang": "ko",
+  "text": "더럽혀진 성사(聖事), 유명세",
+  "model": "claude-opus-5",
+  "source_sha256": "05f936ae4a88deb5c773328bfdb99f4a94f927936752103e3b279f4316abaa1d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "celluloid-mourning-its-own-obsolescence",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 낡아가는 것을 애도하는 셀룰로이드",
+  "model": "claude-opus-5",
+  "source_sha256": "8b9b3828d464c8189e9fede1c3e0cfa66701def51a3a1cbd8988251631bf79b8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "censorship-forged-the-iranian-aesthetic",
+  "field": "title",
+  "lang": "ko",
+  "text": "검열이 이란 영화의 미학을 벼렸다",
+  "model": "claude-opus-5",
+  "source_sha256": "d6acc4cdab627dbe6a74ee5cf5678dad027cffc83d9e8d6b5393942ff5695c88"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "censorship-inscribed-into-the-image-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "이미지 안에 새겨진 검열",
+  "model": "claude-opus-5",
+  "source_sha256": "221fcce895000f5071241e63cce79ba47cdad9cdd775a9e932a815f54104f140"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cgi-as-punchline-not-spectacle",
+  "field": "title",
+  "lang": "ko",
+  "text": "스펙터클이 아니라 농담의 한 방, CGI",
+  "model": "claude-opus-5",
+  "source_sha256": "cf588d3729e4076cfee9c5cd260067467c96d7cb538fb458cccf7c1d6b801ce3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "charity-as-alibi-for-structural-ruin",
+  "field": "title",
+  "lang": "ko",
+  "text": "구조의 파탄을 덮는 알리바이, 자선",
+  "model": "claude-opus-5",
+  "source_sha256": "a33203b07e73dd2831c1807ff7a087a8727570fa2afa4628973d815f1bc36229"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "charm-as-engineered-instrument-of-power",
+  "field": "title",
+  "lang": "ko",
+  "text": "설계된 권력의 도구, 매력",
+  "model": "claude-opus-5",
+  "source_sha256": "cc4412b6589be724b86771ec4ed4edeaf45d37e21543ed9fc3ab5f2cd3b78a33"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "chastity-recast-as-sovereignty",
+  "field": "title",
+  "lang": "ko",
+  "text": "주권으로 다시 쓰인 정절",
+  "model": "claude-opus-5",
+  "source_sha256": "d6d5eb4c99f30754c91b2030e45ccabbcee97d447ecf42aaba8d08cc64afe406"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "chekhov-smuggled-out-of-the-drawing-room",
+  "field": "title",
+  "lang": "ko",
+  "text": "응접실 밖으로 빼돌린 체호프",
+  "model": "claude-opus-5",
+  "source_sha256": "bd242d3d7d9b83b69b54a81eb202c0a30e75a11cae136ecc255b77108799fda0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "chiaroscuro-as-painterly-theology-of-light",
+  "field": "title",
+  "lang": "ko",
+  "text": "빛의 회화적 신학, 키아로스쿠로",
+  "model": "claude-opus-5",
+  "source_sha256": "f3509d00bdb881118415d3e34709f4c1667f70427bcd4439a168c05e89ae415d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "chicago-s-doomed-vertical-architecture-as-antagonist",
+  "field": "title",
+  "lang": "ko",
+  "text": "적대자로 선 시카고의 저물어가는 수직 건축",
+  "model": "claude-opus-5",
+  "source_sha256": "56df216741405301c6de1876a2f557336c9ded2b5a8e12c8a87d8d1e13c8598e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "childhood-as-sovereign-state-of-nature",
+  "field": "title",
+  "lang": "ko",
+  "text": "주권을 가진 자연 상태, 유년",
+  "model": "claude-opus-5",
+  "source_sha256": "a4e8152d43692697be00c305fe66910e8fedda5cf3b7411d00b79cce6b55e201"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "china-s-population-policy-as-human-accounting",
+  "field": "title",
+  "lang": "ko",
+  "text": "사람을 계산에 넣는 중국의 인구 정책",
+  "model": "claude-opus-5",
+  "source_sha256": "5adb2500877deaf4fa08c2dc5c033df352982c779fbeb3e434846b6a7c84f45e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "china-s-soft-power-engine-in-spectacle-s-disguise",
+  "field": "title",
+  "lang": "ko",
+  "text": "스펙터클로 분장한 중국의 소프트파워",
+  "model": "claude-opus-5",
+  "source_sha256": "b7fbc1a7b5eaf3b2cabbf9a3eca5bd3b1e3378ff9e547796a5d7008c9318f026"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "choosing-the-love-you-cannot-verify",
+  "field": "title",
+  "lang": "ko",
+  "text": "확인할 수 없는 사랑을 택하다",
+  "model": "claude-opus-5",
+  "source_sha256": "0a297e22d4d164f524aad124921b14c5f6066e376ade6e6aaed808b4c4280d88"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "choreography-before-psychology",
+  "field": "title",
+  "lang": "ko",
+  "text": "심리보다 먼저 오는 안무",
+  "model": "claude-opus-5",
+  "source_sha256": "d70763c5583453557d32233b1b46210d86a2ec8b39749c52337f105a6dca941a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "choreography-writes-the-story-in-space",
+  "field": "title",
+  "lang": "ko",
+  "text": "안무가 공간에 이야기를 쓴다",
+  "model": "claude-opus-5",
+  "source_sha256": "1e311674455b179c617cb7c3ba6ba0e56cceca10018252dacf58d861394c85e2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "chosen-kin-outranks-blood-kin",
+  "field": "title",
+  "lang": "ko",
+  "text": "고른 가족이 핏줄을 이긴다",
+  "model": "claude-opus-5",
+  "source_sha256": "53f5c50256bde71340f6d3b7a90fa038da89b1053d28c4c258c2c10ebdabffb2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "christian-doctrine-turned-against-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 자신을 겨눈 기독교 교리",
+  "model": "claude-opus-5",
+  "source_sha256": "97dabcabf7199931144c565c2362725d44ed283204adff3effb1a8dd6cf4b735"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "christmas-as-commodity-masking-its-violence",
+  "field": "title",
+  "lang": "ko",
+  "text": "폭력을 가린 상품, 크리스마스",
+  "model": "claude-opus-5",
+  "source_sha256": "a86197267a9afab1311ab3144c90de345652cbe6c7bc6d601f79df4b4887025c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "chromatic-defiance-of-postwar-austerity",
+  "field": "title",
+  "lang": "ko",
+  "text": "전후 내핍에 색으로 맞서다",
+  "model": "claude-opus-5",
+  "source_sha256": "62d1abb19da14e7c4c4c86abd9a5c6c05876ffccd67cbf3bb79afc3a3066855a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-as-compensatory-fantasy-for-an-unredeemed-history",
+  "field": "title",
+  "lang": "ko",
+  "text": "구원받지 못한 역사를 대신 갚는 환상, 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "3dd3bfad6aa8e76abb8e822b051a9e1f5b7583b77bdb4d07feb4983f3374cb17"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-as-mortuary-photography-of-the-dead",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽은 자를 찍는 영안실 사진, 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "f5a7e56a687892d83d0a3d6d2616e1b7a4296a48691a060b9e7eedb10dadccd1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-as-rite-against-history",
+  "field": "title",
+  "lang": "ko",
+  "text": "역사에 맞서는 제의로서의 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "b1470bc986eef14ed5118d0661e81e39f485d4fc960f0be6dbc217a995e9852a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-as-the-mind-s-guilty-alibi",
+  "field": "title",
+  "lang": "ko",
+  "text": "마음이 대는 떳떳찮은 알리바이, 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "d27dba09c6d28adf25581404b78abe144fbac5e9a14f70e12efdd6cb8f2d0c2b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-as-time-made-perceptible",
+  "field": "title",
+  "lang": "ko",
+  "text": "시간을 감각하게 만드는 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "cbc70e84eb3ace27fee378620d7e350798eb4f53dd0644002e98e5e6fcf29929"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-born-from-the-reality-tv-bloodstream",
+  "field": "title",
+  "lang": "ko",
+  "text": "리얼리티 TV의 피를 받고 태어난 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "fb53945b637c820d10ae2b7f445395eb957e1b01c66ca02a2420d786dfb5a379"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-confessing-it-cannot-hold-pansori",
+  "field": "title",
+  "lang": "ko",
+  "text": "판소리를 담지 못한다고 고백하는 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "835a2ccce29aa90ef280dda27de2cf0a14f3e00504f8f1f30e62567646b1bbfe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-conserving-its-own-stars",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 별들을 보존하는 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "f9926cc80e87a4de76a5f5606c5a07af3fd0b42ed8692c9316847a62f19151fd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-filmed-inside-the-economic-crash",
+  "field": "title",
+  "lang": "ko",
+  "text": "경제가 무너지는 한복판에서 찍은 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "a51d95717129d328a350b97b02b0f3ca6801285c6a0d069bdcfaf24138af9757"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-founded-on-its-own-vanishing",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 사라짐 위에 세운 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "dfa57b0f8e256f349c16676fe0c0ae3c5c711447dd5f41c02c7af9b36fb99fe0"
+ }
+]

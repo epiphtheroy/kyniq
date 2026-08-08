@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-crowd-that-only-watches",
+  "field": "title",
+  "lang": "ko",
+  "text": "보기만 하는 군중",
+  "model": "claude-opus-5",
+  "source_sha256": "df3e843b3ef2e5a704d9d303701572365fec36c026051110623e26a7bb3c2c64"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-crown-backdated-to-steal-neorealism",
+  "field": "title",
+  "lang": "ko",
+  "text": "네오리얼리즘을 가로채려 날짜를 당긴 왕관",
+  "model": "claude-opus-5",
+  "source_sha256": "07a19c8d21858a07672fa1d70a66e600e88df73aa1254a402318632513f6ebfc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cruelty-in-the-cultivated-phrase",
+  "field": "title",
+  "lang": "ko",
+  "text": "교양 있는 문장에 숨은 잔혹",
+  "model": "claude-opus-5",
+  "source_sha256": "32fbfd517ca29bd76daf40b774b84865e52e096dca60ac37a1e58df09d576646"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cult-reception-that-domesticates-the-dread",
+  "field": "title",
+  "lang": "ko",
+  "text": "공포를 길들여버린 컬트 수용",
+  "model": "claude-opus-5",
+  "source_sha256": "5d8df8af0ead0abd914e6eee1212a4f8721677b15ef003122f516a7c626f07fc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cult-screening-is-the-real-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "진짜 영화는 그 컬트 상영이다",
+  "model": "claude-opus-5",
+  "source_sha256": "9200d2ef86227a7828b17df10829d193ef8f286773f2306614a3d3364c8a8a64"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cult-that-needs-collaborative-decoding",
+  "field": "title",
+  "lang": "ko",
+  "text": "여럿이 달라붙어야 풀리는 컬트",
+  "model": "claude-opus-5",
+  "source_sha256": "9917b37f82c908e1b5cd4376f11796b8d9b7435ac7bbab70d9e020e790601a60"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-curated-analog-loft-as-rent-on-the-past",
+  "field": "title",
+  "lang": "ko",
+  "text": "과거에 물리는 임대료, 잘 꾸민 아날로그 로프트",
+  "model": "claude-opus-5",
+  "source_sha256": "e3f7b51fe7392f6c408e3dfe3259c93e38f1f6afbe0df6f0dc5924ca5d5da86c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cure-that-requires-an-audience",
+  "field": "title",
+  "lang": "ko",
+  "text": "관객이 있어야 낫는 병",
+  "model": "claude-opus-5",
+  "source_sha256": "507f6c20cc808fdd42c23202e821a3dc9afc30533a05997e72fcb73e445eff30"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-curse-as-causality-without-cause",
+  "field": "title",
+  "lang": "ko",
+  "text": "원인 없는 인과, 저주",
+  "model": "claude-opus-5",
+  "source_sha256": "1676dabddab68956a8f9040ae202e234da18685cb9d398b4e50fb11c30fbbbfd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-curse-is-the-system-that-bears-it",
+  "field": "title",
+  "lang": "ko",
+  "text": "저주는 그것을 떠받치는 체계다",
+  "model": "claude-opus-5",
+  "source_sha256": "e433074ecbb52da5b14695d2cc91828c2106852a00b8a0be873d112cf201dec2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cursed-toy-as-reagan-era-consumer-panic",
+  "field": "title",
+  "lang": "ko",
+  "text": "레이건 시대의 소비 공포를 뒤집어쓴 장난감",
+  "model": "claude-opus-5",
+  "source_sha256": "817471c00a3f75ff6ced976ff85b6bfd323ea2aaea8872df3e90d4e7241e0a38"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-custodial-institution-as-sanctioned-predator",
+  "field": "title",
+  "lang": "ko",
+  "text": "공인된 포식자가 된 보호시설",
+  "model": "claude-opus-5",
+  "source_sha256": "db89aa1e2f2c00149ee54fec216b24b240303a00b49ef72bf0d5e4b337b7c4b4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cut-as-involuntary-memory",
+  "field": "title",
+  "lang": "ko",
+  "text": "무의지적 기억으로서의 컷",
+  "model": "claude-opus-5",
+  "source_sha256": "4edb009bd8d3e222de29b8e29c73dd512962f192a4b4f91bc01eacc7789f9277"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cut-as-mortality-inscribed",
+  "field": "title",
+  "lang": "ko",
+  "text": "필멸을 새겨넣는 컷",
+  "model": "claude-opus-5",
+  "source_sha256": "18ed051c6875e33cbb66d4e95b4b69508118993970a75e6c07c3a8d62cdab351"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cut-as-statement-not-stitch",
+  "field": "title",
+  "lang": "ko",
+  "text": "컷은 봉합이 아니라 발언이다",
+  "model": "claude-opus-5",
+  "source_sha256": "89bc1fa345f2bca0218635819bf8333e7092c36b48824558e2b6c2837eef8d78"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cut-itself-confesses-refuses-signs",
+  "field": "title",
+  "lang": "ko",
+  "text": "컷이 고백하고 거부하고 서명한다",
+  "model": "claude-opus-5",
+  "source_sha256": "62cbe8b59db3fda3b17633efe673d3c16d14b9b35cc91e4bdfc2e6afd863a879"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cut-itself-is-the-death-drive",
+  "field": "title",
+  "lang": "ko",
+  "text": "컷이 곧 죽음충동이다",
+  "model": "claude-opus-5",
+  "source_sha256": "3576fa8f4820efd806806638eb3b4593fcfb1e62a4a3a9a58e3d0a4a734936eb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cut-that-abolishes-its-object",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 대상을 없애버리는 컷",
+  "model": "claude-opus-5",
+  "source_sha256": "0eb9d8eca35531f1d36901817507d7f71cbba5a9683ead79d18618fda34217b5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cut-that-dances-what-bodies-cannot",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸이 못 추는 춤을 대신 추는 컷",
+  "model": "claude-opus-5",
+  "source_sha256": "a8bfcb0fbda20bf9e8c0788606914e24440493ae1b77acabb9badffe92f4c662"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cut-that-knows-it-was-severed",
+  "field": "title",
+  "lang": "ko",
+  "text": "잘렸다는 걸 아는 컷",
+  "model": "claude-opus-5",
+  "source_sha256": "a2a073887dbc03082212f052a679cdb1a343ea8679ebae317baa30795bf72f32"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cut-that-obeys-the-beat",
+  "field": "title",
+  "lang": "ko",
+  "text": "박자에 복종하는 컷",
+  "model": "claude-opus-5",
+  "source_sha256": "34873fe597bf074050f8a91a786711d6e3630103f18280fdf5285b8e0698a302"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cut-that-performs-the-embrace",
+  "field": "title",
+  "lang": "ko",
+  "text": "포옹을 대신 해내는 컷",
+  "model": "claude-opus-5",
+  "source_sha256": "786da8910e5047a8f8ad59d9bfcf2f622e5ab0824d376b104c7bd1cd2c9861ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cut-that-withholds-the-climax",
+  "field": "title",
+  "lang": "ko",
+  "text": "절정을 내주지 않는 컷",
+  "model": "claude-opus-5",
+  "source_sha256": "684f33b34488de584e95d87d0a81744e3f2af9c6bf258de8c0ee128f8ddd0897"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cyborg-that-refuses-pure-information",
+  "field": "title",
+  "lang": "ko",
+  "text": "순수한 정보이기를 거부하는 사이보그",
+  "model": "claude-opus-5",
+  "source_sha256": "e1ff23384976c29e8e99f2ffbe5fb65d40e665e795d63eac317b9aef48975a95"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-damaged-object-as-wounded-survivor",
+  "field": "title",
+  "lang": "ko",
+  "text": "부서진 물건, 상처 입은 생존자",
+  "model": "claude-opus-5",
+  "source_sha256": "4589d9bb4339a0355b6aed3cd24280df0f2af607694082532cad34d6d1c75dc4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-damning-letter-as-buried-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "파묻힌 진실이 된 결정적 편지",
+  "model": "claude-opus-5",
+  "source_sha256": "8f9a2cd68faa701f642d88e3bc4c2741a84bd69b2b4741ed97d1a2d88d4ecf3b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dance-as-compulsion-to-repeat",
+  "field": "title",
+  "lang": "ko",
+  "text": "반복강박이 되어버린 춤",
+  "model": "claude-opus-5",
+  "source_sha256": "a029bc5ae50acdb18619f651febb29793579efba74fd0ac34ce052b090c778b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dance-as-the-film-s-secret-self-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화가 몰래 하는 자기 고백, 춤",
+  "model": "claude-opus-5",
+  "source_sha256": "ae5ac2e9dbfa9246d307f10ed3435f0cb86eb65302657adc7cf546723f166608"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dancer-who-refused-to-stop",
+  "field": "title",
+  "lang": "ko",
+  "text": "멈추기를 거부한 무용수",
+  "model": "claude-opus-5",
+  "source_sha256": "cfae22fea91e4e9376335aba1b9b30a1935f183ffcc7ff294ddc841e7334075b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dardennes-form-as-ethical-verdict",
+  "field": "title",
+  "lang": "ko",
+  "text": "윤리적 판결이 된 다르덴의 형식",
+  "model": "claude-opus-5",
+  "source_sha256": "52b121b27e33a63f1d912d53b38cb0f064c678c6d1cbb95d98601402a0f09c5d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-daredevil-outrun-by-his-own-myth",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 신화에 따라잡힌 무모한 사내",
+  "model": "claude-opus-5",
+  "source_sha256": "09e35229dd97a54de226e7ff593e23b3d0dee3d11466dd6d44eebf34c6145b77"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dark-that-names-the-unknowable",
+  "field": "title",
+  "lang": "ko",
+  "text": "알 수 없는 것에 이름을 붙이는 어둠",
+  "model": "claude-opus-5",
+  "source_sha256": "ae673a1a56863040361ef36568953cb026c8f9e83e31ad4b3cb62b4e0f054875"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-date-that-devours-the-story",
+  "field": "title",
+  "lang": "ko",
+  "text": "이야기를 집어삼킨 날짜",
+  "model": "claude-opus-5",
+  "source_sha256": "6ceb12095af1a2bd9de41f2d7af9d3caef838dbb2f78ce93e3ae5397088c92e1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-daughter-as-the-unmournable-other",
+  "field": "title",
+  "lang": "ko",
+  "text": "애도할 수 없는 타자, 딸",
+  "model": "claude-opus-5",
+  "source_sha256": "efa809e42591b0b584525e0c412ded861ee56be0d4959ad71dd0c5cf0edb79c6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-daughter-decoding-the-parent",
+  "field": "title",
+  "lang": "ko",
+  "text": "부모를 해독하는 딸",
+  "model": "claude-opus-5",
+  "source_sha256": "f4a2c9c5510f8c36a1b32182fcfebdec533f80812a100714ea6958d7d4bfa4a8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-daughter-married-off-to-bury-the-father-s-desire",
+  "field": "title",
+  "lang": "ko",
+  "text": "아버지의 욕망을 묻으려 시집보낸 딸",
+  "model": "claude-opus-5",
+  "source_sha256": "b75331b944af661891cf8d96812adc086c3c1e449da56ba1893b7d5e55ff25e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-daughters-who-refuse-the-inherited-sentence",
+  "field": "title",
+  "lang": "ko",
+  "text": "물려받은 형벌을 거부하는 딸들",
+  "model": "claude-opus-5",
+  "source_sha256": "f9ce0b4f0131c7f7aed9c57a860209ca0e6fc4378bc7fc25b3d5b35af56b1065"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-address-the-living-witness",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽은 자가 산 증인에게 말을 건다",
+  "model": "claude-opus-5",
+  "source_sha256": "4ea3d5a46cac3522b1ca16aa578a2657b528c895ad985fc94caeeda3c4e97856"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-are-carried-not-buried",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽은 자는 묻히지 않고 업혀 간다",
+  "model": "claude-opus-5",
+  "source_sha256": "4f112270fd0869d264ba275085ae81318c8dc2cb8aae91102e868e34f8711671"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-are-spoken-never-speak",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽은 자는 말해질 뿐 말하지 않는다",
+  "model": "claude-opus-5",
+  "source_sha256": "f7bfc3bdb59397e6fb6f3e19f3c473b74472c13d76cb6058546fbb3845ef59a3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-are-the-only-honest-narrators",
+  "field": "title",
+  "lang": "ko",
+  "text": "정직한 화자는 죽은 자뿐",
+  "model": "claude-opus-5",
+  "source_sha256": "0b0d0ac6954b8bf6de3a676e4a428fde8adfb52f127d01bd9754f98f09087997"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-composer-conducting-from-beyond",
+  "field": "title",
+  "lang": "ko",
+  "text": "저승에서 지휘하는 죽은 작곡가",
+  "model": "claude-opus-5",
+  "source_sha256": "6dca7fa09edee35fe3128c3e50e78ec05748796975b11207d556bc6bb18990cd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-conscript-us-into-duty",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽은 자가 우리를 의무로 끌고 간다",
+  "model": "claude-opus-5",
+  "source_sha256": "441324431c0a8373e0e92c2f9191c61080730d8e506713ffc7f0121a6577406b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-devoured-to-defer-the-grief",
+  "field": "title",
+  "lang": "ko",
+  "text": "슬픔을 미루려 죽은 자를 먹다",
+  "model": "claude-opus-5",
+  "source_sha256": "c6257003298660bf87aa91dbb2311dd5fd599d896ca7a22c408e60a7c28ca419"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-factory-plays-the-future",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽은 공장이 미래를 연기한다",
+  "model": "claude-opus-5",
+  "source_sha256": "cb48d969a795cb01c0a3d0dd04dfdca5793aa322e43a17286a46a3dadc699dbb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-father-who-governs-from-beyond",
+  "field": "title",
+  "lang": "ko",
+  "text": "저승에서 다스리는 죽은 아버지",
+  "model": "claude-opus-5",
+  "source_sha256": "a53d93414f76fde76214baadf5d4aaefb952ce0cfc946ff76519b78267d42168"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-king-who-is-the-real-protagonist",
+  "field": "title",
+  "lang": "ko",
+  "text": "진짜 주인공은 죽은 왕이다",
+  "model": "claude-opus-5",
+  "source_sha256": "851e691e988626777781cbd18e2ae22d1f911946a6db8e1d5ecf4674f5faffbb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-mother-rebuilt-as-machine",
+  "field": "title",
+  "lang": "ko",
+  "text": "기계로 다시 세운 죽은 어머니",
+  "model": "claude-opus-5",
+  "source_sha256": "ea1d4894b45f2afe39de5d7c4458573ab37cd55ce664be9f49963010fd1996d2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-place-filmed-as-if-living",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽은 장소를 산 것처럼 찍기",
+  "model": "claude-opus-5",
+  "source_sha256": "34c46c6916cab8e28fa7f547ec365b6c6bd199d800e664e082c0206c8851b095"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-return-to-postcolonial-shores",
+  "field": "title",
+  "lang": "ko",
+  "text": "탈식민의 해안으로 돌아온 죽은 자들",
+  "model": "claude-opus-5",
+  "source_sha256": "d110f83e027f899e9b8d257f149af312303bf5bdd8a3dc91be9c92678910e008"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-speak-through-the-telephone",
+  "field": "title",
+  "lang": "ko",
+  "text": "전화선을 타고 오는 죽은 자의 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "eb97539cda300c78921e7e487049240931a29d70e5c25733ca83b025985021cf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-who-linger-because-mourning-failed",
+  "field": "title",
+  "lang": "ko",
+  "text": "애도에 실패해 떠나지 못한 죽은 자들",
+  "model": "claude-opus-5",
+  "source_sha256": "3704298c68e49a812ad423dedfd8907888198cd41aaec975f455058b802c655e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-who-narrate-mexico",
+  "field": "title",
+  "lang": "ko",
+  "text": "멕시코를 이야기하는 죽은 자들",
+  "model": "claude-opus-5",
+  "source_sha256": "e15a594f3ad288304496a158c76cacfb41d5b1b6742af4e08fa9dc71575e9a71"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-wife-as-license-to-kill",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽은 아내라는 살인 면허",
+  "model": "claude-opus-5",
+  "source_sha256": "97f63a86c9f66b4d6e07a093475ee6803043a2c8f411c8b9f1f947173c6681f2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dead-wingman-who-comes-back",
+  "field": "title",
+  "lang": "ko",
+  "text": "돌아오는 죽은 동료 조종사",
+  "model": "claude-opus-5",
+  "source_sha256": "e51556afe86c6a46d9aa162a9c241c40fbb1c3479343e2c8ac3f23f5981517ee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-deadpan-inheritor-of-buster-keaton",
+  "field": "title",
+  "lang": "ko",
+  "text": "버스터 키튼의 무표정을 물려받은 자",
+  "model": "claude-opus-5",
+  "source_sha256": "e7272ac18bda67390acec72d129e539d10e5b532fcf4490b8f4890c3b2229741"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-deadpan-mask-against-the-abyss",
+  "field": "title",
+  "lang": "ko",
+  "text": "심연 앞에 쓴 무표정의 가면",
+  "model": "claude-opus-5",
+  "source_sha256": "cacc9e7dc50b1f91c1ea7ab2e482ba25a1f69290081991a54dd78763e42e0c28"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-deadpan-that-defuses-catastrophe",
+  "field": "title",
+  "lang": "ko",
+  "text": "재앙의 뇌관을 빼는 무표정",
+  "model": "claude-opus-5",
+  "source_sha256": "ea1c1e61aafb1b3f3fee24513fb5c1c7eeabbd39916ade266d8ef4fbc05fb88a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-deaf-man-who-heard-symphonies",
+  "field": "title",
+  "lang": "ko",
+  "text": "교향곡을 들은 귀먼 남자",
+  "model": "claude-opus-5",
+  "source_sha256": "aaab436a0a6e4624a37741bb1cbf5f9aa2bd8a824502a1ee936874f9c8118d31"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-deaf-who-perceive-what-hearing-misses",
+  "field": "title",
+  "lang": "ko",
+  "text": "듣는 귀가 놓치는 것을 감지하는 농인",
+  "model": "claude-opus-5",
+  "source_sha256": "516ef9dd62ba674315128a8b70a4a1e5adc5b5e35a01bb9d4525d0a7a2213a6c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-camp-filmed-as-pastoral",
+  "field": "title",
+  "lang": "ko",
+  "text": "목가처럼 찍힌 절멸수용소",
+  "model": "claude-opus-5",
+  "source_sha256": "43304cacdff53e9bf41ecc953a2849112ce291ee565d837e372397c2821685e9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-disguised-as-duty",
+  "field": "title",
+  "lang": "ko",
+  "text": "의무를 뒤집어쓴 죽음충동",
+  "model": "claude-opus-5",
+  "source_sha256": "457a56dbb5ea9884dae72e3c8a9a95850523f390a9cf207dfe9bd78235eb9afe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-disguised-as-oceanic-womb",
+  "field": "title",
+  "lang": "ko",
+  "text": "대양의 자궁으로 위장한 죽음충동",
+  "model": "claude-opus-5",
+  "source_sha256": "ce491a6a4b8855c6564696265cfc7fc8c122b480214a18a8e9d2cca2e3ac5d5a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-made-audible-or-material",
+  "field": "title",
+  "lang": "ko",
+  "text": "소리가 되고 물질이 된 죽음충동",
+  "model": "claude-opus-5",
+  "source_sha256": "73669724d5dd7ab1343a490a2caeb81ce54e6cfaa36255fe7e87a9bea4c4731c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-of-endless-invention",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝없이 발명하는 자의 죽음충동",
+  "model": "claude-opus-5",
+  "source_sha256": "5f83aa41faaa0ead6a49167da0421c4a85be4a7d382a698ec8c184461edd23f7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-of-the-image-maker",
+  "field": "title",
+  "lang": "ko",
+  "text": "이미지를 만드는 자의 죽음충동",
+  "model": "claude-opus-5",
+  "source_sha256": "4f3126bc3bb371e9fa0dae90ccddb0b293361e5b01faea57e6111f3e4893ad5e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-reaches-its-object",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽음충동이 마침내 ��상에 닿는다",
+  "model": "claude-opus-5",
+  "source_sha256": "450b88278c3ba74e5e677301b8202d8ebbfcdaf93392439db06f74fb51f2b323"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-wearing-a-disguise",
+  "field": "title",
+  "lang": "ko",
+  "text": "변장한 죽음충동",
+  "model": "claude-opus-5",
+  "source_sha256": "7fe67bf8395bfb3321ef826dfd29f3d8889613ec28284771d62edae7282fccdf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-wearing-a-disguise-2",
+  "field": "title",
+  "lang": "ko",
+  "text": "변장을 걸친 죽음충동",
+  "model": "claude-opus-5",
+  "source_sha256": "7fe67bf8395bfb3321ef826dfd29f3d8889613ec28284771d62edae7282fccdf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-wearing-a-disguise-3",
+  "field": "title",
+  "lang": "ko",
+  "text": "위장한 죽음충동",
+  "model": "claude-opus-5",
+  "source_sha256": "7fe67bf8395bfb3321ef826dfd29f3d8889613ec28284771d62edae7282fccdf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-wearing-a-mask",
+  "field": "title",
+  "lang": "ko",
+  "text": "가면 쓴 죽음충동",
+  "model": "claude-opus-5",
+  "source_sha256": "c5505dc4bd25f06700823d98817b85fe90aeb425ee10ad9d37cbf0d1b40dadae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-wearing-a-mask-2",
+  "field": "title",
+  "lang": "ko",
+  "text": "가면을 쓴 죽음충동",
+  "model": "claude-opus-5",
+  "source_sha256": "c5505dc4bd25f06700823d98817b85fe90aeb425ee10ad9d37cbf0d1b40dadae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-wearing-romance-s-costume",
+  "field": "title",
+  "lang": "ko",
+  "text": "로맨스의 옷을 입은 죽음충동",
+  "model": "claude-opus-5",
+  "source_sha256": "918d5c281356d758d68a1c311c258c93ff9e65121195ff2402cbe52e37ffacec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-wears-a-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽음충동이 몸을 걸치다",
+  "model": "claude-opus-5",
+  "source_sha256": "054e68999aabddbff9226f2905fd689fd49d4456b9775f2b564bc5d191d4843b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-drive-wears-a-disguise",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽음충동이 변장을 하다",
+  "model": "claude-opus-5",
+  "source_sha256": "d0983f0e6e184191b86f83be3d2c9ae3a0b3fce87d4ca47dd8d3aed342c00578"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-that-frees-the-hero",
+  "field": "title",
+  "lang": "ko",
+  "text": "주인공을 풀어주는 죽음",
+  "model": "claude-opus-5",
+  "source_sha256": "d4a87a67f1886ef9c2444040464fbc3c09c6694f3d26672f47159b58418f6bf5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-death-the-cut-refuses-or-doubles",
+  "field": "title",
+  "lang": "ko",
+  "text": "컷이 거부하거나 두 번 겪게 하는 죽음",
+  "model": "claude-opus-5",
+  "source_sha256": "a942298aa34ef9fddba01cc4be7a42aeab0344546d243aca9e4607533c1838fd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-debt-that-outlives-the-empire",
+  "field": "title",
+  "lang": "ko",
+  "text": "제국보다 오래 남은 빚",
+  "model": "claude-opus-5",
+  "source_sha256": "f440718d567460074498d470eb1049b93327ebb68901cd9bc9130854b73d7ae9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-debt-that-was-never-about-money",
+  "field": "title",
+  "lang": "ko",
+  "text": "돈 문제가 아니었던 빚",
+  "model": "claude-opus-5",
+  "source_sha256": "2d28c1d669890ca2ffa39ab9da5bc9a1cdb1149f583003a2331914b16f899dbd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-debut-read-backward-through-later-masterpieces",
+  "field": "title",
+  "lang": "ko",
+  "text": "훗날의 걸작에서 거꾸로 읽는 데뷔작",
+  "model": "claude-opus-5",
+  "source_sha256": "66abfb2d1b4f7852b7370d5218dce5ceeeba094864dc647676223c0f9b8212bc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-decipherer-who-cannot-stop-solving",
+  "field": "title",
+  "lang": "ko",
+  "text": "푸는 일을 멈추지 못하는 해독자",
+  "model": "claude-opus-5",
+  "source_sha256": "57f4cf6bcbb352e29d1004baa29788cf2689727cb0cf63feb0fa8f767ebe4760"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-decomposing-jack-who-indicts-the-living",
+  "field": "title",
+  "lang": "ko",
+  "text": "썩어가며 산 자를 고발하는 잭",
+  "model": "claude-opus-5",
+  "source_sha256": "dd06707dffd2c5a448844cb67948417c1d66f22912e82a5e415f8db31f08c879"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-decorated-surface-is-delusion-made-visible",
+  "field": "title",
+  "lang": "ko",
+  "text": "장식된 표면, 눈에 보이는 망상",
+  "model": "claude-opus-5",
+  "source_sha256": "40df2b0a85cbf2ac31846f6927c82c8d5da6e4e2b2350e779a0bffaeb176537e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-deer-as-the-wild-crossing-the-threshold",
+  "field": "title",
+  "lang": "ko",
+  "text": "문턱을 넘어온 야생, 사슴",
+  "model": "claude-opus-5",
+  "source_sha256": "781d8abe49279a9aac6134fe3aa492369dfb05e49e73db9c78be906d8adee5ed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-defaced-face-as-repression-s-material-trace",
+  "field": "title",
+  "lang": "ko",
+  "text": "억압이 남긴 물질적 흔적, 지워진 얼굴",
+  "model": "claude-opus-5",
+  "source_sha256": "e2a9577f18df0cb79bc2ad6c36d5ef08138605a10d8c67ec50a7ea3f95e8ff57"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-defeat-we-agreed-to-call-a-miracle",
+  "field": "title",
+  "lang": "ko",
+  "text": "기적이라 부르기로 합의한 패배",
+  "model": "claude-opus-5",
+  "source_sha256": "deb2c8fd787f978aecbd098e845e4bbccd9e89fdeb5bc6840068aa7e7f14be96"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-definite-article-that-erases-the-man",
+  "field": "title",
+  "lang": "ko",
+  "text": "사람을 지워버리는 정관사",
+  "model": "claude-opus-5",
+  "source_sha256": "21e6f3fd5aed41a7aacb6296987373a6b6ce8ceb5744bd76612a1a5ae9140134"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-degraded-image-as-necromantic-channel",
+  "field": "title",
+  "lang": "ko",
+  "text": "망자를 불러내는 통로, 열화된 이미지",
+  "model": "claude-opus-5",
+  "source_sha256": "260f40b27da180ec159ca5c3416dc5eef2d46b3493e806762c1f04aa4a7cf2eb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-deliberate-absence-where-music-should-be",
+  "field": "title",
+  "lang": "ko",
+  "text": "음악이 있어야 할 자리의 의도된 침묵",
+  "model": "claude-opus-5",
+  "source_sha256": "4ff857612c70617ff77ec7770e706d6cee7a88b485d4a079559bda1f3ebd1bc8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-deliberation-room-where-one-dissent-turns-the-verdict",
+  "field": "title",
+  "lang": "ko",
+  "text": "반대 하나로 평결이 뒤집히는 배심실",
+  "model": "claude-opus-5",
+  "source_sha256": "da5e0ccad892182a76191b8963ee89fb29989d85d16ad77ca0b1195c2fe30ffc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-demand-for-an-answer-as-symptom",
+  "field": "title",
+  "lang": "ko",
+  "text": "답을 내놓으라는 요구가 곧 증상",
+  "model": "claude-opus-5",
+  "source_sha256": "36ac413ddf7851d31088aa30057e394a4f4c0a9e9f68524e2fee8c663872a939"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-demand-for-meaning-is-the-symptom",
+  "field": "title",
+  "lang": "ko",
+  "text": "의미를 요구하는 것이 증상이다",
+  "model": "claude-opus-5",
+  "source_sha256": "5c91762fda40e00b697b76ebaf7847d1c8b0ed83df0b3e10a85e3c171f2eb47c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-demand-to-be-the-other-s-desire",
+  "field": "title",
+  "lang": "ko",
+  "text": "타자의 욕망이 되라는 요구",
+  "model": "claude-opus-5",
+  "source_sha256": "c80ba3b401ccaa46839cd79321a3a86e55411299348703986b3cb4b6874aa4ad"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-demimonde-doubles-the-boardroom",
+  "field": "title",
+  "lang": "ko",
+  "text": "화류계가 중역실을 그대로 되비춘다",
+  "model": "claude-opus-5",
+  "source_sha256": "378c6b9427bd206cc03b57f122f0792054f4a2d85a455fdc4e261ce5e5fa9a25"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-demiurge-who-builds-to-destroy",
+  "field": "title",
+  "lang": "ko",
+  "text": "부수려고 짓는 데미우르고스",
+  "model": "claude-opus-5",
+  "source_sha256": "1fa3910b0d9bca22367abed98a2c9829ae0e5f394f061382fba68dc142d2fa58"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-demobilized-soldier-as-silent-return",
+  "field": "title",
+  "lang": "ko",
+  "text": "말없이 돌아온 제대 군인",
+  "model": "claude-opus-5",
+  "source_sha256": "99a3f57de334b5b8526326f7b22d73bc08fd3c1c086451233f6e9fcec590d3dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-demon-as-externalized-grief",
+  "field": "title",
+  "lang": "ko",
+  "text": "바깥으로 튀어나온 슬픔, 악마",
+  "model": "claude-opus-5",
+  "source_sha256": "73cc7f98bedbf2598843b2979b4b87ba961622ff150bef739195d81227290171"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-departure-as-the-only-authentic-act",
+  "field": "title",
+  "lang": "ko",
+  "text": "떠나는 것만이 진짜 행위다",
+  "model": "claude-opus-5",
+  "source_sha256": "b8b267d2ce06bbc588800d081eb668527ccb56fb74e17a3d472535ad5578b24f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dependent-wife-s-only-weapon",
+  "field": "title",
+  "lang": "ko",
+  "text": "기대어 사는 아내의 유일한 무기",
+  "model": "claude-opus-5",
+  "source_sha256": "abee6134a33d968ee458556da898294084549b6df66a77321ae07c52d6c2ed9a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-depression-filmed-as-cosmos",
+  "field": "title",
+  "lang": "ko",
+  "text": "우주로 찍은 우울",
+  "model": "claude-opus-5",
+  "source_sha256": "684e9b0ae02f6904aefb908d394094d29c24b69c32bc38f87d94c82b1b9eb635"
+ }
+]

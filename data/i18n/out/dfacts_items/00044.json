@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kathryn-bigelow#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2002년 잠수함 스릴러 《K-19》를 위해 비글로는 러시아로 갔다. 실제로 침몰 직전까지 갔던 그 소련 핵잠수함의 생존 승조원들을 만나기 위해서였다. 시나리오가 할리우드식으로 각색된 데 대해 그들은 처음에 항의했고, 감독은 그 반발을 헤쳐 나가야 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "61d0602fba99ae733361ab65f5dd8c89698435f760141b399d161c0ab70f65f5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kathryn-bigelow#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《허트 로커》 촬영지는 이라크 국경과 맞닿은 요르단이었다. 섭씨로 46도에 이르는 폭염이 이어졌고 스태프 여럿이 열사병으로 병원에 실려 갔다. 그런데도 비글로는 촬영을 멈추지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "853aa719f62195f574a1db215ab2edb5f291261aa30afdfe836b862fe01b43b4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kathryn-bigelow#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2010년 제82회 아카데미 시상식. 여성으로서는 최초로 감독상을 받은 사람이 비글로였다. 상대는 전남편 제임스 캐머런, 압도적 우승 후보로 꼽히던 흥행작 《아바타》였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "662f6172e19c09b1e18bc9af5b7a004255fed3da40d0112b6d6ae206d48c1155"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kathryn-bigelow#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오사마 빈 라덴 추적을 다룬 2012년작 《제로 다크 서티》는 CIA의 심문 방식을 타협 없이 그려냈고, 그 대가로 거대한 정치적 논란을 불렀다. 미 상원 정보위원회는 그가 기밀 정보에 접근한 경위를 두고 공식 조사에 착수했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2c6b707f303fe338fc4ff8ce1e85bca3f8741c4c9ae0d42b000572b50c2528c6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kathryn-bigelow#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "동물권과 환경 문제에 열정적으로 목소리를 내온 그는 2014년 애니메이션 단편 《Last Days》를 연출했다. 전 세계 상아 거래와 코끼리 밀렵의 참혹한 실상을 알리기 위한 작업이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "156fceeb676337c554a3cce1e5bea38589c025900d35b71c79914bb01409b831"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kathryn-bigelow#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2017년에는 1967년 디트로이트 폭동이라는 참사를 다큐드라마 《디트로이트》로 붙잡았다. 알제 모텔 사건의 혼란과 잔혹함을 다큐멘터리처럼 즉각적으로 담아내려고, 통념을 벗어난 멀티 카메라 방식을 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "21b85e52ea99af4811f17f0e4aa9312516e12383b017cbd46d822b659750974b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kathryn-bigelow#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2007년 피렐리 타이어를 위해 만든 단편 《Mission Zero》도 있다. 우마 서먼이 노란 람보르기니를 몰고 암살자들을 따돌리는 8분짜리 질주극이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "835fb644ec6510f69da6f670dc489ce6093810e9a99f74e5ccd7f23bed0ffaeb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kelly-reichardt#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "십 대 시절 아버지가 펜탁스 K1000 카메라를 사줬다. 렌즈로 무언가를 담는 일에 처음 빠져든 것이 그때다. 스틸 사진에서 영화로 넘어간 것은 그 뒤의 일이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d48c5c772d8cc008bc364a101065996c940906b16053c5bf96cfbde3df89772"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kelly-reichardt#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "데뷔작 《River of Grass》(1994)는 인디펜던트 스피릿 어워드 3개 부문 후보에 올랐다. 그런데도 두 번째 장편의 제작비를 구하기까지 12년이 걸렸다. 업계의 성차별이 그만큼 지독했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ebc5a6ba4202e38789452ef9015d6fcbe8c32dc5a633698021c48348948ca4f7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kelly-reichardt#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생에 걸쳐 가장 강력한 지지자가 되어준 사람은 감독 토드 헤인스다. 그가 포틀랜드의 소설가 존 레이먼드를 소개했고, 레이먼드는 이후 라이카트의 장편 여섯 편을 함께 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "325d4bc9b4bc4230007f81e6bda44c71e4bc63c3dcf4db1041fc51940b45db0e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kelly-reichardt#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2006년부터 뉴욕주 북부 바드 칼리지의 상주 예술가로 꾸준히 일해왔다. 이 자리에서 나오는 건강보험과 안정된 수입이 그의 완고할 만큼 독립적인 영화 작업을 떠받친다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8aeee0c2d557cd50b9d9c397ca6a489fbb508a0625c99d22b215b4f5c3005ec"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kelly-reichardt#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자기 영화는 전부 자기가 편집한다. 뉴욕의 소박한 아파트에 컴퓨터를 놓고 작업할 때가 많다. 조용한 이야기의 속도와 리듬만큼은 혼자 쥐고 있는 편을 그가 좋아하기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7eb897d0e7ab8428b95b7c66e3d648f82a6206a1ca93e4f7790916c7405e2a0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kelly-reichardt#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미셸 윌리엄스를 네 편에 기용했다. 화려한 배우가 빨지 않은 옷을 걸치고, 화장을 지우고, 초저예산 촬영 내내 소파에서 자는 일을 마다하지 않는다는 점에 그는 끌렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd21952e0a888c4e8f1e1e9a6cc3e665b2776f3bfee7f88bd523f745d7062f5c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kelly-reichardt#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Meek's Cutoff》의 촬영감독이 막판에 하차했을 때 토드 헤인스가 크리스토퍼 블라우벨트를 추천했다. 그는 이 영화를 찍었고, 이후 라이카트의 모든 장편에서 떼어놓을 수 없는 시각적 동반자가 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3400cbf35ec36a185a019b1c6e5f8c97a1980358999ebd2b3d573a86cb68055"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kelly-reichardt#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2019년작 《퍼스트 카우》를 준비하며 그는 소들을 직접 오디션했다. 최종 선택은 성격이 순한 저지종 암소 에비. 눈이 크고 표정이 살아 있으며, 정신없는 촬영 현장에서도 침착하다는 것이 주된 이유였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "af86d3045ab73d141983fd18779231b2e5abf8ee91a6f71c4e0fa4a976ccb5d8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kelly-reichardt#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2022년작 《쇼잉 업》에서 근근이 버티는 예술가들의 세계를 정확히 그리려고, 포틀랜드의 조각가 신시아 라티를 몇 달 동안 지켜봤다. 화면에 나오는 주인공의 작품은 라티가 실제로 빚은 도자 인물상이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d7f11ca3197e3bf141af533bd46c7ff094cc81b58d3c01f4ae5e8415bb3cab43"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kelly-reichardt#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "16mm 필름으로 찍는 일이 잦고, 정사각형에 가까운 4:3 아카데미 화면비를 선호한다. 프레임이 좁아야 관객이 광활한 풍경에 빠져 헤매는 대신 인물의 얼굴을 가까이 들여다보게 된다는 것이 그의 논리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b852b1a463ca4aa2647cb13611007cbc987222f3ee5f351b3ac0108279ede4b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kelly-reichardt#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2022년 칸영화제에서 황금마차상(Carrosse d'Or)을 받았다. 프랑스 감독조합이 길을 여는, 타협하지 않는 독립영화인에게 주는 상이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "df7c61361271cdace9cc1a9a4373f15cb10c91d54ce05bd9fba264cec4c70572"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ken-loach#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "공업도시 뉴니턴에서 전기공의 아들로 태어났다. 로치는 집안에서 처음으로 대학에 간 사람이다. 옥스퍼드 세인트 피터스 칼리지에서 법학을 읽던 중 연극을 발견했고, 훗날 코미디언이 되는 더들리 무어와 가까워졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "41b8f08f6f48f90f28bad26059eb074520e405f3ddbe61461bd207985dc5d86a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ken-loach#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "연출에 뜻을 두기 전, 영국 공군에서 타자병으로 2년간 국민병역을 마쳤다. 본인 표현으로는 지독하게 지루한 시간이었다. 다만 권위를 의심하는 평생의 세계관은 그때 굳어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc278d9b0c97fc2bdc810945e86810f9488e135c468a2d76e88a306d61bc9565"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ken-loach#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1966년 BBC 텔레비전 드라마 〈Cathy Come Home〉은 영국이 감춰온 노숙 문제를 정면으로 건드렸다. 전국이 들끓었고, 의회에서까지 논의됐으며, 주거 자선단체 셸터가 출범하는 계기가 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "15cbbcff0ef6f6a8fad2eefecb5966dc87fb0e1ddddebe13c6f8b2b60fd71e14"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ken-loach#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1960년대 말, 로치는 오랜 제작 파트너 토니 가넷과 함께 독립 제작사 케스트럴 필름스를 세웠다. BBC의 관료적 간섭과 정치적 소심함에 둘 다 넌더리가 난 끝이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "76949f53e35da96d25ec9623d10c5bcf41943d4cf1416ef9aeaa2ac1d8555b43"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ken-loach#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1969년 다큐멘터리 〈The Save the Children Fund Film〉은 그 단체가 아프리카를 대하는 신식민주의적 태도를 혹독하게 파고들었다. 단체는 소송을 걸어 이겼고, 필름은 금고에 갇혔다. 대중이 이 영화를 볼 수 있게 되기까지 40년이 걸렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "71cbae8b7782838b0d4bf75d2155898bfdee20ab95d327efef853c7ac1ad1587"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ken-loach#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1969년작 《케스》를 찍을 때 로치는 비전문 배우였던 십 대 소년 데이비드 브래들리를 의도적으로 속였다. 소년이 직접 키운 황조롱이를 제작진이 정말로 죽였다고 믿게 만든 것이다. 새의 사체 앞에서 터진 그 슬픔은 그래서 조금도 연기가 아니었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "356aabd13986675bc5ea8840f8b6f5df62e8b6f5fc637adccce408b38e688376"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ken-loach#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1971년 다섯 살배기 아들 니컬러스를 교통사고로 잃었다. 가족 전체를 무너뜨린 이 상처는 막 궤도에 오르던 그의 영화 경력도 한동안 멈춰 세웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1af1fb149c74271237468c3f85607521cdcb4381e5bd90ac033141033d57d5b4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ken-loach#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1977년 대영제국 훈장(OBE)을 조용히 거절했다. 몇 해 뒤에야 이유를 밝혔다. 제국의 착취가 남긴 유산을 평생 사회주의자로서 비판해온 자신이 그 제국의 훈장을 받는 것은 위선이라는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "50b0f801d91c5096e72556a7a5c52372dd66f1f245d67e1efa6495a5291cd3c4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ken-loach#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1984년 영국 광부 파업이 한창일 때 〈사우스 뱅크 쇼〉는 로치에게 〈Which Side Are You On?〉의 연출을 맡겼다. 완성된 다큐멘터리는 파업 광부들 편에 서 있음을 숨기지 않았고, 그 때문에 처음에는 방영이 취소됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f2e27444babe0b6ad5f8ca6fbbde3c3c67f31002879a9aa7633212967fee0102"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ken-loach#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "반자본주의를 신념으로 삼은 사람이지만, 1980년대의 극심한 경력 침체와 정치적 블랙리스트는 그를 맥도날드와 네슬레의 TV 광고 연출로 내몰았다. 주택 담보 대출을 갚아야 했다. 훗날 그는 이 타협을 '끔찍한 실수'라 부르며 깊이 후회했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f00e5368d5f46d069abbb6d197e7c4b17dd8223c130ff6c62a57c523d7c00756"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ken-loach#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1990년대에 그의 경력을 사실상 되살린 것은 유럽 자본, 특히 프랑스 카날플뤼스였다. 굽히지 않는 좌파 정치 탓에 영국 방송사와 스튜디오는 그를 완전히 버린 뒤였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "06eef805c3cd1ebf3e71c7b7298c5afa12d0e2308eb9bf66c4ea35e8b053854e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ken-loach#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "인권 변호사 출신 폴 래버티와 30년에 걸친 동행이 그의 후반생을 규정한다. 1996년 《칼라의 노래》로 처음 손잡은 이래, 로치의 모든 장편 각본은 래버티가 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "942f63ab4fac9e0b4b11181d78785cd6d23e4914385bb45375b1ee01c794867a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ken-loach#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "진짜 놀람을 얻어내려고 로치는 배우에게 완성된 대본을 주지 않는다. 대사는 그날그날 건네고, 이야기의 큰 반전은 카메라가 돌기 몇 분 전까지 숨긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "042986c8a679b9d3c5cc22a604c812be69244e85f51438b09845117399f232d9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ken-loach#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그의 현장에서 '액션!'이라는 말은 금지어다. 대신 배우에게 조용히 건넨다. '자, 가보세요' 또는 '준비되면 시작하세요.' 고함은 인위적이고 압박이 심한 공기를 만들고, 그런 공기에서는 자연스러운 연기가 죽는다고 그는 믿는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9a7a03de1451d479f54fea0eefaa76814684d66ed1c2e5f0a9b01341e33a3c0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ken-loach#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그의 영화는 영국 각 지역의 사투리에 깊이 뿌리내리고 있다. 1998년 스코틀랜드 배경의 《My Name Is Joe》가 미국에서 영어 자막을 달고 개봉한 것도 그래서다. 걸쭉한 글래스고 억양을 관객이 알아들을 수 없었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8487a1f08a520e7a6dd23dfd791ee9759515216a41729c6e9a583c3cd9129597"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ken-loach#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "칸영화제 황금종려상을 두 번 받은 소수의 '두 번 수상자' 명단에 그의 이름이 있다. 아일랜드 독립전쟁을 다룬 《보리밭을 흔드는 바람》으로 2006년에 한 번, 복지국가를 겨눈 《나, 다니엘 블레이크》로 2016년에 다시 한 번.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e6d3cabc604428dcc7040904764527cfb592b3e9e9132a7410b10b7aba9d3ef"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ken-loach#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2012년 토리노영화제가 주는 공로상을 거절했다. 영화제가 외주로 쓰는 청소 노동자들에게 낮은 임금을 지급한 데 대한 항의였고, 파업 중인 그들 곁에 실제로 서겠다는 선택이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d11da1396d60b9d57dfecc53f276ae5129d058ce839ee19746286298f77663f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ken-loach#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2013년에는 좌파 정당 레프트 유니티 창당에 참여했다. 노동당을 대신할 급진적 선택지가 필요하다는 판단이었다. 영국 주류 정치가 노동계급을 완전히 저버렸다는 것이 그의 진단이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5ede34519d590af3d9d6233e2118c27a3f8a4fe61a83106825054067290e1ab6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ken-loach#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "보수당 정치인 이언 덩컨 스미스가 《나, 다니엘 블레이크》를 두고 복지 제도를 왜곡했다고 공개 비난하자, 로치는 매섭게 되받았다. 긴축 정책을 설계한 당사자에게, 그 각본에 영감을 준 실제 푸드뱅크 이용자들을 직접 만나보라고 요구한 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d148a6cfe0fd82a219301b9009e7d7010b6d71862db3d900abfdc460f288b2b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ken-loach#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "현대 블록버스터를 향한 비판에서 로치는 마틴 스코세이지 같은 감독들과 나란히 섰다. 2019년 마블 시네마틱 유니버스 영화를 두고 '햄버거 같은 상품'이라 부른 발언이 화제가 됐다. 인간의 진실을 전하기 위해서가 아니라 오로지 기업 이윤을 뽑기 위해 설계된 물건이라는 뜻이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d02cd8768ddac71d0381c6a185e0e924074c3efd094fbfe8b77c9dbe920055e6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ken-loach#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2021년 로치는 영국 노동당에서 공식 제명됐다. 수십 년을 함께해온 당이었다. 키어 스타머 체제에서 축출된 다른 좌파 사회주의 조직들과 절연하기를 그가 거부했기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0661bad9334e2825d1a733413ac0ad59aa078c2549c1a152a80ba3f78904e1ac"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ken-loach#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "여든일곱에 그는 시리아 난민을 다룬 2023년작 《The Old Oak》이 마지막 장편이 될 것이라고 밝혔다. 시력이 나빠졌고, 분주한 촬영 현장을 감당하는 일이 몸에 부친다는 이유였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "84845ac55d7121b764aa659b5086cac71374634f3f5632d35313622f4a3ef32e"
+ }
+]

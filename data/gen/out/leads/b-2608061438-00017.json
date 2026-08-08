@@ -1,0 +1,132 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-story-of-zhou-enlai-2013",
+  "field": "lead",
+  "film_id": "6fa93302-b7b5-4fac-bd34-8ed406872062",
+  "lang": "en",
+  "text": "The camera belongs to a man with a job: keep up with the premier and photograph what he sees. Chen Li builds the film on that assignment, so the trip to Boyan commune in Handan reaches us through a working technician's viewfinder rather than a biographer's hush. It is the beginning of the 1960s, the country is short of food, and Zhou Enlai has come to a Hebei village to ask questions the people answering have every reason to soften. Four days and nights, a hundred and six minutes: the arithmetic keeps the picture close to meals, doorways, walking, the pauses in a conversation. What a visiting official is told and what is actually the case have to be prised apart slowly, in courtyards, by a man whose arrival changes every room he enters.",
+  "model": "claude-opus-5",
+  "source_sha256": "672fe36737a3b32e4c2406434dedc9b5c2d648eecdb5948ba8a02e382b298bbb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "voice-from-hometown-1983",
+  "field": "lead",
+  "film_id": "8a55b592-45a3-4f07-badc-8412b175bab8",
+  "lang": "en",
+  "text": "Twenty-four people have rated Hu Bingliu's film on IMDb; they put it at 8.1. The other number attached to it is a Golden Rooster for best picture, handed out in 1983 by people who had watched that year's Chinese features and preferred this one. Two figures, and two lives for the same eighty-three minutes: one at home, where a jury weighed it against everything the industry made that season, and one abroad, where it has hardly travelled past its own language. A prize like that records attention paid carefully, once, by people close enough to compare the work with its neighbours; a vote count like that records how far a reputation gets when nobody exports it. Eighty-three minutes is a short, deliberate length for a film a country calls its best.",
+  "model": "claude-opus-5",
+  "source_sha256": "f2c01ae3f791bed13fd17a1df38a5089a5a7b5135b65af082649a396c54c6aca"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "space-dream-2011",
+  "field": "lead",
+  "film_id": "a4eaaab5-5fde-4125-a2cb-074062dde62c",
+  "lang": "en",
+  "text": "Every event in this picture had already been announced, numbered and broadcast before a frame of it was shot. Dong Shen takes China's crewed launches, Shenzhou 7 onward, and builds two hours on material whose outcome the audience carries into the cinema, which rules out suspense as an engine and pushes the drama down to the ground. That is where a film on this subject has to live: in selection and training, in the institutional patience a programme measured in decades asks of the people inside it, in the distance between a national schedule and a single career. The Golden Rooster named it best picture. Two hours is a long time to give to waiting, and giving it to waiting rather than to spectacle is the most telling decision here.",
+  "model": "claude-opus-5",
+  "source_sha256": "5a74e2946f7d5685619b8bbfacef38853c28c31c4687065c519bf1d99eacd94a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dr-sun-yat-sen-1986",
+  "field": "lead",
+  "film_id": "bf2c6a02-d491-403b-a7dc-a7606a63d02c",
+  "lang": "en",
+  "text": "In 1986 a Chinese studio gave a hundred and fifty minutes to the man who led the country's democratic revolution, and a hundred and fifty minutes is not much. Ding Yinnan's subject is measured in years of organising against a standing order, so the film chooses constantly between sweep and room: decades compressed into a line, or one night allowed to run while the rest passes between scenes. Suspense is unavailable, the outcome being the reason the film exists at all, which leaves the part of politics that is not battle: the arguing, the money, the waiting to be believed. The Hundred Flowers named it best picture. The title says Sun Yat-sen and the summary says Sun Zhongshan, one man in two romanisations, which is fair warning about how much of this history reaches outsiders already translated.",
+  "model": "claude-opus-5",
+  "source_sha256": "b1b05eddb392350647826ce4502abc96b4bd2c1077b13692fd6a7d0ef57ded1c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "big-plane-small-axe-the-mistrial-of-mary-kelly-2020",
+  "field": "lead",
+  "film_id": "7c5ec3f4-fe86-48e2-871a-fcc18fe17d94",
+  "lang": "en",
+  "text": "Mary Kelly attacked a United States Navy aircraft parked at Shannon Airport because marching against the war had stopped feeling like enough. January 2003: the American build-up against Iraq was thickening daily, the airport had become a refuelling stop on the way, and she had lately come back from volunteer nursing in Palestine. Her own account of the damage is flat and physical, like chopping extremely hard wood. The charge was criminal damage to a US Navy aircraft without lawful excuse, and it carried up to ten years. Margaretta D'Arcy filmed what came next: three successive trials, the courtrooms at Kilrush and Ennis, fifty-one minutes for a process that took over a woman's life. It is a partisan record and does not pretend to be anything else.",
+  "model": "claude-opus-5",
+  "source_sha256": "932e6484cfbe72e08bd17a137d65177ea8e072441bd494a28a38b0ea5bc4c5cd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mao-zedong-in-1925-2001",
+  "field": "lead",
+  "film_id": "c6fbf0b6-8f50-4912-9df8-9daaf5c84436",
+  "lang": "en",
+  "text": "A film that stops its clock in 1925 leaves out nearly everything the name Mao Zedong is usually attached to. What remains is a man back in his hometown, pushing socialist programmes in the countryside and running into the landlords who own it, a quarrel that is small, local and about property: who decides what happens to a field, and who has decided it up to now. Zhang Jinbiao has ninety minutes and no obligation to explain where any of this goes, since everyone watching arrived knowing. So the interest sits in the earlier register, a man arguing with neighbours rather than issuing anything, before there is an apparatus to argue on his behalf. Ninety minutes on twelve months is a narrow frame for a subject usually handled in decades, and the narrowness is the whole proposition.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd8c1cfa1437bbbc22bd8b56367f106c75e634318281c09aef0f746d68453e6d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "un-chien-andalou-1929",
+  "field": "lead",
+  "film_id": "a8ada70f-0f02-44b6-a4f8-842fdc29d947",
+  "lang": "en",
+  "text": "Spanish critics count it among the hundred best films of their national cinema; it was made in France, in 1929, and runs seventeen minutes. Two names are on it, Luis Buñuel and Salvador Dali, and the double authorship shows in the construction: images arrive with the authority of dreams and none of the obligations of plot, so nothing is required to answer for what happened a minute earlier. Which makes the usual approach to a film useless here. There is no story to spoil and no summary that survives contact with the thing itself. Seventeen minutes is the whole commitment, and every one of them is spent breaking something a viewer expects a film to keep. The argument afterwards runs longer than the film, reliably, which is the practical case for the seventeen.",
+  "model": "claude-opus-5",
+  "source_sha256": "332b8055f529e1417684017f59d33ac32836b3379cf8b44faf0856beb4ad0217"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sherrybaby-2006",
+  "field": "lead",
+  "film_id": "164fd264-8242-4c02-9b08-6a170d35ca36",
+  "lang": "en",
+  "text": "The house Sherry Swanson comes back to has been running for years without her, and her daughter has learned its routines from other people. That is the difficulty the film sets itself: not simply whether a woman out of prison stays clean, but whether the relatives who did the raising will hand a child over, and by whose standard that gets decided. Laurie Collyer keeps it to ninety-six minutes and mostly indoors, where a sister-in-law's doubt carries more weight than any paperwork. Sherry has to perform a credible version of herself for everyone she needs something from, and each performance costs her something she is already short of. The film watches that arithmetic, what gets spent in order to be believed, rather than ruling on whether she deserves the girl.",
+  "model": "claude-opus-5",
+  "source_sha256": "c0d48c0833d7d25e2be5d5d8306ed2b39b1cafc918168d461a5b934cb54de96e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "my-life-in-pink-1997",
+  "field": "lead",
+  "film_id": "67325422-89be-4c94-9028-e6dbe61d1202",
+  "lang": "en",
+  "text": "Ludovic is six years old and entirely certain that the mistake will be corrected. Alain Berliner puts that certainty down in a street where the neighbours know one another's business, then stands back while the adults respond: family first, then friends, then the houses on either side. Listed as a comedy as well as a drama, it earns both. The lace and the baubles are the child's own furniture, handled with the seriousness a six-year-old gives them, while the damage arrives secondhand, through parents under pressure from other parents. Eighty-eight minutes, kept at a child's eye level. A Golden Globe for best film in a language other than English followed. What is finally demanded of Ludovic is not that she change her mind, only that she stop saying it aloud.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf5a9978d786b00f08a191ed18fe5a703873719fc108aefd486ce3c26b4b7a39"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "jar-city-2007",
+  "field": "lead",
+  "film_id": "e0e96fdc-589f-4a81-a14a-e8437df076d7",
+  "lang": "en",
+  "text": "A murder in a small place turns an investigation into genealogy: the detective questions people he has met before, and every answer comes attached to somebody's family. Baltasar Kormákur gives it ninety-three minutes and a worn-out policeman, which sets the tempo more surely than the plot does, since a tired man works by accumulation rather than inspiration and the film moves at the speed of records pulled and doors knocked on. What surfaces is old. Buried secrets, and the sort of small-town corruption that lasts because everyone concerned has agreed for years not to look straight at it. Iceland sent Mýrin to the Academy Awards that year. The dread in it is not that the trail goes cold but that it goes local.",
+  "model": "claude-opus-5",
+  "source_sha256": "1285b95dafd65bdf47d8133108bb40932d680bf81f0abe98498a0acdd295c1f2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "corn-island-2014",
+  "field": "lead",
+  "film_id": "873bc42f-bb17-4007-9dba-9a6fc86279c1",
+  "lang": "en",
+  "text": "The Inguri throws up a new island of silt one spring, and an old man decides it will do for corn. The river is also a border, Georgia on one bank and Abkhazia on the other, so the plot he clears belongs to a country only in the sense that nobody has yet arrived to say which. Giorgi Ovashvili gives this a hundred minutes and a short list of things to watch: a hut, a crop, weather, water, and the labour of getting one season out of ground that arrived by accident. The old man has walked this valley for decades and reads it accordingly. Filed as war as well as drama, it understands that a border need not be visible to be the main fact about a place, and that corn will not wait for anyone to settle whose river this is.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d55216b32b2a88fc6c58baaf193f3bd0a00750a08b6a97136e9001dd2d2d007"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-notebook-2013",
+  "field": "lead",
+  "film_id": "5ba82a9c-205a-48f9-99f7-f379f0fa58d9",
+  "lang": "en",
+  "text": "Two boys work out that survival is a skill and set about acquiring it, deliberately, the way other children learn a language. They are in a village on the Hungarian border in wartime, left with a grandmother who is cruel without apology, and the adult world around them has stopped behaving the way children are told it behaves. János Szász films this at a hundred and twelve minutes, and the discipline of the thing is that the brothers' hardening comes across as method rather than misfortune: something practised, tested, improved. The effect is specific and unpleasant in a useful way. Competence in that house means every trick the adults were already using, learned faster, and applied without the excuses adults make for themselves.",
+  "model": "claude-opus-5",
+  "source_sha256": "08d8605e975b9c8befc70f03e536391d1dcb3f5676e2e8f11908d41e2e0d36c7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "white-bim-black-ear-1978",
+  "field": "lead",
+  "film_id": "809b12df-d4e3-4fe1-9d4d-2632cebb029b",
+  "lang": "en",
+  "text": "A Gordon Setter is born with one black ear, a fault by the standards of his breed, and Ivan Ivanovich takes the puppy home anyway. That decision has to hold up the next three hours. Stanislav Rostotsky spends a hundred and eighty-two minutes on what follows when the man's heart trouble puts him in hospital and the dog, understanding none of it, sets out to find him. The animal is a device, and an efficient one: he passes from stranger to stranger, and each of them decides on the spot, with nobody watching, whether to feed him or drive him off. A film this long about a dog is really a survey of everyone the dog walks past, and the Soviet Union in 1978 is a particular set of people to be surveying.",
+  "model": "claude-opus-5",
+  "source_sha256": "159d0744d31c0601cd96d442df7d0f8b261f0306677fe94b25b9a7ed919e6c09"
+ }
+]

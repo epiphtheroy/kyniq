@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-true-glory-1945",
+  "field": "lead",
+  "film_id": "f89c596d-0982-4edf-a695-6225777b3cb4",
+  "lang": "en",
+  "text": "Nearly fourteen hundred cameramen shot the footage, and one cutting bench had to make a single film out of it. That arithmetic is the interest here. Eighty-seven minutes must hold the assembly and training in Britain, the Normandy landings, and everything between there and Berlin, which makes the real work subtraction: whose ten seconds stand in for a month, what a camera happened to be pointed at when something occurred, how much of a continent can be implied. The date on it is 1945 and the last event it reaches is the fall of Berlin, so almost no distance separates the editing from the thing edited. It took the Academy Award for documentary feature, and the National Board of Review named it the best film of its year. Garson Kanin has the director credit, though directing is not quite the verb for the job it describes.",
+  "model": "claude-opus-5",
+  "source_sha256": "ea8734bb8f22ec05b9d7e91f441b31136767251088d0d4d5c46ee78f407e936e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-eleanor-roosevelt-story-1965",
+  "field": "lead",
+  "film_id": "04f2d529-26e0-4d8c-ad29-24452cb05611",
+  "lang": "en",
+  "text": "It opens on a plain, awkward girl in a socially prominent family and treats her awkwardness as the fact requiring explanation. Ninety minutes on a life its 1965 audience believed it already knew, which sets a harder task than introduction: getting behind a public face while that face is still in use. Richard Kaplan builds a portrait rather than a chronicle. The marriage is present, and Franklin's career, but the film keeps declining to let her sit beside either — the crusade against injustice starts early and never becomes a phase. It won the Academy Award for documentary feature and took a place on the National Board of Review's ten best films of the year. In 2006 the Academy Film Archive preserved it. The girl in the early reels is the reason to watch: the film keeps her visible inside the woman.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b3115cf9019385b8bcc3026f6ca4d1db2210da1fcd18b1531bcf9c98bba923d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "question-7-1961",
+  "field": "lead",
+  "film_id": "968fa564-6ea8-4c5c-b83f-15f34447d073",
+  "lang": "en",
+  "text": "A father and a son are handed the same test at different hours, and each has to answer it alone. The premise states the price plainly: what either stands to lose by refusing is not comfort or standing but the shape of the rest of his life. Stuart Rosenberg keeps the scale domestic and the running time at 106 minutes, which is the scale at which conviction stops being an argument and becomes an arrangement inside a house — one person's principle spending another person's future. The suspense, and the film advertises suspense, is not whether an event will occur but whether someone will speak. The National Board of Review named it the best film of 1961 and placed it among the year's ten best, an emphatic verdict for a picture built out of two people and a decision.",
+  "model": "claude-opus-5",
+  "source_sha256": "b5c89baac0e7cf5a8e58564d212ccb61aba51d69f2136afde469362c3004b7af"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "soorarai-pottru-2019",
+  "field": "lead",
+  "film_id": "1179e34c-a8b7-4897-89e9-aecf86f05382",
+  "lang": "en",
+  "text": "Aviation, the film says, is the most capital-intensive industry on earth, and Nedumaaran Rajangam walks into it meaning to put ordinary people in the air. It files itself as drama and action, which turns out to be exact: the fights are over financing, licenses and incumbents, and they are staged with the force usually reserved for physical ones. A hundred and forty-nine minutes in Tamil, and the length goes to obstruction — the accumulating cost of a man who declines every reasonable exit. It carries the National Film Award for Best Feature Film. What stands to be lost is both smaller and larger than a company: the proposition that flight was never meant to sort people by what they earn, argued by someone with no money and considerable nerve.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d30a089ecb71413afb76fceed529080508598edc818982c0b0f1db7cdf26d1c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-cider-house-rules-1999",
+  "field": "lead",
+  "film_id": "fd9a333b-8f1e-4059-a595-67fbb269dd01",
+  "lang": "en",
+  "text": "Homer can deliver a baby and holds no license anywhere that says so. He grew up in the orphanage that trained him, taught medicine by the man who runs it, never adopted, and useful — which is a hard combination to walk away from. Lasse Hallström lets obligation do most of the work that plot usually does. The question is not whether the world outside is appealing but what a person owes an institution that raised him and now needs him, and what deferring an unchosen life costs in the meantime. The picture was recognized for its adapted screenplay and moves the way adapted fiction moves: episodic, patient with minor characters, more interested in seasons of labor than in incident. A hundred and twenty-six minutes, most of them spent watching people work.",
+  "model": "claude-opus-5",
+  "source_sha256": "52a93db1e3d14dc23362ca525cff0142293874d821e4b0228ff6591444ee5c24"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "victoria-2015",
+  "field": "lead",
+  "film_id": "4457991a-1331-49f2-9ba6-a9bee6998582",
+  "lang": "en",
+  "text": "Newly arrived in Berlin, she has no way of telling which of these strangers is the dangerous one. The flirtation is ordinary, the friends are agreeable, the hour is late, and 138 minutes is a long stretch to spend inside one night that keeps declining to end. Sebastian Schipper's film earns its crime, thriller and romance labels in sequence rather than at once: a pickup becomes an obligation, then becomes something she cannot leave politely, and her foreignness stops being charming at the exact moment it starts leaving her without recourse. European Film Award voters gave it best director, best actress and the audience prize; it also took the German Film Award for best feature. The dread and the pleasure come from the same source — being new somewhere, and going along.",
+  "model": "claude-opus-5",
+  "source_sha256": "c807d71cf0921d65adf32350c14ab1a20a6b9a3e1762836329bc05cd6591550a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "rocketry-the-nambi-effect-2020",
+  "field": "lead",
+  "film_id": "2b5f6d34-198d-4004-86df-6ac966f69abd",
+  "lang": "en",
+  "text": "A propulsion system takes years to get right; a reputation comes apart in a week. That asymmetry is the subject. Nambi Narayanan was one of India's rocket scientists, and then, in the space of a few days, a man accused of treason — and the film gives most of its 154 minutes to the second half of that sentence, to the speed of an accusation measured against the slowness of any correction. R. Madhavan directs it as advocacy rather than inquiry, which is worth knowing going in: the verdict is settled before the first frame, and the work that remains is making a private cost legible. It holds the National Film Award for Best Feature Film. Its harder task is to make technical patience visible, since patience of that kind is the least dramatic and most persuasive answer to the charge.",
+  "model": "claude-opus-5",
+  "source_sha256": "366018d621e34abb7c70acdae90b9c188aae206bd14ae15b35b9fbaa093ac78e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "confessions-2010",
+  "field": "lead",
+  "film_id": "9a9a7d93-db8b-4d3b-8bb3-7511aa80be98",
+  "lang": "en",
+  "text": "Her daughter is dead and her students are children, and the film's opening move is to deny those facts separate rooms. Confessions runs 107 minutes and stacks drama on thriller on mystery, which is not indecision: grief is being routed deliberately through suspense machinery, so that an audience is made to want information from a situation where wanting anything feels indecent. A middle school classroom becomes the pressure vessel. What is at risk is the arrangement every school runs on — that childhood is a form of immunity, and that the dangerous party in the room is always an adult. Japan submitted it to the Academy Awards and the Japan Academy Film Prize named it picture of the year. Tetsuya Nakashima's coldness is technique, not temperament, and he applies it to the hottest material available.",
+  "model": "claude-opus-5",
+  "source_sha256": "75fba8197432ab01401fb2e25982c669afa0417b07a8d22cbff7f38da4c8d12e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "paan-singh-tomar-2011",
+  "field": "lead",
+  "film_id": "8241abe2-29a1-4666-9ad5-b8494cb8efce",
+  "lang": "en",
+  "text": "Applause is not a pension, which is a thing athletes tend to learn later than everyone else. He was a celebrated runner, and then he was a man whose life after sport failed to unfold as planned — the acclaim converting into nothing anybody can live on. The film is filed as crime, but the crime arrives as consequence rather than appetite: the discipline that made him formidable on a track is the same discipline he turns on a country that has stopped answering him. A hundred and thirty-five minutes in Hindi, carrying the National Film Award for Best Feature Film. Tigmanshu Dhulia's interest is in the arithmetic of what a state owes the people it puts on a podium, and how quietly that debt gets mislaid once the cheering is over.",
+  "model": "claude-opus-5",
+  "source_sha256": "cfb7ca2e2c188c6cbd646eb8d49bde5de9f9fcd9ba38222f1510326799679486"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "nurse-betty-2000",
+  "field": "lead",
+  "film_id": "bc5a39fb-f021-492b-b859-959a79715502",
+  "lang": "en",
+  "text": "A Kansas waitress decides that the man she loves is real, and the fact that he exists only on a soap opera does not slow her down. Betty's delusion is a survival mechanism with an itinerary; she goes after a character, and what she has left behind is not finished with her. Four genres sit on this picture — comedy, crime, thriller, drama — and the tonal problem is not incidental, it is the whole gamble: whether a joke about a woman's dissociation can stay on her side of the joke. Neil LaBute directs, and the screenplay was recognized on its own; that fits, since the writing has to keep two incompatible movies from cancelling each other out. It works best when Betty is taken at her word by people who ought to know better.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f1bf977b0d84b263ee2a17bf70a1ac0df9b9ab78601739566467c002ad511af"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-red-balloon-1956",
+  "field": "lead",
+  "film_id": "9f5c4d2d-600f-484f-b484-e05cbe156181",
+  "lang": "en",
+  "text": "Thirty-four minutes, one boy, one balloon, and an Academy Award for screenwriting. That combination is worth sitting with: a writing prize went to a film whose second lead has no face, no voice, and no way to indicate what it wants except by where it drifts. Le Ballon rouge takes the streets of Paris as both terrain and obstacle course, a child and a following balloon moving through a city arranged for neither, and the harshness that eventually interferes is supplied by the ordinary population of that city rather than by anything invented for the occasion. It also took the Louis Delluc Prize and the short film Palme d'Or. What Albert Lamorisse asks is small and complete: that the balloon be granted a will, after which everything the city does acquires weight.",
+  "model": "claude-opus-5",
+  "source_sha256": "825fffdb7f462d1e5825d35a19122a4800deb33358a9c2d0b80340d30d55f190"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-sugarland-express-1974",
+  "field": "lead",
+  "film_id": "639f4cc6-cc87-4dbf-9685-3b5f5ad09d20",
+  "lang": "en",
+  "text": "The state of Texas took their baby, and the reversal the Poplins attempt is the worst available one: a jailbreak, a stolen child, a patrolman in the back seat. What makes the picture odd is how public it all becomes. A dragnet forms behind them and the road does not empty, it fills — a slow procession of police cars and onlookers following two people whose crime everyone can narrate and a good part of the state approves of. The hostage is the instrument: he sits in that car long enough to stop being a hostage and start being a witness to a marriage. Steven Spielberg made it in 1974, it was recognized for its screenplay, and it has stayed in the critical literature on his work. Lou-Jean and Clovis are right about what was taken and wrong about everything since.",
+  "model": "claude-opus-5",
+  "source_sha256": "95502ab5846f7cdb8c5b23c3eb3e6ac4cf77bc82f1be4f9f2e327ba158918d51"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-coffee-in-berlin-2012",
+  "field": "lead",
+  "film_id": "0ea20f31-3bd8-43e6-98d0-28bd4dfd6f1c",
+  "lang": "en",
+  "text": "A man in his twenties has left university and has not replaced it with anything. Niko spends a day crossing Berlin, observing other people with real curiosity and failing to register that he has become one of the people worth observing; the comedy lives in that gap, and in encounters that escalate absurdly without ever quite becoming events. Eighty-eight minutes, and Jan Ole Gerster never raises the film's voice. Released at home as Oh Boy, it took the European Film Award for best film and best actor along with the audience prize, and the German Film Award for best feature; critics have since written about its handling of the city's history and the particular register of its jokes. Drifting is comfortable right up until the day it stops being comfortable, and the film chooses that day.",
+  "model": "claude-opus-5",
+  "source_sha256": "6dbd81047fe541664d6e3f76c1cfbd509ae949d54d5cff9f619fbda137332067"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-hill-1965",
+  "field": "lead",
+  "film_id": "66c46050-e2e7-4dfa-97ec-92e73e0f14eb",
+  "lang": "en",
+  "text": "The hill is manmade, and climbing it accomplishes nothing; accomplishing nothing is what it is for. North Africa, wartime, a tower of sand under a white sun, and British soldiers driven up and down it by other British soldiers until something in them gives way. The opposing army is somewhere out there and has no part in any of it. Sidney Lumet holds 123 minutes inside the compound, which is long enough for discipline to stop resembling order and start resembling appetite — a system that has discovered it can hurt men legally and wants to know how far the permission extends. The screenplay is the machinery: rank, regulation and procedure deployed as weapons by people who know precisely which line they are not crossing. What is at stake is whether anyone will say so out loud.",
+  "model": "claude-opus-5",
+  "source_sha256": "4c9213ecffc79676c2b9d4150e50ea4e268af3b6d1d969089c76e783ebc04d46"
+ }
+]

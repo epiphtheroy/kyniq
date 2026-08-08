@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "thomas-vinterberg#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《셀레브레이션》이 남긴 기대는 짐이 되었다. 이후 10년간 그는 창작의 침체에 빠졌고, 그 바닥이 2003년 영어권 SF 《It's All About Love》였다. 평단의 혹평 속에서 지쳐 있던 빈터베르그는 주연 호아킨 피닉스와 자주 부딪쳤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1352127629ac743cced2a7128c8d72ebbbf02107c41d2ec141a84e3859508c56"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "thomas-vinterberg#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "총에 집착하는 미국 평화주의 십대들의 이야기, 2005년 문제작 《Dear Wendy》를 연출했다. 각본은 전부 도그마 95를 함께 세운 옛 동지 라스 폰 트리에가 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "306a404f6c5a6469bad4e569095358867c64b08e7f193a5c470dd5756b63cb90"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "thomas-vinterberg#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2008년 메탈리카의 〈The Day That Never Comes〉 뮤직비디오를 찍었다. 사막의 전쟁 이야기였지만, 촬영지는 뜻밖에도 코펜하겐 외곽의 자갈 채취장이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b72ab099d2d422a436698759abdf9885a806de73850544943334199af246fdd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "thomas-vinterberg#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2010년 각본가 토비아스 린홀름과 손을 잡는다. 이 결정적인 동행이 그의 경력을 되살렸고, 《서브마리노》 《더 헌트》 《어나더 라운드》라는 덴마크 영화들을 낳았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5c481d9d278383bb94355a554671224c35a6a31ae10f33d9e6c5903c54bec27a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "thomas-vinterberg#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2012년 드라마 《더 헌트》로 매즈 미켈센은 칸 남우주연상을 받았다. 출발점은 10년 전 그의 집 문을 두드린 한 아동심리학자였다. 그가 건넨 억압된 기억 증후군 자료가 영화의 바탕이 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd037d5c0f5fc7bc78cef9cade5140b291af663987951345139d0d0ff087ddb4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "thomas-vinterberg#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2015년 캐리 멀리건 주연으로 토머스 하디의 《성난 군중으로부터 멀리》를 옮겼다. 운명과 시골의 정념이라는 각본의 주제가 자신의 북유럽적 감각과 깊이 통했기에 맡은 일이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7a7dc177cf6cc34da6b38d8d63f1689249f5aa3a24b8571307e9a3e5fe6917a9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "thomas-vinterberg#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2000년 러시아 잠수함 참사를 다룬 2018년작 《The Command》는 그가 처음으로 뛰어든 대형 액션 영화였다. 그러나 러시아 국방부가 돌연 제작 협조를 거부하면서 작업은 난항을 겪었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b95ed7d0d4a00b689e9a88dc7b8d989ba739b70ccad2dd3835a15f73d73d9b6c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "thomas-vinterberg#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오스카를 안긴 2020년작 《어나더 라운드》는 애초에 영화가 아니었다. 빈 부르크테아터의 의뢰로 쓴 무대극이 출발점이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "26e81aa98cb162270bd4d7a65037053d5cec6a357320bb760be6f1e0172dce1f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "thomas-vinterberg#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2019년 《어나더 라운드》 촬영 나흘째에 비극이 닥쳤다. 벨기에의 고속도로에서 휴대전화를 보던 트럭 운전자가 어머니의 차를 뒤에서 들이받았고, 열아홉 살 딸 이다가 세상을 떠났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "78a4757860eea3b5d58eb824b62fb5c8e7b575ce16e3352cdf1edbe2177159f8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "thomas-vinterberg#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이다는 《어나더 라운드》로 연기에 데뷔할 예정이었다. 매즈 미켈센이 연기한 주인공 마르틴의 십대 딸 역이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f8bfeed9bfaa1daf27ce79456c2b78f50d82170d4abcddeda8b8e7e50287e5bd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "thomas-vinterberg#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "딸을 잃은 뒤 빈터베르그는 촬영을 중단했다. 원래 덴마크 음주 문화를 더 어둡고 냉소적으로 겨냥한 이야기였던 《어나더 라운드》는, 그의 손에서 딸의 기운을 기리는 삶의 찬가로 완전히 새로 쓰였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a0677dfcc1184e0ea7d2458abf4cd2c7522feb672a503c73428ff62d7006e10a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "thomas-vinterberg#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이다를 기리려고 그는 《어나더 라운드》의 주요 장면 몇을 딸이 실제로 다니던 아우레회이 김나지움 교실에서 찍었다. 왁자하게 술 마시는 학생들 역에는 딸의 진짜 친구와 급우들을 세웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d6b49e213387df6f189ec08c8e7df024cbbaeb220e38a42f31d1b494aae5a6db"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "thomas-vinterberg#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2021년 아카데미에서 그는 《어나더 라운드》로 감독상 후보에 올랐다. 비영어권 영화에는 드문 일이었고, 애런 소킨처럼 유력하게 점쳐지던 미국 감독들을 제친 대이변이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f11d922c93f7e65fbfbe93e14ebb2ba532464116abe5032ed39bfb0b4bc5a25c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "thomas-vinterberg#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "국제장편영화상 수상자로 호명된 그는 눈물 속에서 트로피를 이다에게 바쳤다. 최근 오스카 역사에서 가장 널리 회자된 순간의 하나로 남았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c89cb93777aedc714b992775f951d14a9b374905ee3a3c190201d39c878bf9c7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ti-west#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "델라웨어주 윌밍턴에서 자란 웨스트는 동네 비디오 대여점에서 일하며 호러 영화 지식을 백과사전처럼 쌓았다. 그를 사로잡은 건 1980년대 슬래셔 VHS 케이스의 그 야한 그림들이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "69206305fae00db83fe06534b805454d3dbf80a1b1fca3ba584ef6f3b897d95e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ti-west#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "뉴욕 스쿨오브비주얼아츠에서 영화를 공부할 때 그를 가르친 사람은 미니멀한 인디 감독 켈리 라이카트였다. 초기 단편에 감탄한 라이카트는 그를 호러 작가주의(auteurism) 감독 래리 페센던에게 소개했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e661359df6e2cce8d3d95dfc816d8b9fc9123bdaac788896ef6e33253f44f37c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ti-west#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "페센던은 초기의 결정적 스승이 된다. 자신의 독립 제작사 글래스 아이 픽스를 통해 2005년 데뷔작, 16mm 박쥐 습격 영화 《The Roost》에 돈을 대고 제작을 맡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "05b5f85efe7b65012747e8550da6fd146fba08d321df5e4befbbd8db116d96dc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ti-west#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "라이온스게이트의 대대적인 후반작업 개입 끝에 그는 2009년 스튜디오 속편 《케빈 피버 2: 스프링 피버》와 절연하려 했다. 관례적인 가명 \"앨런 스미시\"를 쓰겠다는 요청은 거부당했다. 아직 미국 감독조합 회원이 아니었기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aa434820d11771eaf97e82c7adb9dca82a1e381793c2ed950793153981f10f07"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ti-west#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2011년 유령 이야기 《The Innkeepers》의 출발점은 그 자신의 으스스한 경험이다. 《하우스 오브 데블》을 찍는 동안 스태프가 묵었던 코네티컷주 토링턴의 유서 깊은 양키 페들러 인, 바로 그곳이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "41d125a0a2027cfbf45b20368ef71b216e57d8669ef2bf5de878f1fc823b1b8f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ti-west#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "애덤 윈가드, 조 스완버그 같은 동년배들과 함께 그는 \"멈블고어\"의 선두에 섰다. 2010년대에 밀려온 저예산 호러의 흐름으로, 특수효과보다 인물 사이의 관계를 앞세운 대사 중심의 자연주의 영화들이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d016717b933045ac3abe96c490e00e2f5be6bbf1cb1a87b11cd135f9306ce2c2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ti-west#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "배우로서는 애덤 윈가드의 2011년 침입 슬래셔 《유아 넥스트》에서 타리크를 연기했다. 거들먹거리는 언더그라운드 영화감독이 석궁 화살에 머리를 관통당하는, 잊기 어려운 역이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "992cdfe3324caa9a45eed7e2899b3a66cef4ce724321b52afc733db1e11a2ea0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ti-west#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편을 쉬던 6년 동안 그는 텔레비전 현장에서 손을 벼렸다. 폭스의 《웨이워드 파인즈》, MTV의 《스크림》, 아마존의 《뎀》 같은 이름난 장르물의 에피소드를 맡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b4e11233645decfb1f454e957ca259e728cdc21e88c2c9dac95e8b2a1cee530"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ti-west#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "프리퀄 《펄》의 각본은 페이스타임으로 썼다. 상대는 주연 배우 미아 고스. 두 사람 모두 뉴질랜드에서 정부가 강제한 2주 호텔 격리를 버티던 중이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9403bf794d4ccf9f6a5d343abc44c14b25aa0ac1c72c2c41972af19e25a7c9e4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ti-west#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《X》와 《펄》을 뉴질랜드에서 연달아 찍겠다는 제안으로 그는 A24를 설득해냈다. 스태프를 계속 고용하고 직접 지은 농가 세트를 그대로 재활용하면 수백만 달러가 굳는다는 논리였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "172e218932a5e95c8b5fb400111bb65d521b1a5112bdc19e85013911bf044701"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ti-west#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《펄》 개봉 뒤 뜻밖의 순간이 찾아왔다. 마틴 스���세이지가 공개적으로 이 영화를 상찬한 것이다. 짧은 감상평에서 그는 영화가 너무 불편해 밤잠을 설쳤다고 고백했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c839f6d119a6ec7eaa0efec65b0e5e20cef8090bc9fb9799da8d73fbce0e9f7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ti-west#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1985년을 배경으로 3부작을 닫는 《맥신》에서 그는 유니버설 스튜디오 백랏의 그 유명한 베이츠 모텔 세트에서 주요 장면을 찍는 허가를 따냈다. 앨프리드 히치콕에게 직접 경의를 표하는, 어린 시절의 꿈이 이뤄진 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f45b074343f9b5cff13c6b654f3753d3be1e0f8488ad37848555f199d70fc4ee"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tim-burton#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "밝은 캘리포니아 교외와 좀처럼 어울리지 못하던 외톨이 아이. 그는 여가의 대부분을 근처 발할라 메모리얼 파크 묘지의 무덤들 사이에서 보냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "785bc6c62bcb21798e3a8c99e6a100a2921ceb4330f5dbc4bba2a0ec3e78bb59"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tim-burton#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "창백하고 고딕풍이며 운동부와는 거리가 멀어 보이는 인상과 달리, 버턴은 버뱅크 고등학교 남자 수구팀에서 뛴 성실한 선수였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a2fd0cd8edbce51772b6ae767b7525de829153761d66facaa09cc02bbd4dc6ee"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tim-burton#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "십대 시절 그는 《The Island of Doctor Agor》라는 조악한 8mm 스톱모션 단편을 찍었다. 소품은 치과의사가 버린 장비를 주워다 만들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bbdceb7162a170b6ff4687f89e1bc74a70300dc16e3071f13a835a2b88e36fae"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tim-burton#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1979년 월트 디즈니 애니메이션 스튜디오에 콘셉트 아티스트로 들어간 버턴은 《토드와 코퍼》에 배치됐다. 그가 그린 여우들은 번번이 반려당했다. 상급자들 말로는 \"로드킬\" 같았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1abacfc372e268bff74a621967e6bec6285ea7889a8a85266361bde6e48ee931"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tim-burton#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1984년 디즈니는 버턴을 해고한다. 실사 단편 《프랑켄위니》를 연출한 뒤였다. 회사 자원을 낭비해 어린이 관객에게는 너무 무서운 영화를 만들었다는 것이 이유였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "786c1eb5c34ba1f12d324ac6dfcaffcc3f9c7b4f7fddb59fa3661e82ed3d758f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tim-burton#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "클럽에서 뉴웨이브 밴드 오잉고 보잉고의 공연을 본 그는 곧장 프런트맨 대니 엘프먼에게 《피위의 대모험》 음악을 맡겼다. 40년에 걸친 전설적 음악 동행의 시작이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "953ea07635d046bab635f9611adfd4942d4f26903901f2fd6173629e0dbb9f5d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tim-burton#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "어린 시절 내내 호러의 아이콘 빈센트 프라이스를 우상으로 삼았고, 끝내 그와 친구가 되었다. 노년의 이 배우를 《가위손》에 세웠고, 그의 삶을 담은 다큐멘터리 《Conversations with Vincent》를 찍다가 끝내 완성하지 못했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ef0b2e175e14f84b157edbf387e027dd3e16a092d39f53ff1384e0085299698"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tim-burton#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "버턴은 어디를 가든 주머니 크기의 수채화 도구를 지니고 다니며 식당 냅킨에 강박적으로 그림을 그린다. 그 낙서들 상당수가 훗날 뉴욕 현대미술관의 대규모 전시로 묶였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b997d3f1bff1f956635a233bb39c3647073df9558d392ef6a9da5b3368f5347f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tim-burton#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1990년대 후반, 그는 꼬박 1년을 《슈퍼맨 리브스》 프리프로덕션에 쏟았다. 니콜라스 케이지가 발광하는 생체역학 슈트를 입고 거대 거미와 싸울 예정이던, 끝내 엎어진 것으로 악명 높은 대작이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bce78cb3f4f6a62875c7c682cfc1e2b8dadd34ec18d6e28cfb3b54ea8e8f0c5e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tim-burton#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1997년에는 시집 《굴 소년의 우울한 죽음》을 냈다. \"브리 보이\" \"부두 걸\" 같은 기형의 가여운 인물들이 등장하는 음산한 시편이었고, 삽화도 직접 그렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "23e99f7aeaed6d677bc54a3279833ee59068d5bf9bd437aefdb8cbbb30b0b031"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tim-burton#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1989년 《배트맨》의 침울한 주인공 자리에 코미디 배우 마이클 키턴을 앉히자, 워너브러더스로 항의 편지가 5만 통 넘게 쏟아졌다. 발신인은 만화 팬들이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b77523891b9885579fb345f416c42804880d65765d4b3d0768c7c8ab82d2b43b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tim-burton#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "모델 리사 마리와 10년 가까이 약혼 관계였다. 그의 뮤즈였던 그녀는 《에드 우드》와 《화성 침공》에서 말 없이도 강렬한 역을 맡았고, 두 사람은 2001년 험악하게 갈라섰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7837112716ca780b25dd08d0d3e3d72edd09f83225c9f08f28e2caa933621691"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tim-burton#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "라스베이거스 록밴드 더 킬러스의 열렬한 팬이던 그는 2006년 싱글 〈Bones〉로 생애 첫 뮤직비디오를 연출했다. 해변에서 CGI 해골들이 서로를 껴안는 화면이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e4a453b0d75a7221e25c0d7ee7c22fa26be2d30e16966107f7ec6957ec7035b2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tim-burton#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2024년 9월 마침내 할리우드 명예의 거리에 별을 얻었을 때, 자리는 일부러 할리우드 토이즈 앤드 코스튬 앞으로 정해졌다. 어린 시절 그가 뻔질나게 드나들던 소품 가게다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e6cd008806083f209f71b624d54d4c60b229b47fe316565312cb6d663ddbad19"
+ }
+]

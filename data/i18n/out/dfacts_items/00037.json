@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jia-zhangke#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2009년, 지아장커는 자신의 단편 〈Cry Me a River〉를 멜버른 국제영화제에서 철수시켰다. 영화제가 위구르 활동가 레비야 카디르를 다룬 다큐멘터리를 상영한 데 대한 항의였고, 정치적으로 큰 논란을 불렀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a84af2e5c2d651a310efd8b876845acac3bf8dadbf7e62f5255418b8c882de53"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jia-zhangke#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "반항적인 독립영화 감독으로 출발한 이력에도 불구하고, 그는 2018년 전국인민대표대회 대표로 선출된다. 중국 최고 입법기구에서 고향 산시성을 대표하게 된 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e925d1cd1f9224b1cc617763dbf4185a6a7cec3817405f9d0d0f28766dc0e278"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jia-zhangke#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "중국 각 지역의 방언을 지키는 일에 그는 열성적이다. 배우들에게 표준 만다린 대신 진어 같은 특정 지역어로 말하게 하는 이유도 거기 있다. 지방의 삶은 그 말투 안에 있다는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1dba0395aa6a438af51e57841fc52e15c14ca0e045350c8292bcbb9c3a194ff"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jia-zhangke#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "홍콩 촬영감독 유릭와이와의 협업은 수십 년째다. 처음 현장에 왔을 때 그는 산시 방언을 한마디도 알아듣지 못했지만, 이후 지아장커의 장편 거의 전부를 찍었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b69581b30a1d33a98da135eecf86db6833e761ba26e8912a5f5ad49954c055e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jia-zhangke#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2017년 그는 산시의 옛 성곽 도시 핑야오에 핑야오 와호장룡 국제영화제를 세웠다. 세계의 영화를 중국 내륙으로 들여오겠다는 뜻이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d6084fcfe55f54e2ffecaec67d714472b487df1f1d97b54db3ace87408c1ca9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jia-zhangke#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "고향에서의 활동은 영화 바깥으로도 뻗어 나갔다. 펀양에 '산허구냥(Mountain River Noodle)'이라는 식당을 열었고, 최신 설비를 갖춘 지아장커 예술센터를 지었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "198b4b04070fa02d04c657132cef448a63a46f9cb41ff6ba342a7acff06a4e13"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jia-zhangke#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "다른 감독의 영화에 얼굴을 비추기도 했다. 가장 유명한 것은 한한의 2014년 흥행 로드무비 〈The Continent〉. 입이 험하고 시가를 물고 다니는, 매춘업소를 굴리는 삼합회 두목 역이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "02eedf7418ac5a02783b263d19f81d5f61d9206dc7c2a0559784601e012ee9a3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jia-zhangke#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2013년작 《천주정》은 킹후의 《협녀》 같은 고전 무협영화에서 출발했다. 다만 그 폭력은 지어낸 것이 아니다. 웨이보에서 건져 올린 네 건의 실제 사건에서 곧장 가져왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "079a42838f3ee26d4d63d9189b62dfdaf2adea4fe19338fd544534021e192963"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jia-zhangke#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "칸 각본상을 받고도 《천주정》은 중국 검열에 막혔다. 답답해진 지아장커는 해적판과 싸우기를 공개적으로 포기했다. 유출된 판본을 비트토렌트로 내려받으라고 관객들에게 권한 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c5adebf540bd7faaf1ec2ca7a28e3da816053851584475c73ef2a92c3a236d53"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jia-zhangke#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2015년, 그는 지난 시간을 돌아보는 책 『가향(賈想)』을 냈다. 에세이와 강연문, 제작 일지를 묶은 이 책에는 가난한 학생이 세계적인 영화 아이콘이 되기까지의 궤적이 담겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "67a639f8e1d7c955e637bdc67f629a64e34775b4130936d717190d7c5f729602"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jia-zhangke#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "시간의 흐름을 향한 그의 집착은 《풍류일대》(2024)에서 한 지점에 다다른다. 새로 찍은 화면에, 자오타오를 스물두 해 동안 찍으며 쟁여둔 미사용 디지털 푸티지를 섞어 만든 영화다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e068727c759d36a9c66dcd9f437488d13d758c334915cf446b1cfd3837a8c6c9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jim-jarmusch#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오하이오주 커야호가폴스에서 자란 자무시에게 영화를 처음 보여준 사람은 어머니였다. 《애크런 비컨 저널》의 영화·연극 리뷰어였던 그녀는 볼일을 보러 가는 길에 아들을 동네 극장에 내려놓곤 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ede31afd78c3bb9ae0f0cef22af5cd5d805c1cb5137aa4674c3969dacc565b68"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jim-jarmusch#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "노스웨스턴대 메딜 저널리즘 스쿨에 들어갔지만 1년 만에 나가달라는 통보를 받았다. 필수 저널리즘 과목을 하나도 듣지 않은 채 미술과 문학만 파고들었기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f80dc8a6cbfc064127d19a4784ff8b2ca4cb8619167781d54080929c971c5e3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jim-jarmusch#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "컬럼비아대로 옮긴 뒤에는 뉴욕파(New York School)의 케네스 코크와 데이비드 셔피로 밑에서 시를 배웠다. 애초 그가 되려던 것은 영화감독이 아니라 시인이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d844bc109951873f16370f0312616231e8be45aab47ac6581eb54d5f3fd7c122"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jim-jarmusch#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "컬럼비아 마지막 학기, 파리 교환 프로그램이 그를 시네마테크 프랑세즈로 데려갔다. 거의 매일 그곳에 앉아 세계 영화를 빨아들였고, 야망의 방향은 연출 쪽으로 꺾였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b1d54634bb982e7fc53d85b30f1c7fe03144186fcffa09b09b688cc1cc5c34dc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jim-jarmusch#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "뉴욕대 대학원 영화과에서 그는 블랙리스트에 올랐던 전설적 감독 니콜라스 레이의 조교가 된다. 레이는 자무시를 가르쳤고, 감독이 배우를 가까운 협력자로 대할 수 있다는 것을 보여주었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a636e433dd4aede64139c1489d51041de09351fdfdac4668441ce11674e105ea"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jim-jarmusch#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "레이가 암으로 죽어가던 시기, 자무시는 다큐멘터리 《물 위의 번개》 현장에서 그의 개인 조수로 일했다. 독일 감독 빔 벤더스와 만난 것도 바로 이 작업을 통해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d4c4babcb5da838af88ccf24a5fc98952a808a561e075321bb8805f7d99e9c2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jim-jarmusch#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "뉴욕대에서 받은 루이스 B. 메이어 장학금을 자무시는 등록금이 아니라 데뷔작 《퍼머넌트 베케이션》 제작비 1만 2천 달러에 썼다. 학교는 그의 학위를 내주지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ea5b00f41dd68d6629c6d09140bca1a0aa23355720d56cc639de75e9aa7564a1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jim-jarmusch#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1984년 그를 알린 《천국보다 낯선》은 빔 벤더스가 《사물의 상태》를 찍고 남은 흑백 필름을 선뜻 넘겨주어 촬영할 수 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "21010fab4a7b13f481df4896d71db5258e5c8d7917c890217118f789924e9707"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jim-jarmusch#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1970년대 말 뉴욕 노 웨이브(No Wave) 신에서 그는 눈에 띄는 인물이었다. 영화감독 에이머스 포와 함께한 포스트펑크 밴드 더 델비잔틴스에서 키보드를 치고 노래를 불렀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9a50e901c09103600a4c69d49a4ff8794e46c19c9242b52fe15a32478f187284"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jim-jarmusch#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자무시는 '리 마빈의 아들들'이라는 반쯤 비밀스러운 우스개 결사의 창립자다. 가입 조건은 단 하나, 거친 인상의 배우 리 마빈을 닮았을 것. 회원 명단에는 톰 웨이츠, 닉 케이브, 이기 팝이 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ee51e931736143e624ac9752a253feb8aaaf833b80fa03fa1bca84d8c8764a9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jim-jarmusch#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "각본을 쓰고 배우를 찾는 순서를 그는 뒤집는다. 존 루리, 로베르토 베니니, RZA처럼 이미 친해진 배우와 뮤지션을 두고, 그 사람에게 맞는 인물을 써 내려가는 식이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd53f041c275a9c430e894e840774c6b7a7bb1b071f39ac6625a42b02d84eba3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jim-jarmusch#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1980년대 초, 그는 다큐멘터리 《Burroughs: The Movie》에서 붐 오퍼레이터로 일했다. 연출자는 뉴욕대 동기이자 절친한 친구였던 하워드 브루크너.",
+  "model": "claude-opus-5",
+  "source_sha256": "46e7c5334ec925561f16dae92634b296081f12729482d612203f289becdd6b1e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jim-jarmusch#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1980년대 초부터 그는 영화감독 세라 드라이버와 연인이자 창작 동반자로 함께 살아왔다. 그녀는 자무시의 초기 장편들을 제작했고 각본 작업에도 자주 손을 보탰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d013280b714af2ba70388d56935f28f21cb9ec27c08baff5629baa63a6a70048"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jim-jarmusch#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "빈티지 기타와 앰프를 모으는 그의 수집벽은 병에 가깝다. 그것들로 지금의 밴드 SQÜRL과 함께 묵직한 드론 록 스코어를 짓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "84a920d492c53497c1bb508229db75bab175bfde6b93a4a1eb71dc2131cf0ef0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jim-jarmusch#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "사무라이와 마피아를 겹쳐놓은 《고스트 독》은 처��부터 포레스트 휘터커를 염두에 두고 쓴 각본이었다. 음악은 우탱 클랜의 프로듀서 RZA에게 맡겼는데, 동양 철학과 무술 이야기로 가까워진 사이였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9f73eef89f0bbe58feed0d72a1d5f6c7804eaa8376ac5524828dd9b02f7c658c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jim-jarmusch#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자무시가 꼽는 최고의 예술적 영웅 가운데 하나가 시인 윌리엄 카를로스 윌리엄스다. 그 흠모는 2016년작 《패터슨》에 이르러 한 편을 통째로 이룬다. 윌리엄스의 고향인 뉴저지의 그 도시에서, 버스를 모는 시인 이야기다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7e63bd84bbca329d59a6fe3052ed6827e6e76977e8cbe017b7980cc5ffc81135"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joachim-trier#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "외조부 에리크 뢰켄은 재즈 뮤지션이자 2차 대전 레지스탕스였다. 작센하우젠 강제수용소에서 살아 돌아온 뒤 아방가르드 영화 《The Hunt》를 연출했고, 이 작품은 1959년 칸 경쟁 부문에 올랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cef7c0ddfa78596075a7ba3254977f146e994ce42c06a6127a96adc9f7901411"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joachim-trier#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아버지 야코브 트리에르는 이름난 사운드 기술자였다. 그가 참여한 1975년 스톱모션 애니메이션 《플로클리파 그랑프리》는 지금까지도 노르웨이 영화 사상 가장 성공한 수출작으로 남아 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "85c965e3709f0a2b1f709ec35c9d3b8edc0cb7315a09b19b3ab5cafe72143d1e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joachim-trier#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이후 런던의 국립영화텔레비전학교에서 공부하는 동안 트리에르는 학교를 지배하던 켄 로치식 영국 사회적 리얼리즘에 도무지 섞이지 못했다. 그는 니콜라스 뢰그에게서 받은 영향대로 형식주의적인 단편을 고집스럽게 찍었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d5c38d12434a341a51dce67ae8c6c471679e765d3ad4bd96e87c45c025517a82"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joachim-trier#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《리프라이즈》의 주연으로 트리에르가 부른 안데르스 다니엘센 리에는 배우가 아니었다. 1990년 영화 《Herman》에 잠깐 아역으로 나왔던 의대생이었을 뿐이다. 여기서 시작된 협업이 '오슬로 3부작' 전체를 떠받친다.",
+  "model": "claude-opus-5",
+  "source_sha256": "60ba923e5b13535972a6465765704ade9408a644e416d7ebf502941477f77af1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joachim-trier#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《사랑할 땐 누구나 최악이 된다》의 그 유명한 시간 정지 장면은 CGI를 거의 쓰지 않았다. 오슬로 거리에 세운 엑스트라들에게 완전히 멈춰 서 있으라 주문하고, 주연 배우들이 그 사이를 달려 지나가게 했을 뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "15f266f9e5f7800b6aede380fad32979274163ef4e426530202aebdaffccb69e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joel-coen#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미니애폴리스 교외 세인트루이스파크에서 자란 조엘은 잔디를 깎아 번 돈으로 첫 비비타 슈퍼8 카메라를 샀다. 그 카메라로 텔레비전에서 본 영화들을 동네에서 다시 찍었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "425b78d4f42e65735b2f9c52fa4bbb11e845a9e85e039097d8b561e4e0c85c6a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joel-coen#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오랜 촬영감독 배리 소넨필드와의 첫 만남은 어느 파티, 소넨필드가 싱크대에 토하고 있을 때였다. 조엘이 먼저 말을 걸었고, 둘은 유대인 특유의 신경증을 나누며 곧바로 통했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e05da89f5e19eabb833e55c3807f0e40f15ed5b57e5b72f9d2d2d0db18269881"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joel-coen#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편으로 들어가는 결정적 통로는 편집 조수 일이었다. 샘 레이미의 저예산 호러 고전 《이블 데드》(1981)에서 에드나 폴 밑에 붙어, 그 아수라장 같은 유혈 장면들을 하나하나 잘라 붙였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e606b500832ac382791735b3358bd2e6deaf51d182550c0276548dcce4a71666"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joel-coen#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "레이미의 악착같은 투자 유치 방식에서 힌트를 얻어, 조엘과 이선은 《분노의 저격자》의 2분짜리 시연용 예고편을 찍었다. 브루스 캠벨이 삽에 얻어맞는 잔혹한 장면이 들어갔다. 그들은 이 필름을 미니애폴리스 부자 사업가들의 거실에서 틀어 제작비를 모았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3854c74d2aa34d3c1becfddf9285b9d9733471498f6b803bb815f34294faece6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joel-coen#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "훗날의 아내 프랜시스 맥도먼드를 만난 것도 《분노의 저격자》 오디션장이었다. 연극 일정이 겹쳐 배역을 포기해야 했던 룸메이트 홀리 헌터가 그녀를 추천했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c1603a955b972afaf18b2a6cf8734fa66a64e277371c30c3c220b6ab2dcdce3d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joel-coen#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "현장의 분쟁을 막는다는 이유로 미국감독조합은 오랫동안 공동 연출을 인정하지 않았다. 그래서 2004년 《레이디킬러》 전까지 모든 작품에서 연출은 조엘 단독, 제작은 이선 단독으로 표기됐다. 실제로는 둘이 두 몫을 똑같이 나눠 했는데도.",
+  "model": "claude-opus-5",
+  "source_sha256": "935e632df3f0a29cdae09bb34c35bf05459ad9e03ddfd5fb67741f993840a4e2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joel-coen#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "두 사람은 자기 영화를 전부 직접 편집하면서 '로더릭 제인스'라는 가명을 쓴다. 서식스주 헤이워즈히스에 사는 심술궂은 영국 노인, 코엔 형제를 싫어한다는 이 가공 인물에게 그들은 공들여 내력까지 붙여놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "32849f291b19e2edd66501935a12a3a1d18c9e7be57ee0a3f9b29e6231064a11"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joel-coen#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《파고》 하면 눈 덮인 미네소타의 화면이지만, 정작 조엘은 추위 속 촬영을 질색한다. 아이러니하게도 그해 겨울은 주 역사상 가장 따뜻하고 눈이 오지 않은 축에 들었다. 제작진은 가짜 눈을 트럭으로 실어 날랐고, 결국 노스다코타로 촬영지를 옮겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "07845137ec59d684bf21653ac7ce4f139b2e05bc71f3bf8f06b0828d20b3101f"
+ }
+]

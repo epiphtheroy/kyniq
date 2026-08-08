@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "tragedy-authored-by-an-internalized-sentence",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 안에 새겨진 선고가 쓴 비극",
+  "model": "claude-opus-5",
+  "source_sha256": "ef50beefe04dd16e817aa261578597ac14172138d0524b648a653d1a4b36f2e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "translation-withheld-as-restitution-of-power",
+  "field": "title",
+  "lang": "ko",
+  "text": "번역을 쥐고 내주지 않는 힘",
+  "model": "claude-opus-5",
+  "source_sha256": "ff1cad89d47a6a541534e10cb5cf43ec9871e63e519b47f50d33197ca230ce7c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "trauma-bequeathed-as-genetic-curse",
+  "field": "title",
+  "lang": "ko",
+  "text": "핏줄로 물려받는 저주, 트라우마",
+  "model": "claude-opus-5",
+  "source_sha256": "bfbca77dcaf3aefdbcf8837afe0753892cfe2f147d519866692d0feea10255fc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "trauma-compelled-to-restage-its-own-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 상처를 자꾸 다시 무대에 올리는 트라우마",
+  "model": "claude-opus-5",
+  "source_sha256": "5c69d4ae1c86a11d53ff6924ab24ba7f37f7f1ab63e527fb31150c9fcb02f172"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "trauma-returns-as-sound-not-speech",
+  "field": "title",
+  "lang": "ko",
+  "text": "말이 아니라 소리로 돌아오는 트라우마",
+  "model": "claude-opus-5",
+  "source_sha256": "236601d8ffdef9040a06bf133c4e059226fc2b4c21b3e392ca965ff821007792"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "treating-persons-as-ends-not-means",
+  "field": "title",
+  "lang": "ko",
+  "text": "사람을 수단 아닌 목적으로",
+  "model": "claude-opus-5",
+  "source_sha256": "320ef2bfc85cd6f81a02a6c0d41234be7b3cf2d1d737e6efe8e35dcaa066b0d8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "triage-as-class-verdict",
+  "field": "title",
+  "lang": "ko",
+  "text": "계급을 가르는 판정, 트리아지",
+  "model": "claude-opus-5",
+  "source_sha256": "1691b66c901fa7d8651da2295e07953128c37af34cb953df779d08565daa0ddd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "tried-in-the-court-of-anita-hill",
+  "field": "title",
+  "lang": "ko",
+  "text": "애니타 힐이라는 법정에 선다",
+  "model": "claude-opus-5",
+  "source_sha256": "6136b443e7d39a08ad405cb562695cf5ba4df614af406ed05ff5c44c8aac4a94"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "truth-as-a-class-privilege",
+  "field": "title",
+  "lang": "ko",
+  "text": "진실이라는 계급의 특권",
+  "model": "claude-opus-5",
+  "source_sha256": "41ec383db026491d49478499db1484cc5e380571c3cdc0193dc41b65d4f1e820"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "truth-betrays-those-we-are-bound-to-love",
+  "field": "title",
+  "lang": "ko",
+  "text": "사랑할 수밖에 없는 이들을 배반하는 진실",
+  "model": "claude-opus-5",
+  "source_sha256": "cf53e821b9ed7f190bdf06037d82f1247e671ad069efc9bb895fc2fae16bed6a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "truth-is-authored-by-whoever-holds-the-camera",
+  "field": "title",
+  "lang": "ko",
+  "text": "카메라를 쥔 자가 진실을 쓴다",
+  "model": "claude-opus-5",
+  "source_sha256": "787d0e3356a2c33377fb42fa2416f64914aaf80f8ee3ced57efce1ea5e512057"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "truth-is-whatever-the-collective-will-bear",
+  "field": "title",
+  "lang": "ko",
+  "text": "진실은 집단이 감당할 수 있는 만큼",
+  "model": "claude-opus-5",
+  "source_sha256": "3838be80bdfef4b4b4ff9a19aee942094759d057bec5870a0cc3d962708c8f48"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "tunisia-doubles-for-the-mythic-elsewhere",
+  "field": "title",
+  "lang": "ko",
+  "text": "신화 속 이계(異界)를 대신 연기하는 튀니지",
+  "model": "claude-opus-5",
+  "source_sha256": "43925964bc064adff9935d50cf56a2455a848aa26739186d4634df7288b4608e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "two-geographies-as-rival-selves",
+  "field": "title",
+  "lang": "ko",
+  "text": "서로 겨루는 두 자아, 두 개의 지리",
+  "model": "claude-opus-5",
+  "source_sha256": "15f30329d6ee28a11ec06bebb46a260c6e3028aaa255d0a508cb5b56ff7d9f2f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "two-gods-in-one-apparatus",
+  "field": "title",
+  "lang": "ko",
+  "text": "한 장치 안의 두 신",
+  "model": "claude-opus-5",
+  "source_sha256": "882efd3d293eb2e36e4ed6a0ab6a94cb84a2b615b0cbb54f2913f23fbb631e94"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "two-real-cities-cut-into-one-impossible-geography",
+  "field": "title",
+  "lang": "ko",
+  "text": "실재하는 두 도시를 이어 붙인 불가능한 지리",
+  "model": "claude-opus-5",
+  "source_sha256": "6c8b9f027b321a6b8a051b811979ef36e8b54c6ad103f1e364c534e2393d15cf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "universal-as-quiet-erasure-of-queerness",
+  "field": "title",
+  "lang": "ko",
+  "text": "'보편'이라는 이름의 조용한 퀴어 지우기",
+  "model": "claude-opus-5",
+  "source_sha256": "c2ac177f512eff733bab452eb4a1c00417df15c8a2b28c92f90e32c5f770f0ab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "upstate-new-york-as-secret-author",
+  "field": "title",
+  "lang": "ko",
+  "text": "뉴욕주 북부라는 숨은 저자",
+  "model": "claude-opus-5",
+  "source_sha256": "ab22461426723adaa6ac8e3693923583e33dadd6fbbb63b42825eaea4e197597"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "validation-through-the-western-mirror",
+  "field": "title",
+  "lang": "ko",
+  "text": "서구라는 거울에 비쳐야 얻는 인정",
+  "model": "claude-opus-5",
+  "source_sha256": "698fa588cd47a87ff2c6b078dff7a51d8e47359be47f12232d890da8890f9931"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "value-as-circulation-not-substance",
+  "field": "title",
+  "lang": "ko",
+  "text": "가치는 실체가 아니라 순환이다",
+  "model": "claude-opus-5",
+  "source_sha256": "2075dbb32665c239009f2226cdf27eb51b1e2ad96d40230ad296d563b3cfa3ef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "vancouver-wears-america-s-anonymous-face",
+  "field": "title",
+  "lang": "ko",
+  "text": "미국의 익명한 얼굴을 쓴 밴쿠버",
+  "model": "claude-opus-5",
+  "source_sha256": "4ae1a4bc60c94866496f5e8e6e6e1a91ecd17ad42110ed753e5305a7a99acf27"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "vanity-and-loss-as-one-gesture",
+  "field": "title",
+  "lang": "ko",
+  "text": "허영과 상실이 같은 몸짓일 때",
+  "model": "claude-opus-5",
+  "source_sha256": "17cd15c442f9b401048d275024223749b90be959735756abb6adf332f76c1529"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "varda-against-the-finished-masterpiece",
+  "field": "title",
+  "lang": "ko",
+  "text": "완성된 걸작에 맞선 바르다",
+  "model": "claude-opus-5",
+  "source_sha256": "0547d0d497bc6f14a67ab5f4b2669c8a7fe30b1de2b940f4dfcae5d981ad888c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "velocity-as-the-condition-of-being",
+  "field": "title",
+  "lang": "ko",
+  "text": "속도라야 존재한다",
+  "model": "claude-opus-5",
+  "source_sha256": "09e141ff1b13e77638e9b904b9a69a017a7ce93d9368eab88ce745160bed04fc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "vengeance-that-consumes-its-own-avenger",
+  "field": "title",
+  "lang": "ko",
+  "text": "복수자를 집어삼키는 복수",
+  "model": "claude-opus-5",
+  "source_sha256": "832b00da4c96beeb2c0367cb5dbb7af8fe993d3df62dcd0955e506596f41c5f2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "vengeance-that-treats-a-person-as-means",
+  "field": "title",
+  "lang": "ko",
+  "text": "사람을 수단으로 쓰는 복수",
+  "model": "claude-opus-5",
+  "source_sha256": "37f52e15517ba0b738d62091599f03c4f052635585ed5d2caff45b7489cd852e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "vengeance-weighed-against-the-moral-law",
+  "field": "title",
+  "lang": "ko",
+  "text": "도덕법칙에 올려놓고 재는 복수",
+  "model": "claude-opus-5",
+  "source_sha256": "f9afb2461eeaae0ff42643cf86fd88a8f4bd14b230c3bc76ae6a9053ebdcdfdc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "venice-as-the-beautiful-corpse",
+  "field": "title",
+  "lang": "ko",
+  "text": "아름다운 주검, 베네치아",
+  "model": "claude-opus-5",
+  "source_sha256": "761123359fdada5f09204c9e93ac1258bc9b2f241cd7f9ea56167596d6efa6c7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "verdict-migrates-from-court-to-crowd",
+  "field": "title",
+  "lang": "ko",
+  "text": "법정을 떠나 군중에게 넘어간 판결",
+  "model": "claude-opus-5",
+  "source_sha256": "5b8ee55c6605c62a276fcbb13a0acb1d97204de321841453d7c8c393de119970"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "verga-s-verismo-migrating-into-the-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "화면으로 건너온 베르가의 베리스모",
+  "model": "claude-opus-5",
+  "source_sha256": "fe28a50f786c33e1d1f263e91571cc4a5f19e4e0342ce9d853b76625010260bb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "vietnam-bleeding-through-the-genre-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "장르의 틀 밖으로 배어나오는 베트남",
+  "model": "claude-opus-5",
+  "source_sha256": "684d6d92f3c9e7cd4fb16c06810fab4eac60c1866a9071dd76e144f70fbb22e6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "vietnam-bleeds-into-the-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "화면에 번지는 베트남",
+  "model": "claude-opus-5",
+  "source_sha256": "28b2b6625c321a4c5cb950a336dac6aa057df93de71dd354d5204933683c9ab9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "vietnam-refought-and-won-onscreen",
+  "field": "title",
+  "lang": "ko",
+  "text": "스크린에서 다시 치러 이긴 베트남",
+  "model": "claude-opus-5",
+  "source_sha256": "c45e1a87441fd74ab81e5f7f0257879c017f2c5d2e2b0c14d79cc455dad36862"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "violence-and-dance-as-one-geometry",
+  "field": "title",
+  "lang": "ko",
+  "text": "폭력과 춤, 같은 기하학",
+  "model": "claude-opus-5",
+  "source_sha256": "35b16e4c50434e6f257c1a71e3b36c6c4ba62db2ad85e3afc7cb482a42bf60a8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "violence-as-the-state-s-disavowed-signature",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가가 부인하는 제 서명, 폭력",
+  "model": "claude-opus-5",
+  "source_sha256": "ec827be6ec1e53bc97293cd0129195fd1ddaca7415d32a98ff8a8999bc4c87af"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "violence-choreographed-as-abstract-expressionism",
+  "field": "title",
+  "lang": "ko",
+  "text": "추상표현주의처럼 안무된 폭력",
+  "model": "claude-opus-5",
+  "source_sha256": "e289676974657f29c87f7277cf17094b936d2511c2ca421dad728efbb6769b67"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "violence-subcontracted-by-the-state-and-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가도 자아도 하청 주는 폭력",
+  "model": "claude-opus-5",
+  "source_sha256": "4e38708581ced94307f38a96648477f80acc3e933af3274880e5353fa084fa2e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "violence-that-punishes-the-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "자신을 벌하는 폭력",
+  "model": "claude-opus-5",
+  "source_sha256": "9b3341314669325604d2eb30f29d819e2031ef050040d2946aa7e0a761247640"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "virtue-drilled-in-never-argued",
+  "field": "title",
+  "lang": "ko",
+  "text": "따져 묻지 않고 몸에 새기는 덕",
+  "model": "claude-opus-5",
+  "source_sha256": "754fcbe3c0c00d1516655021fc82e5025d4d335743dcc95a27532fff3c2ba6d5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "virtue-ethics-mistaken-for-a-checklist",
+  "field": "title",
+  "lang": "ko",
+  "text": "체크리스트로 오해된 덕 윤리",
+  "model": "claude-opus-5",
+  "source_sha256": "bc67a58ec23d418b07fddccb63d979e8881c56b56049b1a60d7a1ab5de7c8fdb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "virtue-is-the-lie-practiced-until-true",
+  "field": "title",
+  "lang": "ko",
+  "text": "참이 될 때까지 연습한 거짓말, 미덕",
+  "model": "claude-opus-5",
+  "source_sha256": "ead09d99a7cd35958e46590bdae701c267fa0d242f14790bdca2f32043c93048"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "visibility-as-a-permission-the-state-grants",
+  "field": "title",
+  "lang": "ko",
+  "text": "보일 권리를 국가가 허가한다",
+  "model": "claude-opus-5",
+  "source_sha256": "5fc17a93d69e1c3c66ad46ea1f87eb12796c48f71d3635126a4317f0ae6ba161"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "vistavision-as-the-format-becomes-the-argument",
+  "field": "title",
+  "lang": "ko",
+  "text": "포맷이 곧 주장이 되는 VistaVision",
+  "model": "claude-opus-5",
+  "source_sha256": "2ba7ef3f9be1c442ea75bfb0a20e4667f68b00f63fb4a65ccca6a0d43a0a6954"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "wage-labor-of-the-soul",
+  "field": "title",
+  "lang": "ko",
+  "text": "영혼의 임금노동",
+  "model": "claude-opus-5",
+  "source_sha256": "6d5508e0fb1fde2ffa933de7924a68d1b751357f1e84b7c721854b143afcf454"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "wagner-s-total-artwork-in-the-multiplex",
+  "field": "title",
+  "lang": "ko",
+  "text": "멀티플렉스에 들어온 바그너의 총체예술",
+  "model": "claude-opus-5",
+  "source_sha256": "174c57b0face898792ed4b4cdbe344890df63e1f32e51ac7aff31eff3f8c6f57"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "war-as-bureaucracy-that-manufactures-corpses",
+  "field": "title",
+  "lang": "ko",
+  "text": "시체를 찍어내는 관료제, 전쟁",
+  "model": "claude-opus-5",
+  "source_sha256": "a90a1b8a3294a6642e627712615ea573e8774cab73709a9f629a3a369dea1bd7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "war-drained-of-politics-to-expose-its-machinery",
+  "field": "title",
+  "lang": "ko",
+  "text": "정치를 빼내야 드러나는 전쟁의 기계",
+  "model": "claude-opus-5",
+  "source_sha256": "c96ac31144ae769abb21ea1a43f45a29fc7f8072ce42ab3192f550f355b6a314"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "warhol-s-static-stare-at-the-sleeper",
+  "field": "title",
+  "lang": "ko",
+  "text": "잠든 사람을 붙박은 채 바라보는 워홀",
+  "model": "claude-opus-5",
+  "source_sha256": "ea4749ebf4cb5b0b46da9230116f9091604955126ebbf580ffa2c3ac0c74a5a3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "washington-staged-where-washington-forbade",
+  "field": "title",
+  "lang": "ko",
+  "text": "워싱턴이 금한 자리에 세운 워싱턴",
+  "model": "claude-opus-5",
+  "source_sha256": "e626442c3bc482b631e53d0dbfa49a775c95f505be6cd0039e29324b1f03b8c0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "water-as-tarkovsky-s-liquefied-time",
+  "field": "title",
+  "lang": "ko",
+  "text": "물, 타르콥스키가 녹여낸 시간",
+  "model": "claude-opus-5",
+  "source_sha256": "8cdd12d8780f695b50b9900459e8fbb2e5d82e3573e8b57666dca9efb4d53540"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "water-as-the-border-of-caste-purity",
+  "field": "title",
+  "lang": "ko",
+  "text": "카스트의 정결을 가르는 경계, 물",
+  "model": "claude-opus-5",
+  "source_sha256": "2193790742f764f15574ddd27cbd75ce3caad35a0c4c57b819e7dc0d3e9ed528"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "water-as-the-engine-of-domination",
+  "field": "title",
+  "lang": "ko",
+  "text": "지배를 굴리는 동력, 물",
+  "model": "claude-opus-5",
+  "source_sha256": "30b185fef7e7c7055eaa28c25d0a24f58fddd4cf23f4dcdf9310cbaa61f73e41"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "water-as-the-film-s-master-key",
+  "field": "title",
+  "lang": "ko",
+  "text": "이 영화를 여는 열쇠, 물",
+  "model": "claude-opus-5",
+  "source_sha256": "e2a5969c13cb49845cf487c7afd0537696565e488a081f6196c42b7a5ace4904"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "water-as-the-pull-toward-dissolution",
+  "field": "title",
+  "lang": "ko",
+  "text": "풀려 사라지고 싶은 끌림, 물",
+  "model": "claude-opus-5",
+  "source_sha256": "2cbfd4d746e9ea833ba3a4c4508e9d33b614f5effe315261fe564e1b87c67ce3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "water-as-the-repressed-made-flesh",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸을 얻은 억압, 물",
+  "model": "claude-opus-5",
+  "source_sha256": "f4cc931679b9f595491007c96cc1d0b538e825a3b2ff3621f9e0d6e22fb4ba09"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "water-as-the-return-of-the-repressed",
+  "field": "title",
+  "lang": "ko",
+  "text": "억압된 것이 물로 되돌아온다",
+  "model": "claude-opus-5",
+  "source_sha256": "d776ba430a19887eee62c3123d161f728d18a58cbd32aa9a2ad0e31bacd0558c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "wayfinding-over-the-object-of-the-quest",
+  "field": "title",
+  "lang": "ko",
+  "text": "찾는 것보다 찾아가는 길",
+  "model": "claude-opus-5",
+  "source_sha256": "525002ddc41146c7d3b9ce9bab693267ae7cd166214a4d72c3f1c45acccfc137"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "wearing-the-dead-to-refuse-their-loss",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽은 이를 입고 상실을 거부한다",
+  "model": "claude-opus-5",
+  "source_sha256": "9b50a4974daa4d04a395230d8716c4d6915f3c5c1a00b3c271d52466e21eb0eb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "weightlessness-engineered-not-given",
+  "field": "title",
+  "lang": "ko",
+  "text": "무중력은 주어지지 않고 설계된다",
+  "model": "claude-opus-5",
+  "source_sha256": "72b5d92830433e230fc7d91c56fd6c447ec7efe74ec44594044e3a3d0c3a556a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "weimar-smuggled-through-hollywood-customs",
+  "field": "title",
+  "lang": "ko",
+  "text": "할리우드 세관을 밀항한 바이마르",
+  "model": "claude-opus-5",
+  "source_sha256": "934e150b44b1b051dd43c6ccd43adfbbb11229bc99bba23c4bba39a944bcb4e2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "weird-as-the-critic-s-surrender",
+  "field": "title",
+  "lang": "ko",
+  "text": "'기이하다'는 비평가의 백기",
+  "model": "claude-opus-5",
+  "source_sha256": "5db9767c84e3df038ce515a78911fd8bedd117cf55bfd8446bcbdadbaef9f833"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "wells-s-invasion-drained-of-its-anti-imperial-sting",
+  "field": "title",
+  "lang": "ko",
+  "text": "반제국의 독이 빠진 웰스의 침공",
+  "model": "claude-opus-5",
+  "source_sha256": "9e3b298b3fa9fd237833eaefb17247f75a5f7e1ba85a07bc61fc18ed386a71a2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "western-praise-as-self-reassuring-misreading",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 마음 놓자고 오독하는 서구의 찬사",
+  "model": "claude-opus-5",
+  "source_sha256": "977b6c0769dc8b21a0c7ddfdd478cedc2c7f536762edaa38984e1412a4fb5d09"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "what-lies-beneath-the-surface-speaks",
+  "field": "title",
+  "lang": "ko",
+  "text": "표면 아래 가라앉은 것이 입을 연다",
+  "model": "claude-opus-5",
+  "source_sha256": "d6d7303ad84eea36e1f124f7b9573f305068d90492c0c49d50551ff07199ca62"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "when-the-people-become-the-state",
+  "field": "title",
+  "lang": "ko",
+  "text": "민중이 국가가 될 때",
+  "model": "claude-opus-5",
+  "source_sha256": "6fb4a9b739bdd42cd1906bd4aa9fa2f978f64d410806340a34210a16482a85a5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "when-the-state-abandons-women-women-take-the-punishment-into-their-hands",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가가 여성을 버리면 여성이 직접 벌한다",
+  "model": "claude-opus-5",
+  "source_sha256": "75f40bb2ff77cd3314f88e1ef961cb956971a9ae53d0dd9132dfb017bc8f166a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "where-climax-and-death-become-one-drive",
+  "field": "title",
+  "lang": "ko",
+  "text": "절정과 죽음이 한 충동이 되는 자리",
+  "model": "claude-opus-5",
+  "source_sha256": "d47bded4eeae6e10537ee946d930295b6b9d98125e19128eaaa5d7db0483f762"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "where-deontology-breaks-against-dirty-pragmatism",
+  "field": "title",
+  "lang": "ko",
+  "text": "의무론이 더러운 실용에 부딪혀 깨지는 자리",
+  "model": "claude-opus-5",
+  "source_sha256": "5608b0b29e76d6ce524135742251a5ca64572f14a3d0219a94d55b98fb3e19a0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "where-flesh-and-machine-share-one-skin",
+  "field": "title",
+  "lang": "ko",
+  "text": "살과 기계가 한 살갗을 쓰는 자리",
+  "model": "claude-opus-5",
+  "source_sha256": "ac33d3fd6317fbaab30b61e304ed0bed8e0c0f8a1a9dbb5d80cdf82a1358f6b8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "where-the-exception-becomes-the-map",
+  "field": "title",
+  "lang": "ko",
+  "text": "예외가 지도가 되는 자리",
+  "model": "claude-opus-5",
+  "source_sha256": "8abf7be5f94b3ab52a30bdeba1a29d7a56dcd6fa18b85a7da3096225461a239c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "whimsy-as-armor-against-unbearable-despair",
+  "field": "title",
+  "lang": "ko",
+  "text": "견딜 수 없는 절망을 막는 갑옷, 엉뚱함",
+  "model": "claude-opus-5",
+  "source_sha256": "3a22da917269fb22ed2801fb3e199caddcc9d891fff7bace380449959cb366e5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "whitechapel-as-set-real-or-rebuilt",
+  "field": "title",
+  "lang": "ko",
+  "text": "세트가 된 화이트채플, 진짜든 다시 지은 것이든",
+  "model": "claude-opus-5",
+  "source_sha256": "529175c06e4ba000f4cfa8ce248eac31e06b17f6bdb15ac894354fcbd97167c9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-authors-the-woman-s-account",
+  "field": "title",
+  "lang": "ko",
+  "text": "여자의 진술은 누가 쓰는가",
+  "model": "claude-opus-5",
+  "source_sha256": "7fa53b8e6c0f30799bd35c0a2ec0b14c5134db04b9dea992bb950235a9254f0f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-controls-the-narrative-owns-the-power",
+  "field": "title",
+  "lang": "ko",
+  "text": "서사를 쥔 쪽이 권력을 쥔다",
+  "model": "claude-opus-5",
+  "source_sha256": "fff29f8c6f08db4d65e1815edf208bbb8a7b5310a406112f948b1479020df261"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-controls-the-record-controls-the-real",
+  "field": "title",
+  "lang": "ko",
+  "text": "기록을 쥔 자가 실재를 쥔다",
+  "model": "claude-opus-5",
+  "source_sha256": "ebd466769ff511c7433e93c6261fdd1624bafe341a5d646d3e22953f2e25c1de"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-gets-to-die-on-camera",
+  "field": "title",
+  "lang": "ko",
+  "text": "카메라 앞에서 죽을 자격",
+  "model": "claude-opus-5",
+  "source_sha256": "64c366b185f396c27546985f0519da1ccb49a731a8be14e642f01c67e8eec8ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-gets-to-leave-who-must-stay",
+  "field": "title",
+  "lang": "ko",
+  "text": "떠나는 쪽과 남는 쪽",
+  "model": "claude-opus-5",
+  "source_sha256": "a7b75a044eec813a9f695e2402f6e1e7f3d7974073976b70298ea238a5c93719"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-holds-the-microphone-holds-authority",
+  "field": "title",
+  "lang": "ko",
+  "text": "마이크를 든 쪽이 권위를 든다",
+  "model": "claude-opus-5",
+  "source_sha256": "be55914f67274249a24447232b719ac792588d138bc74ab480ac902098385a00"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-holds-the-right-to-choose-a-side",
+  "field": "title",
+  "lang": "ko",
+  "text": "편들 권리는 누구에게 있나",
+  "model": "claude-opus-5",
+  "source_sha256": "e49e684858ba53827519b4210960b28a58daaecbe22b7ec45e3870d00af06e19"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-holds-the-right-to-narrate-chile",
+  "field": "title",
+  "lang": "ko",
+  "text": "칠레를 이야기할 권리는 누구에게",
+  "model": "claude-opus-5",
+  "source_sha256": "00790715c8396dc8886605a162f40ef4aa44e9ad5f0fb962403654c97420b6f0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-is-granted-the-power-to-forgive",
+  "field": "title",
+  "lang": "ko",
+  "text": "용서할 힘은 누구에게 주어지는가",
+  "model": "claude-opus-5",
+  "source_sha256": "85a9bc50ce67ea6e17aaa36a7cadfe680b5db33a278b91596e9a7ff65400d229"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-may-eat-which-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "누가 어떤 몸을 먹어도 되는가",
+  "model": "claude-opus-5",
+  "source_sha256": "62b76a0ecf71100b753cfa28e2fc869d1003e60bec45f2e9363d16bb739f0a71"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-owns-the-act-of-liberation",
+  "field": "title",
+  "lang": "ko",
+  "text": "해방은 누구의 몫인가",
+  "model": "claude-opus-5",
+  "source_sha256": "0351a3c16f34b780ca3a763a1a65b1b971a094fa55ddbb8dee23b5661882285e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-owns-the-authored-work",
+  "field": "title",
+  "lang": "ko",
+  "text": "쓴 작품은 누구의 것인가",
+  "model": "claude-opus-5",
+  "source_sha256": "8dd794a0bd23eccdc5ad127e5da7b14756057c9977d0e49427c89ae256a6aed5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-owns-the-child-custody-as-class-verdict",
+  "field": "title",
+  "lang": "ko",
+  "text": "아이는 누구의 것인가, 계급이 내리는 양육권",
+  "model": "claude-opus-5",
+  "source_sha256": "47cf5fa5a02650f7d85641af6bc59a819560fb67f9bdbced31080a5a12874607"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-owns-the-dying-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽어가는 몸은 누구의 것인가",
+  "model": "claude-opus-5",
+  "source_sha256": "59028dc14854b18f4fb8095d8cfb3f6ea79aebd1d7eabe272dc2070f7ee29fea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-owns-the-eyes-that-watch-you",
+  "field": "title",
+  "lang": "ko",
+  "text": "당신을 보는 눈은 누구의 것인가",
+  "model": "claude-opus-5",
+  "source_sha256": "d1a1612284514c129351c27ca6cf8222e40aba02ed2b972b45f6250c144836f0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-owns-the-image-of-a-woman",
+  "field": "title",
+  "lang": "ko",
+  "text": "한 여자의 이미지는 누구의 것인가",
+  "model": "claude-opus-5",
+  "source_sha256": "a69cf6b69f4511225012acbc36c403d6c852946d49d15bf832c347f950f4ccab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-owns-the-looted-ancestor",
+  "field": "title",
+  "lang": "ko",
+  "text": "약탈된 조상은 누구의 것인가",
+  "model": "claude-opus-5",
+  "source_sha256": "3d99d586ffff4069340d63bce2a1a3122f38ef94ae401ab8a9a0b4805cfae568"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-owns-the-means-of-labor",
+  "field": "title",
+  "lang": "ko",
+  "text": "노동 수단은 누구의 것인가",
+  "model": "claude-opus-5",
+  "source_sha256": "e18ff8c9711c7407eb198203bd5d8ab221f034f54e64d95bb58a2625972bcb15"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-owns-the-right-to-laugh",
+  "field": "title",
+  "lang": "ko",
+  "text": "웃을 권리는 누구의 것인가",
+  "model": "claude-opus-5",
+  "source_sha256": "cc7503f6add8bd2fc23053b8ce5ad94c4392098f89549bad14a6410faed8dbc7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-owns-the-soundtrack-owns-history",
+  "field": "title",
+  "lang": "ko",
+  "text": "사운드트랙을 가진 쪽이 역사를 가진다",
+  "model": "claude-opus-5",
+  "source_sha256": "4f76ec52eff4d90225c454548073583eb9b48f477fa9a7e801672dc5f05148dd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "whoever-holds-the-premises-holds-the-person",
+  "field": "title",
+  "lang": "ko",
+  "text": "거처를 쥔 자가 사람을 쥔다",
+  "model": "claude-opus-5",
+  "source_sha256": "30a58b16abc5fc00d01bfe914cc2da4111edc5db86db7e66d54672cc2728cec4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "whose-sound-may-occupy-public-space",
+  "field": "title",
+  "lang": "ko",
+  "text": "공적 공간을 차지해도 되는 소리는 누구의 것인가",
+  "model": "claude-opus-5",
+  "source_sha256": "64b39eb64a8def4981bdd9756ba7f44c748428e02bdc0e8f3b9b8a240840bde1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "whose-voice-the-law-will-believe",
+  "field": "title",
+  "lang": "ko",
+  "text": "법이 믿어줄 목소리는 누구의 것인가",
+  "model": "claude-opus-5",
+  "source_sha256": "76745b6942a1cf7b2bdbc57eabca76162c4fa30fcc07cfe9b7e9d69911418d4c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "why-no-one-asks-the-obvious-question",
+  "field": "title",
+  "lang": "ko",
+  "text": "뻔한 질문을 아무도 하지 않는 이유",
+  "model": "claude-opus-5",
+  "source_sha256": "9b0498f9724946e49541c989597bc73544cd0fd4ecb864f2e73b4c60dcc62abc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "why-she-stays-why-she-returns",
+  "field": "title",
+  "lang": "ko",
+  "text": "머무는 이유, 돌아오는 이유",
+  "model": "claude-opus-5",
+  "source_sha256": "be31a34edb45ca9ce88ae6e19de052bd8210294a066a5a4cdf4ae18844bf9a5a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "why-the-theft-is-never-punished",
+  "field": "title",
+  "lang": "ko",
+  "text": "그 절도가 끝내 벌받지 않는 이유",
+  "model": "claude-opus-5",
+  "source_sha256": "a6c1a4c9e7afd0d09579cba27b5ff06f0f739cb542606f52d3e2a26e2200c4dd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "wilderness-that-knows-it-is-doomed",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 끝을 아는 야생",
+  "model": "claude-opus-5",
+  "source_sha256": "359c6508495c3229daa921670c7c7d12ef8327fab9cd0c8d13589dd4b5e0e6b3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "willful-blindness-as-the-subject-s-alibi",
+  "field": "title",
+  "lang": "ko",
+  "text": "알면서 안 보는 것, 주체의 알리바이",
+  "model": "claude-opus-5",
+  "source_sha256": "a5f28e49d99fe3c3f4ab4406c7d6f61d3a45df2506e3bdfb5a87d1ef5614343f"
+ }
+]

@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-postman-1995",
+  "field": "lead",
+  "film_id": "eac63c22-11d7-4a14-b78f-3eea26de37d3",
+  "lang": "en",
+  "text": "The job is handing over other people's letters; the complication is that the man at the end of the route writes for a living. Michael Radford's postman picks up the poet's vocabulary the way an apprentice picks up tools, and turns it on a woman named Beatrice, who has done nothing to deserve being courted in a borrowed voice. The comedy is in that theft, and so is the sting: every line that works is a line he did not build. At 114 minutes the film stays with small transactions — a delivery, a question, a phrase repeated until it fits the mouth saying it. The Academy honored the score, which is the right instinct, since the music holds the pauses a plainer film would fill with someone explaining himself. Poetry here is not a subject. It is equipment a man borrows because he wants something he cannot ask for.",
+  "model": "claude-opus-5",
+  "source_sha256": "52767885fce9881378956814a1ba10767e0075e375222c4006249c005e3538d2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "police-academy-mission-to-moscow-1994",
+  "field": "lead",
+  "film_id": "23fdd81d-07dd-41d4-8596-24ab7a47b2bc",
+  "lang": "en",
+  "text": "The crime at the center is a computer game the whole world is playing. Alan Metter ships the Police Academy officers to Moscow as hired help against the Mafia, which drops a broad English-language comedy troupe into a city that gives its gags nothing familiar to bounce off, and the mismatch is the entire design. Pratfalls get staged against streets that have never heard of them. The criminal enterprise deals in software rather than contraband, a genuinely odd guess for a series built on slapstick to make about where money was heading in 1994. Eighty-three minutes keeps anything from being asked to carry more than a scene. What is left is the strangeness of the pairing: a franchise well past its first idea, sent abroad to look for another, and a plot that landed on software before the joke was obvious.",
+  "model": "claude-opus-5",
+  "source_sha256": "568a261f04ed3cea75f33015f7cc8b48f8b148bd7c2745229fb32f60dc2273ab"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "henry-v-1989",
+  "field": "lead",
+  "film_id": "ba06ecde-fa17-491f-89e5-58a688682c1e",
+  "lang": "en",
+  "text": "In 1415 an English king with a claim on France sets out to make it good, and the first people he has to convince are his own. War in Kenneth Branagh's register is administrative before it is heroic: an army has to be moved, fed and persuaded, and each of those verbs happens in front of men who can count and who will be the ones to pay. The 137 minutes go mostly to the interval between a decision and its cost, which is where a campaign is actually lost or held. Costume, honored at the Academy Awards, argues rather than decorates here — rank is worn, allegiance is legible at fifty paces, and a young man who cannot afford to look uncertain has to be dressed for it. Filmed in 1989, it treats a medieval conquest as a chain of practical problems handed to someone barely old enough to be trusted with them.",
+  "model": "claude-opus-5",
+  "source_sha256": "4eba76af0c18d00638aef96f48f1289b8cdce44c9b63fff576871a04e1983a47"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "klute-1971",
+  "field": "lead",
+  "film_id": "7abe4be0-cd03-4f08-ba06-0d343ecbb08d",
+  "lang": "en",
+  "text": "The title names the detective; very little else in the film belongs to him. Alan J. Pakula puts a woman who sells her hours at a fixed price next to a man who did not want the case, and keeps the weight on her side of the arrangement — it is not a partnership, it is a dependence she did not choose. In her line of work everyone who knows her name met her as a transaction, which makes the man frightening her difficult to isolate and the police a poor option. What Pakula films is not the pursuit but the behavior: composure maintained in an ordinary room because composure is the one asset she owns, and the small failures of it when a phone rings. The Academy took up both the screenplay and the lead performance, and the balance shows. Danger here is a condition of her employment, not an interruption of it.",
+  "model": "claude-opus-5",
+  "source_sha256": "51ff40beadf3f2b923bb387350c18c2d130ca2694c3620752f09ceebe982ab24"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "through-a-glass-darkly-1961",
+  "field": "lead",
+  "film_id": "97d25520-aa20-4b0b-9989-80d0c6e2bdee",
+  "lang": "en",
+  "text": "Karin has just come out of a hospital, and the plan is a quiet summer at the family cottage on an island small enough to walk around before lunch. Everyone has agreed, without saying it aloud, to behave normally. Ninety-one minutes is barely room for a plot and exactly room for that agreement to fail: Martin, her husband, wanting a presence she cannot produce; Minus, her younger brother, uneasy in his own changing body and watching her for signs; David, their father, remote in a way the household long ago stopped challenging. Nobody is cruel. Everyone is occupied. Ingmar Bergman builds it for four voices and no crowd to hide in, so that a glance across a table carries the weight other films give to an argument, and the island does what islands do — it reduces the number of places a person can go.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb2bc36a6b78299418caf2e7f0eaee8f6ae3a803fd96a47e56212b600e0ea7e1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-best-of-youth-2003",
+  "field": "lead",
+  "film_id": "aae15e1b-ec8b-4a49-bca5-08761253a5da",
+  "lang": "en",
+  "text": "Three hundred and sixty-seven minutes, which is less a stunt than a unit of measurement. Marco Tullio Giordana starts two brothers in the summer of 1966 and then does what almost no film can afford: he stays. Attachments form and wear out, work becomes a career and then a compromise, the country changes around them and changes again, and because the running time never hurries, none of it arrives announced as a turning point — it arrives the way it does in a life, recognizable only later. The brothers' paths separate early, and the film treats that separation as a condition to live with rather than a quarrel to be settled. What the length buys is the connective tissue historical films usually cut: the visits, the waiting, the long stretches in which nothing happens to Italy and everything happens to a family.",
+  "model": "claude-opus-5",
+  "source_sha256": "44f88595fa20e1583440479a1b4089c90fc07a5de608a15b7d22dea112f6355c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "babette-s-feast-1987",
+  "field": "lead",
+  "film_id": "737f366a-6a6a-4ab8-8db1-8a8bed8f4f08",
+  "lang": "en",
+  "text": "In a village where plainness is a moral achievement, the new housekeeper is French. Gabriel Axel gives the household its due first — the plain food, the plain clothes, a faith that measures itself by what it declines — so that the woman working inside it is never simply the sophisticate among the rubes. She has a past she does not discuss and a skill she does not display, and for a long stretch the film is about the discipline of keeping both to herself, cooking to the limits she has been given. Set in Denmark in the last decades of the nineteenth century and made in 1987 without a trace of mockery, it takes sincere self-denial seriously as a position held by intelligent people. Everything that follows depends on a woman saying nothing about what she is capable of.",
+  "model": "claude-opus-5",
+  "source_sha256": "29b6f92b48a9fde55b41e7f6ba578b88c13133e99194086e2563b5b525316156"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-consequences-of-love-2004",
+  "field": "lead",
+  "film_id": "65e505b3-3984-4487-8d96-8116f942fa44",
+  "lang": "en",
+  "text": "The same hotel room for almost ten years, the same hours, the same silences, and a man who volunteers nothing about why. Titta Di Girolamo lives in Lugano the way other people wait in an airport: nothing unpacked, nothing owed, questions turned aside so smoothly that no one downstairs notices they never got an answer. Paolo Sorrentino makes a hundred minutes out of that refusal, and the tension is structural rather than plotted — a routine kept this precisely is either a discipline or a sentence, and the film is content to let both readings stand while things accumulate at the edges of the frame. The lead performance, which took a David di Donatello, works by subtraction: a face that has spent a decade making itself uninteresting. Which is why the smallest deviation in his week registers like an alarm.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f09182d9e54b8baf5087a3d2808d3c0be9db7d5816d2d817ae91d668bd57c7f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-unknown-woman-2006",
+  "field": "lead",
+  "film_id": "62ecaa77-6d5f-402b-812f-ca17f2dd073b",
+  "lang": "en",
+  "text": "Getting hired is the operation: the household is chosen first, then studied, then entered through the door marked staff. Irena has come from Ukraine and does not stumble into this wealthy Italian family — she works her way in through the position such families always need filled, cleaner first, then the person trusted with a fragile child. Giuseppe Tornatore shoots domestic service as reconnaissance, which gives every ordinary exchange in the house a second purpose: a routine memorized, a trust extended, an employer's habits learned by heart. The thriller machinery around it is conventional and the film knows as much; what it does differently is stand where the maid stands, so the family's comfort is watched from below by someone counting exits. Whatever Irena wants costs more than the job is worth, and she has already agreed to pay it.",
+  "model": "claude-opus-5",
+  "source_sha256": "6b2fa7ac23a168121b7d15a2a3c8741646e7ac4bbad11040250d98eeab5afadc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "kolya-1996",
+  "field": "lead",
+  "film_id": "807a1a12-6661-4a6a-8422-fdb588982d62",
+  "lang": "en",
+  "text": "The wedding is a transaction and everyone involved knows it; the boy who turns up afterward was not part of the deal. Louka plays cello for a living, which here means an income assembled from whatever engagements arrive, and the paper marriage to a Russian emigrant is one more engagement until she is gone and her small son is left in his care. Neither of them speaks the other's language. Jan Svěrák makes that the working material: a household negotiated by gesture, repetition and mistake, with the adult holding all of the authority and none of the words. It plays as comedy and stays honest about the inconvenience — a bachelor's routine taken apart by someone who cannot be argued with. A hundred and five minutes, no lesson announced, and a slow change of temperature between two people stuck with each other.",
+  "model": "claude-opus-5",
+  "source_sha256": "456634404fa84ff858315d30120f6b2b25bb8da883767eeaa3f2c69203b3eafe"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "moscow-does-not-believe-in-tears-1980",
+  "field": "lead",
+  "film_id": "7a45f5ff-2041-482b-8194-5637b18d83d5",
+  "lang": "en",
+  "text": "The film breaks in half, twenty years wide, and the woman who walks out of the gap is running a factory. Before the break, Katerina shares a workers' dormitory in Moscow with friends whose futures are still theoretical, in a city where a young woman's plan can be undone in a single season. After it, she has the office, the salary and the daughter, and none of the company. What holds the 142 minutes together is that the second half neither rewards nor punishes the first: the promotion is real, the solitude is real, and an amiable mechanic turns out to be the hardest thing she has had to deal with in years. Made in 1980 in the Soviet film industry, it is direct about what a woman's advancement costs at home, and it lets her be certain about her work and unsure about nearly everything else.",
+  "model": "claude-opus-5",
+  "source_sha256": "242396d8834fa1727ce09b04d2b5a19f30bbc56c435e606c3230eb75067826e1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-traitor-2019",
+  "field": "lead",
+  "film_id": "a2b6d606-0e93-428d-b468-8e1df14e766f",
+  "lang": "en",
+  "text": "A man leaves Palermo in 1980 because the organization he belongs to has started killing its own. Tommaso Buscetta takes his family to Brazil and tries to live as a private citizen, which is the stretch most crime films skip: the exile, the waiting, the arithmetic of who is still alive at home. Marco Bellocchio gives 151 minutes to a criminal's middle age and declines to make any of it stylish — ordinary rooms, aging men, violence decided somewhere else by people working from lists. When circumstance returns him to Italy, the film settles into a long weighing of an old loyalty against what that loyalty has actually delivered. The editing, honored at the David di Donatello awards, carries the weighing across years and jurisdictions without turning the chronology into a puzzle.",
+  "model": "claude-opus-5",
+  "source_sha256": "e2c30ba5180f3ae629c921ce7aee2af63e765f2f7a66568bc0bbe652b05c13c4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "human-capital-2013",
+  "field": "lead",
+  "film_id": "11c147b9-1c20-4aa9-822d-7dfeedccce9f",
+  "lang": "en",
+  "text": "A cyclist is hit on a dark road the night before Christmas Eve, and the impact travels further than the injury does. Paolo Virzì keeps the incident itself small and the aftermath procedural: liability, obligation, the question of who was where, and the far more uncomfortable question of what the answer is worth to each household. Two families are joined by it whether or not they would have chosen each other, and the film's attention goes to the speed with which the adults start calculating. Nothing is staged as tragedy. The register is closer to a ledger being reconciled, line by line, by people who would describe themselves as decent. In 111 minutes it gets through two family systems and one night that cannot be taken back, and the crash turns out to be the least interesting thing in it.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb2f2af94cd3731195204fe250b84ae3b6ed504ff31928aec203f53c7a7f6326"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "character-1997",
+  "field": "lead",
+  "film_id": "2ac0f734-5f69-4f1d-b709-7923bbb81327",
+  "lang": "en",
+  "text": "The father's trade is taking property from people who cannot pay; the son is the one debt he was never obliged to settle. Mike van Diem sets it in Holland before the war, in offices and rented rooms where a man's prospects depend on whether someone will sign for him, and gives his protagonist a single ambition — to qualify as a lawyer — pursued less as work than as an argument addressed to one man who has no intention of conceding it. The spite has procedure to it, which is slower than violence and harder to answer. That turns 122 minutes of period drama into a long negotiation between two people who will not say plainly what they want from each other. Illegitimacy is the whole architecture here: nothing to inherit, no name worth using, and therefore nothing to do but prove it.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9b22ee2a9f17980de16869ca27d326de8840bcb6e0e1e55b1d4a2ae05e6e9f4"
+ }
+]

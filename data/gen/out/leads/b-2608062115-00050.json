@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-body-snatcher-1956",
+  "field": "lead",
+  "film_id": "9b26869f-71da-4031-bd07-605c0e764394",
+  "lang": "en",
+  "text": "A scientist is stealing the bodies of murdered wrestlers, and what he puts into them afterward comes out of animals. The reasoning is that this makes them stronger and longer-lived, which is a horror premise assembled out of the economics of a sport. Fernando Méndez has eighty minutes, a detective, a cowboy, a laboratory and a fight card, and he refuses to keep any of it in separate compartments: the arena scenes are police scenes, the laboratory scenes are about a body being valued by the pound. The cowboy's answer to the problem is to put on a mask, get good enough in the ring to be noticed, and let the henchmen come to him, which makes him athlete and bait in the same move. Ladrón de cadáveres treats wrestling as a trade where flesh is already for sale before anyone digs it up.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ae9b05bebb7e743972d4129eef314269daa16906653164eba95235e9ba35df2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-grey-automobile-1919",
+  "field": "lead",
+  "film_id": "9128ad80-b8b2-4b85-bba7-b2d17ccd687f",
+  "lang": "en",
+  "text": "The robberies happened in Mexico City in 1915; the film went out in 1919, barely time for a case to cool. Enrique Rosas runs two hundred and twenty-three minutes on it, a serial's length built in episodes, following Inspector Cabrera through robbery, kidnapping and murder until the gang is in a cell. Length that extreme changes what a crime picture can be about. Suspense over the outcome is unavailable to an audience that read the outcome in the papers, so the interest shifts to procedure: how a gang gets inside a rich house, how one inspector gets onto a gang and stays on it. What is left is a survey of wealthy Mexico City rendered as a set of entrances and exits, and of policing as patience, paperwork and the slow closing of a list.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d09cb5475a05e8610703cba574075a045270e3d7a61750a8993167a562b3f81"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-mysteries-of-a-hairdresser-s-shop-1923",
+  "field": "lead",
+  "film_id": "80cdee58-f6e5-4440-b227-3ef66a2d95d1",
+  "lang": "en",
+  "text": "Beards keep arriving and nobody shaves them, because the barber is asleep. Thirty-two minutes, one room, 1923. Erich Engel takes the ordinary machinery of a salon, chair and razor and lather and a queue of waiting men, and runs it with nobody competent at the controls, which is engine enough for a film this short. It moves at sketch speed, bending the shop's logic a little further every few minutes, and the joke sharpens as the customers keep not leaving. Great beards are funny before anything happens to them: they are evidence of time already lost, sitting in a row. The only labour anyone performs in this shop is waiting, and the customers do all of it. The German canon of important films has kept a place for it, and nothing about the comedy has been dignified in the meantime.",
+  "model": "claude-opus-5",
+  "source_sha256": "edd988a6f96ae1210645abbbded869ff691814397d8a7d4e59c5599f6226d8c4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tlayucan-1961",
+  "field": "lead",
+  "film_id": "09e55bd9-6ec4-4f7d-aab0-ace047f364fd",
+  "lang": "en",
+  "text": "The pearl belongs to a statue of Santa Lucía in the village church, and Eufemio's son is ill, and those two facts are about to meet. Luis Alcoriza sets a comedy in the space between them, which is harder than it sounds: the theft is petty, the reason for it is not, and a village will read a missing pearl as sacrilege whoever's child is sick. What follows is less a crime story than a logistics problem. In a place this size everyone knows who went near the altar, nothing stolen can be sold without being watched being sold, and the church and the neighbours produce opinions faster than any investigation produces facts. The tone stays light. The pressure under it never lifts. A hundred and five minutes, spent on faces and talk rather than incident.",
+  "model": "claude-opus-5",
+  "source_sha256": "f34648bf3646c9008ad9d6308b1b4952c1b159526248ec1437029788cd95252c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "angel-de-fuego-1991",
+  "field": "lead",
+  "film_id": "f69e890f-698e-4608-ba47-085075c435b8",
+  "lang": "en",
+  "text": "Alma works the trapeze in a travelling circus that cannot pay for itself, and her father, who is dying, works the same tent as a clown. Dana Rotberg films the arrangement without softening it: a family business in which the family is two people and the business is a few metres of canvas. Alma leaves it pregnant by him, and what she leaves for is not comfort. She attaches herself to Refugio, a woman who preaches in poor neighbourhoods with puppets, staging scripture on the street for whoever stops. One kind of performance traded for another. The film's subject is what the second one asks of a body that has spent its whole life being watched, the trapeze wanting balance and the congregation wanting repentance, and ninety-five minutes pass without any of it being offered as a rescue.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e755325f87110f92abd1d8e083b6fe305156a96ce995b59cb4fc788820b7fc5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "shark-hunters-1962",
+  "field": "lead",
+  "film_id": "99412fe8-b807-41de-9790-fc3796e70039",
+  "lang": "en",
+  "text": "Shark fishing supports two households: Aurelio's family in the city, and Manela on the coast. He keeps the halves from touching by staying at sea, and the arrangement holds exactly as long as he does not move. Then he decides to move to the city. Luis Alcoriza builds the hundred minutes around that out of work itself, boats and nets and the particular tedium of dragging something heavy out of the water again and again, so the decision when it comes is not staged as a crisis. It arrives the way such decisions usually arrive, as a man calculating what he can take with him and what he will simply stop paying for. The pressure in Tiburoneros comes from the arrangement rather than from anyone opposing him. What remains is the arithmetic of two lives that were affordable only while they stayed apart.",
+  "model": "claude-opus-5",
+  "source_sha256": "242c2623f1779879a8aeef9266d688f9141d696d30a491830bd02b3a31485689"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "reed-insurgent-mexico-1970",
+  "field": "lead",
+  "film_id": "d6652cce-4acc-400b-a1ff-9da31af59391",
+  "lang": "en",
+  "text": "The source is filed copy: John Reed's newspaper accounts of the Mexican Revolution, written for readers who were nowhere near it. Paul Leduc keeps that filter in place rather than dissolving it. What reaches the screen is the revolution at the scale a correspondent could actually witness, which is waiting, marching, camp talk, and men who have no idea yet how any of this will be written down. Two hours, and not one battle staged for the sake of having a battle in it. The vantage of 1970 does work here as well, half a century out from the events, long enough for the material to have hardened into something everyone assumed they knew; Leduc's reply is to shoot it small and close, with the camera at the height of a man taking notes.",
+  "model": "claude-opus-5",
+  "source_sha256": "637278bbb363ed638fe7b34005622af288c4be64b379e3b5dd1389c457b7828a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "aguila-o-sol-1937",
+  "field": "lead",
+  "film_id": "2b97afb2-2cc2-4ec2-bae7-2467f69c787b",
+  "lang": "en",
+  "text": "Three children run rather than be separated and sent out to work, which is how they end up selling lottery tickets and newspapers on the street. They were raised together and hold that they are brothers, and nothing on paper supports the claim, which is exactly the claim the film asks an audience to accept. Arkady Boytler gives the childhood a quick pass and spends most of seventy-eight minutes on what the three become in adulthood: performers, working for people who pay. Nothing that happens to them is presented as a lesson about poverty; poverty is simply the condition under which they learn a trade. The continuity is the corner. Holding a crowd outdoors for nothing is the same work as holding one indoors for money, and the second job is a lucky version of the first rather than an escape from it.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b9e71808cb576c7ebbee3155e18b7192f9026fe7e34dd88c18ebb32a3407191"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "marriage-in-the-shadows-1947",
+  "field": "lead",
+  "film_id": "4ea8bcc7-4350-4c8c-bf1d-6766a87b0731",
+  "lang": "en",
+  "text": "Two actors marry in Berlin in the nineteen-thirties, one of them Jewish, the other confident that his name will be enough. Kurt Maetzig made the film in 1947, which puts the camera in the same country two years after the end, pointed at the profession that had gone on working. The setting is stages and dressing rooms, not camps. Hans Wieland's roles improve as the regime settles in; Elisabeth Maurer loses the work first, then the right to appear in public at all, and the marriage is offered to her as shelter. One decision keeps returning: leave, or stay another year on the evidence that staying has worked so far. After the pogrom of November 1938 she resolves to go, and he talks her out of it. Every reassurance in it was written by people who already knew how such reassurance ended.",
+  "model": "claude-opus-5",
+  "source_sha256": "dea865c23fda139b4e3a50f33909c4d2b9b73569a120cb94a4e93235aaa80753"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "alla-en-el-rancho-grande-1936",
+  "field": "lead",
+  "film_id": "8a597426-b215-491d-b5d8-182f1701233e",
+  "lang": "en",
+  "text": "The two men are close friends, and one of them owns the ranch the other manages, so the friendship has a floor under only one of them. Fernando de Fuentes plays that asymmetry for comedy and for songs, then puts a woman between them: the owner sets out to buy her, from someone in a position to sell, not knowing where her affection has already gone. It could have been weightless. It is not, quite, because the transaction is shown plainly, money offered and a young woman's future settled by people who are not her, so the comedy and the cruelty stay in one frame. Ninety-five minutes on a working ranch, where the manager depends on the owner for his living, the owner depends on the manager for nothing, and everybody is visible to everybody else all day.",
+  "model": "claude-opus-5",
+  "source_sha256": "5bee3d8b13469e8b0afeed215aa0f36623d919d3ca451dad8f0d1012fdc1ed4f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-shout-1968",
+  "field": "lead",
+  "film_id": "caa9df8e-28ce-44fe-9987-32f409c3a016",
+  "lang": "en",
+  "text": "The camera is inside the marches rather than watching from the far side of a police line. Mexico City, summer 1968: students in the streets, the state answering with force, and one of the students carrying a camera through it at the crowd's own eye level. Leobardo López Aretche was filming people he knew, and that is the formal difference between El grito and news footage. It moves when the crowd moves and it has no way out. A hundred and two minutes assembled from that position, at a high price to the man holding the camera. The film was a secret for fifty years and is not one now, which changes what it is for: what was once dangerous simply by existing is now a record, and it is specific about how an afternoon of protest goes in the hour before it breaks.",
+  "model": "claude-opus-5",
+  "source_sha256": "d37332a7effaa20b615b0b8ebb92f737c30b35162e5fe6dfb5e3f4f9224c01f0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sensualidad-1950",
+  "field": "lead",
+  "film_id": "39beef17-6698-406c-af16-434963d1efe8",
+  "lang": "en",
+  "text": "A saloon singer comes out of prison with one plan, and the plan is the judge who sentenced her. Blackmail requires proximity, so seduction here is procedure rather than heat: she has to be seen, then be interesting, then be necessary, and each step is carried out on nights she is also being paid to sing. Two jobs run at once, the singing and the scheme. Alberto Gout makes the nightclub the room where the film's moral order gets settled, since it is the one place where a woman with a conviction on her record and a man with the power to convict are both merely customers of the same music. Ninety-six minutes, and the pleasure of it is tactical: a scheme advancing a little each evening, in public, in front of an audience that believes it came for a floor show.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d92611758e562fadd0ce3468962311fd7e66fe7c5e41200755a82b25329841c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-sleeping-beauty-1952",
+  "field": "lead",
+  "film_id": "a4de98c3-7443-489e-8a32-ef2a1ec88fef",
+  "lang": "en",
+  "text": "The sleeper is a caveman, and he has been under for a thousand years. Gilberto Martínez Solares wakes him into a world that treats him as a wonder and gives him seventy-five minutes to cope, complicated by the apparent survival of the woman he loved and the rival who wanted her. Nothing about the thousand years is explained. Nobody in the film asks for an explanation either. The comedy is better for that: the fantasy and the science fiction are licences for gags, not systems to be maintained, and the impossibility of the premise is itself one of the jokes. What remains is a farce with a fossil at the centre of it, a love triangle older than the language everyone is arguing in, and a leading man whose entire difficulty is arriving from the wrong century.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd38a7edbccd1c227ae9c0b3171533357882554f173d38eb4f56c79ec3d4babd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "maria-of-my-heart-1979",
+  "field": "lead",
+  "film_id": "03fc26b0-fdd4-46e7-9500-734a635acf2a",
+  "lang": "en",
+  "text": "She does magic in cabarets and he breaks into houses, and for a while the film lets those be the same skill. Héctor and María meet again after eight years apart, and what they assemble in the first stretch of María de mi Corazón is modest and nearly respectable: an act, two names on a bill, bookings that come in. An act is a small business, with costumes, a room, and people in it who paid to be surprised. Jaime Humberto Hermosillo takes his time over the good part, which is why two hours is the right length and why the happiness registers as something real rather than as setup. Then María travels alone to another city, where nobody can vouch for who she is. The film has spent an hour making certain that this matters.",
+  "model": "claude-opus-5",
+  "source_sha256": "893e929f9cad91edffa3702c5c5d9259f4e39142897e9ae04dc66410fa8184d8"
+ }
+]

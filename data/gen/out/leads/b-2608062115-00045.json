@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "we-the-poor-1947",
+  "field": "lead",
+  "film_id": "31ce90a3-12b5-4b72-983a-b3e409dc7e47",
+  "lang": "en",
+  "text": "The work is carpentry; the address is a tenement courtyard in Mexico City where every household's business carries through the walls. Ismael Rodríguez gives it 128 minutes in 1947 and never once apologizes for melodrama: a man, his young daughter, the woman he is courting, and neighbors with opinions about all three. Poverty is handled as arithmetic, what gets paid this week and what waits. Then an accusation lands that a carpenter cannot answer with the tools he owns, and the neighborhood does not need a court to reach a finding. It sits on the Somos hundred best of Mexican cinema, and what keeps it there is less the plot than the courtyard: the borrowed money, the argument heard through a wall, the rumor that travels faster than any wage.",
+  "model": "claude-opus-5",
+  "source_sha256": "e790ec84d832d6cc56ce9c90452c8405f41dff9410162af23be7afa5725f2155"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "cabeza-de-vaca-1990",
+  "field": "lead",
+  "film_id": "c2dae013-ff33-43ec-bf4d-40ba3d60c116",
+  "lang": "en",
+  "text": "In 1528 a Spanish expedition comes apart off the coast of Florida and six hundred lives go with it. What follows is not a rescue but a walk: one survivor on foot across a continent with no interest in his errand. Nicolás Echevarría films the years afterward as an apprenticeship. Taken in by the Iguase, a man who sailed to claim territory learns instead to heal, and to answer to people whose language he has to acquire before he is any use to anyone. Historical epics usually fill the frame with armies; this one uses a single body in weather and asks 111 minutes of patience for it. Mexico entered it for the Academy Awards, an odd fate for a film so uninterested in reassurance. Eight years is a long time to stay a foreigner, and long enough to stop being one.",
+  "model": "claude-opus-5",
+  "source_sha256": "9cb808c85291262dc8c3d223eb6bf13b26b86476d3e3849b0c0f3cada94f7d6e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-lost-one-1951",
+  "field": "lead",
+  "film_id": "39699906-c45b-4eb6-8dbf-3d233f62ea4b",
+  "lang": "en",
+  "text": "A scientist's secret research keeps surfacing on the wrong side of a war, and the person carrying it out of the house is the woman he means to marry. Peter Lorre directed this in 1951, and the crime apparatus is all present and in order: the withheld fact, the man who knows more than anyone questioning him, the pursuit that has to look like something else. It is aimed at something colder than suspense. A killing committed in wartime enters a system with no attention to spare for it; afterward there is no system at all, only a man living in the same body in a country busy starting over. It has stayed on the German list of essential films. Ninety-eight minutes, no relief anywhere in them, and the thing being tracked is how fast a private ruin gets filed under a public one.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a06b0baf689afcd7f657009de2728527f3db073ee40e27517f3ab362351def5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-white-hell-of-pitz-palu-1929",
+  "field": "lead",
+  "film_id": "e61b96d2-93af-4fa8-8503-167e6fdd5716",
+  "lang": "en",
+  "text": "Twelve thousand feet of rock and ice, and a man who keeps going back up because his wife is still somewhere on it. She was lost on their honeymoon; he has made the search a habit. Georg Wilhelm Pabst gives this 150 minutes in 1929, which is a great deal of time for a premise so bare, and the length is the argument: cold has to be earned on screen rather than announced, and so does exhaustion. A second couple joins the climb, so the mountain holds one marriage being searched for and another being tested at altitude. Die weiße Hölle vom Piz Palü keeps its attention on procedure, on the roping and the waiting and the weather that decides everything, and treats the peak as an antagonist with no opinions whatever, which is worse than malice.",
+  "model": "claude-opus-5",
+  "source_sha256": "ec85c136fddaf58fa0d6769967990a5d37e95c13dff776920fd4a77df3384bbd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "port-of-freedom-1944",
+  "field": "lead",
+  "film_id": "59730a40-0ef3-4f4c-95c4-eab39b59b047",
+  "lang": "en",
+  "text": "A man who spent his working life at sea now sings for a paying crowd at the Hippodrome in St. Pauli, a few streets from the water he left. Helmut Käutner made it in 1944 and set nearly all of it inside a harbor district's amusements: the stage, the drink, and a promise given at a brother's deathbed and then honored too literally. Hannes takes Gisa in because he said he would. Then he wants her, which was not the arrangement, and she wants Willem, which was not the arrangement either. The film gives this 109 minutes and no hurry. What stays is the sense of a place organized entirely around departure, where everyone on screen is either waiting to ship out or has come back to find the street exactly as it was.",
+  "model": "claude-opus-5",
+  "source_sha256": "bc329a76da86b32991ea736ee9af959da75f5c345adf5532f24328ad07cdbc27"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "i-was-nineteen-1968",
+  "field": "lead",
+  "film_id": "6851b655-1542-4483-a47b-a1250d95d2f5",
+  "lang": "en",
+  "text": "A nineteen-year-old crosses into Germany in a Soviet uniform in the last weeks of the war, and everyone who surrenders to him does it in his own language. Konrad Wolf builds the film on that misalignment and declines to resolve it: the boy is on the winning side and is also, in every conversation, a German being spoken to by Germans. It is made of encounters rather than battles, 115 minutes of people explaining themselves to a teenager who has the authority to decide whether to believe them, with the fighting kept off to one side. East Germany gave it the National Prize, a curious reward for a film with so little appetite for victory. He gets the country back and finds himself a stranger in it, and no rank on his shoulder repairs that.",
+  "model": "claude-opus-5",
+  "source_sha256": "acdc1801bfb85a8b237d613c09972e6398865df5c874f30927e4d59fd9617d4c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "trace-of-stones-1966",
+  "field": "lead",
+  "film_id": "b7b4067d-3cb0-46b0-a0f7-1036cde78a18",
+  "lang": "en",
+  "text": "The concrete does not arrive, the timber is the wrong size, and the schedule was set in an office nobody on the site has ever visited. Frank Beyer spends 139 minutes on an East German building project and on Hannes Balla, a foreman who fixes shortages by means no plan would authorize and gets results that make him awkward to discipline. A party secretary arrives to bring the brigade into line. He is not a fool, which is what makes the collision interesting: two men who both want the thing built, disagreeing over whether the rules are the method or the obstruction. There is an engineer, Kati Klee, and both of them notice her. Balla is funny the way a man is funny when he is right and nobody senior can say so, and the argument is never tidied up.",
+  "model": "claude-opus-5",
+  "source_sha256": "264ff6092fb186ebbd28069ae7a11e4fb9f0f740a9c29a15a42ec8e827ffe14e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "madame-dubarry-1919",
+  "field": "lead",
+  "film_id": "4cd29832-5f79-4c66-8756-2a013b8fc6f1",
+  "lang": "en",
+  "text": "The Revolution is in this film, but it is not what the film is about. The title goes to a king's mistress, and 114 minutes follow her attachments, who she loves and who passes her along and who profits, while the politics arrive the way bad weather arrives: from outside, late, and on everyone at once. Ernst Lubitsch was working in 1919 with a comedian's instincts inside a history picture's costumes, so the court is filmed for its manners rather than its scale, and the decisive moments are two people in a room settling something small. Germany's canon of its most important films has room for it. The uprising is out there somewhere; the attention stays with the woman the film is named after, and with the etiquette that keeps her exactly as safe as her last conversation.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca53f15b9736b5e081d1736a5a4fef6ac26285125377efe87ba95061cefe8520"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-vampire-1957",
+  "field": "lead",
+  "film_id": "d54eea00-48cb-412c-aeb5-a3f81b9b26d6",
+  "lang": "en",
+  "text": "She has come home to arrange a funeral, an errand that puts a person back inside a house she once left. Fernando Méndez made this in Mexico in 1957 and spends most of the ninety-five minutes on the property itself: the aunt still living there, the neighbor whose hours are strange, the questions that come back answered in halves. The dead aunt brought her here; the living one is why she stays. Horror had settled rules by then and the film keeps them, but it takes the arrival slowly and lets the household explain itself before anything is confirmed. The charge is domestic rather than gothic, a matter of an old woman's authority and a family that has decided what will not be raised at the table. Nobody under that roof wants the subject opened. The niece keeps opening it.",
+  "model": "claude-opus-5",
+  "source_sha256": "7adbe31c6e0b9aedf8252b0cddd2384cb045e15540aebe85368481e904e787dd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dos-tipos-de-cuidado-1952",
+  "field": "lead",
+  "film_id": "d53b4289-e9cd-4812-9bd0-de287d4e2734",
+  "lang": "en",
+  "text": "One is called Bueno and the other Malo, and the joke is fixed before either has done anything to earn it. Ismael Rodríguez built a 1952 comedy around two men who sing and a friendship that survives everything except a wedding: Pedro marries the woman Jorge was courting, and the two go on being inseparable while conducting a war in front of everyone who knows them both. The songs are not interruptions. They are where the accusations get made, because a man can put into a duet what he could never say to a friend's face across a table. One hundred and eleven minutes in a register that stays light while the grievance underneath does not. Two men performing warmth at each other with intent to wound, in public, in tune.",
+  "model": "claude-opus-5",
+  "source_sha256": "f534f46ca116ec0eade682181d56d6b52f83abc8689ac870a2efc09ce56bc867"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-kaiser-s-lackey-1951",
+  "field": "lead",
+  "film_id": "0cc7934c-80c8-4fb2-9aee-74ea32542014",
+  "lang": "en",
+  "text": "Diederich Heßling is frightened of everyone, and by adulthood he has turned the fear into a method: bow to whatever is above, stand on whatever is below. Wolfgang Staudte films the resulting career as comedy, which is the cruelest option available. The dueling fraternity, the paper factory, the profitable marriage, the flattery aimed at a district president, each rung climbed with the serenity of a man convinced he is being principled. Nothing needs exaggerating here; the ladder does that by itself. It runs 109 minutes, made in 1951 in the eastern half of a divided Germany, and it goes back to the Kaiser's subjects for a type it plainly does not consider extinct. The satire holds because Heßling never once suspects that he is the joke.",
+  "model": "claude-opus-5",
+  "source_sha256": "4799e180c02ba4eef49a2b838a1ddb54f019beab5334eb9cadeada3e333f110d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "enamorada-1946",
+  "field": "lead",
+  "film_id": "605a2611-eae0-4bfb-93d7-00a0c1742c33",
+  "lang": "en",
+  "text": "Taking the town is the easy part; what General Reyes cannot manage is one household on the wealthy side of Cholula. More precisely, the problem is Beatriz Peñafiel, raised to treat men like him as weather to be waited out. Emilio Fernández puts the whole romance inside the occupation: every exchange between them happens under an arrangement of force that neither can set down for the length of a conversation. Ninety-nine minutes, and the courtship is conducted as argument. He has soldiers and the Revolution behind him; she has a father, a name, and a town that agrees with her, and indoors neither advantage settles much. The refusal to soften either side is what keeps it upright. She is not waiting to be persuaded. He does not become a gentleman.",
+  "model": "claude-opus-5",
+  "source_sha256": "a1c51b6536089532f278f1200c096fdb1cef5c45974a115f8410f029bf752d25"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-three-from-the-filling-station-1930",
+  "field": "lead",
+  "film_id": "d1ebdc62-44ab-43db-a60c-3acc6cf45d6d",
+  "lang": "en",
+  "text": "The car goes first: three friends with nothing left sell it and put the money into a filling station. Willy, Kurt and Hans are not schemers, and Wilhelm Thiele's 1930 comedy runs ninety minutes on that premise and one complication, which is that all three of them fall for the same woman. The poverty is not decorative. They are broke at the start, and the station is a real business with hours to cover and a rota to keep, yet the film declines gloom with something close to discipline. Nobody is humiliated for being short of money. The friendship is the load-bearing relationship and the romance is what threatens it, which is not the usual order of priority, and it gives the jokes a weight they would not otherwise carry.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e611a97871ced741c9fdaf3a7191c23546d73b6e54203c1928abc67acbf0819"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "under-the-bridges-1944",
+  "field": "lead",
+  "film_id": "64792c84-aea4-44ae-ada3-64ee934c0353",
+  "lang": "en",
+  "text": "Two men, one woman, one barge: the arithmetic of the film, and nowhere on board to take it. The year on the print is 1944, which sits strangely against a story whose largest events are a cargo, a shared cabin, and a rivalry conducted at the speed of a boat. Helmut Käutner keeps all of it on the water and inside the working day, the loading and the waiting and the slow business of getting somewhere. The two skippers have divided everything for years without trouble and cannot divide this. Confinement removes the possibility of privacy: a decision taken at one end of the barge is known at the other before it is announced, so the comedy comes out of the arrangement rather than out of jokes. The river keeps moving. Nothing aboard can be avoided for long.",
+  "model": "claude-opus-5",
+  "source_sha256": "ebadc03a17fcc85cbc9df948e3342b88da8499e71ff1be8588dbfe6ccc5c93c6"
+ }
+]

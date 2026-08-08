@@ -1,0 +1,92 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "perfume-the-story-of-a-murderer-2006",
+  "field": "lead",
+  "film_id": "fa8bf73f-2bef-4bdd-8468-727f669988b2",
+  "lang": "en",
+  "text": "Smell is the one thing a camera cannot record, and this film spends close to two and a half hours attempting it anyway. Grenouille is born into the stench of eighteenth-century Paris and grows a nose that reads a city the way a literate man reads a page; perfumery, the trade he eventually enters, is the only work that could use him. Everything olfactory has to be rendered in what an eye will accept - surfaces, skin, weather, hands at work - and the effort of that translation is most of what there is to watch. The gift hardens into a method, and the method wants subjects. Audiences across Europe voted it their film of the year, which suits it exactly: a costume fantasy built on the one sense no screen can reach, and people went in numbers.",
+  "model": "claude-opus-5",
+  "source_sha256": "f4fe74bbbddc2aa73bef9ca6dc35a723363ca50d3c18c84ddee95211b6b98cc5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "i-don-giovanni-2009",
+  "field": "lead",
+  "film_id": "fb75151d-7676-4da3-ab94-c262f3de2c0c",
+  "lang": "en",
+  "text": "Lorenzo da Ponte wrote the words that Mozart set, and history has mostly filed him under the composer. Saura hands him the title and the point of view. A hundred and twenty-seven minutes, sorted as drama and romance rather than as an artist's biography, which suggests where the interest sits: not in the finished opera so much as in the eighteenth-century rooms where a libretto gets argued into shape, and in the overlap between a writer's own wanting and the seducer he is putting on the page. The film's single European award went to its production designer. That is not a footnote. An opera is machinery before it is music, and machinery needs rooms to stand in; a story about the manufacture of a spectacle stands or falls on whether its own interiors convince anyone that people lived in them.",
+  "model": "claude-opus-5",
+  "source_sha256": "37fbce9b2268677a49f138fd99b3da89abb45db5036acf72a235a8b9f90951f9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "eat-pray-love-2010",
+  "field": "lead",
+  "film_id": "fcae5194-2d85-42eb-a56b-bc82622a9bc1",
+  "lang": "en",
+  "text": "Most films about a marriage end at the point where this one gets going: the divorce is the premise rather than the crisis. What is left is a woman with the means to leave the country and no opponent but her own dissatisfaction, which is a difficult thing to stage. A hundred and thirty-three minutes is a long stretch for a search with no antagonist in it, and the answer here is geography - countries doing the work conflict usually does, supplying weather, strangers and meals where another script would supply an enemy. Ryan Murphy is making a studio drama out of a private decision, at the scale of a travel production. Whether that decision reads as courage or as purchase depends a good deal on the bank balance of whoever is watching.",
+  "model": "claude-opus-5",
+  "source_sha256": "fde855e94f063b1f7cc80f199bbf203a9407e68b312f023fbd901f1181f994b5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-story-of-yonosuke-2013",
+  "field": "lead",
+  "film_id": "fe281662-1de7-4029-99ef-fff9ed8e865f",
+  "lang": "en",
+  "text": "Two hours and forty minutes is a great deal of film to give a young man whose distinguishing feature is that he is ordinary. Yonosuke Yokomichi comes to Tokyo from Nagasaki in 1987, at the top of the country's money curve, and lands in a suburb far enough out that a good part of his student life happens on trains. The boom stays offscreen; the commute does not. Comedy of proportion follows, since eighteen-year-olds treat minor events as enormous and Okita lets them, at length, without correction. The length is the argument: a person this unremarkable becomes visible only if the camera stays well past the point where a plot would have cut away. That is a bet on patience, and the running time is the size of the bet.",
+  "model": "claude-opus-5",
+  "source_sha256": "661715ca482b316b2a313aeac071c3a00716030739592004a993384f1b921199"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lights-in-the-dusk-2006",
+  "field": "lead",
+  "film_id": "ff2b5d76-c62d-4d93-8180-792f9e4e29e5",
+  "lang": "en",
+  "text": "A shopping mall in Helsinki stays lit all night for nobody, and one man is paid to walk through it. Koistinen has that shift; he lives alone, and the men he works with have already settled on what he is. Then a woman begins paying him attention she has no reason to pay, and the reason belongs to her boyfriend. Kaurismaki takes seventy-eight minutes over this, scarcely a feature and quite enough: no subplot, no explanation, the trap in plain view of everyone except the man inside it. The listing calls it comedy as well as drama, and both hold, given how much can be got out of a face that declines to protest. The European cinematography prize went to it - a picture assembled almost entirely from shop light, street light and whatever the hours after closing leave behind.",
+  "model": "claude-opus-5",
+  "source_sha256": "b7dbd5a6cf069bb2101983590b97c8589e99dbdb17dec6de7459b22818b6061e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lead-us-not-into-temptation-2011",
+  "field": "lead",
+  "film_id": "ff3ac351-db44-49a4-96bc-7ded5be607ef",
+  "lang": "en",
+  "text": "An affair between a young woman and a married man is not by itself a story; what this film does is tell it more than once, and from more than one side. The versions do not cancel each other so much as tilt: the same weeks, differently weighted, each account discreetly flattering whoever is giving it. That puts the pressure in an unusual place. Not on discovery - a story told twice announces its own unreliability from the start - but on the ordinary machinery by which people arrange their conduct into something they can live beside. A hundred and nine minutes, and no verdict handed down from above. The married man has a household standing just outside the frame throughout, and Carron's patience with him is among the harder things here.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d4e986969a30f9307ecd8ddaa04ccaf563ec7a78f19fb248a6e6efc037667dd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "no-other-land-2024",
+  "field": "lead",
+  "film_id": "0f144b34-6fdf-438d-9df6-3eb50feb18c5",
+  "lang": "en",
+  "text": "A Palestinian activist and an Israeli journalist end up sharing a camera, and their working relationship becomes the second subject of the film. The first is Masafer Yatta, in the occupied West Bank, and what the army does to it. Ninety-two minutes, in Arabic, made by a collective rather than an author, which is less a style than a description of conditions: someone has to be there when the machines arrive, and being there is most of the technique. Basel is filming his own ground. Yuval is reporting on someone else's, and that asymmetry sits inside every exchange the two of them have. It took the Academy's documentary award, though the more telling figure is the runtime - an hour and a half held against a process that has no obvious place to stop.",
+  "model": "claude-opus-5",
+  "source_sha256": "abd641495f2559fd7f3a4cd32a142e54368326ac3d36c972f3dfbe84522cb711"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-christmas-story-1983",
+  "field": "lead",
+  "film_id": "1566903c-b5e1-405d-9dca-aa038bb08253",
+  "lang": "en",
+  "text": "Ralph wants one thing, a Red Ryder BB gun, and he runs a proper campaign for it: parents first, then the teacher, then Santa. A 1983 film about the 1940s is a memory at roughly forty years' remove, which is also, now, the distance between the film and the people watching it, so the reconstruction has aged into the thing it was reconstructing. Bob Clark keeps to ninety-three minutes and to a child's scale of importance, where an errand is an expedition and an adult's bad mood is weather. The comedy runs on small domestic humiliations, delivered with affection on the same beat. It went into the National Film Registry eventually, an odd civic honour for a picture whose engine is a boy's uncomplicated greed for a manufactured object.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a6edae3e44eb823ff6f591b9e574290610b99275dacab676952acf2bdd91f04"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "eric-johnson-live-from-austin-tx-2005",
+  "field": "lead",
+  "film_id": "168c0172-b3fb-4630-8b77-c029a16c6dc0",
+  "lang": "en",
+  "text": "Sixty minutes, one stage in Austin, and a player who had his first professional band at fifteen. Eric Johnson picked up the guitar at eleven, and by 1974 he had assembled a jazz-rock group, the Electromagnets, in a town that was not then organised around the idea. The inspirations he names are Jimi Hendrix, Jerry Reed and Jeff Beck, three men who agree on almost nothing, and the argument between them is audible in how he handles attack and how he handles finish. A concert hour has no structure but the set list, so everything rests on how the camera treats hands: whether it will hold on a fretboard or keep cutting away to the room. What is on offer is tone, worked over for decades, and an hour is about as long as tone can be watched before it turns into a lecture.",
+  "model": "claude-opus-5",
+  "source_sha256": "b903b10493aa408580f60880f7b03b97b3938a7566117c982aef722c44b541e5"
+ }
+]

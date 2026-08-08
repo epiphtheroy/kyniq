@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "a-berlin-conjured-from-studio-and-stitched-streets",
+  "field": "title",
+  "lang": "ko",
+  "text": "스튜디오와 짜깁기한 거리로 불러낸 베를린",
+  "model": "claude-opus-5",
+  "source_sha256": "a53ccd2213171951848d3d9dee0a0a11d12057e1f69541691d58c1d6f22eaaec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-book-in-hand-indicts-the-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "손에 쥔 책이 화면을 고발한다",
+  "model": "claude-opus-5",
+  "source_sha256": "c72e48a42f8c5ddca0c94c68a48e867b39646a8013a72b80018fe2d048b76906"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-cast-of-the-already-dead",
+  "field": "title",
+  "lang": "ko",
+  "text": "이미 죽은 자들로 짠 배역",
+  "model": "claude-opus-5",
+  "source_sha256": "c0f112946ae21cb15e1833eebb2b968b786ddbac45911358954aac5a7c965892"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-cinema-that-stakes-the-body-on-belief",
+  "field": "title",
+  "lang": "ko",
+  "text": "믿음에 몸을 거는 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "e9bbefd2731d51d5c9789ce2ae7ef3b5086359f19d862ab65a547d4524d9a98b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-civilization-dying-of-its-own-refinement",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 세련됨에 죽어가는 문명",
+  "model": "claude-opus-5",
+  "source_sha256": "f5fc73325fb760fde4af0b2db753f832f4cdd2ccc6785c5b18dd203413c63d24"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-cosmos-built-from-a-single-cipher",
+  "field": "title",
+  "lang": "ko",
+  "text": "암호 하나로 지은 우주",
+  "model": "claude-opus-5",
+  "source_sha256": "0d26b968889dfe1fe17f1696b3ce839769a475f48f5bd7eaba5eea20fe8dbfb1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-cosmos-rigged-by-indifferent-or-malign-powers",
+  "field": "title",
+  "lang": "ko",
+  "text": "무심하거나 악한 힘이 판을 짠 우주",
+  "model": "claude-opus-5",
+  "source_sha256": "59193c7954472d164c3279096522378544eaa18a5a2f6f78b623ef57945f8126"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-cosmos-ruled-by-chance-not-providence",
+  "field": "title",
+  "lang": "ko",
+  "text": "섭리 아닌 우연이 다스리는 우주",
+  "model": "claude-opus-5",
+  "source_sha256": "5cfb288a7210ca013528cdc29ab82a5e6e107c32e0ec9c143c707ebfcdce4191"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-cosmos-where-predestination-devours-free-will",
+  "field": "title",
+  "lang": "ko",
+  "text": "예정이 자유의지를 삼키는 우주",
+  "model": "claude-opus-5",
+  "source_sha256": "331042c57b3b58a3ce7a2e0e1c5195a96a8c2d94ac3897bff0186f5348fdd3a9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-fairy-tale-that-knows-what-it-is",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 정체를 아는 동화",
+  "model": "claude-opus-5",
+  "source_sha256": "92486a30f14eb0953a6e1eba7df3bf027e15e8c94dfd317cec24d27b3dcd7f1f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-fiction-built-inside-the-state-apparatus",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가 장치 안에서 지은 허구",
+  "model": "claude-opus-5",
+  "source_sha256": "800250a6f10e1d141d884d03a1655da0b919b955511aa7ae5ca95b48d3e78046"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-life-run-in-the-subjunctive-mood",
+  "field": "title",
+  "lang": "ko",
+  "text": "가정법으로 굴러가는 삶",
+  "model": "claude-opus-5",
+  "source_sha256": "5a2fe290b96895b920dea0265862410a3a44a52537735a945722255287e951f3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-metaphysical-ground-smuggled-in-sideways",
+  "field": "title",
+  "lang": "ko",
+  "text": "곁문으로 들여온 형이상학적 근거",
+  "model": "claude-opus-5",
+  "source_sha256": "095fce128de5f3314325660735e42a0b97af7a489e02ffb18aba927c058eadb5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-number-where-a-name-should-be",
+  "field": "title",
+  "lang": "ko",
+  "text": "이름 자리에 놓인 숫자",
+  "model": "claude-opus-5",
+  "source_sha256": "0aa4f35c3dd65fc56b33811ab28d74d33898f67bd28058ca9ac6a7daad6097fc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-physics-where-time-cannot-be-undone",
+  "field": "title",
+  "lang": "ko",
+  "text": "시간을 되돌릴 수 없는 물리",
+  "model": "claude-opus-5",
+  "source_sha256": "f30e68a923047c3636613775ef68eb34877e22bfcc59798564f92a1c1d04b8ee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-real-ruin-rebuilt-as-fiction",
+  "field": "title",
+  "lang": "ko",
+  "text": "허구로 다시 세운 실제 폐허",
+  "model": "claude-opus-5",
+  "source_sha256": "86ef06cffdcade09feee3f8608edc8a5c0ab49ad6f45f9621daa80f526e91c5b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-universe-run-on-an-alien-bookkeeping",
+  "field": "title",
+  "lang": "ko",
+  "text": "낯선 장부로 굴러가는 우주",
+  "model": "claude-opus-5",
+  "source_sha256": "1e4421f6f93e06f6ae577159177ad3e3d94d4eda18bfdb80e9c0b94ffd8aab52"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-universe-with-no-guarantor",
+  "field": "title",
+  "lang": "ko",
+  "text": "보증인 없는 우주",
+  "model": "claude-opus-5",
+  "source_sha256": "715ac9eb7703f37b67ccd49900e5f2e13b23d438330ebbc090cdf1912ef50552"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-whole-film-filmed-from-inside-one-mind",
+  "field": "title",
+  "lang": "ko",
+  "text": "한 사람의 머릿속에서 찍은 영화 전부",
+  "model": "claude-opus-5",
+  "source_sha256": "ca90fa3a9f9c33277c13c62ad4c81e46a967414a0bbc76cbd1e896fc0d495871"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-world-where-death-is-only-reshuffled",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽음이 자리만 바꾸는 세계",
+  "model": "claude-opus-5",
+  "source_sha256": "d207514569e05144352958fc98070fed3046dacd43c512788763f16d701f8141"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "a-world-with-no-referent-but-exchange",
+  "field": "title",
+  "lang": "ko",
+  "text": "교환 외에 가리킬 것이 없는 세계",
+  "model": "claude-opus-5",
+  "source_sha256": "22f9188e5eca40e98ea0744e1f71e1eb4b9dac827e70425104faf4dea72b18b0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "acclaim-as-the-critic-s-self-portrait",
+  "field": "title",
+  "lang": "ko",
+  "text": "찬사, 비평가의 자화상",
+  "model": "claude-opus-5",
+  "source_sha256": "c995b39d0d229c5cda6e7568a69156c48cd0f88beb449d7e289cb7d90e84d57d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "acting-as-the-theater-of-bad-faith",
+  "field": "title",
+  "lang": "ko",
+  "text": "연기, 자기기만의 무대",
+  "model": "claude-opus-5",
+  "source_sha256": "edf5c907dc82998e37ff4a4791a56a5c4b1be18d023513b23e94c5fd8d1501a2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "actors-filmed-apart-to-forge-real-absence",
+  "field": "title",
+  "lang": "ko",
+  "text": "진짜 부재를 빚으려 따로 찍은 배우들",
+  "model": "claude-opus-5",
+  "source_sha256": "05a96b4ce9add223e53eec11898d5d8f6fa9d8363b760425fb60c00ec521437d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "addiction-as-the-film-s-buried-engine",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화를 밀고 가는 묻힌 엔진, 중독",
+  "model": "claude-opus-5",
+  "source_sha256": "310977792d83910caf0dc82d766cea92d04d835372a48c2a7cac4f57bf644e01"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "adventure-names-the-thing-that-fails-to-arrive",
+  "field": "title",
+  "lang": "ko",
+  "text": "'모험'이 가리키는 것은 끝내 오지 않는다",
+  "model": "claude-opus-5",
+  "source_sha256": "0b89a92ac2fcd9a62268dd5bae725d00be00852e4dcb6af4d7ff0a2c6541b9bf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "aesthetic-praise-as-critical-evasion",
+  "field": "title",
+  "lang": "ko",
+  "text": "미학적 찬사라는 비평의 회피",
+  "model": "claude-opus-5",
+  "source_sha256": "944de50060a534b14d340a0bd5f4bd7ffca0efbca8ae0492ac57f52b9cfb964c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "affectlessness-as-engineered-estrangement",
+  "field": "title",
+  "lang": "ko",
+  "text": "설계된 소외로서의 무표정",
+  "model": "claude-opus-5",
+  "source_sha256": "6223e1068893e329d9a7710e8aad70bfd7d93c01e7b9312e816b4b2014b81ae9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "affluence-as-the-price-of-survival",
+  "field": "title",
+  "lang": "ko",
+  "text": "살아남는 값으로 치른 부",
+  "model": "claude-opus-5",
+  "source_sha256": "24bce896ed84cdd3f7e2a4a2a71210e74208a1eb5ba92aa11ad36b27c24fb35d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "aggression-turned-inward-upon-the-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "자기에게 되돌아온 공격성",
+  "model": "claude-opus-5",
+  "source_sha256": "29e4850d8b65af16ba59a297ab5547ab4a6448d6a83972377a6bae3f3ab078d2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "all-spectacle-no-soul-turned-back-on-the-critic",
+  "field": "title",
+  "lang": "ko",
+  "text": "'영혼 없는 볼거리'가 평론가에게 되돌아올 때",
+  "model": "claude-opus-5",
+  "source_sha256": "39653b02e1c5f07a8e6679e6a2df78091eddabcb7762690eb72b9ec2166b19ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "america-chose-its-own-anaesthetic",
+  "field": "title",
+  "lang": "ko",
+  "text": "미국은 제 마취제를 골랐다",
+  "model": "claude-opus-5",
+  "source_sha256": "325eb395b833d2c074bdfb1d32bcfa910f0bc6ab3871fa7f97261cd3d78a1162"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "america-conjured-on-a-swedish-stage",
+  "field": "title",
+  "lang": "ko",
+  "text": "스웨덴 무대에 불러낸 미국",
+  "model": "claude-opus-5",
+  "source_sha256": "61202a8966eaee486751c1468bb05376f4c91d47708a9583458ab203ce6cb977"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "america-devours-its-own-young",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 자식을 삼키는 미국",
+  "model": "claude-opus-5",
+  "source_sha256": "cfab425b815005b92c1c841e90c9fbf4e675d8599ce8251f1df5a33640883e39"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "america-outsourced-to-its-southern-mirror",
+  "field": "title",
+  "lang": "ko",
+  "text": "남쪽 거울에 맡겨진 아메리카",
+  "model": "claude-opus-5",
+  "source_sha256": "1f4ca7ae4e2faf4f754f2c80360d92f0d01bc215f59dce53d3c421344309492b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "america-re-reading-its-own-war",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 전쟁을 다시 읽는 미국",
+  "model": "claude-opus-5",
+  "source_sha256": "84eeaf706b54a104f12b24c8013e009bc3d476cc6b1b120a01f3a91f7806833e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "america-s-fatalism-read-back-through-french-eyes",
+  "field": "title",
+  "lang": "ko",
+  "text": "프랑스의 눈으로 되읽은 미국의 숙명론",
+  "model": "claude-opus-5",
+  "source_sha256": "6e0e9c2cd104864823cf228f7f28852e15687caf00cc2e844cc59c4ef79d0166"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "america-shot-on-spain-s-borrowed-soil",
+  "field": "title",
+  "lang": "ko",
+  "text": "스페인의 흙을 빌려 찍은 아메리카",
+  "model": "claude-opus-5",
+  "source_sha256": "007426f4f34ad62d86108753738ef9e462a6af63bac428322cbfc16d2ba54787"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "america-tried-by-the-man-who-would-not-fly",
+  "field": "title",
+  "lang": "ko",
+  "text": "비행기를 마다한 남자가 심판대에 세운 미국",
+  "model": "claude-opus-5",
+  "source_sha256": "c16d833c5f797d656b0cc0c26d26bf60cea5527fe23d669606bc70ba82b18b24"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "an-object-that-is-secretly-a-clock",
+  "field": "title",
+  "lang": "ko",
+  "text": "실은 시계인 물건",
+  "model": "claude-opus-5",
+  "source_sha256": "7f9cadc4bb5c94c475adeb42bd9acc90d0dbc0f4a6fb8d08978d99a2eb32458d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "analog-texture-as-nostalgia-for-believability",
+  "field": "title",
+  "lang": "ko",
+  "text": "아날로그 질감, 믿을 만함을 향한 향수",
+  "model": "claude-opus-5",
+  "source_sha256": "8fcc6341dece356c01919e39eefa590e7f73f75bbbdc90011e0343efe05b5110"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "animation-as-the-only-medium-that-could",
+  "field": "title",
+  "lang": "ko",
+  "text": "오직 애니메이션만이 해낼 수 있었다",
+  "model": "claude-opus-5",
+  "source_sha256": "8b4362b14874512fda5732330808fd914f51424c8d2fabc3f4e608c028049ac3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "animism-as-the-film-s-hidden-ontology",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화의 숨은 존재론, 애니미즘",
+  "model": "claude-opus-5",
+  "source_sha256": "af30bbbd9237879a48e302ecf6041db01f27e59847a604aa640df030ba59355e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "antagonism-bred-real-delirium",
+  "field": "title",
+  "lang": "ko",
+  "text": "적대가 진짜 착란을 낳다",
+  "model": "claude-opus-5",
+  "source_sha256": "38b8433aaea780bee1b521aa057c68f43aebc842335727f7d83ddc49f32950b2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "antigone-and-the-inverted-burial",
+  "field": "title",
+  "lang": "ko",
+  "text": "안티고네와 뒤집힌 장례",
+  "model": "claude-opus-5",
+  "source_sha256": "966435fad91196ce6818ce8ff0cc6330ab78de0b168c5e4b92e579399c0121b4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "antiquity-restaged-as-empire-s-twilight",
+  "field": "title",
+  "lang": "ko",
+  "text": "제국의 황혼으로 다시 올린 고대",
+  "model": "claude-opus-5",
+  "source_sha256": "29560831a980d3e5aa08c9d8c4c07c0a55c37687b5fc3bf116f3e27eefc4e47f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "appalachia-as-imagined-other",
+  "field": "title",
+  "lang": "ko",
+  "text": "상상된 타자, 애팔래치아",
+  "model": "claude-opus-5",
+  "source_sha256": "b6078505f5f6302e152cabd73a9fbc6976e9853f337a170d58008519c5154972"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "appeasement-hiding-in-the-genre-plot",
+  "field": "title",
+  "lang": "ko",
+  "text": "장르 플롯에 숨은 유화론",
+  "model": "claude-opus-5",
+  "source_sha256": "ac55d694206240c1909e9119ccfc133b4ada0ca41f2e1ed74025f96ea025237f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "appetite-as-the-disavowed-self-returning",
+  "field": "title",
+  "lang": "ko",
+  "text": "부인한 자아가 식욕으로 돌아오다",
+  "model": "claude-opus-5",
+  "source_sha256": "18c3ac34f49b7343af055183d070620ebb6ff97b3a0cc4cb6adaaf1e6c0a38ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "architecture-as-the-cage-of-labor",
+  "field": "title",
+  "lang": "ko",
+  "text": "노동을 가두는 우리로서의 건축",
+  "model": "claude-opus-5",
+  "source_sha256": "8a40800a7635c08d179aeff7ac295b0af534ede0915158c1bf13f32c8411a3d1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "architecture-as-time-made-visible",
+  "field": "title",
+  "lang": "ko",
+  "text": "눈에 보이게 된 시간, 건축",
+  "model": "claude-opus-5",
+  "source_sha256": "3e10f80ba920a490ec233d232c0fc1493dd2509192f92b8dfb134e88ee2fec1c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "arizona-standing-in-for-the-mythic-west",
+  "field": "title",
+  "lang": "ko",
+  "text": "신화의 서부를 대신 연기하는 애리조나",
+  "model": "claude-opus-5",
+  "source_sha256": "bd6b4c75faa3183218ef53fd4aa7b55c602f27383cfa6a1adc3ca896c7ea16d3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "art-as-survivable-container-for-grief",
+  "field": "title",
+  "lang": "ko",
+  "text": "슬픔을 견딜 만하게 담아내는 그릇, 예술",
+  "model": "claude-opus-5",
+  "source_sha256": "65078088406fde06ba1821e7f051907ec983164e07c257ec0635e0daff514357"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "art-cinema-financed-by-other-capital",
+  "field": "title",
+  "lang": "ko",
+  "text": "남의 돈으로 만든 예술영화",
+  "model": "claude-opus-5",
+  "source_sha256": "751d9649e4943bb4a2da0ef302eb8ed86dd85d0141a10ece4420e2962a1bcae8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "artaud-s-theatre-of-cruelty-on-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "필름에 옮긴 아르토의 잔혹극",
+  "model": "claude-opus-5",
+  "source_sha256": "a953bc97ec262cbec3158165f1a14a031fe55e6fe1809fd8ce052d11980b05a4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "artemisia-s-brush-as-painted-vengeance",
+  "field": "title",
+  "lang": "ko",
+  "text": "아르테미시아의 붓, 그림으로 그린 복수",
+  "model": "claude-opus-5",
+  "source_sha256": "87ce47e1c130994ede8cc3a8c3052a048818c86bccf554b3e477f0bf9e191504"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "astaire-s-vanishing-danced-into-the-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "춤으로 화면에 새겨 넣은 아스테어의 소멸",
+  "model": "claude-opus-5",
+  "source_sha256": "6b88ca01adc1c1af4aab3c5504b4f5b5855513b18115d0cdb7d34947c14decea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "asylum-as-sovereignty-over-bare-life",
+  "field": "title",
+  "lang": "ko",
+  "text": "벌거벗은 생명을 쥔 주권, 수용소",
+  "model": "claude-opus-5",
+  "source_sha256": "30e0b9bb8b98764b18642265ea88878264c17a22727c442285157c8ea3b40635"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "atlanta-in-disguise-as-everywhere-else",
+  "field": "title",
+  "lang": "ko",
+  "text": "어디로든 변장하는 애틀랜타",
+  "model": "claude-opus-5",
+  "source_sha256": "848551b5b9a9c23a473395a3a57be2eec6145fe807f55cdc9d3bfe3b7a3f052f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "atonement-paid-in-the-coin-of-the-sin",
+  "field": "title",
+  "lang": "ko",
+  "text": "죄와 같은 화폐로 치르는 속죄",
+  "model": "claude-opus-5",
+  "source_sha256": "06ae2267e826f17b61c90e4a8b8099a6284731aef3ced3b9628568603f84e512"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "atrocity-filmed-as-ordinary-weather",
+  "field": "title",
+  "lang": "ko",
+  "text": "흔한 날씨처럼 찍은 참극",
+  "model": "claude-opus-5",
+  "source_sha256": "bd80368ace387981c26e8aadad784bf8f6f36798e8865c0e6649b7d5ed7b4984"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "atrocity-staged-as-public-entertainment",
+  "field": "title",
+  "lang": "ko",
+  "text": "구경거리로 올린 잔학",
+  "model": "claude-opus-5",
+  "source_sha256": "441e59d7b27a4be87726243b1a7c2ba4e4977e0e4e940a7232878fd18eab1edf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "attention-as-quiet-ethical-practice",
+  "field": "title",
+  "lang": "ko",
+  "text": "조용한 윤리의 실천, 주의 깊게 보기",
+  "model": "claude-opus-5",
+  "source_sha256": "20ac31bd725da7d5eb242b5badde1f31244f71e6b8a8bfd812a3076341e79fbd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "austerity-as-refusal-of-television-grammar",
+  "field": "title",
+  "lang": "ko",
+  "text": "텔레비전 문법을 거부하는 절제",
+  "model": "claude-opus-5",
+  "source_sha256": "6b6eb8f7700d1aa3f26eb239150bd635533370aaa9c6d7bfb891f79e39114ba2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "austerity-britain-read-through-its-walls",
+  "field": "title",
+  "lang": "ko",
+  "text": "벽으로 읽는 긴축기 영국",
+  "model": "claude-opus-5",
+  "source_sha256": "dfd254388c57a4ca2c11973025b18d8369a9bd9756b8a03d2fdec1d1d609d281"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "austin-as-the-city-that-plays-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 역을 제가 맡은 도시, 오스틴",
+  "model": "claude-opus-5",
+  "source_sha256": "46452d6fd46aa125badd4433505ff2a7c03bb30c7d46d85f2e8e7b4f12fea0de"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "authentic-being-chosen-over-mere-self-preservation",
+  "field": "title",
+  "lang": "ko",
+  "text": "목숨 부지 대신 택한 본래적 존재",
+  "model": "claude-opus-5",
+  "source_sha256": "0183dea30d410c6b1bde0961ed4f73525d46273671304c08a42b4f25dfd2a4d6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "authentication-as-the-film-s-true-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "진품 감정이야말로 이 영화의 주제",
+  "model": "claude-opus-5",
+  "source_sha256": "0b981f5fcbf31f5b229fe78971e7bf8f8960d73b7f47eff36fe80f58e50999ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "authenticity-as-the-lie-that-damns-you",
+  "field": "title",
+  "lang": "ko",
+  "text": "당신을 파멸시키는 거짓말, 본래성",
+  "model": "claude-opus-5",
+  "source_sha256": "57949df27d5f6ac330d224592b1310e1051bea49cec58db0b5e754ffa7232eed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "authenticity-as-the-marketplace-s-anxious-fetish",
+  "field": "title",
+  "lang": "ko",
+  "text": "시장이 불안하게 떠받드는 물신, 진정성",
+  "model": "claude-opus-5",
+  "source_sha256": "af04814ef3f7fd4a1a8dbc4a0bb9cf7ef5efe703f7a51806ade3a5b31ff29aa7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "authenticity-is-already-a-brand",
+  "field": "title",
+  "lang": "ko",
+  "text": "진정성은 이미 브랜드다",
+  "model": "claude-opus-5",
+  "source_sha256": "334a1b8420b92e740fa81a02495a549439fd875a044415a93fbe282c99366cc2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "authenticity-purchased-in-real-danger",
+  "field": "title",
+  "lang": "ko",
+  "text": "실제 위험을 치르고 산 진정성",
+  "model": "claude-opus-5",
+  "source_sha256": "36a0db5d309d91f0a6cd75aa172d2620689b1e05e573c60d86013889b10e8b26"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "authoring-meaning-at-the-existential-crossroads",
+  "field": "title",
+  "lang": "ko",
+  "text": "실존의 갈림길에서 의미를 쓰다",
+  "model": "claude-opus-5",
+  "source_sha256": "3b413a165f6002040a8d3bd41b9336a602c24efa15ca7d95b56e4ef3f19c5338"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "authority-as-manufactured-image",
+  "field": "title",
+  "lang": "ko",
+  "text": "만들어진 이미지로서의 권위",
+  "model": "claude-opus-5",
+  "source_sha256": "3fc0a0ac41364efc53e74492f71ba9c4e483322bea3152f459b1034d503ef4c0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "authority-manufactured-by-the-stilled-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "멈춘 화면이 만들어낸 권위",
+  "model": "claude-opus-5",
+  "source_sha256": "3407b314f8c137a61761bd8d7b17aa75cf1e6b35356efa46498f2911100438f5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "authorship-split-across-two-collaborators",
+  "field": "title",
+  "lang": "ko",
+  "text": "둘로 나뉜 작가의 몫",
+  "model": "claude-opus-5",
+  "source_sha256": "58761e4913a6ca97d0098421ebb32d0bb1e257cf860c0a2401071342ed28d56b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "authorship-surrendered-to-the-filmed",
+  "field": "title",
+  "lang": "ko",
+  "text": "찍히는 쪽에 넘겨준 저자의 자리",
+  "model": "claude-opus-5",
+  "source_sha256": "33c34fa410bfaf937630ea2d5e65f4fb1f699a51a00dc920f484f7dc568ea893"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "autofiction-anointed-as-the-sanctioned-form",
+  "field": "title",
+  "lang": "ko",
+  "text": "공인된 형식으로 등극한 오토픽션",
+  "model": "claude-opus-5",
+  "source_sha256": "d6fece6a5b0ed328873d6196855aa07d161271b4f0e61662849e969a7067a2dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "awe-engineered-from-underexposure",
+  "field": "title",
+  "lang": "ko",
+  "text": "노출을 낮춰 빚어낸 경외",
+  "model": "claude-opus-5",
+  "source_sha256": "ac9cdabefd33702a5efc335d6afda82143af56c20a0d6fd2477752d4b5448d70"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "bach-as-the-sublime-denied-to-the-damned",
+  "field": "title",
+  "lang": "ko",
+  "text": "바흐, 저주받은 자에게 허락되지 않는 숭고(崇高)",
+  "model": "claude-opus-5",
+  "source_sha256": "5b040c2f66c17e8433802de8c9b79c61d77b7da96cc4ed8f0882bb9badbdff86"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "bad-faith-renamed-as-fate-or-destiny",
+  "field": "title",
+  "lang": "ko",
+  "text": "운명이라 이름을 갈아 끼운 자기기만",
+  "model": "claude-opus-5",
+  "source_sha256": "37717734b8f96d37a5add0332fe3fc9a5d853b44ed7ac647c2b9d7cbea57851f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "bartleby-s-heirs-the-politics-of-refusal",
+  "field": "title",
+  "lang": "ko",
+  "text": "바틀비의 후예들, 거부의 정치",
+  "model": "claude-opus-5",
+  "source_sha256": "47d31bc6e2e59031fbc17cc37ec4341eb496f86a72b60a02c8019fd5f1f02149"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "beauty-as-the-aestheticization-of-power",
+  "field": "title",
+  "lang": "ko",
+  "text": "아름다움, 권력의 미학화",
+  "model": "claude-opus-5",
+  "source_sha256": "afae640f4757332b07fcf16ae4c384b7457fe69c78d5df9f1978be9a7815abad"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "beauty-as-toxin-without-antidote",
+  "field": "title",
+  "lang": "ko",
+  "text": "해독제 없는 독으로서의 아름다움",
+  "model": "claude-opus-5",
+  "source_sha256": "5086e7770b36ae9932ebe1a84f8e734690e946ad0150d6deca19b537e5f93667"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "beauty-awarded-to-bury-the-indictment",
+  "field": "title",
+  "lang": "ko",
+  "text": "고발을 덮으려 안긴 아름다움의 상",
+  "model": "claude-opus-5",
+  "source_sha256": "8e95b41d3718c783f1235a718522c9e59c8a2419469485a0c9117c7d91b05e4e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "beauty-bought-with-another-s-subtraction",
+  "field": "title",
+  "lang": "ko",
+  "text": "누군가를 덜어내 산 아름다움",
+  "model": "claude-opus-5",
+  "source_sha256": "13a67d9e5ce32f89420e3f6680f1a9c83d36fb5d82e8d75c47ea3a6b64e9f270"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "beauty-canonized-to-disavow-the-perversion",
+  "field": "title",
+  "lang": "ko",
+  "text": "도착을 부인하려 정전에 올린 아름다움",
+  "model": "claude-opus-5",
+  "source_sha256": "1c7217d699187f943e48a47f6c8c61d6d584c0c0da0b485ce218618e3e62efb7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "beckett-s-stilled-pendulum",
+  "field": "title",
+  "lang": "ko",
+  "text": "멎어버린 베케트의 추",
+  "model": "claude-opus-5",
+  "source_sha256": "d4cae7ad26bb33dcbddbad21062da82044fdd4dd44530c94c749e26e0833e8e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "beckett-s-tramps-who-cannot-leave",
+  "field": "title",
+  "lang": "ko",
+  "text": "떠나지 못하는 베케트의 부랑자들",
+  "model": "claude-opus-5",
+  "source_sha256": "8bf913db7aa9383feffedd6828c6a6dd33e01cabe2c4ce42c6564381ea5676e4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "becoming-the-enemy-you-repressed",
+  "field": "title",
+  "lang": "ko",
+  "text": "억눌러온 적을 닮아가다",
+  "model": "claude-opus-5",
+  "source_sha256": "4a0c75d8e32f7c38830dcc29567a9d13b6958195371bf6a88bc51c2e0d2d7189"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "beijing-filmed-as-its-own-demolition",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 철거 현장으로 찍힌 베이징",
+  "model": "claude-opus-5",
+  "source_sha256": "cfddd79a8d48b7a4f13c76089a73038621c4927028394ad8a425bbd79817aea5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "being-toward-death-as-authenticity-s-only-door",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽음을 향한 존재, 본래성으로 가는 유일한 문",
+  "model": "claude-opus-5",
+  "source_sha256": "815e079c9d1da740e93701accc703deb06dc4af95022e65bd79d6ec30ef252e6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "being-watched-as-redemption-or-damnation",
+  "field": "title",
+  "lang": "ko",
+  "text": "보인다는 것, 구원 아니면 파멸",
+  "model": "claude-opus-5",
+  "source_sha256": "ff93dac25dde82339528aedd981516982d12a45f5b9193b9b1519f3f9ad7a628"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "belated-crowning-of-a-local-fury",
+  "field": "title",
+  "lang": "ko",
+  "text": "지역의 분노에 뒤늦게 씌운 왕관",
+  "model": "claude-opus-5",
+  "source_sha256": "73b955459b3d4da54c7ceab5702181fa1fd77b0c08fbd7e51013eb5aa6dc1a26"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "benevolent-tyranny-disguised-as-mercy-or-love",
+  "field": "title",
+  "lang": "ko",
+  "text": "자비나 사랑의 얼굴을 한 온화한 폭정",
+  "model": "claude-opus-5",
+  "source_sha256": "f86935369b574bc4e540b4f2e2e3457c90751174eeebd11da08dffc9c7e377ef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "bergsonian-duration-against-clock-time",
+  "field": "title",
+  "lang": "ko",
+  "text": "시계 시간에 맞선 베르그송의 지속(durée)",
+  "model": "claude-opus-5",
+  "source_sha256": "5c9116bee84a9c2d16a4267ec7a6a7e33df036d589aa69bc67d297728bfe55ba"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "birth-filmed-as-bodily-atrocity",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸이 겪는 참극으로 찍은 출산",
+  "model": "claude-opus-5",
+  "source_sha256": "f94de8be898317d7cf94e6acc76dc73204c81c4f07d74c3f9bc70fa9fcf343bc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "black-and-white-as-an-argument-not-a-style",
+  "field": "title",
+  "lang": "ko",
+  "text": "흑백은 양식이 아니라 주장이다",
+  "model": "claude-opus-5",
+  "source_sha256": "5979275e047ccca938088d3eefbfab8ff23833e6dd646c9ac393fa1f8beba2e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "black-and-white-as-the-solo-auteur-s-budget",
+  "field": "title",
+  "lang": "ko",
+  "text": "1인 작가의 예산이 고른 흑백",
+  "model": "claude-opus-5",
+  "source_sha256": "bb7f6013df6eac2f7bbfebecdfdfe38d0946ab175e99f3e1a50a061e33754850"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "black-and-white-as-the-truer-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "더 정직한 고백으로서의 흑백",
+  "model": "claude-opus-5",
+  "source_sha256": "855d29cd2566f20b2e55884ca4d6210bf38c0347609a88218d04cb98fec60de9"
+ }
+]

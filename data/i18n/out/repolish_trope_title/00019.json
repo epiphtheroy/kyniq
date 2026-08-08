@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-descendants-cast-to-reclaim-their-own-history",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 역사를 되찾으러 온 후손들",
+  "model": "claude-opus-5",
+  "source_sha256": "c3f975b785d243f715bf0ea55a96fc910e2963deb4aa9b986d499492b3447eaf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-descent-as-drowned-grief",
+  "field": "title",
+  "lang": "ko",
+  "text": "물에 잠긴 슬픔, 그 하강",
+  "model": "claude-opus-5",
+  "source_sha256": "1da14af797497c8166cde67417d759556fcf291517c1484ac924ce942d143c52"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-desert-as-civilization-s-vanishing-point",
+  "field": "title",
+  "lang": "ko",
+  "text": "문명이 사라지는 소실점, 사막",
+  "model": "claude-opus-5",
+  "source_sha256": "3d890ebeedd88ffcf816b0118bbfc0db8c2aacc0d79310807c49f546de501cb3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-desert-conscripted-as-another-place",
+  "field": "title",
+  "lang": "ko",
+  "text": "다른 땅으로 징발된 사막",
+  "model": "claude-opus-5",
+  "source_sha256": "c28d1381623d48b85116d1af37621eb53486d4d6fcb71e8c14c494fe068e251e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-desert-that-hides-the-apparatus",
+  "field": "title",
+  "lang": "ko",
+  "text": "장치를 숨긴 사막",
+  "model": "claude-opus-5",
+  "source_sha256": "18cb544d47e45a2fa3de104af6bd60752342c3f1434954a9b284a23e1a07c7bb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-despised-made-the-only-saviors",
+  "field": "title",
+  "lang": "ko",
+  "text": "멸시받던 자들만이 구원자다",
+  "model": "claude-opus-5",
+  "source_sha256": "d8e4236dbc0947750de249552ebc801f87f4895de460ee90fbb2fb045f7dcfea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-detective-story-turned-against-its-own-form",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 형식에 총구를 겨눈 탐정물",
+  "model": "claude-opus-5",
+  "source_sha256": "9cf62519b34c565965528c2a77e3d259f9fe728cc7a8183cb92c704b2d5bcb60"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-detective-who-investigates-himself",
+  "field": "title",
+  "lang": "ko",
+  "text": "자신을 수사하는 탐정",
+  "model": "claude-opus-5",
+  "source_sha256": "a354486182eed7304da640eeda55682a5f0065376d2156539821d9de0f6b9214"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-detective-who-solves-but-cannot-deliver-justice",
+  "field": "title",
+  "lang": "ko",
+  "text": "풀어내고도 정의는 세우지 못하는 탐정",
+  "model": "claude-opus-5",
+  "source_sha256": "4deb9cb2d82583fc09d6bda26405be9b19cd92943546f902e33defd7f7601d16"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-detective-who-solves-the-case-and-loses-the-world",
+  "field": "title",
+  "lang": "ko",
+  "text": "사건을 풀고 세계를 잃다",
+  "model": "claude-opus-5",
+  "source_sha256": "7751c7a2fed014ceb8119f742226b4cc6d713c91836e009bfd6b8eed30ab4be7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-device-that-speaks-the-father-s-penance",
+  "field": "title",
+  "lang": "ko",
+  "text": "아버지의 참회를 대신 말하는 장치",
+  "model": "claude-opus-5",
+  "source_sha256": "21ecb04a1d3d7721d8f26d28f34da0c11751e437f323e2566b13d0e376fc4d90"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-devil-wears-a-borrowed-face",
+  "field": "title",
+  "lang": "ko",
+  "text": "빌린 얼굴을 쓴 악마",
+  "model": "claude-opus-5",
+  "source_sha256": "c690e4147236cc5122bffbda9d3b3f9ccbd011fba147af8585a7bdd71f0f2ed5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-devotee-who-mistakes-obsession-for-grace",
+  "field": "title",
+  "lang": "ko",
+  "text": "집착을 은총으로 착각한 신자",
+  "model": "claude-opus-5",
+  "source_sha256": "fbc57aabc3c8796d1b5217138be3cde5faa1cdddb2ffc1d3836b7ec5a22ce040"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-devouring-eye-that-consumes-its-object",
+  "field": "title",
+  "lang": "ko",
+  "text": "대상을 집어삼키는 눈",
+  "model": "claude-opus-5",
+  "source_sha256": "d62785fd739eda60094fa2f598758228847d64431b34d9759302eaab50688f38"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-devouring-or-devoured-maternal-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "삼키거나 삼켜지는 어머니의 몸",
+  "model": "claude-opus-5",
+  "source_sha256": "fac396645245c99c1b3fe5bcc9e9d0d533603333fb39c134535785e6a9d99381"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-diagnosis-that-manufactures-its-own-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 진실을 만들어내는 진단",
+  "model": "claude-opus-5",
+  "source_sha256": "501a54d9e9dffd620ba0d58b508495c0b07c757ae432fe9d2d9badf8179f8079"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-diarist-of-pure-observation",
+  "field": "title",
+  "lang": "ko",
+  "text": "순수한 관찰만 적는 일기",
+  "model": "claude-opus-5",
+  "source_sha256": "d5698bf5745b630818c48ffe6d6718945056f6f68869a6c0ba4958d74b2f8758"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-diarist-who-lives-truer-on-the-page",
+  "field": "title",
+  "lang": "ko",
+  "text": "종이 위에서 더 진짜인 일기 쓰는 자",
+  "model": "claude-opus-5",
+  "source_sha256": "8c1395a3622e4dc0c4cf8784be6239ab8ba87196e985e9b95889576bef740b22"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-diarist-who-wrote-to-be-found",
+  "field": "title",
+  "lang": "ko",
+  "text": "읽히기 위해 쓴 일기",
+  "model": "claude-opus-5",
+  "source_sha256": "461718ebcb45f5f71f5f72f214f5b4710a459afcda878c0bf9d04dd919afe241"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dichotomy-of-what-is-in-our-control",
+  "field": "title",
+  "lang": "ko",
+  "text": "할 수 있는 일과 없는 일의 경계",
+  "model": "claude-opus-5",
+  "source_sha256": "67e6df8c690c826ff19efe2b7b66ab8630908c3726490f4dd77c2cb57ec39b09"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dictatorship-spain-was-forbidden-to-mourn",
+  "field": "title",
+  "lang": "ko",
+  "text": "스페인이 애도할 수 없었던 독재",
+  "model": "claude-opus-5",
+  "source_sha256": "c4751fc14b9f8a2eea4aa0643db70348e6d0b83f3630b75a7995379f2f2f971d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-diegetic-lyric-spoken-from-inside-the-mind",
+  "field": "title",
+  "lang": "ko",
+  "text": "마음 안에서 흘러나오는 극중 노랫말",
+  "model": "claude-opus-5",
+  "source_sha256": "e29a196f18d4eec9d2386cdb99539fbf1a305600e47e0c834a2964155641fe14"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-diego-rivera-mural-of-massed-labor",
+  "field": "title",
+  "lang": "ko",
+  "text": "떼 지은 노동, 디에고 리베라의 벽화처럼",
+  "model": "claude-opus-5",
+  "source_sha256": "562cf79f0bbfc7949448b84287738362eb6e41e74b14dd60f260403e06041fb7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dinner-table-as-tribunal-of-civility",
+  "field": "title",
+  "lang": "ko",
+  "text": "교양을 심판하는 저녁 식탁",
+  "model": "claude-opus-5",
+  "source_sha256": "91165d917621e552fe4fa1c1049efdedc729a51aa7e8e412fca6d6e9267bb27f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dinosaur-as-sold-merchandise",
+  "field": "title",
+  "lang": "ko",
+  "text": "팔리는 상품이 된 공룡",
+  "model": "claude-opus-5",
+  "source_sha256": "d4a03baeb60dc83d79e9a8109dfc194acbe529c2fe348e814d54f347bff1f3d3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dinosaur-as-the-medium-s-own-eulogy",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화가 제 자신에게 바치는 조사(弔詞), 공룡",
+  "model": "claude-opus-5",
+  "source_sha256": "c82da006f40949a550fd02689cb61f1f2cfbc980d5901faa01604704bdfa627b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-diogenes-with-his-lantern-unlit",
+  "field": "title",
+  "lang": "ko",
+  "text": "등불을 켜지 않은 디오게네스",
+  "model": "claude-opus-5",
+  "source_sha256": "2a7bfcaa6a7abffa8f8fc8bd74eda28f2da9d00bc2b9e8c8a45b89345c5eca91"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-diplomat-as-talleyrand-in-velvet",
+  "field": "title",
+  "lang": "ko",
+  "text": "벨벳을 두른 탈레랑, 그 외교관",
+  "model": "claude-opus-5",
+  "source_sha256": "0532972329894ada606891832d5c673df624346bf8cc25ccad831800e037369e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-as-a-painter-of-feeling",
+  "field": "title",
+  "lang": "ko",
+  "text": "감정을 그리는 화가로서의 감독",
+  "model": "claude-opus-5",
+  "source_sha256": "9748bc3953d5cdb298ad902ec532831f5e7e8363f4f9c720747cab4bf4b86298"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-as-choreographer-of-crowds",
+  "field": "title",
+  "lang": "ko",
+  "text": "군중을 안무하는 감독",
+  "model": "claude-opus-5",
+  "source_sha256": "662e4dbbba834e5a3c51d3106c1d354f4b79306cda9a2c77f935da6ff4f2e14b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-cast-as-self-portrait",
+  "field": "title",
+  "lang": "ko",
+  "text": "자화상으로 캐스팅된 감독",
+  "model": "claude-opus-5",
+  "source_sha256": "b0833114f8acbae27c11fd65486e56263b69280d8ac111e939964703ba22932f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-filmed-the-real-heat-into-the-actor",
+  "field": "title",
+  "lang": "ko",
+  "text": "진짜 열기를 배우 몸에 새겨 찍다",
+  "model": "claude-opus-5",
+  "source_sha256": "f6fa18cdf8318611d3c90a0283e8191db8261fbf9f0fbead8ccd337be7a58db9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-filming-his-own-penance",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 속죄를 찍는 감독",
+  "model": "claude-opus-5",
+  "source_sha256": "deb37ffd2a95a0740596c14b196cc2c8c768885b12b09a42d779e43d5de20bad"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-s-banishment-authored-as-confessional-apparatus",
+  "field": "title",
+  "lang": "ko",
+  "text": "추방을 고백 장치로 바꿔 쓴 감독",
+  "model": "claude-opus-5",
+  "source_sha256": "7c7b048d08b96388a9b2c67be96948e72bb66d530dac207a5eb356280521a488"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-s-biography-read-into-the-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "프레임에서 읽어내는 감독의 생애",
+  "model": "claude-opus-5",
+  "source_sha256": "ddcd1df5aef14f277a29fb4bfe6c47288a79b86992f4d5c575fe686954df88e1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-s-lost-world-restaged-in-light",
+  "field": "title",
+  "lang": "ko",
+  "text": "빛으로 되살린 감독의 잃어버린 세계",
+  "model": "claude-opus-5",
+  "source_sha256": "0e94647197f4d2110d2f905c462f82a7e8acabd99a8a8f642daaf5e86819a44d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-s-obsessive-method-becomes-the-form",
+  "field": "title",
+  "lang": "ko",
+  "text": "강박적 방법이 곧 형식이 되다",
+  "model": "claude-opus-5",
+  "source_sha256": "6a910e868a336d2575616f08c4f9673c6625b076c424b06470ebcb5d4a9fcbb5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-s-real-house-as-set",
+  "field": "title",
+  "lang": "ko",
+  "text": "세트가 된 감독의 실제 집",
+  "model": "claude-opus-5",
+  "source_sha256": "e923e5656c2f4327d26e72745d57553752dbf1d2f9e7f673a98fe9942a20d026"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-smuggled-into-his-own-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 영화에 몰래 숨어든 감독",
+  "model": "claude-opus-5",
+  "source_sha256": "6849c9cf0b8703766f030b6e6c8ae8de26965ec54475284c059d767ba6b66ec4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-who-filmed-his-own-cage",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 우리를 찍은 감독",
+  "model": "claude-opus-5",
+  "source_sha256": "a29910c356178b5435780559c9b8eb4a8b0f0554a12afa32432ef435acdeaf6a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-who-refuses-sovereign-detachment",
+  "field": "title",
+  "lang": "ko",
+  "text": "군림하는 초연함을 거부한 감독",
+  "model": "claude-opus-5",
+  "source_sha256": "0dc44787afcbb196083d44f998c5a6e84d09a8304dc11386873c589af4a44e58"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-who-scores-his-own-poverty",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 가난에 음악을 붙이는 감독",
+  "model": "claude-opus-5",
+  "source_sha256": "3df30e10e8da7a6d29b4333da4ec9a5bc1f0ddb05389a5bd28bc467d9f8f128a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-director-who-stopped-making-films",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화를 그만둔 감독",
+  "model": "claude-opus-5",
+  "source_sha256": "0da183154cf687a139537bd2cf801a86ab3120a1757cb0a8555b7ee343f61a5d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-disabled-body-claiming-its-right-to-desire",
+  "field": "title",
+  "lang": "ko",
+  "text": "욕망할 권리를 요구하는 장애의 몸",
+  "model": "claude-opus-5",
+  "source_sha256": "ea2babd65670e173b4fae9e0a8773575cfe9818b53ed8815cdf4348c8ff75a1c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-disappeared-erased-from-the-record",
+  "field": "title",
+  "lang": "ko",
+  "text": "기록에서 지워진 실종자들",
+  "model": "claude-opus-5",
+  "source_sha256": "f478cc415fbfd823d454e1695ce52a23f09e36e7e6550f6e8e1db358ebf0b1d5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-disavowed-crime-against-the-origin",
+  "field": "title",
+  "lang": "ko",
+  "text": "기원을 향한, 부인된 범죄",
+  "model": "claude-opus-5",
+  "source_sha256": "d194e7bcb8420ca66ec8046518ddd12b7b6b081a20f9cd7693acd5d41a8a9acc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-disavowed-self-returning-to-be-killed",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽으러 돌아온, 부인당한 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "ac952b169f97b01369e5af1276cd51f396029a3c31da8825cfe612bda68ff9e4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-discarded-body-that-judges-its-discarders",
+  "field": "title",
+  "lang": "ko",
+  "text": "버려진 몸이 버린 자를 심판한다",
+  "model": "claude-opus-5",
+  "source_sha256": "3829851afc64b0ff150abaf7e6a618937502efc49e9748b909b012fac3678b3c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-discarded-remainder-reclaimed-as-meaning",
+  "field": "title",
+  "lang": "ko",
+  "text": "버려진 찌꺼기에서 건져 올린 의미",
+  "model": "claude-opus-5",
+  "source_sha256": "9573a478883855396575c87fbe4534eb1a45eb8bf3c620fd3ba416afbdb04aa7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-disciple-who-murdered-to-become-the-icon",
+  "field": "title",
+  "lang": "ko",
+  "text": "우상이 되려 살해한 제자",
+  "model": "claude-opus-5",
+  "source_sha256": "7e271874b07fe2d142549f48d554133979572da6ac243777806f517e582ed39d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-disciplinary-blow-as-social-reproduction",
+  "field": "title",
+  "lang": "ko",
+  "text": "매질로 대물림되는 사회",
+  "model": "claude-opus-5",
+  "source_sha256": "c39ca642857babcac5c51088537361595947664685079d07e238805bc690deb2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-disclaimer-that-indicts-the-state",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가를 고발하는 면책 문구",
+  "model": "claude-opus-5",
+  "source_sha256": "d9d06f0ce41c23d8acae12c00f9da4a96ec5e9955a09ff9a86d2a7e418df6c1a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-discourse-reenacting-the-film-s-thesis",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화의 명제를 되풀이하는 담론",
+  "model": "claude-opus-5",
+  "source_sha256": "132a39ad012421b12b3233d0d3b050e5f40d0ab96ef723597f4fe3df2a7ad4dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-discourse-that-confesses-what-criticism-cannot-touch",
+  "field": "title",
+  "lang": "ko",
+  "text": "비평이 못 닿는 곳을 실토하는 담론",
+  "model": "claude-opus-5",
+  "source_sha256": "3ae25a4eef3c7dc71cca92fe219fc05f63e4cf80d1cf8259b82bdb6e4c52944c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-disembodied-voice-that-governs",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸 없이 다스리는 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "2032fa4e9125be23b9415bfd6dc11d42e09e2e14fcc2151effba048b498c61a7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dish-as-class-war-made-edible",
+  "field": "title",
+  "lang": "ko",
+  "text": "먹을 수 있게 차려진 계급전쟁",
+  "model": "claude-opus-5",
+  "source_sha256": "b32476e044ded5698e61876a0709fe0dedd1ad859fd5ad619c5b799571e94ea6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dismissal-that-indicts-the-dismisser",
+  "field": "title",
+  "lang": "ko",
+  "text": "묵살한 자를 고발하는 묵살",
+  "model": "claude-opus-5",
+  "source_sha256": "2c9782f438ce10b2c73ffae70ae694592add3f986444a278ccb2515ab5a14e42"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-displacement-that-makes-abuse-sayable",
+  "field": "title",
+  "lang": "ko",
+  "text": "학대를 겨우 말하게 하는 자리바꿈",
+  "model": "claude-opus-5",
+  "source_sha256": "21058994a10ebe30ce03f58f160499be1f041d97990b3059cb24a04b1abd4329"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-disposable-woman-made-unspeakable",
+  "field": "title",
+  "lang": "ko",
+  "text": "쓰고 버려진 여자, 입에 올릴 수 없는",
+  "model": "claude-opus-5",
+  "source_sha256": "c0e5a209db447781a62deea97d25f0836de8ab85dcd2e75364b79724641d3ba1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-disreputable-genre-exhumed-against-the-algorithm",
+  "field": "title",
+  "lang": "ko",
+  "text": "알고리즘에 맞서 파낸 불온한 장르",
+  "model": "claude-opus-5",
+  "source_sha256": "fe794d739d540721087dbda49f3dedd316220af04bf7a5229234868df66b1cc0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dissolve-as-death-and-dissolution",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽음이자 해체인 디졸브",
+  "model": "claude-opus-5",
+  "source_sha256": "647b690ace57f315acee28500cd2a15ca42395158768d44fb5892551266fb49c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-distant-camera-that-refuses-to-touch",
+  "field": "title",
+  "lang": "ko",
+  "text": "닿기를 거부하는 먼 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "8902a01fed5176910bf30fd0748bafd2d139ede2873bf68ee6f95c877ab768a9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-distributor-s-cut-as-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "고백이 되어버린 배급사판",
+  "model": "claude-opus-5",
+  "source_sha256": "d783da30449cd7f65e70b6c6283625ef971a40e85e15f85cae3843b7cd871ed9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-diver-who-sought-the-depths",
+  "field": "title",
+  "lang": "ko",
+  "text": "깊은 곳을 찾아 내려간 잠수부",
+  "model": "claude-opus-5",
+  "source_sha256": "02ca9553bfbff50c2c304d081fb008900be08a4d4c546a149adc3caa9b84bc41"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-divided-frame-as-confession-of-doubt",
+  "field": "title",
+  "lang": "ko",
+  "text": "의심을 ��토하는 분할 화면",
+  "model": "claude-opus-5",
+  "source_sha256": "0cb4a4c0f2cf5f269349817b41dd658576753db51c14113b2fe070f7950c95a7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-divine-line-usurped-by-man",
+  "field": "title",
+  "lang": "ko",
+  "text": "인간이 빼앗은 신의 경계",
+  "model": "claude-opus-5",
+  "source_sha256": "56e20992722f87a6677cd32b41dfdbef05492ac0cb583973975a2e4bcd2efd65"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-doctor-as-modernity-at-the-feudal-gate",
+  "field": "title",
+  "lang": "ko",
+  "text": "봉건의 문 앞에 선 근대, 그 의사",
+  "model": "claude-opus-5",
+  "source_sha256": "a3371282738334fe68cbe3fbc81c54f8aaf6599607c09bfa82e793884c0d5d92"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-doctrine-of-election-in-secular-disguise",
+  "field": "title",
+  "lang": "ko",
+  "text": "세속의 옷을 입은 예정론(豫定論)",
+  "model": "claude-opus-5",
+  "source_sha256": "a276c70cfe8830db495bec5355cfd5348ee7295dbc9db3c1d65b9d97b950f970"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-document-outliving-its-author",
+  "field": "title",
+  "lang": "ko",
+  "text": "쓴 사람보다 오래 남은 문서",
+  "model": "claude-opus-5",
+  "source_sha256": "cbc68bebed88bd43ef8358022206db134a1c1b5beed39eb2077da24e46cae098"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-documentary-eye-smuggled-into-fiction",
+  "field": "title",
+  "lang": "ko",
+  "text": "픽션에 몰래 들여온 다큐멘터리의 눈",
+  "model": "claude-opus-5",
+  "source_sha256": "ccba20983a9ea823801021844674b7ed89d3061615c1a34a21b0cada218d61f2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-documentary-inside-its-own-event",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 찍는 사건 한복판의 다큐멘터리",
+  "model": "claude-opus-5",
+  "source_sha256": "c09257bbe51b64a1a637b9a45bf165beb144a0860429145f7d187a9523e505de"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-documentary-s-broken-promise",
+  "field": "title",
+  "lang": "ko",
+  "text": "다큐멘터리가 깨뜨린 약속",
+  "model": "claude-opus-5",
+  "source_sha256": "6a3501e48ff7c71a0e58e9dcfdc4c66852728f9e447a10034d99860a4d1921f1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-documentary-that-shows-its-own-strings",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 줄을 스스로 드러내는 다큐멘터리",
+  "model": "claude-opus-5",
+  "source_sha256": "30c52a823f076f9e00041cd4d0edb890886cc742a97f4cc0baa19f6d49d811f5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-documentary-town-as-total-institution",
+  "field": "title",
+  "lang": "ko",
+  "text": "총체적 시설이 된 다큐멘터리 속 마을",
+  "model": "claude-opus-5",
+  "source_sha256": "bed831ea6a80755d793968298ea5cbffbd0bd98af71eb3fca1380697ee5f49ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-documentary-tuned-to-the-attention-market",
+  "field": "title",
+  "lang": "ko",
+  "text": "주목 시장에 맞춰 조율한 다큐멘터리",
+  "model": "claude-opus-5",
+  "source_sha256": "8ea11f78ce4137dcc4117ee1a689718e016fe7f4416fadf44d222044f476c133"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dog-as-hidden-meaning-bearer",
+  "field": "title",
+  "lang": "ko",
+  "text": "의미를 몰래 짊어진 개",
+  "model": "claude-opus-5",
+  "source_sha256": "7177f0adbfffcd5375785a761967a4d8901cc44dab5cf37e5f31f64f63c742aa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dog-as-the-last-honest-flesh",
+  "field": "title",
+  "lang": "ko",
+  "text": "마지막까지 정직한 살, 개",
+  "model": "claude-opus-5",
+  "source_sha256": "4480183af4be57d21b7e4bf0c7d588f6e5cf7c0b684356a364eb24a881480e22"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-doll-as-the-hidden-truth-of-the-human",
+  "field": "title",
+  "lang": "ko",
+  "text": "인간의 감춰진 진실인 인형",
+  "model": "claude-opus-5",
+  "source_sha256": "29cdd14ae589cd63516eeaac97c25b88c84905ce6992b44deaa9c430f70a7010"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-doll-as-vessel-for-the-dead",
+  "field": "title",
+  "lang": "ko",
+  "text": "망자를 담는 그릇, 인형",
+  "model": "claude-opus-5",
+  "source_sha256": "3373e8efd6eacb887602df1d5f10a1797eb9a53dc5f2a1b261b1933572167d0c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-doll-s-house-that-watches-its-maker",
+  "field": "title",
+  "lang": "ko",
+  "text": "만든 이를 지켜보는 인형의 집",
+  "model": "claude-opus-5",
+  "source_sha256": "846c5d9a45e1347bb284981b32516f43cb5391cf61205257d40352d3e25435c7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-domestic-war-conducted-as-operatic-bickering",
+  "field": "title",
+  "lang": "ko",
+  "text": "오페라처럼 치러지는 부부싸움",
+  "model": "claude-opus-5",
+  "source_sha256": "a38e3f355b2e8e2fd2e0b3539bec86315753291728126d23fcdc421afe961478"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-donkey-as-mute-moral-witness",
+  "field": "title",
+  "lang": "ko",
+  "text": "말 없는 도덕의 증인, 당나귀",
+  "model": "claude-opus-5",
+  "source_sha256": "7bc6bad29eb35fbe956b0e105d2638f3c2f986f228602e1c3e56039a96e24b55"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-doorway-as-the-frame-of-the-permitted",
+  "field": "title",
+  "lang": "ko",
+  "text": "허용된 것만 담는 문틀",
+  "model": "claude-opus-5",
+  "source_sha256": "fb7497d6d9fe673bf663a677f90c7b11a598933999e09959c0b07953fe83d657"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dostoevskian-soul-before-the-firing-squad",
+  "field": "title",
+  "lang": "ko",
+  "text": "총살대 앞의 도스토옙스키적 영혼",
+  "model": "claude-opus-5",
+  "source_sha256": "cd1b211ee496123aacbfe5993a1c97db760489cc174fbc738150f8e604ee1e29"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-double-as-the-film-s-hidden-thesis",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화의 숨은 명제로서의 분신",
+  "model": "claude-opus-5",
+  "source_sha256": "bccb1828df9c199814c04d3f394edab347f774f1ede0a34711285631869cf471"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-double-as-the-self-s-returning-other",
+  "field": "title",
+  "lang": "ko",
+  "text": "자아에게 되돌아오는 타자, 분신",
+  "model": "claude-opus-5",
+  "source_sha256": "d3134885ed2111894b85901c0b44c8ee2ae938c9927afd6ab8579b671095bf7a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-double-life-that-is-really-one",
+  "field": "title",
+  "lang": "ko",
+  "text": "실은 하나였던 이중생활",
+  "model": "claude-opus-5",
+  "source_sha256": "bbe812da0c881dcbd8793e7106a3cd3aeea9bb608607d020d79c82fc1a96db1d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-double-who-was-never-a-boundary",
+  "field": "title",
+  "lang": "ko",
+  "text": "애초에 경계가 아니었던 분신",
+  "model": "claude-opus-5",
+  "source_sha256": "a6526ef84d435f94282b53e1ae35feeae0fdc62758fd0ea33506c9bb18f4eb4a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-doubled-voice-as-a-split-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "겹쳐진 목소리, 갈라진 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "cbc2f875c32d1f1549025209e07be639f9b8ebe51a2b709865a3dd58de3d03ed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drained-palette-as-suppressed-consciousness",
+  "field": "title",
+  "lang": "ko",
+  "text": "빛깔이 빠진 화면, 억눌린 의식",
+  "model": "claude-opus-5",
+  "source_sha256": "ac1e618948cbc5563a4f733b4b2ad2edd920c41564e742ba4d91db9bbee15bef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drawing-room-that-punishes-the-outsider",
+  "field": "title",
+  "lang": "ko",
+  "text": "이방인을 벌하는 응접실",
+  "model": "claude-opus-5",
+  "source_sha256": "ea4ec6248fd6faa6888f71ee2f631ca601c171c42567492a5ebf2b573b418d0c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drawing-that-audits-its-maker",
+  "field": "title",
+  "lang": "ko",
+  "text": "그린 사람을 심사하는 그림",
+  "model": "claude-opus-5",
+  "source_sha256": "24c63b0f0d7018556aae7abb65dc3f52fb5d4fcab94ba0677dc5791d5677aa8b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drawing-that-precedes-the-meeting",
+  "field": "title",
+  "lang": "ko",
+  "text": "만남보다 먼저 온 그림",
+  "model": "claude-opus-5",
+  "source_sha256": "b30f1276cc83c5d089e5d44b7aaff51a2a510788c2d33b9b6b9cd56b34077d63"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drawn-window-that-authors-the-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화를 써 내려가는 그려진 창",
+  "model": "claude-opus-5",
+  "source_sha256": "b8dcec4ff5e76d9ae653dfd9ce7be29a16277b301ed16eadabc6b635cb472597"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dream-as-residue-of-pure-attention",
+  "field": "title",
+  "lang": "ko",
+  "text": "순수한 주의가 남긴 잔여, 꿈",
+  "model": "claude-opus-5",
+  "source_sha256": "b9527ec6182b6d84bb35c2a894135508018a237f4db30b7330b0d2dbde1e986c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dream-named-as-rigged-anesthetic",
+  "field": "title",
+  "lang": "ko",
+  "text": "조작된 마취제라 불린 꿈",
+  "model": "claude-opus-5",
+  "source_sha256": "0e986bab3b422f8dcd76cd605e4b01d1b88c2b2ef24fb2cd042b5caa7418dcb1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dream-realm-as-collective-unconscious",
+  "field": "title",
+  "lang": "ko",
+  "text": "집단 무의식으로서의 꿈의 나라",
+  "model": "claude-opus-5",
+  "source_sha256": "1193914f3e2252c1b13b4a0324e72d81966f839f7ab277d95668aefb8f4a3ddc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dream-sequence-as-engineered-artifact",
+  "field": "title",
+  "lang": "ko",
+  "text": "정교하게 설계된 인공물, 꿈 장면",
+  "model": "claude-opus-5",
+  "source_sha256": "40c32f843b59c5a1e495b5b7b2a5ee79e7ee19f601fde10f7eda49e3f084a49b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dream-that-holds-what-the-dreamer-won-t",
+  "field": "title",
+  "lang": "ko",
+  "text": "꿈꾸는 이가 밀어낸 것을 품는 꿈",
+  "model": "claude-opus-5",
+  "source_sha256": "c356cf756987e0ecd2dd779cfb6831a5b9cc5a4377e8f3c7e2c4a98fec847fae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dream-that-wish-cannot-survive-waking",
+  "field": "title",
+  "lang": "ko",
+  "text": "깨어나면 살아남지 못하는 소망",
+  "model": "claude-opus-5",
+  "source_sha256": "803756ba4a81a6b77d07fb7b260087c017dce316c6665c910aea0732c3943858"
+ }
+]

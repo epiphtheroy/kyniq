@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-adoring-crowd-s-latent-authoritarianism",
+  "field": "title",
+  "lang": "ko",
+  "text": "흠모하는 군중 속에 잠든 권위주의",
+  "model": "claude-opus-5",
+  "source_sha256": "291e46d9e64755599663c290951d318dd3b6d29c56ece4e82b21ee127e71bfb7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-adult-who-never-left-the-lap",
+  "field": "title",
+  "lang": "ko",
+  "text": "아직 어머니 무릎을 떠나지 못한 어른",
+  "model": "claude-opus-5",
+  "source_sha256": "b029584d11202df9e466efeea9c5b6b304e85c927815dc0f5314da5ff6f22188"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-adults-pretend-the-bomb-is-safe",
+  "field": "title",
+  "lang": "ko",
+  "text": "폭탄은 안전하다고 우기는 어른들",
+  "model": "claude-opus-5",
+  "source_sha256": "529c1665711bca9a9fea2d057d2f73364e41ad6fa90b03976d3cd1757509bbfe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-adventure-tone-hiding-the-tragic-chord",
+  "field": "title",
+  "lang": "ko",
+  "text": "비극의 화음을 숨긴 모험담",
+  "model": "claude-opus-5",
+  "source_sha256": "c6547c780d752a0623a99013392e61ac89b85b2d232e703300acd914526fd8a6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aerial-eye-that-convicts-from-above",
+  "field": "title",
+  "lang": "ko",
+  "text": "위에서 내려다보며 유죄를 선고하는 눈",
+  "model": "claude-opus-5",
+  "source_sha256": "9ecda39a236cd56da43fecca3965b3586d801985d1b5719fbba431d2b9ba3137"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aesthete-sovereign-who-forfeits-power",
+  "field": "title",
+  "lang": "ko",
+  "text": "권력을 스스로 놓아버린 심미가 군주",
+  "model": "claude-opus-5",
+  "source_sha256": "8fbe226ffa75e46f77b0931e277f973b806d0a700b36c082a68e19947da2cf48"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aesthete-who-mistakes-cruelty-for-art",
+  "field": "title",
+  "lang": "ko",
+  "text": "잔혹을 예술로 착각한 탐미주의자",
+  "model": "claude-opus-5",
+  "source_sha256": "0ae21371d87d61df80997f441662544dfd533b2abf08397d5915d2a00cc6d67b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aesthete-whose-style-hollows-the-soul",
+  "field": "title",
+  "lang": "ko",
+  "text": "양식이 영혼을 갉아먹는 심미가",
+  "model": "claude-opus-5",
+  "source_sha256": "e37fc4994bc307d2befa7b2772e1c6fd9ecc3a7057a8cf64b78362eb4d82cede"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aesthetic-forged-from-an-empty-wallet",
+  "field": "title",
+  "lang": "ko",
+  "text": "빈 지갑이 벼려낸 미학",
+  "model": "claude-opus-5",
+  "source_sha256": "4e6f8cc7405b328006ec4a3baf90dc98515ce96613c2f7697abeb722e9981966"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aesthetic-indicted-for-its-german-guilt",
+  "field": "title",
+  "lang": "ko",
+  "text": "독일의 죄를 물어 기소당한 미학",
+  "model": "claude-opus-5",
+  "source_sha256": "b548342317c4c0f0b041c5c8693faa1b0b1769789e1db7975d4fdb59f7209811"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-african-nation-that-refuses-to-be-named",
+  "field": "title",
+  "lang": "ko",
+  "text": "이름을 밝히지 않는 아프리카의 나라",
+  "model": "claude-opus-5",
+  "source_sha256": "ca9c28f890591c66ec7cf2d223dc86e8546d6a81a786537c2f6e3330881a3fc2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-after-that-reveals-no-after-exists",
+  "field": "title",
+  "lang": "ko",
+  "text": "'이후'는 없다고 알려주는 이후",
+  "model": "claude-opus-5",
+  "source_sha256": "9477c60d3bd77621fa4b8cee9213aa5d7fa47cedda0a06ea568085794bb9f388"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-afterlife-audited-by-capital",
+  "field": "title",
+  "lang": "ko",
+  "text": "자본이 회계 감사하는 사후 세계",
+  "model": "claude-opus-5",
+  "source_sha256": "f5c6a0b69330d8f8343ae2ef9d121c9a60f0576f8399ea2fcd8e5022ad7d6170"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-age-gap-reception-mistakes-for-the-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "수용이 영화로 착각한 나이 차",
+  "model": "claude-opus-5",
+  "source_sha256": "53041258ec0ee1eae5829f6d90e40589fda5bf563f5e362ef28dd951a2f99042"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aged-body-that-still-demands-desire",
+  "field": "title",
+  "lang": "ko",
+  "text": "여전히 욕망을 요구하는 늙은 몸",
+  "model": "claude-opus-5",
+  "source_sha256": "5b993959bc0fdff1ff42166d66c1335b8fbd73f686977b8e88e37484c7aade2a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-agent-cut-loose-from-his-own-state",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 나라가 끈을 놓아버린 요원",
+  "model": "claude-opus-5",
+  "source_sha256": "da8170cd47ad73448dec3a5fd82983515c1f5dc03ade943b88a87c3a5ec9817b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-agent-who-cannot-be-held-guilty",
+  "field": "title",
+  "lang": "ko",
+  "text": "죄를 물을 길이 없는 행위자",
+  "model": "claude-opus-5",
+  "source_sha256": "f580c50caa9789afcf8d8966603b7841f9ee10b6eba5e6a2243133b4915d9d63"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aging-magus-who-lays-down-the-book",
+  "field": "title",
+  "lang": "ko",
+  "text": "마법서를 내려놓는 늙은 마법사",
+  "model": "claude-opus-5",
+  "source_sha256": "9625af86d6c804f73352929d956c4f928a7e081cda6ca867f800b82ad148140a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aging-star-dreads-her-own-replacement",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 자리를 이을 얼굴을 두려워하는 노년의 스타",
+  "model": "claude-opus-5",
+  "source_sha256": "796f3fc820a3204d6aac48aeb1c194250dfeef43aa6ec7b68a9f0bd6e1c25445"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aids-crisis-as-structuring-absence",
+  "field": "title",
+  "lang": "ko",
+  "text": "구조를 떠받치는 부재, 에이즈 위기",
+  "model": "claude-opus-5",
+  "source_sha256": "1d4ad9946a5fb12c41f13cf5c30fa824264478690662b50d0107ece8c01bf68e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ailing-father-as-the-nation-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "병든 아버지가 곧 나라다",
+  "model": "claude-opus-5",
+  "source_sha256": "f6a2bbe2ff6b9792e88670b5eecc5f9d1890a9487befda3a9d744ff645f85297"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-airport-as-threshold-one-can-never-cross",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 넘지 못하는 문턱, 공항",
+  "model": "claude-opus-5",
+  "source_sha256": "9a6bd008202c7a81c2fb1792f19b6d0900960751ee9d1ddd78886eb85bc1863d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-akedah-without-the-ram",
+  "field": "title",
+  "lang": "ko",
+  "text": "숫양이 오지 않는 이삭의 결박",
+  "model": "claude-opus-5",
+  "source_sha256": "cf2b3c3b8b5bbe2a612343cc475382b63a48fca4d976564f8fbc2c16c4b3fd7e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-akerman-domestic-duration-yardstick",
+  "field": "title",
+  "lang": "ko",
+  "text": "아커만의 잣대, 집안일의 지속시간",
+  "model": "claude-opus-5",
+  "source_sha256": "a8e881ccbd65937fa40faaca22b17fd1c3ce0c7d4870fedaf78dd5d06c0e3e3e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-akhmatova-witness-who-speaks-for-the-silenced",
+  "field": "title",
+  "lang": "ko",
+  "text": "입 막힌 자들을 대신해 말하는 아흐마토바적 증인",
+  "model": "claude-opus-5",
+  "source_sha256": "be3af1023e10f9d6b82439392d154f3a11032b7f7cf6712682ee6976f6fc0bb0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-algerian-war-filmed-in-its-silence",
+  "field": "title",
+  "lang": "ko",
+  "text": "침묵으로 찍은 알제리 전쟁",
+  "model": "claude-opus-5",
+  "source_sha256": "a7d3b11d16fd954eb020535b5f1df8f884711f427b1fea2cf48c5cfe2aac4052"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-alibi-of-pure-fun",
+  "field": "title",
+  "lang": "ko",
+  "text": "'그냥 재미'라는 알리바이",
+  "model": "claude-opus-5",
+  "source_sha256": "91c843e54c797886017ad3c32db76c3b549e8672378f805fab162596aa595724"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-alien-was-the-migrant-all-along",
+  "field": "title",
+  "lang": "ko",
+  "text": "외계인은 처음부터 이주자였다",
+  "model": "claude-opus-5",
+  "source_sha256": "4b703fd3ad1c6f62c381047d320349be4f77857558640391f6c9f7576b78fb97"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-allegory-smuggled-as-period-or-fantasy",
+  "field": "title",
+  "lang": "ko",
+  "text": "시대극과 판타지에 숨겨 들여온 알레고리",
+  "model": "claude-opus-5",
+  "source_sha256": "53175abb3fcd270a15f88dbeb68c841798b86f36d3024bf34d16ce94d094fe2e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-allegory-smuggled-past-the-censor",
+  "field": "title",
+  "lang": "ko",
+  "text": "검열관의 눈을 피해 들여온 우화",
+  "model": "claude-opus-5",
+  "source_sha256": "5fc4e3bff8fcfd0c2acee8b9029fcbb94fa180c9caae2e41f8e1dbb88acccfb1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-allusive-title-as-buried-source-text",
+  "field": "title",
+  "lang": "ko",
+  "text": "제목에 묻어둔 원전, 인유(引喩)",
+  "model": "claude-opus-5",
+  "source_sha256": "c931f3d0a7c8858dd597c10b748bc3564c74f97e615ee516b9cd499427fc59df"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ally-whose-allegiance-cannot-be-read",
+  "field": "title",
+  "lang": "ko",
+  "text": "속을 읽을 수 없는 아군",
+  "model": "claude-opus-5",
+  "source_sha256": "d4daaf87b502576cba8833e01cf69f540ec46d134dfa7a05531f7ea59b852586"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-alphabet-as-engine-of-power",
+  "field": "title",
+  "lang": "ko",
+  "text": "권력을 굴리는 엔진, 문자",
+  "model": "claude-opus-5",
+  "source_sha256": "fc6ee87564ebb6cf29e03501b2c9b5cd6b2425a21e794c6b612ca31af23abdaf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-altar-that-eats-its-devotees",
+  "field": "title",
+  "lang": "ko",
+  "text": "신도를 잡아먹는 제단",
+  "model": "claude-opus-5",
+  "source_sha256": "3f359a482104b533383927532907a88a391806f39d58c25bb0201fc36062f36b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-amateur-ideal-as-class-alibi",
+  "field": "title",
+  "lang": "ko",
+  "text": "아마추어리즘이라는 계급의 알리바이",
+  "model": "claude-opus-5",
+  "source_sha256": "0113aa801735b2221fb36a7f9f4070e80b756326939e237a544d04414f0cf8ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-amateur-s-last-desperate-gamble",
+  "field": "title",
+  "lang": "ko",
+  "text": "아마추어의 마지막 도박",
+  "model": "claude-opus-5",
+  "source_sha256": "87509c679e4bf31925e722416e150c94311963098844b3a819c45bd5cd1fdf95"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ampersand-as-the-film-s-true-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "이 영화의 진짜 주인공은 앰퍼샌드",
+  "model": "claude-opus-5",
+  "source_sha256": "339149a85ebd86a7b301c6d3224eed8d5a24781d38db927d14621593a06321c4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-amputated-reverse-shot",
+  "field": "title",
+  "lang": "ko",
+  "text": "잘려나간 리버스 숏",
+  "model": "claude-opus-5",
+  "source_sha256": "b3edbdc50252c321a68a6c0d31afa4125ca62586050f32f6da7d4065461ab98a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-amusement-park-as-devouring-machine",
+  "field": "title",
+  "lang": "ko",
+  "text": "사람을 집어삼키는 기계, 놀이공원",
+  "model": "claude-opus-5",
+  "source_sha256": "8f47348bdb99048a8b7eb30f99751aca0f44ce610d1081fedfda0090f5a60033"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-anachronistic-score-confesses-the-film-s-real-date",
+  "field": "title",
+  "lang": "ko",
+  "text": "시대착오적 음악이 실토하는 영화의 진짜 연대",
+  "model": "claude-opus-5",
+  "source_sha256": "408167a65c3ccc1a85c6aa350f22cdcbb184b54f52c96dc53f15e5f00ce424bc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-anarchist-whose-violence-is-theatre",
+  "field": "title",
+  "lang": "ko",
+  "text": "폭력을 연극으로 치르는 아나키스트",
+  "model": "claude-opus-5",
+  "source_sha256": "46b24dd34e85256647dc2b9a62db3fe2b7d3587c6205ae90b877c63fcc2e0780"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ancestral-plane-returns-the-disavowed",
+  "field": "title",
+  "lang": "ko",
+  "text": "부인당한 것을 되돌려보내는 조상의 세계",
+  "model": "claude-opus-5",
+  "source_sha256": "49db503cc6886b38ba8d3ba76ab463173edbcd19149f85e637387ce305d97e39"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ancient-war-built-on-a-soundstage",
+  "field": "title",
+  "lang": "ko",
+  "text": "사운드스테이지에 지은 고대 전쟁",
+  "model": "claude-opus-5",
+  "source_sha256": "60ddca39a8c10daf8c9e4933db3e1c2e6ddf91940e5d454a62c1c2c95e551781"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-andean-landscape-as-vessel-of-memory",
+  "field": "title",
+  "lang": "ko",
+  "text": "기억을 담는 그릇, 안데스 풍경",
+  "model": "claude-opus-5",
+  "source_sha256": "a5ac86dcd1eb4e15f68f2c55961de1dc3cba923b44ae28ebb52b221d02301323"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-anglophone-allergy-to-style-and-interiority",
+  "field": "title",
+  "lang": "ko",
+  "text": "양식과 내면을 못 견디는 영어권의 알레르기",
+  "model": "claude-opus-5",
+  "source_sha256": "96d3cc7c3adbf7d8718d6526ced1e835c4d322c4c1333a7acbd728fa14899df9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-animal-eaten-as-colonial-abjection",
+  "field": "title",
+  "lang": "ko",
+  "text": "먹히는 짐승, 식민의 비체(卑體)",
+  "model": "claude-opus-5",
+  "source_sha256": "5d7586199b14e78f4c1c35ef2292f9e0db94fc5ff906bca1ce391bd35e801bca"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-animal-eye-that-refuses-our-meaning",
+  "field": "title",
+  "lang": "ko",
+  "text": "우리의 의미를 거절하는 짐승의 눈",
+  "model": "claude-opus-5",
+  "source_sha256": "f7b6fcb1570de0b615b4d93c04b88f1e3f794b68e5f8b6a428279f7e1666de22"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-animal-eye-that-refuses-our-meaning-2",
+  "field": "title",
+  "lang": "ko",
+  "text": "인간의 의미를 받아들이지 않는 동물의 눈",
+  "model": "claude-opus-5",
+  "source_sha256": "f7b6fcb1570de0b615b4d93c04b88f1e3f794b68e5f8b6a428279f7e1666de22"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-animal-that-names-the-title",
+  "field": "title",
+  "lang": "ko",
+  "text": "제목이 된 짐승",
+  "model": "claude-opus-5",
+  "source_sha256": "c9b79709b986850d10cc1a4aa5c42a79d83983f90d427dde781c438b72766a4a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-animated-frame-as-forensic-mourning",
+  "field": "title",
+  "lang": "ko",
+  "text": "애니메이션 프레임으로 치르는 법의학적 애도",
+  "model": "claude-opus-5",
+  "source_sha256": "1f69fe47dcf328536afe7a9f1bded8fe4ca19af5abd42564b4cd121445f8cf0a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-animator-s-eye-builds-the-world-s-physics",
+  "field": "title",
+  "lang": "ko",
+  "text": "애니메이터의 눈이 세계의 물리를 짓는다",
+  "model": "claude-opus-5",
+  "source_sha256": "aac8cd632218a9bf0b6c48b9ff15f110e71932e2f85f8df93d6f8acb583e4f3e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-animist-cosmos-beneath-the-squalor",
+  "field": "title",
+  "lang": "ko",
+  "text": "누추함 밑에 깔린 애니미즘의 우주",
+  "model": "claude-opus-5",
+  "source_sha256": "c7016d4a937930f0eebcb684bba95f34552fa0ef0a97c8922e1b2bb3f5531f6c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-annex-where-the-hunted-wait",
+  "field": "title",
+  "lang": "ko",
+  "text": "쫓기는 자들이 숨어 기다리는 별채",
+  "model": "claude-opus-5",
+  "source_sha256": "505270a82b54462e77e1fb10d03687a59e5c2ce574a26d383e9b4b97f46e37d6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-anonymous-roadway-as-modernity-s-void",
+  "field": "title",
+  "lang": "ko",
+  "text": "근대의 공백이 된 이름 없는 도로",
+  "model": "claude-opus-5",
+  "source_sha256": "14975c2d2b8b1dc2803e87c37602274695321e55e8e1f2b40b7f639f5868608e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-anonymous-tape-as-externalized-conscience",
+  "field": "title",
+  "lang": "ko",
+  "text": "바깥으로 나온 양심, 익명의 테이프",
+  "model": "claude-opus-5",
+  "source_sha256": "4ad3a6c601278a21805fda1ce5c7edeaa2972755933c607452e564dce373a7a2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-anthem-as-involuntary-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "저도 모르게 실토가 되어버린 국가(國歌)",
+  "model": "claude-opus-5",
+  "source_sha256": "2758bb7274630d9ee3127201ccd3534b4956f41833afac8536bbb02b6e0b1af7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-anthem-misheard-as-liberation",
+  "field": "title",
+  "lang": "ko",
+  "text": "해방으로 잘못 들린 송가",
+  "model": "claude-opus-5",
+  "source_sha256": "a82ebd46b105c941e4b182fda7f596fc6819f40d3d2e553bdbe00043d1c4cf84"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-anthem-that-audits-its-own-promise",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 약속의 이행 여부를 따져 묻는 국가",
+  "model": "claude-opus-5",
+  "source_sha256": "e1fb7c92fb4f6bcbd5d652b577de526409e9072d173288be04763258156b211b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-anthem-turned-against-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "제게 등을 돌린 찬가",
+  "model": "claude-opus-5",
+  "source_sha256": "b6a04446ecfe4a861d9cba3c3f7b090d834455c3e8d84b20f7525654ef33e5ee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-anti-method-where-living-is-the-medium",
+  "field": "title",
+  "lang": "ko",
+  "text": "사는 것이 곧 매체인 반(反)메소드",
+  "model": "claude-opus-5",
+  "source_sha256": "25e348c788de1ac29ff997956c05391d337f0ea492fdfa5ed8a0eae41c251e20"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-antipodes-disguised-as-america",
+  "field": "title",
+  "lang": "ko",
+  "text": "미국인 척하는 지구 반대편",
+  "model": "claude-opus-5",
+  "source_sha256": "97271d10536dfc04459d2fa4f5842158a376db97b8244a946a76eaae0d35bc29"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-anywhere-korea-stitched-from-elsewhere",
+  "field": "title",
+  "lang": "ko",
+  "text": "다른 곳들을 기워 만든, 어디에도 없는 한국",
+  "model": "claude-opus-5",
+  "source_sha256": "6e50b63c2f17030eeac0c850ac5cf09447681a4c70df64e9534885220faabc14"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-apartment-as-hidden-ontology-of-the-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "아파트, 이 영화의 숨은 존재론",
+  "model": "claude-opus-5",
+  "source_sha256": "801a75bff987c750f39da1dc563ba0012d4970cf738e57a0f568a820db92c36c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-apartment-as-national-faith",
+  "field": "title",
+  "lang": "ko",
+  "text": "온 나라의 신앙이 된 아파트",
+  "model": "claude-opus-5",
+  "source_sha256": "86b3b6f63e2a9b60e6ac8f30ff5fce3e1add194ec53d0f6a5df4121ecc5c6df1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-apatow-improv-factory-s-house-style",
+  "field": "title",
+  "lang": "ko",
+  "text": "애퍼타우 즉흥 공장의 하우스 스타일",
+  "model": "claude-opus-5",
+  "source_sha256": "74b478c324ba722afa0062621d0f2e531869a8fc8b05a2155466339ef407666b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aphoristic-cruelty-of-the-wit",
+  "field": "title",
+  "lang": "ko",
+  "text": "경구로 벼려낸 재담꾼의 잔혹",
+  "model": "claude-opus-5",
+  "source_sha256": "6e181e9a0414988c48234c2e1292a14e80c2cb1767b2d9e98e2aeea33d4b2e4a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-apocalypse-is-a-witnessing-not-a-battle",
+  "field": "title",
+  "lang": "ko",
+  "text": "종말은 전투가 아니라 목격이다",
+  "model": "claude-opus-5",
+  "source_sha256": "2138080e4498a4bd752eb906625d9bc377376c4ee91604b438a0840eb079d551"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-apocalypse-made-tactile-by-hand",
+  "field": "title",
+  "lang": "ko",
+  "text": "손으로 빚어 만져지는 종말",
+  "model": "claude-opus-5",
+  "source_sha256": "3a092dea11e611419d47fa9bc05ff9b0e44ffcfedc3c083434d8a4506632e929"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-apocalypse-shrunk-to-a-single-stage",
+  "field": "title",
+  "lang": "ko",
+  "text": "무대 하나로 줄어든 종말",
+  "model": "claude-opus-5",
+  "source_sha256": "0b6b979ba7bdcb1b5170aa04583eb09b52a206443557e887b11a20b713c6f581"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-apparatus-as-theological-argument",
+  "field": "title",
+  "lang": "ko",
+  "text": "신학의 논증이 된 영화 장치(apparatus)",
+  "model": "claude-opus-5",
+  "source_sha256": "fed4b4cdccc87913af341d25268530f4a0dbfb6bd29f2766c3bad862fe6fca2f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-apparatus-that-manufactures-its-own-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 진실을 스스로 제조하는 장치",
+  "model": "claude-opus-5",
+  "source_sha256": "3b1ef1a20f0db736c8a97e84cf8c62794236e36ad37e686e9b1619763d191005"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-apparatus-that-sees-but-cannot-comprehend",
+  "field": "title",
+  "lang": "ko",
+  "text": "보기는 하나 알아듣지 못하는 장치",
+  "model": "claude-opus-5",
+  "source_sha256": "54d661078c62a87a5b43a2af2e662078c3069a040e1167ade372b48d782a5a96"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-applause-that-was-a-nation-apologizing",
+  "field": "title",
+  "lang": "ko",
+  "text": "한 나라의 사과였던 박수",
+  "model": "claude-opus-5",
+  "source_sha256": "352dc246310a499feed5700f160543f582e3d4f409d7a23d297afb4a3c08a78e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-apple-that-decodes-the-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화를 푸는 열쇠, 사과 한 알",
+  "model": "claude-opus-5",
+  "source_sha256": "821e405bdbb1d7c1f1d2524cad22424cd682b77d8c102f949743d7952211514d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-apprentice-as-cipher-not-person",
+  "field": "title",
+  "lang": "ko",
+  "text": "사람이 아니라 기호로 남은 견습생",
+  "model": "claude-opus-5",
+  "source_sha256": "619460b048ce81e03b7d99bd206f5584b4a102ac7359df811e568786e677d599"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-architect-who-builds-on-a-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "상처를 터 삼아 짓는 건축가",
+  "model": "claude-opus-5",
+  "source_sha256": "411ce513819b4ee2325d8c1696201e62050218ea196e600de86a3b3887753012"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-architect-who-cannot-build",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 짓지 못하는 건축가",
+  "model": "claude-opus-5",
+  "source_sha256": "046b51feff00fb7128c15f157739afe0e7e059b966347b5f84c1e74538e3eaf6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-architecture-built-from-what-is-not-said",
+  "field": "title",
+  "lang": "ko",
+  "text": "말하지 않은 것으로 지은 건축",
+  "model": "claude-opus-5",
+  "source_sha256": "435f3ef689cee4163417915e497b13c5ab498bbc737e6d6357d8a37fd5dbb4b1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-architecture-that-cages-its-class",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 계급을 가두는 건축",
+  "model": "claude-opus-5",
+  "source_sha256": "42e55fbea05cbe2f819d4c53c331f46e0e0587cfc2b859b3c4d266a7daf5ccc9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-architecture-that-diagrams-class",
+  "field": "title",
+  "lang": "ko",
+  "text": "계급을 도면으로 그려낸 건축",
+  "model": "claude-opus-5",
+  "source_sha256": "407c8e4a4275ea637a0e42b96715534fc130f11d3456067e2273b2016ac136d7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-archive-built-over-a-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "주검 위에 세운 아카이브",
+  "model": "claude-opus-5",
+  "source_sha256": "3961e4c5f0ede5c4149c6476bf9db2941c409d3dc5c4753767d5d011df1cf1a7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-archive-that-argues-with-its-keeper",
+  "field": "title",
+  "lang": "ko",
+  "text": "관리자와 말다툼하는 아카이브",
+  "model": "claude-opus-5",
+  "source_sha256": "5d91a4f27cabe083be802f27bcc2417dbc7b2dac1e9cfeca4790ac2646d9bc15"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-archive-that-outlives-its-keeper",
+  "field": "title",
+  "lang": "ko",
+  "text": "지킨 사람보다 오래 남는 아카이브",
+  "model": "claude-opus-5",
+  "source_sha256": "da51c40a3e692f2d4e2135bbc78b64f2ffc4ac94d489a045446838eedf584ee0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-archive-that-speaks-without-interviews",
+  "field": "title",
+  "lang": "ko",
+  "text": "인터뷰 한 마디 없이 말하는 아카이브",
+  "model": "claude-opus-5",
+  "source_sha256": "16bb19584144cf390a841536c371f15f0237565e82145a6e4e85cebc8e83c6d6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-arena-with-no-outside",
+  "field": "title",
+  "lang": "ko",
+  "text": "바깥이 없는 투기장",
+  "model": "claude-opus-5",
+  "source_sha256": "16d8e1cbf33c05fc42ec15fd56440a92f3c404a0ec6ff740ab5ab048eada8359"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aria-as-the-body-s-final-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸이 남긴 마지막 고백, 아리아",
+  "model": "claude-opus-5",
+  "source_sha256": "6849dc2691e468c1f58168355d417f87155fb669e9c06f65ebafe61bbf8a425f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aristocrat-communist-filming-his-own-extinction",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 멸종을 찍는 귀족 공산주의자",
+  "model": "claude-opus-5",
+  "source_sha256": "f4fb739c017cf2751e4d47e67c096e1973ec4ac793d4ab182340a917d9227662"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aristocrat-filming-his-own-class-s-funeral",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 계급의 장례식을 찍는 귀족",
+  "model": "claude-opus-5",
+  "source_sha256": "7fe45c295be56b0c1f912bf25bf6c2966c9fc5f582a88508f4bb7a521f03d42f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aristocrat-who-floats-above-consequence",
+  "field": "title",
+  "lang": "ko",
+  "text": "어떤 대가도 닿지 않는 높이에 뜬 귀족",
+  "model": "claude-opus-5",
+  "source_sha256": "baff83747054683fb3ddb711bf154ac87410c368c5e14e921c8dc3daf663662c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-arithmetic-of-whom-to-save",
+  "field": "title",
+  "lang": "ko",
+  "text": "누구를 살릴 것인가의 셈법",
+  "model": "claude-opus-5",
+  "source_sha256": "8b6664fb51d5520063ec305084509ca573e48b8629ca3632b1f9dd98fe4a3493"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-armored-heart-loosened-by-eros",
+  "field": "title",
+  "lang": "ko",
+  "text": "에로스가 풀어놓은 갑옷 속 마음",
+  "model": "claude-opus-5",
+  "source_sha256": "f68cc9cd6ffff756de4f09904aa36d62e7fbde319cf3c7ab80967446c3ca821d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-army-as-the-hidden-face-of-rule",
+  "field": "title",
+  "lang": "ko",
+  "text": "통치가 감춰둔 얼굴, 군대",
+  "model": "claude-opus-5",
+  "source_sha256": "c74caa1d83d14e6726555047b92b673f77c030ccc2aa250482653fc86a521a38"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-arrival-that-never-arrives",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 도착하지 않는 도착",
+  "model": "claude-opus-5",
+  "source_sha256": "92a474359cd86995101b9624b3fe0df37b5ea32a1ccc628157983c105d36b2b5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-arriviste-who-devours-old-europe",
+  "field": "title",
+  "lang": "ko",
+  "text": "낡은 유럽을 삼키는 벼락출세자",
+  "model": "claude-opus-5",
+  "source_sha256": "2aa1a92fc1068080564aa0b635438e7c118159aa3196bf6c9c827bcb1e2ddcb4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-artificial-surface-smuggling-the-indictment",
+  "field": "title",
+  "lang": "ko",
+  "text": "인공의 표면에 숨겨 들여온 고발장",
+  "model": "claude-opus-5",
+  "source_sha256": "960616d9460e36a526b0cc48d1a9d1a2ccee27a6aac1eb1e47835a8f1ebd0d4a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-artist-filming-his-own-annihilation",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 소멸을 찍는 예술가",
+  "model": "claude-opus-5",
+  "source_sha256": "c1face7719973e74a50ab57a662090b76bd079a6c804bf4cb5409b34746cc452"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-artist-history-forbids-to-play",
+  "field": "title",
+  "lang": "ko",
+  "text": "역사가 연주를 금지한 예술가",
+  "model": "claude-opus-5",
+  "source_sha256": "f4ff01789fb3b6f0abb5d3ccc0c532c8ba657c2f9f7be54a1a4bc09b027012f5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-artist-who-burns-the-words-to-live",
+  "field": "title",
+  "lang": "ko",
+  "text": "살기 위해 제 원고를 태우는 예술가",
+  "model": "claude-opus-5",
+  "source_sha256": "64dbd66a4afd147f5e1ea1eada73f4749dbb1b8947a55bf0dffa1bbae11f0d29"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-artist-who-films-her-own-decay",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 몸이 스러지는 과정을 찍는 예술가",
+  "model": "claude-opus-5",
+  "source_sha256": "1131fb530791379ecfa3d3b7b2bddd3d7310f061a0327a2c3c89e5594040e4b0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-artist-who-reduces-a-person-to-material",
+  "field": "title",
+  "lang": "ko",
+  "text": "사람을 재료로 깎아내리는 예술가",
+  "model": "claude-opus-5",
+  "source_sha256": "4dc6d566b9f73111d8b4ebd4d442f4f41cae83e9de1eb53633982bb22f9337af"
+ }
+]

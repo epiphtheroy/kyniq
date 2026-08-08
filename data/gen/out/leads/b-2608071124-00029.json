@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "seance-on-a-wet-afternoon-1964",
+  "field": "lead",
+  "film_id": "5111ae98-d0ac-47e8-bd1b-ff943cb540c5",
+  "lang": "en",
+  "text": "The seances happen in a front room, chairs pulled into a circle, curtains shut against a wet English afternoon. Myra Savage presides; her husband Billy, asthmatic and out of steady work, supplies the hidden half of whatever the spirits are supposed to know. Their plan — take a wealthy couple's daughter so that Myra can be the one who finds her — is domestic theatre that happens to require an actual child, and the film treats the whole business as housekeeping: trays, timetables, a story rehearsed at the kitchen table. Almost all the practical work falls to Billy, who must drive and lie while his wife maintains that she is not a fraud. The Academy Award for Best Actress here went to a performance kept mostly at the level of a murmur. Rain, buses, a kettle, and a marriage in which only one of the two is permitted to be certain.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a3e01b8aa797a11ed9bca6bff09cd3d8fda29061b4f20d1151a31aa7db90b5a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "twentieth-century-1934",
+  "field": "lead",
+  "film_id": "30b8d84c-eae1-42b4-8247-f91901f00d00",
+  "lang": "en",
+  "text": "A Broadway producer shouts an untrained shopgirl into stardom, then finds she has learned everything he taught her, including how to use it on him. From there the film is a contest between two people who cannot stop performing, run at a speed that leaves neither room to be sincere by accident. Ninety-one minutes, mostly talk, lines landing on top of the lines before them; Howard Hawks keeps the quarrel at the tempo of professionals who know each other's timing to the half second, so that the romance and the rivalry turn out to be the same activity. The National Film Registry holds it. The comedy is not gentle — tantrums are staged, collapses rehearsed, threats delivered with an eye on the effect — and whether anyone in the room means a word of it is left cheerfully unsettled.",
+  "model": "claude-opus-5",
+  "source_sha256": "563c83fcd4785e1983c5c3d5fc49bc77323683c601dc85632a3c48d8d79763aa"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "testament-1983",
+  "field": "lead",
+  "film_id": "6ebe28d8-575a-4330-8097-74308d47e65c",
+  "lang": "en",
+  "text": "No mushroom cloud, no war room, no countdown. Hamlin is a small California town at a distance from the warheads that fall along the Eastern Seaboard and then closer to home, and the film stays inside it with one family, the Wetherlys, as the ordinary supports of a household are withdrawn one at a time: school, supplies, the assumption that help is coming from somewhere. Ninety minutes at the scale of a kitchen. Radiation poisoning arrives as chores and thermometers rather than as spectacle, which is by some distance the harder thing to sit through. Lynne Littman made it in 1983, while the subject was being argued in far louder registers, and the Academy Award for Best Actress it carries went to a performance built out of keeping a routine going past the point where routine means anything.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf8aad210dc24865edededdbe5ec458a91d572e97e5615ecea9e05e89d4984e3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-great-santini-1980",
+  "field": "lead",
+  "film_id": "c120d0fe-565d-4a5d-a322-ef222ddd8ca3",
+  "lang": "en",
+  "text": "A marine pilot with no war to fly turns his own family into the opposing team. Ben Meechum is close enough to manhood to be treated as a rival, and he spends the film trying to win approval from a man who competes with him for it; the only ground on offer is contest, scored aloud, with a winner named. Everyone else in the house lives by the results. The tone keeps shifting underfoot, because the father is funny — genuinely funny — and the household depends on his staying in the mood to be funny, which is a kind of weather nobody in the place controls. The honors here are for acting at both ends of that argument, lead and supporting, and that is right: there is no third position in the room, only two people making the same mistake in opposite directions.",
+  "model": "claude-opus-5",
+  "source_sha256": "cdebbacf656db1466be9fa62f7e9ec5481e2cb4fdeb1a1b5aab727b21c36b7c4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "three-little-pigs-1933",
+  "field": "lead",
+  "film_id": "ea6a2922-3539-4441-8bf8-0432f4003764",
+  "lang": "en",
+  "text": "Eight minutes, and a good part of them is a song. Two pigs throw up straw and sticks so they can get back to playing Who's Afraid of the Big Bad Wolf?; the third lays bricks and takes the mockery for it. The wolf works through his methods in order — courtesy, a sheep disguise, then lungs — and the short is built on that escalation, each attempt given its own tempo. What holds up is the acting: in 1933 it was still an open question whether a drawn figure could have a temperament rather than just a bouncing walk, and these brothers are told apart by rhythm well before they are told apart by design. It took the Academy Award for animated short film. The moral arrives on schedule, delivered by the one brother nobody in the story wants to spend an afternoon with.",
+  "model": "claude-opus-5",
+  "source_sha256": "ecf4f2a482a67fb8c5014528539f57f1dc782275a09d8823cb41bb32f5bfc4be"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-farewell-to-arms-1932",
+  "field": "lead",
+  "film_id": "f538fb57-0380-49eb-b2a9-52ad4aeb5e29",
+  "lang": "en",
+  "text": "Hemingway's sentences withhold; Frank Borzage withholds nothing. The novel arrives here as eighty-nine minutes in which an American ambulance driver and a British nurse meet on the Italian front and are then kept apart by paperwork — a transfer, an order, a distance measured in days of travel — while the war continues offstage as noise and weather. Borzage's interest is entirely in the two of them. The honors it collected were for camera and design, which suits a film that makes its case in light and space rather than in speech. Scholars have since treated it as a case study in what a Hollywood studio in 1932 was prepared to do with a famous book, and the seam shows on screen: material built to refuse feeling, handed to a director for whom feeling is the whole subject.",
+  "model": "claude-opus-5",
+  "source_sha256": "88665084e94c4acd0f069339ca898c6cdb4ccfce007e753ad27266d793dc3d4e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ship-of-fools-1965",
+  "field": "lead",
+  "film_id": "6265f44f-fc23-4eba-855c-c0298a2f1e76",
+  "lang": "en",
+  "text": "The passenger list is a device and the film never pretends otherwise: a boat sails from Mexico to Europe in the 1930s, the crew German, everyone aboard chosen to stand for somebody back on shore. Two and a half hours of that could be unbearable. What keeps it moving is that Stanley Kramer's actors play the assignment rather than the point, so the ship's doctor, Schumann, falling for La Condesa, or Jenny and David, who cannot work out whether they are in love or merely travelling together, keep straining against the scheme they were built into. Black-and-white interiors carry much of the weight — cabins, dining room, the same stretch of deck at different hours — and the art direction was honored for it. Europe is still ahead of them, and everyone talks as though there is time.",
+  "model": "claude-opus-5",
+  "source_sha256": "d3c1c7cca03361e89acbbdc3e33a28adf3b920e4a2b35343b28c682b4fe767e4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "born-free-1966",
+  "field": "lead",
+  "film_id": "49c58e41-5c6e-4f0a-83bf-ae2a2cb6f0b8",
+  "lang": "en",
+  "text": "The problem is not sentiment but competence: a lion raised in a house has never had to kill anything, and the alternative to learning is a cage in Europe. George and Joy Adamson, a game warden and his wife at a national park in Kenya, keep the smallest of three orphaned cubs after the other two are shipped to a zoo in the Netherlands. Then Elsa is blamed for an elephant stampede near the village, and the head warden, John Kendall, sets terms: the Serengeti or captivity. What follows is months of instruction that can be neither hurried nor faked, since the animal keeps the schedule and has no interest in the deadline. The score took an Academy Award and does a fair amount of the persuading. The Adamsons' difficulty is their own success — what they taught the cub about people is exactly what she now has to lose.",
+  "model": "claude-opus-5",
+  "source_sha256": "39d6a005fe96c40a581b773cd7d1324551a32bf2e3659dd2792ea30482fc47d4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "cops-1922",
+  "field": "lead",
+  "film_id": "3e2ff8c0-9de7-4dfc-864b-0de2d737829f",
+  "lang": "en",
+  "text": "A misunderstanding about a horse and a cart is a small thing, until it crosses a police parade. Buster Keaton spends the early stretch of this film in ordinary civic trouble, the kind that could be cleared up if anybody stopped to listen, and the rest of it pursued by what appears to be every officer the city employs. The chase is engineering rather than improvisation: exact intervals, one body calculating against a street's worth of traffic, each solution physical, immediate, and carried out with the same unbothered face. Keaton directed it himself in 1922. The comedy sits in the ratio — hundreds of men organized around catching one who has not, at any point, meant anything by it. Eighteen minutes, and not one of them is spent on an explanation.",
+  "model": "claude-opus-5",
+  "source_sha256": "374a96c730d09a797c9e0dede8a577878b9f5589a645f3c3cd3b271d10422139"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "of-mice-and-men-1939",
+  "field": "lead",
+  "film_id": "f5add31d-f16d-4b44-9f42-5cefc7e27173",
+  "lang": "en",
+  "text": "Ranch work in the Depression is paid by the day, which makes every attachment on the place temporary by arrangement. Two men arrive together anyway: one enormous and intellectually disabled, the other keeping him out of trouble, which in this economy amounts to a second job nobody pays for. Lewis Milestone shoots the bunkhouse as a closed room where men with nothing to do after supper watch one another too closely, and the cruelty comes from a hand who has worked out precisely how little protection the newcomers have. A hundred and six minutes, much of it waiting — for work, for wages, for somebody to say the wrong thing. The score was honored and it stays out of the way. What tightens is the arithmetic: a man who cannot explain himself, in a place where explanation is the only defense available.",
+  "model": "claude-opus-5",
+  "source_sha256": "d921b1d32540c71addaf73e1343ab3e1dad4940543914ae126aab974edc32f03"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-times-of-harvey-milk-1984",
+  "field": "lead",
+  "film_id": "2af862b5-7abf-4e5c-98e1-9fcd5b977f6e",
+  "lang": "en",
+  "text": "Six years is a short distance between an assassination and a film about it. Harvey Milk was an outspoken activist and among the first openly gay Americans elected to public office, killed in 1978, and Rob Epstein assembles the people who worked alongside him together with the footage that happened to record him. Ninety minutes, mostly voices and archive. The method is plain, and it keeps the politics concrete: precincts, coalitions, phone calls, the unglamorous machinery of getting elected, conducted by a man for whom simply being known carried a cost that his opponents never had to pay. It took a Special Jury Prize at Sundance. The grief on camera has not yet been organized into history — people are still working out, sentence by sentence, what they are allowed to say about him.",
+  "model": "claude-opus-5",
+  "source_sha256": "27484524e1ef8a7bd63728cd8a0779e344689602242dc37babf9f8b307add71b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-ruling-class-1972",
+  "field": "lead",
+  "film_id": "6f1c25e5-8153-4acc-82d2-8baa7e12f9c2",
+  "lang": "en",
+  "text": "English property law has a great deal to say about who inherits and nothing whatever to say about what he believes. The Earl of Gurney dies in an accident involving women's clothing, and the estate passes to his son Jack, who sings, dances the grounds, and holds that he is Jesus returned. The relatives set about proving him unfit and discover that a man preaching universal love is far harder to dislodge than a man who is merely peculiar. Peter Medak lets it run 154 minutes and switches register without warning — musical number, drawing-room farce, something considerably colder underneath — which is method rather than indiscipline, since the household has to absorb each new key. The lead performance was recognized by the Academy. The joke tightens as it goes: nobody here objects to madness, only to this particular variety.",
+  "model": "claude-opus-5",
+  "source_sha256": "036373d12d0613fcbd67a0ba8dce7799900a73d87eba5b70d8401866f4a40243"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "thirty-seconds-over-tokyo-1944",
+  "field": "lead",
+  "film_id": "6ebb5a7c-189f-452e-bb67-53cb1df3fb7c",
+  "lang": "en",
+  "text": "A secret mission, reconstructed for audiences while the war it belonged to was still being fought. The timing shows in what the film lingers over, which is preparation rather than the raid: a young lieutenant volunteers without being told the target, says goodbye to an expectant wife, and then trains, the same procedure repeated until the men can perform it without discussion. Mervyn LeRoy gives 138 minutes to that patience, and it is the right call, since the flying itself is the shortest part of the story. The honors went to camera and effects, which in 1944 meant manufacturing altitude, weather and distance convincingly enough for viewers who had already read the headlines. What dates the film is its confidence. What doesn't is the domestic half: two people being careful with each other about a departure neither is permitted to describe.",
+  "model": "claude-opus-5",
+  "source_sha256": "569d3246e37f0783c2723d2377b1086b1d4d081d2393d51f81dddba5b8cca5c2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-endless-summer-1966",
+  "field": "lead",
+  "film_id": "951bb2fa-f0d0-4153-8208-7e860c221796",
+  "lang": "en",
+  "text": "Summer exists somewhere on earth all year round, and two Californians took that literally enough to buy tickets. Mike Hynson and Robert August spent the winter of 1965 — when winter still meant an off-season for the sport — following the warm weather around the world in search of a wave that broke the way they wanted it to. Bruce Brown films the getting there at least as attentively as the riding: airports, roads, borders, long waits, water that turns out flat on the morning they arrive. Ninety-one minutes, in which the surfing occupies minutes and the travel occupies weeks. It sits in the National Film Registry. The pleasure of the thing is its slight absurdity, two young men treating the planet as one beach operating on a timetable, and largely getting away with it.",
+  "model": "claude-opus-5",
+  "source_sha256": "3220614f7c2df376604d9bff3586b5353e1c32ebaffe1709d4f17fd94f4ac182"
+ }
+]

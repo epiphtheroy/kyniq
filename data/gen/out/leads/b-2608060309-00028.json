@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-african-queen-1951",
+  "field": "lead",
+  "film_id": "30b2886c-71de-41d0-9a5a-d28424c17d76",
+  "lang": "en",
+  "text": "The First World War starts elsewhere and arrives in the middle of Africa as news, then as an errand: two civilians and a small boat sent downriver at a German warship. One of them drinks. The other has a mission, a temperament, and no intention of being talked out of either. John Huston spends the runtime on that mismatch, in a space too narrow for anyone to walk away from an argument, and lets the river handle the plotting. Its record carries Academy Awards for the lead performances and for direction, prizes for a picture whose biggest scenes are two faces at close range. What holds up is how unequipped the heroism stays. Neither of them is a soldier, a riverboat is not a warship, and the adventure comes down to argument, improvisation, and the next bend.",
+  "model": "claude-opus-5",
+  "source_sha256": "7718938ee45e17e8f225dd1ada8ae13874f5cf418d901463532f2c65e82922a7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "local-hero-1983",
+  "field": "lead",
+  "film_id": "47f80401-9fa7-4f6f-be03-9db9b2668548",
+  "lang": "en",
+  "text": "The assignment is straightforward: buy a village, the houses, the beach, the shoreline behind it, for an American oil company that wants a refinery on that water. Bill Forsyth sends the company's man to Scotland braced for resistance and gives him something harder, a place with its own arithmetic and nobody available to play the villain. The comedy runs on patience. Scenes hold a beat past the point where the joke lands, and the extra beat is where the film lives: weather, phone calls, the slow business of deciding what a home is worth in cash. Nothing gets shouted. The BFI's roll of British films keeps it, and the reason is legible in the pacing — 111 minutes watching a negotiation stay courteous while the ground underneath it moves.",
+  "model": "claude-opus-5",
+  "source_sha256": "960612634b4cdcb50829fca3545d0a2608cea08476ae91690006d5bbebdf5efe"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "grand-hotel-1932",
+  "field": "lead",
+  "film_id": "2b6e0149-0695-46ab-8a27-e944557757dd",
+  "lang": "en",
+  "text": "The organizing unit here is not a hero but a floor plan: a Berlin hotel where several guests' troubles run alongside one another and only occasionally touch. Worry, scandal, heartache. The crises are ordinary; the engineering is not, since every one of them has to stay alive across 112 minutes and take its scene before the lobby swallows it again. Edmund Goulding directs the thing as traffic — an arrival, a corridor, a decision taken in one room that reaches another as rumor. Nobody stays long enough to become a protagonist, which suits the material. An American studio built this Berlin in 1932, and it carried off Best Picture. The audience is handed the whole floor plan; each guest is handed a single room, and the gap between those two facts is where the film gets everything it has.",
+  "model": "claude-opus-5",
+  "source_sha256": "f2b113258bdfdbc69ad65dd1b02194e7dcbcf06eb254fc00af590a421019530c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "grand-canyon-1991",
+  "field": "lead",
+  "film_id": "6b128a30-951c-4215-a632-4ffa112ffb44",
+  "lang": "en",
+  "text": "A Berlin jury gave its top prize to a picture about Los Angeles and the ways strangers there fail to remain strangers. Six people, six unrelated sets of worries, and one encounter — a man in trouble on a street he does not live on, and a man who does — that pulls a thread through all of it. Lawrence Kasdan runs long, 134 minutes, because he is after accumulation rather than incident: conversations that circle back, coincidences examined instead of spent. Crime, comedy and drama share a file here, and the comedy is not relief; it is what people reach for when the alternative is saying the fear out loud. The screenplay took an Academy Award. Underneath sits a question about whether a city this size can be lived in as several separate cities, and whether the people who assume it can are correct.",
+  "model": "claude-opus-5",
+  "source_sha256": "b8f4288e19a4a12151a05f78c2e5c5f76a3c05a4ec31383ee17c4c857b396fc7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "wings-1927",
+  "field": "lead",
+  "film_id": "af82505f-4c45-4d6e-986b-b8558813af06",
+  "lang": "en",
+  "text": "Two friends in love with the same woman enlist together, which is a reliable way to make a war feel like a private matter. One is rich, one is not, and the Air Corps flattens that difference for as long as they are both in the air. William A. Wellman had 144 minutes in 1927 and spent a great share of them aloft; one of the picture's two Academy Awards was for engineering effects, a category that states plainly where the difficulty sat. The flying is looked at, not summarized. Best Picture came with it. Two men can share a squadron more easily than a hometown. On the ground the triangle keeps its grip, and a fourth figure waits out the war at home, in love with one of the men and largely unseen by him; the length is what buys her those scenes.",
+  "model": "claude-opus-5",
+  "source_sha256": "218612097681b2b25eaf96757ab38902c412cd4c18479d97701b762847de3904"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "my-american-uncle-1980",
+  "field": "lead",
+  "film_id": "6f7f4f22-79fb-4c46-a46d-3feb760190fe",
+  "lang": "en",
+  "text": "A scientist appears on screen and explains, in the vocabulary of laboratory behaviour, why the three people the film is following do what they do. René manages part of a textile plant and is being squeezed by a restructuring. Janine learns something about her lover's marriage that puts a decision in her hands. Jean writes, campaigns, and has reached the point where the next move settles the rest. Alain Resnais runs the commentary alongside the lives without ever letting it fit, and the gap is the picture: reasons offered in the first person, set beside an account of the same behaviour that has no use for reasons. Cannes gave it the Grand Prix and the screenplay took an Academy Award. Whether being explained this thoroughly is an insult or a mercy, 126 minutes decline to settle.",
+  "model": "claude-opus-5",
+  "source_sha256": "342c91e2582405ef6dd2fcd223c1715b23d36751843be5e4c44f75863c5389a2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "cimarron-1931",
+  "field": "lead",
+  "film_id": "0d92acbd-02f7-44a0-b63f-a13a33d87728",
+  "lang": "en",
+  "text": "Yancey Cravat claims a piece of free Oklahoma, helps build a town on it, and then cannot stay in the town he built. He is a newspaperman, a lawyer and most other things a boom settlement needs, and Osage grows up around him until he is its leading citizen — at which point the Cherokee Strip opens and he goes. The better story is the one the film finds by staying put. Sabra learns to run a household alone, then to run rather more than a household, and her standing is assembled out of his absences. Wesley Ruggles had 123 minutes in 1931 for a territory's settlement and a marriage conducted mostly at a distance; the prizes went to both leads and to the camera work. A Western in which the frontier is a habit one spouse cannot break and the other has to survive.",
+  "model": "claude-opus-5",
+  "source_sha256": "ff84958bbd7ac50b80a4a8e84956a0dadf919b85322e9a67581e23e78660be2a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "heartland-1979",
+  "field": "lead",
+  "film_id": "9796fffb-383c-49cf-a091-d15e515ea87e",
+  "lang": "en",
+  "text": "A barren stretch of Wyoming in 1910, and a widow arrives with her small daughter to keep house for a man called Clyde Stewart. The work is physical and unrelenting, and Richard Pearce shoots it that way: 96 minutes in which chores are duration rather than montage, and winter is an antagonist with a timetable. Elinor wants land in her own name. Stewart, who owns the ranch and knows the arithmetic, explains what homesteading costs a woman with no one to help her, and what the two of them eventually agree to is closer to a merger of claims than a courtship. Affection is not the currency here; competence is. Berlin gave the film its Golden Bear, a strange and correct fate for something this plain about labour, weather, and what one bad season does to a balance sheet.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c2fde64d55ace7527aa735f5b7c6c6188ada50fdaa39fcfd8f6eb6d440ad079"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-worst-person-in-the-world-2021",
+  "field": "lead",
+  "film_id": "33421048-e8d4-47b8-8af4-34a4ed3bc975",
+  "lang": "en",
+  "text": "Four years, followed closely, in the life of a woman who keeps revising what she intends to be. Julie changes courses, changes partners, changes the account she gives of herself, and Joachim Trier refuses to file any of it as a failure of character; the mistakes are made at speed and in good faith, which is what makes them expensive. The register stays light for long stretches. Comedy is the default setting and grief keeps arriving inside it, unannounced, in the middle of scenes built for jokes. 128 minutes covers enough calendar for decisions to turn into consequences while she is still defending them. European prizes went to the lead performance and to the writing, and the New York Times has it among the century's best. What it is finally about is the price of keeping every option open.",
+  "model": "claude-opus-5",
+  "source_sha256": "17c5097d0d7924c17755c2756c602bb87e9cd9599645791defe9c7691056a1a4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "aferim-2015",
+  "field": "lead",
+  "film_id": "6b17b838-4f75-4d72-ab60-4289a5626fb8",
+  "lang": "en",
+  "text": "A lawman rides out across Wallachia in the early 1800s to bring back a runaway slave, and the film treats the errand as ordinary paid work, because there and then it was. The man being hunted left after an affair with the nobleman's wife, so the commission carries a private humiliation on top of a property claim, and Costandin is paid not to think about either. Radu Jude builds it as a journey and lets the talk along the way do the historical argument; the period's own vocabulary convicts it faster than any commentary could. Berlin gave him the Silver Bear for direction. What accumulates across 108 minutes is not suspense about the capture but the ordinary competence with which it is arranged, and how much that competence sounds like decency.",
+  "model": "claude-opus-5",
+  "source_sha256": "f0113bfe8aa6bff74f294b8d865e874daa0a4f99ab7356e033d92aa6f8584f33"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "maria-full-of-grace-2004",
+  "field": "lead",
+  "film_id": "cd4c7d1c-2213-4817-9529-acfa525143a8",
+  "lang": "en",
+  "text": "A fee is offered, and it is larger than any other number available to a pregnant Colombian teenager, and that is the whole of the seduction. Joshua Marston films what follows as employment — a recruiter, a set of instructions, a rate of pay — rather than as crime, and the difference decides how the 101 minutes feel. The thriller is real. It just runs underneath a story about wages. María is neither naive nor doomed, and the film declines to invent better options for her than the ones she has, which is where the pressure comes from: every step is reversible until it is not. The lead performance carried a Silver Bear out of Berlin and an Academy Award, which in a picture this undecorated is close to the entire apparatus — a face, a decision, and the time it takes to make it.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d3481d57bc657c65e016b6c46ea6d581fa2d1e45de0a2fc4f46e4e42b8e7c4d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "how-i-ended-this-summer-2010",
+  "field": "lead",
+  "film_id": "d0ed40d0-7c9d-4fcf-947c-62ef1d27b2ce",
+  "lang": "en",
+  "text": "Two men, one island in the Arctic Ocean, and a message the younger of them has received and not yet passed on. The station still has to be run — readings taken, numbers logged, the schedule kept — and Alexey Popogrebsky uses that routine as a clock: every hour Pavel says nothing makes saying it harder. Sergei has done this work for years and has his own way of doing all of it, which reads as competence right up until it reads as something else. The film is filed as a thriller and earns the label without importing anyone from outside: two people, an enormous amount of space, and one withheld fact. Berlin gave Silver Bears to the acting and to the artistic contribution, and a European Film Award followed for the cinematography: 124 minutes of country with no cover in it.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e63a84cc723d0ae6633be1215843e4acdf81a2ecffb71bdbdd5dc4e41b7e71f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "fever-1981",
+  "field": "lead",
+  "film_id": "b7f0f70d-8e2f-4c72-9d30-23770a1a50c6",
+  "lang": "en",
+  "text": "The bomb is the through-line: it changes hands, and each pair of hands is a portrait. Agnieszka Holland takes the underground of 1905 — partitioned Poland, Tsarist police, a conspiracy assembling itself out of ordinary people with ordinary reasons — and organizes 122 minutes around a device that has to be kept, moved, hidden, and eventually used or not. Idealism is not a costume here. Neither is exhaustion. Poland made this film in 1981, about Poles conspiring against an empire in 1905. The lead performance took a Silver Bear in Berlin, and Gdynia gave the film its Golden Lions at home. What the structure allows that a biography could not is conviction shown as something transferable, handed on with the object, arriving each time in a person differently equipped to carry it.",
+  "model": "claude-opus-5",
+  "source_sha256": "35d3198b5be49e35fdeb7b55dcdddee8fbc9dc261c7f5e04eaac36271441f419"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "roman-holiday-1953",
+  "field": "lead",
+  "film_id": "cf7dd1e9-3380-44c6-9782-0717348d28e7",
+  "lang": "en",
+  "text": "The romance begins as a professional deception: he knows exactly who she is and lets her believe he does not. Everything pleasant in the next two hours rests on that, which is why the film keeps its footing where lighter ones curdle — the delight and the guilt are made from the same material. Rome is in black and white, and the prizes for cinematography and art direction sit on a city used as geography rather than decoration. A princess with a schedule she cannot survive gets one day loose in it. A reporter with an editor and a bet gets the story of his career, provided he keeps lying. William Wyler is careful never to let the audience feel cleverer than the two people it is watching, which is harder discipline than it sounds and the reason the comedy still has teeth.",
+  "model": "claude-opus-5",
+  "source_sha256": "e775e9148e2c2ae3539db595118a0dcfbf2eef88091230b2f0b7cb22100345d4"
+ }
+]

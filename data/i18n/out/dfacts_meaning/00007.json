@@ -1,0 +1,11 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "zhang-yimou",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "張藝謀. 성씨 張(장)은 활을 당겨 편다는 뜻으로, 중국에서 가장 흔한 성 중 하나다. 이름 藝謀는 예술과 기예를 뜻하는 藝(예)에 계략과 책략을 뜻하는 謀(모)를 붙인 것. 풀면 예술로 일을 도모하는 자쯤 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bb8f46b9bc26dd3b9615962019ea78381a2ef983b173ba3b6c5716266235b2ad"
+ }
+]

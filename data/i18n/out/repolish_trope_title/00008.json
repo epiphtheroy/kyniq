@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "qu-bec-s-mundane-ground-as-the-real-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "진짜 주인공은 퀘벡의 범속한 땅",
+  "model": "claude-opus-5",
+  "source_sha256": "89b6276978b234d1fc76f811191e8eb86cbd622391695ffcacd44fb66edc846f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "quarantine-as-the-state-s-manufactured-emergency",
+  "field": "title",
+  "lang": "ko",
+  "text": "격리, 국가가 만들어낸 비상사태",
+  "model": "claude-opus-5",
+  "source_sha256": "6768e2ba4baf0da20918b957bfb7758320258ca90284ddb19fd951ca72a86817"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "radical-honesty-as-moral-catastrophe",
+  "field": "title",
+  "lang": "ko",
+  "text": "극단적 정직이 부르는 도덕적 파국",
+  "model": "claude-opus-5",
+  "source_sha256": "aadcde8efde1a63d9361ed81bbd332e6be85d956d152d46bfc98a8e81a60d984"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "rain-as-the-indifferent-verdict-of-nature",
+  "field": "title",
+  "lang": "ko",
+  "text": "비, 자연의 무심한 판결",
+  "model": "claude-opus-5",
+  "source_sha256": "d9d614513414c194c00816bfbded0e8bf2abe3fcef76126b48b020cd7c995914"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "read-through-bash-s-walking-poetics",
+  "field": "title",
+  "lang": "ko",
+  "text": "바쇼의 걷기 시학으로 읽기",
+  "model": "claude-opus-5",
+  "source_sha256": "a3ad8f2043f53a74ef79ef93210c071b7093994dd4766a1fde54308a06f03d24"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "read-through-the-1992-la-riots",
+  "field": "title",
+  "lang": "ko",
+  "text": "1992년 LA 폭동으로 읽기",
+  "model": "claude-opus-5",
+  "source_sha256": "40066de12f5857062e65f984c7c95dde44ad0394ec6670a6bc38099b21f090bb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "reading-french-cinema-through-its-political-date",
+  "field": "title",
+  "lang": "ko",
+  "text": "정치적 연대로 읽는 프랑스 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "7b764d325252b09f75ac95b752ee261bc7862daf0da8bad21828ae63affe72d2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "reagan-era-sexual-panic-diagnosed-on-screen",
+  "field": "title",
+  "lang": "ko",
+  "text": "스크린이 진단한 레이건 시대의 성적 공황",
+  "model": "claude-opus-5",
+  "source_sha256": "002b6b1ff0261469167c0d82d509eaf96944bace5992454e64d9d33adf85dff0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "reagan-s-america-filmed-as-its-own-lie",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 거짓말로 찍힌 레이건의 미국",
+  "model": "claude-opus-5",
+  "source_sha256": "17a71e9e27713f634c169829558c14e5074a37f0a2d287e966c65eaacebff7b1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "real-carceral-walls-playing-the-nation",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가를 연기하는 실제 감옥 벽",
+  "model": "claude-opus-5",
+  "source_sha256": "79dee8c2bb929b9200730687c869cc0e1c696196093ec0a59744d16895dfd803"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "real-deprivation-bleeding-into-the-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "프레임으로 번져드는 진짜 결핍",
+  "model": "claude-opus-5",
+  "source_sha256": "1a8438e7c4d7283ebcad6bae4224db116586a43db03a52cef52da0014f15fcd3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "real-roman-stone-as-pre-loaded-dread",
+  "field": "title",
+  "lang": "ko",
+  "text": "로마의 진짜 돌, 미리 장전된 공포",
+  "model": "claude-opus-5",
+  "source_sha256": "431ec41b2dcfa59d0e883af20466b972d40067356eecffcf6f8132485e1505a6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "real-time-as-the-refusal-of-the-cut",
+  "field": "title",
+  "lang": "ko",
+  "text": "컷을 거부하는 실시간",
+  "model": "claude-opus-5",
+  "source_sha256": "c90365eae9f4fa4655feb93b04addb358426334303d754d77788bf88c2e01385"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "realism-as-the-orthodoxy-that-polices-the-poor",
+  "field": "title",
+  "lang": "ko",
+  "text": "가난을 단속하는 정통, 리얼리즘",
+  "model": "claude-opus-5",
+  "source_sha256": "979742ec181ecee770e37294ebc5f01dca6ccb2ca7b64c49baff0560fc8de2e8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "realism-bought-by-outsourcing-the-making",
+  "field": "title",
+  "lang": "ko",
+  "text": "제작을 외주 주고 사들인 리얼리즘",
+  "model": "claude-opus-5",
+  "source_sha256": "c8b16be1dc0cdee6f04cedc4a91340d0f8d7302c11ad3423fdaa35d4c4997b1a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "reality-runs-on-game-logic",
+  "field": "title",
+  "lang": "ko",
+  "text": "게임 논리로 돌아가는 현실",
+  "model": "claude-opus-5",
+  "source_sha256": "fee7cbc223f66d9bd29c5850a37b629d0ee378e7d53d15a17ddd37292e196e25"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "reality-runs-on-stagecraft",
+  "field": "title",
+  "lang": "ko",
+  "text": "무대 장치로 돌아가는 현실",
+  "model": "claude-opus-5",
+  "source_sha256": "27a3309577b4e4d3d69fefb8d0cc7b0806726fbadf22b557d742b866782ac8c7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "reason-as-the-mask-of-atrocity",
+  "field": "title",
+  "lang": "ko",
+  "text": "잔학이 쓴 가면, 이성",
+  "model": "claude-opus-5",
+  "source_sha256": "427b44e3669bedaa077fb9fb27e3af3dc127f0353afec5569b4478ec3faf396e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "recognition-withheld-personhood-denied",
+  "field": "title",
+  "lang": "ko",
+  "text": "인정을 미루자 사람이 아니게 된다",
+  "model": "claude-opus-5",
+  "source_sha256": "5364d622884d57e64c0395be4977038a990087104388942dbc9fd1c4d57d4dc1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "red-as-the-blood-the-image-cannot-otherwise-show",
+  "field": "title",
+  "lang": "ko",
+  "text": "이미지가 달리 못 보여주는 피, 붉음",
+  "model": "claude-opus-5",
+  "source_sha256": "4d6fdcc1099dc52101aa61daa137170f0eba8e64edd7ec4ce8879357a90404e8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "red-as-the-substance-that-surfaces-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "진실을 떠오르게 하는 물질, 붉음",
+  "model": "claude-opus-5",
+  "source_sha256": "ce7db3319d3778a7605494b9816c31e30136ca69cb51e0aeeeeae08b54b57910"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "refusal-as-the-birth-of-conscience",
+  "field": "title",
+  "lang": "ko",
+  "text": "거부에서 태어나는 양심",
+  "model": "claude-opus-5",
+  "source_sha256": "9f03afb28910e0865df17d1e38292d020724823410d56dc0d46d47f3bbb7e7f7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "refusal-as-the-soul-s-last-defiance",
+  "field": "title",
+  "lang": "ko",
+  "text": "영혼의 마지막 항거, 거부",
+  "model": "claude-opus-5",
+  "source_sha256": "d1ea2f61ecd441d901f20f02309775e900347e63ccb44cec4329964213ca2bec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "refusal-as-the-world-s-stubborn-facticity",
+  "field": "title",
+  "lang": "ko",
+  "text": "거부, 세계의 완고한 사실성",
+  "model": "claude-opus-5",
+  "source_sha256": "cfa2454b65dba2bdb05ce5f7f1d9cb022a3e7eb5bc7de90d0cd73515267aa0e6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "refused-flesh-as-a-sacred-offering",
+  "field": "title",
+  "lang": "ko",
+  "text": "거부당한 육체가 신성한 제물로",
+  "model": "claude-opus-5",
+  "source_sha256": "ce9869e397d5c50aab3ea6138bac4c8a3c3bad50d9f6a6d085bdfaae7dc3db3d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "refusing-the-father-s-bread-and-firm",
+  "field": "title",
+  "lang": "ko",
+  "text": "아버지의 빵도 가업도 거부하기",
+  "model": "claude-opus-5",
+  "source_sha256": "653ada038e49f5910afaca9b98212b39c0d7b61cb2cedf68fc13c6193a2b4cbb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "refusing-the-image-to-sharpen-the-ear",
+  "field": "title",
+  "lang": "ko",
+  "text": "귀를 벼리려 이미지를 버리다",
+  "model": "claude-opus-5",
+  "source_sha256": "a9ccad2311c1f64aa60958bf3ce77e028b5eb2e533d9a93d9d0977138e3b0077"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "rehabilitation-exposed-as-performance",
+  "field": "title",
+  "lang": "ko",
+  "text": "교화는 연기였다",
+  "model": "claude-opus-5",
+  "source_sha256": "54be42199ea28923ff9abfccaaab9feb9d9b4a7badb62515cfe09184b12d15c6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "rehabilitation-versus-retribution-fought-on-one-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "한 몸에서 맞붙는 교화와 응보",
+  "model": "claude-opus-5",
+  "source_sha256": "fbdb2ee4c48f064ecc47a19033916e6729edb5c67f5e9a141736774cba51e8f5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "released-into-the-prophecy-it-filmed",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 찍은 예언 속으로 개봉하다",
+  "model": "claude-opus-5",
+  "source_sha256": "a33518f4d1a31251c3bb133a9b3b2b70513f5dbc465062e097207c88e827827c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "religion-born-from-the-child-s-catastrophe",
+  "field": "title",
+  "lang": "ko",
+  "text": "아이의 재난에서 태어난 종교",
+  "model": "claude-opus-5",
+  "source_sha256": "9012441b63e8f08b46769ceecffd5fa6b4f158b3deeed3bd7e83f10874b83c30"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "renunciation-as-self-defeating-virtue",
+  "field": "title",
+  "lang": "ko",
+  "text": "스스로를 무너뜨리는 미덕, 단념",
+  "model": "claude-opus-5",
+  "source_sha256": "c48da544e0eda67b71d3b09a7c59d4906074cc8ed35e596520dadccd9e1fbc85"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "renunciation-as-the-categorical-imperative",
+  "field": "title",
+  "lang": "ko",
+  "text": "단념이라는 정언명령",
+  "model": "claude-opus-5",
+  "source_sha256": "fc0f4b54f1e153aec75dc17ad2faac44401991d26692524e20a85bc6fb6098d4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "repetition-compulsion-as-the-film-s-engine",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화를 굴리는 동력, 반복 강박",
+  "model": "claude-opus-5",
+  "source_sha256": "14eade0e655cdee96f5954a0ff34e6ccd03032412cd8766aba913c9e4598d749"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "reproductive-labor-made-visible",
+  "field": "title",
+  "lang": "ko",
+  "text": "눈에 보이게 된 재생산 노동",
+  "model": "claude-opus-5",
+  "source_sha256": "2a25d79f7fc0d5403919db69ad834f015ecf2b22015ade337ac712300c489bca"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "reproductive-labor-privatized-as-romance",
+  "field": "title",
+  "lang": "ko",
+  "text": "로맨스로 사유화된 재생산 노동",
+  "model": "claude-opus-5",
+  "source_sha256": "04b848db9f00ca83b191c0c3d23ba99c37df0edaa5231cd45c86281f5577c511"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "respectability-as-self-protective-mask",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 몸을 지키려 쓴 가면, 체면",
+  "model": "claude-opus-5",
+  "source_sha256": "a52a6fbf43e5f49a6935771d3be4435fe3abbc6e9c166180f1a5ad3b7a69a0dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "respectability-as-the-bourgeois-mask",
+  "field": "title",
+  "lang": "ko",
+  "text": "부르주아가 쓴 가면, 체면",
+  "model": "claude-opus-5",
+  "source_sha256": "46cf2620d5da6547452519a2ddadd43fc0b97413f6528dadd0709bafdf2e1c14"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "ressentiment-mistaken-for-conscience",
+  "field": "title",
+  "lang": "ko",
+  "text": "양심으로 오인된 르상티망(ressentiment)",
+  "model": "claude-opus-5",
+  "source_sha256": "30bc22719b821f98525c83bf6eeba95755b6eb553dadbe02cf4f1b06193c71a6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "resurrection-as-curse-not-miracle",
+  "field": "title",
+  "lang": "ko",
+  "text": "부활은 기적이 아니라 저주",
+  "model": "claude-opus-5",
+  "source_sha256": "7d58d40c68c4349d3ef90cd9e7b2062ab5a9e9a71740f9a82d8b127321fe9971"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "resurrection-by-accident-not-acclaim",
+  "field": "title",
+  "lang": "ko",
+  "text": "찬사가 아니라 우연이 되살렸다",
+  "model": "claude-opus-5",
+  "source_sha256": "b8e5c743fb3ba8f76e5381897e79874de6e227c8b84951f7c74866cb1d270be6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "returning-to-the-scene-of-desire",
+  "field": "title",
+  "lang": "ko",
+  "text": "욕망의 현장으로 되돌아가기",
+  "model": "claude-opus-5",
+  "source_sha256": "d705c15f08b07e8ca25e77d915dd7ca9e1f92f1d116e305e4a9d96530e0ac0c5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "revenge-that-refuses-its-own-closure",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝맺기를 거부하는 복수",
+  "model": "claude-opus-5",
+  "source_sha256": "f0ed3acb01ab5d98cbc44bb08f39d60e4781370d10c7ebdb53ed39420437290f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "revenge-yields-only-hollow-symmetry",
+  "field": "title",
+  "lang": "ko",
+  "text": "복수가 남기는 건 공허한 대칭뿐",
+  "model": "claude-opus-5",
+  "source_sha256": "68517444f0d34de3934db9c0f0d5825620970136ac0a2f1e857b0ca41f3549d4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "reverence-as-cultural-exhaustion",
+  "field": "title",
+  "lang": "ko",
+  "text": "경외라는 이름의 문화적 소진",
+  "model": "claude-opus-5",
+  "source_sha256": "913b6da5ffc46ac258345dfe7e7e634a63a39415a3404517e9dd0c063146cdbb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "revolutionary-violence-as-staged-debate",
+  "field": "title",
+  "lang": "ko",
+  "text": "연출된 토론이 된 혁명의 폭력",
+  "model": "claude-opus-5",
+  "source_sha256": "279d4d81353959dcd5ff2f08755ef5d5cf5fd56c8af7cbb07f566ab4af6ce1da"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "romance-revealed-as-predation",
+  "field": "title",
+  "lang": "ko",
+  "text": "로맨스의 정체는 포식이었다",
+  "model": "claude-opus-5",
+  "source_sha256": "be6e369943e5333258422b21723b0a9b68b1c74446fa5b1827a0d720adafc54b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "romance-unmasked-as-labor-contract",
+  "field": "title",
+  "lang": "ko",
+  "text": "가면 벗은 로맨스, 노동 계약",
+  "model": "claude-opus-5",
+  "source_sha256": "66bb16b072adf1274c246f39f896dd22b796d66b200e192539bfe00db670eaf1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "roughness-bred-from-haste-and-want",
+  "field": "title",
+  "lang": "ko",
+  "text": "조급함과 결핍이 낳은 거친 결",
+  "model": "claude-opus-5",
+  "source_sha256": "e687caca7d21046dea131d67c54a690a5f5b2d23200dcaee778f516f69175ee4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "running-as-the-body-s-confession-of-a-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "달리기, 몸이 털어놓는 상처",
+  "model": "claude-opus-5",
+  "source_sha256": "e7eb1d18bac98bffe9ec9d34619887d7fd12e4f0a1cb9d40c931594e8c03f38a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sacrificial-substitution-one-killed-so-another-drives-on",
+  "field": "title",
+  "lang": "ko",
+  "text": "희생의 대체: 하나가 죽고 하나가 달린다",
+  "model": "claude-opus-5",
+  "source_sha256": "fbd301ce0c741346cfeb9319af870cc0352ba4404df6b05ac52330724ffc8266"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sade-as-the-film-s-secret-philosopher",
+  "field": "title",
+  "lang": "ko",
+  "text": "이 영화의 숨은 철학자, 사드",
+  "model": "claude-opus-5",
+  "source_sha256": "96cf590dd5c8b5d4cc40118a7a1cc3891bd703438d4395dce59f30aeebd8cd18"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sadism-as-disavowed-desire-or-shame",
+  "field": "title",
+  "lang": "ko",
+  "text": "부인된 욕망 혹은 수치가 된 사디즘",
+  "model": "claude-opus-5",
+  "source_sha256": "5218cc65d51f62d9d68605ddace9d9e63ee25e7e703e1eb7b080f414db469aaa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "saintliness-as-pathology-not-virtue",
+  "field": "title",
+  "lang": "ko",
+  "text": "성스러움은 미덕이 아니라 병리",
+  "model": "claude-opus-5",
+  "source_sha256": "afef60c2c779734af521aa3da660f08d3cc4356a8a7a0bc6d90747bb47da90bd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "salome-as-the-speaking-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "말하는 몸, 살로메",
+  "model": "claude-opus-5",
+  "source_sha256": "834fb7a8202cbd7f02f7da8a37449c44fb0840b56692595f120637df53b7fab3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "san-francisco-filmed-as-a-vanishing-home",
+  "field": "title",
+  "lang": "ko",
+  "text": "사라져 가는 고향으로 찍힌 샌프란시스코",
+  "model": "claude-opus-5",
+  "source_sha256": "900e52f0effec82f169122dfe4612fa5d2a9e922389ca08b48f616a096dd48b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sanctity-as-surplus-wrung-from-below",
+  "field": "title",
+  "lang": "ko",
+  "text": "아래에서 짜낸 잉여, 신성(神聖)",
+  "model": "claude-opus-5",
+  "source_sha256": "884dc9364cdb2013493b12316425833a69716975bbe90544ba0b180404e598a7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "santiago-as-apparatus-of-exposure",
+  "field": "title",
+  "lang": "ko",
+  "text": "산티아고, 폭로의 장치",
+  "model": "claude-opus-5",
+  "source_sha256": "9226417bf3914256ac8fb07472ff50a499a1af254e335e9680601f3ad584a8b5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "saturated-color-as-movida-s-liberation-made-visible",
+  "field": "title",
+  "lang": "ko",
+  "text": "눈에 보이는 모비다의 해방, 포화된 색",
+  "model": "claude-opus-5",
+  "source_sha256": "31f22d55b33a3d5e97b07cf7ccca9c9d025174118001f716dab25b0400da60b9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "scarcity-forged-into-style",
+  "field": "title",
+  "lang": "ko",
+  "text": "결핍을 벼려 만든 양식",
+  "model": "claude-opus-5",
+  "source_sha256": "c3ea757840bad7d31dfbb577ab3352e99cfbfb92bf2f6e252103ad6d5fd179b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "schubert-as-the-sound-of-foreknown-doom",
+  "field": "title",
+  "lang": "ko",
+  "text": "이미 아는 파멸의 소리, 슈베르트",
+  "model": "claude-opus-5",
+  "source_sha256": "c8a6482d0c5b1dd036ccf604e02daed5dd8c483b44833f68c7f5913603e92d10"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "scientists-against-the-state-apparatus",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가 장치에 맞선 과학자들",
+  "model": "claude-opus-5",
+  "source_sha256": "5580bab948343d37518e07e1a7195f3c67d0b0d6000180c0c05381520c49bab4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "scored-against-the-copland-american-pastoral",
+  "field": "title",
+  "lang": "ko",
+  "text": "코플랜드식 미국 목가를 거스르는 음악",
+  "model": "claude-opus-5",
+  "source_sha256": "95f348ea690a95b70eed324928ddccae135168d0d8d8c777880408e024d7b331"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "scorn-for-sincerity-as-critical-embarrassment",
+  "field": "title",
+  "lang": "ko",
+  "text": "진심을 비웃는 비평의 낯뜨거움",
+  "model": "claude-opus-5",
+  "source_sha256": "32083bc1a814296f800d67e656116014fdd841e6c31e300d405da5b5b27f624d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "scripture-that-survives-its-own-forms",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 형식보다 오래 살아남는 경전",
+  "model": "claude-opus-5",
+  "source_sha256": "1b5c974a782f9b46fdc105bd3c8e1bec4058614adba77939e7a4a5ab041935d9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sebald-s-spiral-of-irretrievable-time",
+  "field": "title",
+  "lang": "ko",
+  "text": "��발트의 나선, 되찾을 수 없는 시간",
+  "model": "claude-opus-5",
+  "source_sha256": "8edae05d57de9e4b3b9da21d52b6a3b6c0bb275048627e1662f7f55698705db5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "secular-drama-as-smuggled-theology",
+  "field": "title",
+  "lang": "ko",
+  "text": "세속 드라마에 밀반입된 신학",
+  "model": "claude-opus-5",
+  "source_sha256": "b71093a5f47fde4c611d5e154def33a8fe8adaaa0446989a8f35c67853b5b42b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "seduction-as-the-long-con",
+  "field": "title",
+  "lang": "ko",
+  "text": "긴 사기극으로서의 유혹",
+  "model": "claude-opus-5",
+  "source_sha256": "643fe7622807fc07c29e9bfb2743212826d973731b2693c52a2d0e669b1b38c2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "seizing-the-means-of-representation",
+  "field": "title",
+  "lang": "ko",
+  "text": "재현 수단을 빼앗아 오기",
+  "model": "claude-opus-5",
+  "source_sha256": "c1cf7b1f5a1b4d1159797505b8e4588760e232303940c0cc5d437f7c73cc94d1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "seizing-the-right-to-appear",
+  "field": "title",
+  "lang": "ko",
+  "text": "나타날 권리를 쟁취하다",
+  "model": "claude-opus-5",
+  "source_sha256": "b6c55d6e188637696f9bc4011ce89a791e0eca23908a9724a66df7ab7c7bc659"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "self-fashioning-as-capitalist-assembly-line",
+  "field": "title",
+  "lang": "ko",
+  "text": "자본주의 조립라인이 된 자기 만들기",
+  "model": "claude-opus-5",
+  "source_sha256": "d41f1dc0d838a1315bdc3bc8ad79b1fc9a8fe732f64c13dcb9a4cee7cb790a01"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "self-liberation-through-the-material-of-bondage",
+  "field": "title",
+  "lang": "ko",
+  "text": "속박의 재료로 이룬 해방",
+  "model": "claude-opus-5",
+  "source_sha256": "0b188766ec03e29b8805c3c544c8207e355ed37d906d922c6184ec91adea682e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "self-mutilation-as-the-sovereign-refusal",
+  "field": "title",
+  "lang": "ko",
+  "text": "자기훼손이라는 주권적 거부",
+  "model": "claude-opus-5",
+  "source_sha256": "48e9d44e0decbf199b83542c22b02ce0836c7e605b9ace1f7d5c75b7816f0adb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "self-mythology-as-cosmology-of-grievance",
+  "field": "title",
+  "lang": "ko",
+  "text": "자기 신화, 원한이 세운 우주론",
+  "model": "claude-opus-5",
+  "source_sha256": "1a1e458e0ec50b2555111931de88199deacab69375b3f7a85d15e77b9f648bd1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "self-overcoming-reframed-against-decline",
+  "field": "title",
+  "lang": "ko",
+  "text": "쇠락에 맞서 다시 짠 자기극복",
+  "model": "claude-opus-5",
+  "source_sha256": "5cd0086e0ee0802e7c1f53511dfd67ec72383309cba2515509065929643f0ea5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "semb-ne-as-founding-father-and-long-shadow",
+  "field": "title",
+  "lang": "ko",
+  "text": "셈벤, 창시자이자 긴 그림자",
+  "model": "claude-opus-5",
+  "source_sha256": "cadbf90c000a7315e3b11e749f574d998da7d62aa474d5ddc1110790fd8a78ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "seraing-s-dead-steelworks-as-moral-author",
+  "field": "title",
+  "lang": "ko",
+  "text": "세랭의 죽은 제철소가 쓴 도덕",
+  "model": "claude-opus-5",
+  "source_sha256": "c0af1bd9ecd53f6c7c6151fec10babf0815e0f5544cbf2f14cce4c658bc00702"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "shadow-as-budget-expressionism-born-of-bankruptcy",
+  "field": "title",
+  "lang": "ko",
+  "text": "예산이 된 그림자, 파산이 낳은 표현주의",
+  "model": "claude-opus-5",
+  "source_sha256": "a8dea69956fff485ee937b8fec9ba96c6eabaf98295fe50a719531a9df1f67ba"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "shame-as-the-hidden-engine-of-change",
+  "field": "title",
+  "lang": "ko",
+  "text": "변화를 밀어붙이는 숨은 동력, 수치",
+  "model": "claude-opus-5",
+  "source_sha256": "4d6362ba4b9ba56145c2396a167bb141d92fa7f58d167ad84168d867506aba4d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "shame-internalized-as-self-policing-repression",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 스스로를 단속하게 된 수치",
+  "model": "claude-opus-5",
+  "source_sha256": "57b4cf6be3e1441dd083223bfb1369a18f82da3a092a4d657de07bd43e2e758c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "shanghai-doubling-as-the-placeless-future",
+  "field": "title",
+  "lang": "ko",
+  "text": "장소 없는 미래를 대신 연기하는 상하이",
+  "model": "claude-opus-5",
+  "source_sha256": "89b45a1097070d9288815d5de0655ea2bb6c340af8546fa30a48730e3858f80c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "she-forges-her-obsession-into-authored-text",
+  "field": "title",
+  "lang": "ko",
+  "text": "집착을 벼려 제 글로 만드는 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "9013750bedb180e6c70105b493bc6fadecf37e77935537a84e235478a6a773eb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "shooting-inside-the-real-not-the-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "프레임이 아니라 실재 안에서 찍기",
+  "model": "claude-opus-5",
+  "source_sha256": "bdc56e55ba243f49d0f6b5c3a42e4844c624d0d1394e721269f171e9bfb55e14"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "shooting-the-crime-at-the-scene-of-the-crime",
+  "field": "title",
+  "lang": "ko",
+  "text": "범행 현장에서 그 범행을 찍다",
+  "model": "claude-opus-5",
+  "source_sha256": "8a3e905679f2442cd7d3f7a0e23711ce85cb504aed4e4b2d12c174cd68dee49a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "shot-in-order-so-decay-felt-real",
+  "field": "title",
+  "lang": "ko",
+  "text": "붕괴가 진짜가 되도록 순서대로 찍다",
+  "model": "claude-opus-5",
+  "source_sha256": "1195099df6c77c9f4a840172168331ae00ef3fe97882618b3122b0b01cc16fe1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "shot-inside-the-very-place-it-depicts",
+  "field": "title",
+  "lang": "ko",
+  "text": "그리는 바로 그 장소에서 찍다",
+  "model": "claude-opus-5",
+  "source_sha256": "6ac7d62def9e631b10da858b4fdb4c9bc514e33f4ff72c98d6b01e2bbbbaf6a6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "shot-where-it-actually-happened",
+  "field": "title",
+  "lang": "ko",
+  "text": "실제로 벌어진 그 자리에서 찍다",
+  "model": "claude-opus-5",
+  "source_sha256": "d1939687cec1e83cacac8616fea48f3cfe7f69660ecac151f9048c75c5de3558"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "shot-where-the-atrocity-happened",
+  "field": "title",
+  "lang": "ko",
+  "text": "참극이 벌어진 그 자리에서 찍다",
+  "model": "claude-opus-5",
+  "source_sha256": "01e8a5dce5a565b32afb0269fddcbd04013e14a671d7e4695340245d5c3c829a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sight-refused-blindness-as-sovereignty",
+  "field": "title",
+  "lang": "ko",
+  "text": "보기를 거부하다, 주권이 된 실명",
+  "model": "claude-opus-5",
+  "source_sha256": "85a8c531e7d71569517fb90b813f21250931ee9605e6a07b34ab30ec971036f7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sight-restored-as-aesthetic-catastrophe",
+  "field": "title",
+  "lang": "ko",
+  "text": "시력이 돌아오자 닥친 미학적 재앙",
+  "model": "claude-opus-5",
+  "source_sha256": "6336692d239a44647b49a2d2a350775d6b908385197d5bdcce5037b34354bccb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "sight-without-recognition",
+  "field": "title",
+  "lang": "ko",
+  "text": "보되 알아보지 못하는 눈",
+  "model": "claude-opus-5",
+  "source_sha256": "7959a7d67577f6556cff7a6c95a6a8fa952008de8e1d53a77b13da946410c5a2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "silence-as-presence-not-mere-absence",
+  "field": "title",
+  "lang": "ko",
+  "text": "침묵은 부재가 아니라 현존",
+  "model": "claude-opus-5",
+  "source_sha256": "99b1b5dc43da07c8c0ffb5ceaee4aab34572fa45862f78b30e8910707d78e5fb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "silence-as-the-director-s-refusal",
+  "field": "title",
+  "lang": "ko",
+  "text": "감독이 택한 거부, 침묵",
+  "model": "claude-opus-5",
+  "source_sha256": "3e6829995c162ce4fee15534acb4aa7752894486aedd71ec92f9fb2d827a899c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "silence-as-the-film-s-only-honest-speech",
+  "field": "title",
+  "lang": "ko",
+  "text": "이 영화가 정직해지는 유일한 말, 침묵",
+  "model": "claude-opus-5",
+  "source_sha256": "837eac04b92c123172291f3ca0c993b62e148acc31f84f51051e57dc5ed3d713"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "silence-as-the-refusal-to-speak",
+  "field": "title",
+  "lang": "ko",
+  "text": "말하기를 거부하는 침묵",
+  "model": "claude-opus-5",
+  "source_sha256": "9ec3e2106b91b822282d530dacf481f7172dc8815a9840c4ac431ae8b223714e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "silence-as-the-state-s-seizure-of-the-voice",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가가 목소리를 앗아간 자리, 침묵",
+  "model": "claude-opus-5",
+  "source_sha256": "bdb2c9347c9e44e6e0a4357af3c390feb77ae380004e09ebf9c93bc9f170d9f7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "silence-as-the-withheld-word-s-power",
+  "field": "title",
+  "lang": "ko",
+  "text": "삼킨 말이 지닌 힘, 침묵",
+  "model": "claude-opus-5",
+  "source_sha256": "6658fd8ca8506e254d891f0f4e2ec227510e238f2c80368d29924c2e7aa06d55"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "silence-engineered-by-subtracting-the-script",
+  "field": "title",
+  "lang": "ko",
+  "text": "대본을 덜어내 빚은 침묵",
+  "model": "claude-opus-5",
+  "source_sha256": "d0acaf59c2aaa6f4cd54bad0c337b9e98d2a6a0da8f29eaa4c0ae9659130e60f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "silence-that-forces-the-eye-to-act",
+  "field": "title",
+  "lang": "ko",
+  "text": "눈을 일하게 만드는 침묵",
+  "model": "claude-opus-5",
+  "source_sha256": "78801ea0f664b13d05eb7a44ccc406609a2b687a48b2358a8226adcada94e715"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "silence-weaponized-as-power",
+  "field": "title",
+  "lang": "ko",
+  "text": "무기가 된 침묵, 곧 권력",
+  "model": "claude-opus-5",
+  "source_sha256": "16275fdf9125e23809982d4b191159eee74f80d37c8d1fbac20cbae6730cb700"
+ }
+]

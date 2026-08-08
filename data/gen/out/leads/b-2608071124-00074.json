@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-description-of-bankruptcy-2006",
+  "field": "lead",
+  "film_id": "dc2dc441-1145-408e-bd1c-5d1ed7daddf7",
+  "lang": "en",
+  "text": "Around 2000, Korean morning papers and evening bulletins began carrying deaths with no culprit attached to them: no killer, no suspect, nobody to charge. Lee Kang-hyun's subject is not those deaths alone but the second thing that happened, which is that readers stopped flinching. Tolerance, in this account, is a byproduct of frequency. Sixty-one minutes gives the film room to lay out how an atrocity becomes an item — same page, same column width, filed near the weather — without room enough to soften that into consolation. It is built from what everyone had already read and set aside. The national archive's selection of a hundred Korean films carries it, which places an hour of newsprint and argument alongside a century of features shot for cinemas.",
+  "model": "claude-opus-5",
+  "source_sha256": "239809da9699f8366049c2daf441484cb880c48b50fb17db5c5ad6edab70d9d1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "fuentes-family-home-movies-collection-1920",
+  "field": "lead",
+  "film_id": "f595cfa2-8c3d-4215-88ed-e72d4df275ac",
+  "lang": "en",
+  "text": "Nine and a half millimetres: a narrow amateur gauge sold mostly in Europe, and the stock on which Antonio Rodríguez Fuentes shot fourteen reels of Texas across the 1920s and 1930s. He was a photographer first, and it shows in what he chose to point a camera at — a parade forming up, business proceeding on both sides of the Texas-Mexico border, children too excited on Christmas morning to stay inside the frame. None of it was made for strangers, which is where its value now sits: among the earliest moving pictures of Mexican-American life shot by somebody living it. The reels were preserved in 2015 and named to the National Film Registry. Eighteen minutes of ordinary mornings, filmed by a man who assumed his family would be the only audience.",
+  "model": "claude-opus-5",
+  "source_sha256": "33f8d6ee329d2bffbdd31d0afb5615eb6921e10510e10b0730a38ea1759efe01"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-movie-trip-through-filmland-1921",
+  "field": "lead",
+  "film_id": "f5f7edf2-e094-4a7c-97ec-28b009eddcdc",
+  "lang": "en",
+  "text": "Cartoon delegates from around the world convene as the International Convention of Movie Fans, find they cannot hold one another's attention, and resolve to say it with movies instead. The animated curtain parts onto a factory. What follows is a tour of Kodak Park in Rochester, where in 1921 the company turned out 147,000 miles of motion-picture film, enough to reach around the planet, and where every stage of the process is filmed in its order. The statistics are recited with evident pride. It was made to instruct, and it does, though the instruction has outlived its occasion: film on this scale, by these methods, in these buildings, has been overtaken by digital work. Twenty-four minutes of chemistry and bookkeeping, opening with a joke about international goodwill.",
+  "model": "claude-opus-5",
+  "source_sha256": "c31ebf7c9470b0e00751b6b88494b3e7b863258f4b016d12e1e167b97b60536c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "let-s-all-go-to-the-lobby-1957",
+  "field": "lead",
+  "film_id": "fcb8d300-db88-4e2d-988d-cd68bb4db2f6",
+  "lang": "en",
+  "text": "The snack counter is the antagonist, and its grievance is that nobody who works there loves the movies anymore. Thirteen minutes, a projection booth, a concession stand, and a reel that should never have been threaded: Nolan Barth builds a horror short out of the fixtures of a service job, and the joke underneath it is that the fixtures have opinions about the staff. Alex Miner has stopped caring about the theatre she works in, and her oldest friend is with her when the curse takes an interest. A film that punishes indifference to cinema is arguing with the room it is playing to, and at this length the argument stays a joke instead of hardening into a sermon. There is time for a reel to be found and for the popcorn to start moving, and not much more. Its place on the National Film Registry sits oddly next to a haunted refreshment stand.",
+  "model": "claude-opus-5",
+  "source_sha256": "027cc337dc3c01ac611f19cad7876f72fff56ed97ee6c4666a5751b9aab3e504"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-intruder-2004",
+  "field": "lead",
+  "film_id": "5217ace0-701b-4421-9b54-386a7da2e522",
+  "lang": "en",
+  "text": "A man who lives high in the Alps decides he needs another man's heart. Claire Denis films that as a departure rather than a diagnosis: the house is safe and he leaves it, and the leaving is followed without much being explained along the way. Two hours, almost no exposition. Landscape and sound carry what dialogue would ordinarily carry, and the estranged son somewhere ahead of him works less as a destination than as a pretext for movement. The premise states the coldness plainly; the film's interest is in what a cold man's survival asks of other people, since a heart has to be got from somewhere. Denis withholds connective tissue as a matter of principle, and a viewer who needs one scene to declare its relation to the next will find the withholding total. It sits on the Thousand Greatest Films list, which is where films that refuse to explain themselves tend to end up.",
+  "model": "claude-opus-5",
+  "source_sha256": "9a3b2e8869d0c29c1117909cb8dc96dd1e5460586a5a6614bb84c57a4b43a056"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-sorrow-and-the-pity-the-film-that-shocked-france-1969",
+  "field": "lead",
+  "film_id": "14f380ff-5cc1-49f8-b0ff-fb0496d98acd",
+  "lang": "en",
+  "text": "A documentary about a documentary, and about the account of itself a nation had agreed to accept. Marcel Ophüls's Le Chagrin et la Pitié, released in 1971, took apart the picture of a France united against the German occupation, a picture de Gaulle's followers had reasons to maintain and much of the public had reasons to believe. Joseph Beauregard's sixty-two minutes are about the collision rather than the war: what the film put on screen, who was still alive to be discomfited by it, and how fast a quarrel about the past becomes a quarrel about the present. Made for television, at television's length. Its premise is that a film's reception can be a subject with its own drama, which requires believing that what a country does with an unwelcome account of itself is worth recording.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ae59be6376044967a99f70e1d6c4492690413ffd3043541a99336662c72a70d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-holy-mountain-1973",
+  "field": "lead",
+  "film_id": "690ebb4a-f74c-432c-a102-5bf540ad5914",
+  "lang": "en",
+  "text": "Recruitment first: an adept gathers a group of strangers, assigns each of them a planet, and sets about relieving them of everything they brought. Alejandro Jodorowsky's film is built as a sequence of trials rather than a plot, which is why it can hold a tableau long past the point where a story would need it to move. An American production shot in Spanish, it keeps its footing between ceremony and vaudeville: the occult material is handled with complete seriousness by people who are also, unmistakably, putting on a show. The images are made to be recognized rather than decoded — colour laid down in blocks, bodies arranged like diagrams, symmetry insisted upon. Whether the mysticism persuades is a separate question from whether the compositions do. The rites are literal in the only sense that matters here: they are performed, on camera, at length.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d1b7c4fd5ab0f1cde7a7336369d9385e3996406f71477fc629884dde7da1042"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "wr-mysteries-of-the-organism-1971",
+  "field": "lead",
+  "film_id": "8acff149-3034-41c1-8cbc-aaf3bfa588b4",
+  "lang": "en",
+  "text": "Half of this film is a research trip on Wilhelm Reich; the other half is a comedy about a young Slav woman who has decided that sexual liberation is a political programme. Dušan Makavejev declines to reconcile them. He cuts between them, and the cut is the argument: theories of orgastic energy set against the daily texture of Yugoslav socialism around 1971, each used to embarrass the other. Eighty-five minutes with no through-line that could be summarized to a stranger honestly. The documentary passages are documentary; the fiction is loud, broad and cheerfully coarse, played at the pitch of farce. What holds it together is a temperament rather than a thesis — an unwillingness to let either the state or the sexual revolution be taken at its own word, and a suspicion that both were promising the same deliverance.",
+  "model": "claude-opus-5",
+  "source_sha256": "96e4c5e261fca2fbe526196956dbf7a6db6a5969687c25e3995a3d0107374105"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "7-women-1965",
+  "field": "lead",
+  "film_id": "26850b2c-1d87-46bf-827c-2edcc37525c2",
+  "lang": "en",
+  "text": "A mission compound in China, 1935, staffed by women, with a warlord's men in the country outside. John Ford keeps the film inside those walls: eighty-seven minutes, a few rooms, and a cast whose every quarrel is between people who will be sitting down to the same table that evening. Beyond the gate: the warlord Tunga Khan and the men who ride with him. The pressure the film applies is not mainly the pressure of arms; it is that rules about faith and conduct, drawn up for quiet years, have to be applied to a situation nobody wrote them for. Ford stages the arrival of force as a breach of manners before it is anything else. The listing says drama and history; the shape is a siege in which the siege is mostly waiting, done among colleagues who cannot get away from one another.",
+  "model": "claude-opus-5",
+  "source_sha256": "49539ea8d9b79ccc66a06c1429ae3a247701f5605707313a043fb86646d09d6e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-firemen-s-ball-1967",
+  "field": "lead",
+  "film_id": "1c990ac3-90c5-46ec-b11b-56c031899f32",
+  "lang": "en",
+  "text": "The raffle prizes sit on a table at the front of the hall, and they start going missing almost at once. Miloš Forman's comedy runs seventy-three minutes and never leaves the evening it describes: a provincial fire brigade honours its retiring chief with a ball, and each item on the programme — the pageant, the raffle, the presentation itself — comes apart in the hands of the men who arranged it. The humour is procedural. It comes from committees, from old men conferring in doorways about which young women can be persuaded to compete, from the distance between an agenda and a room full of people who never agreed to it. Nobody here is a villain and nobody is competent. Uniforms, protocol, a committee that cannot run a raffle: the film keeps its scale to one hall and leaves the extent of the incompetence for a viewer to measure.",
+  "model": "claude-opus-5",
+  "source_sha256": "6b01c12f93147be96fd1f7a406dd9eb957732e80ac1d49dd08137d935f58d511"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "every-man-for-himself-1980",
+  "field": "lead",
+  "film_id": "185c4077-4831-424c-81ce-5bd7e38f5a37",
+  "lang": "en",
+  "text": "Three jobs, three bodies, and an insistence that the two are one subject. A television director, the woman who left him, a woman who sells sex by the hour: Jean-Luc Godard sets their lives side by side and treats intimacy the way he treats employment — an arrangement, with rates, hours and positions specified by whoever is paying. There is no plot to report and no lead. What the film offers instead is parallel occupations watched at close range, and its comedy comes from how much of desire turns out to be procedure. Its one prize went to a supporting performance, which suits a picture with nobody at the centre. Eighty-seven minutes, and the working day ends for all three whether or not anything has been settled.",
+  "model": "claude-opus-5",
+  "source_sha256": "7956550f8dba50b8522229dfa0b6ae938e4b08f081619bf4779cb8f7461fb7c0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-sun-shines-bright-1953",
+  "field": "lead",
+  "film_id": "66741bc5-1f6c-4873-82bc-cd7176857621",
+  "lang": "en",
+  "text": "A judge up for re-election spends his week on everything except campaigning. The town is Southern, the century has just turned, and its voters still organize their lives around a war that ended decades earlier: old grievances, old loyalties, veterans who have to be flattered in the correct order. John Ford's comedy is assembled out of that arithmetic and darkens without changing gear, because the crowd that turns out for ceremony is the same crowd that will gather to hang a young man, and the judge's authority consists of nothing but his standing with it. A hundred and two minutes, largely talk and procession. The film's affection for the old order is undisguised, which makes it awkward to sit with rather than easy to dismiss, and no speech in it resolves the awkwardness.",
+  "model": "claude-opus-5",
+  "source_sha256": "436b9948226f87d57c6566524f6acad276a63789bd965a6b296bbba29ded3769"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "predestination-2014",
+  "field": "lead",
+  "film_id": "7c0ff010-da86-486f-bcd0-faf147bd7839",
+  "lang": "en",
+  "text": "A police job that runs backwards: the arrests come before the crimes. The agent at the centre of Predestination is sent through time to stop people before they have committed anything, and the last case on his file is the one that has always got away. Bookkeeping is the real business of a plot like this: every consequence has to be filed before its cause, and the tension comes from watching the ledger balance rather than from pursuit. Its award for adapted screenplay is the telling one — a script of this design cannot leak anywhere, and the film's confidence is largely the confidence of its arithmetic. Michael Spierig keeps the register cool and the exposition patient. Hundreds of thousands of viewers have logged an opinion on it, which for a picture built on withholding information is a peculiar kind of fame.",
+  "model": "claude-opus-5",
+  "source_sha256": "2aa66f97a6831d8798f67e6bcd895d6c78fcb064ecef311076c22838afba2b8d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mary-and-max-2009",
+  "field": "lead",
+  "film_id": "3ced776b-7854-4a2a-a946-32f4f42d5b23",
+  "lang": "en",
+  "text": "The correspondence begins because a lonely child in a Melbourne suburb picks a name at random out of an American phone book. Max is forty-four, severely overweight, living in New York; Mary is eight and has no one to ask her questions to. Their friendship is conducted by post, which means every exchange carries weeks of delay inside it, and Adam Elliot builds the film around that lag instead of trying to overcome it. The animation is not softened for children. It handles humiliation, appetite and solitude at one deadpan pitch, and lets a joke and a hurt share a sentence. The Australian award for its production design is the telling one: two cities are made of two different sorts of clutter, and the clutter carries much of the characterization. Ninety-two minutes; the letters do the talking.",
+  "model": "claude-opus-5",
+  "source_sha256": "109dc012ee4dc45df13a614a9db376bc41c9dd910dd79f58e7766d83720119f7"
+ }
+]

@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "terry-gilliam#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1980년대 후반, 그는 제작자 조엘 실버와 함께 앨런 무어의 그래픽 노블 《Watchmen》을 영화로 옮기려 몇 해를 보냈다. 결론은 포기였다. 그 빽빽한 서사를 장편 한 편에 담는 일은 애초에 불가능하다고 판단한 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "acbfa4f624ac7a219e702133fbf0e7dca32dcfe282a2cfc146fa89cf646578d2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "terry-gilliam#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《누가 로저 래빗을 모함했나》의 연출 제안은 거절했다. 훗날 그는 실사와 애니메이션을 뒤섞는 기술적 난이도가 당시로선 너무 벅차 보였다고 털어놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f198986ae387692d0e61415b64448a2b595ebd9bc91c08b85ebf6b446dd7cb0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "terry-gilliam#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《에이리언 3》을 걷어찬 일화도 유명하다. 이유는 분명했다. 오직 돈을 위해 속편을 찍어내는 스튜디오의 관행이 근본부터 역겹다는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "836068a1857154914f8baf1af34114c94b522f00dd7758c2eebe1ae7fc8849b5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "terry-gilliam#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "J.K. 롤링은 《해리 포터와 마법사의 돌》의 연출자로 길리엄을 1순위로 밀었다. 워너브러더스 경영진의 판단은 달랐다. 너무 종잡을 수 없는 사람이라는 것이었다. 자리는 크리스 콜럼버스에게 돌아갔고, 길리엄은 그렇게 나온 영화를 공개적으로 '끔찍하다'고 잘라 말했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "046d1ab0b55f2e3fa699f03207494b3b06d422fcc80f6712d78c2156906bcf7d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "terry-gilliam#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스탠리 큐브릭은 《닥터 스트레인지러브》의 속편 《Son of Strangelove》를 구상하며 연출자로 길리엄을 직접 지목했다. 그 기획은 1999년 큐브릭과 함께 사라졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "66c0adb702c5c3ce19441bfd48fe0ed5d9b05122706f17a6cd72b11f63494208"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "terry-gilliam#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《돈키호테를 죽인 사나이》를 찍어내기까지 스물다섯 해가 걸렸다. 세트가 무너졌고, 돌발 홍수가 덮쳤고, 주연 장 로슈포르는 전립선염을 앓았으며, 인근에서는 NATO가 사격 훈련을 했다. 그 지난한 여정은 다큐멘터리 《로스트 인 라만차》에 남았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc3b909411a0883c46e0633ccade61c2bee216bfc9055503de84d5cf9faa1ce6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "terry-gilliam#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생 관료제를 물고 늘어진 사람이 정작 서류 싸움에 발이 묶였다. 옛 제작자 파울로 브랑코와 《돈키호테를 죽인 사나이》의 권리를 놓고 벌인 법정 다툼은 끝날 줄 몰랐고, 2018년 칸 상영을 무산시킬 뻔했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a75ae7087661b3cac5cae936c2535cbc2aa660026fe3dcde1713fff4eafa45e1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "terry-gilliam#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《파르나서스 박사의 상상극장》 촬영이 절반쯤 진행됐을 때 히스 레저가 세상을 떠났다. 길리엄은 레저의 친구들을 불러 영화를 건져냈다. 조니 뎁, 주드 로, 콜린 파렐이 마법으로 모습이 바뀐 같은 인물을 나눠 연기했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "49aae4762d301f6cc27b8f03ab028a76e8682bfb08ce17ccc5c9aa14de01826d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "terry-gilliam#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《The Brothers Grimm》을 만드는 동안 제작자 밥 와인스틴, 하비 와인스틴 형제와의 충돌은 험악하기 짝이 없었다. 결국 두 사람은 길리엄의 오랜 촬영감독 니콜라 페코리니를 해고했고, 제작마저 몇 주간 중단시켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a9e5ac2513b2d095c29d00b6219d01c12c96089f3539b640cb6bc1e5350fa185"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "terry-gilliam#23",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2006년 그는 미국 시민권을 공식 포기했다. 조지 W. 부시 시대의 정치 풍토에 대한 항의였고, 유산에 이중으로 물리는 징벌적 과세를 피하려는 선택이기도 했다. 이후 그의 국적은 영국 하나뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "adf753aa3e40d047fce6c1c604c0c0aaa7f615ce5560c7cbd2b100a642dd078b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "terry-gilliam#24",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2015년 Variety가 실수로 그의 부고를 내보냈다. 길리엄의 대응은 페이스북 사진 한 장이었다. 임종 자리에 누운 자기 모습을 올리고 이렇게 적었다. '죽어버려서 미안하다. 특히 예정된 강연 표를 이미 사둔 사람들에게.'",
+  "model": "claude-opus-5",
+  "source_sha256": "dc02618e5f5ff114a04e72d25c6c3b04c8c14095a042d6edb020de9e38d6a6a4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "terry-gilliam#25",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오페라 연출은 2011년에 처음 했다. 잉글리시 내셔널 오페라 무대에 올린 엑토르 베를리오즈의 《파우스트의 겁벌》이었다. 나치의 이미지를 거침없이 끌어들이고, 거대한 영상 프로젝션 스크린을 세웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9d392c153743670f0e37c4bc060c3748c5bb6343527da0a94fea118317369359"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "terry-gilliam#26",
+  "field": "fact",
+  "lang": "ko",
+  "text": "소행성에 이름을 남긴 감독은 드물다. 소행성 9619 테리길리엄은 1993년 유럽 남방천문대의 천문학자들이 발견했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6f05a45c6bfe473219d36577935b4d94a74709bf354eb4f305c03e40a64ab4a5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "theo-angelopoulos#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1944년 '데켐브리아나'의 유혈 충돌 와중, 아홉 살 앙겔로풀로스는 어머니와 함께 아테네의 임시 영안실을 뒤졌다. 끌려간 아버지를 찾으려 시신 더미를 하나하나 살폈다. 아버지는 몇 달 뒤 기적처럼 살아 돌아왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "59bcd42c858e7f53de61be4ed7b82aa003cabef0dbdc23de0c9aa495b123f428"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "theo-angelopoulos#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "가족을 달래려 아테네 대학교 법학과에 들어갔다. 그러나 마지막 학년에 시험을 내팽개치고 학교를 떠나버린다. 파리로 건너가 문학과 영화에 파묻히기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d08fe2539e68f9da2a6ffc12cfba70ebbea5d008493440cb1c806f24d39cfc86"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "theo-angelopoulos#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "파리의 고등영화연구원(IDHEC)에서 그는 퇴학당했다. 보수적인 교수들이 요구한 숏-리버스 숏 편집을 끝내 거부하고, 360도 팬 하나로 밀어붙인 탓이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "95f9ec46a8b244b2ea5e0e281d2e9beeec5bfb9a784bc98ae4f8761e7bd14a9b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "theo-angelopoulos#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "퇴학 뒤 파리에서의 삶은 망명자의 그것이었다. 야간 경비를 섰고, 시네마테크 프랑세즈에서 안내원으로 일했고, 지하 그리스 카바레에서 노래를 불렀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b73fd8a6909e6122e78b58f981e198268bf55a633020b720bcf18e1064e7b24a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "theo-angelopoulos#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1964년 그리스로 돌아온 그는 좌파 신문 《디모크라티키 알라기》에 영화 비평을 썼다. 날이 선 지적인 글이었다. 1967년 군사 정권이 권력을 쥐고 신문을 폐간시키면서 그 일도 끝났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "05a37dd0acc67c03680c3d9179d9e467b9928ccfaaf714aad86829b0e9d79d2d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "theo-angelopoulos#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1967년부터 1974년까지 이어진 대령들의 정권 아래, 좌파 예술가 상당수가 망명길에 올랐다. 앙겔로풀로스는 아테네에 남았다. 그리고 정치적 알레고리를 다루는 기술을 갈고닦아, 검열의 눈을 피해 비판을 흘려보냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de4e258bd4b64164b46d4bd306388e91c190eb6dc8e2b5f44dc2a4b9735c3087"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "theo-angelopoulos#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마르크스주의 역사 서사시 《유랑극단》(1975)을 우파 독재의 코앞에서 찍기 위해, 그는 검열 당국에 가짜 각본을 제출했다. 고대 오레스테스 신화를 곧이곧대로 옮긴 영화일 뿐, 정치와는 무관하다고 둘러댔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d5fb91530a0916c41308097dcce397fa1d0453aaa89c8c374fa65faba40992f2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "theo-angelopoulos#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "햇빛에 절은 관광 엽서 같은 지중해를 그는 거부했다. 대신 가장 을씨년스러운 날씨를 찾아다녔다. 비와 눈과 안개가 그리스의 시골에 내려앉기를 기다리느라 돈이 걸린 촬영을 며칠씩 세워두는 일도 잦았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5ed406e29ef1d754216520d6efe8deae502b948f4db96bf501921be9e6b9f2d2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "theo-angelopoulos#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "칸에서 성질을 부린 그 악명 높은 사건으로부터 3년 뒤, 그는 마침내 황금종려상을 안았다. 1998년 《영원과 하루》, 죽어가는 시인을 다룬 조용하고 우울한 영화였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0738437bba757d0439ae7d119ed703ec2a8dca4752ac051cbd1bedcadaddefb4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "theo-angelopoulos#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《시간의 먼지》(2008)에 출연한 윌렘 더포는 이 독재적인 그리스 작가와 일한 경험을 연기라고 부르지 않았다. 그의 표현으로는 '그의 팔레트 위 물감 한 색'이 되는 일이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "881e98aa68ffd48667fcba7f143c403adadb34613d90b9d15dc8ceb3d4a7f131"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "theo-angelopoulos#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이탈리아의 전설적인 각본가 토니노 구에라와의 협업은 수십 년을 갔다. 두 사람을 묶은 것은 시를 향한 애정이었다. 그는 자신이 흠모하던 안드레이 타르콥스키에게서 구에라를 물려받은 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e1c564806e04333417224d8510262008d3c1b8821305047b499be70f469b9891"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "theo-angelopoulos#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그의 풍경은 엘레니 카라인드루의 음악과 한 몸이 되어 세계에 각인됐다. 오보에가 앞으로 나서는, 애도하는 듯한 선율. 1982년 카라인드루를 발견한 뒤 죽을 때까지 다른 작곡가를 쓰지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "46091dc509bf2edafff27aa46fb279fb3ac9043bb10a673e8bb29c272dd70c68"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "theo-angelopoulos#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "10분에 이르는 복잡한 시퀀스 숏은 촬영감독 요르고스 아르바니티스의 손에 달려 있었다. 30년을 이어간 이 협업이 뉴 그리스 시네마의 황량하고 채도 낮은 화면을 만들어냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a710165553bf17e623629086ceccb47885f635f5ef98256563c8ea390d57f9f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "theo-angelopoulos#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "연출 데뷔작은 단편 《The Broadcast》(1968)다. 미디어의 조작을 냉소적으로 겨눈 이 작품은 군사 정권 검열관들의 매서운 감시를 뚫고 테살로니키 영화제 비평가상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c5ae5f01bd0d1c465bcbab7da5ccb915ee063f91b17d8362022278438ed5c43f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "theo-angelopoulos#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "첫 장편 《Reconstruction》(1970)은 인적이 빠져나간 에피루스의 한 마을에서 찍은 네오리얼리즘 살인 미스터리다. 음울하기 그지없었다. 상업 스튜디오 체제를 버리고 거친 시골의 실물을 택한 이 영화가 그리스 영화를 통째로 뒤집어놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e320afa0d7f99291af56e14ac33f9cfe864f244f9c77cf4c0175766e255c849"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "theo-angelopoulos#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "인물을 배치하는 그만의 방식은 그리스 전통 그림자극 카라기오지스에서 왔다. 납작한 2차원의 무대. 초기 서사시들의 복잡한 역사적 타블로가 그 문법을 그대로 빌려 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "91e173a9a416e0d409f6e75dcc2da1973bdf29e725d00fec1826ce3e400ec754"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "theo-angelopoulos#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그리스를 서유럽의 햇살 어린 요람이 아니라 북쪽 국경에 깊이 베인 눈 덮인 발칸의 나라로 다시 그린 첫 그리스 예술가. 그 자리는 앙겔로풀로스의 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b4a4ec60ca26e5c28e484f5210064c1be267615a569af47fc419d4d3cf06056c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "theo-angelopoulos#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "인간을 가르는 선이 얼마나 자의적인지 보이려고, 그는 실제 국경으로 카메라를 끌고 갔다. 그것도 중무장한 국경으로. 그리스와 터키를 나누는 에브로스강이 대표적이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f25f49738f76cd1ddc982814f1d538565b4c1fdb9bb469848e453af55998654c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "theo-angelopoulos#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《율리시스의 시선》의 줄거리는 이렇다. 한 영화감독이 전쟁으로 찢긴 발칸을 헤매며 마나키스 형제가 1905년에 찍은 잃어버린 첫 필름을 좇는다. 그 지역 영화의 잊힌 개척자들을 향해 감독 자신이 품고 있던 집착에서 나온 이야기다.",
+  "model": "claude-opus-5",
+  "source_sha256": "be9fb78762ef90667623a2b850f18334d8b7f402860bb70a31368979ae3bb671"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "theo-angelopoulos#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "일흔여섯, 로케이션을 보러 항구 도시 피레아스의 번잡한 도로를 건너던 길이었다. 비번인 경찰관이 몰던 오토바이가 그를 치었고, 앙겔로풀로스는 목숨을 잃었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c1d33083ca5a8d415839c772d87a9d1a071ad58986434676f45c3261c30306bf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "theo-angelopoulos#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "갑작스러운 죽음은 현대 그리스사를 다루려던 마지막 3부작을 영영 멈춰 세웠다. 그리스 국가부채 위기를 정면으로 겨눌 예정이던 《The Other Sea》는 끝내 세상에 나오지 못했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca24bbce8afdec22ab4e6fa9b5a3f8aeb84528433d4bec4bd5504e6afec9391b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "theo-angelopoulos#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그의 생애에는 비극적인 후일담이 하나 더 붙는다. 2018년 아티카를 휩쓴 산불이 해변 마을 마티에 있던 그의 집을 잿더미로 만들었다. 세상을 떠난 지 6년 만에 개인 아카이브와 편지, 희귀본이 함께 사라졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "71712815b19ce114150359b4c4b5dcca6c565debd9f36708d995cc57dfd16fd5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "thomas-vinterberg#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "코펜하겐의 좌파 코뮌에서 자랐다. 어른 열아홉에 아이 다섯. 벌거벗은 채 다 함께 저녁을 먹었고 \"가정 회의\"가 수시로 열렸다. 2016년작 《The Commune》은 여기서 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4276d5d13e40b980162ff77153d5f8daa4ba4b781fb72572e0481cf8fe23a12e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "thomas-vinterberg#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1989년, 열아홉의 나이로 명문 덴마크 국립영화학교에 들어갔다. 개교 이래 최연소 입학이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "433b048b3c0c1bfc83b215eca21e438eb91142850e2a40b13ed8485bbf18c857"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "thomas-vinterberg#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1993년 졸업 작품인 단편 《Last Round》는 학생 아카데미상 후보에 올랐다. 남자들의 우정과 죽음, 그가 평생 파고들 주제의 유전자가 이미 여기 들어 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9fe9a1cbd785ec59284729d818f3a96a4dfff6a4951ec05e79668f17563bb673"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "thomas-vinterberg#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1995년, 그와 라스 폰 트리에는 부르주아와 할리우드를 동시에 겨눈 '도그마 95' 선언문을 45분 만에 써냈다. 그러는 동안 폰 트리에는 넋 놓고 연못에 돌을 던지고 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "38dee66a46b56c7646b5450c58e4988c010d50df6f0832e9dc5044baf7bcc90f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "thomas-vinterberg#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1999년에는 블러의 'No Distance Left to Run' 뮤직비디오를 연출했다. 야간투시 카메라로 멤버들이 각자의 침대에서 실제로 잠든 모습을 담아냈다. 곡이 품은 내밀한 무방비함을 그대로 옮긴 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1d7f3571a83ab9e7981065cc87276443604437230460ff8f456df3ea987371d"
+ }
+]

@@ -1,0 +1,322 @@
+[
+ {
+  "entity_type": "director_pick",
+  "entity_key": "luis-bunuel#l-age-d-or-1930",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《L'Age d'Or》는 달리와 함께 만든 초기작이다. 교회와 부르주아를 향해 초현실주의의 도발을 날것 그대로 터뜨린다. 부뉴엘이 이후 50년 동안 다듬어간 모든 것의 소스코드가 이 스캔들 안에 이미 들어 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "luis-bunuel#nazarin-1959",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《Nazarin》은 그리스도를 닮은 신부를 따라간다. 그가 선을 행할 때마다 재앙이 온다. 성스러움의 무용함을 조용하고 메마르게 곱씹는 영화. 부뉴엘의 반교권주의(anti-clericalism)에 이미 빠진 관객일수록 더 깊이 들어온다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "luis-bunuel#simon-of-the-desert-1965",
+  "field": "reason",
+  "lang": "ko",
+  "text": "미완성으로 남은 45분짜리 보석이 《Simon of the Desert》다. 5세기 고행자를 기둥 꼭대기에 올려두고 악마가 유혹하게 둔다. 마지막에는 영화사에서 가장 유쾌하게 뜻밖인 시간 도약이 기다린다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "m-night-shyamalan#the-sixth-sense-1999",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《식스 센스》는 샤말란 특유의 공기를 소개한다. 숨죽인 불안, 아이의 눈높이에서 오는 취약함, 묻어둔 가족의 통증. 그의 조용한 카메라가 무엇을 감추고 언제 드러내는지도 여기서 배우게 된다. 가장 알맞은 첫 문이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "m-night-shyamalan#signs-2002",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《싸인》은 샤말란을 뼈대만 남겨놓는다. 포위당한 시골 가족, 믿음과 공포의 대결, 부엌 창문과 아기 모니터로 연출되는 공포. 서스펜스와 가정의 감정을 다루는 그의 손끝이 가장 확신에 차 있는 순간이 여기다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "m-night-shyamalan#unbreakable-2000",
+  "field": "reason",
+  "lang": "ko",
+  "text": "그 장르가 폭발하기 전에 먼저 나온 히어로 기원담이 《언브레이커블》이다. 가라앉은 푸른색과 긴 호흡의 쇼트로 천천히 달아오른다. 이미 걸려든 관객에게 돌아오는 보상은 분명하다. 신화를 우울한 인물 연구로 다시 쓰는 샤말란.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "makoto-shinkai#your-name-2016",
+  "field": "reason",
+  "lang": "ko",
+  "text": "입문으로는 《너의 이름은.》이 정답이다. 몸이 바뀌는 로맨스에 재난이 엮이고, 눈부신 빛과 시간을 접는 장치가 더해진다. 신카이 마코토를 세계적 이름으로 만든 작품이자, 그의 표식인 그리움과 빛나는 도시가 한자리에 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "makoto-shinkai#weathering-with-you-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《날씨의 아이》는 앞선 공식을 한 번 더 밀어붙인다. 비에 잠긴 도쿄, 하늘을 갤 수 있는 소녀. 어린 사랑을 기후 불안과 개인의 희생 앞에 세운다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "makoto-shinkai#suzume-2022",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《스즈메의 문단속》에서 그는 시야를 넓힌다. 재난 이후의 일본을 가로지르는 로드무비이자 애가(哀歌). 문을 닫아 봉인하는 일이 곧 상실과 기억을 더듬는 일이 된다. 감정의 성숙도와 야심 모두 그의 최고작.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "makoto-shinkai#the-garden-of-words-2013",
+  "field": "reason",
+  "lang": "ko",
+  "text": "46분짜리 보석 《언어의 정원》. 비 오는 정원에서 만난 소년과 연상의 여자 이야기다. 블록버스터로 가기 전, 물을 그리는 극도로 정밀한 작화와 절제가 어떤 것이었는지 보여준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "makoto-shinkai#5-centimeters-per-second-2007",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《초속 5센티미터》에는 신카이의 모든 집착이 처음 모습을 드러낸다. 거리, 기차, 흩날리는 벚꽃, 시간에 깎여나가는 사랑. 이미 푹 빠진 관객을 위한 우울한 삼면화(三面畵).",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "mamoru-hosoda#summer-wars-2009",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《썸머 워즈》는 시골 대가족의 떠들썩한 모임과 가상세계의 위기를 한 화면에 붙여놓는다. 호소다 마모루가 평생 물고 늘어진 두 가지, 혈족의 결속과 디지털 최전선이 여기 다 있다. 속도도 경쾌해 처음 보기에 좋다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "mamoru-hosoda#wolf-children-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《늑대아이》는 그의 감정적 핵심만 남긴 이야기다. 반은 늑대인 아이들을 홀로 키우는 어머니. 계절이 몇 번이고 바뀌는 동안의 성장을 담담하게 따라가고, 자연을 그리는 작화가 눈부시다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "mamoru-hosoda#belle-2021",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《용과 주근깨 공주》는 《썸머 워즈》의 온라인 유토피아를 오페라의 규모로 다시 연다. CG 뮤지컬의 스펙터클 밑에는 슬픔을 안은 소녀가 제 목소리를 찾아가는 단단한 이야기가 깔려 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "mamoru-hosoda#the-boy-and-the-beast-2015",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가정의 온기를 걷어낸 자리에 거친 판타지를 놓은 작품이 《괴물의 아이》다. 집을 나온 아이가 야수 같은 무사의 제자가 된다. 호소다가 만든 부자(父子) 이야기 가운데 가장 액션에 기대는 편.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "mamoru-hosoda#mirai-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《미래의 미라이》는 화폭을 줄인다. 질투에 찬 어린아이가 집안의 과거로 초현실적인 시간 여행을 떠난다. 아이가 동생을 사랑하는 법을 배우는 과정을 가까이서, 실험적으로 들여다본다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "mamoru-oshii#ghost-in-the-shell-1995",
+  "field": "reason",
+  "lang": "ko",
+  "text": "오시이 마모루에게 가장 또렷한 입구는 《공각기동대》(1995)다. 매끈한 사이버펑크 스릴러의 추진력 위에 정체성과 의식에 대한 질문이 실려 온다. 처음 보는 사람에게 알맞다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "mamoru-oshii#ghost-in-the-shell-2-innocence-2004",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《이노센스》(2004)는 그의 시각적 정점이다. 문학 인용을 겹겹이 쌓고, CG로 그려낸 도시가 화면을 압도한다. 인형과 기억, 그리고 무엇이 생명을 인간으로 만드는가를 묻는 우울한 수사극.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "mamoru-oshii#angel-s-egg-1985",
+  "field": "reason",
+  "lang": "ko",
+  "text": "대사가 거의 없는 꿈. 《천사의 알》(1985)은 이미 빠져든 사람에게만 열리는 보상이다. 믿음과 공허를 느리고 아름답게 풀어낸 우화이자, 오시이의 가장 사적이고 타협 없는 얼굴.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "martin-scorsese#goodfellas-1990",
+  "field": "reason",
+  "lang": "ko",
+  "text": "입문작은 《좋은 친구들》이다. 튀어오르는 내레이션, 주크박스가 미는 추진력, 코파카바나를 미끄러지듯 통과하는 그 트래킹 쇼트. 스코세이지의 문법이 단번에 읽히고, 곧 중독된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "martin-scorsese#the-irishman-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《아이리시맨》은 만년의 애가다. 늙은 갱들의 얼굴을 젊게 되돌려놓고, 노년과 후회라는 차가운 거리에서 그 세계를 애도한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "martin-scorsese#taxi-driver-1976",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《택시 드라이버》는 세 가지를 하나로 녹인다. 드 니로의 응축된 고독, 버나드 허먼의 마지막 스코어, 네온에 젖은 허무. 도시적 소외와 스스로를 신화로 만드는 폭력에 대한 스코세이지의 결정적 진술이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "martin-scorsese#raging-bull-1980",
+  "field": "reason",
+  "lang": "ko",
+  "text": "흑백으로 찍은 권투의 잔혹함, 몸을 갈아넣은 드 니로. 《분노의 주먹》에서 스코세이지는 자기 파괴���인 남자 하나를 오페라적 비극으로 끌어올린다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "martin-scorsese#the-departed-2006",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《디파티드》는 가장 조이고 가장 빠르게 밀어붙이는 스릴러다. 보스턴을 무대로 한 이중 첩자들의 체스판. 그에게 마침내 오스카를 안겼고, 이야기 자체를 즐기고 싶은 관객에게 잘 맞는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "martin-scorsese#the-wolf-of-wall-street-2013",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《더 울프 오브 월 스트리트》는 《좋은 친구들》의 설계도를 무기로 바꿔 세 시간짜리 폭주 코미디를 만든다. 탐욕의 그로테스크한 절정 앞에서 웃어보라고 도발한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "martin-scorsese#casino-1995",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《카지노》는 그 세계를 라스베이거스의 과잉으로 넓힌다. 서로 맞부딪히는 두 개의 내레이션, 임상적으로 쌓아올린 세부. 식욕 때문에 무너질 수밖에 없는 제국의 건설기다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "martin-scorsese#the-king-of-comedy-1982",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《코미디의 왕》은 폭력을 민망함으로 바꿔놓는다. 드 니로가 연기하는 망상에 찬 팬이 명성을 뒤쫓는다. 유명세를 향한 집착을 소름 끼치도록 앞질러 본 코미디.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "martin-scorsese#silence-2016",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《사일런스》는 그의 금욕적인 영적 결산이다. 일본에서 박해를 겪는 예수회 신부들을 따라간다. 느리고 고통스럽지만, 그의 범죄영화 밑에 깔려 있던 가톨릭적 양심이 여기서 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "martin-scorsese#the-age-of-innocence-1993",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《순수의 시대》는 그의 폭을 증명한다. 도금시대(Gilded Age)의 억눌린 로맨스. 눈길 한 번, 식탁에 놓인 접시 하나가 각각 하나의 폭력 행위다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "masaaki-yuasa#ride-your-wave-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "유아사 마사아키가 가장 순하게 나온 쪽이 《너와, 파도를 탈 수 있다면》이다. 서핑과 상실을 겹친 다정한 로맨스로, 선이 깔끔하고 감정의 목표도 뚜렷하다. 더 거친 실험으로 가기 전, 그의 유동하는 작화에 몸을 적시기 좋다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "masaaki-yuasa#mind-game-2004",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《마인드 게임》은 그의 무정부적인 데뷔 장편이다. 화풍이 계속 바뀌고, 로토스코프가 끼어들고, 우주로 새는 곁길이 이어진다. 이후 그의 경력을 밀고 간 아이디어가 전부 여기서 선언된다. 유아사가 왜 중요한지 알고 싶다면 이 편.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "masaaki-yuasa#the-night-is-short-walk-on-girl-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《밤은 짧아 걸어 아가씨야》는 교토의 취한 하룻밤을 초현실적인 삽화들로 늘려놓는다. 한번 걸려들면 고무처럼 늘어나는 몸짓과 빽빽한 문학적 익살을 오래 음미하게 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "masaki-kobayashi#harakiri-1962",
+  "field": "reason",
+  "lang": "ko",
+  "text": "고바야시 마사키의 반봉건적 분노로 들어가는 가장 깨끗한 입구는 《할복》이다. 할복을 청하러 온 낭인 하나. 거기서 풀려나오는 회상의 구조가 사무라이의 명예를 한 치의 자비도 없이 해체한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "masaki-kobayashi#kwaidan-1965",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《괴담》은 그의 예술적 정점이다. 스튜디오에 손으로 지어 올린 하늘, 포화된 색으로 그린 네 편의 유령 이야기. 공포는 놀래키기가 아니라 침묵과 음향, 그리고 압도적인 화면 구성에서 불려나온다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "masaki-kobayashi#samurai-rebellion-1967",
+  "field": "reason",
+  "lang": "ko",
+  "text": "이미 빠진 관객이라면 《Samurai Rebellion》으로 가라. 천천히 달아오르는 집안의 대치극이다. 한 여자의 운명을 두고 한 가족이 가문의 권위에 맞선다. 미후네 도시로와 나카다이 다쓰야, 두 얼굴이 마주 보는 자리다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "max-ophuls#letter-from-an-unknown-woman-1948",
+  "field": "reason",
+  "lang": "ko",
+  "text": "오퓔스에게 가장 다가서기 쉬운 상심은 《미지의 여인에게서 온 편지》다. 빈을 배경으로 한 헌신의 이야기를 회상으로 풀어낸다. 미끄러지는 카메라와 낭만적 숙명론이 처음 보는 사람에게도 대번에 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "max-ophuls#the-earrings-of-madame-de-1953",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《마담 드...》는 다이아몬드 귀걸이 한 쌍이 허영과 사랑 사이를 한 바퀴 도는 이야기다. 오퓔스의 그 유려한 트래킹 쇼트가 가장 매끄럽고 가장 정교한 형태에 이른다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "max-ophuls#le-plaisir-1952",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《Le Plaisir》는 쾌락과 그 대가를 다룬 모파상의 단편 세 편을 옮긴 옴니버스다. 떠도는 카메라, 그 폭넓은 정조. 오퓔스의 문법에 이미 귀가 열린 관객을 위한 편이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "michael-haneke#cache-2005",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《히든》은 하네케의 주제들을 손에 잡히는 미스터리 안에 담는다. 감시, 죄책감, 식민의 양심. 파리의 한 부부 집 앞에 익명의 비디오테이프가 놓이기 시작하면서 이야기가 조여온다. 스릴러의 외형을 한, 가장 들어가기 쉬운 입구다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "michael-haneke#amour-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《아무르》는 하네케를 두 사람의 연기와 아파트 한 채로 졸인다. 노년의 부부가 쇠락을 마주한다. 눈을 돌리지 않는 다정함과 규율이 황금종려상을 받았고, 그의 엄격함이 얼마나 깊은 감정을 품을 수 있는지 증명한다.",
+  "model": "claude-opus-5"
+ }
+]

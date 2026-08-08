@@ -272,7 +272,7 @@ async function loadUncached(slug: string) {
     // Tier-2 catalog record: still surface the ambient data we DO have (no figures/readings).
     // fetched_at / created_at / computed_at columns feed the digest's "Record updated"
     // date — the max of the source rows actually composed, never today's date.
-    const [{ data: lnRows }, { data: revRows }, { data: ratRow }, { data: wpRow }, { data: mGeoRows }, { data: scoreRow }, { data: lnStampRow }, { data: fnStampRow }] = await Promise.all([
+    const [{ data: lnRows }, { data: revRows }, { data: ratRow }, { data: wpRow }, { data: mGeoRows }, { data: scoreRow }, { data: lnStampRow }, { data: fnStampRow }, { data: leadRow }] = await Promise.all([
       supabase.rpc("film_lineage_for", { p_film_id: film.id }),
       supabase.rpc("film_next_reverse", { p_film_id: film.id }),
       supabase.from("film_ratings").select("imdb_rating, imdb_votes, metascore, rt_tomatometer, fetched_at").eq("film_id", film.id).maybeSingle(),
@@ -285,6 +285,10 @@ async function loadUncached(slug: string) {
       // geo layer contributes pins via the RPC but no timestamp.)
       supabase.from("film_lineage").select("created_at").eq("film_id", film.id).order("created_at", { ascending: false }).limit(1).maybeSingle(),
       supabase.from("film_next").select("created_at").eq("target_film_id", film.id).order("created_at", { ascending: false }).limit(1).maybeSingle(),
+      // The invitation a catalogue film never had (migration 0140). The app has
+      // read this since 08-08; the web page showing nothing where the app shows
+      // prose was the seam this closes.
+      supabase.from("film_leads").select("lead").eq("film_id", film.id).maybeSingle(),
     ]);
     const mLineage = (lnRows ?? []) as LinRow[];
     // Per-list source/QID for the Lineage section's citation tags.
@@ -322,6 +326,7 @@ async function loadUncached(slug: string) {
     const mHasAfterlife = mWdHonors.length > 0 || mReception.length > 0;
     return {
       minimal: true as const, film,
+      lead: ((leadRow as { lead?: string } | null)?.lead ?? null) as string | null,
       afterlifeTab: mHasAfterlife, afterlifeHonors: mWdHonors.length,
       lineage: mLineage,
       lnListMeta: mListMeta,
@@ -542,7 +547,7 @@ function load(slug: string) {
   // v6: reception rows carry dek_lead/review_year + afterlife scale counts (2026-07-08)
   // v7: Tier-2 minimal payload adds afterlifeTab/afterlifeHonors (Afterlife tab door)
   // v8: Tier-2 minimal payload adds wdHonors/reception/releases full rows (C1/C2/C3 digests)
-  return unstable_cache(() => loadUncached(slug), ["film-load8", slug], {
+  return unstable_cache(() => loadUncached(slug), ["film-load9", slug], {
     revalidate: 300,
     tags: [`film:${slug}`],
   })();
@@ -836,7 +841,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
       certification: string | null; imdb_id: string | null; tmdb_id: number | null; wikidata_id: string | null;
       tmdb_extra: { cast?: { name: string; character: string }[]; writers?: string[]; country?: string[]; original_language?: string | null; collection?: string | null } | null;
     };
-    const { lineage, lnListMeta, recommendedBy, ratings, watch, geoCount, geoCountries, scores, recordUpdated, afterlifeTab, afterlifeHonors, wdHonors, reception, releases } = data;
+    const { lead, lineage, lnListMeta, recommendedBy, ratings, watch, geoCount, geoCountries, scores, recordUpdated, afterlifeTab, afterlifeHonors, wdHonors, reception, releases } = data;
     const mAccessRec = accessRecordFor(f.tmdb_id);
     // "Keep reading" modules + the director-hub slug: a Tier-2 row often lacks
     // director_slug even when the hub exists on a visible sibling — the recipe
@@ -977,6 +982,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
     const mTsScore = codex ? displayTs(codex.u) : null;
     const mWatchRegions = watch?.countries?.length ?? 0;
     const mTabs = ([
+      lead ? { id: "df-invitation", label: "Invitation", zone: "free" as const } : null,
       hasDigest ? { id: "df-digest", label: "Digest", zone: "free" as const } : null,
       codex ? { id: "df-codex", label: "TakeScore", badge: mTsScore ?? undefined, badgeTone: "score" as const, zone: "free" as const } : null,
       lineage.length ? { id: "df-lineage", label: "Lineage", badge: lineage.length, zone: "free" as const } : null,
@@ -1094,9 +1100,30 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
 
           {mTabs.length > 1 ? <FilmTabBar tabs={mTabs} twoRow /> : null}
 
-          {/* EDITOR'S DIGEST — the lead section: a data-composed editorial record.
-              Every sentence is deterministic (no LLM, no invented facts); a film
-              with no ambient data renders no digest and About leads instead. */}
+          {/* AN INVITATION — the same section Tier-1 leads with, same markup, same
+              byline. A catalogue film's prose is written from its fact block alone
+              (migration 0140), which is why the page can carry it without claiming
+              a reading it does not have. Tier-1's closing note points at the
+              Strong Misreadings below it; there are none here, so that line is the
+              one thing omitted rather than made untrue. */}
+          {lead ? (
+            <section className="df-invite" id="df-invitation">
+              <div className="df-invite__txt">
+                <div className="df-invite__head">
+                  <h2 className="df-invite__k">{t(locale, "An invitation to {title}", { title: f.title })}</h2>
+                  <span className="df-invite__badge">{t(locale, "Spoiler-free")}</span>
+                </div>
+                <p className="df-invite__p" lang={enOrig}>{lead}</p>
+                <div className="df-invite__foot">
+                  <div className="df-invite__by">{t(locale, "Written by Metatake AI · to a framework by")} <Link href="/editor">Wonwoo Yoon</Link></div>
+                </div>
+              </div>
+            </section>
+          ) : null}
+
+          {/* EDITOR'S DIGEST — a data-composed editorial record. Every sentence is
+              deterministic (no LLM, no invented facts); a film with no ambient data
+              renders no digest and About leads instead. */}
           {hasDigest ? (
             <section className="df-sec df-digest" id="df-digest">
               <h2 className="df-h2">{t(locale, "The Metatake record on {title}", { title: f.title })}</h2>

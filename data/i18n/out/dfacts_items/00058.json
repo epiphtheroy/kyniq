@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nuri-bilge-ceylan#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이스탄불에서 태어났지만, 자란 곳은 차낙칼레의 외딴 시골 마을 예니제였다. 아버지가 그곳에서 농업 기술자로 일했다. 훗날 그의 초기 지방 영화들이 무대로 삼는 곳도 바로 여기다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3e9ea114319d0452ab232af33bb44fc1033b453c589c7fcf1bc008d8a300239"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nuri-bilge-ceylan#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1976년 이스탄불 공과대학 화학공학과에 들어갔다가 보아지치 대학 전기공학과로 옮긴다. 이유는 단순했다. 좌우 학생들이 유혈로 충돌하던 시절, 그쪽 캠퍼스가 더 안전했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6ade7c0d4a73ef84dd77a65eec0e258c89051caf3cbbb56a55ac7f47fb4e5d58"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nuri-bilge-ceylan#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "앙카라 마마크 지구에서 열여덟 달 군 복무를 하던 중 로만 폴란스키의 자서전을 읽는다. 영화를 만들겠다는 결심에 불을 붙인 것이 그 책이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "37e9e9643a13721d9dd67f55988d7e7fb9df0f944846eb0367e32e2607f407bc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nuri-bilge-ceylan#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자기 영화를 찍기 전, 그는 절친한 친구 메흐메트 에릴마즈의 단편에 배우로 출연했다. 촬영 현장이 실제로 어떻게 굴러가는지를 그렇게 익혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "216dd9cc49831f54cd448ca884892aef622f30299e113d5492004d74e59acad1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nuri-bilge-ceylan#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1995년 데뷔 단편 《Koza》(누에고치)는 국영방송 TRT에서 사들인 유효기간 지난 필름으로 찍었다. 출연자는 늙어가는 그의 부모, 에민과 파트마 제일란이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e804ec4f6ec764024ee1b8ccbac2210bfe43ac8125f93ee6a3851cfef3820d5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nuri-bilge-ceylan#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Koza》는 칸 영화제 경쟁부문에 오른 최초의 터키 단편으로 기록된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "293273701277101788e4a08ee767a5d7a72ae947f6947bb2d91e9bee90259233"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nuri-bilge-ceylan#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "사촌 메흐메트 에민 토프라크는 제일란의 초기 장편 세 편에 모두 주연으로 섰다. 《우작》으로 칸 남우주연상을 받고 몇 주 뒤, 그는 교통사고로 세상을 떠났다. 2002년의 일이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "714e81a2ee3b40a915d8a78d91410e38fcf618400d8daa838a6df9021e4efdb9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nuri-bilge-ceylan#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "무너져 가는 연인 관계의 미세하고 고통스러운 결을 붙잡기 위해, 2006년작 《기후》의 두 주인공 자리에 그는 자신과 실제 아내 에브루 제일란을 앉혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ffcf355f38e33b32141bf96c47aca26028818ef9137a1355586852608a9b8555"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nuri-bilge-ceylan#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "각본 대부분은 아내 에브루와 함께 쓴다. 두 사람 모두 숨기지 않는 사실인데, 그 과정에는 고함이 오가는 격렬한 말다툼이 따른다. 장면의 감정적 진실은 거기서만 나온다고 둘은 믿는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "84e2a2ffa32f97fc2f2dff09811d52765f687dc2173c8f90448d198de66bbdd6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nuri-bilge-ceylan#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생 안톤 체호프를 흠모해 온 그는 황금종려상을 안긴 대작 《윈터 슬립》에 러시아 거장의 덜 알려진 단편 두 편, 〈아내〉와 〈훌륭한 사람들〉을 명시적으로 끌어들였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ecfb7ef8c6e9a15ae069a9dd1a57f530ec28fbd775e1c67ce692018d2f3dc82"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nuri-bilge-ceylan#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "동료 터키 작가 제키 데미르쿠부즈와는 수십 년째 험한 불화 중이다. 데미르쿠부즈는 자신이 제일란에게 보여준 미제작 각본에서 2008년작 《쓰리 몽키즈》의 설정을 훔쳐 갔다고 공개적으로 주장했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0c7d194681a32cd9cf43aa3939ed1674866ddf4ea53e77c9dd90367897b95e9b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nuri-bilge-ceylan#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "표절 의혹에 십 년 넘게 그는 아무 말도 하지 않았다. 침묵을 깬 것은 2023년 출간한 일기다. 거기서 그는 그 주장을 직업적 질투가 낳은 \"완전한 헛소리\"라고 반박했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d4a1c09f840ebd9265e426fae5b56016382be5d476fde8245545ff6fa58cc630"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nuri-bilge-ceylan#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2008년 칸 영화제에서 《쓰리 몽키즈》로 감독상을 받으며 그는 트로피를 \"외롭고 아름다운 내 나라\"에 바쳤다. 이 한마디는 곧장 터키의 문화적 표어가 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "945f45ca95e5076b643c13a4159e9245df806ae4cdc7222cc75b1fa27ef34795"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nuri-bilge-ceylan#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2011년의 걸작 《원스 어폰 어 타임 인 아나톨리아》는 공동 각본가 에르잔 케살이 실제로 겪은 일에서 곧장 나왔다. 지방 의사로 일하던 그는 케스킨이라는 마을에서 경찰과 함께 매장된 시신을 찾아 밤을 꼬박 헤맸다. 초현실적인 밤이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cec0424182d4ca2dd0fef2dd824e00ec2d5a1c5dd76f46a1722d12a90e1b8ce9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "olivier-assayas#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "본래 그는 화가가 되려 했다. 명문 영화학교 IDHEC 입시에 떨어진 뒤 국립고등미술학교(École nationale supérieure des Beaux-Arts)에 들어간 것도 그래서다.",
+  "model": "claude-opus-5",
+  "source_sha256": "83e925da0c42c75e542413e50b780d47ec6c6ef4bccba173d89346ae66c43f49"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "olivier-assayas#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1970년대 음악 신에 깊이 발 담그고 있던 그가 처음 노린 자리는 잡지 《Rock & Folk》의 록 평론가였다. 기고 제안이 번번이 거절당하자 방향을 틀어 《카이에 뒤 시네마》에 글을 쓰기 시작한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0fd76c620a3740bbe734ef198375b93a895bb55a1197b506a045c217239f0647"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "olivier-assayas#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1980년대 초 《카이에 뒤 시네마》 시절, 그는 고답적인 전통주의 편집진에 맞서 존 카펜터와 데이비드 크로넨버그 같은 미국 장르 감독들을 맹렬히 옹호했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0757b6dfc84bf8c0a2bcf7ed1698df7b59b499d0fe21e5b497c8e8741be67ff5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "olivier-assayas#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1984년 아사야스는 동료 평론가 샤를 테송과 함께 《카이에》를 설득해 아시아로 떠난다. 그 결과물이 전설적인 \"Made in Hong Kong\" 특집호였다. 허우샤오셴을 비롯한 대만·홍콩 영화의 거장들이 유럽 관객 앞에 사실상 이때 처음 소개됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8820c82ab5bb9a1b487e3916f2d5623591c4a5622e13fc755ac1f66bd520e2f1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "olivier-assayas#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1970년대 후반의 젊은 아사야스는 제작자 알렉산더와 일리야 살킨드의 편집실에서 일했다. 리처드 도너의 《슈퍼맨》(1978) 같은 거대 예산 국제 프로젝트의 데일리를 붙이는 일이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5753da77f94ae97edd17adcc39bfc0a5e4caae4895ce9b30d37e2ccf042e95f6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "olivier-assayas#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "형제 미슈카 아사야스와의 유대는 각별하다. 프랑스의 이름난 음악 저널리스트인 그는 결정판으로 통하는 『Dictionnaire du rock』을 썼다. 포스트펑크를 향한 두 형제의 평생 집착이 거기 고스란히 남아 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7039ace9e6c832239085fddba42da07b38497e8fecaf27a1fcae7a919db89e41"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "olivier-assayas#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《이르마 벱》(1996)에서 한물간 채 현장을 어지럽히는 감독 역에 장피에르 레오를 앉힌 것은 계산된 선택이었다. 프랑수아 트뤼포의 젊은 분신이라는 그의 신화화된 이미지를 뒤집기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c28ee77cf9012be5b0959be57cc6af0e46b92abc937fcefe670efe04adcdd689"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "olivier-assayas#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《동방삼협》 속 장만옥을 보고 그는 《이르마 벱》에 그를 캐스팅했다. 홍콩 액션 스타와 감독은 사랑에 빠졌고, 1998년 결혼했으며, 2001년 헤어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "82855023dffe79c08e3ceca1578818c64d9811d4a02148f786b8fba7988a8eac"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "olivier-assayas#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이혼한 뒤에도 두 사람은 작업으로 다시 만난다. 《클린》(2004)이다. 무협 배역에서 벗어나 유럽 드라마로 건너가려는 장만옥을 위해 아사야스가 일부러 쓴 각본이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "128163acdec6a64e3b11ab850461a96d2bbdfae492dda0a8acd59f05f18ee857"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "olivier-assayas#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "두 번째 아내 미아 한센뢰베와의 첫 만남은 1998년작 《8월의 끝, 9월의 시작》 현장이었다. 열여덟 살 여고생 역이었다. 이후 그는 그의 연출 경력을 적극적으로 북돋고 이끌었고, 그 경력은 크게 성공했다. 두 사람은 원만하게 갈라섰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a7e78af5005940e73cc7b76ab6b49dfa203db68cc4021bbc6a92036bb25c9f5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "olivier-assayas#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2002년 기업 첩보 스릴러 《데몬러버》의 오리지널 연주 스코어는 소닉 유스가 맡았다. 아방가르드 노이즈 록과 아사야스의 미학이 평생 얽혀 있음을 못 박은 작업이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bdf9a6d329ba67b3ee9123bbdea24070e0a77dd1cba0573920186083d0a4322d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "olivier-assayas#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2008년의 걸작 《여름의 조각들》은 애초에 일반 장편으로 구상된 것이 아니다. 오르세 미술관이 개관 20주년을 기념해 허우샤오셴, 짐 자무시의 기획과 나란히 의뢰한 작품이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a4afde01ea2ee5163aaa3ed111f90d3ecc720b651c7bd2c86b343ebb6c503d0f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "olivier-assayas#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2012년에는 회고록 『68년 이후의 사춘기(A Post-May Adolescence)』를 냈다. 형식이 독특하다. 상황주의 창시자 기 드보르의 미망인 알리스 드보르에게 보내는 편지다. 그 급진 철학자의 글이 자기 십 대의 반항을 어떻게 빚었는지가 거기 적혀 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ef894c3c51664429d8b4626bd682f82dfa1c375e270e41ef16326a842de49bb2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "olivier-assayas#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2014년작 《클라우즈 오브 실스마리아》는 오랜 친구 쥘리에트 비노슈를 위해, 영화판에서 나이 든다는 것의 불안을 다루려고 쓴 각본이었다. 그런데 기록을 세운 쪽은 조연이었다. 크리스틴 스튜어트가 세자르상을 받은 최초의 미국 여배우가 된 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e0f573fec341cfbecef81dfed2a12ca574dfbf2b652551a928a5cee54c3e96be"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "olivier-assayas#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2016년 심리 스릴러 《퍼스널 쇼퍼》는 칸 영화제 기자 시사에서 요란한 야유를 받았다. 그리고 며칠 뒤, 아사야스는 심사위원단으로부터 감독상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d20b3c17f3726c338e08b7e63fbc501e5ad49938fcf79a0afd5604d720d51794"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "olivier-assayas#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2022년 아사야스는 자신의 1996년작 《이르마 벱》을 HBO 미니시리즈로 다시 만들었다. 뱅상 마케뉴가 연기하는 신경증적이고 불안에 시달리는 감독 르네 비달이 화면 속 분신 노릇을 한다. 가차 없는 자기 비하다. 장만옥과의 실제 결혼 생활을 그렇게 통과시켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "87eaa7f9c86fc9889a40c3b23b25a76b169fb02d5ca9052a33c4a83e77452671"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "olivier-assayas#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "잉마르 베리만에 평생 집착해 온 그는 1990년 『베리만과의 대화(Conversation avec Bergman)』를 공동 집필했다. 은둔으로 악명 높던 스웨덴 거장을 길고 내밀하게 인터뷰한 기록이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cccc90f462c1c9c5b0609d1f9d8828b5709974d068909bc0b5115726bf65df7d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "위스콘신주 커노샤에서 콘서트 피아니스트 어머니와 부유한 발명가 아버지 사이에 태어났다. 열 살 때 시카고의 의사 모리스 번스틴이 그를 신동으로 선언했고, 훗날 그의 법적 후견인이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c4c1cc94fe08682a628c06679585cddd7a79b525c3aaf2e8fabd0b8357bf8180"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아홉 살에 어머니 비어트리스를 잃고, 열다섯에 아버지 리처드가 술로 목숨을 마쳤다. 얼마 되지 않는 유산으로 그는 아일랜드를 돌며 스케치 여행을 떠났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5e4aeb448daaec1ab7ebff1191b543171a0f02229edb40fdcfcffaaddca7da78"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "일리노이주 우드스톡의 토드 소년학교에서 교장 로저 힐을 만난다. 평생의 스승이었다. 두 사람은 『Everybody's Shakespeare』라는 인기 교육 총서를 함께 엮었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "500d451417c878fd5191bf74259155b00beb6d2cf6ea83b4654dcb814e2731fc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1930년대 초 오스트리아의 어느 만찬에서 아돌프 히틀러 옆자리에 앉았다고 그는 주장했다. 훗날의 말에 따르면, 그 미래의 독재자는 너무나 평범해서 아무런 인상도 남기지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a61c978cadd191f4e5d2d1cf25be71dd864edb5752f95376755df846743ecd98"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스무 살이던 1936년, 그는 할렘의 연방 연극 프로젝트에서 '부두 맥베스'를 연출한다. 셰익스피어의 무대를 아이티로 옮기고, 잭 카터를 비롯한 배우 전원을 흑인으로 세웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a9ef7864b4e37af96467fd340af8c6b38d42126495533061dfd712216faee0c3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "할리우드에 이름을 알리기 전, 그는 인기 라디오 드라마 《The Shadow》에서 자경단원 라몬트 크랜스턴 역을 익명으로 연기했다. 돈이 되는 일이었고, 그 돈이 그의 아방가르드 연극을 먹여 살렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "205c142354ab99b63ced2c6f321bfbf655b7cf13a38f8ba1a5044488c69d2bb4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1937년 다큐멘터리 《스페인의 대지》 내레이션을 녹음하던 중, 웰스는 대본 문제로 시사실에서 어니스트 헤밍웨이와 주먹다짐을 벌였다. 싸움이 끝난 뒤 둘은 위스키 한 병을 나눠 마셨고, 곧 절친해졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c463a87dbce1b817d177fdfa949fe5b3264fdfcc376b6c64804bc078da276f0e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "라디오로 얻은 악명을 놓치지 않고, RKO 픽처스의 수장 조지 셰이퍼는 스물넷의 웰스에게 전례 없는 계약을 내밀었다. 첫 두 편에 대한 최종 편집권을 온전히 그에게 준다는 조건이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e44c687801e27286730112856c840e567ea3956ed8534fc2b0f632ec44ec1569"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《시민 케인》 이전까지 그는 영화를 정식으로 만들어 본 적이 없었다. 대신 RKO 영사실에 여러 기술자들과 틀어박혀 존 포드의 《역마차》를 마흔 번 넘게 돌려 봤다. 영화의 문법은 그렇게 혼자 익힌 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bd6cc131dbcacdae18a1002010ea3156abe13e4d84cb09f2a55c7c4aff99c4c1"
+ }
+]

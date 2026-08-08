@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "love-letter-1995",
+  "field": "lead",
+  "film_id": "9ace5a1a-4546-4fc6-a6a6-176b4cd51448",
+  "lang": "en",
+  "text": "A woman writes to her dead fiancé at an address that no longer exists, and someone writes back. Hiroko has just come from the memorial for Itsuki Fujii, who died on a mountain; his mother told her the old house is gone. She copies the address out of a school yearbook anyway. The answer comes from a former classmate of his who happens to carry the same name, and the film settles into the slow machinery of correspondence — envelopes, delays, two handwritings, questions that take a week to reach anyone. Iwai gives himself 117 minutes and very little hurry, so the confusion of names is allowed to keep working rather than be dispelled in a single scene. What the letters turn up is school-day trivia, and it consoles nobody: each remembered detail belongs to a person who is not there to confirm it.",
+  "model": "claude-opus-5",
+  "source_sha256": "1025a14ceb9cbb61051bec71a8a8ddcd25948de66cd484cfabd55f2c1516df13"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "incoherence-2025",
+  "field": "lead",
+  "film_id": "9c540015-9c46-4497-a53f-4a42faf52131",
+  "lang": "en",
+  "text": "Three grown men with respectable positions, each caught in a small disgrace, and thirty-one minutes to hold all of it. A teacher shoves a pornographic magazine out of sight when a female student comes in. A jogger takes a stranger's milk and lets the newspaper boy carry the blame. A drunk hunts for a public toilet late at night, with mounting specificity of need. Bong Joon Ho sets the three episodes side by side without commentary, and the arrangement does the work: nothing is explained, and each man's sense of his own standing supplies the comedy. The scale is the point. None of this is crime; it is the class of lapse that would cost a career if anyone saw it, and every calculation the men make runs on who might be watching.",
+  "model": "claude-opus-5",
+  "source_sha256": "1562733b066cae28986aa217fb4c3909c1f81781760b2125f9b935d3725a58ea"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "actual-people-2022",
+  "field": "lead",
+  "film_id": "9cc73e28-d86c-4cda-9408-c6717d53f0da",
+  "lang": "en",
+  "text": "In the final week of college there is nothing left to do: the work is handed in, the room is half-packed, and the lease is running out on a life that has already ended. Kit Zauhar's film stays inside that week. Her protagonist goes after a boy from her hometown, Philadelphia, with a persistence that has less to do with him than with wanting one item in the calendar that is not an ending, and the pursuit takes her through borrowed rooms and conversations she does not come out of well. Eighty-four minutes, faces at close range. What is unusual is the willingness to let her be unappealing in her wanting, to stay on a request that should not have been made, and to let the questions about money and family arrive not as themes but as calls that have to be returned.",
+  "model": "claude-opus-5",
+  "source_sha256": "7496ae2eec7a83a7880bed650256995855b9038106447467a9272ddde32a8a2a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "chico-rita-2010",
+  "field": "lead",
+  "film_id": "9d7b45b4-1990-4262-9b05-2163947f0e8c",
+  "lang": "en",
+  "text": "A bolero describes a wound and still expects to be danced to. Chico plays piano, Rita sings, and the music that brings them together is also the instrument of the damage they do each other. Drawn animation is an odd vehicle for a story that lives in voices and crowded rooms, and the oddness pays: line and flat colour give the nightlife a heat that photographs of the same rooms would turn into nostalgia. Ninety-three minutes, and the songs are structural, a number standing in for the scene of explanation another film would write. It took the Academy Award for best animated feature; the more telling fact is that it is paced like a record rather than a script. The romance keeps the bolero's own accounting — desire, separation, and the obligation to perform both tonight, for people who paid.",
+  "model": "claude-opus-5",
+  "source_sha256": "a0ea358c718b21524ef650ba21cae48b35e9cedfb6922ab29d029de218a68920"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "azur-asmar-the-princes-quest-2006",
+  "field": "lead",
+  "film_id": "9f353abb-21aa-4a04-93fc-018d15bddcd4",
+  "lang": "en",
+  "text": "Two boys are raised in one house by one woman, one of them her son and one of them not, and both grow up certain that the Djinn fairy princess is theirs to find. Michel Ocelot sends Azur across the water into North Africa, where the terms of that childhood invert: the Frenchman arrives with nothing but a story he was told, and Asmar is the one who is home. A quest follows, with the tasks and talismans the form requires, but the pairing is where the interest sits — foster brothers and rivals, raised on identical bedtime material and separated by nearly everything after it. Ninety-nine minutes, addressed to children, and it does not tidy away the difference between their two positions in that household. The Annecy Cristal it won is the award where the drawing has to make the argument.",
+  "model": "claude-opus-5",
+  "source_sha256": "3eb74ba59f4ff92213ce7054a10ed45464e04cea2080a75eef8197fca9de9219"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "april-story-1998",
+  "field": "lead",
+  "film_id": "9f8969f4-09dd-45f0-8715-0d55ab9e7512",
+  "lang": "en",
+  "text": "Sixty-seven minutes is barely a feature, and much of this one goes to moving in. A girl leaves Hokkaido for a Tokyo university in spring, and at some point somebody asks her why she wanted this city and this school. She is slow to answer. Iwai stays with the ordinary business of a first month away from home — the errands, the introductions, the afternoons with nothing in them — so that when the reason does surface it has to compete with unpacking. The withholding is not coyness. It is the shape of someone who has organised an entire year around a thing she will not say aloud, and who meanwhile behaves like any other first-year with a room to fill. Arrival is usually the start of something. Here it looks more like the completion of a plan made much earlier.",
+  "model": "claude-opus-5",
+  "source_sha256": "2e2fb45a635f69c81838adaa22524a6e175fd40d1e4619f5a4ed54d5105a1de0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-contact-1997",
+  "field": "lead",
+  "film_id": "9f9bd7c9-9257-4a8d-a54c-261a969d72e4",
+  "lang": "en",
+  "text": "A record arrives at a radio station, and the man on the night shift knows exactly who sent it. That is the engine: Dong-hyun programmes music for strangers while waiting on a woman who has gone, and Soo-hyun takes home shopping orders by phone while fixed on a man who belongs to her friend. They reach each other by typing, in 1997, when a chat window still had the feel of a private room with a door. Chang Youn-hyun keeps them apart for a long stretch, which makes the film less a romance than an account of the equipment: the request line, the switchboard, the headphones, a song chosen by somebody else and delivered by post. The loneliness is occupational. Both of them spend their working hours addressing people they will never see.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d304402c7a27522bceb1f211aa2087f3cda9c8da4e866236554aafad221a545"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ninjababy-2021",
+  "field": "lead",
+  "film_id": "a083e470-3f6c-497e-a423-8e5df2bffbbf",
+  "lang": "en",
+  "text": "Six months in, the calendar has made the decision, which is not at all the same as having made it. Rakel finds out she is pregnant with most of the pregnancy behind her; termination is out, so adoption becomes the plan, and the plan will not stay tidy. Ninjababy is the drawn figure that turns up to argue the case, scribbled over the live-action rooms of Rakel's life, talking back, bargaining, refusing to sit still as a symbol she could put down. Yngvild Sve Flikke runs the joke the full 104 minutes, and it holds because Rakel is permitted to be unsentimental about her own body without the film arranging a punishment for it. The Amanda for best screenplay is the pertinent one: the exchanges between a woman and a cartoon are written as an argument between equals.",
+  "model": "claude-opus-5",
+  "source_sha256": "c9ba6f10bad25b966adb336a0b3eed46bf5b9133d4370e23614956d4acf91013"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-beasts-2022",
+  "field": "lead",
+  "film_id": "a0c7c6d1-3e37-4ad2-9dbf-d43b170ea30d",
+  "lang": "en",
+  "text": "The wind farm will pay, and every household in the hamlet has agreed to it except the French couple who came here to put roofs back on empty houses. Antoine and Olga farm in a manner they can justify to themselves, restore what nobody else wants, and withhold the signature standing between their neighbours and money. They are outsiders by accent before they are outsiders by vote. Rodrigo Sorogoyen spends 138 minutes on the consequences, long enough that a plot summary misrepresents the experience: not incidents so much as recurrence, the same men in the same bar, the same track walked home in the evening. The Goya for best film went to it, though the more useful measure is how much patience it extends to the neighbours before it withdraws it.",
+  "model": "claude-opus-5",
+  "source_sha256": "68b21b9413c0c25be07e19f20ae9e2ed7ff77ad213540d2ab62dff6be9e41bc6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-flower-aflame-2016",
+  "field": "lead",
+  "film_id": "a10e2639-330c-47d0-aca4-047ab40e8db0",
+  "lang": "en",
+  "text": "The marriage is not cruel and it is not broken; it works, which is the trouble. Sonoko's parents arrange the match with Amamiya, and what results is a household kept to a schedule, the sex included — purposeful, aimed at an outcome, finished. Then his work moves them, and in the new city the man she wants is her husband's superior. Hiroshi Ando declines to hand Sonoko the alibi of misery. Nothing has been done to her that anyone would name as harm, and she is going to act anyway. Ninety-five minutes, and the pressure is positional rather than romantic: a wife's appetite aimed straight at the man who controls her husband's advancement. The story reaches for the word betrayal; what it shows is a woman finding she has wants her arrangement never budgeted for.",
+  "model": "claude-opus-5",
+  "source_sha256": "573b652853b08afbaf320ca8217bed3d07599ecce3058aa1264f5cd303c22d71"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "on-chesil-beach-2018",
+  "field": "lead",
+  "film_id": "a1ae289b-66db-4bc3-95c4-01125257db72",
+  "lang": "en",
+  "text": "England, 1962: two people who have waited for their wedding night and cannot say a word to each other about it. Dominic Cooke sets a courtship conducted in good manners against a few hours in which manners are no help at all, and he treats the year as a condition rather than a backdrop. A little later and these two would have had the vocabulary, and friends who had used it first. What they have instead is consideration, and consideration escalates. Neither of them is a fool; both are young enough to assume the difficulty is temporary. Cooke works in the smallest signals available to people who will not state anything outright, so the discomfort accumulates in the ordinary way it does when two thoughtful people fail each other in a room. 110 minutes, and the hours that settle the matter arrive early.",
+  "model": "claude-opus-5",
+  "source_sha256": "2c6e31eeede979367baadea5125106eee1861bea4567abd77ccbfef46a5a9721"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "crying-out-love-in-the-center-of-the-world-2004",
+  "field": "lead",
+  "film_id": "a250a6c7-bdeb-4803-88f4-f32f6358b09e",
+  "lang": "en",
+  "text": "A man loses track of the woman he is going to marry and finds himself seventeen again instead. Isao Yukisada builds 138 minutes on that exchange: Sakutarou searching for Ritsuko in the present, the high school years surfacing while he searches, and a steady imbalance in which the search plays as an errand and the memories as the main event. The structure is candid about its priorities. Adult scenes are quieter, more competent, more managed; the school scenes carry the volume of things happening for a first time. What saves this from being a device is how long the film will stay in the earlier register before explaining what it is for, and how unremarkable it lets that adolescence be — two teenagers taking each other more seriously than anyone around them thinks is warranted.",
+  "model": "claude-opus-5",
+  "source_sha256": "15ab8323c8829d9f7fd318f6102b44ed9f1232f2e683b323263e59eb7a05932e"
+ }
+]

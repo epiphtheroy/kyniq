@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sound-that-cannot-be-faked",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "침묵이나 인용뿐인 세계에서, 단 하나의 울음만이 진짜다.",
+  "model": "claude-opus-5",
+  "source_sha256": "765f8892c1b83b3f8167658a2787784c9f861497157dcfa1ae438b091403153f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sound-that-is-the-dead-s-persistence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "근원 없는 소리. 죽은 자가 아직 산 자의 세계에 머물고 있다는 증거다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b6783d8b278ff2bb70ee049b0be36c59fbb9387e47ea51912e9f3b7fbecf0d5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sound-that-is-the-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "강박이나 트라우마가 되어 되돌아오는 모티프 사운드.",
+  "model": "claude-opus-5",
+  "source_sha256": "5dadefb9a25f514906500655dba37f79e3403c26e808d35614d7d77ca4ff3267"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundstage-as-a-diorama-of-sweden",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공기 한 점 없는 스튜디오 프레임 안에 나라 하나를 통째로 세운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f0ed1452ef76e94ad46a8ac1548f2f4925eb826a943bc4b2f384b5573cac23a3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundstage-as-interior-mind-not-map",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세트가 장소로 읽히지 않는다. 마음이거나 기억으로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "111163b790b9c21ff373bcd659af45fc7d7b47b0ccde438bed84d607a37d419c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundstage-as-sealed-world",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바깥이 없는 총체적 공간이 되어버린 스튜디오 세트.",
+  "model": "claude-opus-5",
+  "source_sha256": "45e90be169f8f591390482399f17a8f0337158063ce686327bb4112de739d84e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundstage-china-that-never-was",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세트로 지은 중국이 닿을 수 없는 실재의 자리를 대신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e7d41a34b19acdad60bb78f012c093709e767c528dc157e5e62e91b1b4ea95ab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundstage-confessing-its-own-falseness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세트가 존재한 적 없는 현실을, 가짜인 줄 알면서 연기한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fcbabd01e8cf7409f7be6a280a942afe62fb04cbd1b66cd445660f1d8ba92fb8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundstage-confessing-its-own-walls",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "밀폐된 세트는 스스로를 아는 인공이자 도덕의 우리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "49a4ae64524e32f0fbdf0b9b49f4cd9e532f0f352bf4ca36ae6ca75c98046ae5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundstage-that-rebuilds-feudal-japan",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "막 묻고 온 봉건 질서를 전후 스튜디오가 되살려낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e82dd06dba1bf24361864006b8506dc9415d822279a72fc010154373cfe45eed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundstage-that-seals-the-world",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "현실을 숨 막히는 인공으로 가두는 실내와 세트.",
+  "model": "claude-opus-5",
+  "source_sha256": "60d4b41dd5c3debe79751b201b6abbc9a97b6145e7104a3836d5b020bc14a884"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundstage-wearing-the-world-s-vastness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "닫힌 세트가 압도적이고 끝없는 바깥 행세를 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "19f35ff469bd4b2ea380f634bb8a079a93d8df84b8d9fdd242e4b730cbdeb0d2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundtrack-as-diegetic-murderer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "소리가 반주이길 그만두고 직접 죽인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cec6b527fbb2f19fdef6b38550abf071ae4ca9cbd8354a7e73cc0d87cf6e0f5e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundtrack-as-the-true-narrator",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화의 진짜 이야기는 화면이 아니라 음악이 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e2fd7103e2b0393c02b11e8c1bed1776b799e1e206887aafe421a2e480da3774"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundtrack-assembled-never-composed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기성곡을 골라 쓴다. 받쳐주기 위해서가 아니라 고발하고, 훼방 놓고, 보편으로 끌어올리기 위해.",
+  "model": "claude-opus-5",
+  "source_sha256": "c130691c2cc960341b226f267fa032592e2cd0745890ba0fffe49729c3163973"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundtrack-built-to-contradict-the-image",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "음악과 화면이 어긋나도록 설계된 편집.",
+  "model": "claude-opus-5",
+  "source_sha256": "830fd2db8500ddfb62b8f5b6b85b319b3cdac6f844d5d130881a0d125ba8498e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundtrack-engineered-to-outsell-the-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "라이선싱 경제에 묶인 상업 상품으로서의 팝 컴필레이션.",
+  "model": "claude-opus-5",
+  "source_sha256": "18545db54bcdfc81dc6998476b9b84abc497637b6d68d719fce22eacb40b436c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundtrack-that-devoured-its-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "앨범이 자기를 낳은 영화보다 오래 남고, 더 팔리고, 더 빛난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "749bc360370aede3e0c1296ed12c6195538da8af5de8ccf81f88f582944cddea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soup-can-emptied-of-its-name",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정체성이 있어야 할 자리를 대신 채운 무상표.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb55365ec63553b7a1fd167f2250baa8d1afa54e631351b8b669a7b65655adb5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-source-withheld-the-sound-made-monster",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "들리지만 보이지 않는 소리. 아쿠스마틱한 그것이 영화의 진짜 공포가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fe80b0776a415cc299341ff0ef4fbfcc8b88c2d80ccebde1f480c0d6a983b253"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sovereign-state-of-exception",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권력은 제 법을 정지시키고, 그 정지를 부인하며 스스로를 세운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "36ced0299e3ac5076a9c2c4387c1d8fa1e622845f0290a998e903dc0a504f87a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sovereign-void-beyond-the-law",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어느 국가의 관할도 닿지 않도록 설계된 공간.",
+  "model": "claude-opus-5",
+  "source_sha256": "ff163d8d65df7351817365a9699f2f0e77c7c3fa665072438008d95f1ae92a32"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sovereign-who-confuses-the-ritual-for-the-right",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "절차로, 애도로 연기되는 권력. 형식을 실체로 착각한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bdb5c75e6a1f55fff5d30c5548adc911840a918b0a8326ee43f9b565fec9630f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-space-that-will-not-let-you-leave",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기하가 적이 된다. 길찾기는 무너지고 출구는 미로에 녹는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "626546bf149cdf3f6e02e084fdff68ffd3b5dda475e0ce78c3354458b21f994c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spanish-desert-as-buried-truth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "메마른 이베리아 풍경, 한 나라가 억눌러 묻어둔 이면.",
+  "model": "claude-opus-5",
+  "source_sha256": "3efd7467ef91ae3168cfe4ab88fa5192ca5b6072b06a8b7a1541b8983bfe496b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-speaker-whose-words-refuse-to-land",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "능변이 곧 회피다. 말 많은 자가 이 영화의 진짜 침묵이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "936d9275b597769eb737d36f208593b920ae1aa4e947917e2cde3081a06a8868"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-species-that-earns-its-extinction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "모자란 종에게는 구원이 주어지지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "04183cd74ebcf44fc44ea15b65d71fd2df3e8f892591c1fe798e1d9623fbafc9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-specimen-in-suspended-judgment",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "우리에 갇힌 존재. 영화가 미뤄둔 평결 그 자체다.",
+  "model": "claude-opus-5",
+  "source_sha256": "756ae6f4fcb01e5f4b0217ca92bb6e62d92742d45901699454ad503e9b45bae5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spectacle-as-total-social-order",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "드보르의 스펙터클(spectacle)이 카지노 도시로, 은하 전역 방송으로 몸집을 불린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5259bd7281732f6355b4f15bbb1bfd20729947216f9d5a663ffc9ad8c86fb564"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spectacle-deliberately-withheld",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스트리밍이 숭배가 된 시대에 내놓는 대답, 반(反)스펙터클.",
+  "model": "claude-opus-5",
+  "source_sha256": "3162611dc32cbe4a968ffca6634f1222dcea12f6bf374fbca62fa069e039205e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spectacle-devours-its-own-critique",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스펙터클은 자신을 겨눈 전복마저 흡수하고 무대에 올리고 상품으로 만들어 되판다.",
+  "model": "claude-opus-5",
+  "source_sha256": "650e27b21145addde655d171eb867cfaa48c6cdb3820a2973f8e0b96c6361281"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spectacle-devours-its-own-maker",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미디어 장치는 제가 만든 예언자도, 잔혹도, 저자도 삼킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b20a22e617dc1c34ee085a2e6f6850f49a7177952fe0d2bd109a73c9082d3cff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spectacle-dismissed-is-the-argument",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'멍청한 볼거리'라는 판결. 볼거리야말로 요점이었다는 걸 놓친 말이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb6357879d6a08988c1ddba604f78b2e9e1b074166e4105e7a2400ca0201648b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spectacle-staged-as-the-theatre-of-cruelty",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "견딜 수 없는 폭력이 곧 정화라는 아르토의 제의로 읽는 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e4d5c8541cb3e44733fda288b138347221cb6fd2dad07631bb933b11a560514"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spectacle-that-critiques-its-own-allure",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쇼는 유혹하면서, 그 안에 자기를 겨눈 논평을 몰래 실어 나른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd28a92e93a60291fcf26ac4503094e54b8705d1b25a760d2034472169d678ec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spectacle-that-devours-its-real",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "표면만이 현실로 남는다. 무대에 출구는 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "03b5ae83e138e8b30c3dc135f4bda8b061c71f9c21866c0849332b4b93c7f4ce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spectacle-that-devours-its-women",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "벨 에포크의 쾌락 기계가 육체를 이미지로, 상품으로 바꿔놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "81117873ca2c072f36b3438b81d172265958f8870c78394ac776874de6d021b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spectacle-that-theorizes-its-own-empire",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연출된 경기, 짐승 우리. 제국이 제 식욕을 그린 자화상이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "84f69846c92e1cffc01e4467156df8a04f61f7296588363af78d45068157ffb6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spectacularist-who-renounces-spectacle-under-state-pressure",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제국의 화려함이 정치적 속죄를 치르며 흑백으로 잦아든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "68033cd23da5d9c4ac5f4e8976ec5016a7a3cdd422bc321c71fd5a05bbcac613"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spectator-hidden-inside-the-survivor",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "생존자가 한 일은 결국 지켜본 것이고, 그 지켜봄이 유럽을 끌어들인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d1f82d3c1d560acc75578b7ff26cb0a7cb3171918207084989be35e89c16efc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-speech-act-that-misfires",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무언가를 이루려던 말이 끝내 효력을 얻지 못한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "79ec7538ca35e59222395676f7a39eb27fba1819967cca4ae2e405cda4a1c971"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spider-as-the-devouring-feminine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거미의 형상, 삼키고 거세하고 집어삼키는 여성성으로 읽히는.",
+  "model": "claude-opus-5",
+  "source_sha256": "184d337b975c710774bf977953f264163f57964c46601e87c770e5bb216cbe62"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spielberg-reappraised-against-his-reputation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스필버그의 정당성 위기와 만년의 양식을, 통념이 만든 상(像)에 맞세워 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e401c3d813bf55406dcde77d1e474a7d3e29d5e528d9acc4dc88160f60b583b3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-splatter-auteur-as-ritual-body-artist",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장르의 고어가 순수예술의 피의 의례로 다시 놓인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "849f38739ec52f44ff559a0126ef463fcecf0b46b5763435be7a2afe357c1224"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spoiled-self-against-the-neoliberal-order",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자아이기를 거부하는 것, 망가진 세계를 향한 저항.",
+  "model": "claude-opus-5",
+  "source_sha256": "394dbc8132a2c03f0dab10c866a3d16a45ecdcaa1c9ea28fb17f5e8885842743"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sport-that-eats-its-disposable-bodies",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "버려도 좋은 하층의 육신을 갈아 넣는 강제 노동, 그것이 스펙터클이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8de5f5be2db9e100607f18340b42336ecffe5a6b4f3e86d86b78c159335e21b5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spouse-who-curated-the-genius",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남의 재능을 관리하고 포장하고 길들이는 배우자들.",
+  "model": "claude-opus-5",
+  "source_sha256": "b27fb1a40072722c3c36d52d023b80ab7a3a7158ac6f2b02483324dcafd562d1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spy-dissolved-into-his-own-cover",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "위장 신분이 그 신분을 걸친 요원을 집어삼킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0380f605dca3fbdd66c9d66a2aaa8660d63baf48b5686111a2b90017c102e027"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spy-made-obsolete-by-his-apparatus",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기계와 세월이 인간 요원을 잉여로 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b770a0b3818695ac7996ca8febe23ba6db1cf6c075fcf2b27d75cebcd2e5ebd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spy-who-no-longer-knows-his-side",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "충성이 녹아내리고, 끝내 어느 편인지조차 읽히지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ace1dc0384be42bf2098d70d768e3c9167d0aef7648da6a8b21a2ab40adadbf2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stabbing-that-speaks-a-grief-no-mouth-can",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "입으로 낼 수 없는 애도가 살해로 옮겨 간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "27c5900284d0abfb2b4dd8613c23661cf5ffc3245fe86c6018a0fa0c0a31af14"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stage-devoured-by-the-camera",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연극적 밀폐가 영화를 자극해, 영화는 그에 맞설 것을 발명한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5add5a14931af659f021717c13cdd51ee9c34a6a34bd8f1541372fa093c65b2d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stage-is-the-realer-world",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무대야말로 존재의 바닥이고, 삶은 그 리허설이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3ee91212c3b644086ed45e1b1ae923ae716db35d9762934c71a99f30b9668dfb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stage-that-refused-to-leave-the-screen",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연극적 대사와 밀실이 영화 안으로 숨어들어 그 동력이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "886f827fc3063e7b8da9f579896112bcfcf7a30a5ddfecb10ca11d74e677d552"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stage-that-restages-reality",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "현실에 닿는 길은 하나뿐이다. 그것을 무대에 다시 올리는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "49e9f6eeb771a21b75ebe271689214f352c6ebe8218250dd6d14fcc82c12b508"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-staged-lie-that-tells-the-truth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "조작, 재연, 연기된 거짓. 다큐멘터리의 가장 깊은 정직이 거기 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6238abd87506b20606c0d23c67a74277b14a02567254422403ee00a41354d07e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stain-is-the-map-of-a-people",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자국이 번져 한 국가의, 한 민족의 몸이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bbd6de49b31dee6740aefe2755205637affe9c5076b70ed20d8466b789582df2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stain-is-the-return-of-the-repressed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몸이, 마음이 부인한 것이 번지는 얼룩으로 터져 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f57f37c2b1df19a1d553755f302463cc32ce3ee0ca3c4bbcc2bec7b376190ab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stain-that-resists-all-meaning",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "피 묻은 사물이 상징이 되기를 거부한 채 실재(the Real)로 밀고 들어온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "203e965b84c3bc9f0ce0a51338fcd5b30e5fe618900aa9eb32b66d49faf960f4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stair-as-climb-without-destination",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "올라가는 건축. 반복과 헛됨과 정할 수 없는 방향의 형상일 뿐, 도착은 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c93202a64a6868730685f82469130d791dc8c2066f477a794bc90a4e119be760"
+ }
+]

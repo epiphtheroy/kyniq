@@ -1,0 +1,42 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-self-made-hero-1996",
+  "field": "lead",
+  "film_id": "56f719b8-53bc-4124-8679-bc61b628ace6",
+  "lang": "en",
+  "text": "Albert Dehousse learns two things about his family at once: his father was no war hero, and his mother had worked for the other side. This is France at the end of the war, sorting itself into resisters and collaborators fast enough to leave gaps a determined amateur could walk into, and Jacques Audiard plays it close to comedy without ever quite committing to the joke. Un héros très discret is precise about mechanics — how an account gets rehearsed, who bothers to check it, how much of a life can be assembled from other people's memories. It runs 107 minutes and never settles on how much to like its man. Recognition came for the screenplay, and it earns that in the negative, in the questions it declines to answer aloud.",
+  "model": "claude-opus-5",
+  "source_sha256": "67fdef660a45d57d4f89f0f31f3f4b80a8f1cbde3527561ac26f4ad4d558ddaa"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "throne-of-death-1999",
+  "field": "lead",
+  "film_id": "14a8219a-9ce9-4a74-a40a-d517c313a1c3",
+  "lang": "en",
+  "text": "A man picked up for stealing finds murders attaching themselves to his name, none of them his. Murali Nair runs this as political satire, which in practice means the machinery — police, paperwork, interested parties — is played entirely straight while the outcome grows more absurd, and nobody inside the film finds any of it remarkable. Sixty-one minutes is barely a feature, and the brevity is the delivery: no subplot, no reprieve, no time for anyone to reconsider. A British production spoken in Malayalam, it took a Caméra d'Or. With a running time that short there is little room for character, so the weight falls on the accused, whose case stops being about him somewhere around the first charge.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6df7e5a4e25b2f039520d89d6198eb33e832fd91d47886faad01ebd1f02b005"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "and-quiet-flows-the-don-1958",
+  "field": "lead",
+  "film_id": "b6004863-3f36-47ff-8aef-307e6823c5e7",
+  "lang": "en",
+  "text": "Eighty-seven minutes, for a novel of that bulk, is mostly a decision about what to leave out. Olga Preobrazhenskaya keeps the first stretch — a Cossack village on the Don, its fields and horses and marriages, a settlement that has not yet had to think about mobilisation — and holds the camera there while the calendar closes in. The interest is in what such a place looks like while it is still working: labour, courtship, who owns what, whose word carries weight at a table. This was the first attempt to put the book on a screen, and the compression works in its favour; nothing has room to become a pageant. War stays at the edge of the frame, a rumour among people with a harvest to get in.",
+  "model": "claude-opus-5",
+  "source_sha256": "c275235801b336fc0fd3d12eed3e05551ea4632d1d0c544030789cdcd98a7dd1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-unforgettable-year-1919-1952",
+  "field": "lead",
+  "film_id": "4b24082c-9ab6-4804-a1ed-c6281fb20c0f",
+  "lang": "en",
+  "text": "Thirty-three years separate the defence of Petrograd from the film made about it here, and that distance is doing visible work. Mikheil Chiaureli stages 1919 as a matter of command — meetings, orders, the corridor traffic of a city under threat — and a production of 1952 had its own reasons for arranging the credit that way. Watched now, the fighting matters less than the choreography around the people giving instructions: where the camera stands, who is framed listening, how a room is composed so that authority looks like a fact of nature. It runs 107 minutes in the register of history rather than adventure. Whatever it asserts about the Civil War, it is unambiguous evidence about the year of its own making.",
+  "model": "claude-opus-5",
+  "source_sha256": "729fd5a535b4d8d479c49fe7c41d340b1b793d73488534e081cc7df6abd5a1e4"
+ }
+]

@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-drama-of-jealousy-and-other-things-1970",
+  "field": "lead",
+  "film_id": "5d88feb5-7d9e-49bb-b144-020aecc99d38",
+  "lang": "en",
+  "text": "At Ostia the beaches are crowded, free and filthy, and that is where these three go for a day out. Oreste mixes concrete for a living, Nello cooks in a pizzeria, and Adelaide is the reason the two men know each other at all. Scola pitches the whole thing at the volume of a Roman argument, and the rallies they attend keep promising a solidarity the three of them cannot manage among themselves for a single afternoon. The labels say comedy and drama because the film declines to choose. What keeps it from being a joke at their expense is how ordinary the surroundings stay: work clothes, rented rooms, a city with no interest in the situation. A hundred and five minutes of people talking themselves into positions they cannot hold.",
+  "model": "claude-opus-5",
+  "source_sha256": "b8b7ced326429603ac260fc638609d53aaf7808f4688ab045be7049865a2a81d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "king-and-country-1964",
+  "field": "lead",
+  "film_id": "95a2ac03-ccf7-4685-9747-f2e190da7d9e",
+  "lang": "en",
+  "text": "The charge is desertion, and the court that will hear it is made of the accused man's own army. Private Arthur James Hamp walked away from the fighting; Captain Hargreaves, assigned to defend him, finds the case will not stay simple. Its acting took a Volpi Cup. Losey works in eighty-five minutes and spends almost none of them on the war itself, which sits outside as the reason everyone is in the room, so the film narrows to the mechanics of military justice: who is permitted to speak, and what can be made to count as evidence of a man's state of mind. The distance it keeps measuring is not the one between accuser and accused but the one between ranks, and no amount of decency on the officer's part closes it.",
+  "model": "claude-opus-5",
+  "source_sha256": "8cdbf02f26c64761a2b895770414dbbea76ee01d95ede9d196ce55aef94cdd9c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "place-vendome-1998",
+  "field": "lead",
+  "film_id": "74628bee-ca8d-412a-b95d-39578d978a9c",
+  "lang": "en",
+  "text": "Diamonds hold their price regardless of whose hands they pass through, and the film sets that fact beside a woman who has spent years not quite present in her own life. It is filed as crime, and the crime is commercial: what a stone is worth, on what morning, to whom. Garcia gives her lead a hundred and seventeen minutes and keeps the volume low. The interest is in composure, in what a person has to hold steady to be taken at her word by people who appraise things for a living. Coming back to a life left unattended is not staged here as revelation; it looks more like a run of appointments kept on time, decisions taken without announcement, and attention returning slowly to things once worth wanting.",
+  "model": "claude-opus-5",
+  "source_sha256": "dcb412adbc0194f917e453ae0ad75606590dbc9a6cf8cdbd0f8f9113cfbc4556"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "don-t-tell-2005",
+  "field": "lead",
+  "film_id": "9caeb7a6-0157-44c9-8c26-9ffa47847afc",
+  "lang": "en",
+  "text": "Two things arrive in the same weeks: a pregnancy, and nightmares that will not explain themselves. Sabina has a job she likes and a man she loves, and the dreams keep returning her to a strict middle-class household where a great deal was understood and very little said. Comencini films this at the pace of remembering rather than investigating. The one person who could confirm what Sabina half knows is her brother, who teaches at a university on another continent, and the distance he put between himself and the family is not incidental to what she wants to ask him. A hundred and sixteen minutes is a long stretch to spend inside a family's good manners, and the length is the method: the film measures how much of a childhood can be carried without ever being described.",
+  "model": "claude-opus-5",
+  "source_sha256": "a49bac2ba3690ac195bb16b08739375f8c1f772766f5bccad9808d21f097914b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "violette-noziere-1978",
+  "field": "lead",
+  "film_id": "8142a289-e06f-4115-b69b-e7c87386cea6",
+  "lang": "en",
+  "text": "Paris, 1933, and a girl of eighteen leaves her parents' rooms in the evening and arrives somewhere else as somebody else. Violette Nozière keeps two lives running and lets her mother and father go on believing in the innocent one, which costs her very little to maintain. Chabrol gives both lives the same level attention, so neither is offered as the truth about her, and the double life stops being a scandal and becomes a routine. It is filed as crime and thriller, and the suspense is domestic: a version of the evening that has to hold up when it is repeated at home. Two of its performances took Césars. Over a hundred and twenty-four minutes the real subject turns out to be the household: its appetite for a particular version of its own daughter, and how cheaply that version can be supplied.",
+  "model": "claude-opus-5",
+  "source_sha256": "d1a787b08de38d1c4ac8e322f2389c96849b189a4b8b6015cf8e664bc56c30bc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-two-of-us-1967",
+  "field": "lead",
+  "film_id": "54aef0d4-7c80-4efe-998d-b636d91b659b",
+  "lang": "en",
+  "text": "The old man says what he thinks about Jews at his own table, and the eight-year-old eating opposite him is Jewish, which is exactly what nobody is going to mention. The boy has been placed in the house for the duration of the war, and the arrangement holds because the man is not told. Berri plays a great deal of it as comedy, which is both the risk and the method: opinions aired at length in front of the child they would condemn, and the child's fondness for him growing anyway. Ninety minutes, mostly two people in one house, with the war kept offscreen as the reason for the arrangement and nothing more. Nothing here is presented as a lesson learned. It is simply what happens between a man with firm views about people he has never met and a person he has now met.",
+  "model": "claude-opus-5",
+  "source_sha256": "a4399a4532cb9418dde6fa907128ecfd74abe7153ca5696368e7bee60141eaa7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "rosenstrasse-2003",
+  "field": "lead",
+  "film_id": "cf59dca4-85ae-4ba3-897f-b949cce60ab4",
+  "lang": "en",
+  "text": "For a week in 1943, women stood outside a building on a Berlin street where their husbands were being held, then came back the next day, and the day after. The husbands were Jewish and the wives were not, which is why the wives were free to stand there at all. Von Trotta braids that week into a present-day inquiry: a widow in New York keeping a mourning her grown children cannot account for, and a daughter who goes to Berlin and interviews a woman of ninety while pretending to be a journalist. Across a hundred and thirty-six minutes the old account is shaped by the fact of being told, and the listener is not neutral. She is asking about her own mother while engaged to a man her mother's new strictness would rule out.",
+  "model": "claude-opus-5",
+  "source_sha256": "84794b9601be99d80b83eeb496c284f983615b53875733b335bda261daf1d2f4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "i-ll-cry-tomorrow-1956",
+  "field": "lead",
+  "film_id": "c6ea0ad6-2a48-46ee-b679-0dfae94d3cb0",
+  "lang": "en",
+  "text": "Lillian Roth was on a Broadway stage before she was old enough to decide whether she wanted to be there. Her mother arranged it, stardom in two industries followed before she turned twenty, and the film treats none of that as an arrival. The rise is compressed; the falling is given room. What it wants is the long middle: the drinking, and the years the drinking takes with it. A studio picture from 1956, black and white, a hundred and seventeen minutes, every one of them arranged around a single performance, which is a fragile way to build a film and the only honest one for this material. What stays afterwards is the childhood, a girl put to work early by the one person whose job it was to keep her out of it.",
+  "model": "claude-opus-5",
+  "source_sha256": "2759681390cb2c9a2142d4906d291bd8799e26888db9ef5b839b77f9c434ea23"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-cat-1971",
+  "field": "lead",
+  "film_id": "46ea16c9-6d76-4079-aa48-cf7e55d35477",
+  "lang": "en",
+  "text": "The cat is called Greffier, and he is the only one in the house Julien still speaks to kindly. Julien Bouin set type for a living, Clemence performed in a circus, both of those are finished, and so, in every way that shows, is the conversation between them. Two people who once worked with their hands and in front of crowds now have nothing to do but watch each other. The house is scheduled to come down, which gives the silence a date. Granier-Deferre keeps to eighty-seven minutes and to the rooms the couple still use, and lets the cruelty stay small and domestic: what gets fed, what gets moved, what is withheld at precisely the right moment. Clemence's anger now has an object, and it has four legs. A marriage told almost entirely through its logistics.",
+  "model": "claude-opus-5",
+  "source_sha256": "5db0ad3ef3ffe42542748d11c359f7045b2176b4122cb3b43961305514a97725"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-legend-of-rita-2000",
+  "field": "lead",
+  "film_id": "3b0c0543-1e4a-4b65-afbb-4ffcc7dce19d",
+  "lang": "en",
+  "text": "Rita Vogt quits the armed struggle in West Germany and is issued a name to live under by the secret service of the East. What follows is ordinary life performed without intermission: a job, colleagues, a biography that has to stay consistent, and the daily arithmetic of what a person with her history can safely say about herself. Nobody around her knows what she was, and that is a condition she has to renew every day. Schlöndorff puts the fear where it actually sits, which is not in pursuit but in small talk. A hundred and two minutes, and the trap at the centre of them is that the state sheltering her is the same kind of machinery that could give her up, while every friendship she makes enlarges the number of people who might notice.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d8b29946fb38fcf744ea5a6bdd4fff865b025659d9de96ac0a6b9af9d86dd1b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "courted-2015",
+  "field": "lead",
+  "film_id": "ae7b7071-6441-47a4-8edb-238d14f1f429",
+  "lang": "en",
+  "text": "A murder trial opens and the judge on the bench recognizes somebody in the jury box. Xavier Racine is feared in his own courtroom; Ditte Lorensen-Coteret is French-Danish and has been summoned to sit in judgement at it. What the two of them once were to each other surfaces slowly, in the least suitable room in France for surfacing anything, under rules that let neither acknowledge the other. The killing under examination gets less attention than the etiquette of the room. Vincent files the result as comedy as much as crime, and the comedy is procedural: a trial that must go on being conducted properly by a man with something else entirely on his mind. Ninety-eight minutes, and the verdict the film waits on is not the one the court was convened to deliver.",
+  "model": "claude-opus-5",
+  "source_sha256": "d4f2e679246d0dab8306b8542a4775ae505a92c1aab981864e385755c6911fe0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "crime-and-punishment-1935",
+  "field": "lead",
+  "film_id": "74cd5129-8497-40be-b98b-f1822034305f",
+  "lang": "en",
+  "text": "Rent is due, there is no money for it, and a former student works out that the shortest way through the problem runs through a murder. Von Sternberg made this in America in 1935 and gave himself eighty-eight minutes, so the killing lands early and everything after it is pressure applied at conversational range. The police investigate. Raskolnikov's difficulty is less evading them than being in a room with them, since every exchange becomes an occasion to be read. It is a studio production whose real action is interior, a strange thing to attempt at that length: the film has to show a mind wearing down with nothing but talk, timing, and a young man who cannot leave the subject alone and talks best when he should say nothing.",
+  "model": "claude-opus-5",
+  "source_sha256": "ded1937db1dcd8e4b5bc7492ad0cd30d2fe3f6aa205c2356fb7e2290ad09ee56"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "our-life-2010",
+  "field": "lead",
+  "film_id": "67c51ecb-db78-42ad-b450-7b8b938bc89d",
+  "lang": "en",
+  "text": "Claudio puts up apartment blocks on the edge of Rome and lives out there himself, with a wife expecting their third child. The film opens in contentment, which is harder to sustain on screen than misery, and holds it long enough to be credible: the noise of a site, a family that likes its own company, work that is there in the morning and will be there tomorrow. Then something arrives the household has no margin for, and the rest is conducted at the scale of a wage. What a job pays, what is owed, what a man will take on once the arithmetic changes. Luchetti shoots the Rome still being built rather than the one that gets photographed, and the ninety-eight minutes never leave that ground, or that income bracket.",
+  "model": "claude-opus-5",
+  "source_sha256": "34bd10661d60326a54ccc18cf104c060e7fb4841017cd81ee3535d47eeffb3f9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "we-won-t-grow-old-together-1972",
+  "field": "lead",
+  "film_id": "7265a9f9-c593-42a9-96f5-cb45cfe8c8f2",
+  "lang": "en",
+  "text": "The same quarrel, repeated with small adjustments, is not a flaw in this film's construction; it is the construction. Jean is forty, married, and makes films for a living. Catherine is young, working class, and not his wife. Pialat gives them a hundred and ten minutes of leaving and returning, and the pattern is never dignified with an explanation from either of them, because neither has one that would survive being said out loud. Romance is one of the labels the film carries, accurate only in the sense that wanting each other keeps bringing them back. Doing the work that plot usually does is the plain asymmetry between them: his marriage, her age, the fact that one of them can always go home and the other is the place he goes to instead.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f5e09c57c866ac91df2b6e2b9b46e3a68105428e514c68a1d14516f768212a3"
+ }
+]

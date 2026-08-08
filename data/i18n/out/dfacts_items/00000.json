@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "abbas-kiarostami#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마수드 키미아이의 1969년작 《Gheysar》, 이란 뉴웨이브의 출발점이 된 그 영화의 상징적인 타이틀 시퀀스를 만든 사람이 그였다. 정지 사진을 몽타주로 이어 붙여 거친 분위기를 처음부터 깔았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5a682d67478110f7321db868f7eb9a8b1d8e12be3f93a331525c295bf39aebeb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "abbas-kiarostami#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1969년, 그는 아동청소년지적개발연구소(Kanoon)에 영화 부문을 세우는 일을 도왔다. 이곳이 이란 뉴웨이브의 주된 산실이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ee323461b11271da94ad13f8302edac334897e72ccb45f48ac72af2446d8ef81"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "abbas-kiarostami#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1979년 이슬람 혁명으로 이란 예술가들이 대거 나라를 떠날 때 키아로스타미는 고집스럽게 남았다. 뿌리를 깊이 내린 나무는 낯선 땅에 옮겨 심으면 죽는다고, 그는 자신을 그렇게 빗댔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7a8c0d5f286dea43a8da53bf28401b19b5f4774947fa2925862e99a2c2d64722"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "abbas-kiarostami#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "잡지 《소루시》에서 기사 하나를 읽는다. 호세인 사브지안이라는 가난한 시네필이 감독 모흐센 마흐말바프 행세를 하다 체포됐다는 내용이었다. 키아로스타미는 곧장 작업하던 영화를 접고 카메라를 챙겨 교도소로 달려갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b19653eaa3532b117698f92ad0a1d66361797dfebab12a9e4e09b090ceb644b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "abbas-kiarostami#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "사브지안의 실제 재판을 찍기 위해 그는 직접 나서서 이란 사법부의 허가를 받아냈다. 현실의 법정 절차가 그대로 1990년 걸작 《클로즈업》의 절정이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e8c009b94831167cff26b0f538c7981e141edf52cb891f432d7d625b34de29f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "abbas-kiarostami#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1997년 카트린 드뇌브가 《체리 향기》에 황금종려상을 건네며 그의 뺨에 입을 맞췄다. 그 짧은 포옹에 이란 보수층이 들끓었다. 이슬람 율법은 친족이 아닌 남녀의 공개적 신체 접촉을 엄격히 금한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7fdf98e0d81383fe6780940da1daa0d21640dc254f9793b036797c6962dc0bcb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "abbas-kiarostami#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《체리 향기》는 이란에서 검열의 칼날 앞에 섰다. 자살한 뒤 자신을 묻어줄 사람을 찾아 테헤란을 차로 도는 남자, 그 이야기 자체가 자살을 엄금하는 이슬람 계율을 정면으로 어겼기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d533f163a152dac587d56d0bf1fe72f82b46bd39ffc658b439819e1850244597"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "abbas-kiarostami#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2008년 실험작 《시린》에서 그는 이란의 유명 여배우 113명을, 그리고 쥘리에트 비노슈를 함께 카메라 앞에 앉혔다. 비극적인 사랑 이야기에 감정으로 반응하는 얼굴들. 정작 그 영화는 상영되지 않았다. 배우들은 깜빡이는 불빛이 달린 판지 한 장을 응시했을 뿐이고, 이야기는 키아로스타미가 옆에서 읽어주었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e9777d6fcc2243f2e6564cef1141badd4506dbcce87cfb6a5d28098b903c8bab"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "abbas-kiarostami#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "사티야지트 레이가 세상을 떠난 뒤 일본의 거장 구로사와 아키라는 이렇게 말했다. \"키아로스타미의 영화를 보고 나서, 그의 자리를 대신할 바로 그 사람을 주신 신께 감사했다.\"",
+  "model": "claude-opus-5",
+  "source_sha256": "f7ffd99f2a1fa9298061c05421452a60989df595ca134a3da7471eed0489898e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "abbas-kiarostami#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장뤼크 고다르는 \"영화는 D. W. 그리피스에서 시작해 압바스 키아로스타미에서 끝난다\"는 말을 남겼다. 정작 당사자는 그 찬사를 겸손하게 밀어냈다. 고다르가 자기 영화를 아마 한 편밖에 못 봤을 거라면서.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e43721d6bf3343787307f380e31476ee9f5ba448a3855fb195146e2740aee6c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "abbas-kiarostami#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《사랑을 카피하다》의 출발점은 테헤란이었다. 쥘리에트 비노슈가 그를 찾아왔을 때, 키아로스타미는 어느 부부 이야기를 생생하게 들려주었다. 비노슈가 그 이야기에 깊이 빠져든 뒤에야 그는 실토했다. 그런 부부는 없다고, 전부 지어낸 것이라고.",
+  "model": "claude-opus-5",
+  "source_sha256": "098913da89aa9c37034eec1506a4b126b33a364fa2495a30e943d0775878869b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "abbas-kiarostami#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화는 고국에서만 만들 수 있다고 수십 년을 고집해 온 사람이었다. 그러나 말년의 그는 외국어로 연출했다. 《사랑을 카피하다》는 토스카나에서, 《사랑에 빠진 것처럼》은 도쿄에서 찍었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b8852f8257752f6f5ac73962ceb56571eff65c9ebab65b8166142c363eaf8af0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "abbas-kiarostami#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이란 영화의 위상을 전례 없이 높여 놓고도 그의 작품은 문화이슬람지도부에 의해 자국 극장에서 번번이 상영 금지됐다. 수백만 이란인이 불법 복제 DVD로 그의 영화를 봤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0fc81dcc3b4e3cc9175a34c2c7c31700f1cead013cad6c537829fe765503fa14"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "abbas-kiarostami#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1990년 만질·루드바르 대지진으로 3만 5천 명 넘게 목숨을 잃었다. 키아로스타미는 차를 몰고 재난 현장으로 들어갔다. 전작 《내 친구의 집은 어디인가》에 나온 두 어린 배우를 찾기 위해서였다. 그 여정이 다큐픽션 《그리고 삶은 계속된다》가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc1fb4b0900526cac99729c2dc496b11110068fa3e312470fdabe6a1c680ba37"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "abbas-kiarostami#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2006년 그는 스페인 감독 빅토르 에리세와 영화로 편지를 주고받았다. 대본 없이, 지극히 사적인 '비디오 편지'를 서로에게 보냈다. 이 왕복 서한은 훗날 파리 퐁피두 센터에서 전시된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c44f28d0bfb7ad67193e3fe4a19ad6c4e50b8df291af574059b5ffc4e7a5a79"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "abbas-kiarostami#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2016년 파리에서 위장관암 합병증으로 세상을 떠나자 이란에서는 분노가 터져 나왔다. 동료 감독 다리우시 메흐르주이가 앞장선 항의는 초기 수술을 집도한 이란 의료진을 겨눴다. 명백한 의료 과실이자 '살인'이라는 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "47183b3b0640719fc6020f4a8de24b19adff58ac5447b87a49121c95cf9d8626"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "abbas-kiarostami#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "세상을 떠날 무렵 그는 《24 프레임》이라는 프로젝트의 막바지에 있었다. 정지 사진과 고전 회화 스물네 점을 디지털로 움직이게 만들어, 멈춘 이미지의 직전과 직후를 상상해 보는 실험이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9bbc5b1438dc2a09c83c895d044918e922899632abadb80e11f78041dae75348"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "adam-mckay#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "필라델피아에서 태어난 애덤 매케이는 일곱 살 때 아버지에게 버림받았다. 음악을 하던 아버지가 가족을 떠난 뒤, 웨이트리스로 일하던 어머니가 홀로 그를 키웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "16bf8b53e5617bc33ac21a32c2eb13999161595c9a9abf97bf2e8e599a7c63ba"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "adam-mckay#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "펜실베이니아 주립대와 템플대를 모두 중퇴했다. 템플대는 영문학 학사를 받기까지 딱 한 학기를 남겨두고 그만뒀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "13e15c7773f8c1f109d12ad2ad5d73a62cab50a249a45bbed87300b873f209e2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "adam-mckay#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1995년 그가 《새터데이 나이트 라이브》 오디션을 본 것은 배우 자리였다. 출연진에는 끝내 들지 못했지만, 제작자 로른 마이클스가 그의 포트폴리오에 감탄해 작가로 채용했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d41fc5152357d93486e7c08ee24a5070f9fa361b1a84bd1e5d9889559a0f5405"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "adam-mckay#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "시카고에서 즉흥연기를 배우다 아내를 만났다. 영화와 연극을 연출하는 시라 파이븐. 그렇게 그는 배우 제레미 파이븐의 매제가 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "17eba6cd852fdd5721a0f7733bb6cbec495be69ebbf8f0849823ab28816721ea"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "adam-mckay#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2007년 매케이와 페럴은 코미디 사이트 Funny or Die를 열었다. 개시작은 바이럴 영상 \"The Landlord\"였는데, 여기서 매케이의 두 살배기 딸 펄이 페럴에게 욕을 퍼부으며 집세를 내놓으라고 다그친다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e001c47e4686d756e9561664450587cda69b613dd894e70ee183708cbc2ba4a1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "adam-mckay#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아마존 인기 시리즈가 되기 한참 전, 매케이는 2000년대 후반 몇 해를 개스 에니스의 냉소적�� 슈퍼히어로 만화 《더 보이즈》의 영화화에 쏟았다. 소니와 파라마운트는 결국 손을 뗐다. 너무 어둡다는 이유였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d0419f22e3bed653cb85262a30ad6d3acfc2c2c28fa02c9f2a70e8eeb593cd2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "adam-mckay#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2014년 에드거 라이트가 마블 《앤트맨》에서 갑자기 하차하자 감독 자리가 매케이에게 왔다. 그는 라이트에 대한 예의로 거절했고, 대신 주연 폴 러드와 함께 각본을 대폭 뜯어고쳤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "85b6276ac01a175986d8a956eb8c71068d7c0f0452deeec89d02b6658357ac3d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "adam-mckay#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "윌 페럴과의 20년 창작 동반 관계는 2019년 요란하게 무너졌다. HBO 시리즈 《위닝 타임》에서 LA 레이커스 구단주 제리 버스 역에 존 C. 라일리를 캐스팅하면서, 매케이는 페럴에게 미리 알리지 않았다. 페럴이 몹시 탐내던 배역이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b4ce001e7298dd15748f88d90ba4d40f6bfdd4e5653ef9f47d87be65aaeed6f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "adam-mckay#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "훗날 매케이는 그 캐스팅 문제를 형편없이 처리했다고 공개적으로 인정했다. 갈등을 피하고 싶었던 것이 화근이었다. 페럴은 두 사람의 공동 회사 게리 산체스 프로덕션을 해산했고, 그 뒤로 매케이와 말을 섞지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "00875f0c4e536a74785203acd70d5d56e38d34d2303fa6c47ea67bd05edf02ca"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "adam-mckay#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2016년 《빅쇼트》로 아카데미 각색상을 받았다. 공동 각본가 찰스 랜돌프와 나눠 가진 상이다. 난해한 금융 상품을 설명하려고 유명인을 카메오로 불러 세우는 각본이었다. 거품 목욕을 하는 마고 로비 같은 식으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d6cb65518b357f2a76170750bd0eab8e094022912feaa351ea84256a5cc5a83"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "adam-mckay#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2016년과 2020년 민주당 대선 경선에서 그는 버니 샌더스 상원의원을 대변하는 유명인 지지자로 눈에 띄었다. 유세장에서 자주 연설했고, 자기 소셜미디어 계정을 총동원해 전 국민 의료보험을 밀었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5eaaf0f2bdddcb2e64b8344a0694ba94e66bea89e4dc0c74ba947c2072f8e7a5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "adam-mckay#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2019년 그는 제작사 하이퍼오브젝트 인더스트리스를 세웠다. 이름은 철학자 티머시 모튼의 개념 '하이퍼오브젝트(hyperobject)'에서 따왔다. 블랙홀이나 기후변화처럼 시공간적으로 너무 거대해서 인간의 통상적 이해를 벗어나는 존재를 가리키는 말이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0c88ed3196ccfcd8c5497a4b2526b4e31a7dbc1881fa1e459f0f0fd701718723"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "adam-mckay#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "HBO의 기업 드라마 《석세션》 파일럿을 연출했고, 시리즈 내내 총괄 프로듀서를 맡았다. 흔들리는 카메라와 잦은 줌, 다큐멘터리를 닮은 그 특유의 화면은 그가 자리 잡는 데 손을 보탠 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7b8058b2849addcfd6c4c14d7b08a692505a0a5b565d7c2a0cc224042edabf03"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "adam-mckay#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2022년 매케이는 기후긴급기금(Climate Emergency Fund)에 400만 달러 기부를 약정했다. 비폭력이되 사회를 교란하는 기후 시위에 자금을 대는 비영리단체다. 이후 이사회에도 합류했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b3d1b95144f20a65a31423729357ae3f9d9eafa463216e927495aedff792459b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "adam-mckay#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "주류 언론이 지구온난화를 다루는 방식에 신물이 난 그는 2023년 옐로 닷 스튜디오를 차렸다. 기후변화 허위정보에 맞서는 바이럴 영상만 만드는 비영리 제작사다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a728dd29a5e6b40b7567a5cd4b3f5920d4f4bf929de746931a74ec047c672d9e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "adam-mckay#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "현재 그는 봉준호와 손잡고 영어 HBO 리미티드 시리즈를 개발 중이다. 오스카를 받은 《기생충》을 바탕으로, 2019년 원작의 여백에서 벌어진 이야기들을 넓혀 나가는 작업이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d22a3d0e8050144e6e8f64c4115d4d9a991484f370ea161e27c7e0b3451db2d3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "adam-mckay#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2009년 그는 브로드웨이 히트작 《You're Welcome America: A Final Night with George W. Bush》에서 윌 페럴을 연출했다. 이 공연은 코트 시어터 주간 최고 흥행 기록을 갈아치웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d34e1e25b727cf4820d4ba75b40f78d6774f694a43763b1d3ef2409f9a969870"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "agnes-varda#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "벨기에에서 그리스인 기술자 아버지와 프랑스인 어머니 사이에 태어났을 때 이름은 아를레트 바르다였다. 열여덟에 아녜스로 개명한다. 아를레트라는 이름이 너무 가볍게 느껴졌기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bc221e90ffb7057b4b65919efd3fb9a0fcae2a3fc6549c3b3807c79802074bf6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "agnes-varda#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1940년 독일군이 벨기에로 밀고 들어오자 가족은 배를 타고 피란했다. 도착한 곳은 지중해의 어촌 세트. 이 도시가 그의 시각적 감각을 깊이 빚었고, 데뷔작의 무대가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6f060bb66c30813eef673e6ea663b7875c4ef2d3598a43d8b50fa050ff37e8c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "agnes-varda#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "처음 품은 꿈은 미술관 큐레이터였다. 파리 루브르 학교에서 미술사를 공부했고, 이후 보지라르 학교의 야간 사진 강좌를 들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "84b0f6f2f583bfa38e7354ca0a26feaaba3d8606500285e1c2c3dcafaec6a8ec"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "agnes-varda#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화를 찍기 전 10년 동안 그는 장 빌라르가 이끄는 국립민중극장(TNP)의 전속 사진가였다. 제라르 필리프, 잔 모로 같은 무대 스타들의 초기 초상이 그 카메라에서 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f01463533e203ce8587c30e197107a80a3d042c6a47f494e26d4749fc2401b5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "agnes-varda#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1954년 데뷔작 《라 푸앵트 쿠르트로의 여행》을 쓰고 연출하기까지, 자기가 평생 본 영화가 열 편도 안 된다고 바르다는 말하곤 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "77e4afbea2737d64253fc222b9fc41aba4be7ecff09f1cdd485acc72b3b5bea4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "agnes-varda#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "창작의 독립을 끝까지 지키려고 1954년 자기 제작사 시네타마리스를 세웠다. 사무실은 따로 없었다. 자기 집 안뜰에서 회사를 굴렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f2221b096c846339c5ba083cb17121feea22aaab097fd073d319db46a82159f4"
+ }
+]

@@ -1,0 +1,62 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "corpo-celeste-2011",
+  "field": "lead",
+  "film_id": "737b6b9e-53be-4f12-94e9-fc36e9bded5b",
+  "lang": "en",
+  "text": "Catechism here runs on clapping games and pop songs about Jesus, and for one girl in the class it is nowhere near enough. Marta is thirteen, back in a southern Italian city after a childhood in Switzerland, and her ear is wrong for the place: she hears the parish the way a foreigner hears a dialect, catching the machinery and missing the warmth. Ninety-nine minutes, no ceremony. She presses the class, then the priest, then the church standing behind him, less out of rebellion than because she has taken the whole arrangement literally and cannot see why nobody else has. Alice Rohrwacher keeps the scale domestic: a parish hall, a classroom, a household newly arrived and not yet settled, a mother and an older sister she came with. The subject is a child conducting a serious inquiry inside an institution that would rather she sang along.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a6b9db365a13fc2715eff999924eee34cf438f770a392d2c96ffd2c5ee4cd5c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "in-the-cut-2003",
+  "field": "lead",
+  "film_id": "74d22ae1-f963-4a8e-8e0f-e71ba652d416",
+  "lang": "en",
+  "text": "Frannie Avery teaches writing in New York and begins sleeping with the detective assigned to a murder in her neighborhood, which makes every intimacy also a piece of evidence. Jane Campion's attention is not on the investigation but on the woman standing next to it: what a professor can infer from secondhand fragments, and the slow private arithmetic she performs about a man she wants and cannot vouch for. Four genres are listed and they pull against each other for 119 minutes; the romance is the least reassuring of them. The scale is a few streets - the block, the bar, the walk home - small enough that a killing on them belongs to everyone living there, and close enough that the man investigating it is now in her bed.",
+  "model": "claude-opus-5",
+  "source_sha256": "d84150eb461b818b541482c494861cffa259d3005598ac01583551c30668804f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "boarding-gate-2007",
+  "field": "lead",
+  "film_id": "773839bf-d621-475d-90a9-4a1b307c3d1b",
+  "lang": "en",
+  "text": "Sandra's affair with a wealthy businessman is work, and it was arranged by the man she goes home to. Miles Rennburg thinks he is being wanted. He is being scheduled. Behind Sandra stands Lester, her lover and partner in whatever the business actually is; behind Lester stands his wife, Sue, who sets the terms for all of them. Olivier Assayas arranges the film as a chain of command in which desire is a line item, and across 106 minutes each private conversation carries an instruction underneath it. The people who believe they are choosing hold the least information. What holds the first hour is the ordinary strain of the job: Sandra performing to specifications she did not write, for employers who are also, inconveniently, the people she has slept with.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b7c3f3dacf6d968291ad66ce72406d6cbb7cabe3f1985f5369f621efb2ec5d1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hans-zimmer-live-in-prague-2017",
+  "field": "lead",
+  "film_id": "77b53b1d-f208-431e-aaca-47dc08a87dd1",
+  "lang": "en",
+  "text": "Seventy-two musicians on a Prague stage on 7 May 2016, one of them Johnny Marr on guitar. The material is film music, written across three decades for directors including Ridley Scott, Gore Verbinski and Christopher Nolan, and film music is composed on the understanding that something else will be happening while it plays. Remove the picture and the cues have to hold a hall on their own, at volume, with a choir behind them. That is the actual experiment of the evening. Tim Van Someren films it as a concert rather than a career: 139 minutes, band and orchestra, Hans Zimmer moving between instruments and stopping before pieces to say where they came from. Those spoken introductions are the part least likely to be familiar to anyone who already knows every note of the scores.",
+  "model": "claude-opus-5",
+  "source_sha256": "352b479cd24d3053f6d15f1d46d4277d9474e7eac274c5cf006512cc9d646166"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "manon-of-the-spring-1986",
+  "field": "lead",
+  "film_id": "7818f8bc-21c9-48d4-9336-501bf5d9c9b7",
+  "lang": "en",
+  "text": "In a Provencal village the pressing question is water: who has it, whose land it crosses, what the neighbours have agreed not to say. Years after her father was cheated out of his ground, Manon is grown and keeping sheep on the hills above the men who did it, and she is in no hurry. Claude Berri takes 115 minutes over the second half of a story whose first half established exactly what was taken, which frees this one to work on the harder material: a village that knows, more or less, and has organised itself not to. The reprisal, once started, is patient, and it runs through property rather than through any sudden act. The film's Cesar went to a supporting performance, which suits a story in which the neighbours are the plot.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6253b96a00b01478b10307e692af84e9bd8f495de432af230211b446faa7ac2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tears-for-you-2006",
+  "field": "lead",
+  "film_id": "7a85a27e-6bb0-404a-9d8a-d6282a1ad3e1",
+  "lang": "en",
+  "text": "A dying woman asks her young son to look after the girl who became his sister by paperwork, and he agrees. Everything afterward is the cost of that agreement. Kaoru's father, a jazz musician, skipped town; Yota's mother, who had married him, did not live long after. What remains is the two of them and a sentence spoken at a bedside to a child too young to weigh it. Nobuhiro Doi keeps the scale domestic across 118 minutes, and the difficulty he circles is that this family was assembled by a marriage that no longer exists: they are kin because two adults once said so, and both adults are gone. It is described as a love story, which is the whole problem and the whole subject. A Japan Academy Prize went to a lead performance, which indicates where the weight sits.",
+  "model": "claude-opus-5",
+  "source_sha256": "0dca8e3628cd7920f2e2d1bb90be100a744f77a5870540aece19ee3e1e90d2b2"
+ }
+]

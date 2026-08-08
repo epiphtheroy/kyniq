@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dona-diabla-1949",
+  "field": "lead",
+  "film_id": "e9f0e681-57a3-4896-96a8-3adcfdf1a85f",
+  "lang": "en",
+  "text": "The murder comes early, and then the film stops to listen. A woman runs into a church and gives a priest her life story, which means the crime arrives not as a puzzle but as the last item on a long account. Tito Davison builds ninety-five minutes on that arrangement: the present tense is one woman kneeling in a dark room, while everything of weight has already happened elsewhere, in scenes she narrates rather than escapes. The structure does the moral work. She is the accused and the only witness, so every explanation is both defence and evidence, and no one in the church can check a word of it. Melodrama usually asks for sympathy; this one asks for a verdict first, and the difference shows in how patiently it lets her speak.",
+  "model": "claude-opus-5",
+  "source_sha256": "cdbba41b397c254a424f50cc9107b25e902d1b1c62810323153d97c9bc1ccbac"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-barracks-1944",
+  "field": "lead",
+  "film_id": "d8685d75-f3de-4135-996a-c549ca764a68",
+  "lang": "en",
+  "text": "Late in the nineteenth century, a peasant family takes on a piece of ground the rest of the village has agreed to leave alone. Roberto Gavaldón gives that decision a hundred and ten minutes and no villain. The hostility is collective, and it arrives as small refusals: a door, a price, a silence at the wrong moment, harder to dramatise than a single enemy and slower to survive. Work does not answer it. Work is what provokes it. The scale stays domestic, one house and one crop and the road between them, while the pressure comes from something nobody has to organise, since the village agrees without meeting. A period setting can be a way of keeping a subject at arm's length. This one uses the distance to look straight at how a community starves the people it has decided against.",
+  "model": "claude-opus-5",
+  "source_sha256": "98bc179a37e8f6cf94af010085dbfeadc5ed2f43f76364b0888d122d9e4e9351"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-unloved-woman-1949",
+  "field": "lead",
+  "film_id": "413dae8a-e1f5-43f5-bcde-5361780cb7a2",
+  "lang": "en",
+  "text": "Acacia agrees to marry a man she does not love, because the alternative is staying in the house. The house belongs to her mother, Raimunda, and to Esteban, the stepfather she cannot stand and cannot avoid. Emilio Fernández gives the situation eighty-six minutes and very little air, with Dolores Del Rio and Pedro Armendariz in it. What he is doing is watching a household hold a shape it can no longer hold: meals taken, work done, courtesies exchanged, all of it running over something nobody will say aloud. The engagement is an exit route and everyone knows it. Rural melodrama tends to be loud. This one keeps most of its violence in the pauses between people obliged to live under one roof, and in the arithmetic of a mother deciding what she is willing to see.",
+  "model": "claude-opus-5",
+  "source_sha256": "642d615d564c57a4461e3a854d5fa0e1b11b774f20bd7e39951a0bfa45ed8aa2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mexico-de-mis-recuerdos-1943",
+  "field": "lead",
+  "film_id": "6cff43ac-f29d-4864-84e6-ab3841c54b56",
+  "lang": "en",
+  "text": "A waltz pleases the president's wife, and the machinery of the state turns toward finding the man who wrote it. Don Susanito is sent after Chucho Flores and locates him drunk among poets, which apparently qualifies Susanito to be named protector of artists and of every young hopeful with an eye on the stage. From there the film is songs, dances and courtships strung along an errand that keeps not ending. Juan Bustillo Oro is working in a register where the Diaz years arrive as ballrooms and bohemia rather than as politics, and the pleasures on offer are period furniture, sentiment and performance. What holds it together is Susanito himself, a functionary handed a piano and a purpose and unable to stop enlarging both.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3efa838d6e6b1e9c2677a2be078ccfc8656dcbd7af2971677bd736a70c593f2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "luz-s-motives-1985",
+  "field": "lead",
+  "film_id": "35a2e23f-43bf-4e0c-8b8b-a07d8612b9ee",
+  "lang": "en",
+  "text": "The case against Luz is made almost entirely by her husband and his mother. She is in a cell, accused of killing her own children, and she will not supply the account everyone in the building needs from her. Dr. Rebollar keeps trying. Felipe Cazals builds ninety-six minutes out of that impasse: the questions arrive, the memory does not, and the film has to look for its evidence in the conditions of a life rather than in testimony. Luz treats the prison as purgatory, a place with a term and an exit, which is a theology no court has any use for. Made in 1985, the film is less interested in what a jury would decide than in the arrangement of poverty, marriage and household authority that put the question to her in that form. The refusal to remember is the strongest thing she owns.",
+  "model": "claude-opus-5",
+  "source_sha256": "81a6592e9583eeb431811c27306a7ceb0521a04224fa1c9ec2db3259be8187b9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "el-baisano-jalil-1942",
+  "field": "lead",
+  "film_id": "468f1412-2d41-47c4-9c7f-8deb5210fe76",
+  "lang": "en",
+  "text": "The family with the title has no money; the family with the money has no title. Jalil is a Lebanese businessman, the Veradadas are aristocrats living on loans, and their daughter Martha treats his son Selim as something the household is obliged to tolerate. Then the debtors invite the creditors to dinner. Joaquín Pardavé runs the comedy on manners: who is seated where, whose accent gets repeated back at them, how much contempt fits inside an invitation. Jalil arrives with his wife Suan and his son, and sits through it. A hundred and two minutes, listed as comedy and as drama and needing both, built on an immigrant merchant family placed at the centre of a drawing-room farce, with the laughter arranged so that it keeps landing on the people who assume they are the ones laughing.",
+  "model": "claude-opus-5",
+  "source_sha256": "a7db983b896c97367f65a3b7b56b8f7c10e61b5758b01cb2ae487c71185c86b9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "torero-1956",
+  "field": "lead",
+  "film_id": "a1390dd1-8212-40ed-850b-21a5a69dfa0a",
+  "lang": "en",
+  "text": "Luis Procuna's life is the subject, and the film reconstructs it as often as it observes it. Boyhood, training, the run of afternoons that made his name: Carlos Velo assembles seventy-five minutes that carry two labels at once, documentary and drama, because a career's worth of bullfights cannot be caught live. What comes out is a portrait of a job. Procuna is watched at work rather than explained. The repetition, the waiting, the specific fear of a man who has to go out again next Sunday and be the same man he was the last time. It won the Academy Award for documentary feature. The bull is not really the subject; the trade is, and so is the cost of a reputation that has to be earned again each afternoon in front of people who remember the last one.",
+  "model": "claude-opus-5",
+  "source_sha256": "25a6d649e11c5694ab7b11b7f47cf35102b930610cc7322caffb3daa4fd4e01f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "rosauro-castro-1950",
+  "field": "lead",
+  "film_id": "18aba004-2757-4122-b24b-b95f8def4416",
+  "lang": "en",
+  "text": "The mayor of the village is as frightened as everyone else in it, and everyone else knows why. Cardoza, a candidate for the office, has been killed, and an investigator named Garcia Mata arrives to find that the answer is common knowledge and that nobody will hand it to him. Roberto Gavaldón spends ninety minutes in the gap between those two things. Rosauro Castro is not hiding. He runs the place in the open, and the tension is odd for a crime picture: the crime is transparent, and the difficulty lies entirely with witnesses who will still be living there next week. Gavaldón is less interested in detection than in obligation, in who owes what to whom, what a favour costs later, and what a stranger's question is worth when he leaves and everyone else stays.",
+  "model": "claude-opus-5",
+  "source_sha256": "30205a63b235a204b7e0d3a88d91e0714612342204404b2d2f36d4974b8f5302"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dona-perfecta-1950",
+  "field": "lead",
+  "film_id": "3583b8e5-f134-46e4-9e4e-537f76c1ab84",
+  "lang": "en",
+  "text": "Santa Fe has no interest in being improved, and Pepe has arrived to improve it. He is a liberal, a farmer, and a nephew, and the last of those is what keeps a roof over him: Doña Perfecta takes him in because family requires it, not because she disagrees with the neighbours turning against him. Alejandro Galindo spends nearly two hours on that arrangement, which is sharper than an argument in the square would be, since the opposition is at the table, passing dishes. Then Pepe and his cousin Rosario fall in love. The aunt's two roles, host and adversary, stop being separable, and a difference of opinion about how a town should live begins to behave like a siege conducted indoors. The film is filed as drama, romance and war. All three are doing work.",
+  "model": "claude-opus-5",
+  "source_sha256": "c433a6b68b412cfd6d13a26442e9cdf50df8d86358fe82b0dfff50f007999861"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "story-of-a-great-love-1942",
+  "field": "lead",
+  "film_id": "8bb273bf-6ac1-44ff-a756-ff7ed7c6e2e5",
+  "lang": "en",
+  "text": "A hundred and fifty-five minutes is a long time to spend on three people in one town. Julio Bracho takes it, and the length is the argument. Manuel leaves; Soledad stays and marries Antonio; Manuel comes back. Put that way it is a paragraph, and everything Bracho cares about sits in what the paragraph leaves out: the years of the absence, the marriage made inside them, the position of a woman who is married and still in love with someone else, and the ordinary hours in which none of it can be discussed. The film is from 1942 and it moves at the speed of a decision already taken. Whatever the two of them resolve to do about it is where the difficulty begins, not where it ends.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e5536173064508478bd905ccd995432a5d36573f65968bd5b28abd5d895d6d6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "espaldas-mojadas-1953",
+  "field": "lead",
+  "film_id": "0692cc9f-5a98-49bf-b677-c4ca74f2e61c",
+  "lang": "en",
+  "text": "Rafael Améndola crosses the border running from the police at home, which means he arrives on the far side already unable to go back. The title is the slur itself, in Spanish and in its English rendering. Alejandro Galindo made the film in 1953 and drew the system waiting over there as a business: Frank Mendoza recruits, Mr. Sterling employs, and the labour comes without papers and therefore without recourse, which is precisely why it is hired. Rafael does not adapt. That is the whole of his rebellion, and it costs him by instalments. What keeps a hundred and sixteen minutes from turning into a pamphlet is the attention to mechanics, to who takes a cut and what a man is told he owes before his first day's pay, and to the border as a place where two economies lean on each other.",
+  "model": "claude-opus-5",
+  "source_sha256": "32bfd3beb709f73cad97dd488a589b5e65ae1ea7a362b660a107dd3d103ba039"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-soft-one-1950",
+  "field": "lead",
+  "film_id": "4ee203ee-02cf-4fb1-9ea9-146f5bc446e7",
+  "lang": "en",
+  "text": "Everything Roberto owns, he got by being easy to like, and until now it has never cost him anything. He lives off an aging mother, courts the neighbour Lupita, who keeps saying no on the theory that he might still become a man worth saying yes to, and drifts toward a gambler called El Nene whenever something needs arranging. Then Carlos appears, steady and honest, and Lupita is being courted properly for the first time. Fernando Méndez holds it to eighty-nine minutes and treats the small-time criminal world as a matter of favours rather than plots. El Nene, El Suavecito: everyone here is known by a nickname instead of a job. The subject is not violence but temperament, a man whose one skill is being forgiven by people who are running out of reasons to keep doing it.",
+  "model": "claude-opus-5",
+  "source_sha256": "e0dbecaa63ee80b783d7f7ca55bce345f5fcc85595acf2d27eae90abbfe23342"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "love-around-the-corner-1985",
+  "field": "lead",
+  "film_id": "b0ea1761-4f29-4784-b04f-dbfbe5eb0292",
+  "lang": "en",
+  "text": "A woman sits on the shoulder of a highway with a broken ankle, crying, and a truck stops. Maria has just left prison by the unofficial route, and Julian, the driver, takes her to a hospital. She runs again at the first opening. From there Alberto Cortés follows her into hotels and bars and the margins of small robbery, without arranging any of her decisions into a lesson. Most of them are made in a hurry. The year is 1985, and the list of ways for a woman on the run to eat is short and known in advance to everyone except her. Ninety-five minutes spent largely in transit, and the film is clear about how little the movement alters: she keeps arriving somewhere that is not what she went looking for, and tequila is not it either.",
+  "model": "claude-opus-5",
+  "source_sha256": "c9b9764fbfa5a3b3d9acbd6f462da882c6163695b9282fff7e2af927ef74e034"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-killing-of-a-chinese-bookie-1976",
+  "field": "lead",
+  "film_id": "a149d642-9696-4e81-8752-76ffade91991",
+  "lang": "en",
+  "text": "Cosmo Vittelli cares more about the running order of his floor show than about the men he owes. He owns a low-rent Hollywood club, has real affection for the women who dance in his peepshows and for the staff who keep the place running, and treats the operation as something worth his seriousness. Nobody else does. Then a night at an underground table leaves him holding a debt he cannot pay, and the men who hold the marker suggest a way to work it off. John Cassavetes lets the crime plot idle in the background and keeps the camera on Cosmo: the tuxedo, the patter, the long stretches of a man managing a room. It sits on TSPDT's thousand, and the reason is the club rather than the killing, a shabby cabaret given two hours of attention and its labour taken seriously.",
+  "model": "claude-opus-5",
+  "source_sha256": "92dcd5ea422e07008e0aab545b6be1405b5ffac12d2f1419ebd4dc76e6c367a3"
+ }
+]

@@ -1,0 +1,72 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "more-than-ever-2022",
+  "field": "lead",
+  "film_id": "8c9c071b-9f4f-46f8-8279-0186e4749d2f",
+  "lang": "en",
+  "text": "Hélène leaves a husband who has done nothing wrong, and the film refuses to make that simple. Thirty-three, settled in Bordeaux, she is told her lungs carry a rare disease, and Mathieu responds the way a good partner is supposed to: he stays close, he manages, he is there. That care becomes its own weather, and Emily Atef is honest about how hard it can be to breathe inside it. What Hélène finds instead is a blog written from Norway by a stranger who calls himself Mister, and a route north across the continent she intends to travel alone. Two hours and three minutes, most of them given to the plain difficulty of two people who love each other and want different things from the same illness. The trip is not an escape from Mathieu. It is the first decision in months that belongs entirely to her.",
+  "model": "claude-opus-5",
+  "source_sha256": "12b7ecdd88d056fca8f6d39f955dde3357112edcc943d505b9eca7cbf7d2e173"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-history-of-love-2016",
+  "field": "lead",
+  "film_id": "8d4e6593-37f9-4126-947f-bafbad25f1b2",
+  "lang": "en",
+  "text": "A manuscript long given up for lost turns up again, and two people who have never met begin, separately, to need it. One is an old man looking for his son. The other is a girl who has decided that her mother's loneliness is a condition with a cure and that finding it is her job, a project only a child would undertake with a straight face. Radu Mihăileanu works across a long stretch of the last century, war somewhere behind the present tense, and takes two hours and fourteen minutes over it: the gap between what the old man remembers and what the girl is planning is measured in decades, not streets. The method is patience. Scenes that appear to belong to different films sit beside each other for a long while before the seam shows.",
+  "model": "claude-opus-5",
+  "source_sha256": "bebd0528508d641896e6d4f8c7beda229c06e8eb4f6b31a9720ea70956da2557"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "little-children-2006",
+  "field": "lead",
+  "film_id": "8d67881c-11d3-4bd7-9acc-a9d17d3c8e93",
+  "lang": "en",
+  "text": "A town watches the registered sex offender who has moved back in, and notices very little else on its own streets. Two people from separate marriages, both restless in the long daytime hours that parents are expected to fill, find each other. A former policeman with a ruined record appoints himself the neighbourhood's conscience. Todd Field runs the three lines for a hundred and thirty-seven minutes at more or less one temperature, which is what makes the film hard to sit inside: the adultery and the surveillance are both carried out by people entirely convinced of their own reasonableness. Nothing is confronted. It is watched, at length, from close by, by neighbours who will still be there tomorrow.",
+  "model": "claude-opus-5",
+  "source_sha256": "2eeafdbc1e6c7e32e3552efbef05e4052b0bdea2b6bec434e04bfada9cf6bf77"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "an-odd-turn-2024",
+  "field": "lead",
+  "film_id": "8d8f0703-8af9-4a24-89d3-7a9e97154a64",
+  "lang": "en",
+  "text": "A pendulum, held correctly, will say where the dollar is going. Lucrecia guards a museum in Buenos Aires in 2019, a city where the exchange rate is the figure to be checked before any decision is made, and she has turned divination into financial forecasting: her pendulum reports that the dollar is about to jump. The man she wants counts other people's currency behind the window of an exchange house. Francisco Lezama plays it straight, lets the joke and the money panic run on a single premise, and never explains the pendulum. Twenty-three minutes is the right size for this. It took the Short Film Golden Bear, and the prize is legible in the shape of the thing, an idea built to its own scale, with no second act stitched on to make it resemble a feature.",
+  "model": "claude-opus-5",
+  "source_sha256": "d432d4fe3ad39a1cca53b1a38a32f537b41d26ca21f06e4b7019e8aec0a1dca5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "far-from-the-madding-crowd-2015",
+  "field": "lead",
+  "film_id": "8ee901eb-7c68-44de-9e6c-c0e34396e6db",
+  "lang": "en",
+  "text": "A shepherd, a soldier, and a man with money: three proposals, and Bathsheba Everdene is in no hurry with any of them. The film is less interested in which one she takes than in what taking one would cost a woman in Victorian England who prefers to settle her own affairs. Thomas Vinterberg keeps it to a hundred and nineteen minutes, brisk for this material, and the compression favours the work: sheep, weather, harvest, hours of physical labour against which the courtships start to look like interruptions. Gabriel Oak is steady. Frank Troy is not. Boldwood, older and solvent, waits, and his waiting has a pressure of its own. Each man wants a slightly different thing from her, and she can see all three wants perfectly clearly.",
+  "model": "claude-opus-5",
+  "source_sha256": "987def12be571df8f472c39261f08846b02aa823dd3610f24d3ad9e2218fb270"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "book-paper-scissors-2020",
+  "field": "lead",
+  "film_id": "91227f16-543a-48dc-aa59-65e381595cc4",
+  "lang": "en",
+  "text": "Fifteen thousand book covers, and the man who designed them is still cutting with scissors. Nobuyoshi Kikuchi works with a ruler and a pencil, draws his own lettering, and is exacting about the properties of the paper he chooses. Nanako Hirose spends ninety-three minutes close to the desk, which is the only honest way to film this: the labour is small movements repeated, decisions too minor to announce themselves, an afternoon given over to a question of weight and grain. The exchanges with writers are the nearest thing here to drama, two people deciding how a book should look to a stranger who has not yet opened it. Away from the desk there are coffee and the flea market. The argument with the digital never has to be spoken aloud. It sits in the time the work takes, and the time is the film.",
+  "model": "claude-opus-5",
+  "source_sha256": "13720270eb16bb73a3c22bedaefee9b86465e612b38591944a7e0ab2d94485b3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "volcano-2011",
+  "field": "lead",
+  "film_id": "928d59e1-033f-43de-b9f5-0b044dee44b4",
+  "lang": "en",
+  "text": "Hannes retires, and it turns out the job had been doing a great deal of work for him. He has been cold to his children for years; the film neither softens that nor explains it away, and then his wife falls ill and the man who was never much use at being present is the one who has to be. Ninety-five minutes, no subplot. Rúnar Rúnarsson stays with the domestic minimum: meals, rooms, the practical care of someone unwell, the awkwardness of grown children who learned long ago to expect very little. Atonement here is not a speech. It is a run of small tasks carried out by a man with no vocabulary for tenderness who is too old to go and find one. The Edda Award for Best Film went to it, which suggests the audience closest to it recognised him.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e0d52f439885d2d432323b1436aad6beb8989e6957764e1ac24fbf0098465c7"
+ }
+]

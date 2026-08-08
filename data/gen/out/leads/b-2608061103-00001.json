@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bad-hair-2013",
+  "field": "lead",
+  "film_id": "e5c74223-73ff-4798-96c2-2d84a7002d6e",
+  "lang": "en",
+  "text": "The trouble starts with a mirror and a boy who wants his hair to lie flat. He is nine. His mother works long hours, has little left at the end of them, and reads the wish as a symptom she is obliged to correct, which is how a small vanity turns into a household war. Mariana Rondón keeps the scale domestic: a mother, a son, and rooms too few for either to avoid the other, with ninety-three minutes to sit in. The hair is not the subject. Whether a woman can go on loving a child she has already decided to fear is the subject, and Rondón declines to simplify either of them for the sake of a verdict. The film holds a Golden Shell. Its hardest achievement is that the boy is never a lesson and the mother is never a monster.",
+  "model": "claude-opus-5",
+  "source_sha256": "330c3685e56de209eb2a61a0b73443c2bcbd39ac9322d72fe5bf9503eb05524a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "entre-nous-1983",
+  "field": "lead",
+  "film_id": "166d8d39-136c-4f56-bd66-2d66c42da461",
+  "lang": "en",
+  "text": "In 1942 a Jewish refugee marries a soldier so that the deportation lists will pass over her name. The war supplies that much and then withdraws. Diane Kurys spends the film on 1952 instead, on a school corridor in Lyon where Lena and Madeleine meet and each finds in the other something neither husband has thought to offer. Neither woman is restless in the way films usually mean it. They are more awake in each other's company than anywhere else, and the arithmetic of two households cannot absorb that. Kurys films both marriages evenhandedly, which is where the pressure comes from: no villain on offer, only men who are not cruel and are not enough. The Academy Award for Best International Feature Film went to it, and a César for best actress. What stays is smaller than either prize — two women talking, and the practical difficulty of arranging to do more of it.",
+  "model": "claude-opus-5",
+  "source_sha256": "ad66251a9581127f2f05f618e72797e441b4b8b016039853c6f29918bad9855e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "homer-and-eddie-1989",
+  "field": "lead",
+  "film_id": "04efdfa3-3828-4bd4-871a-00a1f725352c",
+  "lang": "en",
+  "text": "A father who disowned his son years ago is dying, and the son is on his way, with a man who has no conscience for company. Andrei Konchalovsky made it in the United States in 1989; the genres attached to it are comedy, crime and mystery at once, which is less a confusion than a warning, since the laughter and the danger issue from the same person and the film keeps them in the same frame. One of the pair is mentally disabled, the other a sociopath, and neither is sentimentalized into a type. The reunion is the errand. The errand is a pretext. What gets examined is what one person will do to another when there is no witness and nobody who would credit the account, and whether a man mishandled by everyone who ever had authority over him can still tell company from predation.",
+  "model": "claude-opus-5",
+  "source_sha256": "dda62b76c936304ad061d19cc243e7f8682c0612d0cf5e395c4602bddccfecde"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-gypsy-camp-vanishes-into-the-blue-1976",
+  "field": "lead",
+  "film_id": "5565185e-b71e-43d5-85db-f2989d1fe422",
+  "lang": "en",
+  "text": "Bessarabia, early in the last century, before the maps redrew it as Moldova. Emil Loteanu takes stories Maxim Gorky wrote as a young man and refuses to update them: Rada will not be told what to do, Zobar steals horses, their love is announced as fatal from the beginning, and nothing in the picture is embarrassed by any of it. Music carries more than dialogue does — songs at the fire, horses moving in the dark, a camp that packs up and goes — so the story arrives already half-sung, the way a legend arrives. It came out of a Soviet studio in 1976 and took a Golden Shell, worth knowing mainly as evidence that the melodrama was met seriously rather than indulged. Two people this proud make an unworkable arrangement in a life this unsettled, and the film knows it well before they do.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a249badef9266c638f4068629946357cee0f7326b5908f17a3cde6ed6e18666"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sparrows-2015",
+  "field": "lead",
+  "film_id": "0ccd1c02-82a2-4b64-8cd6-5937aec3b601",
+  "lang": "en",
+  "text": "A sixteen-year-old is put on a plane out of Reykjavík because his mother has taken work in another country. Where he lands is the town he came from, which is not the same as a home: the friend he left behind is a young woman now with a complicated attachment of her own, and his father is among the people the financial crisis took down. Rúnar Rúnarsson gives Ari almost nothing to decide, and that is the design. The boy is old enough to see exactly what is happening to the adults around him and too young to be consulted about any of it, which is a particular humiliation — the humiliation of watching. Iceland sent Þrestir to the Academy Awards. The plainer reason to find it is how exact it is about the part of being sixteen that consists of being relocated by other people's arrangements.",
+  "model": "claude-opus-5",
+  "source_sha256": "f04032f7d8da36a7db06834948e9e2e254866703779e48cfb91c96d0e9526e70"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "something-like-happiness-2005",
+  "field": "lead",
+  "film_id": "cc311ce0-b65e-4e36-b857-f3aab22f468f",
+  "lang": "en",
+  "text": "The calendar does the work here: one year, one town worn down by industry, two people who have known each other since they were children. Tonda and Monika are not star-crossed in any way a plot would arrange. They are attached to other obligations, and Bohdan Sláma will not clear those away to make room. He works in small increments — a shift ending, a room given up, a favor that costs more than it should — so that nothing declares itself a turning point until it is well past. What stands to be lost is the friendship rather than the romance, the older and more useful of the two. Štěstí took the Czech Lion for best film and, separately, the audience prize at the European Film Awards, an unusual pair of verdicts for something this unhurried. A year is long enough to change a life and short enough to change nothing; both stay open.",
+  "model": "claude-opus-5",
+  "source_sha256": "3332326cb7fb98b639823fc5398bc66d6f0bdc83617c60603072517e9d88821f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "margaret-s-museum-1995",
+  "field": "lead",
+  "film_id": "6597fa72-d74a-4901-9ef7-969eaf80ff87",
+  "lang": "en",
+  "text": "Half the men in the town die down the coalpit, and the town stays where it is. Margaret MacNeil has built a life with no husband in it and is not unhappy with the arrangement, until a dishwasher who speaks Gaelic and plays the pipes talks her out of it. Mort Ransen sets the courtship against a fact nobody has to restate: the pit is the employer, so every domestic decision is also a decision about the pit. Cape Breton supplies the language and the music, and the Genie the film won for costume design was a fair reading of where its attention sits — on cloth, rooms, the small economies of a household. The screenplay took a Canadian Screen Award. The reason to sit with it is Margaret herself: blunt, funny where she has no cause to be, and unwilling to be pitied by anyone, the film included.",
+  "model": "claude-opus-5",
+  "source_sha256": "046d50746c555b02e2ef477673781a6c9ea22ee8f9f7978801f1de3c24106776"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-railroad-man-1956",
+  "field": "lead",
+  "film_id": "2b165713-3f21-46d0-86bf-0957271c6cd1",
+  "lang": "en",
+  "text": "A man steps in front of a train, and the driver who could not stop in time is expected back on shift in the morning. Nothing in the job accounts for what he saw. Andrea Marcocci's hands begin making errors; a company doctor writes down the word that will follow him afterward; a demotion arrives with a smaller wage attached. The wage is where the real subject starts, because the wage was never his alone. Pietro Germi stays inside an Italian household in 1956 and watches a family take on the cost of a father who has stopped being dependable, patient enough to let small humiliations accumulate instead of staging one large one. The difficulty of it is that everyone is right: the railway is right to be careful, the wife is right to be frightened, and the man is right that none of this began with him.",
+  "model": "claude-opus-5",
+  "source_sha256": "76f7d07295af645214136d9c0b3fa247e63864d411b97da1238ff9ff20b0c5a8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-thousand-years-of-good-prayers-2007",
+  "field": "lead",
+  "film_id": "07b38af8-7a7e-4b21-af41-58b42606bd79",
+  "lang": "en",
+  "text": "Nobody asked the widower to fly from Beijing to Spokane, least of all the divorced daughter he intends to console. Yilan works in a library, has arranged her life to be quiet, and meets his concern first with courtesy and then with rooms he is not in; the film runs on that retreat and on his refusal to read it. Wayne Wang keeps to eighty-three minutes and a few interiors, which puts the weight on how two people who love each other get through the hours between meals. Underneath is a long argument about what a parent is owed and what a parent withheld, carried on by two people who were never taught how to carry it on. The film is small on purpose. It is also precise about the way a family's oldest silences get broken by accident, in the middle of some other conversation.",
+  "model": "claude-opus-5",
+  "source_sha256": "14b7b6ae8df135043b0105f847d65183a0f95e2ab41025c416330e4ce687ea72"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-cab-for-three-2001",
+  "field": "lead",
+  "film_id": "cb59a71a-4572-423b-bf26-c88755e82b09",
+  "lang": "en",
+  "text": "The taxi driver is given his choice: drive them around while they rob, or ride in the trunk. He takes the one that keeps him at the wheel. Orlando Lübbert builds ninety minutes out of that arrangement, so most of the film is three men in a car with a city going past the windows, and the robberies matter less than the negotiations between them. What lifts the premise past a thriller's is who these people are — two small-time crooks with no plan worth the name, and a working man whose license, shift and vehicle have become somebody else's instrument. Chile sent it to the Academy Awards. The front seat is where the film lives: a driver obliged to stay professional and pleasant while calculating, at every corner, whether this is the corner where he stops the car.",
+  "model": "claude-opus-5",
+  "source_sha256": "a8d366e1ded9f04f00801f6d0937577978d1306b5c0fcf85c32d56fe457605e2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-glass-house-1972",
+  "field": "lead",
+  "film_id": "20141691-b1ea-4a98-90ca-4bfc9bbf7204",
+  "lang": "en",
+  "text": "It was made for television in 1972, on a television budget, for a viewer who could switch it off. What came out is a prison film that treats the yard as a working society: rules, currency, protection with a price attached, a hierarchy older than any man currently serving under it. Accommodation and cynicism do as much work in it as violence does. The source is a story by Truman Capote, who wrote In Cold Blood, and Tom Gries follows three new arrivals, since newcomers have to be told what the veterans already know. The instruction is the engine. Whether the system is cruel, the film takes as settled; what holds it is the speed at which a man works out his position, and the size of what he will hand over to keep that position from getting worse.",
+  "model": "claude-opus-5",
+  "source_sha256": "8033adc2a940c1920e05fdd1fbe263e5d82320f39a009584196319a1b2f3c463"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "butterfly-wings-1991",
+  "field": "lead",
+  "film_id": "d033f17c-a54c-48d3-a30c-9d69c70cb4ba",
+  "lang": "en",
+  "text": "Ami is six and understands more about the house than anyone in it means her to. Her mother wants a son — wants one for her husband, which is a different and worse kind of wanting — and when the pregnancy finally comes, it does not settle the household so much as reassign it. Juanma Bajo Ulloa made this in Spain in 1991 and pitched it closer to dread than a family drama usually goes; the premise commits him to a child's vantage, adult decisions overheard and half-understood. The question is not whether Ami is loved. She has been loved enough to recognize the withdrawal the moment it starts. The question is her standing: whether a daughter who was sufficient last year can be made surplus by an announcement, and what a six-year-old does with an answer she has no words for yet.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae113e1608a085993c62e7c77b185d276445d607f94967644855903d8680c0f4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "my-son-2006",
+  "field": "lead",
+  "film_id": "72c8cd9f-2cd9-453f-9f09-2de970e5af2d",
+  "lang": "en",
+  "text": "There is no weapon in this crime, and no moment at which it is committed. Julien is becoming a teenager, which is to say he has begun to have a life his mother did not issue him: a girlfriend his own age, hours she cannot account for. She reads it as betrayal and sets out to correct it, backed by a husband who will not intervene and opposed, unevenly, by an older sister with more courage than standing. Martial Fougeron keeps it short and keeps it inside the family, where the only available vocabulary is domestic. That is the discomfort of the thing. Everything the mother does can be described in the language of devotion, and the language of devotion is exactly what prevents anyone in that house from saying plainly what is being done in front of them.",
+  "model": "claude-opus-5",
+  "source_sha256": "37c13afe1bee314da6205d4fbcebb6de182f422748b25fb83db619e28904a58a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "between-two-waters-2018",
+  "field": "lead",
+  "film_id": "81c54d6a-b5e9-44f9-812e-db2538878691",
+  "lang": "en",
+  "text": "Two brothers come back to the same island in the same season, one out of prison and one off a long tour with the Marines. San Fernando is small enough that returning means being seen to return. Isaki Lacuesta gives the reunion a hundred and thirty-five minutes, and the length is the argument: men shaped by institutions that discourage unnecessary speech do not arrive at their father's violent death in a single conversation, so the film waits and lets the subject come up sideways. Isra and Cheito took opposite exits from the same childhood, and neither exit worked. It holds a Golden Shell and a Gaudí for best film in a language other than Catalan, earned by patience and by the refusal to make either brother the cautionary version of the other.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6fb12ac63acec9355db7194282a97da18dc0174da11da1f4e2ab8e9d3a347ce"
+ }
+]

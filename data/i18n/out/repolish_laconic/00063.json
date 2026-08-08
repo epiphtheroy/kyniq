@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-slur-as-diagnostic-symptom-not-insult",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "멸칭은 그 말을 던지는 시선의 증상이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a9305e64b5196171c6d87720fe79cdc070767ef0a7bc9a4487150d3ebac107ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-small-detail-that-is-the-whole-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사소한 사물 하나, 대사 한 줄이 영화 전체의 논리로 선포된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "845135992a3320c3b4a2be52ada377e44b6c92ef47a7fbca3835b715eb59c9e7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-small-device-that-decodes-its-logic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "하찮은 목표, 흉내, 목록 하나가 영화의 방법 전체를 축소해 보여준다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6581ee7fa2a5408debd48482214d17ffb4dc1b9444b8a877d097bc4ff476d13"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-small-gesture-that-decodes-the-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "술 한 잔, 컷 하나, 죽음 하나. 숨겨진 사용 설명서.",
+  "model": "claude-opus-5",
+  "source_sha256": "83344abb18bae385794c7400c71b2f8d084a05f7adbdf85d375e25e8a9a2e235"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-small-object-that-unlocks-everything",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아무도 보지 않은 물건 하나가 영화 전체를 푼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dfbea78909d203d690298a2e078a40c4b08c6cdf2bbf2603f1726b64c7668f93"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-smartphone-as-co-author-and-witness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전화기가 이야기를 쓰는 도구이자 말없는 기록자가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "afd17613b93713c948f7597cffc252c4434d81b41c5159442f6ba2d88b327704"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-smartphone-entering-the-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "프레임을 새로 짜는 존재로 기기를 무대에 올린 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "92d1733cfeca836cee12486ff71359b1f9b76e0e8faaf376cd873da6ba1a9b79"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-smile-as-coerced-mask-over-the-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권력이, 문화가, 장치가 짓게 만든 웃음. 그 아래 눌린 고통.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d4f31d1ffb2126cf12eca024bb75eea58acc8411df1a49f9f6a1ee58cd0c5a3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-smile-as-labor-worn-over-emptiness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "관리된 미소는 연기된 정동(affect)이며, 그 뒤에는 봉쇄된 자아가 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc6a01c865d92a5f16bda22bd6549943c80bf54de1778ebaab70c26cc3139dbb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-smile-as-mandatory-performance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미소는 노동이고 가면이고 화폐다. 저절로 나오는 감정만은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8412da3ac13e0772c14457e77b9d6f8ee4ba6850121707b81a325d25a642de18"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-smile-as-the-murder-weapon",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "상냥함은 폭력을 가리는 가면이 아니라 폭력 그 자체다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c59f43e121fd7206a1061c84c5a8b9fd2dfd82e2c4a294311626e17a796a466"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-smile-that-masters-the-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "웃음이 상처를 반복으로, 지배로, 끝내 증상으로 바꿔놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca73d699339fd94ea0e60ff1fe77dc1fe4de9d34064c80e6422091fb815e4945"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-smile-that-solves-the-plot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "눈부신 미소 하나가 영화를 풀어내는 장치이자 무너뜨리는 장치가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5966b62f768a755584b65139b3e3b7de9d1b5a956ad83ac9ea924e422ad2104e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-smiling-self-who-owns-no-guilt",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이기심은 괴물의 일탈이 아니라 막힘없는 자기실현으로 다시 놓인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0bf5a97ddff9a0e0af1fcf2c23e84644ba36bfcca8145609b673e93bcfc03473"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-smoke-that-returns-to-the-breast",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "들이마시는 악덕, 곧 어머니라는 기원으로의 퇴행.",
+  "model": "claude-opus-5",
+  "source_sha256": "436957f0497f33a30021265a74979aed760a3cae2d4c5d34916cb701ec899d24"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-snow-as-indifferent-white-witness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인간의 잔혹과 탐욕을 흰빛이 감싼다. 우주는 아무 관심이 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a3fd77ed9a3748870e7bf137fac58ead3c14944f66e42398f5a317d3bd4eea2e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-snow-edge-of-a-vanishing-country",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "북쪽의 서리가 지워져 가는 나라의 끝을 표시한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de068f55aac3cf11329f8686ae181a1de04c4684e2153d16fedf840141a2340f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-snow-that-betrays-its-soundstage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "만들어진 겨울, 갇힌 겨울. 눈은 카메라가 허락한 자리에만 내린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "87e43d8ba641daccca7d3ed47f0fc5200096ea65559da66ee798392675ad8d5e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-snow-that-erases-the-world",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "화이트아웃. 공백이자 소거이며, 기억으로만 남은 백지 지도.",
+  "model": "claude-opus-5",
+  "source_sha256": "9dc944004cc474688368df1db94afaf887736fd83b3d5eef79de675a9ea8e9ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-snub-as-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서구가 끝내 왕관을 씌우지 않은 것. 거기서 그들의 불편이 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "984efeaf347d8c52c7900f5c0d154a11bbd8b10f786df08bc10060fa179cd99c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-social-contract-caught-mid-negotiation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "계약이 조여들고 찢어지고 다시 맺어지는 그 순간, 계약이 비로소 보인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "316e1f64573f0ed79d7066da16882d8af35538d36769c49081d9f5880995b8df"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-social-pact-of-not-seeing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사회는 불온한 것에서 눈을 돌리도록 스스로를 조직한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b6b575b1688ddd0afd35c01aed0e4e3891c3f57ad4fa30be2814e9e1dd479c1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-socialist-body-sold-by-its-own-forgers",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국가가 벼려낸 집단의 육체를, 그 국가가 팔아넘긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "27a23fd11d2f8e5eec691d2ec6ebc5b9952ff1f5ff0161c09c1d4178dd2b82cd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-society-that-builds-the-monster-it-damns",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "문화가 일탈자를 만들어내고, 제가 만든 것을 처벌한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d1f8d2917d72e3e866cc3cea4e40e2c4662881f6e1a394fa4ee4999a2e9e23b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-society-that-disposes-of-its-own",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "돌봄이 사라진 자리에 인간을 폐기하는 물류가 들어선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "13183950eb746f980e49815b9fe4e179beb6227915a2a2d6f57f40d419a06ebd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soft-clinic-and-the-engineer-of-quiet-death",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흰 가운을 입은 국가가 자비를 집행한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "12ee48de7e6c39de47a8dc3c9bcc9e5fa8fd6cd6bff6758ecc6b514a066d889b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soil-that-records-exploitation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대지와 진흙, 값을 치르지 않은 흑인 노동이 적힌 장부.",
+  "model": "claude-opus-5",
+  "source_sha256": "a7028be9881640a8861aa4a4086f336eb174168d89637ce27be0ccb70fbe644f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soldier-as-fungible-industrial-stock",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국가는 훈련시킨 몸을 쓰고 버리는 재료로, 얼마든지 갈아 끼울 자재로 다룬다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7dd0bfd81927fcffeda6e7a16737805ce9de30abff081a552a8dfa178fd52d83"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soldier-who-fights-a-war-already-lost",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이미 그 세계가 끝나버린 대의에 묶인 병사들.",
+  "model": "claude-opus-5",
+  "source_sha256": "e2b37ccf3902223e810abd63f338ca5fa2f03b2c4ced16c32c6246007293e97e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soldier-who-turns-on-the-state",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "훈련된 몸이 그 폭력을 제 주인에게로 되돌린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4dc4707ea5515f121fc8be28f1e8c39d4a2f92205d445e462fed56c4049431b3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-solitary-dance-as-defiant-survival",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "혼자 추는 춤. 상실 앞에 무릎 꿇기를 거부하는 몸.",
+  "model": "claude-opus-5",
+  "source_sha256": "6b446d86000b44f01977548876b16880a7a015997d6a98afbdf246e549e7e0f0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-solo-as-bleeding-capitulation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기교는 승리가 아니다. 자기를 지워가는 일이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e1124be6b3e586b9a5870f88edcf7c7c5b4d8dc6531c63f0fd1f78817c326d4c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-solution-named-but-never-enacted",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "모두가 소리 내어 말하지만 누구도 행하려 들지 않는 답.",
+  "model": "claude-opus-5",
+  "source_sha256": "efcfda3da53bcc8cd0c32403cd0a09b30256b7952c77e5a93a99d9f73efb585b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-solution-that-dissolves-the-question",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미스터리의 답은, 애초에 미스터리가 없었다는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b093dbddd93bafd6d61374873f4a5d952f5af4991624403a203262aeb1c9f3e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-son-doomed-to-repeat-the-father-s-death",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아버지의 자살이 아들의 나이 시계를 째깍이게 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a44c264d0cc4810888b4db90def28ce12090f5ca6b39d3b738068ea5e60fe45a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-son-painting-over-his-father",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "르누아르의 캔버스를 스크린 위에 다시 그리는 후예들",
+  "model": "claude-opus-5",
+  "source_sha256": "c23a23ab0b35746fbac91771525d2d18076796934c9881572ae9d996c0a5a633"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-son-repeats-the-father-he-despises",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "혐오하던 아버지의 죄를 숙명처럼 되풀이하는 것, 그것이 유산이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c61549d78b91c57a4da688dc9c458dbac829efff3488a1a16d2e8f963ceac453"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-son-s-violence-as-speech-denied",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "말이 금지된 자리에서 오이디푸스적 분노가 터진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d6aefe14a07f860137a0d01918d2a3e11a85fd8905da764f5ec39ffe29b108c9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-son-sacrificed-to-the-father-s-quest",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아버지의 충동이 아들을 삼키고, 죽이고, 제물로 고른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "13884f1cbdb08aab83beb55cdbd5be1a2d04891101165d6c5c1cc4f400caf8f3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-son-who-becomes-the-father-he-indicts",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아비를 죽이려는 충동이 동일시로 굳는다. 아들은 아버지를 짓고 또 물려받는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fcf570d5391d7517b955c30638b66559abd82c1b3dc336d5d31186b560279db5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-son-who-inherits-the-father-s-name",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남자가 되려면 아들은 아버지의 이름을 벗거나 짊어져야 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bea90f47877347284e90656361b7d1bc332808e32ff70f251273160a15c6f352"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-song-as-defense-against-the-real",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "말할 수 없는 실재(the Real)를 가려주는 보철, 혹은 증상으로서의 음악.",
+  "model": "claude-opus-5",
+  "source_sha256": "f6ea81a6335ee2e8e929845e094908487f3bcad32bfd98a3a3e98dfb457db6c7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-song-as-map-of-exile-and-home",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "두고 온 고국을 향한 그리움, 그 이름을 음악이 부른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "096aa90948c6a01fbf41e85eb972b0943daccbb7f6dab40d7d96eeded50b3632"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-song-as-return-of-the-repressed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "말이 금하는 슬픔을, 말이 금하는 자아를 선율이 실어 나른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "98a584c6a1c09bc42f28c9059284d66dd937993f2ab9450c1aca938500cf6d1a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-song-as-the-plot-s-buried-heart",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "되풀이되는 노래 한 곡이 영화의 정서적 동력 전부를 몰래 떠맡는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b0c2951a1614579c93e6ab09624b429e4c7c8d76c1668bf480bbdb7ec6cf7499"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-song-reveals-the-film-was-always-memory",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "노래 한 곡에 현재형의 영화가 이미 회상된 무엇으로 바뀐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a7590329866df4f0895209137b62255d33d37f68c675584dbf524859ef747eed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-song-that-misreads-its-own-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "팝이든 포크든, 프레임이 그 송가를 표면의 뜻과 정반대로 돌려세운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b8d54a601744aed6928bf5c76fd27e5e739e135e31d206544cec2413c7b168b2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-song-that-voices-its-own-undoing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "화면 안에서 불리는 노래가 부르는 이의 파멸을, ���음을, 익사를 미리 읊는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bef7db6598baf0cf25ce5f361bb8fcc95f90597b5094deab3538288f84782d55"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sophist-for-whom-truth-is-irrelevant",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실체보다 연기에 능한 자. 냉소적인 책략가가 이긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b6a78e708877c52a358f88817ca83ab7bafda8f14be9937c21824fb5b5ddd2a6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soul-caught-in-the-voice",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "깃들 수 없는 몸에 갇힌 의식이 소리로 새어 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3cf9f18469ac0a3cca7710010c3b55079685b854bbf0b101816270330384e213"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soul-conferred-or-outsourced-by-another",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "돌봄은 곧 권력이다. 정체성을 주기도, 내버리기도 하는.",
+  "model": "claude-opus-5",
+  "source_sha256": "317e8bb302c5cb76d5d3602b57b7f3ae1d55352e47ea14047a0cd40860b4102e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soul-filmed-in-tarkovskian-time",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "느린 지속이 영적인 어법이 된다. 거장의 이름이 직접 불려 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8ec45ab2706a4b07d25b95ae98f2804601919ee5ab4f8206ed8468b4e7f72b8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soul-located-by-refusing-to-render-it",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아껴 둔 움직임에서, 붙잡힌 이미지에서, 이름 붙여진 본질에서 영혼이 떠오른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "773e664761351f209439cc0b1bab0a48a0d272e019fde438e5d2d6a76b405d38"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soul-stored-in-an-object",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "내면이 그릇으로, 파편으로, 혹은 그것을 부인하는 공간으로 밀려 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f7730e93efc4c45de428dd60887e7cf7c22e87692fbe1ab05872daeef8838573"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soul-that-chose-its-own-ruin",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인간을 혐오하는 일도, 모든 것에 의미를 붙이는 일도 스스로 택한 기획이다. 자기를 태워가는.",
+  "model": "claude-opus-5",
+  "source_sha256": "f9b904e8664f2e26f11b80533bec588be818e6ed77b993ee91d5e541f79d758f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sound-bleeds-what-the-image-withholds",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "화면과 심의가 삼킨 폭력을 소리가 대신 흘린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b1f6dc75874f35529b29f2340e562310f62e8c8f5a15c15e5ada5cb6ca4913fa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sound-machine-that-buries-tradition",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "녹음된 소리. 살아서 사라져 가는 목소리를 겨눈 근대의 도구.",
+  "model": "claude-opus-5",
+  "source_sha256": "87f692939bf9a354c5990a88c5b633710f5a13598ea6201347920ae7e03f6634"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sound-mix-as-aggressive-authorship",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "겹치고 빽빽한 사운드 믹싱, 그것이 이 영화가 건 형식적 승부수다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d5f373c6fc8b50aebe4762fc48785483c3dd73d6fe8fa0ba4bf1200226911ce4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sound-of-a-stolen-or-disintegrating-tongue",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "일그러진 소리, 곧 제 자신에게서 떨어져 나온 목소리.",
+  "model": "claude-opus-5",
+  "source_sha256": "aff2dfc49af0874001a4259a0040a5071a0dbe21087987418c0d8a4930857d95"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sound-stage-as-confessional-box",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "알모도바르의 스튜디오, 그 인공의 무대가 묻어둔 진실을 상연하는 고해실이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "01ecdf89d212c9f58198ebeaec32f2639ea55419c7851681bc72fe4c363fe207"
+ }
+]

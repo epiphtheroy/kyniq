@@ -1,0 +1,82 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "demolishing-and-building-up-the-star-theatre-1901",
+  "field": "lead",
+  "film_id": "ce16994b-2d66-458c-8dee-bf4bb8272aac",
+  "lang": "en",
+  "text": "A month of demolition in New York, compressed into three minutes of film. The Star Theatre came down in 1901, and Frederick S. Armitage left a camera trained on it, exposing frames at long intervals so that weeks of work by dozens of men arrive as a single continuous collapse. The compression does something odd to labor: hoists, carts and small figures blur toward weather, and the walls seem to thin and dissolve rather than be struck. Three minutes was a full item on a program in that year, and this one carries no story beyond an address changing. It sits in the National Film Registry, so the record of the theatre's removal has outlasted the theatre. No eye could hold a month of a building's disappearance. The camera did not hold it either. It sampled, and the samples move.",
+  "model": "claude-opus-5",
+  "source_sha256": "ec3d123ab1a7cfc52455d6fd4d411cf1c40ffe7340728559a33575fe31c4292c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-blue-bird-1918",
+  "field": "lead",
+  "film_id": "dfd29f38-f677-4014-aa4c-a3931eb9d20e",
+  "lang": "en",
+  "text": "Bread has a speaking part, and so do Fire, Light, the family dog and the cat. Maurice Tourneur's 1918 fantasy sends two peasant children, Mytyl and Tyltyl, out on an errand for the fairy Berylune: find the blue bird of happiness. Everything they meet has to be built and lit, and that is where the film spends itself, on household necessities given faces, corridors of doors, a figure detaching itself from what a moment earlier looked like furniture. The National Film Registry holds it, and the case is legible in almost any frame. The allegory is carried by two small children, which sets a firm limit on how solemn the thing can become. Seventy-five minutes of stage philosophy might have been an ordeal. Instead the picture moves from room to room, and someone has thought hard about every room.",
+  "model": "claude-opus-5",
+  "source_sha256": "bdfa67b43e438553b44927cedc0435dba70c5ee5522810fbffa7532f8abacc8a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "berkeley-square-1933",
+  "field": "lead",
+  "film_id": "d32fb9bc-1885-4d24-9a81-ab75356d916e",
+  "lang": "en",
+  "text": "The visitor knows what is coming to everyone at the table, and has to keep making small talk. Frank Lloyd's 1933 fantasy sets a young American down in London in the years just after the Revolution, in a house where his own ancestors are living, and the pleasure of it is almost entirely social: a guest whose vocabulary is a century off, whose manners are wrong in ways nobody present can name, and who cannot usefully warn a soul. The premise would run as farce with one shove. Here it is played for the discomfort of not belonging to the room one has wanted all one's life. An Academy Award for Best Actor came out of it, which is the right department, since there is no machinery to speak of, only a face doing arithmetic in company. The costume drama is the ghost story, and the ghost came in the front door.",
+  "model": "claude-opus-5",
+  "source_sha256": "b6273ad668bfb8abc621d348e7925d3f069fc1a352ed1589a1250e883da76bba"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sorum-2001",
+  "field": "lead",
+  "film_id": "3d640eef-fcb8-4fe9-a6fd-c45d014bac6b",
+  "lang": "en",
+  "text": "Most of the film takes place in a building that should have been pulled down years ago. A young man rents a room in a decaying apartment block, falls into something with a neighbour, and the two of them turn out to be living inside a history that began before either arrived: the corridor, the walls, the tenants who had the room first. Yoon Jong-chan takes a hundred and twelve minutes over it, which for horror is closer to a lease than a scare. The unease is domestic. Thin partitions, poor light, other people's lives audible through the plaster, and hauntings that resolve into things somebody once did. KOFA lists it among a hundred Korean films. The proposition underneath is that a place can hold a grudge, keep it in working order, and hand it on to whoever signs next.",
+  "model": "claude-opus-5",
+  "source_sha256": "563bc473138feb5858df385b5d9a7b14115b9e5666141351e88739756d6f5895"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-fool-there-was-1915",
+  "field": "lead",
+  "film_id": "6f573a17-f74c-45bf-9c12-8721495ffe17",
+  "lang": "en",
+  "text": "A lawyer is promoted, sent abroad on diplomatic business, and an accident keeps his wife and child off the ship. Out of that piece of bad scheduling the 1915 film builds a demolition, staged less as a plot than as a sequence of conditions: the man on deck, the man in rooms far from anyone who knows him, the man further along than he was. The woman he meets is given no name but the Vampire, and the picture treats her less as a character than as a climate. Sixty-seven minutes is time enough for a respectable face to lose its shape, and Frank Powell keeps the camera on it, unhurried, while a household elsewhere stays furnished for a family. It sits in the National Film Registry, and it earns the place through frankness about how public a private ruin becomes.",
+  "model": "claude-opus-5",
+  "source_sha256": "40b8813544eeb8ff835d51ec1c5ce173c29f3cac014aa5281f2d9d9d5b54e436"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "jammin-the-blues-1944",
+  "field": "lead",
+  "film_id": "b737f2cb-ce63-4c0c-84e8-d3df7733d48f",
+  "lang": "en",
+  "text": "Ten minutes long, and stylized to within an inch of abstraction. Gjon Mili filmed a jam session in 1944 with working jazz players of the period, Lester Young on tenor among them, and treated the occasion as a matter of light and framing rather than reportage: no narrator, no introductions, no story assembled around the musicians. What remains is playing, watched closely. The Academy gave it the award for one-reel live-action short, which set a jam session inside the studio system's own honours list at a length no feature would have granted it. The restraint is what holds up. Nothing is claimed on the players' behalf, no arc is imposed on the night, and the camera spends its whole running time working out how to look at men absorbed in something other than the camera.",
+  "model": "claude-opus-5",
+  "source_sha256": "f3f1196d2f99e43e0dc6bf704ef28891811bf2a7b4c1b51236f117c06e656c2a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ceiling-zero-1936",
+  "field": "lead",
+  "film_id": "60095475-faa9-48a5-a009-090696d9bc79",
+  "lang": "en",
+  "text": "The most dangerous object in the film is a favour between friends. Dizzy Davis wants an evening with a younger pilot's girl, so he trades a flight with Texas Clark, and Howard Hawks gives the next ninety-five minutes to what an airline does with that. All three men at the centre flew in the war and now fly for a company selling punctuality; the danger runs on a timetable, and nerve has become a line item on somebody's ledger. The National Board of Review put it among 1936's ten best. The pull now is the shop talk and the pecking order, who is trusted with which aircraft, who covers for whom, what the women attached to these men are meant to do with a job that is mostly weather, and how fast one man's appetite turns into another man's bill.",
+  "model": "claude-opus-5",
+  "source_sha256": "9a38495a7bc19bc94aa5ce97142b555f85b2487ed8694ec9fb6f8be9084e8fc7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-hoodlum-priest-1961",
+  "field": "lead",
+  "film_id": "d1c4984a-30b9-4796-8d02-010d021c85d7",
+  "lang": "en",
+  "text": "The Reverend Charles Dismas Clark worked the blocks of St. Louis where a man just out of prison has no address and no employer willing to write one down. Irvin Kershner filmed that work in 1961, and the case the film makes is practical rather than devotional: release without a room, a wage or somebody to vouch for him is the sentence continuing under another name. Much of the running time goes to Billy Lee Jackson, a young thief the priest keeps trying to place, and the pressures on him are itemizable, a job that lasts a week, a landlord, old company waiting on the corner. The National Board of Review named it among the year's ten best. What lasts is the tone: a Jesuit doing municipal repair work in a collar, keeping lists, calling in favours, tired in the manner of a man who has done this before.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d3f7e40af71e12e00bc0400c0b491c329ecfb7db433af994563398b2dc79fbc"
+ }
+]

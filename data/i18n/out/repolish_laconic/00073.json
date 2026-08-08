@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-watcher-trapped-inside-her-own-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보는 자는 자기가 보는 화면 바깥에 남아 있지 못한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b71b46a6ec69e59904dc49a14c49676ff8403d0a9f82ebdfc9d548456c7c375"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-watcher-who-authors-the-watched",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "관찰이 굳어 저작이 된다. 시선이 제 대상을 다시 쓰는 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "faccf8f394d896c0e4eef7a228c04cdc8a4f6c94447c9c6315dc6859b779d802"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-watcher-who-is-himself-the-watched",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감시가 제 쪽으로 돌아선다. 관찰하던 자가 진짜 표적이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "23d31c8c3c7c96f20af7f999c9e6c4eb789fbcfc084c3fc2d25c046428a3300d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-watcher-who-lives-the-life-he-cannot-have",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살 수 없는 욕망을 대신 지켜보는 일, 그것이 관찰이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8324c3f776c9c992e2fa422ed6fd8c5ae9540f86635e5ffee1280f9c0c5cc31"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-water-that-judges-the-village",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "연못과 강, 물에 빠진 소녀들이 마을에 판결을 내린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d7df7ffba11be36b854f738c30403255694cea2cbe8aedd44e1ea03e4d404cb9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-water-that-keeps-reclaiming-the-drowned",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "익사. 영화가 끝내 되돌아가기를 그만두지 못하는 상처.",
+  "model": "claude-opus-5",
+  "source_sha256": "50b209742430010d10633777513b74fe45c21927ba319d3e4ba137ccb06f3a35"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-water-that-refuses-to-be-sublime",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "강과 바다는 아름다움이 아니라 뽑아내기 위한 통로다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1279817a925660290076927a7624f326a0ececcf9620b690ad637636fd60f79"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-water-that-refuses-to-reflect",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "수면이 거울 노릇을 하되, 자아를 돌려주지 않고 삼킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cdb32b50d59bbdb03eeeacf7e15185d8882e294bd6f9a07369d900f1d7900c74"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-watergate-stain-on-every-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "1970년대 영화를 워터게이트 이후의 국가적 환멸에 대한 알레고리로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d7f4c31203e6caeea71065f5017de8d26215996c7992c00533b428edfad272a1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wave-as-the-unsurvivable-real",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "파도를 온전히 마주하면 자아가 풀려 사라진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2000b921d99479b529ed07971448460a2aa8bc334d996a131d182c9c3d9ac1a3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-weapon-as-failing-phallus",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "권총과 소총, 실패하도록 정해진 거세의 보철.",
+  "model": "claude-opus-5",
+  "source_sha256": "eab63954da6f79a56272080876373336b729e04cebe165eb90aab24a2283b7b3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-weapon-forged-from-powerlessness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정당한 통로가 막힌 자리에서 밀려난 자들이 아쉬운 대로 지렛대를 쥔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d552e9e41b4556ceb4eaabd0d677c5cfc186e569409ed05b5a5d53b2573ac4ee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-weapon-that-begs-to-be-unmade",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "핵의 종말이 육신을 얻고 나타나, 용서를 구한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "865d65faae02d4c1dd0c2f1cc6f5cbba7ac417d6ef4a3a82bc62157ecf7ae772"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-weaver-caught-in-his-own-web",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거미는 자기를 가두는 덫을 스스로 설계한 자다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1fc9bc59937a5011ca89e59b1f190307fe048e9d99222f26c1073608ea9ac34b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-web-that-is-only-severed-contiguity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전 지구가 이어져 있다지만, 실은 교감 없는 인접일 뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b8e281b6e621dd854b9bd9cc25fb2f34fbb91adf7cd962423def9daf2d471fb9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-welcome-that-was-a-trap",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "환대의 몸짓을 뒤집어 읽으면 거기 적의가 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e9d73c01bc028180b70eca435373da2f8965b7b0db77bdb3add68445d2fa47e4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-welfare-state-audits-its-own-promise",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "북유럽 사회민주주의, 조용히 결산 중인 계약.",
+  "model": "claude-opus-5",
+  "source_sha256": "631143b7e6f2a325fc8def8d79abe4666fd449f669b8c919f1688bc43f3c332f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-welfare-suburb-as-frozen-crypt",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스칸디나비아의 주거 유토피아를 그 자체로 번쩍이는 무덤으로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c77f0cefb78ef5922c87c7865b3e255d613855754245d810eef70a118a1a6e3c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-well-as-the-threshold-of-recognition",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물을 청하고 물을 거절하는 자리에서 이방인을 다루는 법이 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f2b075427728f231629d6417d6443a732ac58e6c3ba55b1807bf0c75eea198a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-anoints-india-as-its-antidote",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서구는 충분히 '인도적'이지 않은 인도 영화에 상을 준다.",
+  "model": "claude-opus-5",
+  "source_sha256": "962c308c053ba7bda17b18eb28d3f357e62efc7bdaa7fd364e3c541260d512a0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-authored-as-its-own-legend",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서부의 신화는 그것을 이야기하고 찍어내고 파는 자들의 손에서 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "83554235a2aad3b9bbc56b7dcd33e3873818f1d3790e15a60c12e85c7244bc87"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-canonized-it-to-calm-its-nerves",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "낯설거나 사나운 영화를 서구가 제 해석의 불안을 달랠 모양으로 다시 짜 맞춘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "720882b8501b94c530ed517883f462a7587bdd2c7e4cd4687faf7fbeca87d111"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-canonizes-by-refusing-to-read",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서구의 찬사는 외국 영화를 보편으로 밀어올려 그 고유함을 비껴간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "213bf2d20ccfd774b6816e135b7a19ba60775402663e7d641e9ed80295552dbd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-crowned-its-own-appetite-as-authenticity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서구의 정전화(正典化)는 길들이고 투사한다. 그렇게 드러나는 것은 영화가 아니라 서구의 촌스러움이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3092e22d2241d9fcafe5f70a629d049285102711a4306079d55694533e9cc68e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-crowns-a-russia-it-needs",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화제의 갈채로 서구는 저 보고 싶은 러시아를 투사한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "543057f5c1012fa9822d460c52ad492b9480d2062fb4b809a4610e7198690d50"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-crowns-the-cage-it-cannot-open",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화제의 찬사, 갇힌 예술가와 맺는 미학화된 공모.",
+  "model": "claude-opus-5",
+  "source_sha256": "33d5da01ee8468bacf636ce113504391cde48499dea85f563311b6f5fee23db6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-mislabels-the-unfamiliar-genre-defying",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'혼종' 형식 앞에서 터지는 서구 비평의 감탄이 도리어 그들의 좁은 시야를 드러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae73fc30c455d4fa36bb0f43a606c56f80358f03624e59ba435bc257e38b4351"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-misread-the-anime-it-imported",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서구의 수용은 일본적 고유함을 지우고 보편이나 범용의 읽기로 평평하게 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a5a1e12ca4c26974165ecf6fd026a3b5cf5a51a71fa9a66b8a6d8c3cffbb3084"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-misreads-her-suffering-as-story",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서구의 수용을 거치며 이 영화들은 읽기 편한 오리엔탈리즘 서사로 납작해진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c01006efc581f12774726ffbb372a24b2285f82f291519451bb7fedd1fe43e6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-misreads-polish-anguish-as-aesthetic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "폴란드 민족의 비극이 서구를 거치며 삼키기 좋은 유럽 예술로 미학화된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "db4046d5deac09c684a3497b0d68a6dace42cf1d7a09359fc0fe6beb23e0e617"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-misreads-to-tame-the-other",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서구의 수용이 본토의 의미를 덮어쓴다. 고향에서 고발로 읽힌 것을 아름다움으로 소비하면서.",
+  "model": "claude-opus-5",
+  "source_sha256": "18df967eadca5bf699aa4dfe0024314b6363bdb7938847b123a44bda91b25d41"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-mistook-slowness-for-permission-to-praise",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아시아의 긴 시간과 침묵을 이국적인 것으로 오독한 서구의 갈채.",
+  "model": "claude-opus-5",
+  "source_sha256": "fa6d4949e72ddbc4e8e9a659a931004f6729bd8748a93dcf4661ef6126ac27ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-praised-its-inability-to-decode-it",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'헤아릴 수 없는 걸작'이라는 이름표가 비서구의 고유함을 길들인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e3862e2b971079ac0331ec15b45e87f13163c14f81d6f30c61e1ece539623122"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-read-past-the-iranian-woman",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서구의 수용은 이란의 여자들을 지나쳐 더 안전한 형식 이야기로 방향을 튼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e8bbb4b771fdbdb3644b741d3a1d33b13c99876a803fb1364f7fa663c34aee9e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-s-customs-stamp-on-foreign-wonder",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비서구의 환상을 길들이는 장르 이름표 아래 분류해두는 서구의 수용.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c63bffeea6ec988a75b9bfa18a316d1ec4f9a31b0fc0eb0fd58fbb4913a5885"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-s-hunger-for-a-curated-other",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "면죄를 바라는 서구의 식욕에 맞춰 정전이 된 이국의 고통.",
+  "model": "claude-opus-5",
+  "source_sha256": "342288453cd71c02882a8193f7cb578a7fc25bb48eed8c5bf8c8e088ec8d3a9d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-s-hunger-for-a-palatable-iran",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서구의 갈채는 이란 영화의 고유함을 지우는 방식으로 그것을 길들인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "faaf0946ff7d81826e520d81a175315a9fbdbb9be99f88286eafd568a339555e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-s-hunger-for-the-authenticating-native",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'진정성'을 상찬하는 서구의 말, 외국 영화 위에 얹힌 오리엔탈리즘의 투사.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b0f741096ebc76f1e81d48ec6477997a6e69990a64aefcd610a45a48b81758d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-that-has-run-out-of-west",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다 써버린 변경, 신화를 거스르는 마지막 땅.",
+  "model": "claude-opus-5",
+  "source_sha256": "5f7e1aa8052cd23ed3d79e352bba1119314c97b9064fbac4d7e2bcf8bbe9610e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-western-auteur-credited-for-the-anime-s-idea",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "동양의 원작을, 그것이 영감을 줬다는 할리우드 영화를 통해 되읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "af576178580fd576103dce86dc9a9e6993bc88afc33c0ffd04a41b50dcfa10e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-western-built-as-argument",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이데올로기적 반박이나 캐스팅 도발로 설계된 장르 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "96881732c81ed0140b3a64097b30d9f420f1f043fbaf5fa8180a9559e2c0ddb8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-western-gaze-that-consumes-its-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서구의 찬사에서 껍질을 벗기면 쓸모 있는 타자를 향한 식욕이 남는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f2e3c61ab2a922bbfc3ee8b4804fba7411fc2f391885f21cef109ca49f10c1bc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-western-gaze-that-tames-the-eastern-star",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "할리우드의 포옹을 풀어 읽으면 길들임과 탈정치화, 그리고 그동안 못 알아봤다는 뒤늦은 고백이 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "987df00133f62ec5db225e2ddc6f358f2ef1c3e9694c015545229db484291af2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-western-knows-it-is-a-set",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장르가 쓰이고 세워진 인공물임을 스스로 아는 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "0957375de808b5a3b9c966525868c08bc4bbd5a7ec7857de878dafca65462c78"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-western-prize-as-foreign-verdict",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "유럽 영화제의 월계관, 서구가 아시아 영화의 값을 매기는 자리.",
+  "model": "claude-opus-5",
+  "source_sha256": "73fb5762a21b3d55ba9161ba525aa0907e14b02804c71ebe8ed988e6ce266bcc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-western-prize-as-self-flattering-verdict",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화제의 상을 서구가 제 양심에 보내는 축하로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "71c1a61dd606ccb38647d166050d94ddbe2352d62a06ae3a0a4a2c7b72758d91"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-western-prize-that-indicts-its-givers",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화제의 월계관이 그 관을 씌운 서구의 위선을 드러낸다. 고통에 상을 주면서도 아무것도 하지 않는 위선을.",
+  "model": "claude-opus-5",
+  "source_sha256": "de7e23e7640c64c4b9ebb46c0b72200ff65ed68f82a4237c0701787d2e7edc17"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-western-reading-that-mistook-the-form",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한국 영화가 진실로 내놓은 것에 서구의 수용이 엉뚱한 이름을 붙인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "31884f5addb587064896ca4a88088ac675cd84524f1755c11ea1d81865bec453"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-western-shot-in-recession-s-wreckage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "2008년 금융 폐허 한복판에서 찍힌 미국 장르. 영화는 그 폐허 안에 산다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c61f7a3b124940f913bf07ca2043e21ee073df057ae0b282b6f65749f248ea8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-western-smuggled-into-another-genre",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "다른 영화의 옷을 걸친 서부극.",
+  "model": "claude-opus-5",
+  "source_sha256": "04814cd3f57977b76d42e8857083d9df171ff25c14acbb4af364ef003511a212"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-western-smuggled-into-foreign-genre",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "변경의 신화가 남의 옷을 입고 다시 떠오른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "54a7abc39e5f7ce7798760c1607fe393cfe467e34ecf13a0c148b8f4677b3c6a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-whisper-as-emergency-suture",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "목소리를 낮추는 일은 멋을 부린 게 아니라 구조를 꿰맨 자국이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "46de8c780020352dd40a4ae7a5e98cb160a8a9ce6ca671940e29bb6a25b3aa3c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-whisper-no-witness-could-have-heard",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그 자리 누구도 옮길 수 없었을 사적인 말 한마디가 영화 전체를 지탱한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b72562a4971e61d2bf7dd259f7361681062ef6d5b8bb22607dea08137975472"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-whistleblower-punished-for-being-right",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "썩은 데를 들춘 자를 제도가 삼켜버린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c28fd22969487aa4cf64d39b66e83fea424ed988892a50842c4c17930a06f123"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-white-savior-as-ideological-sedative",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자애로운 백인 인물이 백인 관객을 달랜다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e39bf86753c66883f4c54ad5218bb4a3676c72c1cb7bf61c2c738f4bccbefbb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-white-savior-charge-boomerangs-on-its-accuser",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인종을 문제 삼는 비평이 정작 자기가 이름 붙인 불안을 되풀이한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7b357b9c9d6e1d0ce9489a0a37ddaf8dd6a2222a0a44a85113eea43f7275efdc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-white-settler-who-won-t-leave-africa",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이미 자신을 밀어내는 땅을 놓지 못하는 식민의 상속자들.",
+  "model": "claude-opus-5",
+  "source_sha256": "f3c31eefb4b85ee03e36428dd133a3f14290b484914132f84c5393c2b11eb9c7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-whiteness-that-indicts-what-surrounds-it",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흰색이 고발한다. 특권과 취약함, 그 색이 드러내는 세계를.",
+  "model": "claude-opus-5",
+  "source_sha256": "c5be2630b93df1284095280a93b798b31d55636df78e204e394bbfebd20c7f72"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-whodunit-reflex-as-critical-confession",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화를 '풀어야' 한다는 비평가의 조급함이 화면 속 죄를 그대로 반복한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cca7c4538fa58c7ba2d3a79f3f7c077e5c4a72ca5c600203e9328d6ab7b55cff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-whole-film-is-a-dying-mind-s-fiction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "화면에 있는 전부가 꺼져가는 한 의식이 마지막에 본 환각이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bb6e76fe2aaea270a5fe2c741da826f0c4e396968e83bce42e5e2a309652e896"
+ }
+]

@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-closet-as-regime-disclosure-as-force",
+  "field": "title",
+  "lang": "ko",
+  "text": "벽장이라는 통치, 커밍아웃이라는 폭력",
+  "model": "claude-opus-5",
+  "source_sha256": "0d73809ec638941d9200f570193f1483a0b5573a4253b2e5875068664cc084a1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-clue-that-betrays-the-search",
+  "field": "title",
+  "lang": "ko",
+  "text": "수색을 배신하는 단서",
+  "model": "claude-opus-5",
+  "source_sha256": "0a070c10b174e45cbab9ac87493b1714f895a70efe84c1edd179a652710d3ec9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-clumsy-zoom-as-visible-improvisation",
+  "field": "title",
+  "lang": "ko",
+  "text": "서툰 줌, 눈에 보이는 즉흥",
+  "model": "claude-opus-5",
+  "source_sha256": "3f582014a4eea6b6a151619de28b7ecebd308d8cad18439596ca87f00036359c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-clutch-that-cannot-release-the-lost-object",
+  "field": "title",
+  "lang": "ko",
+  "text": "잃은 것을 끝내 놓지 못하는 손",
+  "model": "claude-opus-5",
+  "source_sha256": "ede2d50fe2391676b0622b5f7ea22287e3a668b1d9d28028cd53bc02cdb28be3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-coach-who-plays-through-another-s-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "남의 몸으로 뛰는 코치",
+  "model": "claude-opus-5",
+  "source_sha256": "8dc1331175ee9abe2a42e600628b334b19ce0dfdd30e120d71c89b82984afe37"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-coalfield-as-buried-national-history",
+  "field": "title",
+  "lang": "ko",
+  "text": "탄전에 묻힌 국가의 역사",
+  "model": "claude-opus-5",
+  "source_sha256": "68b56c29a7bc9da500de54266019cc568648a11978b9a5a389a4427d4c164d98"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-coalition-of-the-disposable",
+  "field": "title",
+  "lang": "ko",
+  "text": "버려진 자들의 연대",
+  "model": "claude-opus-5",
+  "source_sha256": "99a246021a7a1d1e5faa43f561d6206367e0d031c10384c6ba0a884668d05404"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-coast-as-membrane-between-worlds",
+  "field": "title",
+  "lang": "ko",
+  "text": "두 세계 사이의 얇은 막, 해안",
+  "model": "claude-opus-5",
+  "source_sha256": "6c8d7a1c982f4ff4ebc22873fbc8a259a75f4180cf0f9ab41602bd0db6156971"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cockpit-as-the-soldier-s-sealed-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "조종석, 봉인된 병사의 몸",
+  "model": "claude-opus-5",
+  "source_sha256": "b6a28734f90fe7d492978e51ee17b9a1cad31cf005012da8e2e6b87634915441"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-coda-as-alibi-against-whitewash",
+  "field": "title",
+  "lang": "ko",
+  "text": "미화가 아니라는 알리바이, 코다",
+  "model": "claude-opus-5",
+  "source_sha256": "02c59db39dc26fea7edb6b8c242330b75a8134a25bf25b195189df2bf3bc8df8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-code-that-devours-its-keeper",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 지킴이를 삼키는 규율",
+  "model": "claude-opus-5",
+  "source_sha256": "7b6c36ee9ffc42ba54e72bc3c9396edb98e6ce73297c9cfab891a58d6b735b13"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-code-that-governs-what-may-be-shown",
+  "field": "title",
+  "lang": "ko",
+  "text": "무엇까지 보여도 되는지 정하는 규정",
+  "model": "claude-opus-5",
+  "source_sha256": "e4cc5aa9f9135bc8da6f22c18797804eeb6bd4b5b8a7aa66245221e5f24e2a16"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-code-that-pays-nothing",
+  "field": "title",
+  "lang": "ko",
+  "text": "아무것도 돌려주지 않는 규율",
+  "model": "claude-opus-5",
+  "source_sha256": "7be5c957ee50793ad7facc9713fac564aed6880669bbdf5e5ff713eb64322714"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-code-that-reads-its-reader",
+  "field": "title",
+  "lang": "ko",
+  "text": "읽는 자를 되읽는 암호",
+  "model": "claude-opus-5",
+  "source_sha256": "ade7284db4fdd77729127044ee3a6032008f1f7eea03c9434aca8c720d2f0c15"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-codebreaker-outlawed-by-the-state-she-saves",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 구한 나라가 범죄자로 만든 암호해독가",
+  "model": "claude-opus-5",
+  "source_sha256": "10ee241f25e93ebd22a6657419d4fa11664a34f76fc75f0c428f780ef35343e1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-coens-adapting-as-argument-with-genre",
+  "field": "title",
+  "lang": "ko",
+  "text": "코엔 형제의 각색, 장르와 벌이는 논쟁",
+  "model": "claude-opus-5",
+  "source_sha256": "dadd567cd0480963e6384e7ad0c4ad3b689291bcd209fc05ecdffdaee79e55cb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-coens-filming-their-buried-midwest",
+  "field": "title",
+  "lang": "ko",
+  "text": "파묻힌 중서부를 찍는 코엔 형제",
+  "model": "claude-opus-5",
+  "source_sha256": "b87c94284d033157ebc956229081867dff852c38412778e886eb846f3ec090c4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-coin-that-refuses-to-circulate-as-money",
+  "field": "title",
+  "lang": "ko",
+  "text": "돈으로 돌기를 거부하는 동전",
+  "model": "claude-opus-5",
+  "source_sha256": "40acd981daf3b5b23ae6bf7afc2f99c5ce0da927f83555a69972e785fbbae3f3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-coined-tongue-as-quarantine-against-sincerity",
+  "field": "title",
+  "lang": "ko",
+  "text": "진심을 가두는 조어(造語)의 방벽",
+  "model": "claude-opus-5",
+  "source_sha256": "242b64d105fd8139b85d8554595fab9faff5c5a84d18ed535ab4cbf1a18cc2eb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cold-arithmetic-that-spends-the-vulnerable",
+  "field": "title",
+  "lang": "ko",
+  "text": "약한 자를 소모품으로 계산하는 셈법",
+  "model": "claude-opus-5",
+  "source_sha256": "0b0c00f51f41be0eebdafb525cafc66f814cc7c7b208529a1efc4ea81c218987"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cold-war-as-engineered-spectacle",
+  "field": "title",
+  "lang": "ko",
+  "text": "설계된 볼거리로서의 냉전",
+  "model": "claude-opus-5",
+  "source_sha256": "66922f35a87d26f750a05db3f17068d3be63299073e644686a21befaccf1dbca"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cold-war-frame-survives-its-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "대상보다 오래 남은 냉전의 틀",
+  "model": "claude-opus-5",
+  "source_sha256": "ef4eb596fe12b694cb0dc104c31af74e92570ce01d4db0eab05b84e8f0c61623"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-coldness-charge-as-confession-of-the-critic",
+  "field": "title",
+  "lang": "ko",
+  "text": "'차갑다'는 혐의, 비평가의 자기 고백",
+  "model": "claude-opus-5",
+  "source_sha256": "2c7a48bf99deb2cba08155d830239ea1778fa535ed30c14e44d8cbbcb1e17d03"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-coldness-critics-warmed-to-survive",
+  "field": "title",
+  "lang": "ko",
+  "text": "비평가들이 견디려 데운 냉기",
+  "model": "claude-opus-5",
+  "source_sha256": "ec14f4435d85f3a4b579c4882beecb348df8e58f610a58e67ebc945fc9672686"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-collar-that-licenses-the-kill",
+  "field": "title",
+  "lang": "ko",
+  "text": "살인을 허락하는 성직자의 칼라",
+  "model": "claude-opus-5",
+  "source_sha256": "ab4d9d044c1e2512189d816b41aebfbfdaa952fb5f101ee7e041e4104d192ac2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-collector-hoarding-a-world-out-of-reach",
+  "field": "title",
+  "lang": "ko",
+  "text": "닿을 수 없는 세계를 쌓아두는 수집가",
+  "model": "claude-opus-5",
+  "source_sha256": "79b700b1d1e14407c10b59cb5085777ec16936a698a548bc84c68458f17e7f0c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-colonial-wound-returns-buried-in-soil",
+  "field": "title",
+  "lang": "ko",
+  "text": "흙에 묻혔다가 돌아오는 식민의 상처",
+  "model": "claude-opus-5",
+  "source_sha256": "cd39b339a9dc35815006cd1df0abbace21f018a31956ba2b4a92795437eac95e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-colonized-labor-that-sings-its-bondage",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 사슬을 노래하는 식민지 노동",
+  "model": "claude-opus-5",
+  "source_sha256": "3e3a9fbf29dca129ceb111402ed626788fcddf5439b98cba161ead7a6442436b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-colony-confessed-inside-its-own-victory",
+  "field": "title",
+  "lang": "ko",
+  "text": "승리의 한복판에서 발설된 식민지",
+  "model": "claude-opus-5",
+  "source_sha256": "0dc0f1db7eb8a9c760b7ded57cd3793577db29741f2ab13cf3e41f71981e994c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-colony-judged-through-foreign-eyes",
+  "field": "title",
+  "lang": "ko",
+  "text": "바깥의 눈이 재판하는 식민지",
+  "model": "claude-opus-5",
+  "source_sha256": "40dc0b45c72e8c179936c389620845557a9641bccfe27a985376218c02815c97"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-color-line-built-as-architecture",
+  "field": "title",
+  "lang": "ko",
+  "text": "건축으로 세운 인종의 경계선",
+  "model": "claude-opus-5",
+  "source_sha256": "cb8f049f4753aa210bb53a429566ef9d122519ca4d0b254283e7517d9866a2ee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-color-that-names-the-thing-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "사물의 이름이 되어버린 색",
+  "model": "claude-opus-5",
+  "source_sha256": "cc7e32c0b5e26bdd025feb6d318ef35def7c36c9950cde93a6662733a33e2752"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-color-that-refuses-the-drained-order",
+  "field": "title",
+  "lang": "ko",
+  "text": "빛바랜 질서에 불복하는 색",
+  "model": "claude-opus-5",
+  "source_sha256": "e3708f25f847c5da23649408376b50f6df65fbad6469fbdd7451c248ee6a35b6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comeback-casting-as-the-critics-own-story",
+  "field": "title",
+  "lang": "ko",
+  "text": "컴백 캐스팅, 실은 비평가들 자신의 이야기",
+  "model": "claude-opus-5",
+  "source_sha256": "dab0e578bf8915ae0bd9bc3157b5714ecb943c89d4d86e3b4aac2b969d6a1762"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comeback-engineered-by-the-star",
+  "field": "title",
+  "lang": "ko",
+  "text": "스타가 직접 설계한 복귀",
+  "model": "claude-opus-5",
+  "source_sha256": "4605005b2e56048325204d08f6933f89eaeae1240712e38bc31964ca8c35f199"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedian-cast-to-carry-the-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "상처를 지라고 부른 코미디언",
+  "model": "claude-opus-5",
+  "source_sha256": "fa1dbffa1b1024b8dee036df2408966d9d0ae3a2b7b1531cf0df5babc1910955"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedian-reborn-as-serious-auteur",
+  "field": "title",
+  "lang": "ko",
+  "text": "진지한 작가로 다시 태어난 코미디언",
+  "model": "claude-opus-5",
+  "source_sha256": "dcd478d388ed273d54fa11b23e0da0f3e1ce3cc90008171db306691edbae3421"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedian-who-devours-himself-onstage",
+  "field": "title",
+  "lang": "ko",
+  "text": "무대 위에서 제 살을 파먹는 코미디언",
+  "model": "claude-opus-5",
+  "source_sha256": "a5db1ff2fa78ed87277331f645f342302154b163cc3737a8281e3813a72af22d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedian-who-jokes-toward-the-abyss",
+  "field": "title",
+  "lang": "ko",
+  "text": "심연 쪽으로 농담을 던지는 코미디언",
+  "model": "claude-opus-5",
+  "source_sha256": "80dc58a85afec282b5d1ccb743269cfbc116c92dbe5358f93d79bbcda4825e18"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedy-as-ontology-of-the-substitute",
+  "field": "title",
+  "lang": "ko",
+  "text": "코미디, 대역(代役)의 존재론",
+  "model": "claude-opus-5",
+  "source_sha256": "f7f3c49300295a2e509aae2e93f22c7ad0779547ad8cb6d554543d8bf53f333f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedy-built-on-a-body-it-conceals",
+  "field": "title",
+  "lang": "ko",
+  "text": "감춘 몸 위에 세운 희극",
+  "model": "claude-opus-5",
+  "source_sha256": "ae07ffc3816a9de1e04dfa340f6d21b677332ef3143fb8dfe1ab878e4e43414d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedy-label-as-critical-flinch",
+  "field": "title",
+  "lang": "ko",
+  "text": "코미디라는 딱지, 비평의 움찔거림",
+  "model": "claude-opus-5",
+  "source_sha256": "180850893696320af3d1e4d2c44f1a1cab37b94de2b496e3cfb34c18e4b3d49a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedy-of-sanctified-losing",
+  "field": "title",
+  "lang": "ko",
+  "text": "거룩해진 패배의 희극",
+  "model": "claude-opus-5",
+  "source_sha256": "41546bd816b91384427e1fd8580f0a7e37df0d77845ac055b003f4629094c256"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedy-that-hides-a-skull",
+  "field": "title",
+  "lang": "ko",
+  "text": "해골을 숨긴 코미디",
+  "model": "claude-opus-5",
+  "source_sha256": "64662d619d788d5e3c64aeb5f0027c9f2194edad24d753e1bc3a3a3061017adb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedy-that-refuses-victim-grief",
+  "field": "title",
+  "lang": "ko",
+  "text": "피해자의 슬픔을 사양하는 코미디",
+  "model": "claude-opus-5",
+  "source_sha256": "28c9ac9dca4fb5a200e483b9e8d61370885ff33a4c64d01bbd1304b85b35afd5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedy-whose-hidden-engine-is-mourning",
+  "field": "title",
+  "lang": "ko",
+  "text": "애도가 밀고 가는 희극",
+  "model": "claude-opus-5",
+  "source_sha256": "aa8d29e6d05a4d490b74e94cdf028dcf477af6d520b41082e73a3a0083bb284a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedy-whose-hidden-ontology-is-absence",
+  "field": "title",
+  "lang": "ko",
+  "text": "부재를 바닥에 깐 희극",
+  "model": "claude-opus-5",
+  "source_sha256": "7dee1ac830386f89d7609afe8702892519291771c23def2ed2afeb2e7038a744"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comedy-whose-secret-stage-is-the-afterlife",
+  "field": "title",
+  "lang": "ko",
+  "text": "사후세계를 은밀한 무대로 삼은 희극",
+  "model": "claude-opus-5",
+  "source_sha256": "703dc753cca939ab853198265f8509dc2a8498acaaf1607ee763def333bb19c8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comfortable-discover-their-cruelty-toward-the-poor",
+  "field": "title",
+  "lang": "ko",
+  "text": "가난을 향한 제 잔혹을 뒤늦게 깨닫는 유복한 사람들",
+  "model": "claude-opus-5",
+  "source_sha256": "16c59a0af1c2329ca7fd5d25b3b552595f1ad1feb519bbbb6f53606d73991000"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-comic-frame-that-started-moving",
+  "field": "title",
+  "lang": "ko",
+  "text": "움직이기 시작한 만화 칸",
+  "model": "claude-opus-5",
+  "source_sha256": "a5104d56f1bc5a6154246f66bc49f00223d2283edb92458c509f176c15c4778f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-commercial-director-s-grammar-invades-cinema",
+  "field": "title",
+  "lang": "ko",
+  "text": "광고 감독의 문법이 영화로 밀고 들어오다",
+  "model": "claude-opus-5",
+  "source_sha256": "61ce9bdab6d57c0fe6855fb831b615c6067ccf38f14f3d70809d7d14c372dbe3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-commissioned-object-that-smuggled-art-inside",
+  "field": "title",
+  "lang": "ko",
+  "text": "예술을 몰래 숨겨 들여온 주문품",
+  "model": "claude-opus-5",
+  "source_sha256": "06ee95545d5f6f5a9980bb5f7858a8fa364509a055d6018857dfe3cf0fafb547"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-commodity-fetish-as-lethal-object",
+  "field": "title",
+  "lang": "ko",
+  "text": "사람을 죽이는 상품 물신(物神)",
+  "model": "claude-opus-5",
+  "source_sha256": "45b5e2c20412966ad6fc032d32ab00640897869a2327c69b34c725bd4246f431"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-commodity-that-wakes-and-bills-you",
+  "field": "title",
+  "lang": "ko",
+  "text": "깨어나 청구서를 내미는 상품",
+  "model": "claude-opus-5",
+  "source_sha256": "a4b9a8fc4e2d0da4019c4bb2cfec6f7c853d56afb4d791be445b3173935fb891"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-commons-enclosed-into-private-hands",
+  "field": "title",
+  "lang": "ko",
+  "text": "울타리가 쳐져 사유물이 된 공유지",
+  "model": "claude-opus-5",
+  "source_sha256": "924990acc535c08403916bc7a80d8c5611c91d0a06d1c8039d8573f41f63c76c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-community-that-coheres-through-a-scapegoat",
+  "field": "title",
+  "lang": "ko",
+  "text": "희생양 하나로 뭉치는 공동체",
+  "model": "claude-opus-5",
+  "source_sha256": "14f23e49b48b583a065a14c65b2a33cad18e95b86e032869f22fed7f1dc2d6b5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-community-that-tries-its-own",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 식구를 법정에 세우는 공동체",
+  "model": "claude-opus-5",
+  "source_sha256": "416ab112fa958b27bcda7c5fa812786393f744af4eb6916f8a425dc8804bb981"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-company-that-cannot-let-anything-die",
+  "field": "title",
+  "lang": "ko",
+  "text": "무엇도 죽게 두지 못하는 회사",
+  "model": "claude-opus-5",
+  "source_sha256": "7ca42ad00e8e89c99e2888962774d57992131f08ae33eb50b1e478f7c1c8b4ec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-composed-face-as-inscribed-female-suffering",
+  "field": "title",
+  "lang": "ko",
+  "text": "단정한 얼굴에 새겨진 여자의 고통",
+  "model": "claude-opus-5",
+  "source_sha256": "20e044076a92ac871c49b0955a53e8e8e7b79c5fd95c5b0750c9a1feb5976edf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-composer-who-scored-silence",
+  "field": "title",
+  "lang": "ko",
+  "text": "침묵을 악보에 옮긴 작곡가",
+  "model": "claude-opus-5",
+  "source_sha256": "776d734e63fd5da5c288aa441b1be118141170adb3100ca109ace48dcf9a6147"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-composer-who-scores-the-silence",
+  "field": "title",
+  "lang": "ko",
+  "text": "침묵에 음을 붙이는 작곡가",
+  "model": "claude-opus-5",
+  "source_sha256": "b769cde7b0047f721467098b697b36b293242675e97e75036ad5c3488485c2cd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-composer-who-severed-the-music-to-survive",
+  "field": "title",
+  "lang": "ko",
+  "text": "살아남으려 음악을 끊어낸 작곡가",
+  "model": "claude-opus-5",
+  "source_sha256": "a0806ef09ebe038163d3f5e4b1eafba7505893bbd06c7221e488fe493927ead9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-composite-who-out-reals-the-real",
+  "field": "title",
+  "lang": "ko",
+  "text": "실재를 이겨버린 합성 인물",
+  "model": "claude-opus-5",
+  "source_sha256": "ba821a2e8a022dfd88c5059b1dd9f160cc1d27fe4bfe2add9c29478c14c7985b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-compositing-pipeline-made-visible",
+  "field": "title",
+  "lang": "ko",
+  "text": "드러난 합성 공정",
+  "model": "claude-opus-5",
+  "source_sha256": "a662cdc893f2c39274a7d9ca3abd7187b9718218c4071e5cc3e5d74f38ca9344"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-compulsion-to-become-the-watching-father",
+  "field": "title",
+  "lang": "ko",
+  "text": "지켜보던 아버지가 되고 마는 강박",
+  "model": "claude-opus-5",
+  "source_sha256": "e23e3536d6f3d31704b2b299bbfc9a6b8e2352d6d27041cad4a0e3cb644d2e68"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-compulsion-to-repeat-an-unmastered-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "다스리지 못한 상처를 되풀이하는 강박",
+  "model": "claude-opus-5",
+  "source_sha256": "436995f5d89b825fc1d844f89ae2a69532b929d3865f747294b8003f7f8ec01c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-compulsion-to-repeat-for-confirmed-worth",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 값어치를 확인받으려는 반복 강박",
+  "model": "claude-opus-5",
+  "source_sha256": "c247c41dea8cd02501060809f945bb58aabcac47244f6be8bac2d0a5f5ef067e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-compulsion-to-repeat-the-killing",
+  "field": "title",
+  "lang": "ko",
+  "text": "살해를 되풀이하는 강박",
+  "model": "claude-opus-5",
+  "source_sha256": "2669f8258000011f21e644117da179d5fcaf02d108e1452a3efa6dc5cc185af2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-compulsion-to-repeat-the-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "상처를 다시 겪으려는 강박",
+  "model": "claude-opus-5",
+  "source_sha256": "0317ca34405f6f3aaf582536bbbd959ad8c27e2a8429036ee2576a32bfdc6a0a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-compulsion-to-restage-the-primal-scene",
+  "field": "title",
+  "lang": "ko",
+  "text": "원초적 장면을 자꾸 다시 세우는 강박",
+  "model": "claude-opus-5",
+  "source_sha256": "aa7945f563fb4ed05033a971978f13b16fab3f68fb5d62330458335a47d13589"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-compulsion-to-return-to-the-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "상처로 돌아가고야 마는 강박",
+  "model": "claude-opus-5",
+  "source_sha256": "8ad25f7ebbc7742ec178021e4240338b124e8e70b61feca1cbd4439554f63e6e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-compulsive-repetition-that-wards-off-mourning",
+  "field": "title",
+  "lang": "ko",
+  "text": "애도를 밀어내는 강박적 반복",
+  "model": "claude-opus-5",
+  "source_sha256": "9b4ff075c92232224250020242327c653233862880dc237d407d2aba5cb3df98"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-concealed-lie-with-no-crime-beneath",
+  "field": "title",
+  "lang": "ko",
+  "text": "밑에 아무 죄도 없는 거짓말",
+  "model": "claude-opus-5",
+  "source_sha256": "2e0af2b3b6fb88c7c56d68c8e19704716178648c29b01735d5e1bbbb03425d44"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-concealed-plague-that-empties-the-city",
+  "field": "title",
+  "lang": "ko",
+  "text": "숨긴 역병이 도시를 비운다",
+  "model": "claude-opus-5",
+  "source_sha256": "7581b61708bb7832d3dc0aa370ee2c5db8874f7d8c68aa8a71d4833a1fb5efe0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-concierge-as-priest-of-sacred-hospitality",
+  "field": "title",
+  "lang": "ko",
+  "text": "환대를 집전하는 사제, 컨시어지",
+  "model": "claude-opus-5",
+  "source_sha256": "67266a227d9d20e4d7771981fedb94dc8700ef31efd7b9aaffd4e3922242804e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-condemned-building-as-civic-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "철거를 앞둔 건물, 도시의 몸",
+  "model": "claude-opus-5",
+  "source_sha256": "c5f7321d932fb4057f091f3aad60500527890e5ddb6cb4b119c61f71ffba7747"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-conductor-who-cannot-silence-the-sound",
+  "field": "title",
+  "lang": "ko",
+  "text": "소리를 멈추지 못하는 지휘자",
+  "model": "claude-opus-5",
+  "source_sha256": "cea1a86f7e997d738ab43ffa44390f108659c665050d94ed7acf3bb72ed17317"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confession-addressed-to-no-one-present",
+  "field": "title",
+  "lang": "ko",
+  "text": "그 자리에 없는 이에게 하는 고백",
+  "model": "claude-opus-5",
+  "source_sha256": "ee6c9b5de69055875ff6a029223e758421c87161b8de2f1dd54cc653b872b1f7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confession-as-the-con-s-last-trophy",
+  "field": "title",
+  "lang": "ko",
+  "text": "고백, 사기꾼의 마지막 전리품",
+  "model": "claude-opus-5",
+  "source_sha256": "0f0393d2ecfb6a1b8e8edf24829b3aa86393150f795fc6130adf2f82515413e9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confession-extracted-to-replace-the-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "진실 자리에 앉히려 짜낸 자백",
+  "model": "claude-opus-5",
+  "source_sha256": "04bbc73f82f53cf79ee34f457f1cd6c0eacd0d40efb1eb5829c54e984fabd171"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confession-manufactured-by-the-system",
+  "field": "title",
+  "lang": "ko",
+  "text": "체제가 찍어낸 자백",
+  "model": "claude-opus-5",
+  "source_sha256": "e6747fd23317c766b188d0772a92ddd9412e10af5e33a4676813e3dc024983d9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confession-that-becomes-the-artwork",
+  "field": "title",
+  "lang": "ko",
+  "text": "작품이 되어버린 고백",
+  "model": "claude-opus-5",
+  "source_sha256": "9ffce7e5e4bf8540a03ad0fd83e6ecc7c0ccf123e34648c8636a543acd05251f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confession-that-is-really-confabulation",
+  "field": "title",
+  "lang": "ko",
+  "text": "고백을 가장한 지어낸 이야기",
+  "model": "claude-opus-5",
+  "source_sha256": "25de4d2e8f023010ffbe044165040af330d0f041ae49c69543cfda8a4ed7aa59"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confession-that-seeks-punishment-not-freedom",
+  "field": "title",
+  "lang": "ko",
+  "text": "자유가 아니라 벌을 구하는 고백",
+  "model": "claude-opus-5",
+  "source_sha256": "bef65b259ea9e8ee75ae477af799024e5f79cfba2094e753e8c5efb62fe42daf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confession-that-uses-the-beloved",
+  "field": "title",
+  "lang": "ko",
+  "text": "연인을 도구 삼는 고백",
+  "model": "claude-opus-5",
+  "source_sha256": "e35c31a763bac62a1766cb93177f05cba07a1c37507b4c9ff9033c51d9dfb0ba"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confessional-artist-devoured-by-the-audience-summoned",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 불러 모은 관객에게 먹히는 고백의 예술가",
+  "model": "claude-opus-5",
+  "source_sha256": "64da1704f79eb7bdee2cf70f571c77d002a3f5949afbda697177fc0be0e2fe67"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confessional-booth-without-a-priest",
+  "field": "title",
+  "lang": "ko",
+  "text": "사제가 없는 고해소",
+  "model": "claude-opus-5",
+  "source_sha256": "15f1d1af51aefa455c9194727ea536f46d4adbbeb280fea6eaa88adc764df609"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confessional-booth-without-its-priest",
+  "field": "title",
+  "lang": "ko",
+  "text": "사제가 떠난 고해소",
+  "model": "claude-opus-5",
+  "source_sha256": "76f076b864771e9704592d0970214a70b685a36878fdbbe01bfd2251adfe240e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confined-frame-as-political-vision",
+  "field": "title",
+  "lang": "ko",
+  "text": "갇힌 프레임이 곧 정치적 시야",
+  "model": "claude-opus-5",
+  "source_sha256": "cbfbc8f9e8130a9a29ea23c4f0c57bdb70c683157cac7411178f04dcc250a1f6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confined-space-that-manufactures-intimacy",
+  "field": "title",
+  "lang": "ko",
+  "text": "친밀함을 찍어내는 밀폐 공간",
+  "model": "claude-opus-5",
+  "source_sha256": "92eac643baaf505e02f3d4a6de2d12b68140b2ab870fe2f459f4cbb61b36212e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confined-space-where-intimacy-hides",
+  "field": "title",
+  "lang": "ko",
+  "text": "친밀함이 숨어드는 밀폐 공간",
+  "model": "claude-opus-5",
+  "source_sha256": "25d519f6f5fe7142e5e57ba015fba20867008f2648f68218125fd6deea3fe8c7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confined-stage-as-cinematic-discipline",
+  "field": "title",
+  "lang": "ko",
+  "text": "밀폐된 무대라는 영화적 규율",
+  "model": "claude-opus-5",
+  "source_sha256": "2c9535f1b9c7c77caed1d7e206126d6d0e96ac7145bfe858bf5117bee13c0fa8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-confinement-drama-in-disguise",
+  "field": "title",
+  "lang": "ko",
+  "text": "정체를 감춘 감금극",
+  "model": "claude-opus-5",
+  "source_sha256": "e964f6c774ffc6569a807293594d0ac21362bf5f13182e5c684fff69885dc62a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-conflagration-as-the-film-s-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "대화재, 영화 자신의 고백",
+  "model": "claude-opus-5",
+  "source_sha256": "5f4698fa89e4056c4fd33c2598abfcfdc451f9145954e8e1ed7fa2a4bb63a523"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-conjurer-whose-trick-is-the-apparatus-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "속임수가 곧 장치(apparatus)인 마술사",
+  "model": "claude-opus-5",
+  "source_sha256": "faec3f0d2ea31ba9d2733dcc07ac2fecbbbef6d534417faec1a8cf0bc25ca051"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-conquered-who-speaks-the-conqueror-s-tongue",
+  "field": "title",
+  "lang": "ko",
+  "text": "정복자의 말을 쓰는 피정복자",
+  "model": "claude-opus-5",
+  "source_sha256": "38dbf34bd9f2ea3ad1b949c4917847fb50f12733a02e88121413a980b716a665"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-conqueror-devoured-by-his-own-empire",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 세운 제국에 먹힌 정복자",
+  "model": "claude-opus-5",
+  "source_sha256": "c2b3ff5b2c764b7adf4f6de61db9b032eb1306030db1bce33e50118d732b1a3f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-conscience-that-finally-refuses-to-strike",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 내리치지 않은 양심",
+  "model": "claude-opus-5",
+  "source_sha256": "c269a91b88b74c9ed802ccbb43a1bc9e19a5f20c74f58db88959b981b32f62df"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-consequentialist-alibi-that-devours-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 발등을 찍는 결과주의의 알리바이",
+  "model": "claude-opus-5",
+  "source_sha256": "7c70538933dc5c9c65a482f057e6a605ddc95e5e42e80cd30111235eee4c44c8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-conspicuous-rig-as-rupture",
+  "field": "title",
+  "lang": "ko",
+  "text": "드러난 촬영 장비, 그 균열",
+  "model": "claude-opus-5",
+  "source_sha256": "91ff435d819af2d936cad6fc2ae1a2c6fe310c05d17444aa4ad3f5b6b996aebe"
+ }
+]

@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-longest-day-1962",
+  "field": "lead",
+  "film_id": "9e366ffb-630a-4ea3-81b2-7a5dbf04984c",
+  "lang": "en",
+  "text": "Rommel tours the Atlantic Wall and tells his officers where the war will be decided: on the beach, before the invasion is anywhere else. What follows spends 178 minutes holding five vantage points on a single date, German and American and British and Canadian and Free French, and that arithmetic is the argument. June 6, 1944 is treated not as one event but as dozens running in the same hours, each of them working from partial information. Scale is the subject here, and scale requires bookkeeping. The three Academy honors it took were all for construction: art direction, cinematography, editing. A landing is a problem of logistics before it is a problem of courage, and a picture on this scale gets assembled the same way, out of parts that have to meet.",
+  "model": "claude-opus-5",
+  "source_sha256": "dbd3560f9d27938fdf3fa560c81eb8baadd8174fc9757effce6974cd40a166d3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "quills-2000",
+  "field": "lead",
+  "film_id": "73a01369-0856-48a9-a020-e4cf7b071d1c",
+  "lang": "en",
+  "text": "Writing keeps getting out of the asylum, and the circulation, more than the man producing it, is what the authorities move against. Early nineteenth-century France, a locked institution, and inside it the Marquis de Sade, still working. Three positions grind against one another: the writer who will not be edited, the Abbe in charge who believes the place can reform a man, the doctor sent from outside to make the noise stop. The Academy honors went to an actor, to costume, and to the rooms themselves, which fits a film where authority operates through the material world; what cannot be argued out of a man can sometimes be taken away from him instead. The production is German, the language English, the setting French. Cases about censorship have always travelled well.",
+  "model": "claude-opus-5",
+  "source_sha256": "b5be5821c97adc013cbc8b73a25220e39c9d22c56e89454193fc603108503292"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "can-you-ever-forgive-me-2018",
+  "field": "lead",
+  "film_id": "a07d8f8b-bb3b-4f88-8ba2-961e69b137fc",
+  "lang": "en",
+  "text": "A writer of celebrity lives finds that taste has moved and taken her livelihood with it, leaving the skill intact and nothing legitimate to spend it on. What she does about that is filed here under crime, and the filing is accurate. Marielle Heller's 106 minutes stay with the craft rather than the caper: the labour of making a sentence sound as though somebody else had written it. That is a literary problem before it is a legal one, which is why the writing drew the notice it did from the Writers Guild, and the Dorian awards named it the LGBTQ film of its year. The comedy comes from competence. A biographer spends a career being invisible inside other people's voices, and this one turns out to have been training, all along, for exactly the wrong occupation.",
+  "model": "claude-opus-5",
+  "source_sha256": "e3a118378a18c587209254bfe06702e0308a085ac9d443294c93034a3818b73a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "macbeth-1971",
+  "field": "lead",
+  "film_id": "522e6140-9d65-45fd-8f0a-e7879ba37765",
+  "lang": "en",
+  "text": "Filed under war before drama, and for once the catalogue has it right. Eleventh-century Scotland is treated here as territory held by whoever can keep hold of it, where a crown is closer to a military asset than to a symbol, and 141 minutes is long enough to show the keeping as work. The witches supply the prophecy, the wife supplies the resolve, and the warlord, bold in the field and unsteady out of it, supplies the hand, which is the part of the arrangement nobody else can perform. Roman Polanski made it in Britain, in English, in 1971, and the National Board of Review put it first on that year's list. Ambition is the usual word for what happens next. The film prices it instead: loyalty to a king, standing among brothers in arms, a road that runs one way.",
+  "model": "claude-opus-5",
+  "source_sha256": "3364cc5c1b81b4d1226277292817c146be8c416cf9f4df63870518441faa929a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-old-man-and-the-sea-1958",
+  "field": "lead",
+  "film_id": "932f84a4-6e65-4132-ae85-258ec5298428",
+  "lang": "en",
+  "text": "Eighty-six minutes, one skiff, one line, and a man who has caught nothing in nearly three months. He is old, and he is unlucky, and in that trade the second is the harder reputation to carry. Santiago fishes out of Cuba and takes himself further into the Gulf Stream than sense allows, on the reasoning that the fish are elsewhere and he has run out of other ideas. The marlin comes early. Everything after it is holding on. A story stripped this far down rests on three supports, and the Academy honored all three: the lead performance, the colour photography, the score. Subtract the water and the music and what remains is an old man talking to himself in a small boat far from shore, which is either the limit of the film or the entirety of its subject.",
+  "model": "claude-opus-5",
+  "source_sha256": "759455082645f398e1a17c8d05c2dae86b9e31ae95aa8e5d3638781136ddc073"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "avalon-1990",
+  "field": "lead",
+  "film_id": "efe2b684-b14b-4968-863d-74c826a1e852",
+  "lang": "en",
+  "text": "In the first years of the twentieth century a Polish-Jewish family arrives in the United States, and then the century happens to them. Barry Levinson covers years enough for the generation that arrived and the generation born after to mean different things by the promised land, which is the harder half of an immigration story: not the crossing, but the long argument afterwards about what was worth carrying and who gets to decide. The three Academy honors name cinematography, costume, and score, precisely the departments that do the work of elapsed time. Light changes, clothes change, and music tells an audience which decade it is standing in. The screenplay was written directly for the screen rather than adapted from anything, which puts this family's memory in the film's own custody.",
+  "model": "claude-opus-5",
+  "source_sha256": "1f5bc5197a571b0248480453cd28b5bda3bb1a8814cc9456514a2a83bdd2b0a4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-shoes-of-the-fisherman-1968",
+  "field": "lead",
+  "film_id": "7fd9ea42-712e-4f34-a1b0-40d4ee9f3ebc",
+  "lang": "en",
+  "text": "Twenty years in a Soviet camp, then release without warning and a posting to Rome: Kiril Lakota changes jurisdiction by administrative act. The film is American, made in 1968, and it treats the Vatican as a party to the Cold War rather than as a backdrop for robes. It spends its 162 minutes the way institutions spend time, on rooms and protocol and men deciding in private what will be said in public, with a Ukrainian bishop in the middle of it whose experience of what states do to individuals is recent and personal. Its Academy honors went to production design and to the score, the correct accounting for a place whose authority is largely architectural and whose arguments are conducted as ceremony. The Golden Globe named it the year's drama.",
+  "model": "claude-opus-5",
+  "source_sha256": "ab70c8826c6e033c41d30eaec915fbc298b4383ee4d15bbdd2c28f3c5777c152"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "i-never-sang-for-my-father-1970",
+  "field": "lead",
+  "film_id": "aa1a4597-1818-4b7d-b5b5-e4255596b483",
+  "lang": "en",
+  "text": "There is a woman he means to marry and a move to California waiting, and there is a father grown old, and the two will not fit inside one life. Gilbert Cates holds it to 92 minutes, which for this material is a decision rather than a limit: the subject is an argument that has been running the son's whole life and can be picked up at any point in it. The Academy honored a lead performance, a supporting one, and the adapted screenplay, an accurate distribution for a film in which nothing occurs that could not occur in a living room. What stands to be lost is not a life but the remainder of one. The son's years ahead, set against the years his father still has, and no arithmetic that comes out clean.",
+  "model": "claude-opus-5",
+  "source_sha256": "88f21a5427d0b8a88b1e852841bf50bed696bfcb099f002f437042033e036333"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "night-must-fall-1937",
+  "field": "lead",
+  "film_id": "0e8f9d43-b786-4c0e-b38e-98fbf5a9a44a",
+  "lang": "en",
+  "text": "Something has distracted the maid, and the wealthy widow who employs her sends for the young man responsible. He comes in, and the household makes room for him. Employment is the door; charm keeps it open. Meanwhile a woman has gone missing from the district, and Olivia, the widow's niece, finds herself holding two impressions of the same person that will not reconcile. A 116-minute thriller from 1937 has time to establish comfort before it establishes threat, which is the design: suspicion has to argue against convenience, and by then convenience is well entrenched. The Academy honored a performance in the lead and one in support, the right pairing for a picture in which the suspicion and its object share a house, a table, and a great deal of ordinary conversation.",
+  "model": "claude-opus-5",
+  "source_sha256": "a826847c6a39b21b9e077bbf8146f9e6f15e5d46c1839257f8b459078fbade1e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "none-but-the-lonely-heart-1944",
+  "field": "lead",
+  "film_id": "7a3d5c98-4d98-48b3-9f18-b0fad22f2c49",
+  "lang": "en",
+  "text": "Money is the whole of the problem: a shop that does not earn enough, a woman too ill to keep it going alone, and a son who came home without meaning to stay. What tempts the two of them is arithmetic rather than appetite; there is a way to make the sums come out, and the law does not allow it. The Academy honored the lead performance, the editing, and the score, and Clifford Odets gives his 113 minutes to the economics of one small business, what it takes in a week and what staying honest costs by the month. The listing says romance, and the romance is real, but the pressure comes from the ledger. Mother and son are tempted at the same time, which is the detail that carries the weight: whatever gets decided will be decided as a family.",
+  "model": "claude-opus-5",
+  "source_sha256": "39f247a9a4086320a9db5b39fef48bc1b3e1486dc3851702027b6f7633813b34"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sons-and-lovers-1960",
+  "field": "lead",
+  "film_id": "521b610f-7b6a-4e5f-9adf-e0137091df74",
+  "lang": "en",
+  "text": "Mining pays for the household, and the son of the house wants to draw. In a British film of 1960 that ambition is not treated as charming; it is a debt running in both directions, and 103 minutes go to working out who holds the stronger claim on him, the mother whose fondness comes with terms or the older married woman in the town offering something of a different shape. The mother is kind. That is the difficulty. Possessiveness that announced itself would be far easier to walk away from. Two of the three Academy honors went to how the film looks, art direction and cinematography, both in black and white, which sits oddly and well against a story about a young man convinced that what he sees deserves to be put on paper.",
+  "model": "claude-opus-5",
+  "source_sha256": "37ffd252c0f6d63d3a2ae7602e9351b7615864cad7982854b7f729fe1d7dab82"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "betrayal-1983",
+  "field": "lead",
+  "film_id": "8510436c-dd5f-4428-ae25-aed7a800dbe6",
+  "lang": "en",
+  "text": "Reverse chronology: the film opens late in an affair between a literary agent and his best friend's wife, then works back toward the day it started. Suspense about outcome is surrendered on purpose and replaced with suspense about information, who knew and how long they had known before saying so. The scale is chamber-sized. A few people, rooms, conversation, 95 minutes. At any greater length the structure would sag. What it buys is a double hearing: each scene plays forward for the people inside it and backward for everyone else, so that a courtesy can register as a manoeuvre, and a manoeuvre as something that was, at the time, sincerely meant. The Academy honored the adapted screenplay, which is where an arrangement like this either holds or does not.",
+  "model": "claude-opus-5",
+  "source_sha256": "e5c4c1eb810f65e5740b6aa8f863383b28ac3d4fbcddaeeb81fd8abe50216f1a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "movie-movie-1978",
+  "field": "lead",
+  "film_id": "b9f062aa-4cba-4b7d-9e5c-04da977e1bcc",
+  "lang": "en",
+  "text": "One cast, three pictures: a boxing story, a Great War flying story, and a backstage Broadway musical, each built to 1930s specification. Stanley Donen's comedy runs 108 minutes and gets its effect from recurrence, the same faces turning up inside the next set of conventions, obliged to be sincere all over again in a different dialect. The satire is not of any single film but of the machinery three separate industries ran on. The Writers Guild honored the screenplay, which is the right address for a joke of this kind. Genres are made of sentences before they are made of costumes: the talk before the final round, the briefing before the dawn patrol, the assurance that an unknown can go on tonight. Getting those deliberately wrong requires knowing them exactly.",
+  "model": "claude-opus-5",
+  "source_sha256": "a83270efbfcb7da5edd24f7dd6c18993fb0dad4b5c239618fc2f9e51c504a97d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "topaze-1933",
+  "field": "lead",
+  "film_id": "5e986f0f-306f-4be2-b534-d9a90df30ef4",
+  "lang": "en",
+  "text": "Honesty is the asset, and it is precisely what a Baron intends to borrow. The schoolteacher at the centre of this 1933 comedy has spent his working life inside a classroom, where a spotless name is a professional necessity and nothing more; outside it, that same name turns out to be a negotiable instrument, worth real money to a rich man and his mistress who need a scheme signed by someone nobody thinks to question. The mechanism is simple and entirely modern: a reputation can be lent, spent, and handed back in worse condition than it left. Harry d'Abbadie d'Arrast keeps it to seventy-eight minutes, which leaves the teacher no time at all to catch up with what is being done in his name. The National Board of Review called it the best film of its year.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd60d6f70b3aa71b2b6ff23c25372909ee906be67ab487067d98ef3e6494aabf"
+ }
+]

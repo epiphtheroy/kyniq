@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "leoni-al-sole-1961",
+  "field": "lead",
+  "film_id": "731bbc55-dc94-4071-ab66-dbc9787e3e25",
+  "lang": "en",
+  "text": "Positano in summer, and a group of Neapolitans past thirty who have arranged their days so that nothing needs to happen. That is the whole engine: no job to rescue, no wedding to reach, only sun, water and one another's company, held for 101 minutes until the holding becomes the subject. Vittorio Caprioli keeps the resort's pleasures near the front of the frame, so the idleness stays attractive while it is being examined — the comedy comes from people who have talked themselves into believing a season can be extended by will. It appears on a list of a hundred Italian films marked for saving, which is an odd distinction for something this light on its feet, and a fair one: leisure is hard to film without either envying it or sneering at it, and that difficulty is where the interest sits.",
+  "model": "claude-opus-5",
+  "source_sha256": "51d9af16e7b3213f16209637cf8a82a237330608a113b753b0a3c805dbcf4098"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-passaguai-family-gets-rich-1951",
+  "field": "lead",
+  "film_id": "43685cdf-15c5-45cf-abbb-e1258f166fe2",
+  "lang": "en",
+  "text": "A man answers a newspaper advertisement about a business proposition and discovers he now needs an apartment better than his own. What follows is one long act of borrowed respectability: the rooms belong to a retired actor, the luncheon is staged to look habitual, and Passaguai has to keep a household's worth of people behaving as though this is where they live. Aldo Fabrizi runs the ninety-two minutes on that single strain rather than on slammed doors, which puts the pressure on faces and on the small mistimings of a meal — who sits where, who serves, who knows his way around a kitchen he has never entered. The joke assumes an audience that understands precisely what a good address was worth in 1951, and how fast the wrong detail gives a man away.",
+  "model": "claude-opus-5",
+  "source_sha256": "e9b70bd09191f457d4e23e6341ac97f3bd12fa0362d3092eb3e7fb12c1264d48"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "eager-to-live-1953",
+  "field": "lead",
+  "film_id": "1b9d9845-924a-4ef8-b015-2a98d25d3c64",
+  "lang": "en",
+  "text": "Massimo is poor, and nearly all of his effort goes to not appearing so. Claudio Gora takes the arrangement seriously enough to make a drama of it rather than a farce, which changes what the film is obliged to show: not the moment of exposure but the daily upkeep — the borrowed manner, the company that must be kept, the expense of looking like a man who has no expenses. A farce would forgive him by the end of the evening; a drama keeps the bill. Ninety-one minutes is time enough for a young man's whole social calculation to be laid out and for the arithmetic to start running against him. Febbre di vivere reaches Italian screens in 1953, when an audience could hold both halves of the trick at once: the shabby room and the good coat, and which of the two a stranger actually reads.",
+  "model": "claude-opus-5",
+  "source_sha256": "15b2cdda2f7b0a05e864fb07b6e284d15f54d38ea01bffee8a87758d27eee17b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "macbeth-2015",
+  "field": "lead",
+  "film_id": "17edbbc4-00a8-49df-a14b-d4fb10df82fb",
+  "lang": "en",
+  "text": "Genre listings put this Macbeth under drama and war, and the second word is the one that explains it. A French production in English, 113 minutes long, it takes the Scottish play as something that happens to soldiers: a general who has spent his working life killing on instruction, a marriage conducted in the gaps between campaigns, a crown held by the same violence that will eventually be turned on it. Justin Kurzel keeps the verse and gives it to people who sound worn out, which closes some of the distance Shakespeare on film usually has to apologise for. And the pressure the film really wants is domestic: two people alone in a room, working out what they are willing to do to a man who trusts them, with the whole apparatus of war standing by to make it easy.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f7d9e253862ea1816fcb434ba97adb17dab0f1c81fef801e515bc91d354dab6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "to-catch-a-killer-2023",
+  "field": "lead",
+  "film_id": "9ece3bbd-5c8e-439a-9bac-f771bcf46c27",
+  "lang": "en",
+  "text": "Baltimore, the last night of the year, and a mass killing the city will be reading about by morning. The film starts where most procedurals do not bother to look: the person the FBI's chief investigator recruits is not a profiler but a talented and troubled police officer, brought in because someone senior decides that a particular kind of damage is also a particular kind of insight. Damián Szifron builds his 119 minutes on that bargain and its cost — the bureau needs a mind capable of approximating the killer's, and the mind it borrows then has to work in rooms full of people who distrust precisely the quality that got it hired. The hunt supplies the shape. The interest lies in what it does to someone handed responsibility for a city's fear and asked to think like the cause of it.",
+  "model": "claude-opus-5",
+  "source_sha256": "794e28f13772de6f6bef781fb1cd03efe0e4ed0b4db770fe9ad7aab205c25e65"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-tenant-1976",
+  "field": "lead",
+  "film_id": "7b13723b-d2d6-4b02-b6d0-9e11f2a1670b",
+  "lang": "en",
+  "text": "A quiet man takes an apartment in Paris, which is a transaction, and then finds that it is also a relationship. Roman Polanski spends 126 minutes on that discovery, and the length is the method: the paranoia here is never sprung on anyone, it accrues, revising what ordinary things are for until the difference between being noticed and being watched stops being obvious. It sits on TSPDT's thousand with a premise no larger than a rented room. The man is inconspicuous by temperament, which makes him a poor advocate for himself — the sort who absorbs a slight rather than saying it aloud, and who has no vocabulary for objecting when the terms of his own life begin to shift. French production, English dialogue, a city that plainly belongs to other people.",
+  "model": "claude-opus-5",
+  "source_sha256": "c1ab265b40a1027362cfd7785e7f68815777d350c1c0629fd3be2526b46ce884"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "pusher-1996",
+  "field": "lead",
+  "film_id": "99c7fe49-e112-40f1-a757-68fecccd2fa7",
+  "lang": "en",
+  "text": "One deal goes wrong, and a dealer in Denmark now owes a ruthless man more money than he can put his hands on. Everything else follows from the sum. Nicolas Winding Refn runs 110 minutes on that arithmetic, and the result plays less like crime cinema than like a week of steadily worsening errands: phone calls, small humiliations, favours asked of people who were never friends, an amount that has to be assembled out of whatever the day contains. The Danish setting keeps the scale honest — this is a business with poor margins, conducted among a small number of people who all know each other, where a debt is also a social fact and the man owed it never has to raise his voice. Time is the antagonist. The film simply lets it run.",
+  "model": "claude-opus-5",
+  "source_sha256": "925d5409c14c0638312a0856569c8305ae4680793c7227db09d4e14c5024530e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "boy-a-2007",
+  "field": "lead",
+  "film_id": "b1945b92-ee06-41b0-9c26-136061796e19",
+  "lang": "en",
+  "text": "A young man leaves juvenile detention with a new name, a delivery job, and the task of becoming someone with no history. The film stays with the practical side of that: a first wage, a first friendship on the round, evenings with a woman from work who knows only the name he uses now. John Crowley keeps the crime in the past tense and declines to turn the film into an argument about sentencing. The question he asks is narrower and harder to put down: what a person is supposed to do with the years that come after punishment. Kindness makes it worse. Everything ordinary he is handed, including the regard of people who have decided he is a good man, rests on a condition he did not set, and 106 minutes proves long enough to feel the weight of a name that has to hold.",
+  "model": "claude-opus-5",
+  "source_sha256": "a1fd29a7742e588da2c4a2c76206e78da7e3096550414d55ec12b49a6adf51c3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "eyes-without-a-face-1960",
+  "field": "lead",
+  "film_id": "982ece16-1a45-4732-9e09-e9857d237c11",
+  "lang": "en",
+  "text": "The horror here is procedural, and it is committed by a father. Georges Franju gives Dr. Génessier a guilt he can act on — an accident he caused disfigured his daughter — and then follows the logic of a surgeon who has decided that a face is a thing that can be obtained. Christiane is kept in the house and taken for dead by everyone outside it. Louise does the fetching. Eighty-four minutes, and much of it hushed: the calm is the method, since a household can only sustain work of this kind by keeping a routine around it and never saying at the table what the laboratory is for. The film refuses the usual alibi of its genre — no curse, no aberration, nothing supernatural to blame. A skilled man, a daughter he ruined, and a plan that requires other people's daughters.",
+  "model": "claude-opus-5",
+  "source_sha256": "b1b94b6ca7d9f10ba5008141c394bd1c6dee60f48ad400ee3e04890cfe65740f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dev-d-2009",
+  "field": "lead",
+  "film_id": "e80995f7-1dc9-4800-b63e-21ee3550acd2",
+  "lang": "en",
+  "text": "The breakup arrives early, and the rest of the film is about what a young man with money does with a grievance. Anurag Kashyap gives him 144 minutes to work through it, long enough for the self-destruction to stop reading as romance and start looking like an occupation: drink and drugs taken up full time, at hours of his own choosing, funded by a family business he had no part in building. The listing calls it a comedy as well as a drama, and the pairing is honest — the wallowing is absurd and is allowed to be absurd, without that cancelling the injury underneath. Childhood love is the alibi. What the film keeps circling is the assumption a boy raised on money makes about what was his, and how much damage he considers himself owed when the assumption fails.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3d1b3957e32c80d92ce29c6224023244d35465a8ddd98a0754dd42e2839b08e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "black-friday-2007",
+  "field": "lead",
+  "film_id": "f5c6b375-a441-44d3-8a55-839feb923785",
+  "lang": "en",
+  "text": "Most of the 162 minutes go to procedure: names gathered, doors opened, statements taken from men who each hold one fragment of the case. Bombs tear through Bombay in 1993 and the city divides; what follows is a manhunt conducted at the speed such work actually takes, the shape of the conspiracy assembling out of testimony rather than arriving whole. Anurag Kashyap splits his attention between the hunted and the hunters, which is the harder arrangement to hold, since it obliges him to give the first group reasons and the second group methods. Nobody is granted the comfort of being simply appalled. Bombay is the third party here, a place that has to go on functioning while it is being searched, hour by hour, by people doing their jobs.",
+  "model": "claude-opus-5",
+  "source_sha256": "48463983ac88aaac3a4d43e52fbab5d9784de9d2a0c0bc3870be6a2158ac0c36"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-hater-2020",
+  "field": "lead",
+  "film_id": "e842e12d-6d6a-4f6a-b122-bb9f723da933",
+  "lang": "en",
+  "text": "Smear work is a profession here, with clients and deliverables, and a young man good enough at it to rise. Jan Komasa spends 136 minutes on the office side of online cruelty — the metrics, the careful measuring of what a rumour needs in order to travel — and the ordinariness of the labour is the argument. The man doing it is duplicitous by trade and ambitious in the oldest way, wanting a place among people who would never have him, and the two appetites feed each other until the job stops being only a job. Poland in 2020 is close enough to the material that none of it reads as speculation. A campaign runs. Somebody at the far end receives it, not as content but as instruction, and the distance between screen and street is never as wide as the people running the campaign assume.",
+  "model": "claude-opus-5",
+  "source_sha256": "755ff6f4b73bd7510531208ddd6fa3cab729ea12f23c0c5bc18ba6ca8bed9594"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "birds-of-passage-2018",
+  "field": "lead",
+  "film_id": "f1c1f716-9787-4fb8-9792-9f9821ea63d6",
+  "lang": "en",
+  "text": "The trafficking has to start somewhere, and here it starts inside a family that already has laws of its own. Colombia's marijuana bonanza brings money into an indigenous household where marriage, honour and kinship govern who owes what to whom, and the pressure that builds is not crime arriving from outside but two systems of obligation trying to occupy the same relatives at once. Ciro Guerra treats the boom as a period piece: courtesies observed, transactions formal, everything conducted in the register of people convinced they are still keeping the rules. Rapayet does business through his kin, which works until it does not. IFFR's audience gave the film their award, and the reason shows in the manners — a crime story in which the family is not a metaphor for the organisation, but the thing itself.",
+  "model": "claude-opus-5",
+  "source_sha256": "97a80994f52ecbfb96f5b14349ed74f3475fb8c0a4ffe6f478f3e5a3ef59518f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "suicide-room-2011",
+  "field": "lead",
+  "film_id": "3770d59c-8c51-4e59-8126-927395f8ac7c",
+  "lang": "en",
+  "text": "A teenager acquires a second body — an avatar, in a room where everyone else is drawn rather than filmed. Dominik's trouble begins in the physical world: a drunken kiss with his classmate Aleksandr, recorded and passed around a school with no intention of letting it go. Jan Komasa runs the two spaces on different rules and lets the animated one expand as fast as the other contracts, which is where the film's editing prize at the Polish Academy Awards was earned — on the seam, where a boy consoled by the pink-haired Sylwia is also a boy alone at a screen. Consolation is the dangerous word. What the online room offers is real comfort, from people who understand him better than anyone at school manages to, and 116 minutes is time enough to show what that is worth and what it costs to need it.",
+  "model": "claude-opus-5",
+  "source_sha256": "b1f89902ef710521a88d227cba3499d99baad3ffcd77884876fc4153408b2fc9"
+ }
+]

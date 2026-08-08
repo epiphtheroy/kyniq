@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "steamboat-willie-1928",
+  "field": "lead",
+  "film_id": "0b85a088-9cc9-406c-ba50-37fa6d366c79",
+  "lang": "en",
+  "text": "Eight minutes long, and nearly every one of them is built out of noise. A mouse pilots a steamboat, a second mouse comes aboard, and the animals penned on deck are conscripted one after another into a band nobody asked to hear. There is no story to speak of. There is a rhythm, and every creature on the boat is tested for the sound it can be made to produce. Walt Disney is working at the scale of a gag, where a thing is seen and heard in the same instant and the coincidence is the joke. Cruelty and delight are not sorted out. The pace is that of someone trying an instrument rather than performing on one, and the roughness is part of what survives. The National Film Registry keeps it now, a formal afterlife for eight minutes of animals turned into instruments.",
+  "model": "claude-opus-5",
+  "source_sha256": "89dfacfbec4bebd91a7b442671e9e9259c2678c0833f8c64ca8380d8b6017f87"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bamboozled-2000",
+  "field": "lead",
+  "film_id": "d39b24aa-7918-4c23-9a06-5f202b2e4e70",
+  "lang": "en",
+  "text": "Pierre Delacroix wants to be fired, and he has worked out precisely how much offense that will require. The idea he carries upstairs is a minstrel show, blackface and all, pitched in the year 2000 as though the century in between had been a clerical error. The network buys it. What Spike Lee pursues from there is not the pitch but everything downstream of it: the writers who take the assignment, the performers who need the work, the executives who find a vocabulary for what they are doing, the viewers who learn very quickly how to laugh. At 136 minutes there is room to let the joke set hard, and it does. Nothing offers relief. The National Film Registry has since taken the film in, a peculiar destination for a picture about what television will broadcast if the ratings hold.",
+  "model": "claude-opus-5",
+  "source_sha256": "f887b6ef8ccce6a1ff756783d434a4e48b2153b1f0fd323931000213760b80bd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "obsession-1976",
+  "field": "lead",
+  "film_id": "9b790eba-978b-482f-be2d-25ab66bf56ca",
+  "lang": "en",
+  "text": "A resemblance is not a plan, but the man at the center of this one treats it as though it were. New Orleans, a businessman with money and a dead wife, and then a young woman whose face reopens the account. Brian De Palma keeps the premise almost embarrassingly plain, so that the expressive work has to happen elsewhere: in the music, in the length of a look, in the question of what a face is supposed to prove. The film's Academy Award went to the score, which is the honest address, since the music says what the characters will not and says it early. Grief here is not a condition to be recovered from. It is an appetite. Ninety-nine minutes gives nobody time to talk the man out of anything.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c54ebef9b140b3f0d364cdf43eec245289ea7894f4c3b87cfa5c7a0d7a8d876"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "peter-s-friends-1992",
+  "field": "lead",
+  "film_id": "27b946ee-e0ff-40e9-99dd-2f1975e01a73",
+  "lang": "en",
+  "text": "The house arrives first: a country estate, inherited from a father, far too large for the handful of people about to spend a weekend in it. Peter fills it with the friends he had at college — a married couple, a lonely woman, a fashionable one, a writer who brings his American television-star wife, and a boyfriend nobody has met. Ten years is the exact interval the film needs. Long enough that the old shorthand still works, long enough that it now says the wrong things. Kenneth Branagh plays it as comedy, and the comedy is largely people talking at speed to keep from arriving at a subject. It runs 101 minutes and stays indoors. What it grasps is that a reunion asks everyone to perform an earlier version of themselves, and that some of these people can still do the act.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e74de0863b96baed74f90c8cd74860b9e9a4cab6065ecdbe7340cb8da92e5f8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "persuasion-1995",
+  "field": "lead",
+  "film_id": "20aab086-d69a-4760-8688-4131297a5403",
+  "lang": "en",
+  "text": "Money runs out first; the past arrives immediately afterward. Anne Elliot's family is in the kind of trouble that early nineteenth-century England managed by rearranging households, and the rearrangement puts her back within speaking distance of the wealthy man she was once engaged to marry. Roger Michell keeps it close and quiet. The pressure sits on tables and in doorways: who is seated where, who is addressed first, how much can be conveyed by declining to answer. Frederick Wentworth returns holding the advantage, and the film is candid that money set the terms. Anne is the one who listens, which in a household this occupied with itself amounts to a kind of invisibility. At 107 minutes nothing gets settled by speech. It is all negotiated by proximity.",
+  "model": "claude-opus-5",
+  "source_sha256": "10b8f118b5f70503e50dff251fba22e250a22c405ae93bfb9ce28e5d07ed2602"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-pride-of-the-yankees-1942",
+  "field": "lead",
+  "film_id": "8cd34415-e25a-4d26-acaf-6379b692ee84",
+  "lang": "en",
+  "text": "Baseball is the least of it, which the studio appears to have known from the start. This life of Lou Gehrig was filed under drama and family rather than sport, and the labels hold: the game supplies a calendar, while most of the running time goes to the parts of a life that are not played in front of a crowd. Sam Wood keeps a public man in private rooms. There is a difficulty built into any biography of someone the audience had watched at work — the shape of the story is already known, so the picture must offer something other than surprise, and what it offers is proximity. It is also very much a film of 1942, plain in its belief that decency is a subject. Two hours and eight minutes is a long time to spend establishing modesty. It spends it.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b6606f56add82da58f7df2ec22927d8908b1406089079a06df292a258f8579c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "odd-man-out-1947",
+  "field": "lead",
+  "film_id": "875df395-7984-46ba-b5f8-667609c9768b",
+  "lang": "en",
+  "text": "The robbery is where the film begins; it is not what the film is about. A gunman is hit during it, and from there Belfast turns into a sequence of doors: police working the city house by house, and a wounded man passed among people who each must decide, in the time it takes to answer a knock, what they are prepared to risk. Carol Reed keeps finding his subject in whoever opens the door, not in the fugitive. The film's Academy Award went to editing, which is where a manhunt actually lives — the cut between a man in a doorway and the street he cannot cross. 116 minutes, and the clock is the antagonist. Nobody in it registers as a cause. They register as people with households to protect.",
+  "model": "claude-opus-5",
+  "source_sha256": "77b69f1febc65bd56ed439080252c898c843fe91ba233953dba7bee30518ec57"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-greatest-story-ever-told-1965",
+  "field": "lead",
+  "film_id": "eafb7b0f-8c47-40c7-9ad6-10ef9a490890",
+  "lang": "en",
+  "text": "An audience arrives already knowing this story, which leaves the film three hours and nineteen minutes to fill with something other than suspense. George Stevens fills it with surface, and the record agrees: every prize the picture took was for how it looks — the photography, the built world, the clothing. Faces are the other instrument. The casting runs on recognition, so a scene can be carried by who has just entered the frame rather than by what is said, and that cuts both ways in a story about a man among strangers. Everything proceeds at the pace of ceremony. Whether that reads as reverence or as inertia is a real argument, and 199 minutes makes it unavoidable; the film asks for patience before it asks for anything else.",
+  "model": "claude-opus-5",
+  "source_sha256": "70411486d542294686b944458faafe2249417c4de75531272af42f9a92a093b9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-soldier-s-story-1984",
+  "field": "lead",
+  "film_id": "e5c69b09-f790-4545-93be-4bab1ef00f9c",
+  "lang": "en",
+  "text": "An investigation is a machine for making people talk, and this one is pointed at men with excellent reasons to stay quiet. A Black master sergeant is found shot outside an Army base in rural Louisiana; the officer sent down from Washington to find out why is also Black, a fact the chain of command treats as a difficulty before he has asked anything. Norman Jewison builds the picture out of questioning, so the dead man exists only in what the soldiers under him are willing to say, and each account adjusts the one before it. The form is doing real work here. A murder inquiry obliges every man to account for himself aloud, in uniform, to a superior officer nobody on the base expected to see. 101 minutes, and the base never stops feeling like a closed room.",
+  "model": "claude-opus-5",
+  "source_sha256": "27a4dc4c5e5cdcb9b0c90da72e3c3bdf9e7aa60c84b97136156552ce971ef2a1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tin-toy-1988",
+  "field": "lead",
+  "film_id": "9a137823-6574-43e8-861d-7bdf7ea840b3",
+  "lang": "en",
+  "text": "Seen from the floor, at toy height, an infant is a weather event with a mouth. Tinny takes one look at the drooling thing and gets clear of it, which is sensible and also the error, because being played with is the only job on offer. Five minutes is enough for that whole argument. The animation is preoccupied with scale — the physics of a room measured from carpet level, and what a small figure can manage when it needs to move fast. The baby is drawn without sentiment: enormous, sticky, and entirely governed by whatever it has just noticed. That indifference is the comedy and it is also the ache. The Academy gave it the award for animated short, which for five minutes of a toy and a child seems a fair exchange.",
+  "model": "claude-opus-5",
+  "source_sha256": "d10e7d2799c8efb5ca1b1d9d92c63733697d612bc6cdbd4fd6ad106dac242aab"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "thirteen-conversations-about-one-thing-2002",
+  "field": "lead",
+  "film_id": "7bb86743-292c-4a3d-8750-1f9651c83673",
+  "lang": "en",
+  "text": "New York holds a lawyer, a professor, a woman who cleans houses, and an actuary paid to price other people's bad luck. The expertise buys him nothing. Jill Sprecher arranges the encounters between these lives rather than dramatizing them, so scenes end a beat before the point lands and the point surfaces later, in another apartment, in another mouth. This is not coincidence played for wonder. It is closer to arithmetic: happiness treated as a quantity people believe can be managed, and the managing going wrong in ordinary ways. The film keeps its voice down throughout, and nobody in it is granted a clear summary of their own situation. 104 minutes, four lives, and a structure that declines to reward anyone for having been right.",
+  "model": "claude-opus-5",
+  "source_sha256": "05f45a986dcf97e96babdfaeb3efda7f28a1095ff049ea6c2f4effb93e9deee2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ryan-s-daughter-1970",
+  "field": "lead",
+  "film_id": "3e1e0b3a-2557-4ef2-ba2e-4932ece2be15",
+  "lang": "en",
+  "text": "Two hundred and six minutes for an adulterous affair in one small Irish village, and the mismatch of scale is the method. It is 1916, in the wake of the Easter Rising; the village has firm opinions about the British, and the local schoolteacher, married, has a British officer. David Lean brings the full apparatus of an epic to a domestic scandal — two of its awards went to photography and sound, which is to say to weather, to the noise a coastline makes while people are indoors making decisions. The village functions as a standing jury. Everyone is observed, nothing stays private, and the film is patient enough to let that pressure accumulate at the speed such places actually work. The choices here are small ones, made where a small choice becomes public property.",
+  "model": "claude-opus-5",
+  "source_sha256": "6372c0be4012782fcb4978ab507f4df930f8124fa42f08c9d23a627109d2cd95"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "blind-chance-1981",
+  "field": "lead",
+  "film_id": "e3ef1ade-1918-4691-b6d6-dac45178e229",
+  "lang": "en",
+  "text": "Everything turns on a railway platform and a few seconds of running. Witek chases a train, and Krzysztof Kieślowski plays out the consequence three times, altering that one fact and letting the rest follow. The device could have been a parlour game. It is not, because the lives available to a young Polish man in 1981 were not interchangeable: each version sets him among different people and under a different authority, and the film is exact about what each arrangement asks of him. What does not vary is Witek. He brings the same appetite to every version, which is the uncomfortable part, and 123 minutes is long enough for the pattern to become impossible to miss. Najlepsze filmy polskie keeps it, which fits — the three lives amount to a small census of what was on offer.",
+  "model": "claude-opus-5",
+  "source_sha256": "00d22678c87e5fcdcac4e7ff5bc7140d9b908095bbf466e1b851f129fe0322b1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-star-is-born-1937",
+  "field": "lead",
+  "film_id": "e7fbe160-b282-4a38-8c90-0e34d8e0ca84",
+  "lang": "en",
+  "text": "A studio decides that Esther Blodgett is not a name and issues her another one. Before that she is a farm kid waiting tables at a Hollywood party, close enough to the people she has watched on screen to hand them a drink, and the film is unusually specific about the steps in between: the screen test, the renaming, the small industrial procedures by which a person is turned into a property. Then it looks the other way down the same road. Norman Maine is the star who found her, and his drinking is not a late complication; it is in the room from the first. William A. Wellman keeps the machinery visible — who decides, and how fast they decide — so that 1937 Hollywood is auditing itself while it tells a love story.",
+  "model": "claude-opus-5",
+  "source_sha256": "d700a625e83af804bb3884056a6d10a82fc936b7943779e441586273c200ee0e"
+ }
+]

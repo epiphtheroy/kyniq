@@ -1,0 +1,56 @@
+[
+ {
+  "director_slug": "mike-mills",
+  "intro": "Mike Mills came to film from graphic design, and he still assembles a picture the way a designer assembles a page: photographs, captions, borrowed voices, unlit rooms. He works on his own family and on other people's children — the mother rebuilt in 20th Century Women, the real kids interviewed in C'mon C'mon — and finishes a feature about once every five or six years.",
+  "name_meaning": null,
+  "facts": [
+   {
+    "n": 1,
+    "text": "Cooper Union's School of Art graduated him in 1989. He has described himself then as \"a very good little Hans Haacke student\" who wanted to \"infiltrate culture at large\" rather than enter the art world.",
+    "source": "https://cooper.edu/art/news/mike-mills-a89-bad-day-magazine"
+   },
+   {
+    "n": 2,
+    "text": "Before the features came album covers for Sonic Youth and the Beastie Boys, music videos for Yoko Ono, Moby and Pulp, commercials for Nike and Old Spice, and designs for scarves and skateboards.",
+    "source": "https://designobserver.com/feature/mike-mills/39709"
+   },
+   {
+    "n": 3,
+    "text": "\"Film, to me, is the biggest box I can use,\" he said of moving out of design. \"I can put graphics in there, and photography and music and then these cathartic, emotional scenes.\"",
+    "source": "https://www.itsnicethat.com/articles/mike-mills-beginners"
+   },
+   {
+    "n": 4,
+    "text": "Thumbsucker, his 2005 debut feature, won its teenage lead Lou Taylor Pucci the Silver Bear for Best Actor at that year's Berlin International Film Festival.",
+    "source": "https://www.screendaily.com/berlinale-golden-bear-winner-takes-everyone-but-the-jury-by-surprise/4022123.article"
+   },
+   {
+    "n": 5,
+    "text": "Mills's father came out as gay at 75, and Beginners followed. \"My dad coming out is an incredible story. And doing it at 75, risking so much, embracing life and love and his own vulnerability,\" Mills said of him.",
+    "source": "https://www.itsnicethat.com/articles/mike-mills-beginners"
+   },
+   {
+    "n": 6,
+    "text": "For 20th Century Women he worked from his sister Meg's memories and from the 1930s and 1940s pictures their mother had loved, and put Annette Bening in the woman's own jewelry.",
+    "source": "https://lwlies.com/interviews/mike-mills-20th-century-women"
+   },
+   {
+    "n": 7,
+    "text": "Lighting is largely something he avoids. \"I've always loved not lighting things, natural light,\" he has said. \"Not blocking things too much; having a bit of unplanned, documentary-like quality to the filmmaking.\"",
+    "source": "https://thefilmstage.com/people-places-memory-mike-mills-on-his-criterion-box-set-ill-remind-you-of-everything/"
+   },
+   {
+    "n": 8,
+    "text": "The children Joaquin Phoenix interviews in C'mon C'mon are real and unscripted, and Mills kept their answers clear of the story: \"I never wanted to use these real kids' lives to help my plot.\"",
+    "source": "https://collider.com/mike-mills-interview-cmon-cmon-joaquin-phoenix/"
+   },
+   {
+    "n": 9,
+    "text": "The Criterion Collection has gathered Beginners, 20th Century Women and C'mon C'mon into a single box set, titled I'll Remind You of Everything.",
+    "source": "https://thefilmstage.com/people-places-memory-mike-mills-on-his-criterion-box-set-ill-remind-you-of-everything/"
+   }
+  ],
+  "model": "claude-opus-5",
+  "source_sha256": "d8576927758e91c85054f8b12b45fcc088b7b2bfedc73a71e240e5689d734a6b"
+ }
+]

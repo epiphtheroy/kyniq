@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "say-amen-somebody-1982",
+  "field": "lead",
+  "film_id": "6003cc6f-3631-48e8-9b3f-90cb9be33696",
+  "lang": "en",
+  "text": "Thomas Dorsey wrote the songs; Willie Mae Ford Smith taught other people how to sing them. George T. Nierenberg's documentary gives each of them time to talk and more time to sing, and the second is the point. A hundred minutes is generous for a film with no thesis to prosecute, and the generosity is the method: phrases rehearsed, corrected, tried again, a repertoire kept alive by people who have been keeping it alive for decades. Dorsey is addressed as Reverend and handled as an institution. Smith is called Mother, which is a rank of another kind. Between them the film holds a distinction it never bothers to spell out — the difference between writing a tradition down and carrying it in the throat — and it treats both as labor rather than inheritance.",
+  "model": "claude-opus-5",
+  "source_sha256": "9fc48959147e269631a34a9fc1efa24334b85b514051afc2579753e9257932e6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "glimpse-of-the-garden-1957",
+  "field": "lead",
+  "film_id": "46377303-a1c3-4160-a90e-97f4bbf8e9a1",
+  "lang": "en",
+  "text": "Five minutes, a garden, and birds on the soundtrack instead of music. Marie Menken filmed flowers from close enough that scale drops out of them: color first, structure second, the whole plant almost never. Whatever ordinarily makes a film — a subject, time enough to develop it, a reason to cut — is either withheld here or spent so fast that the cuts behave like a breeze. The chirping is not accompaniment. It is the only evidence that the garden continues past the frame, and it keeps five minutes of surface from turning into a slide carousel. Nothing is narrated and nothing is arranged for meaning. At this length the film asks less of an audience than one scene of a feature does, and returns a different kind of looking: attention paid to something small, with no expectation that it resolve into a statement.",
+  "model": "claude-opus-5",
+  "source_sha256": "5ba679571e56297efadf130267ca113cc6ff7b709b6627ce20c48cc84180097d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-computer-animated-hand-1972",
+  "field": "lead",
+  "film_id": "7bd78a17-de98-420f-a4d7-721874faed6f",
+  "lang": "en",
+  "text": "The subject is a hand, and it belongs to nobody. Ed Catmull and Fred Parke made six minutes of it in 1972, possibly the first digital rendering committed to film, by turning a hand into coordinates a machine could redraw. What survives plays less like animation than like a laboratory record: the fingers move, but the question being asked is how much of a hand a machine has to be told before it can show one. Further along the reel a heart valve works and human heads appear — the same problem set to objects with entirely different reasons for existing. The film reached the present sideways, stumbled upon by the son of Robert B Ingebretsen. Six minutes of arithmetic, shot on film because film was the only thing that could hold it, and oddly moving now for exactly that reason.",
+  "model": "claude-opus-5",
+  "source_sha256": "56120dcdd68dfe56851b992222e3b5058ee6dda537f88aa0d99331ca55a86564"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-italian-1915",
+  "field": "lead",
+  "film_id": "2dc59fa4-ba98-4b6f-906e-5fd4a5aaca46",
+  "lang": "en",
+  "text": "The courtship happens in Italy; the bill comes due in a New York tenement. Reginald Barker's feature spends its opening stretch on what the man intends to leave only temporarily — the woman, the village, the arithmetic by which a few years abroad is supposed to buy a life at home — because everything after depends on an audience granting that the bargain was reasonable. Seventy-eight minutes was substantial in 1915, and the length goes less into incident than into the distance between two photographed worlds: an Italy shot as open ground, a slum shot as pressure. Poverty is not a backdrop the story passes through. The camera stays inside it long enough that it becomes the second subject, and the sentiment set up in the first reel is what gets spent there.",
+  "model": "claude-opus-5",
+  "source_sha256": "9fcc5130e7443fb2f5c99dc3ed3e40880ae0dee1fa641503c59be13553438d4b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "freedom-riders-2010",
+  "field": "lead",
+  "film_id": "a2081250-c063-469a-930b-b7a22aa60723",
+  "lang": "en",
+  "text": "Four hundred people, one gesture, repeated until a country had to look at it. Stanley Nelson takes nearly two hours over an act that can be described in a single sentence, which is the right proportion: the doing was brief, the deciding was not, and the film lives in the arithmetic of who would go, when, and what would be waiting on arrival. A simple act requires organizing. It requires volunteers who have worked out in advance what the trip may cost them and have gone anyway, and it requires a judgment the riders staked themselves on — that the conscience of a complacent nation was asleep rather than absent. Nelson builds from testimony, and the strongest material in it is the composure of people recounting decisions they made very young. The danger is documented. The deliberation is what the film is for.",
+  "model": "claude-opus-5",
+  "source_sha256": "d9ccd317c1f457c9274a0ebfa9b7c3b4d8832f3908553d544b0d06cf18486164"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "serene-velocity-1970",
+  "field": "lead",
+  "film_id": "6d96d7a9-41fa-4046-8927-d1e4fbe78c0a",
+  "lang": "en",
+  "text": "A corridor, fluorescent and empty, in a university building that had just been finished. Ernie Gehr fixed the camera in place and left it there for twenty-three minutes, altering only the focal length of the zoom, in steps, so that the hallway lunges at the lens and withdraws while nothing inside it moves. The result behaves like motion without being motion: still perspectives cut against one another at a rate the eye reads as thrust, flatness and depth arguing at every join. J. Hoberman called it a piston-powered mandala. The setting was the State University of New York at Binghamton, then new — corridors with no history in them yet, which is part of why they take the treatment so well. Twenty-three minutes is a long time. The duration is what wears the eye down to the subject.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a144c20d9c05ed575af4fd9613e12454d9ba790b12789ce984797eb61daff07"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "under-western-stars-1938",
+  "field": "lead",
+  "film_id": "8ba74693-e679-4a57-a431-fed29d7543fa",
+  "lang": "en",
+  "text": "In his first starring role, a singing cowboy runs for Congress, and the campaign issue is water. That is stranger than it sounds: the genre's usual answer to a withheld resource is a gun, and here it is an election, followed by a key congressman who has to be got out west to look at a dry district himself. Joseph Kane directs at the pace sixty-five minutes demands — no subplot, no idling, songs carrying part of the argument. Roy is being introduced rather than tested; he is capable, well liked, mostly right, and the picture takes care not to complicate him. Underneath sits a district promised water and not given any, a grievance concrete enough in 1938 to leave a short programme western with more of its decade in it than the format usually holds.",
+  "model": "claude-opus-5",
+  "source_sha256": "e77d9eb988a2268cf82e6223c3a6458b482292866158b1dc8d2d308b3a608101"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mabel-s-blunder-1914",
+  "field": "lead",
+  "film_id": "493f0c55-4f87-430b-9573-60fbdcd8830e",
+  "lang": "en",
+  "text": "Mabel Normand directed this one herself, which in 1914 meant standing on both sides of the camera inside the same sixteen minutes. The situation is a workplace: engaged to the son, pursued by the father who is also the boss, with the comedy running on a woman obliged to manage two men who both outrank her. Disguise is her instrument, and the film treats a change of clothes and of apparent sex as a practical measure rather than a scandal. Sixteen minutes leaves no room for embarrassment to accumulate slowly, so it arrives all at once, in doorways, sorted out by people looking hard at the wrong person. What holds up is the timing of Normand's own reactions, arranged by the same person who was arranging the shots. The joke is aimed at the employer, and it stays there.",
+  "model": "claude-opus-5",
+  "source_sha256": "f137adfeea9b18f31384c625d91d59cb9ce42253cf5638161b5df8ee4829c706"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sink-or-swim-1990",
+  "field": "lead",
+  "film_id": "3a007522-ff3c-4bd4-b1a3-b832246664b2",
+  "lang": "en",
+  "text": "The stories are short, the father is the same in all of them, and the images never once agree to illustrate what is being said. Su Friedrich builds forty-eight minutes out of twenty-six small accounts of a childhood, spoken in a girl's voice, set against black-and-white photography of daily life that keeps its own pace and its own weather. The gap between text and picture is the instrument. Because the pieces are stacked rather than shaped into an arc, the film never has to prosecute its case; it accumulates one, which is harder to argue with. Career before family is the plain way to state the grievance, and it gets stated plainly. Less easy to state, and closer to what the counterpoint reaches, is how much of a daughter's precision was built around a man's attention pointed elsewhere.",
+  "model": "claude-opus-5",
+  "source_sha256": "69609eb602d37a729f9b047837af8fc04a85053d85198312a93cbd1dd4da115d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "our-lady-of-the-sphere-1972",
+  "field": "lead",
+  "film_id": "58c1d086-6ae5-4ffb-bc68-3fb56ff42c2a",
+  "lang": "en",
+  "text": "Balloons and bubbles drift across backgrounds that never move, and that is the entire engine of the film. Lawrence Jordan works in cutouts: shapes laid over static scenes and animated by sliding rather than by drawing, so movement is always something added to a picture instead of a property of it. What comes out reads as science fiction with no effects at all — travel asserted by a sphere crossing a fixed field, discovery by a change of backdrop, the journey supplied by whoever is watching. Everything rests on rhythm and on how badly the pieces match, which is why the images stay strange rather than settling into illustration. Ten minutes is precisely as long as the method can hold, and Jordan stops while the balloons still look like they are going somewhere.",
+  "model": "claude-opus-5",
+  "source_sha256": "89d4acf3f508140ae26bec73d35c8e8787663557462c77d657b8a4abb8d2f1f4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "men-without-women-1930",
+  "field": "lead",
+  "film_id": "1c9cd05f-954e-4690-99dc-f5dd455e944b",
+  "lang": "en",
+  "text": "A submarine on the bottom is a useful place to test a new technology: sound gets there before rescue does. John Ford shot this in 1930, when the industry was half-converted, and it is openly a hybrid of silent and talkie — the seam shows, which suits a story about men sealed into a hull with little to do but listen to it. Seventy-seven minutes, most of them in a compartment nobody can leave. The commander is an Englishman who abandoned his name after a disgrace and enlisted in the American Navy as Burke, so the confinement includes a man whose crewmates do not know who he is. The National Board of Review put it among the year's ten best. The grip of it is not the emergency but the ranks around the emergency: orders issued where every man can hear all of them.",
+  "model": "claude-opus-5",
+  "source_sha256": "cee2945b41270d10dbca653fcee66dde5a43fa69a05623febbf033dd8bd29865"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "street-of-chance-1930",
+  "field": "lead",
+  "film_id": "9d6b0f10-2292-40c5-8626-75916cb20963",
+  "lang": "en",
+  "text": "William Powell's gambler keeps a strict code about cheating and has no defence whatever against the next hand. Natural Davis is a professional — etiquette, working hours, a reputation he enforces himself — and that is what makes the domestic half land: his wife has decided a man cannot stay married to a habit and a person at once. They settle on a second honeymoon instead. What follows is seventy-five minutes of a man trying to give up the one thing he is good at, complicated by a younger brother who turns up in town wanting exactly the life he has just promised to leave. The film took the Academy's writing award, and the writing is where the interest sits: the code laid out early, in dialogue that assumes an audience can keep pace with it.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c44f260372eca198dfa6c8f7c3ccd2b89784a870bbc34e050201cbb1d895ce5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "quick-millions-1931",
+  "field": "lead",
+  "film_id": "eb9bb548-f48d-4241-ac28-f0a8edff434c",
+  "lang": "en",
+  "text": "Too lazy to work and too nervous to steal: the man says it about himself, and it turns out to be a job description. Rowland Brown starts a truck driver into racketeering and treats the racket as a business, with routes and customers and overhead and a service people can be brought around to paying for. Seventy-two minutes, no detours. The joke it keeps making with a straight face is that competence in this line produces respectability — standing in the community accrues in exact proportion to what is being done to the community. The tone stays flat throughout, closer to a trade report on a growth industry than to a moral accounting. The National Board of Review put it among the ten best films of 1931, which suggests the deadpan was audible at the time.",
+  "model": "claude-opus-5",
+  "source_sha256": "fa1eff9c5ee8ae5f8ab6fba99e8035170bdd9016de2caab85fd01671fd8e910c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-groundhogs-1993",
+  "field": "lead",
+  "film_id": "b825c96f-a871-458a-aeeb-0da319873675",
+  "lang": "en",
+  "text": "A family with too many members, each of them tangled up in somebody, and a hundred and four minutes in which to have it out. Élie Chouraqui works in the register where French comedy and French domestic drama stop being separable: nothing arrives from outside to organize events, so the pressure has to come from proximity — from relatives who know one another's histories too well to be tactful about them. The arithmetic is the risk. Divide the running time by the number of people and each gets a scene or two, which rewards any actor who arrives with an idea and leaves the rest visible. The film stays at close quarters throughout. What survives in pictures built this way is seldom the plot; it is the particular noise of a household where affection and complaint use the same words.",
+  "model": "claude-opus-5",
+  "source_sha256": "d456fa83d5a8ef79bd90e936030951b668c4113ea121dbee8d6fac18dcbe5dda"
+ }
+]

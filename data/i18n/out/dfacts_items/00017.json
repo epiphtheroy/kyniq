@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "david-lynch#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오랜 친구이자 《이레이저 헤드》의 주연이었던 잭 낸스를 그는 이후 거의 모든 작품에 불렀다. 그 관계는 1996년 낸스의 비극적인 죽음으로 끊긴다. 사우스패서디나의 도넛 가게에서 벌어진 정체불명의 주먹다짐 직후였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "281eaeee74d6c4adfe8082fd4c40ff2b5fca1f98c42d0d64cfd29d8137e01e23"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "david-lynch#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "결혼은 네 번. 페기 렌츠, 메리 피스크, 메리 스위니, 에밀리 스토플. 《블루 벨벳》에 캐스팅한 이사벨라 로셀리니와는 4년간 연인으로 지냈고, 그 관계는 세간의 화제였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c48687adf01df2306dcc15d37e75a1b4606336410f07dbf6c894b355b3b5914a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "david-lynch#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2020년, 코로나19 봉쇄 기간에 린치는 벙커 같은 작업실에서 매일 '일기예보'와 '오늘의 숫자' 추첨을 유튜브로 내보내기 시작했다. 이 의례를 그는 몇 해나 성실히 이어갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e2c1a0ba3cfa0ac4a7ae34fa64d63142910daee83622b347ceb9a07e38466ae4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "david-lynch#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2019년 아카데미 명예상을 받았다. 황금 트로피를 손에 들고 그가 한 말은 20초를 겨우 채웠고, 마지막 문장은 이랬다. \"당신 얼굴 참 예쁘군요. 잘 자요.\"",
+  "model": "claude-opus-5",
+  "source_sha256": "46013eb0124489bef76cc2cefd1228945eba96869fb84600717e3c954641a925"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "david-yates#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "머지사이드의 레인힐이라는 마을에서 자랐다. 열한 살에 스티븐 스필버그의 1975년 흥행작 《죠스》에 홀린 뒤 영화를 만들겠다고 마음먹었고, 부모는 아들에게 슈퍼 8mm 카메라를 사줬다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aef4a240cf44e918c6bc9548b49337893be27f8228e071ccf63d0348db117e6f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "david-yates#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편 데뷔작은 독립 사극 《The Tichborne Claimant》(1998). 흥행에 실패하자 그는 다시 텔레비전으로 돌아가 십 년 가까이 연출했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d7881a4719927428bb819d62e4a6fe08054a83342d0a3523f4b4fcb8a5e9fd9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "david-yates#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영국에서 그의 이름을 굳힌 것은 2003년 BBC 정치 스릴러 《State of Play》였다. 인물이 여럿 얽힌 복잡한 이야기를 다루면서도 긴장을 놓치지 않는다는 사실을 이 작품이 증명했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b7afb2f9f4adcf3a7361645256dd65844f0a4375512512321994a616dd1a097"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "david-yates#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《해리 포터와 혼혈 왕자》의 어린 톰 리들 역에 그는 랠프 파인스의 열한 살 조카 히어로 파인스 티핀을 앉혔다. 삼촌과 닮은 외모가 편해서가 아니라, 그 아이에게 어둡고 뭔가에 시달리는 듯한 강렬함이 원래 있었다는 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5bb30520705e1b7e76ceff1961ba5944875936a1632a3cdeb88359ccd0f6d382"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "david-yates#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2011년 워너브라더스에서 스티븐 킹의 종말 소설 《The Stand》를 여러 편으로 나눠 만들 연출자로 예테스가 내정됐다. 원작에 값하려면 감당할 수 없는 규모가 필요하다는 결론에 이르러 그는 기획에서 손을 뗐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e4defb6b38371e63e4e5c98f6cdc57bad5da402da007ea6450093c9aef089e9d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "david-yates#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "위저딩 월드 프랜차이즈에서 가장 많은 편수를 찍은 감독이다. 해리 포터 네 편에 신비한 동물사전 세 편. J.K. 롤링의 영화 세계를 15년 넘게 내처 조종했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7332c628ae6bb111e7babbe851a4fc75c5cdb2c878da624038d8657c34573cfe"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "david-yates#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "판타지에서 완전히 발을 빼고 그는 2023년 넷플릭스 영화 《Pain Hustlers》로 미국의 오피오이드 위기를 다뤘다. 문체의 참조점은 마틴 스코세이지의 《더 울프 오브 월 스트리트》, 그 빠르고 도덕적으로 흐릿한 어조였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f7c7d56fbd5d880f238474b8ab5349ef97c4e9f4a8947e3c7d69cc224129ddb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "david-yates#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영국 화면 감독들의 직능 단체 Directors UK의 창립 회원이다. 오래도록 그가 목소리를 낸 쪽은 텔레비전 연출자들의 노동 조건과 창작 권리였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e9fb41993551fa39bcc4c5d586f01a801c404e571a2b2e8a4553f7cdd99ff5bf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "david-yates#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "리처드 커티스가 쓴 2005년 멜로드라마 《The Girl in the Café》의 짙은 정치적 주제를 준비하며 예테스는 몇 주를 G8 정상회의와 국제 빈곤 대책 조사에 썼다. 배경의 관료적 질감을 진짜처럼 만들기 위한 작업이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f783f53e0e536cc14c320f6418e19de9ddd1ae73e06f6493a96ee8dca21d1e00"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "david-yates#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그가 자기 영화적 자극의 두 대극(對極)으로 자주 꼽는 이름은 켄 로치와 데이비드 린이다. 사회를 응시하는 자연주의, 그리고 쓸어담는 서사시적 규모.",
+  "model": "claude-opus-5",
+  "source_sha256": "37cf80cdc5542406ecb6d33b311dcc6953bef12fbac3ca0e6e1294c939faaa4a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "denis-villeneuve#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "열네 살, 그와 가장 친한 친구 니콜라 카디마는 프랭크 허버트의 소설 《듄》에 완전히 빠져 있었다. 남는 시간이면 둘은 언젠가 만들 영화의 정교한 스토리보드를 그렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bb85105e8a296aa810e9ee582a6a6e60c2aae9f8d5ca6f1de95226351fd3451c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "denis-villeneuve#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "몬트리올 퀘벡대학에서 영화를 하기 전, 그는 트루아리비에르 세제프에서 과학을 공부했고 생물학자가 되는 길을 진지하게 저울질했다. 훗날 그가 만든 외계 생명체 디자인이 해부학적 관심에 붙들려 있는 것은 이 이력에서 온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d4e2e07657753a0b8b539397100220080b1fa4d1ccaf96d6456dcc1c72560c2b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "denis-villeneuve#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "캐나다 전역이 그를 알아본 계기는 1990년 라디오캐나다 청년 경연 《La Course Europe-Asie》 우승이었다. 이 대회는 수동 감기식 볼렉스 카메라 한 대를 들고 여섯 달 동안 아시아를 혼자 횡단하며 단편 다큐를 찍게 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9df76c2b78d0626c7a479d107f0c822e2f3cdc3c5a311aa013f2e9f0321f026a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "denis-villeneuve#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "데뷔 장편 《August 32nd on Earth》(1998)에서 그는 결정적인 시퀀스를 유타의 눈부시게 흰 보너빌 소금평원에서 찍겠다고 제작진을 설득했다. 광대하고 사람을 고립시키는 풍경, 평생 이어질 그 집착이 여기서 시작된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8809ac6985d3f07bb0c20ed431ff1686a75192e527a04adfecc373cd4b5dcad5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "denis-villeneuve#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "긴 침묵을 깬 것은 2008년 단편 《Next Floor》다. 대사 없이 초현실적으로 그려낸 그로테스크한 만찬, 그 만찬이 건물 층을 뚫고 아래로 떨어진다. 이 작품으로 그는 칸영화제 카날플뤼상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e586da2097bd1a006ab80aaaa3c5a941cca09a469e29ce8ee51f7c10454792f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "denis-villeneuve#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《컨택트》(2016)의 외계 언어를 두고 그는 디지털 디자인을 물렸다. 대신 몬트리올 화가 마르틴 베르트랑에게 진짜 잉크로 헵타포드의 원형 표어문자를 손으로 그려달라 맡겼다. 유기적이고 만져질 듯한 감촉이 필요했던 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ba5473fc04e2a2e6d99958d4c74002bd5ad67bf20df279e40cde8f0cd1db4c4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "denis-villeneuve#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아이슬란드 작곡가 요한 요한손과는 세 편에 걸친 깊은 창작 동반 관계를 맺었다. 그러나 《블레이드 러너 2049》에서 둘은 논란 속에 갈라섰다. 빌뇌브가 원한 음악이 반젤리스 쪽에 더 가까웠기 때문이다. 그 결별 얼마 뒤인 2018년, 요한손은 비극적으로 세상을 떠났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3cae2003474345c6ff33beb65284591fca389f67bbd63a8f70e9992bb01e4803"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "denis-villeneuve#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《듄》을 향한 평생의 집착을 나눠 가진 덕에 그는 작곡가 한스 치머를 2021년 대작에 끌어들였다. 치머는 오랜 동료 크리스토퍼 놀런의 《테넷》을 마다하고 빌뇌브 쪽을 택했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f932d7ac35bdd86136cfb9182d1dedc3e88dfd0d002d76d8ce46525a6738a0e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "denis-villeneuve#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아내 타냐 라푸앵트는 라디오캐나다의 이름난 문화 기자였다. 연인이 되기 전 몇 해 동안 그를 인터뷰한 사람이 바로 그였다. 그는 결국 기자 ���을 접고 남편의 전업 제작 파트너가 되었으며, 《Art and Soul of Dune》 책들을 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c90be7850bd3831e165c355ee027da54c6a0b3bcfb25eaf1044f9eb4d9c2269"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "denis-villeneuve#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《듄》에서 그린스크린에 기대기를 거부한 그는 요르단 와디룸과 아부다비의 깊은 사막으로 제작을 몰아넣었다. 그가 요구한 특정한 \"매직 아워\" 빛을 담으려고 스태프는 날마다 새벽 1시 30분에 일어나야 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "62280af1f5b447a222f6b38480078644d8b87b2eecedc18dc729e76fcbe82e0b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "denis-villeneuve#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《듄》에서 프레멘이 모래벌레를 부르지 않으려 쓰는 그 유명한 \"샌드워크\". 이 걸음을 만들려고 빌뇌브와 안무가 뱅자맹 밀피에는 몇 주를 사막에서 보냈다. 박자를 흐트러뜨린 걸음걸이를 하나하나 직접 몸으로 시험했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "64711ae829371f40c6710659227d54e593c5f6ec2a5c9de37f1b5107e0646f37"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "denis-villeneuve#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "촬영감독 로저 디킨스와 세 편을 함께하며 전설이 된 시각적 동맹을 맺었다. 앞선 열세 번의 후보 지명이 모두 빈손이었던 디킨스는 《블레이드 러너 2049》로 마침내 첫 아카데미상을 받는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d0297cd13bc9b511ba2375412d3c285beae797860acfe787c3ad78a724792a1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "denis-villeneuve#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "동생 마르탱 빌뇌브 역시 인정받는 영화감독이고 TED 연사다. 야심적인 SF 《Mars et Avril》을 연출했다. 형제 덕에 이 집안은 퀘벡에서 가장 널리 알려진 영화 가문의 하나가 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b1d7ef9d3c6837137b7fe2a62e5d77a8f83453dcd78ce1f1e2c4cdec4a255f6b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "denis-villeneuve#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "엄격한 가톨릭 집안에서 자랐으나 그는 끝내 신앙을 놓고 불가지론자가 되었다. 그러면서도 자기 영화에 종교적 도상과 메시아적 주제, 그리고 잔혹한 도덕 시험을 자주 불어넣는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "78fcaa50fa11f09f320056962f38bcedc1cff9c52c59651908c2a2929fdd22a2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "denis-villeneuve#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《듄》은 애초에 1.43:1 IMAX 화면비에 맞춰 구도를 잡고 촬영했다. 모래벌레와 우주선의 거대한 규모를 전통적인 와이드스크린이 아니라 수직으로 세워 보이려 한 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a80a982059e2ce33477e01f9477ddc9270174a86994257e7f58dd61646b34480"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "denis-villeneuve#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "어린 시절 스티븐 스필버그의 《미지와의 조우》를 본 순간을 그는 늘 꼽는다. 영화감독이라는 것이 별개의 직업임을 그때 알았다. 빛과 공간을 다스리는 예술가가 있다는 생각에 사로잡혔던 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "72c9e427cec87bfc42157163aab8dce05038d8b6196a8c7a88274b8f48c6e3e3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "derek-cianfrance#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "콜로라도 레이크우드 출신. 열세 살 때 아버지가 VHS 캠코더를 사주자 시안프랜스는 야구와 농구를 딱 끊었다. 집에서 찍는 영화에 곧장 온 신경이 옮겨갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "775601fd8d75e0c662b8b04b7654bc7ee00551506f7f29b08a96c94fd2c9e54f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "derek-cianfrance#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "콜로라도대학 볼더에서 영화를 배우던 시절 그를 가르친 사람은 전위영화의 거장 스탠 브래키지와 필 솔로몬이었다. 필름을 손으로 만져 다루는 법, 그리고 서사에 기대지 않는 지극히 개인적인 영화의 값을 그들에게서 배웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "869854757c67038cd9a46529e067bd87c8e1d5edce1179cf7f09568b3b4f20ad"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "derek-cianfrance#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "데뷔 장편 《Brother Tied》(1998)는 그가 스물세 살일 때 선댄스영화제에서 첫 상영됐다. 극장 배급 계약은 끝내 잡히지 않았고, 그는 이후 십이 년을 텔레비전 다큐멘터리 연출로 생계를 이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a13feb959d8639936d71d9e5d0247e9188c87703dfe8ca9f8f3aee8fc00be73"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "derek-cianfrance#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "조이 커티스의 길거리 레이싱 드라마 《Streets of Legend》에서 보여준 거칠고 몸으로 움직이는 카메라로 그는 2003년 선댄스영화제 촬영상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ffcb70350565ba12c82467abc71c522b9c38d043f89c2521290f69b03f9dd379"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "derek-cianfrance#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《블루 발렌타인》의 자금을 구하는 데 시안프랜스는 십이 년을 썼다. 각본은 정확히 66번 고쳐 썼다. 그러고 나서야 영화가 제작에 들어갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "301d083fe659dc257cce8e2e734ee3d926f59f276bb0970baced4e174bac50be"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "derek-cianfrance#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《블루 발렌타인》의 부부 관계를 실감으로 짜기 위해 그는 라이언 고슬링과 미셸 윌리엄스를 펜실베이니아 스크랜턴의 한 집에서 한 달간 함께 살게 했다. 식료품 예산은 두 인물의 노동자 임금에 맞춰 엄격히 묶었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "77088d93107bca54415c03eb49a12e43dd348a10b86c771d1cb2df7977f110b2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "derek-cianfrance#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그 한 달의 연기 훈련 동안 그는 두 사람에게 진짜 말다툼을 벌이고 가짜 크리스마스를 쇠라고, 같은 집에서 자라고 지시했다. 고슬링은 소파, 윌리엄스는 침대. 그러면서도 인물에서 한 발도 벗어나지 말 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb8a1ac39199e6261c18739183ffba46e807be1ed149e66bfc5306fa552e0530"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "derek-cianfrance#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《블루 발렌타인》의 전반부는 일부러 슈퍼 16mm 필름으로 찍었다. 연애의 초반에 입자가 굵은 향수의 온기를 입히려는 것이다. 후반부는 고화질 RED 디지털 카메라로 넘어간다. 끝내 무너지는 결혼이 헐벗고 차갑게, 용서 없이 바로 눈앞에 오도록.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e663f2cee732a506586a7e8cd593d4f0bd991f4d6b57af3f295f63c0a7bc62b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "derek-cianfrance#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《블루 발렌타인》은 처음에 NC-17 등급을 받았다. 라이언 고슬링이 미셸 윌리엄스에게 구강성교를 하는 장면 때문이었다. 시안프랜스는 MPAA를 성차별이라 공개 비판했고, 이의 신청이 받아들여져 등급은 R로 내려갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d28182f5eb0240f178c93059e97511b1d5b670da92687c7c39c2a9d441e94c48"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "derek-cianfrance#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《플레이스 비욘드 더 파인즈》의 발상 전체는 2007년의 잡담에서 나왔다. 라이언 고슬링이 시안프랜스에게 지나가듯 털어놓은 최후의 비밀 환상, 은행을 털고 오토바이로 도망치되 U-Haul 트럭 안에 숨어서 빠져나가는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "36ebd721e597754ea4aa1d57c37cfccba514ff7ccfd64280e1e6d8c62ca180d1"
+ }
+]

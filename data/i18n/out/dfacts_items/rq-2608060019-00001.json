@@ -1,0 +1,182 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "akira-kurosawa#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "연기부터 의상 재단, 심지어 촬영장 식사까지 그는 제작의 모든 국면을 독재자처럼 틀어쥐었다. 업계가 그에게 붙인 별명이 '덴노(天皇)', 곧 황제였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1f9d4368b830634f7e7cdf9c103ccea9f60209724491a832f1ca55ab38b2847a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "akira-kurosawa#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미후네 도시로와의 열여섯 편, 그 전설적인 동행은 험악하게 끝났다. 《붉은 수염》의 2년에 걸친 고통스러운 촬영 동안 미후네는 계약상 수염을 깎을 수 없었다. 돈이 되는 다른 배역을 하나도 잡지 못한 그는 파산 직전까지 몰렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "31e9d209e6594d6f2a4db4cebeb8ffbda64194235e852de06d58e0a7516f3a23"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "akira-kurosawa#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1968년, 20세기 폭스는 진주만 대작 《도라! 도라! 도라!》의 일본 파트 연출을 그에게 맡겼다. 그러나 종잡을 수 없는 행동에 아마추어 사업가를 배우로 쓰겠다고 고집하자 경영진은 그를 해고했다. 정신적으로 병들었다는 것이 그들의 주장이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3535fc328671c3ddb0a8848a4596921616dbe03eb594cad01065fc4d895dc4d5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "akira-kurosawa#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《도라! 도라! 도라!》에서 잘리고, 첫 컬러 영화 《도데스카덴》마저 흥행에 실패했다. 깊은 우울에 빠진 구로사와는 1971년 12월 손목과 목을 서른 번 넘게 그었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ceee19f9ed4daa9e2b919e531681949647c60ae952a948ad36cd67bb2361de0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "akira-kurosawa#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "직업적 유배에서 그를 건져낸 것은 소련의 모스필름이었다. 시베리아 생존기 《데르수 우잘라》(1975)의 혹독한 촬영을 이 스튜디오가 댔고, 영화는 아카데미 외국어영화상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fe3382bd4925b654592c57fcb00c8642085c324038732499a0ead16b7192bd3d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "akira-kurosawa#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "일본 스튜디오들이 사무라이 대작 《카게무샤》에 돈을 대길 거부하자, 열렬한 팬이었던 미국 감독 조지 루카스와 프랜시스 포드 코폴라가 나섰다. 할리우드에서의 막강한 영향력으로 20세기 폭스에 제작비를 물리고 자신들은 총괄 프로듀서로 이름을 올렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "51ee66033d15f10fc05f4e537b9ff3748fa390a9a9b230678f85616abbfdd569"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "akira-kurosawa#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《리어 왕》을 옮긴 《란》(1985)을 위해 그는 후지산 기슭에 고증에 맞는 거대한 목조 성을 짓게 했다. 그러고는 수백만 달러짜리 세트를 통째로 태웠다. 다시 찍을 수 없는 트래킹 숏 하나를 얻자고.",
+  "model": "claude-opus-5",
+  "source_sha256": "5694770c5f908cc6e8b2ac2eea5dbc685e96546096352824339a2e6598c7e120"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "akira-kurosawa#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미국 서부극의 존 포드를 그는 우상으로 삼았고, 포드의 투박한 현장 복장까지 곧잘 따라 입었다. 런던에서 마침내 그 우상을 만났을 때 감격에 겨웠던 그에게, 포드는 이렇게만 말했다. \"자네, 비를 참 좋아하는군.\"",
+  "model": "claude-opus-5",
+  "source_sha256": "9406daaed267ea90a193c7faccc88abff3c00940868affc28e2f388686bb2eb9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "akira-kurosawa#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "지극히 사적인 옴니버스 《꿈》(1990)에서 그는 평생의 예술적 우상 빈센트 반 고흐 역에 미국 감독 마틴 스코세이지를 앉혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f78010b6d538c032e9bb0652ff09fb456e87f7a1d39198cfe3c2bd6423c6b448"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "akira-kurosawa#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마지막 작품 《마다다요》(1993)를 찍을 무렵 그의 시력은 이미 심각하게 나빠져 있었다. 화면을 잡는 일은 오랜 조력자 혼다 이시로, 초대 《고지라》의 감독에게 크게 기댔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e56d69e35d4868c594933eb53cdd2fdbe200d76fd42bbce3b9717f1810d1836"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "akira-kurosawa#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1990년 루카스와 스티븐 스필버그의 손에서 아카데미 명예상을 받은 여든의 거장은 객석을 놀라게 했다. \"저는 아직 영화가 무엇인지 붙잡지 못했습니다.\" 그런 말을 겸허히 내놓은 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "66ee685189fd5e8893edaebd5f7ff236812542183fda01b782fe0ca43fb8f69d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "akira-kurosawa#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1998년, 여든여덟에 뇌졸중으로 세상을 떴다. 도쿄 아오야마 장례식장에서 열린 대규모 영결식에 3만 5천 명이 넘는 조문객이 찾았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "90dd5abb84e41a50d58976b71b30921b1c6bade61edf84d0b991c2dad18b177f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "akira-kurosawa#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화로 만들어지지 못한 각본 《비 그친 뒤》는 1999년 그가 가장 아끼던 조감독 고이즈미 다카시의 손에 연출됐다. 구로사와의 구상은 그렇게 그보다 오래 살아남았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4650918aaba564442be3d69e27e9b740c9af001f3ce11856e98f725ea41a5745"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alain-resnais#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "바네에서 자란 소년은 천식이 심해 자리보전하는 날이 많았다. 그 자리에서 마르셀 프루스트의 소설과 미국 만화책을 닥치는 대로 읽었다. 조각난 기억, 그리고 칸으로 이어지는 이야기에 대한 평생의 집착이 여기서 시작된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7e0663cd9ac0ea650bf655b5bff84ad0dc2952bccc7449ea4a0087468e364189"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alain-resnais#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "열두 살 생일에 8mm 코닥 카메라를 선물받았고, 열넷에 첫 단편을 찍었다. 프랑스 범죄 연작 《팡토마》를 어설프게 옮긴 작품으로, 배우는 동네 학교 친구들이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc3cef3b044eb43bd48465276350fce0b44e62f5c5071298154ffd8eed188dd1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alain-resnais#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "처음 품은 꿈은 무대 배우였다. 1939년 파리로 올라가 명문 쿠르 시몽에서 르네 시몽에게 배웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d228f7b932e3696dd3030ed74a547c9dc7b6f19c2a3475ae64a5d99c45702f6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alain-resnais#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1943년 IDHEC 영화학교 1기로 들어가 편집을 공부했다. 그러나 커리큘럼이 지나치게 추상적이고 이론적이라 여겨 1년 만에 그만두었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cac440ab398cc8390cf2035da6020b807d6c186edc5e29b499d37bd5eaacef2f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alain-resnais#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1945년 프랑스군에 징집된 그는 2차대전 직후를 순회 극단의 일원으로 보냈다. 점령지 독일과 오스트리아를 돌며 병사들 앞에서 공연했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "be30ee586029907b8bc7fbaa39d0f9d5e13499586c2a7a1c21cd5796c89a46ff"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alain-resnais#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "화가를 다룬 단편 다큐멘터리로 경력을 열었다. 18분짜리 흑백 소품 《반 고흐》로 1950년 아카데미상을 받는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "28efc952c8ffaeb4ea2334bf09f9d678681ab7fb3b78e9411fed2f4573899c77"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alain-resnais#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "홀로코스트 다큐멘터리의 이정표가 된 《밤과 안개》(1956)를 의뢰받았을 때, 그는 대놓고 거절했다. 마우트하우젠 수용소 생존자인 장 카욜에게 내레이션을 맡기겠다고 제작진이 약속하고 나서야 연출을 맡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d1a3fdc27faeaff9ac129efe990a4739de3a2f312a01d5ca9c776b4d1d858f3"
+ }
+]

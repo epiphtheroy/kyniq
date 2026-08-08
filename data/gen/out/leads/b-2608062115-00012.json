@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-great-train-robbery-1903",
+  "field": "lead",
+  "film_id": "e3831a6f-59a3-40f3-821b-78cc27d3eb47",
+  "lang": "en",
+  "text": "A clerk is tied up at his desk in the station office, and the picture has eleven minutes left to spend. Nothing gets explained. Men board a train, empty it, climb down, ride off, and others come after them, and the whole transaction is laid out where a camera at chest height can watch it happen. Porter works in the open: track, woods, a slope with rocks big enough to drop behind. Distance carries the tension, since the pursuers are far off, then less far. The bandits are given no characters at all. They are whoever happens to be holding the money. Twelve minutes, kept by the National Film Registry, and what survives is the physical arithmetic of the thing: a train is long, a horse outruns a man, and cash has to be carried by somebody.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d4f05c2048b90f434311af6661edbdb7e1b8fc683bdf17802cee14074c91040"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-phantom-of-the-opera-1925",
+  "field": "lead",
+  "film_id": "2c0eb90e-10ad-4bb6-8a71-88ec2aa55fb8",
+  "lang": "en",
+  "text": "The Paris Opera House in this film has floors underneath its floors, and somebody is living down there. Above, a company is casting a season. Below, a man who keeps his face covered has views about the casting and a method for enforcing them. Rupert Julian's horror is clerical before it is monstrous: a letter to the management, an instruction about who sings, a consequence when the instruction is ignored. The 1925 money is visible in the right places, in staircases and tiers of boxes and a full auditorium facing the wrong way. The woman at the center is being advanced by someone whose interest she never solicited, which the film treats as a form of captivity rather than a courtship. Murder follows. The dread sits in orders arriving with no person attached to them.",
+  "model": "claude-opus-5",
+  "source_sha256": "1079a7cbb403c21b02fae3f5b03a102378bc77898953ea3d84ee57abe59f478c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "high-sierra-1941",
+  "field": "lead",
+  "film_id": "85be9768-4bd1-486f-a1a9-26260d3815fb",
+  "lang": "en",
+  "text": "The pardon comes through first, and the work comes right after it. Roy Earle walks out of prison into 1941 and toward a robbery at a resort, which is a job for a man who has done this before and has fewer years left in which to do it. Walsh keeps the mechanics flat: a car, a schedule, a building where money collects because people have gone there to relax. The interest is not in whether the plan is clever. It is in how much of it depends on people Earle would never have chosen, and how much of his authority comes down to being older than everyone else in the room. The National Board of Review placed it among the ten best of its year. It is a robbery picture that keeps looking at the man instead of the safe.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d35a1528f816c41631bfe5dec17d9077fb8c429065d25bb28223c475189e4f6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "two-lane-blacktop-1971",
+  "field": "lead",
+  "film_id": "ae7cd34c-0573-4531-a4e2-d6ac0a07c69d",
+  "lang": "en",
+  "text": "The two men in the front seat are identified by what they do to the car: one drives it, one keeps it running. Money comes from short races got up in whatever town they have stopped in. A young woman gets into the back without any fuss being made of it, and a man in another car proposes something bigger, a run clear across the country, which is accepted with roughly the ceremony of a fuel stop. The catalog files this as drama and the catalog is right. Hellman has little interest in racing as event; he is interested in what people say to each other when the only shared project is arriving. A hundred and two minutes in 1971, most of it road and small maintenance, and nobody in it explains himself to anybody.",
+  "model": "claude-opus-5",
+  "source_sha256": "2574e42b63140456cddda5a71d660101c1078bd8b078cb506539a3ccbc799696"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "42nd-street-1933",
+  "field": "lead",
+  "film_id": "f2e10b37-64cc-41a6-8c56-dda5f5c84c05",
+  "lang": "en",
+  "text": "Before any of it is beautiful it is counted out loud on a bare stage, over and over, by people who do not get paid unless the show opens. Julian Marsh has one production left in him and has said so; his health and the financing run on the same schedule. Then the star breaks an ankle the night before the premiere and her understudy, Peggy, is handed the part. What the film is about sits in that gap: the distance between labor and the thing labor makes. Rehearsal is sweat, a piano, a director issuing terms. The numbers, when they finally arrive, are geometry no stage could hold, arranged for a camera looking straight down. The Academy gave it the sound award, and that is the seam exactly: a floor with feet on it, and an orchestra nowhere in the building.",
+  "model": "claude-opus-5",
+  "source_sha256": "c08a8ca609242b9de010d30734f711e448908ddc5629a9296840947f7b8224b8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "destry-rides-again-1939",
+  "field": "lead",
+  "film_id": "12c44f32-9c19-4ee9-9f63-5a04cfe15361",
+  "lang": "en",
+  "text": "Tom Destry steps down in Bottleneck without a gun on him, and the town takes it for the best joke it has had in years. The refusal is structural rather than a quirk. A western in 1939 pays out in gunplay, and by withholding that payment Destry obliges every scene to find some other way to finish, which is where the comedy is manufactured. Bottleneck belongs to Kent the way a shop belongs to its owner, and the law there is kept on a shelf and taken down when useful. Marshall runs the thing at saloon tempo, ninety-four minutes, most of them talk, with the violence closer to slapstick than to ceremony. Meanwhile the father's reputation sits on the son the whole time, an account somebody else opened.",
+  "model": "claude-opus-5",
+  "source_sha256": "9499815a3c3b250b3f1a6b1a7f4ac7b7639ea85582d9a534592bb9b67d62b149"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "gunga-din-1939",
+  "field": "lead",
+  "film_id": "ed06bfa2-e3f1-43d4-96ec-233ff119e02d",
+  "lang": "en",
+  "text": "The title belongs to the water-bearer, and the plot belongs to the three sergeants he carries water for. Everything the film knows about India in the 1880s reaches it through the regiment: a telegraph line needing repair, a rumor of a temple made of gold, a suppressed cult stumbled into rather than investigated. The tone runs double and is unembarrassed about it, horseplay among the three men and then an ambush that is not funny at all. Stevens shoots the country wide enough to swallow a column, and the Academy's black-and-white cinematography award went to those distances. Din is inside every scene and outside all of them, carrying water and, when the story needs turning, carrying the information that turns it. An adventure entirely at ease with the empire it serves, which is part of what there is to watch now.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb0b85e7bd118181d8ee72d8da0c9b414e8ff899745d794d9c54710d9d9aabe9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-jazz-singer-1927",
+  "field": "lead",
+  "film_id": "d7854e8f-5f65-4f3c-b9db-85e20ba651ec",
+  "lang": "en",
+  "text": "Synchronized sound enters the feature film here, and the first thing it is handed to carry is an argument inside a family. The son wants to sing jazz. The household wants the voice used otherwise, and the objection has nothing to do with money. Most of the running time is still silent-picture craft, titles and faces held long enough to be read, and then the recording cuts in and the difference is audible in the plainest sense: one mode is everything the medium had learned so far, the other is a man in a room making a sound out loud. Crosland's picture is a domestic drama with a machine inside it, and the machine keeps drawing attention the drama has not earned. What lasts is the flatness of the conflict. The career is not a rebellion. It is a departure, and departures inside a household are quiet.",
+  "model": "claude-opus-5",
+  "source_sha256": "108822230fb36f6bd3f8fa5a0a542f2896a7653b40094c0045b460292420fd97"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sons-of-the-desert-1933",
+  "field": "lead",
+  "film_id": "52427c5d-edf2-48c1-9aae-0b6c3e6c2bbf",
+  "lang": "en",
+  "text": "The alibi is medical: a sea voyage, ordered by a doctor, unarguable, entirely invented. What Ollie and Stan actually intend is a lodge convention, and sixty-five minutes go on the upkeep of a story neither man is equipped to keep. Seiter's method is largely to stand back and let the arithmetic run, since one lie requires a second, the second requires a witness, and the witness is Stan. The pace is not quick, and it is not meant to be. The comedy lives in pauses, in a look held while a man works out what he has just said, in a wife waiting for the end of a sentence that has already collapsed. And the scale is correct: what is being risked is domestic and small, because neither of them could survive anything larger.",
+  "model": "claude-opus-5",
+  "source_sha256": "db45a549ef2cd4366077b2b041b50f8262cc501dd8f2d2d8a6922d3256db59ef"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "gold-diggers-of-1933-1933",
+  "field": "lead",
+  "film_id": "71996200-ba99-4122-9d54-119b751d7c5d",
+  "lang": "en",
+  "text": "Broadway is dark, the rent is not, and three showgirls decide that a repugnant rich man's money is the nearest available asset. The Depression is not the setting of this one, it is the mechanism. Theaters have closed, so work has stopped, so the women are obliged to think the way producers think: find capital, get into the room under a false description, keep a show funded long enough to open. LeRoy alternates that scheming, which is dry and fast and conducted almost entirely among the three of them, against numbers that spend sums nobody in the story has. Ninety-seven minutes, made in 1933 while the thing it describes was still going on, which is why no one on screen ever stops to explain the economics. Everybody in the room already knows.",
+  "model": "claude-opus-5",
+  "source_sha256": "27a08d5d96e7edeecc3eed3ddf88d761407fd3aa74d15464cb405d22d8af7c4a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-bank-dick-1940",
+  "field": "lead",
+  "film_id": "e08f44c2-ca7c-4c80-a46e-ec1744c94501",
+  "lang": "en",
+  "text": "Egbert Sousé is sitting on a bench when a fleeing bank robber goes over it, and the town decides that what it witnessed was courage. The reward is a job as a bank guard, which installs a man of no diligence whatsoever inside the one building in town organized around diligence. From there the picture advances by acquisition: a share salesman named J. Frothingham Waterbury with a mine to sell, a teller named Og Oggilby with access to money that is not his, a bank examiner named Snoopington arriving at the worst possible hour. The names carry as much of the comedy as the plot does. Seventy-two minutes, nothing padded, and a logic in which every solution is a loan taken out against a later catastrophe.",
+  "model": "claude-opus-5",
+  "source_sha256": "252b738ce9417881998b4c9c5d652bb49e1352e4104cc01f902831b211a8d56d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-thief-of-bagdad-1924",
+  "field": "lead",
+  "film_id": "5eebb4b8-dea6-4f43-a3aa-6aa5568b6075",
+  "lang": "en",
+  "text": "A thief with nothing in his hands takes a place in a line of suitors who have arrived with armies behind them. The rival is a Mongol ruler whose courtship is hard to tell apart from a survey of the territory. Two and a half hours in 1924, and the length is the argument: a fantasy built at the scale of architecture. Rooms are enormous so that crossing one registers as effort. A staircase is a distance. Walsh mostly holds the camera still and lets the sets be crossed rather than displayed, which is why the film keeps moving even when the plot has stopped. The princess is a prize in the story's own terms, and that is worth knowing going in, because the pleasure on offer is spatial before it is anything else.",
+  "model": "claude-opus-5",
+  "source_sha256": "55e2c1a10963a2475ecfbf6988d8bc2b442c32af189c4cb71069f93369a452ae"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-big-parade-1925",
+  "field": "lead",
+  "film_id": "5c234b51-1ba2-4bd6-b00f-1c64c544c19a",
+  "lang": "en",
+  "text": "He enlists because everyone is enlisting, and he has never needed a better reason for anything. The rich boy joins the Rainbow Division, ships to France, and is billeted with two working men who would not have come near him at home. That friendship is the long first movement, and Vidor gives it room, because at two and a half hours a war can be preceded by an enormous amount of waiting. There is a French girl on the far side of a language. There is drink and idleness and the business of not yet being needed. Then the trenches, and the register changes without warning: same men, same picture, the comedy gone out of it. What Vidor is good at here is duration, letting a scene run well past the point where its information has been delivered.",
+  "model": "claude-opus-5",
+  "source_sha256": "473d32779b655b2b9ce9290f23ee40548bf69261ea293e7c5b03660fcc172998"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "il-posto-1961",
+  "field": "lead",
+  "film_id": "a92de299-37a6-4110-8181-314f69424022",
+  "lang": "en",
+  "text": "Domenico takes the job because the alternative is school, and school costs money his family has stopped having. Milan hires him as a messenger at a large firm, the sort of position understood as a lifetime rather than a year, and the promotion he has been told to wait for becomes the first thing anyone teaches him to want. Olmi films procedure instead of feeling: corridors, waiting rooms, the small rituals by which a company converts a boy into staff. Antonietta is in the same position, and whatever happens between them happens in the gaps, in the few minutes a day the firm is not using. Italy is prospering in 1961, and prosperity here looks like a chair a young man is handed and is not expected to leave.",
+  "model": "claude-opus-5",
+  "source_sha256": "c1a71307662a53558e656ad67304a70da262ab010ddd13e1509aece31d4e26ef"
+ }
+]

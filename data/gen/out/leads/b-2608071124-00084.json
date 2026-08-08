@@ -1,0 +1,132 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "cobain-2018",
+  "field": "lead",
+  "film_id": "c88301f5-7065-4db1-9b3b-8452ac7430ea",
+  "lang": "en",
+  "text": "Mia is pregnant and will not stop what she is doing to herself, so her fifteen-year-old son takes the job over. He is called Cobain. The reversal sounds like a premise for tears, and the difficulty it actually sets is practical: a minor cannot parent his own mother in the open, which means every act of care has to double as concealment, from neighbours, from anyone holding a form to fill in. Nanouk Leopold keeps it to ninety-four minutes, Dutch-spoken, Belgian, and close in. The child due at the end of this pregnancy will be the second person Cobain is responsible for, and he knows it. What he has instead of authority is stubbornness, and a mother who cannot be managed. Fifteen is old enough to see the whole problem and too young to fix any part of it.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b7a81155cf650fffcbab3027b420e0a3dd1564e51e617e7ecc9dceeb58b6048"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "porfirio-2011",
+  "field": "lead",
+  "film_id": "1ecfc2db-28c7-4791-848c-e18f5fe363db",
+  "lang": "en",
+  "text": "One hundred fifty-five centimetres, brown eyes, big ears with free-hanging lobes, an old bullet wound in the back: the man in this film arrives described as a file would describe him. Nothing in that inventory says what he did or what was done to him — only that he was shot from behind and now moves in a wheelchair, and that somebody took his measurements and wrote down the sore on his left buttock. Alejandro Landes Echavarría builds 101 minutes around a body under that kind of scrutiny, in Spanish. The interest is the gap between the clinical paragraph and the person it cannot hold. A man logged by height and complexion still has a day to get through: a room, a chair, hands that work, other people who must be asked for things. The film begins where the report stops.",
+  "model": "claude-opus-5",
+  "source_sha256": "d68ed02182a180df632f5eeffbfe906887b56ef2d7b0b468a45c46f52894e25c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "personal-affairs-2016",
+  "field": "lead",
+  "film_id": "5628aec4-6355-4fa7-a7a6-87e931b2bc45",
+  "lang": "en",
+  "text": "In Nazareth, a husband and wife have refined the day into a routine so complete that it does most of their talking for them. Their children are in Ramallah, which is not far and requires a border. Maha Haj arranges ninety minutes around that ordinary absurdity: a son determined never to marry, a daughter close to giving birth, a son-in-law who has just been cast in a film, a grandmother whose memory is going, and the checkpoint that turns a visit to one's parents into an administrative event. Politics is present the way weather is present. Nobody delivers a speech about occupation; they discuss travel times, who is coming, what to do about the old people. The comedy is dry, the family is entirely recognisable, and the geography does the rest of the work.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a048c2e520db8cff07684e2bc302035d9500083da202f9d2be6f3c320192ece"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-trap-2007",
+  "field": "lead",
+  "film_id": "91bcaa79-eb1d-4e05-ab6a-b69386469a77",
+  "lang": "en",
+  "text": "A surprise party thrown a month before the birthday it celebrates is already a lie about something. Twenty minutes is a good length for that kind of trouble: no room for a second act, so the wrongness has to register early, and the guests have to keep behaving like guests while doing something else. Rita Wilson's film stays inside a social obligation nobody can leave without insulting the people who arranged it, which is the oldest kind of trap and needs no lock. Maggie works out, somewhere in the evening, that the occasion has a second purpose. The discomfort and the pleasure are the same thing here: she has to go on accepting drinks and thanking people while quietly revising what she thinks the room is for.",
+  "model": "claude-opus-5",
+  "source_sha256": "836a35d40cd543992cf25878aa0df833b5ebc1eb5a216e6fb8226fb02447805a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sandcastle-2010",
+  "field": "lead",
+  "film_id": "ac000d14-c4a6-4e72-8fa1-da21811bfb51",
+  "lang": "en",
+  "text": "En is eighteen, his father has died of cancer, and the relatives gathering around him have already agreed, without discussing it, which parts of the past are open for discussion. Boo Junfeng gives this ninety-one minutes, in English, in a Singapore whose account of its own recent history has not held still. That leaves a boy doing research on his own family: asking questions the room does not want, finding that the versions he has been handed do not agree, deciding what he owes people who would rather he stopped. The grief is real and it is also cover; nobody has to answer anything while there is a funeral to organise. What En is testing, at an age when he is expected to start belonging to things, is whether believing something requires anyone else to confirm it.",
+  "model": "claude-opus-5",
+  "source_sha256": "ff55e763c85e52ded87c086aae05baa61fe7d596c9cf10b997e8a42688328400"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "vaya-2016",
+  "field": "lead",
+  "film_id": "74dcdbed-9910-4e5d-a74a-5794cfd969e3",
+  "lang": "en",
+  "text": "Three stories, three people who did not grow up in Johannesburg, and a city that finds a use for each of them quickly. Akin Omotoso keeps the strands apart and gives them 110 minutes, moving between Johannesburg and Soweto, and the film's first job is to make newcomers legible before it makes anyone nervous for them. The danger is less criminal than procedural: someone offers help, someone knows a room going spare, arrangements are made by people whose reasons stay unstated, and the courtesy of the offer is what makes it hard to refuse. Arrival is the whole subject. Each of the three is being read by strangers who have done this many times before, and the difference between a kind face and a working one does not show on first meeting.",
+  "model": "claude-opus-5",
+  "source_sha256": "808a857db554896c5ed1d1e1a7ae7c51f533d29ea05c54cd35c833aa6ec5994f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-river-2018",
+  "field": "lead",
+  "film_id": "c0b0b6fa-4fdb-4307-90cb-e4c2799fcb33",
+  "lang": "en",
+  "text": "A quiet city teenager is delivered to his father's timber ranch, where he is nobody's friend and everyone's boss's son. That double position is the engine: the men working the place are paid by his father, so nothing said to him is simple and nothing he does is private. Juan Pablo Richter shoots ninety-five minutes in Spanish, in Bolivia, and the violence he is interested in is the kind everyone present has already consented to — the way orders are given, the way work is enforced, the way a boy is taught what a man in that place is supposed to tolerate. Cruelty as curriculum. His reserve, which in the city was just a personality, becomes a defect to be corrected by people who mean well and by people who do not, and he has no allies who are not on the payroll.",
+  "model": "claude-opus-5",
+  "source_sha256": "6db4d97520fa8244299eacf2fcff05ddb157e8c56cd7bc7fe67ca0339994564b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "let-the-summer-never-come-again-2017",
+  "field": "lead",
+  "film_id": "963a8dc5-bcb6-4b0e-9ff9-5e8352e19987",
+  "lang": "en",
+  "text": "Two hundred and two minutes is a strange amount of time to spend on a village boy auditioning for a dance company in the city. Alexandre Koberidze spends it anyway, in Georgian, and the length alters what the story is: the audition stops being a plot point and becomes one appointment among the many hours of a young man with nowhere particular to be. He needs money. Boxing pays. So does going with men who pay, and neither is staged as a moral crisis so much as an evening's arrangement. Then he falls for one of them, which he had not planned on. What accumulates across three and a half hours is less incident than duration itself — the waiting most films cut — so that when dancing does become possible for him it arrives with the weight of something a life has been rearranged around.",
+  "model": "claude-opus-5",
+  "source_sha256": "611812ee3a6c4c97a2307fd0b47b7dadc09752630208c9c2f1decfa81f91c2d5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "louyre-this-our-still-life-2011",
+  "field": "lead",
+  "film_id": "850c5dcb-7363-4abd-a6af-2aa363102780",
+  "lang": "en",
+  "text": "A farmhouse in the Pyrenees, half falling down, a radio, and a young woman painting the things on the table in front of her. Eden is twenty-three. Her father, Andrew Kötting, filmed her as a child touring the coast of Britain in Gallivant in 1996; here he stays home with her for fifty-eight minutes while the seasons turn over the house. The still lifes are hers, the film is his, and the arrangement between those two facts is what keeps it from being merely fond. He layers in voices from his own sound archive and music by Robin Rimbaud, so the track carries years other than the one being filmed, and the daughter in the frame is accompanied by recordings of a family long in the habit of recording itself. A portrait of somebody who paints, made by somebody who cannot stop keeping tape.",
+  "model": "claude-opus-5",
+  "source_sha256": "816a31576e1438449caac75ae8820b9b90d8a47df71cfcb076cc6e8786999908"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "irreversible-2002",
+  "field": "lead",
+  "film_id": "ee969fe1-7221-446e-a105-ebd9a55fd24e",
+  "lang": "en",
+  "text": "Four flat assertions stand where a plot summary should be: some acts cannot be undone, man is an animal, the desire for revenge is a natural impulse, most crimes go unpunished. Gaspar Noé means each of them literally. A woman is attacked; her lover and her former lover go out after the man responsible, and the film's own account of that errand is that it is ordinary behaviour and repairs nothing. Ninety-three minutes — short for a film this widely seen, not short at all while it runs. TSPDT's thousand greatest has made room for it. Most crime pictures organise cruelty into a shape that pays off; this one treats cause and effect as a machine already running before anyone in the frame decides anything. The four sentences are the thesis, and nothing in the film softens them.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c1e5ce6965445c2615416a1c932b371ec2a7b0c8c189fd15ef4f3b7fe39ebd2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dodes-ka-den-1970",
+  "field": "lead",
+  "film_id": "d3c7db5e-28e1-42ae-93b1-5f44dedf0eea",
+  "lang": "en",
+  "text": "Beside a Tokyo rubbish dump, in the shacks that grew up around it, a boy drives a trolley nobody else can see. Kurosawa gives him a route and a timetable, and extends the same courtesy to the neighbours: a homeless man and his son settling where the gate of a house they will never own should stand, drinkers, schemers, a young woman badly used by the household that ought to protect her. Nothing connects the episodes except the address. Japan submitted the film to the Academy Awards — a hundred and forty minutes of shantytown, sent out as a national representative. What makes it hard to place is that it declines both easy positions: the daydreams are not diagnosed and the misery is not blamed on fate. Both are simply what people do at this edge of this dump.",
+  "model": "claude-opus-5",
+  "source_sha256": "67860ca786dba73bdd71958fc2d6736360ffe8b32e3090a1d23eacbe52892b8d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "street-of-shame-1956",
+  "field": "lead",
+  "film_id": "4bf49416-e59a-47db-b3ab-01ef7a483a65",
+  "lang": "en",
+  "text": "The legislature is arguing about whether the women in this film should be allowed to work, and the film keeps them working while it argues. Five of them, one brothel, eighty-seven minutes: Kenji Mizoguchi arranges 1956 as a place where a national moral question arrives in the form of rumour about a bill. What holds the attention is money. Debts to the house, money owed to families elsewhere, plans that depend on next month's takings — the abolition being decided somewhere else is, for each of the five, a threat to an arrangement she has built herself. Mizoguchi does not rank them by virtue. He lets the brothel operate like any workplace, with a hierarchy and an accounting, and lets the reform look the way it must look from inside the building: a decision by people who will never have to live in it.",
+  "model": "claude-opus-5",
+  "source_sha256": "4fa5fa403eba4b1504c4964659af79e04f459608b33c8706364dbefcabfff633"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "la-commune-paris-1871-2000",
+  "field": "lead",
+  "film_id": "6e53a5ab-5ea0-468a-b5b1-9449b540746c",
+  "lang": "en",
+  "text": "A television crew moves along a Paris street in 1871, asking residents what they make of the government they have just declared. Two channels are covering the Commune: one broadcasting from Versailles in the settled register of official information, one improvised by the insurgents themselves. Peter Watkins builds all of it on a set that never pretends to be anything but a set, casts more than two hundred people, and lets them run for five and three-quarter hours. The anachronism is not a joke. Putting a microphone in front of a resident of the Popincourt quarter obliges her to say, in her own words, what the Commune's reforms would mean on her own street — the part the histories summarise in a clause. Five hours in, the gap between the two channels has become the subject.",
+  "model": "claude-opus-5",
+  "source_sha256": "1eb2bf3daa6f821edcad22d7dabcf28789982b43dd6baea08c69d2fe129a5f16"
+ }
+]

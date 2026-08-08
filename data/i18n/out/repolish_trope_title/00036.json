@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-scandal-that-proved-the-image-worked",
+  "field": "title",
+  "lang": "ko",
+  "text": "이미지가 먹혔다는 증거, 그 스캔들",
+  "model": "claude-opus-5",
+  "source_sha256": "a95f0c999bbcbefc3e90753b9321172ae7bb6a1423a9783a7e16df3c6b8db924"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-scandal-that-proved-the-thesis",
+  "field": "title",
+  "lang": "ko",
+  "text": "논지를 증명해버린 스캔들",
+  "model": "claude-opus-5",
+  "source_sha256": "203fe7be1714d67f5a292bfca0747a7f845e79217b3f3947702a7b20e7b42083"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-scandal-was-always-about-the-audience",
+  "field": "title",
+  "lang": "ko",
+  "text": "스캔들의 표적은 늘 관객이었다",
+  "model": "claude-opus-5",
+  "source_sha256": "640446777830c5fad12ce65cf0c5fd67b46606db193c44472fe3f02fc4433088"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-scholar-undone-by-his-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 연구하던 것에 잡아먹힌 학자",
+  "model": "claude-opus-5",
+  "source_sha256": "f60d3aaa52ea40957d28c829dfcb2a4e4e927db4bf129cee19c82ce80dfb21cc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-school-shooting-as-american-folklore",
+  "field": "title",
+  "lang": "ko",
+  "text": "미국의 민담이 된 학교 총기 난사",
+  "model": "claude-opus-5",
+  "source_sha256": "52b51ff0e7ab8ed61908a132fe2ebb91b92fa59f7a99e7e494cfebfad778f868"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-score-and-take-that-refuse-the-cut",
+  "field": "title",
+  "lang": "ko",
+  "text": "컷을 거부하는 연주와 테이크",
+  "model": "claude-opus-5",
+  "source_sha256": "525ac1a086125a3ade4d6968b68842c2ee9c53fee108f668d4d8c6bcc8cde423"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-score-as-unreliable-narrator",
+  "field": "title",
+  "lang": "ko",
+  "text": "믿을 수 없는 화자, 음악",
+  "model": "claude-opus-5",
+  "source_sha256": "0db7cbff179d92e74d35f4258406821b87dea258256c96d71899b39b1c7da030"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-score-authored-the-film-first",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화를 먼저 쓴 것은 음악이었다",
+  "model": "claude-opus-5",
+  "source_sha256": "1c13f6e8262d2649e1afcc8e1390bbd9014e30bc4dd7fcb9d7e9b908bc00563b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-score-found-never-commissioned",
+  "field": "title",
+  "lang": "ko",
+  "text": "의뢰한 적 없이 주워온 음악",
+  "model": "claude-opus-5",
+  "source_sha256": "c7c2e42806ddd914bc4a5ec36b831a42e5715f5c709e7f789dcb4138be6b46bb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-score-improvised-against-the-cut",
+  "field": "title",
+  "lang": "ko",
+  "text": "편집본을 상대로 즉흥한 음악",
+  "model": "claude-opus-5",
+  "source_sha256": "734095366a5a34997c9e615c793885d272d2c490814a4409f2e48fb953e93230"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-score-that-betrays-the-image",
+  "field": "title",
+  "lang": "ko",
+  "text": "화면을 배신하는 음악",
+  "model": "claude-opus-5",
+  "source_sha256": "caef14f850b5904e13368386477ffeb8583a3affdeb15442afbe636b29d007b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-score-that-builds-pressure-before-meaning",
+  "field": "title",
+  "lang": "ko",
+  "text": "의미보다 압력이 먼저 차오르는 음악",
+  "model": "claude-opus-5",
+  "source_sha256": "f9510e3e0e64159be4f490d080579d058983c86c601f8a4d854b11a3ea866b7d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-score-that-contradicts-the-image",
+  "field": "title",
+  "lang": "ko",
+  "text": "화면과 어긋나는 음악",
+  "model": "claude-opus-5",
+  "source_sha256": "0efcde52689c1e47d64faadc3147939075564fd67ab894bef92a882b036eb6c2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-score-that-diagnoses-the-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화를 진단하는 음악",
+  "model": "claude-opus-5",
+  "source_sha256": "858fb41e887f61c8bcdca06376ce015f812259794ea6ecdcc04fb3d653039799"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-score-that-knows-what-the-image-denies",
+  "field": "title",
+  "lang": "ko",
+  "text": "화면이 부인하는 것을 아는 음악",
+  "model": "claude-opus-5",
+  "source_sha256": "5e595ea6885d94257f0c226bd55a567631d873216582e6ab5dfa66a96fc9c5e1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-score-that-manufactures-the-hero-or-beast",
+  "field": "title",
+  "lang": "ko",
+  "text": "영웅도 짐승도 음악이 만든다",
+  "model": "claude-opus-5",
+  "source_sha256": "da546539e8c27e89fe53dbc7ef05a898bfa77faa1065668ee1ad71042f8de1f7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-score-that-mourns-against-its-image",
+  "field": "title",
+  "lang": "ko",
+  "text": "화면을 거스르며 애도하는 음악",
+  "model": "claude-opus-5",
+  "source_sha256": "b4a083ce8cf42d1d64bb7533a77c612f48da0117edbba77100611332c4a93aac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-score-that-refuses-to-cue-our-feelings",
+  "field": "title",
+  "lang": "ko",
+  "text": "감정을 지시하지 않는 음악",
+  "model": "claude-opus-5",
+  "source_sha256": "3e5d4eaafea596dd122577dc1ef10854fa890201e615340d595e8d41a8b2cbdc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-score-that-refuses-to-mourn",
+  "field": "title",
+  "lang": "ko",
+  "text": "애도를 거부하는 음악",
+  "model": "claude-opus-5",
+  "source_sha256": "794d87d5a547a390cd6c6e5ceba0dc9faef866968452444f80de0257d1e24e16"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-score-that-refuses-to-resolve",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 해결되지 않는 음악",
+  "model": "claude-opus-5",
+  "source_sha256": "368a0eb1ba43ec00d82937d3e4ba392bf8f4c97dd3f4e78995a40cc6d5ef6a63"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-score-that-smuggles-a-buried-idiom",
+  "field": "title",
+  "lang": "ko",
+  "text": "묻힌 어법을 몰래 들여오는 음악",
+  "model": "claude-opus-5",
+  "source_sha256": "0dcf970a62aef852e5a3f45b7428f0e24fa3ce552797a28c2d7220324b1053a9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-score-that-smuggles-a-foreign-tongue",
+  "field": "title",
+  "lang": "ko",
+  "text": "외국어를 밀반입하는 음악",
+  "model": "claude-opus-5",
+  "source_sha256": "07c6746f25de80d2c3ea8ae80f1e557c203b7bb96d0bcda2daf087a931eb7a7d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-score-that-smuggles-liturgy-into-the-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "화면 안으로 전례를 밀어 넣는 음악",
+  "model": "claude-opus-5",
+  "source_sha256": "bf08d2e367460408ab64b7d257a7586f95f6cee471cc9d585bc24f72987a6fc0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-score-withheld-as-argument",
+  "field": "title",
+  "lang": "ko",
+  "text": "음악을 아끼는 것이 곧 주장이다",
+  "model": "claude-opus-5",
+  "source_sha256": "8ac32babe970075223884c71d7d8cdf046edbf7d3e9de629cc391648e6e8c063"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-scoreboard-that-judges-the-worthy",
+  "field": "title",
+  "lang": "ko",
+  "text": "자격을 심판하는 점수판",
+  "model": "claude-opus-5",
+  "source_sha256": "6d721cec794044fa6b29015f243256b4af38234f95ad97f06fb476f49283d6bd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-scottish-landscape-as-constructed-illusion",
+  "field": "title",
+  "lang": "ko",
+  "text": "지어낸 환영인 스코틀랜드 풍경",
+  "model": "claude-opus-5",
+  "source_sha256": "21bf9771258a18a8835d02280d79ff5fd4ce9e9d3a1068f8a354621ccc19c3bf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-scottish-landscape-wearing-a-disguise",
+  "field": "title",
+  "lang": "ko",
+  "text": "변장한 스코틀랜드 풍경",
+  "model": "claude-opus-5",
+  "source_sha256": "b2253fa45e99641a7c3a529a84fc3a7ce1e976f54e3cd39c7d75e27b27c24a29"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-scream-as-maternal-voice-before-language",
+  "field": "title",
+  "lang": "ko",
+  "text": "언어 이전의 어머니 목소리, 비명",
+  "model": "claude-opus-5",
+  "source_sha256": "72ebe74c6cc957aa9297ab0cc3e2f0dce330663d003e12fb3e88e5692d291b82"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-scream-that-the-symbolic-cannot-hear",
+  "field": "title",
+  "lang": "ko",
+  "text": "상징계에 닿지 않는 비명",
+  "model": "claude-opus-5",
+  "source_sha256": "9adacf1ee1f3e8deeae5f5c40201a72231ce07a4cb531361284228ff88f117ab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-screen-as-the-only-real",
+  "field": "title",
+  "lang": "ko",
+  "text": "실재는 스크린뿐",
+  "model": "claude-opus-5",
+  "source_sha256": "d25bba300105016b39ed5ac1e738bf47761374886ca69edc02204ab741921022"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-screen-glow-that-loves-instead-of-a-person",
+  "field": "title",
+  "lang": "ko",
+  "text": "사람 대신 사랑을 받는 화면 불빛",
+  "model": "claude-opus-5",
+  "source_sha256": "098b0725b84dfc87400c88b15a8dd4f2a023ee96eecad4124e236e12a6bfa00e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-screen-that-indicts-its-watcher",
+  "field": "title",
+  "lang": "ko",
+  "text": "보는 자를 고발하는 화면",
+  "model": "claude-opus-5",
+  "source_sha256": "c9e98fd8a7a0f7dda1ef1fe12ce6776aeb515b9937b9160dd5a65e2337f10851"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-screen-that-watches-its-watcher",
+  "field": "title",
+  "lang": "ko",
+  "text": "보는 자를 되보는 화면",
+  "model": "claude-opus-5",
+  "source_sha256": "e7f7f0b31e1f011b7dce69b288aba65bef931c0986a74634a9da5e7810959dd8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sculpted-superego-the-nation-climbs",
+  "field": "title",
+  "lang": "ko",
+  "text": "국민이 기어오르는 조각된 초자아",
+  "model": "claude-opus-5",
+  "source_sha256": "b6545a6198ecd37f827935c7b394a7ac0c5f1f7d0880e606f45b0a36c1e03dfc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sculptor-outliving-his-own-moment",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 시대보다 오래 산 조각가",
+  "model": "claude-opus-5",
+  "source_sha256": "b5fc8e5427f79293d49c348fd8b35aa117dd45dbbcd36ff37c4d43042a53ccc3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sculptor-who-carves-a-living-being",
+  "field": "title",
+  "lang": "ko",
+  "text": "살아 있는 것을 깎아내는 조각가",
+  "model": "claude-opus-5",
+  "source_sha256": "3d36703a078c59238d6957eba5026be3d975eb8b65b25522ca098861a812fb99"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sea-as-mother-humanity-as-spawn",
+  "field": "title",
+  "lang": "ko",
+  "text": "바다는 어머니, 인간은 그 알",
+  "model": "claude-opus-5",
+  "source_sha256": "b7b9fc61af9973964a6f4529648d32db19c1fe86c75cba45470d17ee32470902"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sea-as-off-screen-where-death-waits",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽음이 기다리는 화면 밖, 바다",
+  "model": "claude-opus-5",
+  "source_sha256": "4671eb5668c708a8559ca5ef6b22048ac0923292b54afc0608fa02978ba10ec7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sea-as-the-undifferentiated-real",
+  "field": "title",
+  "lang": "ko",
+  "text": "분화되지 않은 실재로서의 바다",
+  "model": "claude-opus-5",
+  "source_sha256": "e978555b03a0dfcbef53beddaefe999a13a0dafa68e55013f611c8b714484fb2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sea-authored-as-character",
+  "field": "title",
+  "lang": "ko",
+  "text": "등장인물로 쓰인 바다",
+  "model": "claude-opus-5",
+  "source_sha256": "dfeedd19ffd94e89d89f307e36d28097e169148de28ca6fd673f528df7889bb5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sea-that-confesses-its-soundstage",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 세트임을 실토하는 바다",
+  "model": "claude-opus-5",
+  "source_sha256": "4a9b5c7c9acb426b4d90ab5daddd4043b65a08ca617859e15a772853f1fe9366"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sea-that-refuses-to-be-backdrop",
+  "field": "title",
+  "lang": "ko",
+  "text": "배경으로 남기를 거부하는 바다",
+  "model": "claude-opus-5",
+  "source_sha256": "979a89a51e44495e42818e8c87c9d50bb41cc86064b358bd4f681bb924d62b5e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sealed-chamber-of-hothouse-pleasure",
+  "field": "title",
+  "lang": "ko",
+  "text": "온실처럼 달아오른 밀실의 쾌락",
+  "model": "claude-opus-5",
+  "source_sha256": "1e27be6ba0cc40358bdae12b8013456eac7835a08783e4ff2d230c5e83414c23"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sealed-house-as-american-dread",
+  "field": "title",
+  "lang": "ko",
+  "text": "미국적 공포가 된 닫힌 집",
+  "model": "claude-opus-5",
+  "source_sha256": "db5eb33f75b77042ab64ed528dd2de8a874fee862e9bd3328f62cb0b8c2b038d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sealed-refuge-as-national-symptom",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가의 증상이 된 밀폐된 피난처",
+  "model": "claude-opus-5",
+  "source_sha256": "f7761347a301105e934a00476e48b30d0a4455847d120b5327d4533bca14dcfa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sealed-room-against-the-living-republic",
+  "field": "title",
+  "lang": "ko",
+  "text": "살아 있는 공화국에 맞선 밀실",
+  "model": "claude-opus-5",
+  "source_sha256": "fa2b7165c3a097f80a9ef42cb478bfe8b1c6e5603b1db058ccf77dfb2eab1075"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sealed-room-as-a-class-held-captive",
+  "field": "title",
+  "lang": "ko",
+  "text": "갇힌 계급으로서의 밀실",
+  "model": "claude-opus-5",
+  "source_sha256": "a7f5e95eb07b707a5a8f15f883124c8f3e45b0b1e871be456d9681d12df21332"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sealed-room-as-crypt-of-refused-mourning",
+  "field": "title",
+  "lang": "ko",
+  "text": "거부된 애도가 묻힌 밀실",
+  "model": "claude-opus-5",
+  "source_sha256": "593676b2ef149dbd0af9340218c86f2e496ba59822da44f48269fecc4fecc826"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sealed-room-as-family-crypt",
+  "field": "title",
+  "lang": "ko",
+  "text": "가족의 지하 납골당, 그 밀실",
+  "model": "claude-opus-5",
+  "source_sha256": "4b654ed4e7c61d6a38804cf1b4e509b58372c4830b3a63576d102d48adcd73b9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sealed-room-as-moral-crucible",
+  "field": "title",
+  "lang": "ko",
+  "text": "도덕을 달구는 도가니, 밀실",
+  "model": "claude-opus-5",
+  "source_sha256": "946a45184259fce68337d2221aa9b7ad6bef2803f7cce8bb8e2b51ba1bc2e074"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sealed-room-as-the-city-s-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "도시의 진실이 밀실 안에 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "b8789a54d4fb8f94b98ae6c9ff33b6613e1e7c8f7e5e0f7390433ea6a4e19d75"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sealed-sanctity-that-breeds-rot",
+  "field": "title",
+  "lang": "ko",
+  "text": "썩음을 키우는 봉인된 성역",
+  "model": "claude-opus-5",
+  "source_sha256": "f93516ded5d8fe93a7e3aca74c1ccb5ebf7434596209f536b49fc0874fb69639"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sealed-suburban-house-as-tomb",
+  "field": "title",
+  "lang": "ko",
+  "text": "무덤이 된 교외의 닫힌 집",
+  "model": "claude-opus-5",
+  "source_sha256": "4c64b7baea949d239cb3f2fb2bd8245bbd5c66e98d8dc520cab75f446b0dfdd5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-seam-where-archive-becomes-living-footage",
+  "field": "title",
+  "lang": "ko",
+  "text": "기록 필름이 살아 있는 화면으로 넘어가는 이음매",
+  "model": "claude-opus-5",
+  "source_sha256": "3995c28d339ddec149068429d4675713d4501a56cf5a283745380d400f2709d2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-seamless-digital-composite-as-hidden-author",
+  "field": "title",
+  "lang": "ko",
+  "text": "티 없는 디지털 합성이라는 숨은 작가",
+  "model": "claude-opus-5",
+  "source_sha256": "57268f936d4f8efcc1a5967fa1f1c231411b026784eb409bc7d0dfe621cd3c0c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-search-whose-object-dissolves-into-the-searcher",
+  "field": "title",
+  "lang": "ko",
+  "text": "찾던 것이 찾는 자에게 녹아버리는 추적",
+  "model": "claude-opus-5",
+  "source_sha256": "eae58cf420d3a156f13b404b83018bb0546cbcfad278a30973e6af83bd31dbba"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-season-named-in-the-title-lies",
+  "field": "title",
+  "lang": "ko",
+  "text": "제목의 계절은 거짓말이다",
+  "model": "claude-opus-5",
+  "source_sha256": "310e5b0745b30b916f50e1bb56461110330e21908ad147fa564faed737b65c54"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-season-named-only-from-its-end",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝나고 나서야 이름이 붙는 계절",
+  "model": "claude-opus-5",
+  "source_sha256": "4ef9fba88b2e00c404722ec8e17a3682ae33a546fd015a0f890fdfd4f644fbdb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-seasons-that-decode-the-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화를 푸는 열쇠, 사계",
+  "model": "claude-opus-5",
+  "source_sha256": "226795b26b3dae798b5df82930c779cbe83d6821c2c6587406550ecf5739c4c5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-secret-whose-function-outlives-its-content",
+  "field": "title",
+  "lang": "ko",
+  "text": "내용은 사라지고 기능만 남은 비밀",
+  "model": "claude-opus-5",
+  "source_sha256": "47bc5a2d8bcf4f285d0fbefa712aa502f2e334a00202801d3561cf4327682376"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-secular-institution-as-disguised-monastery",
+  "field": "title",
+  "lang": "ko",
+  "text": "수도원을 감춘 세속의 기관",
+  "model": "claude-opus-5",
+  "source_sha256": "2d1b3524982143a68881ef05d7b772acc9eb39958485279532f18d5fbbb2056b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-securitized-dread-of-the-post-9-11-world",
+  "field": "title",
+  "lang": "ko",
+  "text": "9·11 이후 세계의 안보화된 불안",
+  "model": "claude-opus-5",
+  "source_sha256": "9e5da7604fc55fc73aa3d0bcb904f4780a3ce821fb6e5d132be9f040f618ce81"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-security-state-s-right-to-destroy-its-own",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 국민을 없앨 권리를 쥔 안보국가",
+  "model": "claude-opus-5",
+  "source_sha256": "d7bba02a072e4fa329de045b35e3b4cb591adac10d1bb750d904348da07cc9b2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-seized-home-as-occupation-in-miniature",
+  "field": "title",
+  "lang": "ko",
+  "text": "점령의 축소판이 된 빼앗긴 집",
+  "model": "claude-opus-5",
+  "source_sha256": "1a78ef91af431720270774978990ff76dcb8229830e751b202f664ea698e23e2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-seizure-as-hidden-truth-erupting",
+  "field": "title",
+  "lang": "ko",
+  "text": "숨은 진실이 터져 나오는 발작",
+  "model": "claude-opus-5",
+  "source_sha256": "0efeb35c34f7d324c4bbcabcb1fe254c15176424a0e1163b885dabaa1b45a988"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-seizure-as-the-body-s-suppressed-speech",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸이 눌러둔 말, 발작",
+  "model": "claude-opus-5",
+  "source_sha256": "212e753b4c7260828b9a106f6cef491dce56efe4597ba4748f800ea5d5ddf640"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-appointed-engineer-of-a-sealed-world",
+  "field": "title",
+  "lang": "ko",
+  "text": "닫힌 세계를 설계하겠다고 나선 자",
+  "model": "claude-opus-5",
+  "source_sha256": "e92f4abec6c4d9fe0e13a338a360ddaa93f56c52e6cbbebb455131ed8c99b76b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-as-borrowed-mask",
+  "field": "title",
+  "lang": "ko",
+  "text": "빌려 쓴 가면인 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "106664a964c9931b2bb8fc67a0bb9618af06ccd9c78c29513a5fdeb13667bd9a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-as-editable-file-not-substance",
+  "field": "title",
+  "lang": "ko",
+  "text": "실체가 아니라 고쳐 쓸 수 있는 파일인 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "ad8f13d563a5fc43601b7bb8f54e328f2da86ae272e9443dc71b041369a8c161"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-as-performed-copy-without-origin",
+  "field": "title",
+  "lang": "ko",
+  "text": "원본 없는 복제를 연기하는 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "8d1debc2b8d9907fef7b9ac3c832281b265ba71fe9551980f8b518ad1f3fb8a2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-as-pilotless-committee",
+  "field": "title",
+  "lang": "ko",
+  "text": "조종사 없는 위원회, 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "979728d15b25e1bcab38a40230cefd5ca1475eeeb80f622c8f5ef523cb89ba90"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-authored-against-the-given",
+  "field": "title",
+  "lang": "ko",
+  "text": "주어진 것에 맞서 스스로 써낸 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "397a8a83804ae5f035808be03f3e121b4e9be1cf33bbbdaf6617ddeaf0277890"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-authored-in-others-testimony",
+  "field": "title",
+  "lang": "ko",
+  "text": "남들의 증언이 써 내려간 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "04e7d92980b69caceb39dace605400dd276ae8514f69387488842659cd1f61e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-authored-into-being",
+  "field": "title",
+  "lang": "ko",
+  "text": "써서 존재하게 된 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "921b269b83b365fa473bc667522069558486d0da69498af622e74d2a44926415"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-bankrupting-cathedral-to-dying-cinema",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽어가는 영화에 바친 대성당, 파산까지 치른",
+  "model": "claude-opus-5",
+  "source_sha256": "bae089c50f28a19940a9a5861c433f391c6113816425e98e75c23450dde04117"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-bound-to-the-unmet-other",
+  "field": "title",
+  "lang": "ko",
+  "text": "만난 적 없는 타자에게 묶인 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "5efcf24c67799204fe68765ca9cc3454e1056ed6948a4f1510e239117c2c3f84"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-branded-for-late-capital",
+  "field": "title",
+  "lang": "ko",
+  "text": "후기 자본이 붙인 상표가 된 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "f720ea0b83ec1d1130efc57f53aeaaa8fa69825af2a12f7800041204aff5a786"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-cannot-survive-its-own-class-ascent",
+  "field": "title",
+  "lang": "ko",
+  "text": "계급 상승을 견디지 못하는 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "4f951caa1639a567544194d9fedae6c9da91df9f211195db1bc20a03b71c9097"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-composed-against-collapse-as-didion",
+  "field": "title",
+  "lang": "ko",
+  "text": "디디온처럼, 무너짐에 맞서 다잡은 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "7eaedf552725309434e2a08d26453d837fc09f662870e35affce4ead659382ee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-consumed-by-its-own-refusal",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 거부에 잡아먹힌 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "e9178f00e052cd755c74b84c1b81525bd9de22823117cc40d180b92e5cdfb9df"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-destroying-machine-at-full-speed",
+  "field": "title",
+  "lang": "ko",
+  "text": "전속력으로 저를 부수는 기계",
+  "model": "claude-opus-5",
+  "source_sha256": "a8e5428449431fc754cd4965621be7e72d9a02b398cd745964ca9147220ff090"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-dispersed-into-invented-names",
+  "field": "title",
+  "lang": "ko",
+  "text": "지어낸 이름들로 흩어진 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "e0385b61aa55fef5c462fb169d70dd9263d1a545dbddde3f9aa35c869c306015"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-dissolved-into-its-own-broadcast",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 방송에 녹아 사라진 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "845b8920a2df1686ccab05a7bb9331baaa2faf9194c639a60ef10f61bb96f037"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-dissolved-into-pleasureless-performance",
+  "field": "title",
+  "lang": "ko",
+  "text": "즐거움 없는 연기 속에 녹아버린 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "26595caf2ae94621ee4c1583e3a1cada7dd11d6ad65c56a01be7a7e44a4b1ab9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-dissolved-into-weather",
+  "field": "title",
+  "lang": "ko",
+  "text": "날씨가 되어버린 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "8df8b7dca13e53c2e959ec66f0860e37b588718f1e51beca27632eecf497fd34"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-found-only-in-borrowed-voices",
+  "field": "title",
+  "lang": "ko",
+  "text": "빌린 목소리에서만 찾아지는 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "f62b44d03a73c2d8cd2bfec6553b33b54a49ba9451022ad666f7fc52c18199c2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-heard-only-when-deaf-to-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "제게 귀를 닫을 때 비로소 들리는 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "ae0db5d143e8e9c90f995a90383b75320ac0bf9d4f774c02e143b280655933b8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-indulgent-charge-as-critical-flinch",
+  "field": "title",
+  "lang": "ko",
+  "text": "'자기탐닉'이라는 혐의, 비평의 움찔거림",
+  "model": "claude-opus-5",
+  "source_sha256": "fb5da042c8e2ef6af4f070faa7e1086d79f13ae43b31133013f949c0d2a675dd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-is-held-as-property",
+  "field": "title",
+  "lang": "ko",
+  "text": "재산처럼 소유되는 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "6a98e1019521c05d7f22680abcead54adb76ff2b0d1c3fb7a405fc3f06f91159"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-is-made-of-state-not-soul",
+  "field": "title",
+  "lang": "ko",
+  "text": "자아를 이루는 것은 영혼이 아니라 국가다",
+  "model": "claude-opus-5",
+  "source_sha256": "fd8e2125f831b4fdac0aab886672fb1bc06251ff1b605fae30136a236e3037d6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-made-man-as-predatory-fiction",
+  "field": "title",
+  "lang": "ko",
+  "text": "자수성가라는 약탈적 허구",
+  "model": "claude-opus-5",
+  "source_sha256": "3360bd662e9a32aba4d71efbff8dee7423814eee49bea6decb506f3e0abf99b1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-made-of-many-never-one",
+  "field": "title",
+  "lang": "ko",
+  "text": "여럿으로 이루어진 자아, 하나였던 적 없는",
+  "model": "claude-opus-5",
+  "source_sha256": "3730b4024b48b18fde7cd28cc38c048d32b3176bbf9adff80ca6ffe38e77ae0c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-multiplied-into-heteronyms",
+  "field": "title",
+  "lang": "ko",
+  "text": "이명(異名)으로 불어난 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "c4dc76f01f5251285977b3f345fdfa9e00586616bbd2e859a62b5cd403d29774"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-multiplied-into-other-names",
+  "field": "title",
+  "lang": "ko",
+  "text": "다른 이름들로 불어난 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "9aa4d65749451b5bf27305de58d0ed67db73c045efa27afc167aacd11718dede"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-murdered-to-be-reborn",
+  "field": "title",
+  "lang": "ko",
+  "text": "다시 태어나려 죽인 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "991cc126f9d02c1f7a4fa0f2a4f32407e6cc3098d99ef1369a54498c4950878d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-performed-as-puppet-theatre",
+  "field": "title",
+  "lang": "ko",
+  "text": "인형극이 되어버린 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "aa8ca12376e980bfffde25c21815de0bff834bd7a9c92ba20c652a671f77e60c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-performed-under-the-sociologist-s-gaze",
+  "field": "title",
+  "lang": "ko",
+  "text": "사회학자의 응시(gaze) 아래 연기되는 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "4a67cedeb1a7d157367e371898526d1449e941a54338273dd12c8bc1ad6eb9d8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-priced-on-an-open-market",
+  "field": "title",
+  "lang": "ko",
+  "text": "공개 시장에서 값이 매겨진 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "e627c38e09912ae19d1d25c3ef9c38bbd6756aebe1346f60264a84aeac986c2f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-reduced-to-spectatorship",
+  "field": "title",
+  "lang": "ko",
+  "text": "구경꾼으로 쪼그라든 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "8cf56cf617f5187c547fc07ee671cb2a3e458e2ab3a0d0c25ab76464501704b0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-self-rewritten-in-a-borrowed-name",
+  "field": "title",
+  "lang": "ko",
+  "text": "빌린 이름으로 고쳐 쓴 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "44173d5cb1642a8d28a177a0fc2fb7ac456caae386d71da507240a6304f3453a"
+ }
+]

@@ -1,0 +1,92 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-stoning-of-soraya-m-2009",
+  "field": "lead",
+  "film_id": "b947982a-ba55-473c-8197-c9e8d1307a62",
+  "lang": "en",
+  "text": "A car breaks down outside a remote Iranian village in 1986, and that mechanical failure is the only reason any of this reaches the outside. Zahra has been waiting for a stranger with a road out. She gets Sahebjam, and she talks. Cyrus Nowrasteh builds the film as a transaction between one woman's memory and one outsider's capacity to carry it, which puts the account of Soraya's marriage inside a frame the viewer is never allowed to forget. Most of what Zahra describes is domestic: an arranged marriage to a man who rules his house, the economics of who feeds whom, the way an accusation moves between neighbours before it reaches anyone with authority. The village has its own version, and nobody in it wants that version tested. Everything turns on speech — who says a thing, in front of whom, and whether it can be repeated elsewhere.",
+  "model": "claude-opus-5",
+  "source_sha256": "d01f18a0456ff031463a2223c707b59f3ca33bde291fe50c9a2cb78b3bfbc3aa"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "harmonium-2016",
+  "field": "lead",
+  "film_id": "ba586e9f-f48c-4664-98bd-36c42db72a96",
+  "lang": "en",
+  "text": "The hiring is done before anyone else in the house is consulted. Toshio takes on Yasaka — an acquaintance from years back, newly out of prison — and puts him to work in the shop attached to the family home, which means meals, hours, and a stranger's presence in the rooms where a family keeps its private life. Nothing about the arrangement is announced as a threat. Koji Fukada lets the intrusion proceed at the pace of ordinary courtesy, and the two hours are patient with what that costs: the household adjusts, the routine makes room, and the question of why Toshio owed this man anything sits under every civil exchange. The Un Certain Regard prize went to the design rather than to any single shock. A family organised around a silence, and a guest admitted by the one person who knows what the silence is.",
+  "model": "claude-opus-5",
+  "source_sha256": "aeaf27e4cb5d46ccbfe9a491e0e0066c3cf86002c4c5cbb640788e3f50267cec"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sh-h-razade-2018",
+  "field": "lead",
+  "film_id": "bb0a5ea3-0eb6-408a-8128-2eae560c56e1",
+  "lang": "en",
+  "text": "Zachary is seventeen when he gets out, and the door he was counting on — his mother's — stays shut. Marseille takes him back on its own terms. What follows is less a descent than a job he never applied for: he loves Shéhérazade, Shéhérazade works, money starts passing through his hands, and by the time the arrangement has a name he is already the person that name describes. Jean-Bernard Marlin keeps the camera at pavement height and runs at the speed of adolescence, where a decision is whatever gets said in the ten seconds before somebody changes the subject. The tenderness is not ironic, which is the hard part: two teenagers can be entirely sincere about each other while assembling something the law will call a crime. Marlin is not building a case. He watches a boy who wants to be necessary to somebody, and lets the cost arrive in instalments.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bb72869b95c2a36e5e7755cb881fc47a44a6d3c2eefe8fd5c7598f4f8521844"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "burnt-2015",
+  "field": "lead",
+  "film_id": "bc80bea9-e607-4ac0-bdde-675d8b8a40dc",
+  "lang": "en",
+  "text": "Three Michelin stars: a redemption story with a scoreboard bolted on. That is the useful thing about Adam Jones, who wrecked one career with narcotics and temperament and now wants another in London, judged by inspectors who never announce themselves and do not care how sorry he is. John Wells stays a hundred minutes and mostly stays in the kitchen, which is where the film is on solid ground: heat, timing, the small tyrannies of a service, a plate sent back to the pass working as a verdict on a person. The two stories inside it pull opposite ways. Getting clean is private, unverifiable and never finished; three stars are public, external and awarded by someone else on a night the chef does not pick. Burnt is honest that only one of them can be scored, and spends its time there.",
+  "model": "claude-opus-5",
+  "source_sha256": "d4a5d8d9f79c3c786327a82f4edec2e5047a7ee822e1450b966b420766c1692d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "original-sin-2001",
+  "field": "lead",
+  "film_id": "be5ee1ce-0ee6-401a-b2ec-fa1311cd09a6",
+  "lang": "en",
+  "text": "The mystery is not who she is; it is how long he can go on not asking. Michael Cristofer sets a man in pursuit of a woman whose name, history and intentions are all provisional, then declines to let him settle any of it, because settling it would end the affair. At 116 minutes the film takes the unhurried route: papers and stories fail to match, identities get borrowed, and the charge comes from the gap between accounts rather than from anything either party confesses. The four genre labels stacked on it — thriller, drama, mystery, romance — are less a hedge than an accurate description of a picture that keeps changing which one it is. What holds is the arithmetic of trust. Every new thing he learns raises the price of continuing, and he continues.",
+  "model": "claude-opus-5",
+  "source_sha256": "f7fd7f21a26d1826675f1df1cb4230daaf8cc9f139205e4bb095d83e7962cdca"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "in-the-shadow-of-iris-2016",
+  "field": "lead",
+  "film_id": "be93e3cd-7331-49eb-b11c-5f8356acc06f",
+  "lang": "en",
+  "text": "A wealthy man reports his wife missing, and the first thing the search turns up is how little of her life ran through him. Jalil Lespert's film begins as procedure and turns into an audit: bank arrangements, private appetites nobody meant to declare, and a plan that requires several people to behave exactly as predicted. Ninety-eight minutes leaves no space for a second investigation, so the film keeps tightening the one it has. The original title is a single word, the woman's name; the English one puts her in shadow and turns the camera on everybody else, which is more or less what the story does. Money is the constant. Everyone here is quietly working out what somebody else is worth, and nobody says the figure aloud.",
+  "model": "claude-opus-5",
+  "source_sha256": "92cdb28ebec47a4675f1bdb2aac6b90c8a77d7f46c4cf7f83072a6c96f9538bf"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "and-now-ladies-and-gentlemen-2002",
+  "field": "lead",
+  "film_id": "bf0bd4ae-dfc0-4890-aa17-3d6738364c67",
+  "lang": "en",
+  "text": "Two people set out to forget, separately, and the film treats that as a plan rather than a mood. One of them sings. The other steals jewellery and is British about it. Claude Lelouch spends 133 minutes arranging their collision, which is either indulgence or exactly the point: every coincidence, every detour, every crime that has to be outrun exists so that a meeting can feel fated after being thoroughly engineered. The thriller keeps the romance from going soft. The romance keeps the thefts from mattering more than they should. Lelouch is unembarrassed by the whole contraption — songs, hotels, two people who reach each other worn out — and clear-eyed about one thing: the past neither of them will discuss is what makes the pairing hold.",
+  "model": "claude-opus-5",
+  "source_sha256": "07efa9193b23e894b9a0796ee66ae2cdf78f6b428d99ee7bace77923468c5d2e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "it-begins-with-the-end-2010",
+  "field": "lead",
+  "film_id": "c0a0804e-965e-4da3-9fe8-53109d427e45",
+  "lang": "en",
+  "text": "Eighty-three minutes is a short lease for a love affair. This one spends it on a Paris summer, going back over the same few rooms with the same two people: passion, separations, returns, in a disarray the film feels no obligation to tidy. Michaël Cohen keeps the cast small and the weather warm. Heat is not neutral in a break-up — nobody sleeps, everything stays open late, and a reconciliation is always available at three in the morning. The film is not interested in blame. The risk in the design is monotony. What it buys in exchange is accuracy about a particular exhaustion: a relationship that is neither working nor finished, conducted by two people who have run out of new arguments and keep having the old one anyway.",
+  "model": "claude-opus-5",
+  "source_sha256": "309dc4f8f9e6a115023cf2f9725cedda76b3ae90d069920b5c8977260b1dbf6f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hill-of-freedom-2014",
+  "field": "lead",
+  "film_id": "c21ddc41-e54a-49e6-a654-e00c565d595d",
+  "lang": "en",
+  "text": "The letters hit the floor and lose their order, and that accident is the film's whole construction. Mori came from Japan to propose to Kwon and arrived while she was away in the mountains, so he wrote the days down as they passed; she reads them now with no dates to go by, and the audience reassembles the week alongside her. Hong Sang-soo needs sixty-six minutes for this. The comedy is in how little the shuffling costs: the days a man spends waiting on one answer resemble each other so closely that nearly any order would serve, and that near-interchangeability is the joke and the sadness at once. Nothing is withheld for effect. What surfaces is not a chronology but the shape of a person who has arranged everything around a reply that has not come.",
+  "model": "claude-opus-5",
+  "source_sha256": "6588969b9aa14eb35a52f4ff029992cf3ca6211d5e582131ffafce08817feb7f"
+ }
+]

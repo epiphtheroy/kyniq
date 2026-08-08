@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "vancouver-wears-america-s-anonymous-face",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어디든 될 수 있어서 결국 아무 데도 아닌 도시. 자기 이름을 지운 채 남의 이름을 빌려 쓴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b64cfcd416141af8959674b49b2bc7ae11c504c9b9546b938e8771082fe1d4cc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "vanity-and-loss-as-one-gesture",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자기를 꾸미는 손짓과 자기가 무너지는 순간이 같은 동작이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "371f9b4cb484a690dea8e858916eb0bd3633f03e0856c93603a67914b3454c05"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "varda-against-the-finished-masterpiece",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바르다는 화가들을 불러들여 매끈하게 완성된 물건을 거부한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3da3c210b9838f07449eddec180b57581997a11b4771d15be710217072bcbad0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "velocity-as-the-condition-of-being",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "속도를 늦추면 존재가 끝난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "07b454e3a703c4209808f0a372f289a6db3d2a1f76b355d08082964820ddb3a7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "vengeance-that-consumes-its-own-avenger",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "복수는 제 몸을 먹는 과잉이다. 휘두른 자가 먼저 무너진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0cbbea57211aadf15246d0d69d1d8a36e17deba84daea0bc380783015e2e2e7e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "vengeance-that-treats-a-person-as-means",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도구적 이성으로서의 복수. 육체가 제 윤리를 겨눈 무기가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8495b47d192551f381d02045499828de8d6b1db60006053d14eb85cccd04405"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "vengeance-weighed-against-the-moral-law",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "복수를 무대에 올려 칸트적 의무가 어디까지 버티는지 시험한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2fd54a309a75ea8b4968976992e6d20736c783787746eb4897a9f807ce630d52"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "venice-as-the-beautiful-corpse",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가라앉는 도시. 넋을 빼앗을 만큼 아름답고, 역병이 들끓는 죽음의 자리.",
+  "model": "claude-opus-5",
+  "source_sha256": "da9ca08dc101c9947b4f1ec59b87c16a708d6919a0cba7c95e1aaa391c89cc9a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "verdict-migrates-from-court-to-crowd",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정의가 재판석을 버리고 군중의 카메라 앞으로 달아났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4515b5fa54c3b8e5fdbf5ccafb6a345ccc6a4e0c3fb60a80d552ee754813066f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "verga-s-verismo-migrating-into-the-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시칠리아 문학의 베리스모(verismo)를 영화의 그림자 원천으로 불러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d049bd75bc58a5abe557f9132f5706e19605a0d30dffb873e81a4a0706e8d32e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "vietnam-bleeding-through-the-genre-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전쟁의 잔학 보도를 공포물과 허구 안으로 몰래 들여온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9ef891fa9609a481be5b2957de2e8b9e1720bdf377ded7f2f8d1c31cfd2be41"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "vietnam-bleeds-into-the-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전쟁 영화가 아닌데도 전쟁이 배어 나온다. 부르지 않았는데 와 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aabe5773ada48eaf8283207285e27a262d4e6f6e377981b17c5635d540826069"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "vietnam-refought-and-won-onscreen",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미국이 이겼기를 바랐던 전쟁, 그것을 장르 스펙터클이 대신 치른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eecca778d60739382abfc7266399dc5e2df9336a435dc24ee7bf0a8356502c38"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "violence-and-dance-as-one-geometry",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽이든 구애하든, 움직임은 결국 안무로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1fdb48901fb57772535110a0770cf8898cc17bf717a50a05f531a8b443d38ce9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "violence-as-the-state-s-disavowed-signature",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살해는 정치체가 숨겨 둔 비용이다. 때로는 의례로, 때로는 상징으로 치러진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3df333f4c07235e7c68cbdf592eefdd5ffaa6a1f80f63e80cba36bedcd18d00d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "violence-choreographed-as-abstract-expressionism",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전투는 몸짓의 캔버스. 흩뿌려진 피는 물감이 흘러내린 화면이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bc37391e3abdbeba01d2c72565016b18f79ebd4c9b06446221692fe665b3db3d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "violence-subcontracted-by-the-state-and-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "청부 살인자에게 외주로 넘어가는 것들. 혁명이거나 국가이거나 사적인 분노다.",
+  "model": "claude-opus-5",
+  "source_sha256": "42ee823a762a200d3cbd029cc2d7926388efbc00a7c80ba54b6a5e4912d1b5f3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "violence-that-punishes-the-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바깥을 향해 날아간 주먹이 실은 제 무력함과 죄책을 때린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "52d7af46d81fb516e97e8916949a00c032eacff390e347d118afc3cc077077a0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "virtue-drilled-in-never-argued",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "선함은 설득으로 오지 않는다. 길들임과 습관으로 온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "109b6889108306ed23691a8cae902cbfe99b4ff33d2d6b17ddd4c63ce976b8fe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "virtue-ethics-mistaken-for-a-checklist",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "에우다이모니아(eudaimonia)를 방법론이나 결함으로 오독한 코미디들. 그 안에 덕 윤리가 슬쩍 들어앉아 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "11e68e2190c2a061cd5e619b9afc6ef96f66fa8b1ba1616aaeaa3953617d033d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "virtue-is-the-lie-practiced-until-true",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "선함은 내면에서 계시되지 않는다. 연기하고 반복하다 보면 어느새 도착해 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8596baff91216096dd9ef21f6679f7f3118ddab537016637f848723bc48e7a5b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "visibility-as-a-permission-the-state-grants",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "누가 보여도 되는가. 그리고 어디서.",
+  "model": "claude-opus-5",
+  "source_sha256": "1773f5bd83d0bd16ea32a96e2bb8d072b8ba3e4884610ee5cd1126e174c21d2b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "vistavision-as-the-format-becomes-the-argument",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽은 와이드스크린 공정을 되살린다. 그래서 매체 자체가 의미를 짊어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e3a9ab83c2fade1222030177fed18883a8a4336c56323b1ea3bd449599f88713"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "wage-labor-of-the-soul",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "노동이 영적 계약이 될 때. 서비스 경제를 형이상학으로 읽는 시선.",
+  "model": "claude-opus-5",
+  "source_sha256": "12e7424257cdd639ecafbf5408c8f27250840fb7d3a375b100210b9d75923042"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "wagner-s-total-artwork-in-the-multiplex",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "라이트모티프와 신화를 거느린 대중 블록버스터, 곧 종합예술(Gesamtkunstwerk).",
+  "model": "claude-opus-5",
+  "source_sha256": "c0cd4bfed9f722a48c2f87fd12557cf93cbe2470f8c1ad3e80999c301346abe4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "war-as-bureaucracy-that-manufactures-corpses",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전장은 물류 체계다. 시신은 거기서 처리된 서류다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0ba716b3b255c9683730411e2a955bf03e50ff0d45098cac368567ced2d55a51"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "war-drained-of-politics-to-expose-its-machinery",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대의를 걷어내 보라. 남는 것은 제조 공정과 이데올로기, 그리고 강박이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "858a458047cc3349f179b1d64f182e148f59efcb5bacb096a6077ccef6f78b3b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "warhol-s-static-stare-at-the-sleeper",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "고정된 카메라가 한 육체를 깜빡이지도 않고 오래 지켜본다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9bcc841b8803267f638c4d98440f35e15a293f347ea9af53f0b0f90092e80948"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "washington-staged-where-washington-forbade",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세트장과 백롯에서 위조되고 복제되고 옮겨진 수도의 기념물들.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d66d2e0906c98f881b58da214a295a2e9f75bb696e2681fc0714005f638abb3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "water-as-tarkovsky-s-liquefied-time",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "엎질러지고 흐르고 유리처럼 굳는 액체. 이미지 아래로 시간과 슬픔이 실려 간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7fc3c7ba9b6fda082334f861d332dc27d941109e0bb4b135873641ebc6dbe5e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "water-as-the-border-of-caste-purity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "웅덩이와 물가가 경계를 긋는다. 누가 누구에게 닿아도 되는지를.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b7f6aec0b2bebb3ef3277930a10d038312c4aef4019d6468a9353fea3d6759d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "water-as-the-engine-of-domination",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물길을 쥔 자가 사람을 쥔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "52947cd6e955aab694068db5a15c1c14c98096004878a27b9e53aa83ca4f3032"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "water-as-the-film-s-master-key",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "텍스트 전체를 여는 액체.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d820c6f3d9d94f2d43cd4e0b295bfe777a6ae3cf625deba673e3ee32fd428aa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "water-as-the-pull-toward-dissolution",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "물에 잠기는 몸. 아직 나뉘지 않은 기원으로 돌아가려는 충동의 형상.",
+  "model": "claude-opus-5",
+  "source_sha256": "187ca4fc5da6abdb0e4548b16bac8a35f6c9a725f3a9ed5b522ef3e52983aebd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "water-as-the-repressed-made-flesh",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "호수와 바다가 몸을 얻는다. 정신이 파묻은 것의 몸이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "90950023e3e554b74239c978502961fcc921faa62808672163086b721b8a718a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "water-as-the-return-of-the-repressed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "홍수가 밀려오고 조수가 돌아오고 익사한 것이 떠오른다. 정신이 묻어 둔 것들이.",
+  "model": "claude-opus-5",
+  "source_sha256": "f139177157cff0a5669bd1ada07b3fc57c50e62c379890b7bbe0aed9279a9eff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "wayfinding-over-the-object-of-the-quest",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "떠돌고 실려 가는 동안, 애초의 심부름은 밀려난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9da302ef02aa3cb8701e6feca3e0d5c67eb34d13e3a0a5bdc89313453d513fb9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "wearing-the-dead-to-refuse-their-loss",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "돌보는 자와 대역은 죽은 자아를 애도하지 않는다. 제 안에 들여 입는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0eec85b8515058f5885e1c72da27eac75891944cd5a21d4d81ea0464ce9d1d93"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "weightlessness-engineered-not-given",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "떠 있는 몸은 자연현상이 아니라 공들여 만든 기술이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d4bc61badcedf9f752ced57b9abb43eb4a8498e36d03ce0a6d72238b9da4e298"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "weimar-smuggled-through-hollywood-customs",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "망명자가 표현주의를 국경 너머로 들고 와 미국 영화에 풀어놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6d96b0c0b51cec4d3e15c6b65a6879e08c94b85e02a9593c041c44a682372fe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "weird-as-the-critic-s-surrender",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'기이하다'는 딱지는 중심부가 주변부의 진실에 두르는 격리선이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1534d530be1644f03d9ac8852d16ce036714b8b8436f68507cca67122981a724"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "wells-s-invasion-drained-of-its-anti-imperial-sting",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "H.G. 웰스를 미국식 스펙터클로 갈아 끼우면서 그의 비판만 잘라낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cdc83a3bf1e24b608d9edaa84903ff0f803c1c23effdb681b70f13c374f8e1f4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "western-praise-as-self-reassuring-misreading",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서구의 갈채는 제 필요를 비춰 볼 뿐이다. 몰래 심어 둔 비판을 순수로 착각하며 안심한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "11ea20e0d149a99e4e65fe09f863ad606e1fe2d2e1946192e559d906497c6c72"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "what-lies-beneath-the-surface-speaks",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진실은 잠겨 있다. 진짜 자아는 물속에 산다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0f79f255e11eeb25adf0fb6121836b97bcd2cd7c47ea047392703fb236687695"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "when-the-people-become-the-state",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "버림받고 빼앗긴 자들이 주권을 되찾는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1eaf5f38d01d8c7ff17bf846e2888976025f326b164caf66a9e9d9768f5384ec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "when-the-state-abandons-women-women-take-the-punishment-into-their-hands",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "법��� 자리를 비우면 여자는 사적 복수로, 아니면 자기 탈환으로 내몰린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c5ee350e2b2dab0d56e6768c4b56cf7f7c0247ff0340b00babb1b536ff9d6968"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "where-climax-and-death-become-one-drive",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "에로스와 타나토스가 하나로 녹아 치명적인 절정에 이른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2bbee745ef27f455a074ef6d3e2ec199c5cb1f26e152493700911fa446b40411"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "where-deontology-breaks-against-dirty-pragmatism",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "원칙을 지키는 자와 순서를 매기고 법을 구부리는 자들이 부딪친다.",
+  "model": "claude-opus-5",
+  "source_sha256": "06b7fdf915e94d48ee87105f33ac6266631ef3a40da9212334c9b4b68f560b8b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "where-flesh-and-machine-share-one-skin",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "유기체와 기계의 경계가 풀려 하나의 에로틱한 존재론이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6f235c129ab198aa56aa64b71bcc10236e7b5f68bb5a08979639b255a04aa6fb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "where-the-exception-becomes-the-map",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "예외 상태가 장소로 굳는다. 주소가 생기고, 지도에 영구히 남는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1e9c0f42a7b5b4f02d9988c508b0c14da57f299feede02cc382cad4d643892e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "whimsy-as-armor-against-unbearable-despair",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "귀엽다는 말은 영화의 슬픔 앞에서 몸을 움츠린 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "529ee251aabb79857f22b90ff6061f55aaf4fb376f93804232029e2240d02195"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "whitechapel-as-set-real-or-rebuilt",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세워 올린 리퍼의 런던과 사람이 살던 리퍼의 런던.",
+  "model": "claude-opus-5",
+  "source_sha256": "b067c507d3b152fde5e72e05dcea6671d8138389b932d08c619364239d8d604b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-authors-the-woman-s-account",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "여자의 이야기를 누가 쓰고, 누가 갖고, 누가 판결하는가.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e6f9815f606d700b2156335212e4173b18b7ac432bfef3ee96ae058c34ea2d7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-controls-the-narrative-owns-the-power",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이야기를 쓰는 권리, 그것이 지배의 진짜 도구다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3bbc9eaf449cf89e067e0c1741f78ae94646a06cce7a7d166ff8b2a5685187cb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-controls-the-record-controls-the-real",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공식 판본과 편집본과 기억. 그것을 쥔 자가 진실을 쥔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "28412a7a0f831c635781dd9988b78a7327bb8a9f58932302ae838aef074b0cb4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-gets-to-die-on-camera",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스펙터클이 정한다. 어떤 죽음이 팔리고, 화면에 어울리고, 볼 만한지를.",
+  "model": "claude-opus-5",
+  "source_sha256": "a3afaa50e9d8489aa0a954bdf03bd1b4c931e3a36f931efaba5492fa4a8cf9f9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-gets-to-leave-who-must-stay",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "집안일의 몫은 성별을 따라 기울어 배분된다. 떠날 수 있다는 것은 특권이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e6a834f436f0f626af17d71e1ed4c5ae1fd341476092b1e86a6b3a2c0a09bf76"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-holds-the-microphone-holds-authority",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서술이 여러 입으로 흩어진다. 목소리를 빼앗아 오는 민주적 다툼이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "85d8b3cf7a8b52d45a91055e89bdb063f100e3039da2d01774fa0b7d8bcacb27"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-holds-the-right-to-choose-a-side",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "편을 고르고 발을 뺄 권리는 자유가 아니라 계급이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cdcbd8c5fa02ba2094334fbf2bd7b864ea18ca6041c528ae23257642dbc8ac20"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-holds-the-right-to-narrate-chile",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "국가의 이야기를 누가 쓰는가. 칠레 영화가 다투는 것은 그 권리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d72f91187d6c59815d122758a90b33394f3b303e976ef28d83e60906fe422fde"
+ }
+]

@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "small-slow-but-steady-2022",
+  "field": "lead",
+  "film_id": "519f3aed-6f03-4fea-a463-7ee9cb1466f4",
+  "lang": "en",
+  "text": "A boxer's first two wins arrive early, and the film records them the way it records everything else: as things that happened. Keiko trains, works a job, and returns to a gym whose future is not hers to decide. Sho Miyake gives the story ninety-nine minutes and no appetite for uplift; the pressure comes from schedules, from rent and hours, from the question of where a fighter goes if the room that made her closes. The dialogue is Japanese, the money French, and the year's Kinema Junpo prize for best film went to it. Boxing here is labour before it is spectacle, the same movements done again and done again, and the film trusts a viewer to feel the difference between a person who wins and a person who keeps showing up. That difference is the whole of the drama, and it is enough.",
+  "model": "claude-opus-5",
+  "source_sha256": "e028cf353770abca0b2e133fce2af052c89d309775189131f60e67467fed459c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hussein-who-said-no-2013",
+  "field": "lead",
+  "film_id": "5899c47b-db64-46cd-a63d-5bd39576868a",
+  "lang": "en",
+  "text": "One hundred and sixty minutes are given to a single, uneven battle, and the size is not decoration. Ahmad Reza Darvish's subject is Karbala and the stand Imam Hossein took there, an event the film treats as among the most consequential in Islamic history rather than as a plot with a solution. That sets the terms: armies, desert, and the arithmetic of a force that already knows the numbers against it. It took the Crystal Simorgh for best film. A viewer from outside the tradition may notice first how little this behaves like a war picture in the commercial mode. The drama runs on a refusal made before the fighting begins, and the camera keeps returning to the people who have to live inside that decision for a while, eating and speaking and waiting, with the matter already settled.",
+  "model": "claude-opus-5",
+  "source_sha256": "e6ac94ab92f7f83189d3608e99ee6b8f3ee2de75ce8227716232cf9d95543baf"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sebbe-2010",
+  "field": "lead",
+  "film_id": "11e86f42-2cde-412a-a4a3-14c12eeb4c0a",
+  "lang": "en",
+  "text": "The junkyard is the one place where the fifteen-year-old has authority: dead metal answers to him, and very little else does. At home the apartment is too narrow for two people and everything they are not saying, and Sebbe's loyalty to his mother has never been tested against an alternative, because he has never been offered one. Babak Najafi runs it to eighty-three minutes, which is about as long as this kind of pressure can be watched. The boy never strikes back; the film is precise about that, and precise about where the force goes instead. Among its prizes is one from the Church of Sweden, and the fit is exact: this is an unmistakably moral picture that declines at every turn to moralise. What it builds instead is a boy's competence, growing steadily in a place that has no use for it.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8f93a10702057f54675963e441204d8a7097b7b3e03782928dbb80a7731b9d5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "release-the-prisoners-to-spring-1975",
+  "field": "lead",
+  "film_id": "6181dd87-0dce-4bbf-9324-603025fc7fe5",
+  "lang": "en",
+  "text": "A woman who does not believe in locking people up is burgled, and the burglar is duly locked up. Frida treats this as a problem in her own philosophy rather than a grievance, and sets about getting Harald out by whatever means she can devise, which in a Swedish comedy of 1975 means a great many. Tage Danielsson gives her a house in the countryside and a friend who is very tall to her very short, and lets the film run on the distance between a principle and its consequences. Ninety-seven minutes, and no interest at all in whether Harald deserves the trouble. The comedy is deadpan and unhurried, more taken with the machinery of institutions than with punchlines, and it arrives at its laughs by treating a mild woman's convictions entirely seriously and then following them all the way out the door.",
+  "model": "claude-opus-5",
+  "source_sha256": "447cff882d1a5c53b68611fc8d2200baeb3c452d6de80681cd85f2d2503e8907"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-night-owl-2022",
+  "field": "lead",
+  "film_id": "9ea1fd84-4115-435c-a53d-c5e1976b0583",
+  "lang": "en",
+  "text": "A man who can barely see is brought into a palace where seeing is the dangerous part of the job. Joseon, 1645: the king is ill with suspicion, the crown prince has come home from years as a hostage of the Qing with ideas his father does not want to hear, and Gyeong-su, an acupuncturist of unusual skill, is suddenly close enough to the royal body to overhear a dynasty arguing with itself. What he witnesses one night cannot be proved by a witness whose eyes nobody trusts. An Tae-jin keeps the mechanics tight across 118 minutes and lets the palace supply the rest: corridors, protocol, the etiquette that makes a plain sentence impossible. It won the Baeksang for best film. The costumes are historical; the tension is procedural, and it comes down to what a powerless man can do with information nobody will accept from him.",
+  "model": "claude-opus-5",
+  "source_sha256": "536bd763458cb2d5fd0331db64afa19fbf5b9869b6dd2bc3f36dc14c6afdedf5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "blood-rain-2005",
+  "field": "lead",
+  "film_id": "87b34c30-d1b4-4024-b469-ae1e716c2034",
+  "lang": "en",
+  "text": "In 1808 an investigator arrives on an island where the residents have already settled on a culprit: a ghost, collecting on an execution seven years past. Kim Dae-seung films this as a procedure imposed on a community that does not want one. The killings are lurid; the method is not. Testimony, motive, sequence, and a place small enough that everyone with a reason still lives within walking distance of everyone else. What holds it together is the older case underneath: whether the state killed the right man seven years ago, and who profited by agreeing that it had. It runs 119 minutes, and the rhythm is closer to an inquest than a chase. Period Korean thrillers often use the past as decor; this one uses it as jurisdiction, where an official's authority stops at the shoreline and the island's own account of itself begins.",
+  "model": "claude-opus-5",
+  "source_sha256": "a357de7e69db7c0b5919f283f2346bfd676d93bac5ca5fbd50b8d12e0eecfef6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "roma-2004",
+  "field": "lead",
+  "film_id": "c4f9a6dd-4343-42ea-a2cf-8f5f58caece3",
+  "lang": "en",
+  "text": "A novelist's memory is unreliable in a particular way: it improves the material, and he knows it. Joaquín Góñez, in his sixties, sets down the Buenos Aires of his wild years, the friends who mattered, what loyalty demanded and what it charged him for, and above all his mother, Roma. Adolfo Aristarain takes 152 minutes over this, and the length is the method rather than an indulgence: people talk in rooms, at length, until the version being given starts to drift from the version intended. The Silver Condor for best film went to it. Nothing here is confessional in the current manner; the man is far too practised for that. What comes through instead is someone treating friendship as an obligation with terms, and finding that the terms were set at home, early, by her.",
+  "model": "claude-opus-5",
+  "source_sha256": "36ca28c61de745623668296b762c8bc46035734bab1a8ee49e8e54f97040573b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "brother-2022",
+  "field": "lead",
+  "film_id": "d4868e75-faf9-468f-96fd-d874c946e6d3",
+  "lang": "en",
+  "text": "This is a Toronto where hip-hop is still being assembled rather than bought. Francis and Michael, sons of Caribbean immigrants, grow up inside that noise, and Clement Virgo makes the older brother's authority and the younger one's watchfulness the whole architecture of the picture: who gets to be soft, who is required to be hard, and what it does to a household when those roles are assigned from outside it. The music is not decoration; it supplies the film's clock and the one arena where these two can be good at something without anyone's permission. 120 minutes, and the Canadian Screen Award for best motion picture. Virgo is unhurried with the domestic scenes, and it pays: the tenderness between the brothers is established early and at length, so that when pressure arrives from the street it has something solid to work against.",
+  "model": "claude-opus-5",
+  "source_sha256": "33be32960e07832bb1df157ebd4484327829f368b2d7b348e90843b9077e04a6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-ceremony-1971",
+  "field": "lead",
+  "film_id": "6d93eed2-5089-4f0d-9445-7a71429b6e52",
+  "lang": "en",
+  "text": "Decades of Japanese history, told through the occasions on which one family assembles in formal dress. The Sakurada clan gathers, ranks itself, performs what is required, disperses; the heir who survives each round attends with feelings for which no permitted form exists. Nagisa Ōshima lets the national story happen offscreen and arrive at the gathering as a change in who is present and who now defers to whom. It is cold, controlled and 123 minutes long, and the structure does the arguing. Nothing is explained. The film has no interest in supplying an outsider with context. The ceremonies have to be read the way a relative reads them, from the seating, from the pauses, from who now stands where, and what is legible by the end is not a household but the country that trained it.",
+  "model": "claude-opus-5",
+  "source_sha256": "bda4f36b0691aab291291ec772c6d7f2b1f1967490ae3ee8c3e2806245229fbb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-house-built-on-water-2001",
+  "field": "lead",
+  "film_id": "b298e700-c3f8-46aa-9f64-563fde9c0566",
+  "lang": "en",
+  "text": "Driving home at night with a call girl beside him, a Tehran gynecologist becomes convinced he has run over an angel. The film opens there and never quite closes the question, which is the point: Dr. Reza Sepidbakht is well-off, competent and cynical without ever having examined the cynicism, and the next morning at his hospital he is shown a boy in a coma, famous for having memorized the entire Koran. Bahman Farmanara made this as his second feature after a twenty-year exile from Iran, and it has the density of a man with a backlog: an elderly father, a son going wrong, a wife he is estranged from, women he has treated badly and who are still in his life. It runs 111 minutes and it is not, despite the angel, a fable. It plays as an audit, conducted by someone unsure he believes in the auditor.",
+  "model": "claude-opus-5",
+  "source_sha256": "0634a484767c199d6d7a10dc39f0267ec7967a2f30bd07c77d4836cb37223b3d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "beans-2020",
+  "field": "lead",
+  "film_id": "83e65e1f-94f0-46ca-a1c1-8dca9f99b157",
+  "lang": "en",
+  "text": "Seventy-eight days in the summer of 1990, and a twelve-year-old does her growing up inside them. Tracey Deer sets the film against the Oka Crisis, the Indigenous uprising that tore Quebec and Canada apart that summer, and declines the documentary posture entirely. What she films is adolescence in a season when everything around it is contested: the pull toward older girls who are harder than she is, the small cruelties that pass for initiation, a mother's rules meeting rules of a much larger kind. Ninety-two minutes, which is the right size for a story about time under compression. It carried a Crystal Bear. The harder thing the film does is refuse the emergency as an excuse, since Beans is held responsible, at twelve, for the person she is deciding to become, while the adults behind her keep negotiating, all summer, on the road.",
+  "model": "claude-opus-5",
+  "source_sha256": "24f95e078a039f2a2c9420a25d75ddfc92dbbf35c6eadbb06abb99989f2fb2e7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-giant-2016",
+  "field": "lead",
+  "film_id": "bc4d3542-8107-49cd-a510-ca1f6b289ba1",
+  "lang": "en",
+  "text": "Rikard is thirty, lives in a home for disabled people, and in his own imagining stands fifty metres tall. Johannes Nyholm builds the film on that exchange rate: what is refused in one register is granted, enormously, in another. The facts around him stay plain and unsoftened. He is autistic, he is severely disfigured, he was taken from his mother at three and has never once stopped wanting her back. Eighty-six minutes. The giant passages are not offered as symptom or as lesson; they are simply the other place the film goes, with its own scale and its own rules, and the cutting between the two is where the Guldbagge it won for best film was earned. What stays afterwards is the ordinary half: a grown man running a small, patient campaign to be allowed near the one person he wants.",
+  "model": "claude-opus-5",
+  "source_sha256": "6cd9598c23380df886bfd75da2d75fd9282e87d7b40501f28ea81bb8556e829d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "good-evening-mr-wallenberg-1990",
+  "field": "lead",
+  "film_id": "ea62d9d2-f878-4f7b-aec2-3b1b6d516991",
+  "lang": "en",
+  "text": "The largest rescue of Jews in the war is filmed here as work: rooms, officials, one more person moved past one more desk. Kjell Grede's subject is Raoul Wallenberg, and the hardest decision in the picture, the one that keeps it clear of piety, is to hold him at a slight distance, a driven Swede doing what nobody had assigned him and what nobody afterwards could quite account for. The dialogue is Swedish, the ground Hungarian, the running time 118 minutes. The war itself stays mostly offscreen; what fills the frame is negotiation, and the particular nerve required to stay courteous with people who are free to refuse. What lingers is the arithmetic no rescuer escapes, since every person carried through is a person chosen, and Grede lets his man feel that weight without once letting him make a speech about it.",
+  "model": "claude-opus-5",
+  "source_sha256": "8db7445b59def371f8f571835630ad75f8449ac81b45a2d34402456f879b270a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-colony-2018",
+  "field": "lead",
+  "film_id": "b5492927-2eb6-47fe-a756-2addb880ea27",
+  "lang": "en",
+  "text": "One sister talks to frogs and chickens and is entirely at ease; the other has started at a new school and is not. Geneviève Dulude-De Celles films rural Quebec at the age when a girl's private self stops being portable: Mylia can be one person in a field and must be someone else at a house party, and the cost of that translation shows on her before she has words for it. The third figure is Jimmy, from the Abenaki reserve nearby, who has worked out how to be different in public and is willing to show her. Very little is staged as crisis. The register is watchful, with parties observed from the edge, a younger sibling's freedom studied like a foreign country, French spoken in a place small enough that every family is already known, and across 103 minutes the film never once climbs to an adult's vantage.",
+  "model": "claude-opus-5",
+  "source_sha256": "539d466d73dcce94ff8da569e29549dce35578d8f5bac56c11b7efa0624c6ae6"
+ }
+]

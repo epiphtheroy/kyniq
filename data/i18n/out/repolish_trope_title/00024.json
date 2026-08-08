@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-girl-s-body-as-negotiable-currency",
+  "field": "title",
+  "lang": "ko",
+  "text": "흥정 붙는 화폐, 소녀의 몸",
+  "model": "claude-opus-5",
+  "source_sha256": "792aeff50658e1b3990d4958ec2a2521613a6c6c406014cc01bb9c7411383ae4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-girl-who-catalogs-coming-catastrophe",
+  "field": "title",
+  "lang": "ko",
+  "text": "닥쳐올 재앙의 목록을 적는 소녀",
+  "model": "claude-opus-5",
+  "source_sha256": "772226122732837d5f2373fd6d5415b43a2387e2c3e23d940d98fa39a0181a4a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-girl-who-refused-the-world-s-plot",
+  "field": "title",
+  "lang": "ko",
+  "text": "세상이 짜준 각본을 거부한 소녀",
+  "model": "claude-opus-5",
+  "source_sha256": "8c755b7cef9d8144a3c621618f0739a80d11e9e5871cb2928bc9c59e07cbb072"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-glass-garage-that-houses-the-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "상처가 사는 유리 차고",
+  "model": "claude-opus-5",
+  "source_sha256": "d407b90461452a36928d8c053c86dd89a46b0b147eb1a0282d42c2bc7c586307"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-glass-tank-as-cage-of-display",
+  "field": "title",
+  "lang": "ko",
+  "text": "전시용 우리가 된 유리 수조",
+  "model": "claude-opus-5",
+  "source_sha256": "0776e6ed711b0447e3da9a87878f48b7554c293e4c2f7fdd91fd178bd4a06ffb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-glass-that-cannot-be-faced",
+  "field": "title",
+  "lang": "ko",
+  "text": "마주 볼 수 없는 유리",
+  "model": "claude-opus-5",
+  "source_sha256": "1e74c585fa409f9222ae3c34c904a9030d4428f7f11b36e6fe9d695ecef5fcb2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-glass-that-damns-those-who-watch",
+  "field": "title",
+  "lang": "ko",
+  "text": "보는 자를 단죄하는 유리",
+  "model": "claude-opus-5",
+  "source_sha256": "57e4434d26abc32e9531883f8a446d6cac3406384f89d0c7bb838e34d9d41361"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-glass-that-hides-instead-of-reveals",
+  "field": "title",
+  "lang": "ko",
+  "text": "드러내는 대신 가리는 유리",
+  "model": "claude-opus-5",
+  "source_sha256": "09203ef233516e8ad2e3acc1d19ec4635ce33c438fa871aa67e756c00a42eb15"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-glass-that-mediates-and-cuts",
+  "field": "title",
+  "lang": "ko",
+  "text": "이어주면서 베는 유리",
+  "model": "claude-opus-5",
+  "source_sha256": "1bfcc98b9e6e7d9fa1a2e46a7f8caed4e4cae1b92daac0ebb754661bc6139d2c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-glenn-gould-algorithm-of-control",
+  "field": "title",
+  "lang": "ko",
+  "text": "통제의 알고리즘, 글렌 굴드",
+  "model": "claude-opus-5",
+  "source_sha256": "0aa83193aafb6d582bb7758e803a5bb6a4c0de76d301f82b1d0ee9cdd9026d1a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-glenn-gould-recording-as-hidden-key",
+  "field": "title",
+  "lang": "ko",
+  "text": "숨은 열쇠가 된 글렌 굴드 음반",
+  "model": "claude-opus-5",
+  "source_sha256": "6ce3814ca55d1a47ddbf68e79ce689adf431f8c9b7757ab5813dd5fc0010cfda"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-glitch-as-body-refusing-assimilation",
+  "field": "title",
+  "lang": "ko",
+  "text": "동화를 거부하는 몸, 글리치",
+  "model": "claude-opus-5",
+  "source_sha256": "ad14bc198a47398dda8b27f8e434b38d28da66509939342384ed644a3e6216e8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-glitch-as-the-suppressed-truth-s-eruption",
+  "field": "title",
+  "lang": "ko",
+  "text": "눌린 진실이 터져 나오는 글리치",
+  "model": "claude-opus-5",
+  "source_sha256": "7572525edbbe7dab57dcb0b7b0a09a07a905ab4bf2d3c155d84480ba871e7319"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-glowing-box-that-annihilates-its-beholder",
+  "field": "title",
+  "lang": "ko",
+  "text": "들여다본 자를 지워버리는 빛나는 상자",
+  "model": "claude-opus-5",
+  "source_sha256": "e274384e6fa39d9ffab8ef112e6a8aff2cccffee2ba23e24a54bd84c9c782512"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-god-in-the-machine-made-literal",
+  "field": "title",
+  "lang": "ko",
+  "text": "기계 속의 신, 말 그대로",
+  "model": "claude-opus-5",
+  "source_sha256": "4a09eca8df392cc5ca585321662390c074edc825aa9d2e5625c9129d7cb7cc51"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-god-of-negative-theology-known-by-absence",
+  "field": "title",
+  "lang": "ko",
+  "text": "부재로만 알려지는 신, 부정신학(via negativa)",
+  "model": "claude-opus-5",
+  "source_sha256": "d39469fc80f055c3d18a686148ff722409fe75e0b963e7c131c074dfceb2856b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-god-the-costume-lets-pass-unseen",
+  "field": "title",
+  "lang": "ko",
+  "text": "의상이 신을 못 알아보게 한다",
+  "model": "claude-opus-5",
+  "source_sha256": "fa1aab0c0ac50bcda1d6c6e995e2eed8335cc9b3e2ca519f469cd43313f1b6d9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-god-who-has-withdrawn-from-the-world",
+  "field": "title",
+  "lang": "ko",
+  "text": "세계에서 물러난 신",
+  "model": "claude-opus-5",
+  "source_sha256": "8b1e66237a72c9d07fca2d5f3636539b14fb8fafbdcb308fb6527beb609af572"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-god-who-hid-his-face",
+  "field": "title",
+  "lang": "ko",
+  "text": "얼굴을 감춘 신",
+  "model": "claude-opus-5",
+  "source_sha256": "4b3de3aac92fdf1515ff5ad6afebfe40c59285155317898b8d4a5ff8dbcfb87d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gold-standard-that-circulates-toward-death",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽음 쪽으로 도는 금본위",
+  "model": "claude-opus-5",
+  "source_sha256": "b14494a645eb3d6be9aca51cb2cc6dbbd97ab144aac95f132dbbfd5960b9efff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gold-that-returns-to-the-wind",
+  "field": "title",
+  "lang": "ko",
+  "text": "바람에게 돌아가는 황금",
+  "model": "claude-opus-5",
+  "source_sha256": "51dbb33ceba35725d112bde6a1d949ab4b362f1c23f1f92e88908e039e974e0d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-goldberg-repetition-with-a-difference",
+  "field": "title",
+  "lang": "ko",
+  "text": "같은 자리로 돌아오되 달라지는 골드베르크",
+  "model": "claude-opus-5",
+  "source_sha256": "34342603216d35678e9a3e178871e11ac57f1e433228ecfab366f13f08a1897b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-golden-body-reveals-the-hidden-sacrifice",
+  "field": "title",
+  "lang": "ko",
+  "text": "황금빛 몸이 감춰진 제물을 드러낸다",
+  "model": "claude-opus-5",
+  "source_sha256": "4943ff136a5d77b1b2866273d741bf7dbd7c0b1c31a942e50aa347b7f54b1ec8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-golden-lion-as-western-self-portrait",
+  "field": "title",
+  "lang": "ko",
+  "text": "황금사자상, 서구의 자화상",
+  "model": "claude-opus-5",
+  "source_sha256": "a58c9bf44f6d8fd508436021282aee5f9a8b7e9f29ed63228f19823dcfae5cdb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-grace-that-was-never-earned",
+  "field": "title",
+  "lang": "ko",
+  "text": "공짜로 온 은총",
+  "model": "claude-opus-5",
+  "source_sha256": "d10198634ad49b02e73e8bd8974cfcd44672cf550bdbc7600944d7c9ba204e9c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gratuitous-act-as-proof-of-freedom",
+  "field": "title",
+  "lang": "ko",
+  "text": "자유의 증거가 되는 무상 행위",
+  "model": "claude-opus-5",
+  "source_sha256": "02e739ee66ddb4b028c1253381daa5ffaf52f0a77def298127cc9527006a00d8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-grave-reopened-as-ethical-act",
+  "field": "title",
+  "lang": "ko",
+  "text": "무덤을 다시 여는 일, 그것이 윤리다",
+  "model": "claude-opus-5",
+  "source_sha256": "e5633400fbb40633ffb5f93f1b432c06d4a181e430281086ad4af549323765eb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-great-house-as-america-s-disavowed-aristocracy",
+  "field": "title",
+  "lang": "ko",
+  "text": "대저택, 미국이 부인한 귀족",
+  "model": "claude-opus-5",
+  "source_sha256": "35b41cd373a9caf7352e146ccb98a777fd53eb1c43f3cbd2d54203ef74ebd033"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-grenade-as-inherited-honor-s-detonation",
+  "field": "title",
+  "lang": "ko",
+  "text": "물려받은 명예가 터지는 자리, 수류탄",
+  "model": "claude-opus-5",
+  "source_sha256": "3f472ba72d689cc9e2983a0bc20abc70a585ecc9a1ce63ca9fc3ca14f3d98004"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-grid-is-the-state-made-visible",
+  "field": "title",
+  "lang": "ko",
+  "text": "격자, 눈에 보이는 국가",
+  "model": "claude-opus-5",
+  "source_sha256": "20b52ea5b70a7d7b1036a5a00c3431c2a522c0489f1ccfb4d2b280cb7d20cd80"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-grief-that-curdled-into-melancholia",
+  "field": "title",
+  "lang": "ko",
+  "text": "멜랑콜리로 굳어버린 슬픔",
+  "model": "claude-opus-5",
+  "source_sha256": "3b72caba467ae66a879988f2903b43c766e2d5e707f56ae64ebe4f37405732d6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-grief-that-refuses-its-catharsis",
+  "field": "title",
+  "lang": "ko",
+  "text": "카타르시스를 사양하는 슬픔",
+  "model": "claude-opus-5",
+  "source_sha256": "575de2091cbc3aa6021ed5c1a610303d76cf914b834ffb61dc30324a612876bd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-grotto-as-colonial-wunderkammer",
+  "field": "title",
+  "lang": "ko",
+  "text": "식민지의 진열장이 된 동굴",
+  "model": "claude-opus-5",
+  "source_sha256": "e7df7b796817aa804daa3b29866e62795f89338c496d7e86e2f3299ace6ce7ee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ground-names-what-lies-buried-beneath",
+  "field": "title",
+  "lang": "ko",
+  "text": "땅이 그 밑에 묻힌 것의 이름을 부른다",
+  "model": "claude-opus-5",
+  "source_sha256": "0deeeb4f683240c93775336fc08f5672141391abec3ec087c7960d2b1fd1bb1a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ground-that-mires-the-dream",
+  "field": "title",
+  "lang": "ko",
+  "text": "꿈을 붙잡아 가라앉히는 땅",
+  "model": "claude-opus-5",
+  "source_sha256": "918500db03c4d3529c760e76438705840d224d2a56090998ab4231348a721e3d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-guest-who-devours-the-host",
+  "field": "title",
+  "lang": "ko",
+  "text": "주인을 삼키는 손님",
+  "model": "claude-opus-5",
+  "source_sha256": "1fbf5029c92e17715e11a4263615691efaf4d3ac98ca0cb239e5ee14f0a0a592"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gun-as-the-monopoly-on-violence",
+  "field": "title",
+  "lang": "ko",
+  "text": "총, 폭력의 독점",
+  "model": "claude-opus-5",
+  "source_sha256": "c4482dbaf4eefe270b71671bea4f019fafb4b6437ddd1e64a90201475d62b990"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gun-as-the-only-authentic-act",
+  "field": "title",
+  "lang": "ko",
+  "text": "진심이라곤 총뿐",
+  "model": "claude-opus-5",
+  "source_sha256": "30cf5b6dd2d9390c83604a4bd107eaf9ad4e1c3abfa930e77dc2707859a058e7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gun-as-the-phallus-he-cannot-possess",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 가질 수 없는 남근, 총",
+  "model": "claude-opus-5",
+  "source_sha256": "7f8ee514c0eef32c0f886d7a09ef2ba514e0faefc71ef9d4fc9cc4ffa788ec2b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gun-that-authors-the-plot",
+  "field": "title",
+  "lang": "ko",
+  "text": "플롯을 쓰는 것은 총이다",
+  "model": "claude-opus-5",
+  "source_sha256": "dbf40db740948ca88fe5c02f6279ffb6ea648a2a1bb74496a7347fc6912737ee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gunshot-that-explains-the-whole-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화 전체를 풀어내는 총성",
+  "model": "claude-opus-5",
+  "source_sha256": "2d90b29ea25f5ec0befa195ca34ce766dea91c978c3ad64edaafe8a10dc7769c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-habit-as-the-order-s-death-mask",
+  "field": "title",
+  "lang": "ko",
+  "text": "수도복, 수도회의 데스마스크",
+  "model": "claude-opus-5",
+  "source_sha256": "e5e826b991e58ddf07a7110a1949d2101b40fef10d5db0c8d1af3c15234fbab3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hacksaw-as-instrument-of-moral-self-authorship",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 도덕을 스스로 쓰는 연장, 쇠톱",
+  "model": "claude-opus-5",
+  "source_sha256": "f1cf0e50af570f729a528c5806dbe3598042e90f1b0b8184b69c21f0556332a0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hag-is-her-own-future-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "저 노파가 곧 그녀의 미래다",
+  "model": "claude-opus-5",
+  "source_sha256": "a49fe98ce9395105407d0d875f42622c19a0144ac455449b95fd58ee936ff99d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hairpin-that-returns-the-buried-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "묻어둔 상처를 되돌려주는 머리핀",
+  "model": "claude-opus-5",
+  "source_sha256": "39e93c2f239fa364c2178459d0dc6ea67362d33835b283e365b31e0469acc7e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hallucination-as-the-only-honest-narration",
+  "field": "title",
+  "lang": "ko",
+  "text": "환각만이 정직하게 말한다",
+  "model": "claude-opus-5",
+  "source_sha256": "e8c26016c1df19a0af54b311a94ad398bd809aee93120b0284870d52734e229c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hand-drawn-line-as-felt-motion",
+  "field": "title",
+  "lang": "ko",
+  "text": "손으로 그은 선, 만져지는 움직임",
+  "model": "claude-opus-5",
+  "source_sha256": "dbcb2c5c6d2d5065e1f74cd97552e47d889b2e3114c25667c8236dffaa18f5f2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hand-drawn-line-defies-the-render-farm",
+  "field": "title",
+  "lang": "ko",
+  "text": "손으로 그은 선이 렌더 팜에 맞선다",
+  "model": "claude-opus-5",
+  "source_sha256": "a0f1052b26f84270a1adaca8d89481f0d13d41909c8a27d19a74553569680343"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hand-drawn-smudge-against-the-render",
+  "field": "title",
+  "lang": "ko",
+  "text": "렌더링에 맞서는 손자국",
+  "model": "claude-opus-5",
+  "source_sha256": "52fe56846141734d2cae4d83db04ac764d61dd156c4ddb4c276bfafd67b3c43a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hand-that-disowns-its-own-deed",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 한 짓을 부인하는 손",
+  "model": "claude-opus-5",
+  "source_sha256": "d8fc1ba01997d4e1a6078857a00547faf681f55acdfb6f3a645547954ad8054d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hand-that-knows-what-the-self-won-t",
+  "field": "title",
+  "lang": "ko",
+  "text": "자아가 모른 척하는 것을 아는 손",
+  "model": "claude-opus-5",
+  "source_sha256": "5a9e6c6a9e73bb8f28cc7c411efbdee70f0234b890d0bca7c51a5992f22ff0be"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hand-that-stands-for-the-severed-whole",
+  "field": "title",
+  "lang": "ko",
+  "text": "잘려나간 전체를 대신하는 손",
+  "model": "claude-opus-5",
+  "source_sha256": "8393ad6413c3306b4fe0a0a564192ef6fd75c7d1529485b97eaab6a405faa4ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-handheld-camera-as-conspirator-not-voyeur",
+  "field": "title",
+  "lang": "ko",
+  "text": "핸드헬드는 훔쳐보지 않는다, 공모한다",
+  "model": "claude-opus-5",
+  "source_sha256": "6fb04582034415f7bd2de4acfcb0f74347cfa5e34f222d7e980d58252320246a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-handheld-rig-welded-to-the-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸에 붙어버린 핸드헬드",
+  "model": "claude-opus-5",
+  "source_sha256": "9f576c555c90704c6aa5697c49d70276919c30f57686a5ddbe3223e3ea64bf39"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-handmade-craft-as-moral-ontology",
+  "field": "title",
+  "lang": "ko",
+  "text": "손으로 만든다는 것의 존재론(ontology)",
+  "model": "claude-opus-5",
+  "source_sha256": "03abec7469ec859b7ec57e97b0f3ab860ecbde9ce209e76b04e6b55cc02b3a99"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-handmade-smudge-against-the-render-farm",
+  "field": "title",
+  "lang": "ko",
+  "text": "렌더 팜에 맞서는 손의 얼룩",
+  "model": "claude-opus-5",
+  "source_sha256": "0db488a9ef068f2748ab5ae47c7a426bae6f76cae564fb40bcd0ffc544710c9a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hands-that-betray-what-the-self-conceals",
+  "field": "title",
+  "lang": "ko",
+  "text": "자아가 숨긴 것을 팔아넘기는 손",
+  "model": "claude-opus-5",
+  "source_sha256": "52598420df2491e09dd51e8c8a39bc2e67dde471d36aca48e9d21841f894a2c7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hands-that-wash-the-unconfessed",
+  "field": "title",
+  "lang": "ko",
+  "text": "고백하지 못한 것을 씻는 손",
+  "model": "claude-opus-5",
+  "source_sha256": "5235918eb6df44946430bb59d952f945fda7dbd327ccea6dbeb942cc732ca857"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hat-as-detachable-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "벗어놓을 수 있는 자아, 모자",
+  "model": "claude-opus-5",
+  "source_sha256": "aba2639cab36e14e8ce79ddc4d7b0f09f313c8cda367726264b04fc1b6f48978"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-healer-treating-his-own-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 상처를 손보는 치유자",
+  "model": "claude-opus-5",
+  "source_sha256": "f8c5fe626397fdd4b2dde6c6fdbae3260d311a8fbac0ae980e5aba083ee389c8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-healer-who-cannot-heal-himself",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 몸은 못 고치는 치유자",
+  "model": "claude-opus-5",
+  "source_sha256": "fe6d218b4ecd0c844e2dcdb7deef27da1abea6dd7b61ea26f598e5c0657365da"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-healer-who-cannot-save-confronts-mortality",
+  "field": "title",
+  "lang": "ko",
+  "text": "살리지 못한 치유자, 죽음 앞에 서다",
+  "model": "claude-opus-5",
+  "source_sha256": "48ed0f8f78587ed9e22925ed2d62e72f62443aed705faacf381224e02b1960a9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-healer-who-took-up-the-sword",
+  "field": "title",
+  "lang": "ko",
+  "text": "칼을 잡은 치유자",
+  "model": "claude-opus-5",
+  "source_sha256": "b461ca0a86007aa830d831353f3f4046b985fbb909798b3dbe9b648dbb7d0280"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-heartland-wearing-another-city-s-face",
+  "field": "title",
+  "lang": "ko",
+  "text": "다른 도시의 얼굴을 쓴 미국 중부",
+  "model": "claude-opus-5",
+  "source_sha256": "aec39b453bcb370e096ae14ddcc5fc8f5f270aa76e117ee547a82647dc3c7c04"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-heavenly-edifice-made-by-hand",
+  "field": "title",
+  "lang": "ko",
+  "text": "손으로 올린 천상의 건축",
+  "model": "claude-opus-5",
+  "source_sha256": "772f4dae3182e6a6812b86c5075287687e1da44ed5ad03a081c1b8c520ad44f3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-heimlich-curdling-into-the-unheimlich",
+  "field": "title",
+  "lang": "ko",
+  "text": "친숙한 것이 두려운 낯섦(Unheimlich)으로 굳는다",
+  "model": "claude-opus-5",
+  "source_sha256": "43638693f6689b7b356b1487d717b2e635ea6d9b12a588dc3f43164ca3cac385"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-heimlich-turned-unheimlich-at-home",
+  "field": "title",
+  "lang": "ko",
+  "text": "제집에서 낯설어지다",
+  "model": "claude-opus-5",
+  "source_sha256": "fc305a4ff3d91d77425142e5baf0168ad4d605379f4fefe8a6515d0595e963a2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-heir-as-the-system-s-inherited-rot",
+  "field": "title",
+  "lang": "ko",
+  "text": "상속자가 물려받은 것은 체제의 부패다",
+  "model": "claude-opus-5",
+  "source_sha256": "33372fc69a936f277fe2cff130c2e9cd4e3705a772f3cdb6fe85046575776879"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-heir-who-smashed-the-inherited-face",
+  "field": "title",
+  "lang": "ko",
+  "text": "물려받은 얼굴을 부순 상속자",
+  "model": "claude-opus-5",
+  "source_sha256": "eb762600279b3abcf8d619de9e5f93bb53b39ad2e4b32eb47c16ff56f86f8dd3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-heiress-as-faded-recluse",
+  "field": "title",
+  "lang": "ko",
+  "text": "빛바랜 은둔자, 상속녀",
+  "model": "claude-opus-5",
+  "source_sha256": "e959d12f746cf358dc7339260a61bd457cae62c80b2b402a9924dc8d35ef7223"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-heist-as-theatre-devouring-its-performer",
+  "field": "title",
+  "lang": "ko",
+  "text": "배우를 삼키는 연극이 된 강도극",
+  "model": "claude-opus-5",
+  "source_sha256": "29f9678ac755adc2a976d8c5a5dc61beda72590cf6c447783a3f58813fb2e6b0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-heist-as-wage-labor-by-other-means",
+  "field": "title",
+  "lang": "ko",
+  "text": "방식만 다른 임금노동, 강도질",
+  "model": "claude-opus-5",
+  "source_sha256": "8653cd245fb07b0e395895d60002bafd35cd437916c3e4b3e15e7d9768087318"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-heist-where-the-loot-is-never-money",
+  "field": "title",
+  "lang": "ko",
+  "text": "돈을 노린 적 없는 강탈극",
+  "model": "claude-opus-5",
+  "source_sha256": "c7587cc18e4155e8fb1345c9f63ccf760a3522740498f1571eb9269dd14e0474"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-held-breath-beneath-the-surface",
+  "field": "title",
+  "lang": "ko",
+  "text": "수면 아래, 참는 숨",
+  "model": "claude-opus-5",
+  "source_sha256": "c686ebc47f3dc15b5750d670140aec76b62d1e318cffb123289281c4c53312aa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-held-frame-and-the-composer-who-refused-to-resolve",
+  "field": "title",
+  "lang": "ko",
+  "text": "멈춘 프레임, 그리고 종지를 거부한 작곡가",
+  "model": "claude-opus-5",
+  "source_sha256": "4a97db450ebe49b02c250c502879f2f55ce0d897d0c4490d5cf53c4da188a1bd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-held-frame-s-pointed-stillness",
+  "field": "title",
+  "lang": "ko",
+  "text": "멈춘 프레임의 겨눈 고요",
+  "model": "claude-opus-5",
+  "source_sha256": "29e125f7ebb0f73ab75e79d3bd3d38c94722f1e09fc76857765c27a6105390e5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-held-shot-as-ethical-witness",
+  "field": "title",
+  "lang": "ko",
+  "text": "길게 버티는 쇼트, 그것이 증언이다",
+  "model": "claude-opus-5",
+  "source_sha256": "48b8927dbe8d514583689a08587a7b919cc38aac0d76be58f2caddbcbc74cc50"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-heretic-names-the-inquisitor",
+  "field": "title",
+  "lang": "ko",
+  "text": "이단자가 심문관의 이름을 부른다",
+  "model": "claude-opus-5",
+  "source_sha256": "5c68621e8479dd15640a24a615aa480e0f9a18fb0abe8c884740b58bc4a614f4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-heritage-brand-sabotaged-from-within",
+  "field": "title",
+  "lang": "ko",
+  "text": "안에서부터 망가지는 헤리티지 브랜드",
+  "model": "claude-opus-5",
+  "source_sha256": "c4aee62b0cf63cb89f610e89baa663e40b25de0e7143bd2ad085149ec4bc7dba"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hermit-at-walden-pond",
+  "field": "title",
+  "lang": "ko",
+  "text": "월든 호숫가의 은둔자",
+  "model": "claude-opus-5",
+  "source_sha256": "9ca083fecc750cf35d091e7c2fbfcd98361f4b205026b4efbe0628398cf2a19b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hero-america-manufactured-to-need",
+  "field": "title",
+  "lang": "ko",
+  "text": "필요해서 미국이 찍어낸 영웅",
+  "model": "claude-opus-5",
+  "source_sha256": "5eb13e694ecc66568bfefd1618babd8b1dc6191b56eecd14007ea779c8334d36"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hero-and-villain-made-each-other",
+  "field": "title",
+  "lang": "ko",
+  "text": "영웅과 악당은 서로가 만들었다",
+  "model": "claude-opus-5",
+  "source_sha256": "2027f675ff13e98807466d998be796e346ab4fa418b8fba2749cf640f0615869"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hero-the-mob-misreads-as-threat",
+  "field": "title",
+  "lang": "ko",
+  "text": "군중이 위협으로 잘못 읽은 영웅",
+  "model": "claude-opus-5",
+  "source_sha256": "4ea1c56e8e009b3e5d7ad99c88da665a02696029ebc8107c63087f3bf5134ec3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hero-who-cannot-learn-himself",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 자기를 못 배우는 영웅",
+  "model": "claude-opus-5",
+  "source_sha256": "ed16bbbba42616366f178d8fe491b92e9bda36f398dbb9b1e0b497e347e23c14"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hero-who-doubts-he-is-the-hero",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 영웅인지 의심하는 영웅",
+  "model": "claude-opus-5",
+  "source_sha256": "50ec5766df6897ce89b5e62835295e3a0265fb9574da0adb56b1943b89db7fb5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hero-who-refuses-to-resolve",
+  "field": "title",
+  "lang": "ko",
+  "text": "매듭을 짓지 않는 영웅",
+  "model": "claude-opus-5",
+  "source_sha256": "1d3cc459c8cf2bb3f1a63d28eb0f9be8608d8280b984352f215fe2ba3fb5ec76"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hero-who-saves-only-his-own",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 식구만 구하는 영웅",
+  "model": "claude-opus-5",
+  "source_sha256": "b31f852077128e0d024f68883257ec260be26dcf634f1c37b36092006e650076"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hero-whose-heroism-is-self-erasure",
+  "field": "title",
+  "lang": "ko",
+  "text": "자기를 지우는 것이 영웅됨인 영웅",
+  "model": "claude-opus-5",
+  "source_sha256": "301001ebb7eb13e6bb57df7def42c8066a00043a38842fc3bc03aa6eb4a492f8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-heroine-held-under-by-design",
+  "field": "title",
+  "lang": "ko",
+  "text": "설계대로 눌려 있는 여주인공",
+  "model": "claude-opus-5",
+  "source_sha256": "c791ec201c90acf89f08ee89f8ccb86d2de7d66573bd0e8edf5d11b4c6280f62"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hidden-master-signifier",
+  "field": "title",
+  "lang": "ko",
+  "text": "숨은 주인 기표(master signifier)",
+  "model": "claude-opus-5",
+  "source_sha256": "4b58b50f5d975a4d06dc0a870000f7f120104dcfbd00a7bbc289f8d70bea2fd3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hidden-ontology-that-replaces-love",
+  "field": "title",
+  "lang": "ko",
+  "text": "사랑 자리를 차지한 숨은 존재론",
+  "model": "claude-opus-5",
+  "source_sha256": "18a12af9530ef50fcaeec629ed41631ceaeb3981168c6203cadb6f7b32c7d363"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-highbrow-label-as-critical-alibi",
+  "field": "title",
+  "lang": "ko",
+  "text": "고급이라는 딱지, 비평의 알리바이",
+  "model": "claude-opus-5",
+  "source_sha256": "ec01018b74035dc1908a998764852563ac8a69b7757166a4923e9f9b69b2a04e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-highsmith-sociopath-in-borrowed-skin",
+  "field": "title",
+  "lang": "ko",
+  "text": "남의 살갗을 걸친 하이스미스식 소시오패스",
+  "model": "claude-opus-5",
+  "source_sha256": "43e9acf99daacc28d5e7c31a4c3700f95d8738576e6d65a51c9cf8d228313f5f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-highway-as-a-sorting-map-of-who-may-move",
+  "field": "title",
+  "lang": "ko",
+  "text": "누가 움직여도 되는지 가르는 지도, 고속도로",
+  "model": "claude-opus-5",
+  "source_sha256": "2c23878f04f2981d29f2977f01cc8ffe593bc9b501e946a1c1adde5e68b8491b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-highway-as-abattoir-of-civilization",
+  "field": "title",
+  "lang": "ko",
+  "text": "문명의 도살장, 고속도로",
+  "model": "claude-opus-5",
+  "source_sha256": "0cbfe2354af78f18b5e8c192a44ec84925ae5b27172e08b82569410e69474187"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-highway-that-refuses-arrival",
+  "field": "title",
+  "lang": "ko",
+  "text": "도착을 허락하지 않는 고속도로",
+  "model": "claude-opus-5",
+  "source_sha256": "1fee06eb08986aefbf713e42ed375371441e59297cd1c86f577dadb9ae2de865"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-history-a-nation-agrees-not-to-see",
+  "field": "title",
+  "lang": "ko",
+  "text": "온 나라가 안 보기로 합의한 역사",
+  "model": "claude-opus-5",
+  "source_sha256": "0ce7f1eb7e4fe75d6ae0f3942c8660bdb36136e7ff3207cb99c5a32afc606ebc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hit-that-mistook-spectacle-for-justice",
+  "field": "title",
+  "lang": "ko",
+  "text": "구경거리를 정의로 착각한 한 방",
+  "model": "claude-opus-5",
+  "source_sha256": "d1001466406ba5c9b579e4c3fda413b5e729a6469788bb457a93eda577cbb89b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hive-that-eats-the-soul",
+  "field": "title",
+  "lang": "ko",
+  "text": "영혼을 갉아먹는 벌집",
+  "model": "claude-opus-5",
+  "source_sha256": "6ab0091ab17b3a3457258567ccaac44614dd441762df6ebd38474d74c3353338"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-hoard-as-wound-that-cannot-heal",
+  "field": "title",
+  "lang": "ko",
+  "text": "아물지 않는 상처가 된 쌓아둠",
+  "model": "claude-opus-5",
+  "source_sha256": "49e42816eb9db7a31dbc14527d8fe9fc8cf0e3a0afee0e2b2756afb86a145895"
+ }
+]

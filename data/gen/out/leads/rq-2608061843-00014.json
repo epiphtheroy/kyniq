@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "darkness-at-noon-1956",
+  "field": "lead",
+  "film_id": "1a6ab5b6-1dde-4260-b05b-caf93386bb8f",
+  "lang": "en",
+  "text": "Four men put their names to a confession that the police supplied. Darkness at Noon takes a real Japanese case and stays with the documents it produced: the statements, the reconstruction, the courtroom that receives all of it as settled fact. Tadashi Imai is interested in procedure rather than violence, in how a piece of paper, once made, outlives every later denial. The 1956 date carries weight. Japan's postwar courts were an argument still in progress, and a film showing a police station manufacture the truth was taking a side rather than observing from a distance. Kinema Junpo named it the best film of its year. Two hours inside a case file is a long time, and the men at the centre have nothing to do but wait while other people decide what they said.",
+  "model": "claude-opus-5",
+  "source_sha256": "ab6ddc95b7005110ff445ec4bf88d051369c6eac9c62e3da5fcd3919f3530810"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "su-mejor-alumno-1944",
+  "field": "lead",
+  "film_id": "d1610b09-d17a-44aa-b6c7-b93c4f76b942",
+  "lang": "en",
+  "text": "The man who built Argentina's public schools had a son the official story keeps at the edge of the frame. Su mejor alumno gives that son the centre: Domingo, natural child of Domingo Faustino Sarmiento, president and educator. What the film has to work from is autobiographical testimony, the family's own account of itself. Lucas Demare directs in the manner of official portraiture and then keeps catching the private man underneath, a father whose great subject was the instruction of a nation and who had one pupil at home. It won the Silver Condor for best film. Its 114 minutes go less to the public career than to the domestic arithmetic around it: what a famous man's schedule leaves over, and what a boy carrying his name is meant to do with the remainder.",
+  "model": "claude-opus-5",
+  "source_sha256": "f707af777d901febc222378ebfdd44409b613d622bda99f185cfd88cc9751626"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-best-damn-fiddler-from-calabogie-to-kaladar-1968",
+  "field": "lead",
+  "film_id": "34851c6c-7965-4d01-bb68-fe7331f87caa",
+  "lang": "en",
+  "text": "Emery Prometer will not take the government's money, and the fifty minutes around him are about what that costs the people in his house. Bush work in the Ottawa Valley pays by the season and leaves a family one bad winter from nothing; his daughter Rosie has worked out that school is the way off that ledger, which sets her against the thing her father is proudest of. The year is 1968 and the choice on the table is a government cheque set against a man's account of himself. The National Film Board made it while private broadcasters balked at the cost, a scale the finished film matches: one household, one season of work, nothing decorative. Margot Kidder plays Rosie, her first film. Peter Pearson never suggests the pride is a pose. He keeps it in the same frame as the arithmetic, where pride sits as one more thing the household is paying for.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a4975a094195264523733adabbb4aff35270b2690fdef7822e9e0d78084d5ad"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "give-me-back-my-daughter-2012",
+  "field": "lead",
+  "film_id": "095c0817-f1f6-4da2-822c-ae105391fe18",
+  "lang": "en",
+  "text": "A job interview is why Renee leaves her daughter in the car, and the arrest that follows is why a court now decides whether she gets her back. Ninety minutes, made for television, built out of hearings rather than incident: Renee, played by Gabourey Sidibe, lost the work first and the housing second, and the condition that produced the arrest is the same one she has to answer for. Each thing feeds the next, no job, then no housing, then a car doing the work of a home. Imani is young enough that the whole argument runs over her head. The bind is exact. Fixing things required going to the interview; going to the interview opened the file. Family court keeps its own calendar, and a film this length either compresses that into montage or submits to it, one appointment at a time.",
+  "model": "claude-opus-5",
+  "source_sha256": "110af0eb2c8fa6ea6c97f60530dff5e9c5a2cace1d6a3a79c9f7680af4cf6889"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-stratford-adventure-1954",
+  "field": "lead",
+  "film_id": "335f3e69-ecee-4877-a2d2-44b0dc752b2e",
+  "lang": "en",
+  "text": "The city was already called Stratford and the river through it was already the Avon; the theatre was the part somebody had to build. Forty minutes, filmed while the building was under way, following the idea as it was argued, the money as it was found, a famous British director recruited, performers gathered from abroad and from Canada for a season with no precedent to lean on. Morten Parker keeps the improbability in view instead of smoothing it. The Academy gave it the documentary feature award, a strange result for a film so full of meetings and budgets. What it catches is the interval before an institution turns obvious, when the Stratford Shakespearean Festival was a proposal a small Canadian city had agreed to take seriously on very little evidence.",
+  "model": "claude-opus-5",
+  "source_sha256": "e96627e90deff7b3c7d92d5e2da4d5c14f18f301b99952afdce67acf71816645"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "don-segundo-sombra-1969",
+  "field": "lead",
+  "film_id": "8caffc97-10e8-4b98-bac9-0ba90f2967dd",
+  "lang": "en",
+  "text": "The story arrives secondhand, from a grown man remembering the boy he was. Fabio Cáceres was an orphan near San Antonio de Areco, out on the pampas, and the education that took came from his godfather, Don Segundo Sombra, a gaucho who lived alone and taught by letting himself be watched. Manuel Antín films the work instead of the adventure: cattle, distance, weather, a skill shown rather than explained. Calling it a western is fair enough for the horses and the open country, though the pressure in it is domestic, a boy attaching himself to a man under no obligation to keep him. A godfather is not a father; the film keeps that distance visible without making a speech about it. The admiration on screen is being recalled by someone who long ago finished being that boy.",
+  "model": "claude-opus-5",
+  "source_sha256": "35137f7c8ced33c1c8e35d3ae7303d7a4afee78924612b90af5b83497dd9e082"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "passion-portrait-1991",
+  "field": "lead",
+  "film_id": "f16cd5a9-822d-4a53-a3f8-229e4ff3b796",
+  "lang": "en",
+  "text": "Everything in it follows from an exam score that came in too low. Turned away from the university he wanted, the young man takes a place at a local college, and everyone around him treats that result as a verdict on the rest of his life. Kwak Ji-kyoon then spends 134 minutes on a stretch of years with very little event in them, disappointments arriving at the rate disappointments actually arrive, spaced far enough apart to be survivable one at a time. Eventually he stops studying altogether and starts moving, with no destination that anyone in the film bothers to name. The subject is an age rather than a plot: the period after school ends and before anything has replaced it, when a person's only occupation is what he might turn out to be.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e5bd93f7985c5ef5217fa865d4a489ef44b21edcf99432d43a47ef82d41bbaf"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "adada-1987",
+  "field": "lead",
+  "film_id": "89875982-266d-4c9c-b5c3-76cf98d7af82",
+  "lang": "en",
+  "text": "A house that has kept its name and lost everything under it takes in a bride. Young-hwan is the descendant of that fallen family, Adada is his wife, and the difference between what he is permitted to want and what she is permitted to want organises everything that follows. The period detail is not decorative; a fallen rank is still a rank, and it still tells people where to stand. When she goes to Su-ryong, the friend she knew before any of this was settled, the film declines to treat it as escape. Im Kwon-taek made it in 1987 and keeps the scale small, one house and a few fields across 118 minutes, letting decisions about Adada accumulate in rooms she is sitting in. It is less curious about her innocence than about how convenient that innocence is for everyone else.",
+  "model": "claude-opus-5",
+  "source_sha256": "e9855cda60d56b9697f30616a908070356e0f879673458ebfd5e4653777a9744"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "prince-yeonsan-1962",
+  "field": "lead",
+  "film_id": "4152c602-3f0b-4c43-9829-0d7969d5fa87",
+  "lang": "en",
+  "text": "Restoring a dead woman's rank is a legal procedure before it is anything else. Queen Yun was deposed and then executed; her son, finally placed to act, wants the ruling that destroyed her reopened, which means naming the men who made it and the ones who prospered by it. Shin Sang-ok gives the problem 133 minutes and the full apparatus of the Joseon court: precedence, ceremony, a document moving slowly through hands whose owners have careers riding on where it stops. A posthumous title, in that system, is an instrument as much as a sentiment. Grief becomes paperwork, because at that height it is. Everyone in the room holds a position resting on the decision the prince wants undone, and the nearer he gets to his mother's name, the more of the court he has to dismantle to reach it.",
+  "model": "claude-opus-5",
+  "source_sha256": "7743b8d6a4f9c4397bd2072c4d591f39b92a31a206e58094c68ba7701620c467"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "la-dama-duende-1945",
+  "field": "lead",
+  "film_id": "5defa1e4-e0c6-44fc-97cc-4d4dc72aeb31",
+  "lang": "en",
+  "text": "A convent or a suitable second husband: those were the options, and the widow of the viceroy of Peru declines both by turning herself into a rumour. She works the house as a duende, a ghost, the one form in which a woman of her rank can go where she likes and say what she means to the officer she has settled on. A widow of that standing had a schedule other people set for her; the ghost has none. Luis Saslavsky plays it as farce, with the doors and near-misses farce requires, and the machinery under the joke is legal: widowhood is a status with rules attached, and the haunting suspends them for as long as nobody looks straight at her. It took the Silver Condor for best film. The comedy holds because the alternative to the trick is not embarrassment, it is the convent.",
+  "model": "claude-opus-5",
+  "source_sha256": "af1b2042a451ee932732f80f4b3e91c32d68bc014cd6c99a1091586f6de41df3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-cruel-story-of-a-woman-who-spins-and-spins-the-wheel-1983",
+  "field": "lead",
+  "film_id": "50489bb6-4c3d-46ed-bffd-b913a49ca2de",
+  "lang": "en",
+  "text": "The woman at the centre is acted upon by jealousy, by appetite, and by the neighbours keeping score. Lee Doo-yong follows her from a childhood in the Korean countryside through the arrangements other people keep making about her body and her labour, and the shape is accumulation rather than crisis, the same authority applied again in slightly altered form across 105 minutes. Her beauty is treated by the village as a fact about the village. Korea put it forward to the Academy Awards. The cruelty is not the spectacular kind; it is administrative, spread among people who each believe themselves within their rights, and the sum of those rights is a life with no room left in it. What stays afterward is how reasonable every single decision looks from the inside.",
+  "model": "claude-opus-5",
+  "source_sha256": "f291a06e306c4de50d09e552c004a962879e442736db8c7743d5e73b72b23e97"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "fly-high-run-far-1992",
+  "field": "lead",
+  "film_id": "e3b6e1cf-7afa-4db5-a505-c624ac0acdb0",
+  "lang": "en",
+  "text": "By the time Choi Si-hyeong takes charge, the founder has been executed and the faith he led is a crime. Donghak spread through mid-nineteenth-century Joseon regardless, and Im Kwon-taek gives that spreading 146 minutes of roads, villages, arrivals, and the practical labour of keeping a banned movement alive while staying clear of the court. Choi inherits an office nobody sane would want. Growth is the trap, and the film sees it early: every convert he makes is one more person the state can locate, so the movement and the case against it enlarge together, and his tenure is spent managing that ratio. The Grand Bell named it the year's best film. Doctrine occupies less screen time than transport and shelter, which is the honest way to film a religion carried from one house to the next.",
+  "model": "claude-opus-5",
+  "source_sha256": "013e3efebbb0773c7742522e4b1f22d6a9bff8af974a07fddfa40e7e3a4d7576"
+ }
+]

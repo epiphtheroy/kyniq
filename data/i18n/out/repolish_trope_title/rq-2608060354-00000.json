@@ -1,0 +1,11 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-screen-glow-that-loves-instead-of-a-person",
+  "field": "title",
+  "lang": "ko",
+  "text": "사람을 대신해 사랑하는 스크린의 빛",
+  "model": "claude-opus-5",
+  "source_sha256": "098b0725b84dfc87400c88b15a8dd4f2a023ee96eecad4124e236e12a6bfa00e"
+ }
+]

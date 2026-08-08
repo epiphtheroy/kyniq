@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "winter-brothers-2017",
+  "field": "lead",
+  "film_id": "b99afe40-d42d-48c0-84ae-a063335cd72f",
+  "lang": "en",
+  "text": "Two brothers work the same shifts, keep the same rituals, and share a feud with another family. Hlynur Pálmason spends ninety-three minutes inside that arrangement — cold, hard, repetitive, the noise of labour under it — and lets the quarrel press from outside rather than drive things. The Danish awards agreed on it twice over: the Bodil and the Robert both named Vinterbrødre the best Danish film of its year. Because it is built from repetition instead of incident, violence when it comes reads as an interruption in a schedule rather than an event with a shape of its own. Brotherhood here is proximity before it is affection, a matter of shared rooms and shared hours. The two men have breathed the same air so long that neither could say where his own grievance ends and his brother's begins.",
+  "model": "claude-opus-5",
+  "source_sha256": "5cc6cd403b7559d001d924bf0d9039c611fc8a421f4593c95c66f3b8be291cfb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "women-in-love-1969",
+  "field": "lead",
+  "film_id": "bb915db7-50ba-4000-bca4-bc9f0af00225",
+  "lang": "en",
+  "text": "A 1920s coal district produces, among other things, two sisters who intend to decide for themselves what love is for. Gudrun and Ursula take up with a wealthy playboy and a philosophical educator, and the four of them spend the picture arguing terms: what is owed, what may be asked, what people who distrust the ordinary words are supposed to say instead. Ken Russell gives it 131 minutes and treats the erotic material as argument rather than ornament. The Academy answered with recognition for the lead performance, the direction and the photography, and the BFI keeps it among its hundred British films. What stands to be lost is smaller than scandal and harder to replace: the private language each pair has built, which cannot survive being tested and cannot be left untested either.",
+  "model": "claude-opus-5",
+  "source_sha256": "0920517283462b68aa7d6cd0df6a187baa73b7ca1c405eb07e97b747693cff04"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "why-has-bodhi-dharma-left-for-the-east-1989",
+  "field": "lead",
+  "film_id": "4aac74db-959e-43cc-a7e0-f6f0c176d8f6",
+  "lang": "en",
+  "text": "Three men in a mountain monastery: an aging master, an orphan too young to have chosen anything, and a younger man who walked out of a city to look for enlightenment. Bae Yong-kyun gives them 145 minutes, and the length is the method rather than an excess of it; the film asks to be sat with, much as the practice it depicts is sat with. It travelled far past Korea in 1989 and came back with the Golden Leopard, and KOFA keeps it among its hundred Korean films. The pull is arithmetic more than doctrine: each of the three stands at a different distance from the world outside the gate, and what the oldest has renounced the youngest has not yet acquired. The boy is the complication. He is being raised inside a discipline he was too small to consent to.",
+  "model": "claude-opus-5",
+  "source_sha256": "b3aa7fb605079704160854d0bb58852049244901c4ed3e5eec036a08fea87af8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "five-easy-pieces-1970",
+  "field": "lead",
+  "film_id": "5fd17d8f-af4b-4267-aa26-aa4865b19574",
+  "lang": "en",
+  "text": "Odd jobs, drink, women, and a habit of leaving that has gone on long enough to pass for a life. Robert Dupea arrives with no past worth mentioning, which is the film's arrangement rather than the truth of him; a sister turns up, and the history he took trouble to shed is back in the room. Bob Rafelson keeps it to 98 minutes with nothing to organize the restlessness — no crime, no war, no deadline — except the man's own bad faith. The New York Film Critics Circle called it the year's best film, the National Film Registry took it in, and it is on the They Shoot Pictures Don't They? list of a thousand greatest films. The discomfort is the point: a man capable in every setting he condescends to, at ease in none of them, unwilling to admit the two conditions are related.",
+  "model": "claude-opus-5",
+  "source_sha256": "81dc85136d96aa4a61f4dd14ef90d3cdd9d180ea71d6d8b42e0607753044919a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hud-1963",
+  "field": "lead",
+  "film_id": "31f7d570-2c53-45d7-8df9-dd8285a2f906",
+  "lang": "en",
+  "text": "\"I always say the law was meant to be interpreted in a lenient manner\" — Hud Bannon, explaining himself, and not joking. Three men of one family hold the ground: Hud, who takes whatever is within reach; his father Homer, stern and principled and unmoved by charm; and Lon, the nephew, who starts out admiring his uncle's shortcuts. Martin Ritt shot it in black and white in 1963, and the western's open country does none of the usual work here — the fight is a domestic one, about inheritance in the broadest sense, which conduct gets passed down. The acting carried it, with Academy recognition for both leads and for the art direction, and the National Film Registry has kept it. Lon is the reason to stay. He is still deciding which of the two men is right, and the film declines to hurry him.",
+  "model": "claude-opus-5",
+  "source_sha256": "ea439b481dfa333ce2d4d6e0c1454ccd13b79bd4830f13df1bbfd173cdecfa2c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-miracle-worker-1962",
+  "field": "lead",
+  "film_id": "79100ffb-7c6d-400a-87f9-5f3cbbf332d1",
+  "lang": "en",
+  "text": "Touch is the only channel the two of them share, so instruction, refusal and affection all have to travel through hands. Annie Sullivan is twenty, from Boston, and has recently got her own sight back; Helen Keller is seven and has had neither sight nor hearing since infancy. Arthur Penn filmed it in 1962, in black and white, at 106 minutes, and stays with the physical fact of the problem: teaching becomes grip, resistance, repetition, a great deal of it. The Academy singled out the acting, the direction and the costume work, and the National Film Registry has kept it. It is a true story, and the odd part of watching is how much of the drama turns out to be labour, done by two people, one of whom does not yet know that words exist.",
+  "model": "claude-opus-5",
+  "source_sha256": "b334a124f48a54a665786c5ecb1033ca0ae5e58538cf3be7f3ee2e07edb1732b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "cyrano-de-bergerac-1950",
+  "field": "lead",
+  "film_id": "3396404f-af78-46a0-9e8f-ff8213aaba83",
+  "lang": "en",
+  "text": "France, 1640: Cyrano fights well and writes better, and the woman he loves has come to him to confide about somebody else. Roxane wants Christian, who is handsome and cannot talk; Cyrano, who can, proposes a deception that the film lays out early and without suspense. The interest is not whether the trick holds but what it costs the man who thought of it, and Michael Gordon's 1950 production, 113 minutes long, rests almost wholly on that central performance — an Academy Award for Best Actor followed, along with a place in the National Board of Review's ten and, later, the National Film Registry. The nose is handled as a fact rather than a joke. The film keeps returning to a man whose courage is cheap while it stays physical and expensive the moment it does not.",
+  "model": "claude-opus-5",
+  "source_sha256": "84e52003dc14995c1ad8da72a1495aaf25318a40a5961fda3c2a17118a6c5714"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "red-road-2006",
+  "field": "lead",
+  "film_id": "2255e332-e661-4abf-888c-ebeefe1fd177",
+  "lang": "en",
+  "text": "Her job is to watch strangers: a wall of monitors, a city reduced to grain and timestamp, a shift spent noticing. Then a face comes up that Jackie had counted on never seeing again. Andrea Arnold builds the film out of that single recognition and withholds the reason for it, so the early stretch runs on an imbalance — Jackie knows what this is, the audience does not — and routine surveillance footage takes on a pulse. 113 minutes, and the distance between watching and pursuing closes fast. It took a Jury Prize and sits on the BBC's hundred greatest films directed by women. What the film turns over is the power sitting in the job itself: to follow a person all day, at no cost, unseen, and to decide privately what should be done about it.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f04543d092dc6a948982debc7d9983b445c8069729976e4818b905f75781475"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "masquerade-2012",
+  "field": "lead",
+  "film_id": "90c4ef16-19cd-4dc0-942f-fe020ccb4557",
+  "lang": "en",
+  "text": "The king has been poisoned, so the court finds a commoner with his face and puts him on the throne to keep the country from coming apart. The double knows nothing about governing, which is the engine of the thing: he has to imitate a man he never met, in front of people whose work is to notice. Choo Chang-min runs 131 minutes and plays the palace as a workplace of procedure, precedence and the daily business of being addressed. Korea's two main film prizes agreed on it, the Grand Bell and the Baeksang both naming it the year's best film, which a costume piece built on the impostor device does not usually manage. The tension is not really about exposure. It is about a substitute who starts making decisions of his own.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b5ccfbf6dcebb00e4e6c282234197d18a717633fd9ee83916dc3b0d8ae166d3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-seaside-village-1965",
+  "field": "lead",
+  "film_id": "253c44b6-7037-4ba9-bebc-66fa0b5585bc",
+  "lang": "en",
+  "text": "Men are lost to the sea here often enough that the village is mostly women, and the widows are young. Kim Soo-yong made it in 1965 and kept it to 91 minutes; the subject is not the drowning but the afterward — what work is left to a woman on her own, what the island will permit her, how quickly a household closes over an absence. The economy of the place and its morality are the same system, and the film treats them as one, without commentary. Both the Grand Bell and the Baeksang named it the year's best film. The flat manner of the telling is what makes it land. Nobody here treats loss as unusual, because the sea has always taken men and the arrangements for that are long since in place.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e1043e0b861988b578087da254755cd2c9f8a3c171ff3a0a7be8c00aa0ff687"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "deaf-sam-yong-1964",
+  "field": "lead",
+  "film_id": "17abb632-63d0-4c6b-a0c3-60f436c6e8a6",
+  "lang": "en",
+  "text": "The hired man is deaf; the woman he loves entered the household by marrying the landlord's son. Shin Sang-ok filmed Na Do-hyang's 1925 story in 1964 and kept it to 85 minutes, and the gap between those dates is part of the point — a class arrangement examined from a distance, with the servant at the bottom of it and no language available to him at all. Silence works structurally rather than pitiably: a man who cannot state his case, in a house that runs on rank and speech, is left with conduct as his only argument. It went out as an international submission to the Academy Awards, and it appears on the Grand Bell and Baeksang best-film rolls. The problem the film sets itself is how to show a longing its subject cannot phrase, and its answer is to watch what he does.",
+  "model": "claude-opus-5",
+  "source_sha256": "4dd4de8d71b91f574bd4584d10d94adcc10a43bded33dba9b1bdca500d7cc771"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "come-down-to-a-lower-place-1982",
+  "field": "lead",
+  "film_id": "3a97f848-fa9b-42e1-a3ba-4bf89477be68",
+  "lang": "en",
+  "text": "Yo-han enters the seminary because his father is a minister, and leaves it because that was never a reason. What follows is a life assembled out of other people's plans: military service as a KATUSA, a teaching post at an American educational centre, a marriage got up in haste because a job abroad seemed to require one. Lee Jang-ho made it in 1982 and gives it 102 minutes, following a man who keeps consenting to arrangements he did not choose and finds each one thinner than the last. Vocation is the subject, seen from inside — not whether the faith is true, but whether a person can want what was handed to him at birth. Korean prizes of the period marked it: Grand Bell and Baeksang both list it for best film. Nothing dramatic goes wrong in the early stretch, and a life goes wrong anyway.",
+  "model": "claude-opus-5",
+  "source_sha256": "daa4e0c2e02a0ca16ce97e17922298eacc732f46db402f62bb65d98b8f4d45be"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "canoa-a-shameful-memory-1976",
+  "field": "lead",
+  "film_id": "7a03d7f4-4162-49ad-ba41-e7b3980f4882",
+  "lang": "en",
+  "text": "Students on a hiking trip stop for the night in a small town, and the local priest tells everyone who they are. The charge is that they are communist agitators fleeing an army crackdown on demonstrations in nearby Mexico City. It is false, and it does not need to be true to work. That mechanism is what Felipe Cazals set out to reconstruct in 1976 from a real case: how a rumour acquires standing, who carries it onward, how little time an ordinary afternoon needs to produce a crowd with a purpose. 116 minutes, procedural in the coldest sense of the word. It took the Silver Bear Grand Jury Prize and sits on the Somos list of the hundred best Mexican films. Obedience is the subject rather than cruelty; the town believes it is doing right, on the authority of the man who has always defined it.",
+  "model": "claude-opus-5",
+  "source_sha256": "42f33928877daf297ee82aff6644d3f9f577b50514ff76911cf56049e1e2a7eb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "adoption-1975",
+  "field": "lead",
+  "film_id": "cb9833f5-fb70-4a2c-81e2-a96dc3335151",
+  "lang": "en",
+  "text": "Kata is middle-aged, wants a child, and the man she has been seeing for years — married, unwilling to disturb any of it — will not agree. What she does instead is make a friend: Anna, a teenage orphan, furious, tied up in a relationship of her own that nobody sanctions. Márta Mészáros shot Örökbefogadás in Hungary in 1975, 88 minutes, plain and close, giving a woman's private calculation the scrutiny usually reserved for public matters. It took the Golden Bear and went out as an international submission to the Academy Awards; the BBC lists it among the hundred greatest films directed by women. The pressure is institutional as much as personal: what the state will allow an unmarried woman to do, and what an arrangement costs when its condition is that it stay unspoken.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd0a3646c0a95146810bc1df3807ab360f74c35046d410b9f2d031f4025d493e"
+ }
+]

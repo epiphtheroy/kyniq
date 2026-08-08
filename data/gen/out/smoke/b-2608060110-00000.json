@@ -1,0 +1,22 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "smoke-thin-record",
+  "field": "lead",
+  "film_id": "00000000-0000-0000-0000-000000000001",
+  "lang": "en",
+  "text": "A man takes a dead preacher's clothes and drives into a parish that has never seen its minister's face. The premise could carry a thriller, and the film appears to want something slower. Marion Hansel keeps the whole of it inside one poor rural congregation, a Belgian production shot in Afrikaans, where the pressure comes less from the risk of exposure than from the office the man has stolen. A parish asks things of whoever stands in front of it. He has no standing to give them, and the people waiting have no way to know that. Across 111 minutes that gap does the work a chase would do in another version of this story. What holds the attention is not whether the arrangement breaks but what it costs to hold it together.",
+  "model": "claude-opus-5",
+  "source_sha256": "smoke0001"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "smoke-rich-record",
+  "field": "lead",
+  "film_id": "00000000-0000-0000-0000-000000000002",
+  "lang": "en",
+  "text": "In 1977, Ousmane Sembene gave a village quarrel the shape of a formal assembly and let it run two hours. The ceddo are the commoners who kept their own beliefs while the court around them changed hands, and the imam gaining on them works by conversion, household by household, which is slower than a coup and much harder to reverse. The king's daughter is taken as a bargaining piece, which makes her the subject of every speech and a party to none. It is a film that lets people finish, so positions harden in the open, at the pace custom allows. Sight and Sound's African cinema list and the TSPDT thousand both carry it. Two hours is not long for a fight over who gets to say what a people are.",
+  "model": "claude-opus-5",
+  "source_sha256": "smoke0002"
+ }
+]

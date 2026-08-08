@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미학적 불화가 정점에 이른 것은 오즈가 젊은 조감독에게 대놓고 감독이 될 재능이 없다고 말했을 때였다. 모욕을 당한 이마무라는 1954년 쇼치쿠를 그만두고 닛카쓰로 넘어갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b0c84c2aa5016a9b65ac3cb4603911be047424d959d16c4028af5d3d5370489f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "닛카쓰에서 그는 진짜 스승을 만난다. 무정부주의적이고 술을 달고 살던 감독 가와시마 유조. 두 사람은 1957년의 고전 코미디 《막말태양전》을 함께 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "282ebd59cad941e7a351a573a97b63b4939692ddc91a7d258a3be20200e3d8e9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이마무라는 자기 영화 방식을 '문화인류학자'의 그것이라고 자주 말했다. 카메라로 인간을 관찰하되, 생존과 번식에 사로잡힌 동물로 본다는 뜻이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "79f6f995a43689e8cb751f365afcddf277a1edf42cac8fcb71af18442097f22d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "인간을 동물학의 대상으로 보는 이 시선은 1961년의 출세작 《돼지와 군함》에서 굳어진다. 요코스카의 절박한 야쿠자들과, 그들이 미군 기지에 팔려고 키우던 진짜 돼지가 화면에서 같은 것이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6f0b456180a941eafb299f32624ab4192c13bbc7c431fa3a8068f64e8c329c94"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "원초적 충동을 향한 관심은 그의 가장 유명한 선언으로 남았다. \"나는 인간 신체의 하부와 사회 구조의 하부, 그 둘의 관계에 관심이 있다.\"",
+  "model": "claude-opus-5",
+  "source_sha256": "043971b6f6bef9eea86291cfaa1a95336f086fac5425e788a13a86428c226031"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "창작을 온전히 손에 쥐기 위해 1965년 독립 제작사 이마무라 프로덕션을 차렸다. 스튜디오의 간섭 없이 금기의 소재를 파고들 수 있게 된 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a0863f23254116264bf66dded0c74380f6c0d7262ef772952a15adf82553e4d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "극영화를 계속 찍으면서도 그는 다큐멘터리의 경계를 밀어붙이기 시작했다. 실종 사건 하나를 집요하게 파고든 《인간증발》(1967)이 그것인데, 이마무라는 촬영 도중 갑자기 세트를 카메라 앞에서 해체해 진실이라는 것이 만들어진 물건임을 드러낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6b249d630d50b451d14c0ca3475fdfdc0c53b6178fdc2721780869ce7e6b1622"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1968년의 신화적 야심작 《신들의 깊은 욕망》을 만들려고 그는 외딴 원시의 섬 이시가키에서 2년을 촬영에 쏟았다. 제작사는 파산 직전까지 갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "973a3f31b5ead994bfd996ff590e2cd215d8387ba1bb147bad26f205ae159f9b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《신들의 깊은 욕망》이 흥행에서 처참하게 무너지자, 이마무라는 사실상 극영화 연출에서 십 년간 추방당했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f35cd682ef0f2c9db552d05cd0e56255b9cc0af36d89340d920c7bc3b93da9b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1970년대의 유배기에 그는 거친 텔레비전 다큐멘터리를 찍었다. 《가라유키상, 창부가 되기까지》(1975)를 위해서는 젠도 기쿠요를 수소문해 찾아냈다. 2차대전 전 동남아시아로 팔려가 성노예가 되었던 노년의 일본 여인이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c33fc136f43a8523f3231b46b3ad90a8ee5e46a12ad64d508106ce8bbec23c43"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편을 찍을 수 없게 되자 그 에너지는 교육으로 향했다. 1975년 요코하마 방송영화전문학원을 세웠고, 이 학교는 뒷날 일본영화대학교가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d800883c0202f70286fdd4f316f7831974e69544c85c61c0e3b9c54039c2c0d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "요코하마 영화학교에서 가장 이름난 제자는 훗날 충격의 영화를 만든 미이케 다카시였다. 출석은 형편없었지만 이마무라는 그를 1987년작 《여감빠》의 무급 연출부로 데려갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "58aa80190208421390e8e86340efd36bddd433160bc116af38e1210ada5cb479"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "극영화 복귀는 《복수는 나의 것》(1979)으로 이뤄졌고, 결과는 승리였다. 일본의 연쇄살인범 니시구치 아키라의 실화를 감상 한 톨 없이 서늘하게 따라간 작품.",
+  "model": "claude-opus-5",
+  "source_sha256": "26eb6069d6c284765d8e7ca567a8fcd106a14b15f25c3fa75551e288432aca34"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1983년의 시골 서사시 《나라야마 부시코》에서 이마무라가 요구한 사실성은 극단으로 치달았다. 마흔아홉의 주연 배우 사카모토 스미코는 앞니를 실제로 갈아냈다. 바위에 이를 깨부수는 예순아홉 산골 노파를 설득력 있게 연기하기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b411287e0b8a656950d1ec78d9b39cb5f30ee97148ea25c530e4d68c53896ebd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《나라야마 부시코》는 칸 영화제에서 황금종려상을 받았다. 정작 이마무라는 로베르 브레송이나 안드레이 타르콥스키에게 질 것이라 확신한 나머지 시상식에 가지 않았고, 전해지기로는 호텔 방에서 자고 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dee070f44fa0f443ed464d44309b172e065899dfe3a3286c9cbc802b2e53d439"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "두 번째 황금종려상은 1997년 《우나기》로 왔다(압바스 키아로스타미의 《체리 향기》와 공동 수상). 이로써 그는 칸 최고상을 두 번 받은 한 자릿수의 감독 명단에 이름을 올린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f5b600ec69ddd5e2752b24c39a970f675fa61b9c148b76b91246f4a0dc2832d8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《우나기》에서 주인공이 속을 털어놓는 상대는 말 그대로 애완 뱀장어 한 마리다. 이마무라는 이 동물을 고른 이유를 이렇게 설명했다. 산란을 위해 수천 킬로미터를 헤엄쳐 가는 알 수 없는 생물, 그것이 인간의 성적 강박과 정확히 겹친다고.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d73dc26958335ee73c43b2870299bbd9bdf6ec1417b1b6ad64a5e754162f187"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#23",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 자기 특유의 걸쭉하고 어수선한 스타일을 잠시 버리고 《검은 비》(1989)를 찍었다. 히로시마 원폭의 방사능 낙진을 다룬 이부세 마스지의 소설을 흑백으로 옮긴, 침통하도록 절제된 영화다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d57e14c560e44006d41bd63760dcd1b3c7205572e1dc4cb7d157e59cc03cbcc9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#24",
+  "field": "fact",
+  "lang": "ko",
+  "text": "일본의 밑바닥 인간들을 향한 평생의 집착은 마지막 장편 《붉은 다리 아래 따뜻한 물》(2001)까지 이어졌다. 절정에 이르면 몸에서 물이 쏟아지고, 그 물이 신기하게도 물고기를 불러 모으는 여자의 이야기. 초현실적인 코미디였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "21827d154977da59f73ea814b24a55d0a41a153574cfb5c3315a0a7ec2d7b5ff"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#25",
+  "field": "fact",
+  "lang": "ko",
+  "text": "9·11 이후 만들어진 옴니버스 《11'09\"01 September 11》(2002)에도 단편을 보탰다. 자신을 뱀이라 믿는 2차대전 참전 일본군 병사의 이야기로, 모든 '성전'이 인간을 어떻게 망가뜨리는지를 겨눈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "29d26d891d97a29122d5e423b6056deb701d69c6f7a2abdef1b4a4f5089a9906"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#26",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 표현력이 사나울 만큼 강한 배우 오가타 켄을 자주 썼다. 폭력적이고 흙냄새 나며 좀처럼 꺾이지 않는 '이마무라의 남자', 순전한 생물학적 의지로 살아남는 그 인물을 오가타는 완벽하게 육화했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "df8c8c343524664777a4861674444b51d4a3038553fbb276ba15d4006e1cf729"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#27",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오시마 나기사, 시노다 마사히로와 나란히 일본 뉴웨이브의 거장으로 세계가 그를 떠받들었지만, 이마무라는 지식인이라는 딱지를 끝까지 거부했다. 자신은 그저 농민을 찍는 '시골 농사꾼'일 뿐이라는 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aabf7fb51f135c0fd751a04cc63fc905a7720818b37593a45bc6fa1c27cde7b9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#28",
+  "field": "fact",
+  "lang": "ko",
+  "text": "전후 일본의 경제 기적을 그는 매섭게 비판했다. 인터뷰마다 되풀이한 말은, 현대의 소비주의가 일본인의 영혼을 불임으로 만들었고 젊은 날 자신이 기록했던 활기차고 무질서한 부족성을 지워버렸다는 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "19e80db6a6e4883f55d40f7fd171e3ff83ba2fcddab0bc359931c0b486b33315"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura#29",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2006년 도���에서 다발성 장기부전으로 세상을 떠났다. 일흔아홉. 그가 남긴 영화는 처음부터 끝까지 인간이라는 동물의 진흙과 피와 욕정에 바쳐진 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2897f02289a4a9f4af51b230fc912f8ff6b1ce784b5e76e3c2d9156e9a31663b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sidney-lumet#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "폴란드계 유대인 배우 바루크와 유지니아 루멧의 아들로 태어난 시드니는 대공황기에 집안의 주된 벌이꾼이었다. 이디시 예술극장의 아역 스타로 주급 35달러를 벌었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b60b3b22c5048d7782467275137b9177375eba7727618e86b41e98de474be20f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sidney-lumet#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그의 기술은 생방송 텔레비전 황금기의 압박 속에서 벼려졌다. 《Danger》나 《You Are There》 같은 프로그램에서 오백 편가량을 연출했고, 한 주에 생방송 셋을 동시에 굴린 적도 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "13deb0e09adb463ad55d8cfd297a58045018693762c93d2f3eeddf3f0cb86334"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sidney-lumet#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "헨리 폰다가 서른두 살의 루멧을 직접 데려와 장편 데뷔작 《12명의 성난 사람들》을 맡겼다. 젊은 감독이 텔레비전 생방송으로 만들어내던 거칠고 지독하게 효율적인 드라마에 홀린 뒤였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2745eeb383eb478804805c73d00f3fc3e1cf133617a8f465cf9fc7db97c13b9d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sidney-lumet#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《12명의 성난 사람들》에서 관객이 자기도 모르게 폐소공포를 느끼도록, 루멧은 '렌즈 플롯'이라 부른 설계를 썼다. 영화가 진행될수록 광각에서 망원으로 차례차례 옮겨가는 방식. 배심원실 벽이 배우들 쪽으로 조여드는 것처럼 보인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9ce795552d423d31f2758e608844fe0da12a5099f36a0fdee3c113a2096b13e2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sidney-lumet#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1956년, 로어이스트사이드 출신 노동계급 유대인 감독은 철도 재벌의 상속녀이자 패션 디자이너인 글로리아 밴더빌트와 결혼했다. 그렇게 뉴욕 상류사회의 가장 높고 가장 눈총 많은 자리로 떠밀려 들어갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "32cb905fc2d6b91b7658cc278045909f883df282d24e0c469ac05bd3f05b5b49"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sidney-lumet#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "밴더빌트와 이혼한 뒤 루멧은 전설적 가수 리나 혼의 딸 게일 존스와 결혼한다. 리나 혼이 장모가 된 것이다. 훗날 그는 1978년 뮤지컬 《마법사》에서 장모를 착한 마녀 글린다 역으로 연출하게 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bda5d002fa2be6190d810261a28223af9a8b7ccf4573a62fcefc41a1cad927f5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sidney-lumet#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "루멧은 모든 작품에 2주간의 리허설 기간을 못박아두고 이를 완강하게 지켰다. 이스트빌리지의 우크라이나 문화회관 바닥에 세트 치수를 그대로 테이프로 그려두고, 카메라가 돌기 전에 배우들이 동선을 몸에 익히게 한 일화가 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7203ae80798be5c6ca5ced252679a1d7387ad42cef6a712ff88562c074354424"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sidney-lumet#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 《전당포》로 서슬 퍼렇던 할리우드 제작 규약에 일부러 맞섰다. 홀로코스트 생존자가 떠올리는 수용소 매춘굴의 기억을 위해 맨가슴이 스치듯 드러나는 장면을 넣었고, 결국 검열 당국에서 전례 없는 예외 허가를 받아냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0bd9079d93ccf275867fe48cf49bc991b183ab6aa24cc4e179fa4e2c788168b1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sidney-lumet#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1970년 마틴 루서 킹 주니어를 다룬 다큐멘터리 《King: A Filmed Record... Montgomery to Memphis》를 공동 연출했다. 세간의 주목을 받은 민권 프로젝트였고, 그 대가로 루멧은 KKK로부터 여러 차례 살해 협박을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "da4502f8c94a77e32dd58270c77799e60bf3fed72dd23564c254ecf30141d621"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sidney-lumet#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "예언 같은 미디어 풍자극 《네트워크》를 찍는 동안 루멧과 다혈질 각본가 패디 차예프스키는 스튜디오 경영진에 맞서 한편이 되었다. 텔레비전 뉴스가 냉소적으로 기업화되는 과정을 향한 차예프스키의 분노한 각본, 그 쉼표 하나까지 두 사람은 지켜냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b8a311da62e40dd28119246ab3e0a254210d25d8f5b8dbb63172ca5a5c364f92"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sidney-lumet#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1983년 《스카페이스》 리메이크의 연출자는 원래 루멧이었다. 주인공을 마리엘 보트리프트를 타고 온 쿠바인으로 바꾸자고 제안했지만, 코카인 유행의 책임을 CIA에 돌리는 다분히 정치적인 각본을 밀어붙이다 제작자 마틴 브레그먼에게 해고당했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ada789e906184e3554e96fc315cc51365db02d2648093ce1d885e72d53af5199"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sidney-lumet#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생 뉴욕을 옹호한 사람답게 그는 로스앤젤레스의 문화를 혐오했고 그곳으로 옮겨 가기를 거부했다. 영화 만드는 사람이 할리우드에 갈 이유는 단 하나, \"돈을 받으러\"뿐이라는 말을 남겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b5f61102a95eabfa92293d0f4b31db33b06158ee659df31a06280eda1f5a8295"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sidney-lumet#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1995년 그는 《Making Movies》를 펴냈다. 군더더기 없이 실용적인 회고록 겸 실무 지침서로, 연출이라는 일에서 신비를 남김없이 걷어냈다는 점 때문에 지금도 세계 영화학교의 필독서로 남아 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4eb20b1b829ef76c17df03795b29a6215bcbfbe5a5d27a68502f15b6904b24f1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sidney-lumet#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《심판》을 찍을 때 루멧은 좀처럼 마음을 못 정하는 폴 뉴먼을 거세게 설득해야 했다. 한물간 변호사 프랭크 갤빈을, 그것도 초반부에서는 한심하고 정 붙지 않는 술꾼으로 연기하라는 요구였다. 그 실랑이가 뉴먼 경력에서 가장 높이 평가받는 연기 하나를 낳았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a3e4f93c770b200e3bf7b2ce2d69be7e51785a1bc8def29739982755e246698f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sidney-lumet#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1982년의 문제작 스릴러 《데스트랩》도 그의 작품이다. 크리스토퍼 리브와 마이클 케인이 화면에서 느닷없이 격렬하게 입을 맞추는 장면이 있는데, 시사회에 온 보수적인 관객들은 말 그대로 비명을 질렀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc3a10704f54a953d4e52e1e442ad14f7b882b1099e39851ca90410152c83417"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sidney-lumet#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마지막 장편은 여든둘에 찍은 강도 스릴러 《악마가 너의 죽음을 알기 전에》로, 평단의 호평을 받았다. 오십 년 연출 인생에서 고해상도 디지털 카메라를 쓴 것은 이때가 처음이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ff3083005f9b9281bf1a0fe12ac0f02abb4f713ebbecd9b0f488b32b36d5b1b3"
+ }
+]

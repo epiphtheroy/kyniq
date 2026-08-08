@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mysteries-of-lisbon-2010",
+  "field": "lead",
+  "film_id": "89399fee-12f8-40d0-8c29-f6d3afed6c91",
+  "lang": "en",
+  "text": "Four hours and twenty-six minutes, and the story keeps being handed to whoever has just walked into the room. Raúl Ruiz builds his film around Father Dinis, a priest whose charity is tidier than his origins, then lets nearly everyone who crosses his path stop the narrative to account for themselves. Confessions open inside confessions. A figure who looked like furniture in the first hour turns out to have been waiting three hours for his chapter. The length buys patience rather than incident: a scene can hold long enough for a doorway, a candle and a silence to register before anyone speaks, and the machinery of secret parentage, vengeance and money arrives with the calm of a ledger entry. The Louis Delluc prize went to it. Nothing hurries here, because nothing has finished being told.",
+  "model": "claude-opus-5",
+  "source_sha256": "f95b0005b153520e3f572f992b7b74a592e7b9d1aceff0a81ad991352d2c3038"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "excalibur-1981",
+  "field": "lead",
+  "film_id": "7c8a44b5-f42f-43ef-8fc1-e8e81ceb1178",
+  "lang": "en",
+  "text": "The legend arrives already knowing it is a legend: the sword, the table, the Grail, handled as fixed objects rather than as surprises. John Boorman takes the whole span in a single film — Arthur gathering knights at Camelot, a country stitched together, then that achievement dispersing into the search for the Grail — so the reign passes at the speed of weather. Kingship is a physical condition here, worn like armour and about as comfortable. The Academy's cinematography award is the honour that counts for a picture this dependent on landscape, smoke and metal, where the images are not illustration but the case being made. At 141 minutes it is crowded, and the crowding is deliberate: a myth told at the pace of a chronicle, each episode shouldering the next out of frame.",
+  "model": "claude-opus-5",
+  "source_sha256": "1febfe661deb6c579174e5d6ffcc043b558ac7ce8b22a596aefc82e7559fbac5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-misfits-1961",
+  "field": "lead",
+  "film_id": "c2f4cca1-731c-433d-8957-17fbb4c4aabb",
+  "lang": "en",
+  "text": "A divorce brings Roslyn Taber to the desert, and within days three men have arranged their lives around her. Gay Langland worked cattle once and gambles now; Guido flew in the war and has been failing to finish his house ever since; Perce Howland turns up off the rodeo circuit with the wear that comes with it. The four settle on a scheme to catch wild horses for money, and John Huston lets the scheme wait while the harder business proceeds: four people working out how much of themselves they are willing to hand over, in a half-built room, on the drive out, over a drink. The desert is not a symbol. It is an address. Everyone has come from somewhere that stopped working, and the horses are the last job on offer.",
+  "model": "claude-opus-5",
+  "source_sha256": "51aa60513ce2ee57d500a1eb9fa0fc25cc9f031cef7d5a1ef152fc33903bacd0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "elephant-1989",
+  "field": "lead",
+  "film_id": "34a94f8e-21b2-448b-85fe-9ff1301b5587",
+  "lang": "en",
+  "text": "The Troubles, on television, with no story attached and nobody to explain. Alan Clarke's film consists of killings in Northern Ireland, one after another, presented as a sequence rather than a plot, and it is finished in thirty-eight minutes. There is no investigation to follow, no side to be briefed on. What replaces narrative is procedure, repeated until the shape of it is unmistakable. Withholding motive is not neutrality: it removes the explanations that normally let an audience file a death under a cause and move on, and what remains is the repetition, which is precisely the thing a news item cannot carry. Clarke made it for British television, the same medium that delivered these deaths nightly as bulletins. Thirty-eight minutes is a long time in this form.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ac9a30d8404edc5ede6966ecd4e29955652c2145c1c03decb675facbf660d46"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "outskirts-1933",
+  "field": "lead",
+  "film_id": "d833e78f-b08c-48a7-a37d-718325c5e404",
+  "lang": "en",
+  "text": "The village sits far enough from the front that the war reaches it late, and then all at once. Boris Barnet had the tonal nerve, in 1933, to keep jokes running inside a war picture: the comedy is not relief between the grim passages but lodged inside them, so that a scene can turn without warning and turn back. Loyalties split along ordinary lines — a family's claim against a private wish, patriotic noise against the plain recognition of another person as a person. Ninety-one minutes, moving through registers a more cautious film would have kept in separate rooms. It carried off the Mussolini Cup, a prize whose name has aged very differently from the picture that received it.",
+  "model": "claude-opus-5",
+  "source_sha256": "8cf3885aa3ff834d410dadb15fd5a7cd4679dc88acb5d8ee83035e409c1453d3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "naruto-ova-3-hidden-leaf-village-grand-sports-festival-2004",
+  "field": "lead",
+  "film_id": "eb2e82e0-a725-4e66-b07d-c79b7898c551",
+  "lang": "en",
+  "text": "The prize is a paid holiday, and the contest is a sports day for trainee ninja: races, obstacle courses, a relay. Eleven minutes, made in 2004, and entirely uninterested in the larger story it belongs to. Naruto's appetite supplies the trouble, on schedule. What the short actually does is take abilities the series treats as combat technique and spend them on the indignities of a school field day, where the only thing at issue is a finishing line and the crowd is made of people the competitors will have to see again tomorrow. Hayato Date keeps it light and keeps it brief. It asks nothing of a newcomer beyond patience, and nothing of a regular beyond eleven minutes.",
+  "model": "claude-opus-5",
+  "source_sha256": "c81a22b52709fa580498f1be750644cc6de2832dabad79913fb18892e8fe61e6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-bridges-of-madison-county-1995",
+  "field": "lead",
+  "film_id": "3810d243-554c-4ca1-bc9c-767bed4e5de5",
+  "lang": "en",
+  "text": "The affair lasts four days; the film runs more than two hours and never seems to be filling time. Robert Kincaid is a photographer passing through with a camera; Francesca Johnson is a housewife in farming country who has learned to be pleasant. Clint Eastwood sets it in the 1960s and takes it at that speed — a meal prepared and eaten, a conversation that circles, stalls, resumes, two people running out of small talk and remaining in the room anyway. The Academy Award for Best Actress went to the performance at the centre, and the reason is in what it withholds: politeness doing the work of refusal, a woman working through a sum she would rather not finish. Nothing about the situation is unusual. That is what the film is counting on.",
+  "model": "claude-opus-5",
+  "source_sha256": "ee29f640aebd2bc4b273a5cf71c333042e2f88cb84b00c956ca2863641242ed1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "behind-the-candelabra-2013",
+  "field": "lead",
+  "film_id": "177a104f-e4fc-4e5c-9105-53fb44a4d684",
+  "lang": "en",
+  "text": "Liberace's job was to be looked at, and the film spends nearly all its time in rooms where nobody has bought a ticket. Steven Soderbergh follows six years between the performer and Scott Thorson, much younger, who moves in, and treats the whole thing as domestic material: money, routines, the upkeep of an appearance for anyone who might call round. The performance does not switch off indoors, and that is the interesting part; the film declines to score points about it. Adapted from an autobiographical book, it holds the tone of a case study rather than an exposé, watching two people negotiate terms neither will say out loud. The Guardian's hundred best films of the century found room for it, which is unusual for a picture this content to stay small.",
+  "model": "claude-opus-5",
+  "source_sha256": "3fddd80f83aa0f6f684a059548a666499340b88462e50aa9342f23044bfc7223"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "port-of-shadows-1938",
+  "field": "lead",
+  "film_id": "20afdc07-726a-4920-9ed3-944869e42136",
+  "lang": "en",
+  "text": "Fog, a road, and a man walking into Le Havre with the army behind him. Jean is a deserter hoping the next stretch of his life goes better than the last, which in this film is the sort of wish that attracts attention; the National Board of Review named it the best foreign-language picture of its year. Marcel Carné keeps the port doing what ports do: people arrive intending to leave, and the leaving stays a day off, contingent on a ship, on money, on somebody else's decision. The mist is not decoration. It keeps the frame small, so the same few faces meet again and again, and each meeting closes off a route. Making a deserter the sympathetic centre of a French film in 1938 was not a neutral act.",
+  "model": "claude-opus-5",
+  "source_sha256": "29e6a2f5e687c0f064bd65f305447dc7cc8a65f4ccf65fb309827930a378f99c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-woman-next-door-1981",
+  "field": "lead",
+  "film_id": "5bb5a8e0-8ce0-48d2-aa95-b7e06c087a3b",
+  "lang": "en",
+  "text": "The premise is a coincidence of property: two people who were once lovers end up in adjacent houses, each with a spouse. From there François Truffaut runs a mechanism rather than a plot. Neighbours must be greeted, cars must be parked, invitations accepted or conspicuously declined; the courtesies of a quiet street harden into a schedule of forced meetings, and there is no arrangement under which either of them can avoid knowing what the other is doing. Both marriages are given enough weight that the affair is not a lark but a demolition already under way. The César for Best Actress went to the woman at the centre, whose composure is the thing being tested and, minute by minute, spent.",
+  "model": "claude-opus-5",
+  "source_sha256": "cf22a36248a2b6eb50c266d79994a9d3319210d6c3ba3fe1c19512dc4873fd51"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-tarnished-angels-1957",
+  "field": "lead",
+  "film_id": "41de8511-d0c1-4e94-a2b5-8244a96d9ba4",
+  "lang": "en",
+  "text": "Everything in the Shumann household gets less attention than the aeroplane. Roger flew in the last war and now takes money for stunts at 1930s air shows; LaVerne jumps out of aircraft in front of the same crowds; the marriage runs on whatever is left over, which is little. Douglas Sirk brings the story in through a reporter — Burke Devlin arrives to write a feature and falls for the wife he is supposed to be describing — so the family is seen throughout by a man who wants something from it. Ninety-one minutes is a tight frame for a barnstorming circuit of prize money and the next town on the schedule, and the tightness suits it. Nobody in this arrangement has room to move, least of all the woman holding the parachute.",
+  "model": "claude-opus-5",
+  "source_sha256": "15a31afb8f2fd593092eab15bbe08376fa9331191534dfdf8e5a8d5d592506dc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "naked-childhood-1968",
+  "field": "lead",
+  "film_id": "c5e75a82-b626-4bef-b4d0-75a6e0454026",
+  "lang": "en",
+  "text": "His mother has put him in foster care and will not make it final. That single unresolved fact governs everything around François: adults who might keep him, a woman who might reclaim him, and no date attached to either. Maurice Pialat watches an adolescent test the condition the only way open to him, by taking things and breaking things and seeing what it costs. Nothing is captioned as a symptom. The foster households are ordinary and mostly kind, which makes the pressure harder to name — patient people have limits, and the boy is engaged in locating them. Eighty-three minutes, spent on gestures rather than events. The film treats a child as somebody conducting an experiment, not as somebody to be explained.",
+  "model": "claude-opus-5",
+  "source_sha256": "e1c1754a72a43ce51f8cebbda5a2911a169db05fc04cde2720a5e3518074a32a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-night-of-counting-the-years-1969",
+  "field": "lead",
+  "film_id": "da2fce8c-0a0e-42f3-b09e-d17433138cff",
+  "lang": "en",
+  "text": "In 1881, a family living near Kurna was quietly selling the contents of a tomb. The Abd el-Rasuls had found a cache of mummies at DB320 and had been trading it off piece by piece on the black market, which is what a clan does when the ground beneath it is worth more than anything that will grow there. Shadi Abdel Salam sets his film at the point where the arrangement stops holding: a quarrel inside the family, and the Antiquities Service arriving. The date does work. A year before British rule, the question of who may carry the dead away is already being settled by people from elsewhere. The sympathies are not simple: these men are thieves, and they are also the only people who have lived alongside the tombs.",
+  "model": "claude-opus-5",
+  "source_sha256": "43f01dd5e17df276a80420af962fa96a86651da5249ae9864d15dac88fdd8a50"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "deep-red-1975",
+  "field": "lead",
+  "film_id": "ead67e8e-4988-4596-81ed-0e45d9ef8b75",
+  "lang": "en",
+  "text": "Rome, an English pianist, and a window that shows him something he was not meant to see. The woman upstairs was a psychic; her death makes him a witness, and Dario Argento pairs him with a reporter who wants the story, the two of them investigating by means the film cheerfully admits are unsound. The mystery is genuine but it is not the engine. What drives the picture is construction — a sequence built, held, and prolonged well past the moment the information has been delivered, so that dread accumulates out of duration rather than shock. Two hours and seven minutes is generous for a thriller, and the surplus goes on music, on colour, on interiors that appear to know more than the people moving through them.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a828e4f9ebf681504fba59f8cb22f459afd0a3cd9eaf07e1c6bd9257c09f6e1"
+ }
+]

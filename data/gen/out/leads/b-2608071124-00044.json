@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "primary-1960",
+  "field": "lead",
+  "film_id": "629146a4-ea1a-487f-8c2a-6e37adbd06c4",
+  "lang": "en",
+  "text": "The camera goes through the door with the candidate and does not stop at the threshold. Robert Drew's crew carried equipment light enough to walk with, and in 1960 that settled how close a documentary could stand: John F. Kennedy and Hubert Humphrey working a primary campaign, fifty-three minutes of handshakes, corridors, rooms filling and emptying, and long waits on a count that nobody in the frame can hurry. There is no interviewer and no voice above the action explaining what a candidate signifies; the Academy Film Archive and The Film Foundation preserved the result in 1998. What the film finds is the ordinary labour of persuasion — the same speech delivered again to a different room, the tiredness at the edge of a smile, the practised warmth extended to one more stranger's hand.",
+  "model": "claude-opus-5",
+  "source_sha256": "9059855d167c72a12b2874273fbe71b17a5fdcb29c1f0c80bdd42aad0a573286"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-spook-who-sat-by-the-door-1973",
+  "field": "lead",
+  "film_id": "adb2890f-f2fd-40a4-8f73-50107679bf2d",
+  "lang": "en",
+  "text": "A man is hired to prove that the hiring happened, and he lets the agency believe that is all he is. Ivan Dixon's 1973 film sends its protagonist through CIA training as the token in a desegregated intake, and pays close attention to the curriculum: surveillance, small arms, the discipline of cells, the confidence of an institution that assumes nobody in the room is really listening. The performance required to keep the job — deferential, incurious, easy to forget — is the same skill the training rewards. The listings file it as action, crime and war; the last is the one that sticks. It moves like a procedural rather than a manifesto, and that is what makes the early stretches uncomfortable: every method the film will eventually turn is being taught, patiently, in a classroom, on the government's time.",
+  "model": "claude-opus-5",
+  "source_sha256": "1779dbb7bce2ecce8f232975b0977056adb48a1786325ce3b4df6f3521322e9f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sunrise-at-campobello-1960",
+  "field": "lead",
+  "film_id": "bba4a379-6e5e-4eff-8bd4-01a2a7362509",
+  "lang": "en",
+  "text": "A holiday in 1921, and a man of forty comes down with polio in a summer house on an island. Most of the next three years then happen indoors, an odd shape for a two-and-a-half-hour picture about Franklin Roosevelt: no election won, no office taken, only rooms, exercises, letters and a household rearranged around one body that will not do what it did. The film keeps the scale domestic. Eleanor has the harder assignment, since holding a public position open for a man who may not resume it means appearing in his place before she has any appetite for doing so, and Vincent J. Donehue lets that discomfort show rather than smoothing it into devotion. Politics stays offstage, arriving as visitors and advice. What is under decision is whether a private life can be lived at this new pace.",
+  "model": "claude-opus-5",
+  "source_sha256": "f33c417e7b8732d20950e0d741a08491234dc1d2069805aae7c21613252b6b0f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "naughty-marietta-1935",
+  "field": "lead",
+  "film_id": "9080ad94-2cdc-4b28-873a-cc36fc2d3f76",
+  "lang": "en",
+  "text": "A princess drops her name rather than marry the man chosen for her, and takes a ship to colonial Louisiana. Nearly everything in the 1935 picture serves to put two voices in one room and keep them there: the disguise, the crossing, the town where a title buys nothing and a song buys a good deal. W.S. Van Dyke directs at speed, like a man who knows the plot is scaffolding, and of the awards in its file the one for sound is the one that matters — the case for the film is what microphones do with two singers. The romance works because refusal is the heroine's method throughout: she has already declined one arrangement, and the second man must be told, more than once, that she is not cargo with a price on it. A hundred and three minutes, a good half of them sung.",
+  "model": "claude-opus-5",
+  "source_sha256": "467a965dfca99738d457848d74764d23a422971493fd1e7ad8a3a4180d9922b0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-poor-little-rich-girl-1917",
+  "field": "lead",
+  "film_id": "d50a3937-ac3a-4782-9f47-f9e059d08531",
+  "lang": "en",
+  "text": "Money is the reason nobody in this house has time for the child. Gwen's father is out earning it and her mother is out converting it into invitations, and what remains at home is a staff who treat a small girl as an obstruction in the hallway. Maurice Tourneur's 1917 film stays at her eye level for most of its seventy-five minutes, taking a child's boredom seriously as a subject and finding comedy in the small insurrections available to somebody with no money, no allies and a timetable set entirely by other people. Then a servant's carelessness breaks the routine and the picture opens a door into outright fantasy; the genre listing is not a clerical slip. It is a story for children with a clear adult eye for who in a wealthy household is actually poor.",
+  "model": "claude-opus-5",
+  "source_sha256": "4e53ce61611a0c87431bcf015132e73f5d5e0d2af4f34f597e3724d5cee06900"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sparrows-1926",
+  "field": "lead",
+  "film_id": "59527022-0244-4252-acfa-e8b3e8b8dd6f",
+  "lang": "en",
+  "text": "The farm sits deep in a swamp, which spares its owner the cost of a fence. Children are the crop: orphans kept as unpaid labour by a man who has worked out that nobody comes looking for them, with the eldest, Molly, doing the mothering the arrangement leaves undone. William Beaudine's 1926 picture is silent and runs ninety-four minutes, most of them spent in a very small number of terrible places — a shack, a field, water with no visible bottom. The threat is economic before it is physical; the decision to dispose of one child is presented as bookkeeping. What keeps the film bearable is its attention to how the older children manage the younger ones hour by hour, with games and half-truths and food divided into smaller portions than anyone admits.",
+  "model": "claude-opus-5",
+  "source_sha256": "725607ee5c8badbaeac710867408821b9d8689398332b75e9fea0c6080fb7289"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-shooting-party-1985",
+  "field": "lead",
+  "film_id": "2a2811e3-fea5-463e-9c90-90e4b51f5554",
+  "lang": "en",
+  "text": "A shoot on this scale is an industry: beaters sent through the coverts, loaders working two guns at once, the birds counted and totalled at dusk like a ledger. Alan Bridges films the 1913 weekend at Sir Randolph Nettleby's estate as a sequence of jobs, and the guests conduct their slights and attachments in the gaps between them. English country houses in 1985 cinema are usually offered for nostalgia; this one is administered. Ninety-eight minutes of watching who defers to whom at breakfast, who may be rude and to whom, and what the men employed for the day make of it. Sir Randolph, host and visibly tired of his own hospitality, understands something the others have not troubled to work out, and the film gives him no speech about it — only the manner of a man finishing sums he dislikes.",
+  "model": "claude-opus-5",
+  "source_sha256": "1244fed3607fb3d886b59f2c3e3ed4dcc5efd4f8379edf466075c80c20b510dc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-hard-way-1943",
+  "field": "lead",
+  "film_id": "e0f30308-992d-448e-b0d8-fdf1aa876288",
+  "lang": "en",
+  "text": "Helen Chernen has decided that her younger sister's talent is the only exportable thing the family owns. What follows is a career built by one woman on another's behalf, and the 1943 film is unusual in how little it apologises for her: the bookings, the manoeuvring, the sorting of people into useful and not, all shown as work, competently done and coldly meant. Katherine sings and is managed. A hundred and nine minutes leave room for the unglamorous middle of the business rather than only the marquee at the end of it, and for the small-town poverty the sisters are running from, treated as an address rather than as backdrop. The tension lies between what Helen says she wants for her sister and what she wants for herself, and Vincent Sherman keeps that gap open well past the point where a more comfortable picture would close it.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b7efa29809c787a3170bbee14ca018d5051c912acb13fbab775e1ab9abb2b27"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-diary-of-a-chambermaid-1946",
+  "field": "lead",
+  "film_id": "d9e78607-d37f-484e-9bb6-a712f6e3a4d5",
+  "lang": "en",
+  "text": "Jean Renoir shot this French country-house story in California, in English, and the mismatch suits a film about people performing their stations. Celestine takes a post with the Lanlaires meaning to convert her looks into security, and finds a house already governed: Madame Lanlaire runs it, and the valet Joseph's deference has a temperature to it. Three men want her, from three rungs of the ladder — the neighbour Mauger, a former officer; the son of the house, lately back and at odds with his mother's politics; the servant who reads her plan because it is also his. The comedy is arithmetical. Everyone here, owner and staff alike, is calculating on somebody else's income, and the manners lie over the household like a cloth on furniture nobody means to sit on. Ninety-one minutes, played fast.",
+  "model": "claude-opus-5",
+  "source_sha256": "adada1f305ea5b12e90bb863d6476298fe77aaab52d286a88338318b9ad1ec78"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "girl-with-green-eyes-1964",
+  "field": "lead",
+  "film_id": "1e400694-fdc4-4ce4-ba72-673aba8f3ae2",
+  "lang": "en",
+  "text": "The distance between the country and a room in Dublin was, in 1964, longer than the mileage. A young woman makes that move and attaches herself to an author twice her age, and the film treats the arrangement as neither scandal nor romance but as an education with unequal fees. He has books, opinions and a settled manner of describing her to other people. She has curiosity and no vocabulary yet for what is being done with it. Desmond Davis keeps a comic surface, largely because she finds much of it funny herself, and the humour runs on her difficulty in telling charm from condescension in a man who has both in quantity. Ninety-one minutes of rooms, streets and other people's opinions. What stays is how much of her freedom in that city depended on who would lend her somewhere to be.",
+  "model": "claude-opus-5",
+  "source_sha256": "1984f7ae02cb10438525abaf89678e91ed5c186328962af97a01f09e939c11c5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "applause-1929",
+  "field": "lead",
+  "film_id": "7e804bde-425d-4b23-86e6-3ed4101cf072",
+  "lang": "en",
+  "text": "A burlesque house near the end of a run: the same routines, a thinner crowd, and at the centre of it a woman being aged out of a trade that offers no pension. Kitty Darling has kept her daughter in a convent school, partly out of love and partly so that April will not see the act. When the girl comes home the film becomes a matter of rooms — dressing rooms, boarding-house rooms, the corridors backstage where her mother's colleagues size up a fresh face and estimate its value. Rouben Mamoulian made it in 1929, when singing on film was still a technical event, and he uses theatre noise as weather rather than entertainment. Eighty minutes, and the affection in it stays unsentimental: two women who love each other and want lives that cannot both be had.",
+  "model": "claude-opus-5",
+  "source_sha256": "c461099f1adc603bcd451d38986861caeb063e8a35875813f4e76e55bba2d83a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-battle-of-the-century-1927",
+  "field": "lead",
+  "film_id": "c150298b-091b-4d6a-8cf1-2384f4116778",
+  "lang": "en",
+  "text": "An insurance policy on a fighter who cannot fight is a document with exactly one profitable outcome. The manager holding it sets about arranging the accident that will pay, which makes this nineteen-minute comedy from 1927 a film about intent as much as about the ring: the boxing lasts only as long as it takes to establish that the investment is worthless, and the rest is a plan, a pavement and a man waiting for physics to do him a favour. Clyde Bruckman builds it the way these shorts are built, one small provocation at a time, on the principle that a minor mishap and a catastrophic one are the same joke at different volumes. The escalation runs well past the point at which the premise required it, and then continues.",
+  "model": "claude-opus-5",
+  "source_sha256": "b1d2295728dd8b95a2345d7f733d41d9e69ea50fa1befaf5a849ce4717069fc6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-movie-1958",
+  "field": "lead",
+  "film_id": "40eb5ea5-e656-43bb-baa6-be7435c391b9",
+  "lang": "en",
+  "text": "Not one frame of this twelve-minute film was shot for it. Bruce Conner worked in 1958 with footage other people had exposed, discarded or filed away, cutting it against a new score until images with no connection appear to answer one another: a glance acquires an object it never had, an event acquires a cause. Nothing is narrated and nothing is explained. The method makes a claim about how meaning arrives in cinema — that much of it is adjacency plus rhythm, and that an audience will supply causation free of charge so long as two shots come in order. At this length the thing behaves less like a story than like an object, one that can be run twice in a sitting and read differently the second time. Making it required no filming at all, only decisions about sequence.",
+  "model": "claude-opus-5",
+  "source_sha256": "9a1478bbc797a8b264d62f367d05c7e075c12c9d7c96ed6f627a328c46b8deed"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-last-of-the-mohicans-1920",
+  "field": "lead",
+  "film_id": "da04b3df-c934-4610-a1c1-7d2c9c0589ad",
+  "lang": "en",
+  "text": "Two women are travelling toward their father, and the country in between will not let them pass. Maurice Tourneur compresses a long novel into seventy-three silent minutes, so the film runs almost entirely as movement: a party on a trail, a river crossing, a ridge with someone standing on it. The French and Indian War supplies the map, and the sympathies are distributed with the bluntness of popular fiction in 1920 — Magua named as the villain, Chingachgook, Uncas and the frontiersman Hawkeye as the rescue. What outlasts that scheme is the landscape work. Tourneur stages danger by geography: people are exposed because of where they are standing, and a shot from above reduces Alice and Cora Munro to figures on open ground with a great deal of daylight left.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c670f77d72626356ef76b5d01a57ddb25bfe17e74ac0dd3b04e692caefe2cc0"
+ }
+]

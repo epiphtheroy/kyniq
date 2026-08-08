@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "rice-1957",
+  "field": "lead",
+  "film_id": "2596ce5c-911b-4629-9cbf-fbd08d6af9fe",
+  "lang": "en",
+  "text": "The fields around Kasumigaura no longer pay, so someone proposes fish. That is the engine of Tadashi Imai's film: a plan to put boats and nets where rice had been, floated in a village where the men who would have to agree to it have spent their lives being respected for something else. Pride is expensive in a poor place. Imai gives the argument 118 minutes, long enough for it to stop being about money and become a question of who can be seen changing his mind, and in front of whom. Work is filmed as work here, in hours and weather and the arithmetic of a household that cannot absorb one bad year. Kinema Junpo's critics voted it the best Japanese film of 1957. The obstacle to a sound idea, it turns out, is almost never the idea.",
+  "model": "claude-opus-5",
+  "source_sha256": "aeaa07f2f4f1fe71107aa0e47fdfae2af9d2a3a4b2d2350d0f90fa0bb494a5ec"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "back-to-ararat-1988",
+  "field": "lead",
+  "film_id": "259119e7-ae8e-44e9-85d2-88a0c47ac87d",
+  "lang": "en",
+  "text": "Turkish representatives sit down in front of this camera and say the killings never happened. The film keeps their answers in, and sets them beside the rest of what it gathered: ruins in the land 1.5 million Armenians were driven from during the First World War, and the streets Armenians built afterward in other countries, where a return nobody has arranged is still discussed as a plan. Swedish production, English speech, ninety-nine minutes, a documentary built to travel because the case it carries has no single address. It took the Guldbagge for best film at home. The hardest thing in it is not the denial but what surrounds the denial: an argument pressed for decades on listeners who never agreed to hear it.",
+  "model": "claude-opus-5",
+  "source_sha256": "887637ed1179349e19035fd7cb1fb220338d58bb66ffb156ecdd1ba7c62df97b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-pizza-in-jordbro-1994",
+  "field": "lead",
+  "film_id": "41dc241f-bb8f-4dd4-bcde-a9cd48813724",
+  "lang": "en",
+  "text": "The children are the same children, and this is the fifth film about them. One school class from Jordbrovägen, followed by Rainer Hartleb across twenty-four years, now sitting down as adults to account for the interval. He cuts the interviews against their work and their ordinary days, and against the earlier films, so each face arrives with a younger version of itself a few frames behind it. Seventy-seven minutes for twenty-four years is severe compression; a decade can pass in a cutaway. The Guldbagge went to it as best film. What the method yields is not biography but rate: how fast, or how slowly, a person turns into the adult they were going to be, which from outside looks much less eventful than it feels.",
+  "model": "claude-opus-5",
+  "source_sha256": "5f13ca962572bbcaa6850a6ac629f95e133323f54651a178905399a46c7af6c9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "five-scouts-1938",
+  "field": "lead",
+  "film_id": "81bf780d-a204-4fa1-97f8-1e5b80ece886",
+  "lang": "en",
+  "text": "Five men are sent out to look at enemy positions; the film's real location is the outpost they are meant to return to. Tomotaka Tasaka keeps the scale squad-sized, an order and a stretch of contested ground in the war with China and then the hours. A firefight scatters the unit. What follows is duration: waiting as an activity, performed by men whose only tasks are to listen and to count. Nothing in the assignment is exceptional. Reconnaissance is routine, ordered and logged like any other duty, and the routine is exactly what makes the interval afterward hard to sit through. Seventy minutes, which for a combat picture amounts to an admission that fighting is the short part of a soldier's day. Kinema Junpo's critics named it the best Japanese film of 1938. The suspense belongs not to the battle but to the counting.",
+  "model": "claude-opus-5",
+  "source_sha256": "664efa94b21f1e001be14fb223d7493b4f8049b7dcb2aaa3fd712437c4b73c84"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "alias-gardelito-1961",
+  "field": "lead",
+  "film_id": "6a6422ca-36d3-48da-9345-d5f1a0a5584e",
+  "lang": "en",
+  "text": "Toribio wants to sing the way Carlos Gardel sang, and in the meantime he steals. Small amounts, taken as they come, and the stealing eats the hours the singing would have needed. Alberto Argibay plays him without pity and without contempt, which is harder than it sounds when a man's picture of himself runs this far ahead of his week. The ambition and the thieving are not two stories; they draw on the same nerve and the same afternoons. Lautaro Murúa keeps the film at ninety minutes and at street level, where a music career and a smuggling job turn up in the same manner, as work that somebody is offering. Argentine critics gave it the Silver Condor for 1961. Gardel is not a joke at Toribio's expense: the film takes seriously that a voice on a record can organize an entire life, and that it can organize one wrongly.",
+  "model": "claude-opus-5",
+  "source_sha256": "b2c8ad9ac0a9b1483f02337e87c3aad9d206916de2fa992d136bf4d2cfc06d0a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "kiku-and-isamu-two-siblings-born-in-japan-1959",
+  "field": "lead",
+  "film_id": "875aa064-7697-40b3-b64c-f948352f5990",
+  "lang": "en",
+  "text": "A brother and sister are foreigners in the only country they have ever lived in. Kiku and Isamu were born in postwar Japan to a mother who sold sex and to a Black American soldier, and what the people around them do with that is the material of Tadashi Imai's film. He stays with the two of them rather than with the adults who hold views about them, which is what keeps 117 minutes from becoming a case file: school, the road home, the half-second in which a grown-up decides what tone to use on a child. Kinema Junpo's critics called it the best Japanese film of 1959. Imai lets the pair be stubborn, funny and bored, children before anything else, and leaves the indignation to gather outside the frame.",
+  "model": "claude-opus-5",
+  "source_sha256": "ee906248a50e5b9d9433b772c9ffae0c8ad68d47894ff1a93e82a8cc87a8a289"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "life-and-death-of-the-hollywood-kid-1994",
+  "field": "lead",
+  "film_id": "2d35bae6-ce56-4872-871c-b1496618847e",
+  "lang": "en",
+  "text": "The Magnificent Seven, here, is the name of a movie club run by two boys under a government that watches everyone. Surveillance is the weather of their childhood, and a club is a small thing to hold up against it. Chung Ji-young then does what films about young enthusiasts usually decline to do: he lets them get older. Myonggil finishes his military service, goes to find Pyongsok, and learns how far apart a single shared childhood can place two men. Korea sent the film to the Academy Awards as its international submission. The pressure in it is not nostalgia. It is the question of what a private devotion is worth once adulthood starts charging rent for it, and the film keeps its attention on the distance between two people who were once, for a few years, the same boy.",
+  "model": "claude-opus-5",
+  "source_sha256": "97e1fe87aa875cf38211efa16581b54fa1849922a53c7baddc2cde6651aab420"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "shunko-1960",
+  "field": "lead",
+  "film_id": "6bc31bd3-8daa-456d-8018-7a28cf902d16",
+  "lang": "en",
+  "text": "The parents do not want the school, and the teacher comes to the village anyway. Santiago del Estero, seventy-two minutes, and Lautaro Murúa gives the standoff too little room for anyone to win by attrition. The resistance is not ignorance but arithmetic: an hour a child spends learning to read is an hour withheld from work the household is counting on, and the film lets the parents keep that argument intact. Against it the teacher has patience and a room. Murúa treats the children as children rather than as an audience for a lesson, and the classroom stays a room in a poor place rather than an emblem of one. The map is deliberately small, which is why the advances inside it register at their real size.",
+  "model": "claude-opus-5",
+  "source_sha256": "c4ba023457d0a635b7802416deff79dfb4ccf3eb6f7e6622c9d3b1aa98976c4a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-vampire-of-santiago-1955",
+  "field": "lead",
+  "film_id": "2bb51783-7d4a-4a6f-8370-69ed8a4df051",
+  "lang": "en",
+  "text": "A woman in seventeenth-century Chile fixes her will on a priest, and the century does not bend. Hugo del Carril filmed it in Argentina in 1955, reaching outside his own country and back three hundred years for a subject: 105 minutes of colonial drama in which the church is at once the object of the wanting and the authority that names the wanting a sin. The period is not decoration. It works as the opposing party, holding more power in any given room than anyone standing in it. What sustains the film is that del Carril treats the woman as a force with reasons rather than as an example to be held up, and stays more interested in the pressure the arrangement puts on her than in the judgment everyone inside it can already recite.",
+  "model": "claude-opus-5",
+  "source_sha256": "77d145d6221682e62fe0830acd8ee050e2d52a6b06911875a7d87323c1eb8c6d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "las-venganzas-de-beto-sanchez-1973",
+  "field": "lead",
+  "film_id": "18b7522e-6975-403c-80fe-b8c24e75bb69",
+  "lang": "en",
+  "text": "It begins with a man dying in a hospital, and it is a comedy. Beto Sánchez leaves that room with a list, everyone he holds responsible for the way his life has gone, and Héctor Olivera gives him eighty-three minutes to work down it. The comedy is structural. Revenge has rules, and the rules warp when the injuries are domestic, stale, and serious to exactly one person. What the premise yields is a run of small confrontations, each an account reopened long after everybody else had closed it. Nobody has to be a villain for this to function, which is the harder version of the joke and the one that keeps an audience uneasy about laughing. Whether Beto is right about who ruined him never quite gets settled.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ab6613c73ca3905f53f1ff57acb3c4ec787c4edaecda44560be07723a33a7f2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "el-infierno-tan-temido-1980",
+  "field": "lead",
+  "film_id": "9a5b3cee-fb5d-4619-8e98-02f776db9db6",
+  "lang": "en",
+  "text": "The envelopes arrive one at a time, and what is inside them is meant for a single reader. The man opening them is a journalist, which is where the cruelty sits: publication is his trade, and these are images he can neither print nor answer nor stop. Raúl de la Torre lets the recognition come slowly. The pictures lead back to an actress, and to a relationship he had understood to be finished. 110 minutes, and the largest events in it arrive by post. The film is exact about the mechanics of private humiliation, the interval between deliveries, the impossibility of complaining without repeating the injury, the weight a secret gains each time it is not shared. It measures how much of a life can be reached by mail.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9ab3909a69378ed1e67473d69a2013d94824bcb521c3d551cc83b2c98d7707f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-boy-s-summer-in-1945-2003",
+  "field": "lead",
+  "film_id": "71cbd428-64bf-4fae-8e06-68fc8530f872",
+  "lang": "en",
+  "text": "A village in the countryside, the last days before the surrender, and a film in no hurry at all. Kazuo Kuroki was beginning his sixth decade of directing when he made it, and the experience registers as patience: 118 minutes of overlapping household business in Kirishima, half-comic, carried by an ensemble instead of a protagonist. The manner is novelistic. People enter, take a scene, leave, and the film assumes an audience able to hold several threads without being told which one is the plot. Kuroki has always been better known in Japan than abroad, and Kinema Junpo's critics named this the best Japanese film of 2003. The slowness is chosen, and it alters what an ordinary afternoon in that summer weighs.",
+  "model": "claude-opus-5",
+  "source_sha256": "e4082b254d20c2425597cfe08b73d11453a9d1a46fc114415d4278b69314d49b"
+ }
+]

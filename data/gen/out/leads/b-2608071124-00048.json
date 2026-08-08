@@ -1,0 +1,82 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hell-s-hinges-1916",
+  "field": "lead",
+  "film_id": "92c21b39-c6ee-4941-b7ff-b79172306cde",
+  "lang": "en",
+  "text": "A saloon keeper decides the new preacher is bad for business and hires a man to run him out of town. The town is called Hell's Hinges, which is the kind of name a place gives itself when the argument has already been settled. Sixty-four minutes is not much room, and the 1916 western spends it economically: arrival, threat, and the turning of the hired gun Blaze Tracy, who takes the job and then cannot do it once he has looked at the minister's sister. What holds up is the geography — one street, a church going up at one end and a bar doing business at the other, and every character obliged to walk between them in daylight. Silent pictures liked moral diagrams. This one gives the diagram dust, horses, and a crowd that can be bought cheaply, then lets the fight play out at street level.",
+  "model": "claude-opus-5",
+  "source_sha256": "4986e76a19ed04d506ced7e9cea3e11c9b4d4d3a63e7f16b9f92cd0c1966a041"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "brooklyn-bridge-1981",
+  "field": "lead",
+  "film_id": "30e23dc6-93a2-41a2-bed7-d2d4f31a8da5",
+  "lang": "en",
+  "text": "Before it was a postcard, the Brooklyn Bridge was an argument: about cost, about whether anyone could build at that scale, about whether the thing should exist at all. Ken Burns gives fifty-eight minutes to that stretch of the story — the years when the structure was a proposal, then a construction site, and not yet the shape people photograph at dusk. The engineering is handled as narrative rather than trivia, each problem trailed by the solution somebody had to invent for it. Then the film watches the span turn into a symbol, a slower and stranger process than the building was. Fifty-eight minutes is short for a subject that size, and the limit is accepted by staying with one object. It took the Academy Award for documentary feature, in a category where a film about engineering and municipal politics has to generate its own suspense.",
+  "model": "claude-opus-5",
+  "source_sha256": "8de5bf4bac3c60f32a1267f890ee03c317422ddb45422b26e91328260a8fe363"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "romance-1930",
+  "field": "lead",
+  "film_id": "1727d8c6-2c58-4456-a600-827eaaa02baa",
+  "lang": "en",
+  "text": "A famous voice, an older man paying for the apartment it lives in, and a young clergyman with no idea what he is walking into. Romance was made in 1930, when a picture could still lay that arrangement out plainly rather than imply it. That she is an opera singer matters twice: it gives her a public life the church cannot absorb, and it gives an early sound production a reason to record a voice at length. Clarence Brown keeps to rooms, and to the conversations in which each party discovers what the other has assumed. Seventy-six minutes, and the pressure is entirely social — what a congregation will tolerate, what a patron believes he has bought, what a woman is permitted to say about her own past. The Academy singled out the lead performance, and the film is built to be looked at through her.",
+  "model": "claude-opus-5",
+  "source_sha256": "567e1647e0e52b1d536fb031a73bbf44fd61c831b73ea248ef4f5383d30bac0b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-power-of-kangwon-province-1998",
+  "field": "lead",
+  "film_id": "b311f769-226f-40b4-a76e-ff51d80d3402",
+  "lang": "en",
+  "text": "Two people who have just broken up take the same holiday in the same province, and only one of them knows it. She has gone to a mountain resort in Kangwon and falls in with a married policeman; her ex is somewhere on the same slopes, spending his own week. Hong Sang-soo lets both stretches run at ordinary length, so the meals, the walks, the propositions and the excuses accumulate rather than build toward anything. A hundred and nine minutes in which very little is decided and nothing is underlined. The comedy, such as it is, comes from watching adults negotiate a weekend as though it were a career. The film sits on the KOFA 100 list of Korean films, and what it gets exactly right is the tedium of a holiday among people chosen by circumstance, and the small cruelties that tedium permits.",
+  "model": "claude-opus-5",
+  "source_sha256": "bbbe187b1b228cce3ecee974ac03b2da45a64fd1c700eeec17d0701c19c42860"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "conduct-unbecoming-1975",
+  "field": "lead",
+  "film_id": "6c3f0991-60be-4ab1-94a4-756b5b4522d4",
+  "lang": "en",
+  "text": "The regiment would rather handle it internally. A widow — married to the officer the mess still toasts as its hero — is assaulted, a young lieutenant is charged, and another junior officer is handed the defense and finds that doing the job properly means asking the room questions it has agreed among itself not to ask. Colonial India, dress uniforms, a hierarchy that runs on who rode in which action. The film stays indoors for most of its hundred and seven minutes and takes its tension from procedure: what may be entered, who may be called, which answer ends a career. Made in 1975, it looks at the empire with the manners fully intact and the confidence gone, so every courtesy in it reads as a lock on a door.",
+  "model": "claude-opus-5",
+  "source_sha256": "8722728a859e489246a9e8a98f4c0a6552ce947fd12a37e07412af2f487ad444"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-t-a-m-i-show-1964",
+  "field": "lead",
+  "film_id": "e184c478-ef90-48be-9992-f0490bf2b702",
+  "lang": "en",
+  "text": "Two thousand six hundred teenagers in the Santa Monica Civic Auditorium, one stage, and a bill drawn from London, Liverpool, Hollywood and Detroit as though those were four neighboring towns. In 1964 that combination had barely been attempted in a single room, let alone filmed. A hundred and twelve minutes, and there is no editorializing: acts come on, play, and are replaced, in front of a crowd that never sits down. Because it was shot live, the performances carry real risk — whoever has to follow the act that just took the hall has nowhere to hide, and the camera stays on him anyway. What survives best is the shape of an actual bill: mismatch, escalation, and the sound of an auditorium deciding, act by act, who it belongs to.",
+  "model": "claude-opus-5",
+  "source_sha256": "7aa2ca73680967e026d093000c9dc05d100c22834cfb534762996c4ccbdcd9ec"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-loving-story-2011",
+  "field": "lead",
+  "film_id": "f717c6d2-d719-44a2-9a71-0f3b3d419c1e",
+  "lang": "en",
+  "text": "Richard and Mildred Loving married each other, and in the Virginia of the 1950s that made them a legal problem. The documentary stays close to the couple rather than to the courts: a house, relatives down the road, work in the morning, and a private arrangement between two people that the state insisted on arguing about in public. Seventy-seven minutes, and the case reaches the screen roughly the way it must have reached them — conducted elsewhere, by other people, in language taken from statutes about who may live with whom. Buirski is patient with the quiet parts, and the pressure in the film is domestic: where to live, whether it is possible to stay in the county at all. It has since gone onto the National Film Registry, where the record of one marriage now sits as a national document.",
+  "model": "claude-opus-5",
+  "source_sha256": "72978f7186eccd14305b291d8549f3a1ce531c1d8e5b14c2943ff90840e19bb0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-strong-man-1926",
+  "field": "lead",
+  "film_id": "b92a7d7b-1a0f-4492-a943-7fdc53fa4d5a",
+  "lang": "en",
+  "text": "A Belgian soldier in the trenches receives letters from an American girl he has never met and decides that settles the question of his life. Harry Langdon plays him without defenses — not sly, not quick, simply certain — which keeps him a step behind every situation and lets the situations do the comedy. After the war he crosses to America as assistant to a stage strongman and begins looking for Mary Brown in a country he has no map of. Frank Capra directed. The method is to place a small trusting man in front of large indifferent machinery, a crowd or a city street or a theatrical booking, and let him keep his assumptions intact. Seventy-five minutes. The comedy lives in the waiting: Langdon takes his time before reacting, and the delay is where the joke sits.",
+  "model": "claude-opus-5",
+  "source_sha256": "d992b590b3f1e8c330e1026306f3855ba3f4a71e2be68308bc2d81ded69aa2e2"
+ }
+]

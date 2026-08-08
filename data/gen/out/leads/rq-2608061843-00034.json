@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "calamity-2020",
+  "field": "lead",
+  "film_id": "9129c6c5-d1c2-4ab6-a8a6-876c3f033ba0",
+  "lang": "en",
+  "text": "The family wagon has to be driven west, the horses have to be handled, and in 1863 the one who has to learn both is Martha Jane. Trousers and a pair of scissors follow, and the convoy decides that this is a scandal. Rémi Chayé builds the adventure out of the chore rather than around it, so what threatens her is the trouble her own competence causes. Eighty-two minutes is short for a crossing of the American West, and the compression shows in what survives it: distances measured in days, weather that settles the route, adults whose rules arrive without explanation. It took the Cristal at Annecy. The country is drawn large enough to lose a convoy in, and the comedy never comes at the expense of how far away everything is from everything else.",
+  "model": "claude-opus-5",
+  "source_sha256": "8220681abb89a3aefbbd7bd67192b6ae4f050ea4006ce6ea3b3996a195c27d58"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "crulic-the-path-to-beyond-2011",
+  "field": "lead",
+  "film_id": "9e44e577-fca1-4ebd-b616-ec7678b8b031",
+  "lang": "en",
+  "text": "The charge is a stolen wallet; the complainant is a Polish judge; the accused is a thirty-three-year-old Romanian held in a Krakow detention centre. Anca Damian tells it in animation, which is less a flourish than a solution: nobody filmed any of this, and a man who refuses food from the day of his arrest leaves behind a file rather than footage. What Crulic asked for was small. Someone from the Romanian consulate, in the room, listening. Seventy-three minutes is the length of a case summary and not of a life, and the film holds that discrepancy open instead of smoothing it. Annecy gave it the Cristal. The pressure in it is administrative — correct forms, ordinary delays, days passing at the speed a bureaucracy sets — which is the kind of pressure that never has to raise its voice.",
+  "model": "claude-opus-5",
+  "source_sha256": "94e5b1c1184a4d68fed878e41c407214b7a7ea18045050bd093d01d6e0b4701d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "oseam-2003",
+  "field": "lead",
+  "film_id": "bb492bcf-52f0-4a8f-8128-cbf796411ed0",
+  "lang": "en",
+  "text": "A mountain temple takes in two children: a girl blinded by the fire that killed their mother, and her younger brother, who does not know their mother is dead. The asymmetry is the design. Ga-mi knows and cannot see; Gil-son can see and has not been told, so every kindness the monks offer has to cross that gap without landing wrong. Sung Baek-yeop draws it at seventy-five minutes, and the whole event of the film is an arrival — two children, one monastery, adults improvising a childhood out of meals and weather and the work of the day. Grief sits where children actually keep it, in the middle of an ordinary afternoon, between other things. Oseam took the Cristal at Annecy. It is pitched at a child's height and it is in no hurry to get anywhere.",
+  "model": "claude-opus-5",
+  "source_sha256": "83ae864fc071ffa25da4a10a57eefef325f3f54c75bc019fb2b0f054f624e7c2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "in-the-blood-2016",
+  "field": "lead",
+  "film_id": "90707ff0-5a08-438c-ab23-7dd7574966d2",
+  "lang": "en",
+  "text": "Copenhagen in summer, when the dark never properly arrives and a group of young men keep going for as long as the light does. Simon is twenty-three and studying medicine, so his life already has a shape and a date attached, and everything outside the lectures is arranged around postponing it. Rasmus Heisterberg gives the film almost no plot to lean on. A hundred and five minutes of nights that resemble one another until, quietly, they stop. Friendship at that age comes apart without an argument — a call not returned, someone who now has to be somewhere in the morning — and the picture is patient enough to catch that happening rather than announce it. The Bodil for best Danish film went to it. What it watches is the moment a group stops being a fact of life and becomes a decision.",
+  "model": "claude-opus-5",
+  "source_sha256": "f120d9dac2a3b3e460adfaa3cf6f82d101a1d8b80b05d84d3bb4c05981a51dbb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bhumika-1977",
+  "field": "lead",
+  "film_id": "2c0d4b1c-5d3b-4cfb-98fc-213af21c5f93",
+  "lang": "en",
+  "text": "An actress spends her working hours playing women whose lives are decided for them, and her evenings among people who have decided hers. Bhumika sets that repetition going and then lets it wear. The industry it describes is the one that made it — studios, the daily traffic between a set and a home that has started to resemble a set — and Shyam Benegal takes a hundred and thirty-six minutes, long enough for the pattern to be visible to an audience well before she can name it. Glamour and condescension arrive together, from the same men, often inside the same compliment. The songs are her labour, not her relief. That the Filmfare for best film went to this, in 1977, is stranger than it now sounds: the business applauding an account of what the business costs.",
+  "model": "claude-opus-5",
+  "source_sha256": "5ba5b70d61412b27dc68eef1c24ba4d1f656909ac7339f6a6fa791ac089e5268"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "his-wife-s-diary-2000",
+  "field": "lead",
+  "film_id": "a1b7f69f-c88f-4c6b-adab-519892a614ad",
+  "lang": "en",
+  "text": "Five people share a house arranged around one man's writing desk, and he is the only one in it who never has to explain himself. The man is Ivan Bunin; the wife is Vera, and the film takes its title from her diary, which hands the account to the person doing the accommodating. Alexey Uchitel keeps the young poet Galina Plotnikova, the singer Marga Kovtun and the literary man Leonid Gurov inside the same few rooms, so the attachments circulate rather than resolve. A hundred and ten minutes in which the rooms stay full and the meals keep arriving. Russia submitted it to the Academy Awards. The period is exact, but the subject is smaller and more embarrassing than literary history: what a household organised around one talent costs the people who staff it.",
+  "model": "claude-opus-5",
+  "source_sha256": "dfacc4e2e92465afd39843f1afa9fe6324509c7ec47884577b8bfc556c919b62"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "upkar-1967",
+  "field": "lead",
+  "film_id": "c944d92b-b790-461e-b166-0e4fa898ef4f",
+  "lang": "en",
+  "text": "One son goes to school and one stays with the fields, because a widow farming alone cannot pay for two futures. Radha does the arithmetic; Bharat absorbs it, and neither of them ever calls it a debt, which is exactly what makes it one. Filmfare named it the best film of 1967, and the length is part of the reason — a hundred and seventy-five minutes, used the way a village uses a year, sowing to harvest and back again. Rural India here is not scenery but the reason the plan exists, since a schooled son is the family's entire strategy for getting out. Manoj Kumar directs, and the sympathy stays with the brother who does not leave. The hard part is that the strategy works: an education takes a man away from the place that paid for it, and the fields do not follow him.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f0e8a4dd45ae91da1e7125e9a74af5430a41ce4b534aba77337dc5b27be650f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "kalyug-1981",
+  "field": "lead",
+  "film_id": "df1b9f60-dd0a-4c54-b28c-90882aa3ae28",
+  "lang": "en",
+  "text": "Two rich brothers set about ruining each other with the weapons wealth actually supplies: money, position, patience, other people. Kalyug puts business logic where a melodrama would put malice, so the harm accumulates through men who are well advised and certain they were wronged first. Shyam Benegal runs it a hundred and fifty-two minutes and stays with the machinery rather than the shouting — who owes whom, who was promised what, which version of the family's history each side was raised on. Filmfare gave it best film. India in 1981, seen from the top of it, where inheritance is the literal subject: property, obligation, the assumption that what a father built is owed forward, and how fast that assumption hardens into a plan.",
+  "model": "claude-opus-5",
+  "source_sha256": "80da28efe87bed839dfb70980d7dd816c4f3255bf8aa356cba360a695497f2b1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-room-and-a-half-2009",
+  "field": "lead",
+  "film_id": "21f886bc-2bce-49c1-89fc-28e24e164e03",
+  "lang": "en",
+  "text": "In 1972 a poet is put on a plane out of Leningrad and given to understand there is no return ticket. Joseph Brodsky's life reaches this film already partly lost, and Andrey Khrzhanovsky says so in the construction: the account is semi-fictional by declaration, which releases it from the biography's duty to swear that every remembered room was that exact colour. A hundred and thirty minutes go mostly to parents, apartments, and the ordinary domestic weather of a Soviet household. The departure is a matter of documents; the loss is a matter of rooms. Invention does honest work here, filling what memory supplies unreliably and paperwork does not supply at all, which is a defensible way to film a childhood nobody can go back and check.",
+  "model": "claude-opus-5",
+  "source_sha256": "2624e94f877a7d0df5fab744963754b0367ca377fa7dcd96035316547e17001a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "junoon-1979",
+  "field": "lead",
+  "film_id": "68ff4d18-b1c3-4918-94e5-daf72c92a186",
+  "lang": "en",
+  "text": "A mother says no to a Nawab, in the middle of an uprising, with nothing behind the refusal except the word itself. The year is 1857 and the war is happening outside the house, while Junoon stays indoors with the family it is happening to. An Anglo-Indian household finds itself without protection; the Nawab's wish to marry the daughter arrives with an army's timing, which is what makes it frightening rather than romantic. Shyam Benegal lets obsession look like patience, and that is worse. A hundred and forty-one minutes, a great deal of it waiting — who may enter which room, who is fed, who is guarded and on whose word. History supplies the noise offstage. The pressure indoors is entirely concrete, and the mother's obstinacy is the only structure holding it up.",
+  "model": "claude-opus-5",
+  "source_sha256": "11ef0ff7bdeb831caa8102eee0d4101c6e3c22e1c66697d43d19da67f91a88d8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "fish-out-of-water-1993",
+  "field": "lead",
+  "film_id": "8743a2d7-f454-447e-aff3-0aa6dccc5471",
+  "lang": "en",
+  "text": "A machinist who will not say a word about his feelings keeps a tank of fish, talks loudly about the union, and argues his way through dinner. Three hundred thousand Danes were out of work in the early nineties, and Erik Clausen builds a comedy on one of them: Viggo, laid off before he has worked out who he is without the job. Ninety-seven minutes, exact about the small occupations that arrive to fill a weekday — a garden started in earnest, an aquarium attended to, a wife tracing the family line backwards while her husband loses the thread of his own. Oda's patience is the household's real infrastructure. The comedy sits close enough to the humiliation that neither cancels the other. Class here is less a theme than a set of habits: what a man will admit to, and to whom, and how late.",
+  "model": "claude-opus-5",
+  "source_sha256": "d899ee3e82da1d6c2b52a2b57b3ec1ac96739afbbf90d4650612e421a7dfb6c2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-missing-clerk-1971",
+  "field": "lead",
+  "film_id": "aa88b72e-f65b-4c52-ad55-d5495dee4090",
+  "lang": "en",
+  "text": "Two men disappear on the same day, one of them by dynamite, and the police cannot establish which of them is dead. The Missing Clerk treats this less as a thriller than as a filing problem: an identity is a stack of documents — employer, address, wife, habits — and when the documents stop agreeing, the apparatus built for sorting people has nothing to grip. Gert Fredholm keeps a hundred and two minutes of investigation running on that premise, and the comedy comes from officials obliged to take the paperwork seriously long after it has stopped describing anyone. Denmark sent it to the Academy Awards. What lingers is the arithmetic of a modest life: how completely it can be set down on a form, and how little of that turns out to hold weight.",
+  "model": "claude-opus-5",
+  "source_sha256": "d281d2852b241b395e48589ea2b5c4af4b742c41b0fcf253540adb709e9221c7"
+ }
+]

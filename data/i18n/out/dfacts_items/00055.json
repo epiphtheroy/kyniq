@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-haneke#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "처음에는 부모를 따라 배우가 되려 했다. 빈의 명문 막스 라인하르트 세미나 입학시험에서 떨어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "22b580830254271f71b5f6719686cc71917dc5a06d60412b261457ac2184c843"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-haneke#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "연기를 접은 그는 빈에서 대학 시절을 보내며 철학과 심리학, 연극을 공부했다. 생계는 1967년부터 1970년까지 프리랜서 영화평론가로 해결했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2e8e993296ed5f5cdce7d54fcf9ee90070cc50ef66507fe469b002089533fc6a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-haneke#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "바덴바덴의 서독 방송사 쥐트베스트풍크(SWF)에서 텔레비전 드라마투르그로 일하며 도제 시절을 보냈다. 영화를 만드는 실무와 기술은 거기서 익혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9a8a6833d3862193a49c5c8679e0cc7b6f0de2f45a815a0363f5ecdcae91c2c4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-haneke#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "극장 영화로 치면 그는 확실한 대기만성형이다. 거의 20년을 텔레비전 영화만 찍다가 마흔일곱이 된 1989년에야 《일곱번째 대륙》으로 장편 데뷔했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "14c5fa9d35600001c5110f4761de2c1a47b21d4277728f0517fb99acfeb8d5c1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-haneke#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "하네케는 스티븐 스필버그의 《쉰들러 리스트》를 몹시 싫어한다. 가스실 샤워 장면이 홀로코스트를 서스펜스 게임으로 만들었다고 공개적으로 비난하면서, 이 주제를 다룬 영화 중 도덕적으로 받아들일 만한 것은 알랭 레네의 《밤과 안개》뿐이라고 말했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0199b0b017317da5839c8313808fa1ea10d470f07fd9e389db37170d8708686b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-haneke#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "국제적 경력의 전환점은 뜻밖의 전화 한 통에서 왔다. 프랑스 배우 쥘리에트 비노슈가 그의 오스트리아 영화들을 보고는 전화번호를 수소문해 직접 걸어와 함께 일하자고 요구한 것이다. 그 통화가 2000년 《코드 언노운》으로 이어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "59ffca3b38bb0b86b7e91565e5247217772b7f22e799202ef83791a36790cafe"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-haneke#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1997년 오스트리아에서 만든 스릴러 《퍼니 게임》을 10년 뒤 미국에서 자기 손으로 다시 찍었다. 카메라 앵글도, 소품도, 세트 도면도 원작과 똑같이 써서 숏 하나하나를 그대로 복원한 작업이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "beb7840c06eeac866159bf6045f3353d87e2e841c231d35f040f826d1064ad68"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-haneke#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미국판 《퍼니 게임》을 맡은 이유는 단 하나였다. 폭력적 미디어 소비를 겨눈 원작의 비판이 정작 겨냥한 과녁, 곧 미국 멀티플렉스의 주류 관객에게는 닿지 못했다고 여겼기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fe9f5440f68788bfd28803048297fabfa50abe2398584dd8ddaa541587111b88"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-haneke#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화계의 냉혹한 도덕주의자라는 평판과 달리, 그의 촬영 현장은 의외로 유쾌하다고 배우들은 입을 모은다. 이자벨 위페르는 이 감독이 테이크 사이사이 웃는 데 시간을 꽤 쓴다고 전한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f866a4f5ca4f4427aaca56dc89ae267621be7de85256acf4d9a82e10d233753c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-haneke#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "빈 영화아카데미에서 오래도록 연출을 가르쳐 왔다. 학생들에게 요구하는 것은 영화적 인공(artifice)을 걷어내고 배우가 내놓는 심리적 진실 하나에만 집중하는 훈련이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5ba165662eff750629edace0b4dc8bd911680e80aeb414cc1734e9054ea22482"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-haneke#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2006년에는 활동 영역을 넓혀 파리 국립오페라에서 볼프강 아마데우스 모차르트의 《돈 조반니》를 현대 의상으로 올렸다. 무대는 형광등이 켜진 삭막한 사무실 빌딩. 논란이 컸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fa0d699832d42ab86d6c17338d961e6b34d0df089c25a38153e234b334a96b43"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-haneke#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "칸영화제 최고상인 황금종려상을 연달아 두 편으로 받았다. 2009년 《하얀 리본》, 2012년 《아무르》. 좀처럼 나오지 않는 기록이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9869e296237a5b1b3d8bba1364801c39a6492c193fa507cb66aa38cc8654d2e2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-haneke#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "'@Michael_Haneke'라는 패러디 트위터 계정이 몇 년간 화제였다. 감독 특유의 암울한 어조로 시시콜콜한 관찰을 올리는 농담이었는데, 하네케 본인도 뒤늦게 이 계정을 알게 되었고 무척 재미있더라고 인정했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "805b2846077a21916715ef8dac0031f0ee51591eb0f7354011bd4357bda5f0b9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-haneke#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "수십 년간 붙들고 있던 기획, 프란츠 카프카의 《성》을 1997년 마침내 영화로 옮겼다. 문장 한가운데서 화면을 검게 끊어 끝내는 결말은 미완의 원고에 바치는 정확한 예우였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "09b045183c5b305c86c82433f818018befd2f5041f413345a97d26894614da14"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-haneke#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "동시대 감독 가운데 진심으로 존경하며 예술적으로 통한다고 느끼는 이는 단 한 사람, 고인이 된 이란의 거장 압바스 키아로스타미뿐이라고 하네케는 공개적으로 밝혔다. 영화적 리얼리즘을 대하는 그의 엄격함이 자신과 닮았다는 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4c9cdbfffd471434413915318feb55b86fa9af0faabec3bb6acfde0cd4c322e4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-powell#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미슈콜츠에서 임레 요제프 프레스버거라는 이름으로 태어났다. 유대인 가정이었고, 아버지는 드넓은 농장을 관리했다. 시골 풍경을 향한 평생의 애착이 그때 심어졌고, 훗날 그의 영국 영화들에 스며든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1300445e0feb570562feb522d7da4196440f6935440c57dfff6c328bf61cea09"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-powell#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화계로 들어서기 전에는 프라하와 슈투트가르트의 대학에서 수학과 공학을 공부했다. 아버지가 세상을 떠나면서 학비가 끊겼고, 학업도 거기서 멈췄다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ce01a48240d20edb850d32e803d99f749ea3ef0c2b56a0c3b0eb69239b4a05fa"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-powell#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "바이마르 시대 베를린에서 보낸 이십대는 가난했다. 프리랜서 기자로 근근이 버텼고, 방을 얻을 돈이 없어 순환선 링반 열차를 밤새 타고 돌며 몸을 녹이는 날이 잦았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "55204a450f92fa2ce92afd84ac0f6a732e8a94153a43d7b782eb4e0bc6d3622b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-powell#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "독일 영화사 UFA에는 각본을 손보는 일로 발을 들였다. 에리히 케스트너의 사랑받는 아동소설 『에밀과 탐정들』을 1931년 호평받은 영화판으로 옮기는 데 힘을 보탠 것이 대표적이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "61d1c3d3b5ee90bb906912db6782527215e9fd96903a602f0cdfd383bee53917"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-powell#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1933년 나치가 독일 영화계에서 유대인을 몰아내자 프레스버거는 베를린을 떠나 파리로 향했다. 아파트 문에 열쇠를 꽂아둔 채 작은 여행가방 하나만 들고 나선 것으로 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d24ab65c1212432f9956b775843e08ac4dc4ebb8b829b07f75c05cc1062f12c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-powell#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1935년, 무국적 여권을 든 무일푼 난민으로 런던에 닿았다. 도착하자마자 영어사전을 한 권 샀고, 지역 신문 기사를 하나하나 옮겨보며 혼자 언어를 익혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3ca122a7a6efcf7a8fdc1dac839ef8a8e6f7bab360b7a1d27598787116dbd741"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-powell#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화사에서 가장 영국적이라 할 작품들을 썼으면서도 프레스버거의 헝가리 억양은 평생 짙게 남았다. 2차 세계대전이 터지자 영국 정부는 그를 공식적으로 '적성 외국인'으로 분류했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "52b5f6948a66a25e2a7875bdbb710158f4a0d2ee359608600bb748247b63084a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-powell#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "감독 마이클 파월과의 전설적인 동행은 1939년에 시작된다. 제작자 알렉산더 코르더가 《검은 첩보원》의 각본을 손보라며 프레스버거를 불렀을 때, 이 작가는 조끼 주머니에서 돌돌 말린 작은 종이쪽지를 꺼냈다. 거기 적힌 재구성된 플롯에 파월은 놀라 버렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "48af903dd8ed0bebab9419307e26f2d3e6340d87b186ec1ea33168d8293a44e6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-powell#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "두 사람은 'The Archers'라는 이름 아래 '각본·제작·연출'을 함께 올리는 독특한 공동 크레딧을 썼다. 정작 프레스버거는 촬영장에 거의 나오지 않았고, 파월은 시나리오를 쓰는 법이 거의 없었는데도.",
+  "model": "claude-opus-5",
+  "source_sha256": "ff312efbd9c187dcffa2b55039640ebd09ef6874bc2b19a42745064304653067"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-powell#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "생애 유일한 아카데미상은 1941년 전시 스릴러 《49도선》으로 받은 각본상이었다. 노골적인 반나치 선전영화였고, 법적으로는 여전히 무국적 난민인 사람에게 오스카가 돌아간 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2777ca39726b2074447d0a45f40f7c5e6115def2bf7fd569785a9611b949008d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-powell#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《블림프 대령의 삶과 죽음》 촬영 당시 윈스턴 처칠이 직접 제작을 막으려 들었다. 외국 태생 작가가 전시에 영국 군부를 풍자한다는 사실에 격분한 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a82ace165570c09f16bf10bdb6502f128bb458ac835054193aae19ed7e6382db"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-powell#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "홀로코스트에서 살아남았다는 죄책감이 그의 밑바닥에 깔려 있었다. 헝가리에 남은 어머니와 여러 친척은 아우슈비츠에서 목숨을 잃었다. 운명과 희생, 사후세계를 거듭 다룬 그의 시나리오들은 거기서 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c697175e0665a55ea93bd25797b49d3441852afa87c92a6a07d15b9473967d76"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-powell#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1957년 파월과의 동행이 원만하게 끝난 뒤, 프레스버거는 1961년 소설 『Killing a Mouse on Sunday』를 썼다. 훗날 할리우드가 이를 각색해 그레고리 펙 주연의 《베홀드 어 페일 호스》로 만들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6f7067d797db1be65923833e88e4233312709fd3a3642edac1b05d9804c98420"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-powell#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1966년에 내놓은 소설 『The Glass Pearls』는 읽는 사람을 몹시 불편하게 한다. 런던에 숨어 사는 나치 전범을 따라가는 이야기이니, 영국 사회에 섞여들려 애쓰던 유대인 난민 자신의 경험을 심리적으로 뒤집어 놓은 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8731cdce66251835abbe9749715745d52bdea9d16ccd96891574ac23561cbd9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-powell#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "Archers 이후의 시나리오 몇 편은 자기 이름의 철자를 바꾼 필명 'Richard Imrie'로 썼다. 파월과 함께 쌓아 올린 명망 있는 유산과 혼자 하는 상업 작업을 떼어놓으려는 뜻도 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d418cf3e1b355afaaef2908288046a44b6c2f959e55e9d00c80e27045748bc81"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-powell#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《분홍신》과 《천국으로 가는 계단》 같은 걸작을 함께 만들었는데도, 1960년대 비평가들은 프레스버거의 몫을 자주 깎아내렸다. 작가주의(auteurism)를 앞세운 그들은 이 영화들의 천재성을 오로지 감독 파월 한 사람에게 잘못 돌렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "854d6c4be4f43f20987e9acfae6a49a13e08529236e0d7ee1b58215b2e6a80ae"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-powell#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "만년에는 서퍽의 애스폴 마을에서 반쯤 은퇴한 채 조용한 시골 생활을 했다. 다만 아스날 축구클럽만은 놓지 못해서, 중계는 웬만해선 거르지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "584e3fba62ae086071d004e27c6e6dd290aebac7c7fefe69bf78d090d5388d54"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-powell#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그의 유산을 되살린 것은 손자들이었다. 《트레인스포팅》을 제작한 앤드루 맥도널드와 케빈 맥도널드, 두 사람 다 이름난 영화인이다. 케빈은 『The Making of an Englishman』이라는 결정판 평전을 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5538eca7e1f53e1a9fc774fb7a80330098c47be23a34af35c0e79de1b0e8b100"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-powell#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "말년에는 심한 폐기종을 앓았다. 그래도 아끼던 시가만은 고집스레 놓지 않았고, 1988년 눈을 감을 때까지 오두막에서 역사책을 읽으며 하루하루를 보냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd44078a6326a8a723b1ec7dc733f21a820bc33f56d977cd7e88496268b913ab"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michelangelo-antonioni#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "안개가 잦고 지평선이 평평한 도시 페라라, 안락한 부르주아 가정에서 태어났다. 포 계곡의 그 광막하고 황량한 풍경이 공허를 응시하는 자신의 영화적 시선을 영영 결정지었다고 안토니오니는 말했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dfe580d2d6b29f3a9938888273870c259bd6748062bd6650d2056b959e188756"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michelangelo-antonioni#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화의 길로 들어서기 전 볼로냐 대학에서 경제학을 공부했다. 생계는 페라라 지역지 《일 코리에레 파다노》에 신랄한 영화평을 써서 꾸렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3431d5e1eb0c2773d46709990aa200e7cda1a4e47c61094d627e1738651b01cd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michelangelo-antonioni#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1939년 로마로 옮겨 가 파시스트 공식 영화지 《치네마》에 잠시 글을 실었다. 편집장은 베니토 무솔리니의 아들 비토리오였고, 정치적 견해차로 그는 해고당한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "01ffd12ace8b8c18ea3c1b1ac9313cb0c78464ba26a6691fd9c8c184323baf1c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michelangelo-antonioni#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "로마의 명문 영화실험센터에 들어갔으나 석 달 만에 그만두었다. 로베르토 로셀리니의 1942년작 《귀환하는 조종사》 공동 각본 일이 그를 불러냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "74d3101327af792ef367754f12b9788e7f26253420f2dbeb160cc0a757f6b01e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michelangelo-antonioni#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1942년 프랑스 영화 《밤의 방문객》에서 마르셀 카르네의 조감독으로 일했다. 전해지기로 카르네는 이 젊은 이탈리아인을 건방지다고 여겼고, 거의 상대해 주지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "61e69aa435baa4db7c09ff7ae38faade4df8138b5a71ca854b13d1d76ff7b0fb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michelangelo-antonioni#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "첫 다큐멘터리 《포 강의 사람들》(1943)은 자기 돈으로 만들었다. 원본 네거티브가 2차 세계대전 중 소실되는 바람에, 남은 필름을 추려 짧게 편집한 판본을 1947년에 내놓아야 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "92e8b2dba0038f358c33fcb201b1abe76b04013c4ead6991e029e999ca830162"
+ }
+]

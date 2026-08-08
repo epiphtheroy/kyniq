@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-mendes#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《아메리칸 뷰티》의 마림바가 짙게 깔린 그 서늘한 음악은 멘데스가 작곡가 토머스 뉴먼을 택한 결과였다. 이 만남은 《로드 투 퍼디션》, 《자헤드》, 《1917》로 이어지는 긴 동행의 출발점이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc9c6b6d6e82f29bca84387afd45837c791c53a4b22042906680cf422d64dc38"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-mendes#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2002년 네오 누아르 《로드 투 퍼디션》에서 그는 할리우드의 전설 폴 뉴먼에게 냉혹한 아일랜드계 조직 두목 존 루니 역을 맡겼다. 뉴먼의 마지막 실사 영화 배역이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "287cddbf5c8c106a86e47cbdf952a3f3025bdfeb06855541af763174fb1e35da"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-mendes#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2003년 멘데스는 피파 해리스, 카로 뉴링과 함께 Neal Street Productions를 세웠다. 영화와 텔레비전을 함께 다루는 이 회사는 훗날 BBC 시대극 《콜 더 미드와이프》로 크게 성공한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7306c848295615815153571c3cb0c424318af3b2d70a2b2de602bf3073e7e574"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-mendes#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《레볼루셔너리 로드》에서 그는 당시 아내였던 케이트 윈슬렛과 그의 절친한 친구 리어나도 디캐프리오를 연출했다. 무너져가는 결혼을 냉랭하게 그린 영화였고, 촬영 2년 뒤 멘데스와 윈슬렛의 결혼도 이혼으로 끝났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd47ca946bde1562249ee553f28aee826c74c11224b627e9de11b01a1b73b965"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-mendes#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2009년 뉴욕의 휴 잭맨 아파트에서 술이 한창 오르던 밤, 배우 대니얼 크레이그가 불쑥 제안했다. 제임스 본드 시리즈 《스카이폴》의 연출을 맡아달라고.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd65d788f7b24a4dde7e647356b99f19b270d93c950032d956abfd7c61869975"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-mendes#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《스카이폴》은 전 세계 흥행 10억 달러를 넘긴 최초의 제임스 본드 영화가 됐다. 그때까지 밀도 높은 심리극으로 이름을 쌓아온 감독에게는 어리둥절할 만한 상업적 정점이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a3169ccdc28bc3c2f0ce4a2b0ecdc48cbbf2c15d9f85c67359493ff0a1d2a4d5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-mendes#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "두 번째 본드 영화를 맡아달라는 제안을 멘데스는 처음에 거절했다. 그러자 제작자 바버라 브로콜리와 마이클 G. 윌슨은 《스펙터》의 제작을 통째로 일 년 미뤘다. 오로지 그의 연극 일정에 맞추기 위해서.",
+  "model": "claude-opus-5",
+  "source_sha256": "ea2c89dd1965e5e757ea8f21ffa63a99ab75c0b6cf30a6673efc128b7e94df41"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-mendes#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "할리우드에서 거둔 성공이 아무리 커도 그는 무대를 놓지 않았다. 2019년 《The Ferryman》, 2022년 《The Lehman Trilogy》로 토니상 연극 연출상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dcf6258cec9b1d7ab4f56219ccad6fa4b8d9e4833e93f82661d669444b9400bf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-mendes#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2017년 멘데스는 클래식 트럼펫 연주자 앨리슨 볼섬과 결혼해 딸 피비를 두었다. 케이트 윈슬렛과의 이전 결혼에서 얻은 아들 조가 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "52b04511f673922374bb3cc0daafec929978f1ac7f7e910818e2dadcf65bd4b9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-mendes#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2020년 신년 서훈에서 그는 연극에 기여한 공로로 엘리자베스 2세 여왕에게 기사 작위를 받았다. 공식 호칭은 서 샘 멘데스.",
+  "model": "claude-opus-5",
+  "source_sha256": "b50599fc17c00cadd59c7c3e9131021a468f3b62324367670f270b8ee8c1af83"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-mendes#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1994년 캐머런 매킨토시가 제작한 뮤지컬 《올리버!》의 대형 리바이벌을 연출하며, 그는 런던 팔라디움 역사상 최장기 공연 기록을 만들어냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "79462672c36c38eb5100bd0b6cc27f764b6ca075f33e5ff8d7ef74555b7e870f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-mendes#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "대중음악에 관한 한 그의 머릿속은 거의 백과사전이다. 2005년 걸프전 영화 《자헤드》의 사운드트랙도 그가 직접 골랐다. 시대를 어긋나게 배치한 선곡이 영화 전체의 정서를 정한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e46ae3545121af7e4e3e01391209227829ef2362cc831543b7b49209f0d994e5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-raimi#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1968년, 열다섯 살이던 형 샌더가 이스라엘의 한 수영장에서 사고로 익사했다. 아끼던 형의 죽음은 라이미의 창작 궤도를 근본부터 바꿔놓았고, 남은 가족을 단단히 결속시켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ba93dcb0d7e62326161f65f7d860e0e47b682d842b97040d5eca64b10da4f8b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-raimi#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미시간 주립대에서 영문학을 공부하던 시절, 라이미는 캠벨과 룸메이트 로버트 태퍼트와 함께 게릴라식 영화 모임을 꾸렸다. 기숙사에서 자기들이 만든 아마추어 코미디 단편을 학생들에게 돈 받고 틀어주며 제작비를 모았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0f1af7c8cf1958a93c986a22beffe7cbfafe2098685e314a90f7d054a4b97ab3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-raimi#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《이블 데드》의 제작비를 마련하려고 라이미는 대학을 그만뒀다. 1978년 32분짜리 호러 시제품 《Within the Woods》를 찍은 뒤, 디트로이트의 치과의사와 부동산 중개인 집을 돌며 그것을 상영했다. 그렇게 9만 달러를 긁어모았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ed6a531a9093e9574bc7d7db5cd6e48e9ad9e77c8bf54f39780242c05737d050"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-raimi#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1979년 테네시주 모리스타운의 얼어붙은 폐가에서 진행된 《이블 데드》 촬영은 혹독했다. 라이미가 배우들을 학대하다시피 했다는 이야기는 유명하다. 캠벨의 다친 다리를 카메라 밖에서 막대기로 찔러 진짜 고통스러운 표정을 끌어내곤 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b09bf005ef892e8f791d500f2ca29c9bfd4fd7a3ff0e04054051a5ea0257703e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-raimi#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "초기 호러 영화를 찍을 때 스테디캠을 살 돈이 없었다. 라이미는 카메라를 각목에 붙이고 두 사람이 그것을 든 채 숲을 미친 듯이 달리게 했다. 이른바 '셰이키 캠'이 그렇게 태어났고, 광란하는 시점 숏은 그의 서명이 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "12ca411c605fd019d944883a5aceb7f6198934c2989caeca569aefc236d60815"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-raimi#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1982년 칸 영화제 상영을 본 호러 작가 스티븐 킹이 《트와일라잇 존 매거진》에 극찬을 실었다. 그 글이 뉴 라인 시네마의 배급 계약을 끌어냈고, 잊힐 뻔한 《이블 데드》는 그렇게 살아남았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "780b30cd8e7a5b41ffbd15ba8e2b17958c4ea9dc821973258f015e7fb9eab61a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-raimi#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《이블 데드》의 조편집자로 조엘 코엔을 쓴 것이 그의 영화계 첫 발판이 됐다. 코엔 형제는 1985년 라이미의 슬랩스틱 누아르 《크라임웨이브》 각본을 함께 쓰며 그 빚을 갚았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "233abcb3e6b77586bab94709618c2cfb4ad1413e4a4089652eaae08254b1be73"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-raimi#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "연노란색 1973년형 올즈모빌 델타 88. 샘이 십 대일 때 아버지가 산 그 차를 라이미는 자기가 연출한 거의 모든 영화에 기어이 숨겨 넣는다. 1995년 서부극 《퀵 앤 데드》에서는 차체를 포장마차로 위장시키기까지 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a5d713fd7af6d88ca859bedf0566721bc95f3f7be93961e429c17bfb1911a248"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-raimi#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "유니버설은 그가 사랑한 펄프 영웅 The Shadow와 배트맨의 영화화 권한을 거듭 내주지 않았다. 그래서 라이미는 물러서는 대신 자기 영웅을 만들었다. 붕대를 칭칭 감은 비극의 사나이, 1990년작 《다크맨》이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d7dca322a5dfe157b08d26ce3697b161fa1591c78790610d1dada1065dd5da3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-raimi#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1993년 그는 질리언 그린과 결혼했다. 고전 서부극 드라마 《보난자》의 가장으로 이름난 로언 그린의 딸이다. 이후 그녀는 그의 여러 영화에 카메오로 얼굴을 비친다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a71a99ed4c7062879c51385f5b33b7d3b05ff2512b94a309399f2f702011a30a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-raimi#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "형 아이번 라이미는 현직 정골의학 의사다. 그런데 휴가철이 오면 병원 일을 접고 동생과 나란히 할리우드 각본을 쓴다. 《이블 데드 3》와 《드래그 미 투 헬》이 그렇게 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4349f2c2b6c13d3f2419921f6780bfd3f7641819f59ff0c448178f9ea11795f0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-raimi#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《퀵 앤 데드》 촬영 당시 트라이스타는 무명의 어린 리어나도 디캐프리오를 쓸 수 없다고 못 박았다. 그러자 주연 샤론 스톤이 사비를 털어 디캐프리오의 출연료 전액을 대신 냈다. 라이미는 그를 그대로 화면에 남길 수 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7daa5a0d93803ebdd85bc7dfc81aa9279a623f98ed75abcc047cf0f6def9dd79"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-raimi#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1998년 스릴러 《심플 플랜》은 원래 존 부어먼이 맡을 작품이었다. 부어먼이 하차한 뒤 라이미가 들어갔고, 영화는 아카데미 후보 두 부문에 오르며 호평받았다. 절제된 성인 취향의 정통 드라마도 그가 다룰 수 있다는 증명이었다. 반신반의하던 할리우드를 향한.",
+  "model": "claude-opus-5",
+  "source_sha256": "e5decac0795efa40b678e7e938ca1366ba695a9a84c3f773af0e14ad688cb23d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-raimi#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2002년 《스파이더맨》의 연출권을 두고 그는 데이비드 핀처, 크리스 콜럼버스 같은 이름들을 제쳤다. 소니 경영진 앞에서 그가 뜨겁게 쏟아낸 것은 슈퍼히어로 액션이 아니었다. 피터 파커라는 십 대의 가난, 그리고 연애 앞의 초라함이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e61c99aa2f85b7fd1a434bb8117bd08ef1b0a7dd33475db83e773d4fd2543f92"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-raimi#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《스파이더맨 3》을 만들며 그는 마블 제작자 아비 아라드와 크게 부딪쳤다. 아라드가 악당 베놈을 넣으라고 밀어붙인 탓이다. 1990년대 캐릭터인 베놈을 라이미는 대놓고 싫어했고 이해하지도 못했다. 그렇게 부풀어버린 영화를 두고 감독은 훗날 공개적으로 \"형편없다\"고 말했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f23fc6fc7fbf684f13cf6d28d627c3cf791551960290c9a9e0658f947cf68e2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-raimi#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "소니는 2011년 5월 개봉을 못 박았다. 타협한 《스파이더맨 4》를 내놓느니 라이미는 2010년 조용히 프랜차이즈에서 손을 뗐다. 스튜디오는 속편을 접고 앤드루 가필드를 앞세워 시리즈를 다시 시작했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e5e054d272756b4c50c042101e1b38776372cf46be57d5ee02de064b7a34d08"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-raimi#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "동생 테드 라이미를 자기 영화에 계속 끼워 넣는 것은 이제 하나의 농담이 됐다. 숨 막히는 특수분장 아래 파묻거나, 폭력적일 만큼 우스꽝스러운 수난을 캐릭터에 안기거나. 《이블 데드 2》의 빙의된 헨리에타가 그렇다.",
+  "model": "claude-opus-5",
+  "source_sha256": "75f334ac6292110141ccecc4882a0524173bb64ecdfb257fc3c2584c2014dddf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satoshi-kon#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "곤 사토시는 홋카이도 구시로에서 태어났다. 아버지의 잦은 전근이 그의 유년을 정했고, 결국 삿포로에 자리 잡는다. 거기서 훗날 만화가가 되는 다키자와 세이호를 만났다. 둘을 묶은 것은 애니메이션 《기동전사 건담》을 향한 집착이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ff2d2da0a7023c6153385ad9062dc816c16a534b5d20722bbde195ca83d48a6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satoshi-kon#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "사토시가 그림 쪽으로 간 사이, 형 곤 쓰요시는 일본에서 손꼽히는 스튜디오 세션 기타리스트가 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "657c49ba5c7945f643c4db9d91a81fc1aaa20d0aba90c1f7b0cb7b9ef547648c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satoshi-kon#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자기 영화를 찍기 전, 곤은 오토모와 함께 《월드 아파트먼트 호러》(1991)의 만화판을 쓰고 그렸다. 야쿠자가 초자연적인 세입자들을 쫓아내려 애쓰는 코믹 호러다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ad6b5c89793bbc3a72fa2d701e1908ed64d115ff7a35a11fd02711bb2ecfdc50"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satoshi-kon#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《공각기동대》의 오시이 마모루와 만화 《세라핌: 266,613,336의 날개》를 함께 만들었다. 두 사람의 방향이 워낙 격하게 어긋난 탓에, 작품은 1995년 연재 도중 영영 중단됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc394cdd699322af027e43246229f583f4f6f19f1c7e62c7f0d784bad41fea8b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satoshi-kon#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "곤은 전자음악의 개척자 히라사와 스스무의 광적인 팬이었다. 《천년여우》의 콘티를 짜는 내내 그의 앨범을 붙들고 들었고, 끝내 히라사와를 불러들였다. 이후 곤의 모든 작업에 그의 음악이 붙는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b493b11af9e20646845048a3faa37abdef13ca1cab8271883d09ff638b69b880"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satoshi-kon#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《천년여우》(2001)의 주인공은 하라 세쓰코와 다카미네 히데코, 두 전설적인 일본 여배우를 합쳐 빚은 인물이다. 곤은 그 허구의 일생을 통로 삼아 일본 영화의 실제 역사를 훑는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e93ea9ca3a4b03cf85ff5b02f055d917bc28482769bf0aa6b6202e779c00b0f9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satoshi-kon#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미국 감독 대런 애러노프스키는 《퍼펙트 블루》의 실사 리메이크 판권을 약 5만 9천 달러에 사들였다. 주인공이 욕조 물속에서 비명을 지르는 그 유명한 숏을 자신의 2000년작 《레퀴엠》에서 합법적으로 재현하기 위해서였다는 이야기가 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2755288a8ab71936a33a6576820cb6504d0c008a990741583c77f9efffc23db4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satoshi-kon#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그의 유일한 텔레비전 시리즈인 13부작 《망상대리인》(2004)은 사실상 창고였다. 기묘하고 서로 이어지지도 않는 착상들이 오래 쌓여 있었고, 장편의 서사 안에는 도무지 들어갈 자리가 없었다. 그것들을 부어넣을 곳으로 만든 작품이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "934212b63c0991eed91cb684f15d5232c9cd20daec2334f4e5ff9d7cfbcec01f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satoshi-kon#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "곤은 오랫동안 일본 SF 작가 쓰쓰이 야스타카를 우러러봤다. 그 꿈은 쓰쓰이가 직접 그를 연출자로 승인하면서 이루어졌다. 꿈을 해킹하는 소설을 옮긴 2006년 애니메이션 《파프리카》다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dada5d83b6c6dbda8dde3ef9ce77ca530364f3c6984211647c4bb2718b823896"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satoshi-kon#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2010년 크리스토퍼 놀런의 《인셉션》이 개봉하자 비평가들은 곧바로 《파프리카》와의 닮은 점을 짚었다. 복도가 뒤틀리는 장면, 인물이 거울 같은 꿈의 벽을 깨뜨리는 대목이 특히 그랬다. 놀런이 영향을 공개적으로 인정한 적은 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d2dc982ae2d50b3d04d009058c1610bd5b99bd31e7a8fde73c183d45c0a869f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satoshi-kon#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2010년 5월, 심한 요통 끝에 곤은 말기 췌장암 진단을 받았다. 암은 이미 뼈까지 빠르게 번져 있었다. 남은 시간은 길어야 여섯 달이라고 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0cf86a528a90048e2ca7ebc0d26530b88f72799bad4512ea511b0f796834a781"
+ }
+]

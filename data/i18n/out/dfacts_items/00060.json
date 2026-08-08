@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paolo-sorrentino#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "소렌티노가 그 참사를 피한 데는 이유가 하나 있다. 우상이었던 디에고 마라도나가 엠폴리 원정 경기에 뛰는 걸 보겠다며 나폴리에 남게 해달라고 아버지에게 졸랐던 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "105480f91f42e5d06ea495ed621a3f23ccf4cbc0ebe31028744dda531379ec73"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paolo-sorrentino#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "수십 년 뒤 《그레이트 뷰티》로 2014년 아카데미 외국어영화상을 받았을 때, 그는 마라도나의 이름을 또렷이 불렀다. 페데리코 펠리니, 마틴 스코세이지, 토킹 헤즈와 나란히 자신에게 가장 큰 영감을 준 존재로.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd6bfaceb37a0613ec01f8d00b206a0951604b68a3df0856d8dee56a46f505c7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paolo-sorrentino#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화로 방향을 틀기 전, 나폴리 페데리코 2세 대학에서 경제학과 상학을 공부하며 몇 해를 흘려보냈다. 만족은 없었다. 졸업까지 시험 몇 개만 남겨둔 채 학교를 떠났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb885f2157489bdd2ab3c41c6e6160212d4f60511be6c0b81f16f57bea2dc57a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paolo-sorrentino#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "나폴리 영화판에서 그가 처음 발을 붙인 계기는 1998년작 《The Dust of Naples》 공동 각본이었다. 함께 쓴 감독 안토니오 카푸아노는 초기의 결정적인 스승이자, 요구가 많은 스승이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6f8c5b9a20a69830fa69b56351da090131adc23794789906b03727f4ee56a0a0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paolo-sorrentino#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2001년 데뷔작 《One Man Up》에 연극 무대에서 이름 높던 배우 토니 세르빌로를 캐스팅한다. 여기서 시작된 협업은 평생 이어졌고, 《일 디보》와 《그레이트 뷰티》를 비롯한 그의 대표작을 만들어냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "242cb8ff98bd6f81e64f0cc064e6f58ab8b78d3b219e6528a2a08dfad756da5d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paolo-sorrentino#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "소렌티노는 영화 밖에서도 쓰는 사람이다. 2010년 소설 《Everybody's Right》(*Hanno tutti ragione*)을 발표했고, 이 작품은 이탈리아 최고 권위의 문학상인 스트레가상 후보에 올랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b95c1913d66c69aba590012bf1b749cd7d58e97864d03ef3307ffe7de6013a5a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paolo-sorrentino#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아내는 《라 레푸블리카》 기자 다니엘라 단토니오다. 둘은 십 대 시절 나폴리에서 처음 만났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ddeed9bb5459ed9dec4c1051cc4cdb95b71e122e7b6756c88a0206c403fdd5d5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paolo-sorrentino#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "휩쓸 듯 움직이는 그 특유의 화면은 촬영감독 루카 비가치와 함께 다듬어온 것이다. 비가치는 2004년 《사랑의 결과》 이후 그의 장편을 거의 전부 찍었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b547c144f68cc5bbcefde271ccd242b885fd34492f572a5e7d3d961b83c40367"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paolo-sorrentino#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "고전 음악과 동시대 음악을 부딪쳐 놓는 데 집착이 있다. 《그레이트 뷰티》에서 성가곡 옆에 밥 싱클레어가 리믹스한 〈Far l'amore〉 같은 유로댄스를 붙여둔 게 대표적이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "44d85bca7a947e5c668448bcac9f8a1692c4d6233e2b684d53b8308d19cef39d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paolo-sorrentino#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이탈리아 현대사에서 가장 논란 많은 정치인들에게 그는 유독 끌린다. 속을 알 수 없는 곱사등의 총리 줄리오 안드레오티, 스캔들이 끊이지 않던 미디어 재벌 실비오 베를루스코니. 각각에게 전기 영화 한 편씩을 통째로 바쳤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0a0b12e90e8b583ce3eefea2e162cbc9508c17a5e4a641069d61cf58120a7e48"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paolo-sorrentino#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "경력 내내 피해온 소재가 있었다. 부모의 죽음, 그리고 나폴리에서 보낸 십 대 시절. 2021년 《신의 손》에 이르러서야 그는 자전적으로 그 상처를 정면에서 마주한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "28425810d22fe4ebaca3f415aa9fed72068e085db9287442741e62a4dd221eff"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paolo-sorrentino#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스스로를 엄밀한 의미의 가톨릭 신자라 부르지는 않는다. 다만 바티칸의 미학과 권력 구조에는 매혹된다. 그 매혹이 도달한 지점이 주드 로 주연의 HBO 시리즈 《영 포프》였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a52ac405ebaa9e81c4f25ce55a47495f8e52fc9b272cb7b30f2d3c9496f75a7a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paolo-sorrentino#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "칸 영화제가 아끼는 감독이다. 여섯 편을 황금종려상 경쟁 부문에 올렸다. 최고상은 아직 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "67157c99dfb7d747a1a5abb40838a5416039ebd6e0bcd96678cc7581984f9b7c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paolo-sorrentino#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《유스》(2015)에는 몸이 크게 불고 산소마스크를 쓴 인물이 나온다. 이름은 밝히지 않지만 디에고 마라도나를 향한 오마주라는 걸 못 알아볼 사람은 없다. 아르헨티나 배우 롤리 세라노가 연기했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a112c715bc59fe03885385247afcf1edc271590982138da661e5d53bc9dce5ec"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paolo-sorrentino#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《디스 머스트 비 더 플레이스》에서 숀 펜이 맡은 늙은 록스타의 기이한 외양은 더 큐어의 프런트맨 로버트 스미스에게서 곧장 가져왔다. 그 독특한 화장과 머리 모양 그대로.",
+  "model": "claude-opus-5",
+  "source_sha256": "5741b16da32174670b811f3f0a835cdfa727fac9c17c1d2e6e05a562fd65e7fe"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paolo-sorrentino#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2021년에는 이탈리아 명품 브랜드 불가리의 대형 광고를 연출했다. 젠데이아와 앤 해서웨이가 출연했고, 트래킹 숏으로 흐르는 그 화려한 화법이 하이패션 위로 옮겨갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f9575ba758288823dc8170caf039c9a0c3b405ec9220ebebb05198ca4f31af5a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "park-chan-wook#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "본래 꿈은 미술평론가였다. 서강대 철학과에 들어갔는데, 예수회가 세운 이 깊이 가톨릭적인 환경은 훗날 죄와 죄책감, 구원을 향한 평생의 영화적 집착으로 되돌아온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "56f65c1dc23bc8219683470ba8b717742afbb65ceaa35ad382872b31185160df"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "park-chan-wook#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "대학 시절 앨프리드 히치콕의 《현기증》을 본 순간 진로가 통째로 바뀌었다. 심리적으로 감당이 안 될 만큼의 충격이었고, 그는 곧바로 미술평론을 접고 영화감독이 되기로 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "07045dbdbc92de5efa8270214c2aabe090091f24013b6f0f1dfe913886e7f9be"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "park-chan-wook#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "철학을 공부하면서 교내에 영화 연구 동아리 '서강영화공동체'를 만들었다. '영화언어'라는 작은 지하 잡지도 손수 펴냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "014f6554237386f1a5fdb4c5467de6baf82c163b462c527be32008477684ee11"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "park-chan-wook#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "첫 두 편, 《달은... 해가 꾸는 꿈》(1992)과 《삼인조》(1997)는 평도 흥행도 참패였다. 그 결과 1990년대 내내 영화평론으로 밥벌이를 해야 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e48ff0146808cb66487bc91972308ee117f27b698b382672077ffe3869e5ca61"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "park-chan-wook#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2000년 미스터리 스릴러 《공동경비구역 JSA》는 당시 한국영화 흥행 기록을 새로 썼다. 덕분에 전례 없는 자금과 자유를 손에 쥐고 그토록 하고 싶던 극단적 폭력의 기획, 《복수는 나의 것》을 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a7db600224ef369f863979c1c4c3834f572ce4f5eea4f05729858bfb3e023caf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "park-chan-wook#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "건축을 하던 아버지의 영향이 남아 있다. 박찬욱은 미술감독 류성희와 집요하게 머리를 맞대고 윌리엄 모리스풍의 벽지를 직접 만들어 쓴다. 그 무늬가 인물의 무너져가는 정신을 슬며시 비춘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "522d4fac7de21c081d22ea3c59224e44d95a1204dc351bd6205e03160da381b3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "park-chan-wook#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《올드보이》의 그 악명 높은 산낙지 장면을 찍을 때, 동물을 아끼는 그는 죄책감을 이기지 못했다. 결국 독실한 불교 신자인 주연 최민식에게 촬영 중 먹은 낙지 네 마리를 위해 기도를 부탁했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "21027c1926fed74e8d3810898fad8a48b7c3b4d2fdb1dc7cc3abc5023a1f3de9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "park-chan-wook#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2004년 칸에서 《올드보이》가 공개되자 심사위원장 쿠엔틴 타란티노는 그 복수극의 감각에 완전히 빠져들었다. 황금종려상을 주자고 강하게 밀어붙였고, 결국 박찬욱의 손에 심사위원대상이 쥐어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf2863093c9f75b234ede29f31d481532acc56d4ee8f9eeaa1a2316d2b1352f9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "park-chan-wook#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2003년, 한국영화아카데미 시절 정서경이 쓴 학생 각본을 읽고 그는 경력을 결정지을 동반자를 얻는다. 이후 주요작 대부분을 둘��� 함께 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "364c3363bd7109b7804824debf1d61ef61df9f0e39a25a282c36e64546bdf871"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "park-chan-wook#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "'파킹찬스'라는 이름 아래 동생인 미디어 아티스트 박찬경과 실험적인 작업을 자주 공동연출한다. 2011년 판타지 호러 단편 《파란만장》도 그중 하나로, 전편을 아이폰 4로 찍었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ef6cbf7b48fa9ea1d05d8f6f982e164a138facf426960c6e3e5b5a46d631e7b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "park-chan-wook#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2016년 박찬욱은 박근혜 정부가 비밀리에 관리하던 9,000명 규모의 문화예술계 블랙리스트에 올랐다. 좌파적 정치 성향을 이유로 국가 지원에서 사실상 배제된 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6da498c2fa971272caacee4f54129d7ed4bd283751f2006792c72c370051ee3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "park-chan-wook#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "유럽 문학을 게걸스럽게 읽는 사람답게, 그는 19세기 프랑스 소설 에밀 졸라의 《테레즈 라캥》을 가톨릭 뱀파이어 영화로 옮겼다. 2009년의 《박쥐》다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b082c3f40a22bb4944b7adf1ee3fcb07eaf467520d8522690d24d73e17808c0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "park-chan-wook#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2013년 영어권 데뷔작 《스토커》의 각본은 뜻밖의 인물이 몰래 쓴 것이었다. 《프리즌 브레이크》의 배우 웬트워스 밀러. 그는 각본 자체로만 평가받겠다며 'Ted Foulke'라는 가명으로 원고를 냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "da4a5b151d8638db103fd2441134d410ca854e5035a866fea3c23c90ce4b370c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "park-chan-wook#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "빈티지 카메라를 모으는 데 집착하고 사진도 상당한 수준이다. 2021년 서울에서 사진집을 내고 '너의 얼굴'이라는 개인전을 열었다. 세계 각지의 촬영 현장에서 건진 추상적인 이미지들이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c19c25fba8d258c47531c83ad4f7895746daa503e404c3e35554333e9aaf1fd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "park-chan-wook#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "가톨릭 도상이 화면에 가득하고 예수회 대학을 나왔지만, 박찬욱은 확고한 무신론자다. 종교적 이미지는 오로지 죄책감과 속죄라는 인간 심리의 작동 방식을 들여다보는 도구일 뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "966d939b6f5f476c1533e4e3e3d6ae61a32117d6c8be92ee4afc192230e25857"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "park-chan-wook#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2022년 칸 감독상을 안긴 《헤어질 결심》은 두 갈래 집착에서 나왔다. 하나는 스웨덴 '마르틴 베크' 형사 소설 연작, 다른 하나는 1967년 정훈희가 부른 옛 가요 〈안개〉.",
+  "model": "claude-opus-5",
+  "source_sha256": "e59a25b4b70ea03d1970dad2c0ee98929713d4b143c2360d4941ec98a272549a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "park-chan-wook#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《아가씨》의 김태리는 1,500명이 몰린 공개 오디션에서 건져 올린 신인이다. 이미 스타였던 김민희의 만만치 않은 존재감을 받아낼 완전한 무명, 그것이 그가 찾던 조건이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2502fd07bacfe4bf34f9c63c0c9c833ef8ea661ea6372591def87deffcab35e5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "park-chan-wook#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2018년에는 영국 텔레비전으로 방향을 돌려 존 르카레의 첩보 소설을 옮긴 BBC 《리틀 드러머 걸》 여섯 편 전부를 연출했다. 주연은 플로렌스 퓨. 평단의 반응이 뜨거웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eeff73b0c6c62638333f0ce47042ba8920bb94e2ce768c206d0a69c330dcd227"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "park-chan-wook#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2024년 HBO 시대극 첩보 미니시리즈 《동조자》도 그의 작업이다. 비엣 타인 응우옌의 퓰리처상 수상 소설이 원작이고, 로버트 다우니 주니어에게 서로 다른 적대자 네 역을 맡겨 미국 제국주의의 여러 얼굴을 한 배우 위에 겹쳐 놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e46d0a1aa0ddb9fb207994aff9dc89673eb1016fc39b29a31d2bc96eae95a39"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paul-thomas-anderson#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스튜디오 시티에서 태어난 앤더슨의 아버지는 어니 앤더슨이다. ABC의 이름난 성우 겸 아나운서였고, 클리블랜드에서는 '굴라디'라는 이름의 사랑받는 심야 호러 프로그램 진행자였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8c7c47284cd78a0ad19d56d2bcfff797533619e0329256207b87658ba536e0f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paul-thomas-anderson#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "캠벨 홀 스쿨에 다니던 십 대 시절, 그는 《The Dirk Diggler Story》(1988)를 직접 쓰고 연출했다. 비디오로 찍은 32분짜리 모큐멘터리로, 물건이 남다른 포르노 배우 이야기였다. 훗날 이걸 늘려 만든 것이 그를 알린 장편 《부기 나이트》다.",
+  "model": "claude-opus-5",
+  "source_sha256": "52306a43917424deb92635325ce7daba171a85191cf4cebb5f3661d5c08707cf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paul-thomas-anderson#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이후 뉴욕대 영화과에 등록했지만 이틀 만에 그만뒀다. 돌려받은 등록금은 1993년 단편 《Cigarettes & Coffee》를 찍는 데 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "96ef4de62fcb90cc8cd15cb6af5764cd9707e08dc97435d8fe255de0829fe941"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paul-thomas-anderson#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "라이셔 엔터테인먼트가 그를 편집실에서 쫓아내고 데뷔작 《시드니》를 제멋대로 재편집하자, 앤더슨은 자기 워크프린트를 몰래 1996년 칸 영화제에 보냈다. 초청이 확정되면서 스튜디오는 결국 감독판을 내놓을 수밖에 없었다. 제목은 《하드 에이트》로 바뀌었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "171f08e9f08440c87cbd0203e067d0acb9568cbe613f99aba15fa41f392f2995"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paul-thomas-anderson#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《부기 나이트》 촬영 내내 노배우 버트 레이놀즈는 앤더슨의 작업 방식을 혐오했다. 젊은 감독과 주먹다짐 직전까지 갔고, 러프 컷을 보고는 자기 에이전트를 잘랐다. 그러고는 그 배역으로 오스카 후보에 올랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "67c8801f68ef7b158efc75123155d101bb56b0120c013e90e7946ceed5903999"
+ }
+]

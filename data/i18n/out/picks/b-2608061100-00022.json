@@ -1,0 +1,322 @@
+[
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sofia-coppola#the-bling-ring-2013",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《The Bling Ring》에서 코폴라의 공감은 방향을 바꿔 밖으로, 풍자로 향한다. 유명인에 홀린 십대들이 할리우드 저택을 턴다. 앞선 영화들이 부드럽게 지켜보던 명성의 문화를 여기서는 네온빛으로, 부서질 듯 얇게 도려낸다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "spike-jonze#being-john-malkovich-1999",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《존 말코비치 되기》는 존즈의 초현실적 발상이 가장 순수하게 응축된 결과물이다. 남의 머릿속으로 들어가는 통로가 문자 그대로 열린다. 그의 무표정한 부조리에 들어서는 가장 친절한 입구.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "spike-jonze#her-2013",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《그녀》에 이르면 존즈는 완숙해진다. 운영체제와 사랑에 빠지는 가까운 미래의 이야기, 다정하면서 아프고, 색은 따뜻하다. 별난 착상만으로도 진짜 감정의 무게를 감당할 수 있음을 이 영화가 증명한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "spike-jonze#adaptation-2002",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《어댑테이션》은 이미 빠진 관객에게 주는 보상이다. 지금 보고 있는 바로 그 영화를 쓰는 이야기가 스스로를 집어삼키며 되감긴다. 존즈의 소용돌이를 믿게 된 사람이라야 끝까지 즐길 수 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "spike-lee#blackkklansman-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 문턱이 낮은 쪽은 《블랙클랜스맨》이다. 실화에 바탕한 잠입 이야기가 쉬지 않고 굴러가며 코미디와 서스펜스, 리의 날 선 정치가 함께 엮인다. 마지막에 과거와 현재를 잇는 한 방이 온다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "spike-lee#do-the-right-thing-1989",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《똑바로 살아라》는 여름 가장 더운 하루의 브루클린 한 블록을 압축한다. 진한 색, 카메라를 정면으로 보며 던지는 도발, 서서히 조여드는 긴장. 스파이크 리가 왜 중요한 감독인지 이 한 편이 다 말한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "spike-lee#malcolm-x-1992",
+  "field": "reason",
+  "lang": "ko",
+  "text": "세 시간짜리 대작 《말콤 X》. 덴젤 워싱턴이 거리의 건달에서 지도자가 되기까지의 변화를 온전히 따라간다. 리가 규모와 역사를 다룰 줄 안다는 증거다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "spike-lee#25th-hour-2002",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《25시》는 수감을 하루 앞둔 남자의 마지막 하루를 애도하듯 그린다. 9·11 직후 슬픔에 잠긴 뉴욕에서 찍었다. 리의 가장 내면적이고 비가(悲歌)에 가까운 영화.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "spike-lee#jungle-fever-1991",
+  "field": "reason",
+  "lang": "ko",
+  "text": "인종을 넘은 연애를 지렛대 삼아 가족과 계급, 크랙 유행을 해부한 것이 《정글 피버》다. 여러 인물이 부딪히며 내는 리 특유의 마찰음이 살아 있고, 중독을 바라보는 시선은 조금도 물러서지 않는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "spike-lee#da-5-bloods-2020",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《다 5 블러드》는 나이 든 흑인 베트남 참전병들을 다시 그곳으로 보낸다. 묻어둔 금과 끝내지 못한 셈을 찾아서. 장르적 모험에 화면비 변화가 겹치고, 한 세대가 치른 희생 앞에서 슬픔은 다듬어지지 않은 채 터져 나온다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "spike-lee#she-s-gotta-have-it-1986",
+  "field": "reason",
+  "lang": "ko",
+  "text": "흑백으로 거칠게 찍은 데뷔작 《그녀는 그것을 가져야 해》. 한 여자와 세 구애자를 둘러싼 솔직한 코미디인데, 구조를 가지고 노는 감각과 카메라에 직접 말을 거는 목소리가 벌써 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "spike-lee#mo-better-blues-1990",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《모 베터 블루스》는 자기밖에 모르는 재즈 트럼펫 연주자가 사랑과 야심 사이를 지나는 이야기다. 음악에 흠뻑 젖은 인물 연구, 음악은 아버지가 맡았고 어니스트 디커슨의 촬영이 화면에 금빛을 입혔다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "stanley-kubrick#dr-strangelove-1964",
+  "field": "reason",
+  "lang": "ko",
+  "text": "큐브릭에게 다가가기 가장 쉬운 문은 《닥터 스트레인지러브》다. 냉전을 겨눈 짧고 새까만 희극, 피터 셀러스가 1인 3역을 한다. 인간의 어리석음을 향한 그 차가운 정밀함을 느린 호흡을 견디지 않고도 맛볼 수 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "stanley-kubrick#the-shining-1980",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《샤이닝》은 그 통제력을 공포로 돌린다. 좌우대칭 복도를 미끄러지는 스테디캠, 오버룩 호텔에 서서히 차오르는 불안, 무너져가는 잭 니컬슨. 고립이라는 강박으로 들어가는 가장 붙잡히기 쉬운 입구다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "stanley-kubrick#2001-a-space-odyssey-1968",
+  "field": "reason",
+  "lang": "ko",
+  "text": "예술적 정점은 《2001 스페이스 오디세이》. 진화와 기계와 무한을 두고 벌이는 거의 무언(無言)의 명상이다. 줄거리 자리에 엄정한 시각효과와 클래식 음악이 들어앉는다. 영화가 무엇일 수 있는지에 대한 감각 자체가 바뀐다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "stanley-kubrick#a-clockwork-orange-1971",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《시계태엽 오렌지》는 큐브릭의 양식을 화면 속 폭력과 자유의지에 무기처럼 겨눈다. 광각으로 일그러진 화면, 신시사이저로 연주되는 베토벤, 그리고 능글맞게 웃는 맬컴 맥도웰의 알렉스. 교화의 윤리를 관객 앞에 들이민다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "stanley-kubrick#paths-of-glory-1957",
+  "field": "reason",
+  "lang": "ko",
+  "text": "초기 큐브릭이지만 이미 완성형인 《영광의 길》. 1차대전 참호를 미끄러지듯 훑는 트래킹 숏, 군법회의에서 죽음이 예정된 병사들을 변호하는 커크 더글러스, 그리고 제도의 잔인함을 향한 물러섬 없는 분노.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "stanley-kubrick#full-metal-jacket-1987",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《풀 메탈 자켓》은 잔혹한 신병훈련소와 산산조각 난 베트남으로 갈라진다. 인간이 어떻게 살인자로 개조되는지를 해부하는 것이다. 제도라는 큐브릭의 주제에 걸려든 사람에게 전쟁영화는 차가운 심리 실험이 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "stanley-kubrick#barry-lyndon-1975",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《배리 린든》은 애호가를 위한 보상이다. NASA 렌즈로 담은 촛불 실내, 회화 같은 화면, 18세기 사교계를 빙하처럼 느리게 오르내리는 한 인생. 인내심을 내면 큐브릭의 가장 황홀하고 가장 서글픈 영화가 열린다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "stanley-kubrick#the-killing-1956",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《킬링》은 군더더기 없는 강도 누아르다. 경마장 털이를 중심에 놓고 시간 순서를 흩뜨려 들려준다. 예산이 커지기 전, 구조에 대한 그 엄격함의 설계도. 뿌리가 궁금해질 때 꺼내 보면 좋다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "steven-soderbergh#ocean-s-eleven-2001",
+  "field": "reason",
+  "lang": "ko",
+  "text": "소더버그가 가장 힘 빼고 매력적일 때가 《오션스 일레븐》이다. 매끈한 앙상블 강도극, 재즈처럼 쿨한 편집과 스타들의 안무. 관객에게 요구하는 건 즐거움 하나뿐이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "steven-soderbergh#out-of-sight-1998",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《조지 클루니의 표적》은 클루니와 로페즈를 엘모어 레너드식 범죄 로맨스에 붙여놓는다. 그 유명한 트렁크 장면과 유혹 장면은 시간을 뒤섞어 배치된다. 장르의 광택 아래 숨은 구조적 대담함이 여기서 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "steven-soderbergh#traffic-2000",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《트래픽》은 마약전쟁을 둘러싼 세 갈래 이야기를 색으로 구분한 필름에 나눠 담아 엮는다. 촬영과 편집을 소더버그가 직접 했다. 감독상을 안긴 형식적 야심과 도덕적 시야, 그가 왜 중요한지가 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "steven-soderbergh#sex-lies-and-videotape-1989",
+  "field": "reason",
+  "lang": "ko",
+  "text": "말이 많고 고백으로 가득한 독립영화 데뷔작 《섹스, 거짓말, 그리고 비디오테이프》. 소더버그와 선댄스를 동시에 세상에 올려놓았다. 은밀하고 서늘하며, 녹화된 고백이 지닌 불편한 힘 위에 통째로 서 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "steven-soderbergh#the-limey-1999",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《라임라이트》는 단순한 복수극을 기억의 파편으로 부숴놓는다. 테런스 스탬프가 로스앤젤레스를 배회하는 동안 영화는 순전한 편집 실험이 된다. 소더버그가 감행한 가장 모험적인 양식적 도박.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "steven-soderbergh#erin-brockovich-2000",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《에린 브로코비치》는 줄리아 로버츠에게 압도적인 배역을 준다. 법정에서 벌어지는 다윗과 골리앗의 싸움. 대중적이고 따뜻한 영화를 만들면서도 질감과 인물을 보는 눈을 잃지 않는다는 증명이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "steven-soderbergh#magic-mike-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "남성 스트립쇼를 불황기의 생계와 야심에 대한 연구로 바꿔놓은 것이 《매직 마이크》다. 햇빛에 바랜 듯한 자연스러운 화면 아래, 볼거리에 가려진 날카로운 경제학이 깔려 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "steven-soderbergh#kimi-2022",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《키미》는 봉쇄 시기를 배경으로 한 군더더기 없는 스릴러다. 광장공포증이 있는 IT 노동자가 범죄의 소리를 우연히 듣는다. 히치콕적 편집증을 오늘의 감시 공포로 졸여낸 결과물.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "steven-soderbergh#presence-2025",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《프레즌스》는 유령의 떠도는 시점만으로 찍은 흉가 이야기다. 후기에 감행한 형식 실험이고, 카메라가 이야기하는 방식을 다시 생각하는 일을 그가 멈춘 적이 없음을 보여준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "steven-spielberg#raiders-of-the-lost-ark-1981",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《레이더스》는 운동감과 순수한 오락에 대한 스필버그의 재능을 숨 쉴 틈 없는 모험 한 편으로 졸여낸다. 그의 추진력과 쇼맨십에 들어서는 가장 깨끗한 입구.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "steven-spielberg#the-fabelmans-2022",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《파벨만스》는 스필버그가 자기 자신과 마주한 자전적 결산이다. 가족의 균열과 카메라를 향한 집착, 그 이전의 모든 영화를 조용히 밀고 온 동력이 여기서 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "steven-spielberg#jaws-1975",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《죠스》에서 젊은 스필버그는 기계 상어의 고장을 암시의 서스펜스로 바꿔놓는다. 이후 수십 년 동안 다듬게 될 여름 블록버스터의 문법이 여기서 발명된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "steven-spielberg#e-t-the-extra-terrestrial-1982",
+  "field": "reason",
+  "lang": "ko",
+  "text": "교외의 경이, 아이 눈높이의 카메라. 《E.T.》는 그 모드를 온전히 담는다. 그의 가장 어두운 영화들 밑에도 깔려 있는 정서적 온기가 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "steven-spielberg#jurassic-park-1993",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《쥬라기 공원》은 기술적 도약이다. 이음매 없는 CG와 애니매트로닉스에 구식 긴장감이 붙는다. 경외와 공포를 한 화면 안에 설계해낼 수 있는 사람임이 확인된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "steven-spielberg#schindler-s-list",
+  "field": "reason",
+  "lang": "ko",
+  "text": "예술적 정점은 《쉰들러 리스트》. 군더더기 없는 흑백의 리얼리즘과 도덕적 진지함이 함께 간다. 오락의 대가가 양심의 역사가로 건너가는 순간이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "steven-spielberg#saving-private-ryan-1998",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《라이언 일병 구하기》의 도입부 상륙, 손에 들린 카메라로 담아낸 그 살점 같은 감각이 영화가 전투를 재현하는 방식을 다시 썼다. 어른의 주제를 정면으로 감당하겠다는 선언.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "steven-spielberg#munich-2005",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《뮌헨》은 가장 껄끄럽고 가장 위로가 없는 작품이다. 복수와 그 대가를 둘러싼 도덕적으로 모호한 스릴러. 고양 없는 스필버그를 감당할 준비가 된 관객에게 값을 한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "steven-spielberg#a-i-artificial-intelligence-2001",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《A.I.》는 스필버그의 정서와 큐브릭의 냉기를 녹여 로봇 소년의 기이하고 우울한 동화를 만든다. 호오가 갈리고, 야심이 크고, 그의 다른 어떤 영화와도 닮지 않았다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "steven-spielberg#catch-me-if-you-can-2002",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《캐치 미 이프 유 캔》은 가장 가볍고 가장 사랑스러운 추격전이다. 경쾌한 사기꾼 활극이고, 그의 장난기와 능란한 톤 조절이 잘 보인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sylvester-stallone#rocky-ii-1979",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《록키 2》(1979)는 스탤론의 연출 데뷔작이다. 가족의 고생과 재대결을 이어받은 따뜻한 속편이라, 낯익은 얼굴들과 진심 어린 언더독의 정서 덕에 처음 보는 사람도 쉽게 발을 들인다.",
+  "model": "claude-opus-5"
+ }
+]

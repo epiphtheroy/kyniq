@@ -1,0 +1,272 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "who-is-granted-the-power-to-forgive",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "용서가 무기가 되고, 보류가 되고, 끝내 누가 정하느냐의 문제가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2decd518471d6d25d661af8e22aaf9e9d501d4928093a9cc6f0f7b967c5df15b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-may-eat-which-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "어떤 목숨은 먹어도 된다고 허락해주는 궤변.",
+  "model": "claude-opus-5",
+  "source_sha256": "e669163b95261c721b113e1362a35afd0f9fc303cf968ad189ef19753fa640a0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-owns-the-act-of-liberation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "해방을 말하면서 정작 노예에게서 주체 자리를 빼앗는 이야기.",
+  "model": "claude-opus-5",
+  "source_sha256": "24e8ffddfb04075e003813ed57e3e3263960aa4055eca10f0d8a6954da699939"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-owns-the-authored-work",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "누가 썼고 누가 버는가. 자본과 창작 노동이 여기서 맞붙는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d38cca431993f4bc5024ec637456b9bb97a12559904bd9e096fde1a2993f9900"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-owns-the-child-custody-as-class-verdict",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "부모 자격을 가르는 것은 피도 사랑도 아니다. 재산과 계급, 그리고 국가다.",
+  "model": "claude-opus-5",
+  "source_sha256": "da24a5ae20ddbc4365c62ae73473e2f7d0c00580a108218d61f591d7d493544b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-owns-the-dying-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽어가는 몸의 주권을 놓고 벌이는 소유권 다툼.",
+  "model": "claude-opus-5",
+  "source_sha256": "0859100d36b9a98a5b2056dbcf6817c119088ffec74d5752b2838cdb1bd824a7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-owns-the-eyes-that-watch-you",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감시란 결국 주권 싸움이다. 붙잡힌 몸을 누가 갖느냐의.",
+  "model": "claude-opus-5",
+  "source_sha256": "bb63715935d11ce51ef3719c99cdd1173176cccae1de3685dbe14e2b60233673"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-owns-the-image-of-a-woman",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그녀의 얼굴이 재산이 되어 다툼에 오른다. 남자가, 시장이, 예술이 그 자아를 나눠 가진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b029601e8da4ddef350c5e6cd530f338595d178a7258db94893a968ff0734a9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-owns-the-looted-ancestor",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주권과 보편 박물관이 서로 제 것이라 우기는 유물.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae701e3f8b91b0e0c96f357387af481c782f1051be106cd66ff93be6d7190b65"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-owns-the-means-of-labor",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진짜 쟁점은 따로 있다. 일자리와 채용과 연금을 누가 쥐느냐.",
+  "model": "claude-opus-5",
+  "source_sha256": "422e46c44110a6cc141955b878100d812ef05acdf6f23cce3f66569c5e272837"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-owns-the-right-to-laugh",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한 컷의 만평, 한 줄의 농담이 웃음의 소유권을 심사한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e74b127b576737964ab40b7d556e1a0432094336bd4e7200e18b5e1500cc064"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "who-owns-the-soundtrack-owns-history",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "녹음된 목소리를 누가 통제하느냐. 배상과 반환은 그 형태로 무대에 오른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ab930dd0dce22ca9da5d79ffa124bc02e445b4104ec86787193a098f675a348"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "whoever-holds-the-premises-holds-the-person",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "집을 쥐면, 시간을 쥐면, 두개골을 쥐면 영혼까지 딸려 온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2e2d6b155c53b96a7b7cce1fdbb0efb01e6c6fcaf4e208180b28e61a16a6b3c0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "whose-sound-may-occupy-public-space",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "공적 공간의 소리를 두고 벌어지는 다툼. 단속당하거나, 살해당하거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "08245beaa13f8370fe6f5e3b4016a6983e0ec15997e094bc0ce68f41c5a3e8a5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "whose-voice-the-law-will-believe",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "목소리가 법정의 통화(通貨)로 통용된다. 누가 들리고 누가 선고받는가.",
+  "model": "claude-opus-5",
+  "source_sha256": "e172ee407fdb92bb660bba030ca1947edb390b0ebb69e9f194484c70484577bf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "why-no-one-asks-the-obvious-question",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아무도 던지지 않은 질문 하나가 영화 전체를 조용히 풀어버린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "163a2e1235995f47d4375565befd1bcf0e269c55242c5ca1136345a1d1acf1cd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "why-she-stays-why-she-returns",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그 여자는 왜 떠나지 않는가. 이 수수께끼가 곧 영화다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c88c3a2810e5318d51b772e9a7ca09d9b7fa6227c120421d07c328ef6f66a776"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "why-the-theft-is-never-punished",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장물이 돌아오거나 아무도 벌받지 않을 때 드러난다. 애초에 돈이 목적이 아니었다는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "a3dc830591babd5976429c926bc0891c725685608d3e34242c8bc021ab068e26"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "wilderness-that-knows-it-is-doomed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "베어 넘어지는 순간에 찍힌 에덴.",
+  "model": "claude-opus-5",
+  "source_sha256": "72cb550e4ff0c5d88b2125e46bbde55b912b5cadeeffc239bc9be4cc4cfbfe94"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "willful-blindness-as-the-subject-s-alibi",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보지 않기로 하는 선택. 그것이 공모의 구조다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ea64dd41a3cd160e1f68d66cec0b21bff8be2dfcbf1ef37eba176e9e8c0f239c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "wilmington-stands-in-for-everywhere",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 촬영 도시가 허구의 아무 데나로 둔갑한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ed0cf74724e7c0dda4a40a5da2eb6d7412c2f7a376c2a11d5b99ded60f13d56e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "winning-by-shedding-the-civilized-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "포식자를 이기려면 인간 아래로 내려가야 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c2092b782e860d6516d8ec2e6b9c6e8bbc11fbfd188befdb578d7353afebd1d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "withholding-as-a-pact-with-the-viewer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정보를 늦추거나 끝내 주지 않음으로써 관객을 공모자로 징집한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "97f0af0f676d906ed0db7f0d5f9f36af5bddb2b85a36856fe121559f0fa3e994"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "withholding-the-image-as-method",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보여주지 않아서 생기는 공포, 그리고 윤리.",
+  "model": "claude-opus-5",
+  "source_sha256": "eddfdc48d0aed70f2ce9beaea7dcc85fd9ca439bbbf020a223458c2975cd8e74"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "woman-as-the-commodity-men-exchange",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남자들의 돈과 우정이 도는 회로 안에서 여자의 몸에 값이 매겨지고, 오가고, 임자가 정해진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eee45f7c426c120e15b917c34066ef88fa8d077d7cbfbc42ae5629879fe652f0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "women-disfigured-by-war-s-aftermath",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "폭력이 지나간 자리에서 살아남기 위해 여자의 몸에 표식이 찍히고, 고쳐지고, 허물어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9563680d98fb4f274163a7dccff3dbf647dce4a0eb7b1f549d0fa817fe8269a3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "wordlessness-as-the-engine-of-feeling",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대사를 거둔다. 감정을 줄이려는 게 아니라 깊게 하려고. 그런 애니메이션",
+  "model": "claude-opus-5",
+  "source_sha256": "a9eb3857e32094501008bd30bc12751cafa59c28c799b2ff209cd7c7b4715351"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "writing-as-confession-without-a-priest",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "닿을 수 없는 성사(聖事)를 글이 대신 가로챈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cef8f12afb289ba85630657f5959e7215fe573c8b2a98e9e3f6330c2de7b4f25"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "written-backward-from-the-lens",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "렌즈라는 광학 장치에서 출발해 바깥으로 지어 올린 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "abc097d6d6da3cca6eff5002761d779ceb21326932b5855b36070615516fd59b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "yakushima-as-lost-japan-s-last-refuge",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "섬에 남은 야생이 사라진 나라를 대신 떠맡는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf75e9e143f3c84929caf75da9283d38797ee5d09ec227bdf2585618a985454b"
+ }
+]

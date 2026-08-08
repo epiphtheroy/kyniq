@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-long-day-closes-1992",
+  "field": "lead",
+  "film_id": "4d6d6462-4e80-44a9-bd86-cdfdd5e0babc",
+  "lang": "en",
+  "text": "Eighty-five minutes, and most of them belong to a boy who would rather be watching something else. Bud goes to the cinema the way other children go missing. The screen is the one place where the school corridor and the thing he is beginning to understand about himself cannot follow him in, and Terence Davies gives that habit a shape rather than a plot: a British drama assembled out of attention, out of what a child overhears through a wall and keeps for decades. It moves at the speed of remembering. The film sits on the They Shoot Pictures Don't They? list of 1,000 Greatest Films, among the pictures critics keep going back to. Nothing in it is raised for effect. The rapture in front of the screen is meant literally, and it is where the weight of the whole thing rests.",
+  "model": "claude-opus-5",
+  "source_sha256": "fed5e6d02d11f33ed943475a72a4f78fb85617f7b1a06ebe864e1f6f5ec9adcb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "man-of-iron-1981",
+  "field": "lead",
+  "film_id": "3d9f9cd1-b9ae-47dd-b35f-74a988cb2b2a",
+  "lang": "en",
+  "text": "A year separates the strike in this film from the making of it. Andrzej Wajda shot Człowiek z żelaza in 1981 about Gdańsk in 1980, so the shipyard, the union and the arrests were not yet history; they were weather. The premise is compromised on purpose. A radio reporter is sent from Warsaw to gather dirt on a labour leader and moves through the man's circle pretending sympathy, which means everything he learns arrives already bent by the errand. At 147 minutes there is room for the second story underneath, the inherited one: Maciek Tomczyk's father was killed in the protests of December 1970, and his wife Agnieszka is in detention while the reporter is taking notes. It took the Palme d'Or and the Academy's award for international feature, for a subject that had not finished happening.",
+  "model": "claude-opus-5",
+  "source_sha256": "b5d6916e56a5d8d0d85ad67c819ee9c41e4d50d79a6842d7061e9262b1892bb4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ziegfeld-follies-1945",
+  "field": "lead",
+  "film_id": "dd48baf3-8f1c-4fbe-b3d7-aa63e6afdb3a",
+  "lang": "en",
+  "text": "A dead impresario looks down from heaven, orders one more revue, and the film simply puts it on. After that there is no story to follow. Ziegfeld Follies is a sequence of numbers with no obligation to connect, which in 1945 meant a studio could spend everything on scale and nothing on plot, and Vincente Minnelli's contribution is the eye: where to place a camera in a room full of colour, and how long to hold it once the arrangement is right. Comic sketches sit next to songs staged like miniature opera; the pleasure runs on the switching. Something like this is a record of what a large studio believed people wanted at one precise moment, argued in fabric, paint and lighting rather than dialogue. It runs 110 minutes and asks for nothing but attention to surfaces.",
+  "model": "claude-opus-5",
+  "source_sha256": "90e6ae8a11659e1badaf6bb56844fd0f9c780b931ee80582f650543712b9c6cd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "under-the-sun-of-satan-1987",
+  "field": "lead",
+  "film_id": "7b1f98a8-1ec1-4f52-bcce-78272006e077",
+  "lang": "en",
+  "text": "Here the devil is not a metaphor, and the film declines every chance to turn him into one. Maurice Pialat takes his priest at his word: Father Dossignan believes he is being worked on by Satan, and nothing in the direction converts that belief into symptom or psychology. Near him is a young woman with a killing behind her, whose soul he intends to save and whose presence keeps the stakes physical rather than doctrinal. Pialat keeps the frame plain — rooms, weather, faces held past comfort, no atmosphere applied from outside — and that plainness is exactly what lets the supernatural claim stand, since nothing else in the image is straining. It took the Palme d'Or and a César for best actress. Ninety-eight minutes, most of the pressure resting on what a man's face does while he works out what he has just met.",
+  "model": "claude-opus-5",
+  "source_sha256": "e3922a98b3f9fe1ad4b3f7cfb0be798cfedad6b1d67f5c9442237643a29e5256"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "torment-1944",
+  "field": "lead",
+  "film_id": "4786d8b9-4b7f-4335-b409-83fde2b46129",
+  "lang": "en",
+  "text": "The students call their teacher Caligula, and the film takes the joke entirely seriously. Sweden, 1944: Alf Sjöberg is making a picture about a classroom as a place where an adult can practise cruelty and call it discipline. Jan-Erik is the pupil. Bertha, the woman he attaches himself to, is drinking her way through her own trouble and is already tied to the same man who is grinding him down, which closes the triangle and leaves the pressure nowhere to go. School, boarding room, street, and back. Sjöberg shoots a lesson the way other directors shoot an interrogation, and at 101 minutes he stays close to the boy without ever asking that he be liked, which is the harder arrangement and the one that keeps the film from settling into a lesson of its own.",
+  "model": "claude-opus-5",
+  "source_sha256": "234c0c8968a5fb3a0dbf3c0df64127452ac7ed1a127715c51ca98fb30f6b3aa2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "union-pacific-1939",
+  "field": "lead",
+  "film_id": "5b101d3e-353b-4fe7-8626-740082059d0b",
+  "lang": "en",
+  "text": "Track is laid west, and the men who profit from delay follow it. Union Pacific spends 135 minutes on a single opposition: a railroad that has to reach California, and a financier who does better if it never does. Cecil B. DeMille builds the thing out of labour and machinery — grading crews, freight cars, a construction camp that packs up and moves with the rails — then threads a gambler, an old war friendship and an engineer's daughter through it so that the money has faces attached. The Academy's award for special effects marks what kind of production this was: in 1939 that meant trains, weather and collapse staged for real. The frontier here is not wilderness to be conquered but a contract to be honoured or broken, and sabotage is just another line in the budget. It carries a Palme d'Or as well.",
+  "model": "claude-opus-5",
+  "source_sha256": "2fc6bbe907df0dea9543274d04c6288c2adc038521c378c673c0f6b4b4618dfe"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-silent-world-1956",
+  "field": "lead",
+  "film_id": "65ee698e-f1f3-4cec-a741-37537045540c",
+  "lang": "en",
+  "text": "The camera goes underwater and stays there, which in 1956 was as much an engineering problem as a matter of filming. Jacques-Yves Cousteau's crew carry lamps and tanks down into depths that had not been photographed, and half the fascination is the apparatus: men suspended in an element that will not hold them up, working against air, cold and light. Whales, sharks, reef colonies. None of it arrives with the softening a later nature documentary would apply, and the film is candid about how rough the encounter becomes, including the conduct of the expedition itself. Eighty-six minutes, and the record behind it is unusual: the Palme d'Or, the Academy's documentary award, a BAFTA. What lasts is the strangeness of the vantage, an ocean looked at by people who had to invent the looking.",
+  "model": "claude-opus-5",
+  "source_sha256": "ee65f8d27e6862865f9c4f735438a6fa3139149cacb4aa924f89a0675b31c6e1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hour-of-the-star-1985",
+  "field": "lead",
+  "film_id": "1d64aa77-624c-4ac8-9cc6-2e1c1cc2a2e8",
+  "lang": "en",
+  "text": "Her name is Macabéa, she types badly, and on Sundays she rides the metro for the pleasure of it. Suzana Amaral builds ninety-six minutes out of a life the city has no use for: an aunt who raised her is dead, the job is typing, the room is shared with three other women, and a radio station called Time fills the hours that are not spoken for. Then Olímpico turns up, a northeasterner like her, with plans to sit in congress. The danger in this material is condescension, and the discipline of the film is the refusal of it — Macabéa is not simple and is not a symbol, she is a person with an extremely small amount of room. Abraccine's hundred best Brazilian films holds it, and the performance at its centre took a Silver Bear.",
+  "model": "claude-opus-5",
+  "source_sha256": "b4a68f1500c85632a43b617dd5f04d965ee6a07e637e4fe45b3b26ecc7053b1e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-damned-1947",
+  "field": "lead",
+  "film_id": "a5962ed3-1c8b-4813-a766-1b695bc4427e",
+  "lang": "en",
+  "text": "A submarine leaves Oslo in April 1945, carrying people who have already lost and refuse to say so. René Clément made the film two years later, close enough that the passengers' arithmetic — South America, new papers, money moved ahead of them — belonged to the news rather than to history. The confinement does the work. A hull, a fixed number of berths, a group whose only common interest is escape and whose loyalty to one another has no reason to outlast the voyage. A doctor is aboard because he was taken, which makes him the one man in the film with nothing to protect and no story to keep straight. At 105 minutes it moves like a thriller and reasons like a tribunal, and it carries a Palme d'Or. The film watches them stop being allies.",
+  "model": "claude-opus-5",
+  "source_sha256": "3b0d06e177814c96e5997310ad353b694db400e7bc363a9b49631da74ac7cf4b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "antoine-antoinette-1947",
+  "field": "lead",
+  "film_id": "88cea6c7-c592-41ec-a5a5-8fba4c6a9783",
+  "lang": "en",
+  "text": "A winning lottery ticket, then a lost wallet: the whole plot fits inside a coat pocket. What Jacques Becker does with his eighty-eight minutes is spend them on the Paris around the couple — the print shop where Antoine works, the counter where Antoinette does, the stairwell, the neighbours, the small unpaid debts that make a working life in 1947 legible. The money is a pretext for looking at everything else. Becker's attention goes to procedure, to how people conduct themselves in shops and doorways and queues, so the near-fortune functions less as suspense than as a lamp held up to a marriage that had been running mostly on fatigue. It carries a Palme d'Or. The comedy is a question of timing between two people who cannot currently afford a bad mood.",
+  "model": "claude-opus-5",
+  "source_sha256": "e454bec3376ef0e571275b3d707af47a47af90c1188408b601b60dab4de09ab0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-long-absence-1961",
+  "field": "lead",
+  "film_id": "773b4610-40da-4e9c-b021-4fb56e628de8",
+  "lang": "en",
+  "text": "A woman who runs a café sees a tramp pass her door and decides he is the husband who vanished sixteen years earlier. Henri Colpi supplies neither proof nor refutation. The man remembers nothing, so Therese works on him with objects, with songs, with routes through the town, turning the ordinary furniture of a shared life into evidence and turning herself into the only witness. Ninety-eight minutes, patient to the edge of discomfort, because the real question is not whether he is her husband but what she will have to become in order to settle it either way. Nothing here is legal or documentary; it is a claim one person makes in public and then has to live inside. The Louis Delluc Prize and the Palme d'Or both went to it.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d7daeff2fb65dcf003be97b0c08d3cbacf55171468bd391ada4cac17afde709"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "red-meadows-1945",
+  "field": "lead",
+  "film_id": "ff466607-b18d-4229-a63c-3bd55ca050d6",
+  "lang": "en",
+  "text": "Denmark made this in 1945, about a Danish saboteur waiting in a German prison for his execution. The gap between the events and the camera is almost nothing, and the structure admits as much: the film is built as memory, a man in a cell going back over how he arrived there, which is also the way a country tells itself what has just happened to it. Bodil Ipsen holds it to 85 minutes and to one consciousness. The tension is not in the outcome but in the selection — which parts of a life a man returns to when returning is the last act available to him — and the sabotage scenes are lit by a mind that already knows how they end. It carries a Palme d'Or. The cell is the only present tense the film allows itself.",
+  "model": "claude-opus-5",
+  "source_sha256": "b0c308072c6575f84c6843b6e56a59776814101adae4bc013e67c9b4635a2f8d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "neecha-nagar-1946",
+  "field": "lead",
+  "film_id": "af95b0d9-3ec4-4347-99c4-912d6439a473",
+  "lang": "en",
+  "text": "A landlord decides that the town's waste should run downhill into the village, and the village finds out what it can and cannot stop. Neecha Nagar was made in India in 1946, and its argument is about ground: who owns it, who lives on the low part of it, whose health is treated as an acceptable cost of somebody else's development scheme. The design is nearly diagrammatic — high and low, Sarkar's project and the people underneath it — and Chetan Anand keeps it from hardening into a pamphlet by giving the resistance to Balraj, a leader whose authority is borrowed entirely from the people who granted it and can be withdrawn. A hundred and two minutes, in Hindi, carrying a Palme d'Or. Sewage as a political instrument is not a metaphor anyone had to invent.",
+  "model": "claude-opus-5",
+  "source_sha256": "9db93741e8dda0e339f5d325972fedb6543ccf9ce70d69fa8b27ea080a36e11c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-turning-point-1945",
+  "field": "lead",
+  "film_id": "0990f81c-876f-4aca-9216-ca65ea2d56d2",
+  "lang": "en",
+  "text": "Five months of resistance, a city that could not be surrendered and could not plausibly be held. That is the interval Fridrikh Ermler gives himself, and he spends 108 minutes inside it. The film was made in the Soviet Union in 1945, three years after the battle at Stalingrad it depicts, which is to say it was shown to an audience containing the people who had been there — a constraint on invention that later reconstructions do not have to work under, and cannot borrow. What such a picture is committed to is a version of the fighting that its own survivors will accept. That commitment shapes everything, the strategy talk as much as the mud. It carries a Palme d'Or, and it remains a country's account of itself, given while the details were still close enough to be checked.",
+  "model": "claude-opus-5",
+  "source_sha256": "f26ce11862b6849d6775beda72214199f2cb08a3284458c29d2b58ffec6524b0"
+ }
+]

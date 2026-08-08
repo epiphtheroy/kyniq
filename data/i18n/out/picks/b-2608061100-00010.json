@@ -1,0 +1,322 @@
+[
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jafar-panahi#it-was-just-an-accident-2025",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《It Was Just an Accident》는 파나히가 수감 생활을 마치고 만든 영화다. 자신을 가둔 자들과의 대면을 가장 날 선 결산으로 벼려냈다. 여기까지 궤적을 따라온 관객이 받아 가는 몫.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "james-cameron#terminator-2-judgment-day-1991",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《터미네이터 2: 심판의 날》은 쉬지 않는 추격의 동력에 액체금속 특수효과라는 돌파구를 붙여놓았다. 스펙터클과 밀어붙이는 이야기술, 카메론의 그 배합으로 들어가는 가장 쉬운 문이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "james-cameron#aliens-1986",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《에이리언 2》에서 카메론은 긴장을 계단처럼 쌓아 올리고, 강인한 여성 주인공을 앞세운다. 리들리 스콧의 공포를 근육질 전투 스릴러로 바꿔놓은 이 한 편이 그의 액션 기술을 규정한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "james-cameron#the-terminator",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《터미네이터》는 카메론을 세상에 내놓은 군더더기 없는 저예산 기계다. 적은 수단으로 공포와 추격의 리듬을 어떻게 쌓는지, 멈추지 않는 서늘한 악당 하나로 어디까지 갈 수 있는지 보여준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "james-cameron#titanic-1997",
+  "field": "reason",
+  "lang": "ko",
+  "text": "SF 액션을 떠나 대하 로맨스와 재난으로 방향을 튼 카메론이 《타이타닉》에 있다. 내밀한 인간 드라마와 집요하게 재현한 침몰선을 나란히 놓는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "james-cameron#avatar-2009",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《아바타》는 몰입형 3D 세계 짓기를 향한 도약이다. 판도라의 생물발광 생태계를 불러내고, 모션캡처 기술을 그전까지 없던 영역으로 밀어붙인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "james-cameron#avatar-the-way-of-water-2022",
+  "field": "reason",
+  "lang": "ko",
+  "text": "이미 빠져든 관객에게 《아바타: 물의 길》은 놀라운 수중 촬영과 가족을 중심에 둔 이야기로 답한다. 기술 혁신을 향한 카메론의 집착이 가장 온전히 드러난 자리다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "james-gray#we-own-the-night-2007",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《We Own the Night》는 그레이의 영화 중 문턱이 가장 낮다. 브루클린의 경찰과 가족을 다룬 범죄 서사, 나이트클럽과 뉴욕 경찰 사이에 그어진 금. 빗속의 자동차 추격 한 장면이 긴장을 다루는 그의 고전적 솜씨를 알린다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "james-gray#the-lost-city-of-z-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "탐험가 퍼시 포셋을 따라 수십 년에 걸쳐 아마존으로 들어가는 영화다. 집착을 향한 그레이의 집착이 《잃어버린 도시 Z》에서 최면적이고 회화적인 서사시로 응축된다. 끝내 손에 잡히지 않는 무언가에 끌려가는 남자의 이야기.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "james-gray#two-lovers-2008",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《투 러버스》는 그레이를 실내극 규모로 깎아낸다. 노동계급 동네 브라이턴 비치에서 두 여자 사이에 찢긴 남자. 호아킨 피닉스를 다루는 그의 애틋하고 우울한 연출이 여기 다 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "james-gray#ad-astra-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "아버지를 찾아 나선다는 그레이의 주제가 《애드 아스트라》에서 심우주로 옮겨 심긴다. 해왕성까지 가는 사색적인 SF 항해지만, 진짜 미개척지는 부재하는 아버지다. 그의 스타일이 장르를 늘려가는 광경을 볼 준비가 된 사람에게.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "james-gray#armageddon-time-2022",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《아마겟돈 타임》은 퀸스에서 보낸 유년을 그린 자전적 회고다. 유대인 소년, 흑인 친구, 그리고 할아버지의 지혜. 그레이가 되풀이해 붙드는 가족의 문제를 알고 난 뒤에야 이 사적이고 반추적인 영화가 값을 한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "james-gunn#guardians-of-the-galaxy-2014",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 깔끔한 입구는 《가디언즈 오브 갤럭시》다. 옛 팝송을 깔고 벌이는 우주 강도극이 부적응자들을 한 가족으로 묶는다. 주크박스 사운드트랙, 밑바닥 유머, 뜻밖의 진심. 건의 배합이 여기 다 들어 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "james-gunn#guardians-of-the-galaxy-vol-3-2023",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《가디언즈 오브 갤럭시 Vol. 3》은 건이 감정적으로 가장 크게 걸었던 작업이다. 로켓의 기원을 중심으로 가슴 아픈 곡선을 그리고, 잔인함과 다정함을 나란히 둔 채 물러서지 않는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "james-gunn#the-suicide-squad-2021",
+  "field": "reason",
+  "lang": "ko",
+  "text": "목줄이 풀린 건이 《더 수어사이드 스쿼드》에 있다. R등급 유혈, 신나게 소모되는 캐릭터들, 부조리한 괴생물. 아웃사이더 팀이라는 그의 공식은 더 더럽고 피비린내 나는 음역에서도 잘 굴러간다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "james-gunn#guardians-of-the-galaxy-vol-2-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "과소평가된 중간 장이 《가디언즈 오브 갤럭시 Vol. 2》다. 사탕색으로 칠한 수다스러운 영화가 아버지와 스스로 고른 가족을 곱씹는다. 플롯의 추진력을 인물과 맞바꾸고, 그 우울함의 값을 제대로 치른다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "james-wan#the-conjuring-2013",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《컨저링》(2013)은 완의 공포 기계 중 가장 접근하기 쉽다. 구식 유령의 집 기술, 천천히 타는 불안, 참을성 있는 카메라. 점프 스케어도 싸구려가 아니라 벌어서 얻을 수 있다는 증명이다. 완벽한 진입로.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "james-wan#insidious-2011",
+  "field": "reason",
+  "lang": "ko",
+  "text": "쥐꼬리만 한 예산으로 유령 이야기를 세우는 법이 《인시디어스》(2011)에 있다. 피 대신 사운드 디자인과 '더 퍼더'라는 기괴한 꿈의 공간에 기댄다. 고어가 아니라 분위기에 재능이 있는 감독이라는 사실이 여기서 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "james-wan#the-conjuring-2-2016",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《컨저링 2》(2016)의 완은 완전히 장악한 상태다. 떠다니듯 이어지는 롱테이크, 크루키드 맨과 수녀가 나오는 장면들, 그리고 두 주연 사이에 흐르는 뜻밖의 온기. 유령의 집 기술이 여기서 완성된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "james-wan#saw-2004",
+  "field": "reason",
+  "lang": "ko",
+  "text": "장르 하나를 통째로 열어젖힌 지저분한 데뷔작이 《쏘우》(2004)다. 저예산 밀실 함정 스릴러이면서 영리하다. 세련됨이 도착하기 전, 날것 그대로의 발상과 반전 솜씨를 보라.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "james-wan#malignant-2021",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《말리그넌트》(2021)에서 완은 풀려나 신나게 미쳐 돌아간다. 지알로(giallo)의 색채, 신체 공포, 중반의 정신 나간 급선회. 그가 자기 규칙을 스스로 깨는 광경을 볼 준비가 된 팬에게 주는 상.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "james-wan#aquaman-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《아쿠아맨》(2018)은 완의 폭을 증명한다. 공포 감독이 최대치의 블록버스터로 건너가 해저 왕국을 세우는데, 카메라의 운동 에너지는 그대로다. 이미 빠져든 관객에게는 뜻밖의 좌회전.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jean-luc-godard#breathless-1960",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《네 멋대로 해라》(1960)는 누벨바그를 쏘아 올린 점프컷 폭탄이다. 핸드헬드로 담은 파리의 범죄 로맨스, 벨몽도의 허세와 세버그의 냉담. 고다르의 들썩이는 스타일로 들어가는 가장 친절한 문이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jean-luc-godard#contempt-1963",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 눈부신 고다르는 《경멸》(1963)에 있다. 시네마스코프 화면 안에서 결혼이 카프리섬 별장을 배경으로 풀려나간다. 바르도, 자기 자신을 연기하는 프리츠 랑, 델르뤼의 아릿한 음악. 그의 예술적 정점 가운데 가장 다가가기 쉬운 봉우리.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jean-luc-godard#vivre-sa-vie-1962",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《Vivre sa vie》(1962)는 안나 카리나를 따라 다큐멘터리 같은 열두 개의 화폭을 지나 매춘에 이른다. 다정함과 분석이 한몸으로 붙어 있다. 얼굴 하나를 철학으로 바꿔놓는 재능이 여기서 보인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jean-luc-godard#pierrot-le-fou-1965",
+  "field": "reason",
+  "lang": "ko",
+  "text": "색과 노래와 총성이 지중해로 내달리는 팝아트 도주극, 《미치광이 피에로》(1965). 낭만적이고 무정부적이다. 고다르와 카리나가 함께한 작업 중 가장 들뜬 한 편.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jean-luc-godard#alphaville-1965",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《알파빌》(1965)은 SF 누아르를 당대의 파리로 밀반입한다. 트렌치코트 차림의 탐정이 차가운 컴퓨터 독재와 싸운다. 특수효과 하나 없이도 어떤 장르든 자기 생각에 맞게 휘어놓을 수 있다는 증거.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jean-luc-godard#masculin-feminin-1966",
+  "field": "reason",
+  "lang": "ko",
+  "text": "'마르크스와 코카콜라의 아이들'을 인터뷰 조각과 느닷없는 폭력 사이에 세워둔 영화가 《남성, 여성》(1966)이다. 고다르가 로맨스를 떠나 정치 영화로, 청년 문화의 질감으로 방향을 트는 지점이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jean-luc-godard#weekend-1967",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《주말》(1967)은 묻혀 있는 극단이다. 부르주아 부부의 여행이 끝없는 정체 구간을 훑는 트래킹 숏으로, 식인종으로, 저 유명한 '영화의 끝' 자막으로 녹아내린다. 여기까지 온 사람에게 주어지는 보상.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jean-luc-godard#la-chinoise-1967",
+  "field": "reason",
+  "lang": "ko",
+  "text": "빨강과 파랑으로 칠한 아파트에서 마오주의 학생들이 혁명을 토론한다. 칠판과 구호가 화면 자체를 뜯어낸다. 《중국 여인》(1967)은 고다르가 선동 에세이스트로 완전히 탈바꿈하는 순간이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jean-pierre-dardenne#two-days-one-night-2014",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《내일을 위한 시간》은 처음 보는 사람에게도 엔진이 뚜렷하다. 마리옹 코티야르가 연기하는 노동자가 동료들을 찾아다니며 보너스를 포기해달라고 사정한다. 그래야 일자리를 지킨다. 다르덴 형제의 도덕적 서스펜스가 단번에 읽힌다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jean-pierre-dardenne#rosetta-1999",
+  "field": "reason",
+  "lang": "ko",
+  "text": "이후의 모든 것이 여기서 나왔다. 어떤 일자리라도 붙잡으려 싸우는 십 대를, 그 공황이 만져질 만큼 바싹 붙어 찍은 핸드헬드. 《로제타》는 황금종려상을 받았고 사회파 영화의 지형을 바꿨다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jean-pierre-dardenne#the-son-2002",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《아들》은 목공 강사의 뒤를 따라간다. 새로 들어온 견습생은 비밀을 안고 있다. 눈길과 올리비에 구르메의 뒷목만으로 견디기 힘든 긴장이 쌓인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jean-pierre-dardenne#the-kid-with-a-bike-2011",
+  "field": "reason",
+  "lang": "ko",
+  "text": "거친 결이 《자전거 탄 소년》에서는 거의 동화에 가깝게 누그러진다. 버려진 소년, 그리고 그를 맡아 기르는 미용사. 드물게 스치는 몇 조각의 음악이 조용한 장식음처럼 놓인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jean-pierre-dardenne#la-promesse-1996",
+  "field": "reason",
+  "lang": "ko",
+  "text": "방법이 확립된 자리가 《La Promesse》다. 이주노동자를 착취하는 아버지와 자기 양심 사이에 낀 소년. 다르덴식 윤리적 매듭에 처음으로 이름이 붙는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jean-pierre-dardenne#lorna-s-silence-2008",
+  "field": "reason",
+  "lang": "ko",
+  "text": "덜 알려진 쪽의 보상은 《로나의 침묵》이다. 위장결혼 계략에 발을 들인 알바니아 여자 이야기. 일부를 35mm로 찍은 드문 경우이고, 그들의 리얼리즘이 여기서 거의 누아르 쪽까지 넓어진다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jean-pierre-dardenne#young-ahmed-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《소년 아메드》는 바싹 붙어 지켜보는 그 방식을 가장 불편한 대상까지 밀고 간다. 극단주의에 홀린 십 대. 도덕적 구원에 대한 그들의 믿음이 여전히 유효한지를 시험한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jean-pierre-melville#le-samourai-1967",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《사무라이》는 멜빌의 미학 전부를 차갑고 거의 말이 없는 인물 하나로 응축한다. 트렌치코트를 걸친 알랭 들롱의 살인청부업자가 의례와 중절모와 숙명론으로 이루어진 청회색 파리를 가로지른다. 그의 범죄 영화로 들어가는 완벽한 관문.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jean-pierre-melville#le-cercle-rouge-1970",
+  "field": "reason",
+  "lang": "ko",
+  "text": "큰 선언은 《암흑가의 세 사람》이다. 출소한 남자와 탈주범, 명사수가 한자리에 모여 말 한마디 없는 보석 강도를 벌인다. 티 하나 없는 절차의 침묵 속에서. 긴장과 규율을 다루는 멜빌의 기술이 최대 규모로 펼쳐진다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jean-pierre-melville#army-of-shadows-1969",
+  "field": "reason",
+  "lang": "ko",
+  "text": "갱스터를 레지스탕스로 바꿔놓았을 뿐, 《그림자 군단》의 도덕적 온도는 그대로다. 충성과 배신, 음울한 의무. 멜빌 자신의 전시 경험에서 나온 이 영화가 범죄 영화들 밑에 깔려 있던 확신을 드러낸다.",
+  "model": "claude-opus-5"
+ }
+]

@@ -1,0 +1,242 @@
+[
+ {
+  "entity_type": "director_pick",
+  "entity_key": "wong-kar-wai#fallen-angels-1995",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《중경삼림》에서 잘려 나간 조각들을 광각으로 벌려 심야의 착란까지 밀고 간 영화가 《타락천사》다. 청부살인자와 말 못 하는 인물들, 그리고 가장 야단스러운 홍콩. 고삐 풀린 왕가위, 감전된 왕가위.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "wong-kar-wai#ashes-of-time-1994",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《동사서독》은 왕가위의 유일한 무협(武俠)이다. 무협의 외피를 걸쳤을 뿐, 실은 기억과 실연을 두고 흩어지는 사막의 몽상이다. 아름답지만 만만치 않다. 이미 걸려든 사람 몫.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "wong-kar-wai#as-tears-go-by-1988",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《열혈남아》는 데뷔작이다. 삼합회 멜로드라마의 장르 관습 사이로 훗날의 그 아찔한 스타일이 간간이 깜박인다. 목소리가 아직 다 도착하지 않은 상태를 보는 재미가 크다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "xavier-dolan#mommy-2014",
+  "field": "reason",
+  "lang": "ko",
+  "text": "돌란다움이 가장 즉각적인 형태로 압축된 영화가 《마미》다. 1:1로 꽉 조인 화면비, 튀어나오듯 꽂히는 팝 음악, 감당 안 되는 아들을 키우는 불안정한 싱글 맘. 처음 오는 사람에게 문턱이 가장 낮다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "xavier-dolan#laurence-anyways-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《로렌스 애니웨이》는 돌란이 펼친 가장 큰 캔버스다. 세 시간에 가까운 길이로 트랜스 여성과 그 연인의 십 년을 따라간다. 황홀경에 빠진 슬로모션 장면들과 아릿한 색에서 그의 야심이 어디까지 뻗어 있는지 보인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "xavier-dolan#i-killed-my-mother-2009",
+  "field": "reason",
+  "lang": "ko",
+  "text": "열아홉의 돌란이 쓰고 연출한 자전적 데뷔작, 《I Killed My Mother》. 어머니와 아들의 날선 전쟁이 이후 모든 주제의 씨앗을 뿌린다. 그 집착이 어디서 시작됐는지 보고 싶은 사람에게 돌아오는 보상.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "yasujiro-ozu#late-spring-1949",
+  "field": "reason",
+  "lang": "ko",
+  "text": "오즈의 중심 주제가 《만춘》에 응축돼 있다. 홀아버지와 딸이 딸의 혼사를 두고 서로를 살피는 이야기, 그리고 하라 세쓰코의 환한 온기. 조용한 가정의 통증으로 들어가는 가장 부드럽고 선명한 입구다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "yasujiro-ozu#tokyo-story-1953",
+  "field": "reason",
+  "lang": "ko",
+  "text": "늙은 부모가 다 자란 자식들을 찾아가지만, 자식들은 너무 바빠 마음을 쓰지 못한다. 《동경 이야기》의 카메라는 가만히 있을 뿐인데 끝에 가서 무너진다. 다다미 높이에서 나오는 오즈의 품격, 그가 왜 중요한지가 가장 온전히 드러나는 편.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "yasujiro-ozu#good-morning-1959",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《Good Morning》에서는 우수 대신 희극이다. 두 아이가 텔레비전을 사 달라며 말하기를 그만두는 파업에 나선다. 환한 색, 방귀 농담, 슬쩍 찔러 넣은 풍자. 오즈의 장난기 어린 가벼운 음역이 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "yasujiro-ozu#floating-weeds-1959",
+  "field": "reason",
+  "lang": "ko",
+  "text": "유랑 극단의 배우가 옛 연인에게, 그리고 자신을 아버지로 알지 못하는 아들에게 돌아온다. 미야가와 가즈오가 찍은 눈부신 컬러 화면이 가정집 바깥으로 나간 오즈를 보여준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "yasujiro-ozu#an-autumn-afternoon-1962",
+  "field": "reason",
+  "lang": "ko",
+  "text": "오즈의 마지막 영화 《꽁치의 맛》은 《만춘》의 혼사와 외로움이라는 주제로 되돌아온다. 이번에는 화사한 색으로. 평생에 걸쳐 다듬어 온 문체를 손끝으로 느끼게 하는 알맞은 끝맺음이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "yasujiro-ozu#i-was-born-but-1932",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《태어나기는 했지만》은 무성 희극이다. 두 아이가 아버지가 사회에서 겪는 굴욕을 알아차린다. 유성영화 이전, 젊은 오즈의 재치와 가족을 들여다보는 그 뿌리가 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "yasujiro-ozu#tokyo-twilight-1957",
+  "field": "reason",
+  "lang": "ko",
+  "text": "오즈의 가장 어두운 영화. 두 자매와 사라진 어머니를 둘러싼 겨울 이야기다. 가장 참담하고 극적으로 팽팽한 작품을 감당할 준비가 된 사람에게 권한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "yorgos-lanthimos#the-lobster-2015",
+  "field": "reason",
+  "lang": "ko",
+  "text": "영어로 찍은 란티모스, 그리고 한 줄로 잡히는 설정. 짝을 찾지 못한 사람은 동물이 된다. 무표정한 부조리의 논리가 그의 납작한 정서와 잔인한 코미디를 소개하되, 처음 보는 사람을 짓누르지는 않는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "yorgos-lanthimos#the-favourite-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《더 페이버릿: 여왕의 여자》는 그 무표정한 독설을 호화로운 시대극으로 옮긴다. 여왕과 두 궁정 경쟁자의 삼각관계, 어안 렌즈, 맹렬한 세 주연. 그의 시각적 재기를 가장 편하게 구경할 수 있는 자리다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "yorgos-lanthimos#poor-things-2023",
+  "field": "reason",
+  "lang": "ko",
+  "text": "어안 렌즈의 왜곡, 동화 같은 세트, 세상을 처음부터 배워 나가는 주인공. 셋이 한데 녹아 가장 넓은 시야를 만든다. 톤과 디자인과 도발을 완전히 장악한다는 것, 그가 왜 중요한지가 여기서 보인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "yorgos-lanthimos#dogtooth-2009",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《송곳니》는 그의 방법론을 확정한 돌파구다. 지어낸 언어와 규칙에 갇힌 가족 이야기. 차갑고 임상적이고 불편하다. 이후 모든 작품을 받치고 있는 통제된 실험의 잔혹함이 이 영화에 다 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "yorgos-lanthimos#the-killing-of-a-sacred-deer-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "납작하고 제의적인 공포를 불가능한 거래 앞에 선 의사에게 들이댄다. 그리스 비극 그대로의 호러. 이 경로에서 가장 서늘하고 위협적인 지점이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "yorgos-lanthimos#alps-2011",
+  "field": "reason",
+  "lang": "ko",
+  "text": "얼마 전 죽은 사람을 대신 연기하도록 유족에게 고용된 이들을 따라가는 영화. 초기작이라 본 사람도 적지만, 역할 놀이와 대체된 정체성을 향한 그의 집착이 메마르고 불안한 형태로 응축돼 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "yorgos-lanthimos#kinds-of-kindness-2024",
+  "field": "reason",
+  "lang": "ko",
+  "text": "잔혹한 우화 세 편을 이어 붙인 삼면화. 같은 배우들이 편마다 다른 역을 맡는다. 사방으로 뻗어 나가면서 어둡게 웃긴다. 그의 무표정한 문법에 이미 익숙한 사람에게 값을 한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "zack-snyder#300-2006",
+  "field": "reason",
+  "lang": "ko",
+  "text": "스나이더 특유의 것들이 가장 순수한 형태로 뽑혀 나온 영화가 《300》이다. 슬로모션으로 춤추는 전투, 만화 칸을 그대로 옮긴 구도, 청동빛에 절인 그린스크린 세계. 그의 과잉 양식화된 시각 언어로 들어가는 가장 선명하고 쉬운 입구.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "zack-snyder#watchmen-2009",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《왓치맨》은 그의 가장 야심 찬 각색이다. '영화화 불가능'이라던 그래픽 노블을 칸 단위로 옮기면서 영웅주의와 권력, 냉전의 공포를 캐묻는다. 그 규모와 구조적 배짱을 보면 신화를 향한 집착이 왜 중요한지 알게 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "zack-snyder#man-of-steel-2013",
+  "field": "reason",
+  "lang": "ko",
+  "text": "슈퍼맨을 침울하게 겉도는 이방인으로 다시 그린다. 낙관을 내주고 무거운 엄숙을 받아 온 셈이다. 이미 걸려든 사람이라면, 마지못한 신들과 인간 이상이 되는 값에 스나이더가 거듭 끌리는 이유를 여기서 본다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "zhang-yimou#hero-2002",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 들어오기 쉬운 문. 암살 계획이 다시 이야기될 때마다 화면 전체가 한 가지 색으로 물드는 무협 서사시다. 이제 막 궁금해진 사람에게 장이머우의 화가 같은 눈을 보여준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "zhang-yimou#raise-the-red-lantern-1991",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《홍등》은 장이머우의 정점이다. 좌우가 딱 맞아떨어지는 저택 안뜰에서 첩들이 서로를 겨눈다. 등이 켜지고 꺼지는 일은 잔혹한 의례로 굳어 있다. 화면마다 갇힘과 색에 대한 연구인 셈.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "zhang-yimou#house-of-flying-daggers-2004",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《영웅》과 짝을 이루는 무협 스펙터클이되, 시선은 안으로 접혀 파국이 예정된 사랑으로 향한다. 대나무 숲, 그리고 메아리 놀이의 북 장면이 그의 안무적 발명을 증명한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "zhang-yimou#to-live-1994",
+  "field": "reason",
+  "lang": "ko",
+  "text": "격변하는 중국의 수십 년을 한 가족으로 따라간다. 시각적 호화로움을 내려놓은 대신 사람 냄새 나는, 그러면서 참혹한 연대기를 얻었다. 화려한 구경거리 너머의 폭을 보여주는 편이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "zhang-yimou#red-sorghum-1988",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《붉은 수수밭》은 연출 데뷔작이다. 햇볕에 절여진 양조장과 반란의 이야기. 궁리와의 협업, 그리고 그 포화된 붉은색이 여기서 시작됐다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "zhang-yimou#the-story-of-qiu-ju-1992",
+  "field": "reason",
+  "lang": "ko",
+  "text": "꾸밈을 다 벗겨낸 영화. 임신한 시골 여자가 사과 한마디를 받으려고 관청을 끈질기게 오간다. 몰래카메라로 다큐멘터리에 가깝게 찍었다. 가장 땅에 붙어 있는 장이머우.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "zhang-yimou#shadow-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "색을 거의 다 빼내 수묵(水墨)의 회색과 검정만 남긴다. 대역들이 얽히는 궁정 음모극. 붓질의 미학과 비를 축으로 자신의 시각 문체를 다시 발명한다.",
+  "model": "claude-opus-5"
+ }
+]

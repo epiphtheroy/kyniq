@@ -1,0 +1,82 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mia-madre-2015",
+  "field": "lead",
+  "film_id": "b181479c-6334-4afa-8361-efd021cf8cd2",
+  "lang": "en",
+  "text": "A film set does not pause because the person directing it has stopped being able to concentrate. Nanni Moretti hands Margherita both jobs at once: a production to finish, with an actor to manage and a scene that will not behave, and a mother whose dying she has not agreed to accept. The two schedules grind against each other for 106 minutes. What is strange, and good, is how much of the work half plays as comedy — decisions that feel enormous at nine in the morning and weightless by evening, authority performed by someone with none left over. The other half has no scenes to direct. It is waiting, and waiting is the one thing a working director cannot schedule. The European Film Award for best actress went to the performance holding that middle, which is the right place to have looked.",
+  "model": "claude-opus-5",
+  "source_sha256": "b6fa66932a3d4d620557f61dc5542782dc93843f61bb5965d25567ea758f1a34"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "rhino-season-2012",
+  "field": "lead",
+  "film_id": "b5119d84-0330-4d0b-b596-31e68e3de9ed",
+  "lang": "en",
+  "text": "Thirty years of a sentence served, and the harder number is the twenty in which his wife has believed him dead. Sahel is a Kurdish-Iranian poet with a release date behind him and an address he cannot be sure of, looking for a woman who has had two decades to become someone else. Bahman Ghobadi gives the search 88 minutes — nowhere near enough to narrate three lost decades, and exactly enough to show what they leave behind. Drama, thriller and history are all attached to it, and none of the three is ornamental: a man who still has a poet's language and very little left to attach it to is also a man whose reappearance is inconvenient to the people who arranged his absence. Whatever he finds, he will have to arrive as news.",
+  "model": "claude-opus-5",
+  "source_sha256": "415c33818659cd0895e5bdbe9d3c149a5ae7ee9940691f41d3a50428c6ba0b4d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-party-2017",
+  "field": "lead",
+  "film_id": "b5214b39-b3e0-4114-9d18-85853f6f8af8",
+  "lang": "en",
+  "text": "Seventy-one minutes is a short lease on a house, and Sally Potter spends every one of them inside the same one. The guests come for a party. What arrives instead is a run of disclosures that leaves each of them holding convictions they can no longer put to use, and the party does not adjourn while it happens. Potter stays procedural about it: the evening keeps its hosting duties, and the worst of the news has to be fitted in between them. The compression does the work. No scene has room to soften, and these are people fluent enough to make things worse in complete sentences — comedy and drama in the same breath, the jokes landing on whoever has just been stripped of the argument they lived by.",
+  "model": "claude-opus-5",
+  "source_sha256": "ea61ad19f5f708f1afe86c610f19ff97ed5206897232a0f8638cdef69d90c682"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hana-alice-2004",
+  "field": "lead",
+  "film_id": "b65f5d06-ceaf-4ad2-8be6-930476840793",
+  "lang": "en",
+  "text": "A boy knocks himself out on a door, and the two best friends who both want him are suddenly in a position to tell him who he was. Shunji Iwai takes 135 minutes over this — a running time made for wars and family sagas, spent here on two teenagers and the daily upkeep a story requires once it has been told. Much of the comedy is logistical: corroboration has to be arranged, someone has to be silent at the correct moment, and the boy himself is the least reliable part of the arrangement. The friendship is older and denser than the crush, which is what keeps the film from being a prank. Iwai stays with the unremarkable stretches too, the walking and the waiting and the school hours, where the two of them are only what they have always been to each other.",
+  "model": "claude-opus-5",
+  "source_sha256": "254c916d989c518995e915a7701e50797c5edb880f05fa90dc25aa9ead5b09f8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hanalei-bay-2018",
+  "field": "lead",
+  "film_id": "b7102ccf-bd6d-4523-9a21-a220ee566b90",
+  "lang": "en",
+  "text": "Once a year a Japanese woman flies to the same beach in Hawaii, where her son was killed by a shark, and stays a while doing very little. Daishi Matsunaga keeps the anniversary at that scale: 97 minutes, one bay, a routine she invented and now keeps. She is not on a pilgrimage; she is a single mother with a trip booked. The turn comes from strangers — two young Japanese surfers, friendly and unaware of who she is, who pass on a story about another Japanese surfer with one leg. It is gossip, and she has no way to test it. What holds the film is the flatness of the place: the water is still pleasant, other people's sons are still in it, and the bay has no opinion about what happened there. The drama is in how much of a mother's attention a rumour can take up.",
+  "model": "claude-opus-5",
+  "source_sha256": "2bd2c21096eb54c951455be4630772b54f622f17ccf069141d59757e408d2df3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "black-book-2006",
+  "field": "lead",
+  "film_id": "b74eddf0-e651-4e4b-abf9-814d553bb411",
+  "lang": "en",
+  "text": "In 1956, at a kibbutz in Israel, a woman recognises a face from the war, and the film goes back twelve years to explain it. Rachel Stein's 1944: a hiding place destroyed by Allied bombs, a paid crossing of the Biesbosch that goes badly, and then a Dutch resistance cell with a use for her — an SS-hauptsturmführer, Ludwig Müntze, she is asked to get close to. Paul Verhoeven spends 145 minutes on that arrangement and never pretends the material is dignified. Occupation is a market here: papers, jewellery, names, bodies, and the resistance keeping accounts of its own. The Golden Calf for best film came from the country that lived the events and could have objected. The thriller machinery works; the discomfort is in how quickly everyone learns what a Jewish woman is worth to each side.",
+  "model": "claude-opus-5",
+  "source_sha256": "b393d0293bfd49bd0289962379aaccf16aa0447877218a932c7c12d364eeb5af"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "introduction-2021",
+  "field": "lead",
+  "film_id": "b8e70031-5f2d-4220-abb9-99a79b02766d",
+  "lang": "en",
+  "text": "Youngho is summoned by his father and then left waiting while the patients go in ahead of him. Hong Sang-soo builds 66 minutes from arrangements like that: a father with appointments, a mother who has a colleague she would like her son to meet, a girlfriend gone to Berlin who does not know he is coming. Youngho travels, waits, is introduced. The older people doing the introducing have positions and diaries — one of the father's patients is an actor famous enough to be worth mentioning — and the film watches a young man with nothing settled conduct himself in rooms organised by other people's schedules. Juwon has her own arrangement in Berlin, a room in the house of an artist whose beauty unsettles her, and it runs parallel to his without meeting it. Being introduced settles nothing; Hong makes that joke patiently, more than once.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7da1fb03f734c6d9c7dcc672d4d88d1628449591c15a58d4fcfd0d2554ea2f7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-good-lawyer-s-wife-2003",
+  "field": "lead",
+  "film_id": "b941adc1-2083-43d6-9f00-aa4084860c59",
+  "lang": "en",
+  "text": "The husband's affair is settled before the film begins; what it examines is what his wife does with information she already has. Im Sang-soo gives her a thinned-out marriage, a child, and a neighbour who is still a teenager, then films her reluctance without converting it into either liberation or ruin. 106 minutes inside a household run as an institution: a professional man's address, his standing, an arrangement that holds as long as nobody says anything aloud. Crime sits beside drama in its listing, and that keeps the consequences from staying comfortably emotional. Critics have since set Im beside Lee Chang-Dong on the question of what people are actually like, and the comparison earns itself here, because the wife is presented as neither victim nor evidence.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6b8f1dd9efb32d3e7adef4e44ff2e07c78eb50cfb549c6556c5585306476404"
+ }
+]

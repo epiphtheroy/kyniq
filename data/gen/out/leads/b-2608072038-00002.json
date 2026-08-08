@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-pearl-1946",
+  "field": "lead",
+  "film_id": "a8f5fbaa-b774-43e5-a6ec-644ec624af55",
+  "lang": "en",
+  "text": "A scorpion stings a fisherman's baby, and the town's foreign doctor will not open his door. What follows is arithmetic. Quino dives, comes up with a pearl big enough to change his family's standing, and the film turns to what happens to a poor man once other people know what he is carrying. Juana wants it back in the water before word travels. Her fear arrives ahead of any threat, which in a village where the poor are visible to everyone counts as accuracy rather than superstition. Emilio Fernández keeps to eighty-six minutes and takes the adventure label at its word: the sea is a workplace, the diving is labour, the danger is not confined to the water. It took the Ariel for direction. Juana is not warning her husband about a curse. She is counting the people between them and the money.",
+  "model": "claude-opus-5",
+  "source_sha256": "c5bbbef2940a277dc1913ba8bb82424e7ecf4784d22df4d41c8312a990522e0a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-kings-of-the-world-2022",
+  "field": "lead",
+  "film_id": "c33e580e-5e50-41e5-8dd4-6dfef7ad4b76",
+  "lang": "en",
+  "text": "Five names come first: Rá, Culebro, Sere, Winny, Nano. They sleep on the streets of Medellín and then they leave it, heading for a promised land somewhere past the last road out. Laura Mora gives them a hundred and eleven minutes, long enough for a journey to lose its shape, and the film moves without embarrassment between what is happening and what is being dreamt. They are not interchangeable. Each has his own temper and his own way of being loud, and among themselves they keep laws nobody outside the group has agreed to: five who own nothing, carrying on like a court. Much of it is walking, and the country they cross does not pause to look at them. It took the Golden Shell. What lasts is the sound of them, boys arguing on a road in a place that has offered them nothing.",
+  "model": "claude-opus-5",
+  "source_sha256": "cbf7e8ecfbb8aa4a46c3b89c57d14bbb096b663c440ec429f6465dd496927aa6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "little-joe-2019",
+  "field": "lead",
+  "film_id": "36f499ba-ad30-4b5c-8994-e781fead578a",
+  "lang": "en",
+  "text": "The product is a flower, and the feature it has been engineered for is happiness. Alice develops plants the way other companies develop appliances, to a schedule and a specification, and her teenage son gets whatever attention is left at the end of the day. Science fiction on this scale needs no ruined skyline: one new variety, a claim about what it does to whoever owns it, and a staff who will have to decide whether a plant working too well is a fault or a result. What Jessica Hausner sets running is the distance between a woman cultivating one living thing under lights and the other living thing waiting at home. A hundred and six minutes, English-language, made in Austria. Engineered contentment is an odd premise to keep a straight face through for that long. The face stays straight.",
+  "model": "claude-opus-5",
+  "source_sha256": "a0d56fa0c0604452bfec3b1b113b05a9e609bfe3b95630a253a65a73cb38abee"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "cannot-live-without-you-2009",
+  "field": "lead",
+  "film_id": "5b07ed53-42f6-4a27-86d7-a21ca2a476b7",
+  "lang": "en",
+  "text": "Nothing goes wrong until the girl is old enough for school. Until then a man and his daughter live in a hovel with no legal right to exist, and the arrangement holds because no official has had cause to look at it. Enrolment is when the looking starts. Leon Dai spends ninety-two minutes on what that costs — counters, forms, referrals, the exhaustion of a man explaining his own household to people who did not write the rule and cannot bend it. Nothing between father and child is in doubt for a second, which is what makes the procedure hard to sit through: there is nothing to repair, only something to register. It was named best feature at the Golden Horse Awards. Poverty here is not a mood or a lighting scheme. It is a category filled in on a man's behalf by somebody who has never met him.",
+  "model": "claude-opus-5",
+  "source_sha256": "111d422d3c983c860e0550c82778fecb0b985384ba76e1ef0e19b9b34c5bbe89"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-trial-1984",
+  "field": "lead",
+  "film_id": "ba08d63f-a150-4b4e-9fe2-b99d06d1c0ba",
+  "lang": "en",
+  "text": "In 1882 a girl vanishes from a Hungarian village, and the explanation the neighbours reach for is older than the crime and needs no evidence at all: the Jews took her. Georg Wilhelm Pabst films the part that usually goes unfilmed, the weeks before the courtroom, when statements are arranged and witnesses prepared and a case is assembled to fit a conclusion already reached. Stubbornness is the real subject — the local kind, in which a man who has said a thing in front of his neighbours will not now unsay it — along with the handful who set themselves against the current and what that costs them. A hundred and four minutes in German. A Volpi Cup went to its lead. Malice with a procedure attached does not need to shout; it can proceed calmly, on a timetable, with the paperwork in order.",
+  "model": "claude-opus-5",
+  "source_sha256": "ecd558098493de660d7838271b574d26e4d4dca17fdc9f048ca5bfcdd94370b0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "master-and-commander-the-far-side-of-the-world-2003",
+  "field": "lead",
+  "film_id": "f97122ef-d770-42a1-b907-195bca9b58b1",
+  "lang": "en",
+  "text": "The first blow comes from a French warship, and the damage it does means the chase that follows is also a running repair job. Two oceans, a hundred and thirty-eight minutes, and a captain whose appetite for the enemy is charged to the men crewing his ship: a warship in Peter Weir's hands is a workplace, with a fixed hierarchy and one person entitled to decide anything. His attention goes to the running of the thing — weather, timber, discipline, the daily maintenance of authority — and to the long argument that never quite becomes a quarrel between the captain and the ship's surgeon, his closest friend, whose business is what is still alive rather than what can be sunk. The Academy gave it the cinematography award. Duty and glory sound like one appetite from the quarterdeck; from below they come apart.",
+  "model": "claude-opus-5",
+  "source_sha256": "950f3557ba926ec30e61d93c24985f066568e2d7a5eec3113786c3ea6b030eaf"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mildred-pierce-1945",
+  "field": "lead",
+  "film_id": "29609fb1-67a7-4d49-9d70-dc796369027b",
+  "lang": "en",
+  "text": "The genre tag reads crime; most of the running time is work. A woman leaves her husband and builds a restaurant business up from nothing, and Michael Curtiz films that with the seriousness usually reserved for a robbery — the hours, the hiring, the way one success obliges the next. The money is not for her. It goes to a daughter whose tastes expand at the exact rate her mother's income does, and the film is exact about what it costs to keep funding somebody else's appetite in order to be loved by her. Everything rests on the central performance, which took the Academy's award for an actress and has to hold ambition and humiliation in the same face. The restaurant is not glamour. It is overhead: rent, stock, staff, the count at closing time.",
+  "model": "claude-opus-5",
+  "source_sha256": "f5b0a6b5680b5d716b5677ba44d0d7ae549ca9ecfab2f2784ffbf1962b5de35a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-heiress-1949",
+  "field": "lead",
+  "film_id": "e941c749-06b0-47ed-bb62-b2b1a09ef03e",
+  "lang": "en",
+  "text": "For a long stretch the film refuses to settle whether the young man means a word he says. That is not a puzzle waiting to be solved so much as a condition to be lived in, and the person living in it is the daughter of a wealthy doctor in 1840s New York whose days until now have had almost nothing in them. The story stays indoors, where money takes the form of furniture, and the Academy's award for black-and-white art direction marks where the pressure is applied: rooms, staircases, a parlour in which a suitor is examined like a specimen. William Wyler runs it a hundred and fifteen minutes, most of them conversation. What is hard to watch is not the suitor's possible calculation. It is that the question requires her household to price her, and the pricing was evidently done long before he arrived.",
+  "model": "claude-opus-5",
+  "source_sha256": "daf0c6792c9cd931de323910543432e1a31177f0194ac8af7a2870515e7a8e5b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "cul-de-sac-1966",
+  "field": "lead",
+  "film_id": "c887182b-ac88-4fb3-a3df-410db17b548a",
+  "lang": "en",
+  "text": "The gun is real, the situation is a farce, and the film sees no contradiction between the two. Two gangsters, one of them badly wounded, get as far as a castle cut off from anywhere else and find a nervous man living in it with his wife. From there Roman Polanski has what he needs: four people, one building, a hundred and twelve minutes in which the question of who is threatening whom refuses to stay answered for longer than a scene. Humiliation is the currency, and it is dealt in every direction. It took the Golden Bear, a serious prize for a film this pleased to be ridiculous — a marriage inspected at gunpoint by intruders who are themselves coming apart, in a house too remote for anyone to hear the shouting.",
+  "model": "claude-opus-5",
+  "source_sha256": "c819a13f4d12fba0ee36d606b5bc473554a0443677d09c63995b647a5a14958d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "larks-on-a-string-1969",
+  "field": "lead",
+  "film_id": "266e5551-9d9b-4d27-a930-9e223c72d29a",
+  "lang": "en",
+  "text": "Rehabilitation, in this instance, means sorting scrap metal. The people sent to the yard have been classed as bourgeois, which in postwar Czechoslovakia is less a fact about them than a decision taken about them, and the correction is to be achieved by labour among other people's discarded things. Jiří Menzel plays it as comedy and romance, which is precisely the register the material needs: a young man courting a woman convict under supervision, every permission and every distance set by someone else, the two of them treating that as the ordinary weather of a courtship. Ninety-four minutes, played light. The Golden Bear went to it. A junkyard is where a country stores what it has decided it no longer needs, and the film puts people in it without once explaining the joke.",
+  "model": "claude-opus-5",
+  "source_sha256": "23cd64fee99152b5d581ad4202f01e1f47811b32abc9f6aa19f0f324de074e65"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tomorrow-is-my-turn-1960",
+  "field": "lead",
+  "film_id": "ede54671-e93e-4199-8db1-cd12cd46929c",
+  "lang": "en",
+  "text": "After France falls, two of its soldiers are handed to a German farm as labour, and the war goes on for them as chores. That is the whole apparatus: a country at its worst hour, two men spending it bringing in somebody else's harvest, taking instructions in a language not their own. André Cayatte allows himself a hundred and twenty-five minutes, long enough for the difference between the two to become the subject — same defeat, same farm, two temperaments that will not make the same accommodations with either. Captivity of this kind has no drama in it, only duration, and the film is willing to sit inside that. It was given the Golden Lion. What gets tested is not courage under fire but the quieter matter of what a man agrees to while he waits.",
+  "model": "claude-opus-5",
+  "source_sha256": "b0c67fdf0ae6922f46743912802d4a37e19d6fc1bd5bce21ef9786938ccec680"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "boat-people-1982",
+  "field": "lead",
+  "film_id": "f79ab648-1e85-4278-844e-5f60b7ac40d0",
+  "lang": "en",
+  "text": "The man holding the camera has a passport, and that is the film's first decision. A Japanese photojournalist returns to Vietnam after liberation to photograph what the country has become, and what he ends up following is not the country but one poor family, its children in particular, whose days he can record and cannot change. Ann Hui keeps that discrepancy in view for a hundred and nine minutes: he can leave whenever he likes, and they are the subject matter. The exactness goes into the household — hunger, work, the small negotiations that keep people fed — while the official account of events proceeds somewhere above them. It was named best film at the Hong Kong Film Awards. Nothing about the trip turns out to be neutral, least of all the choice of where to point a lens.",
+  "model": "claude-opus-5",
+  "source_sha256": "c87f252bb9ac19a566e2363372bb3859fb202d7c6d91cae3b191cad755475d43"
+ }
+]

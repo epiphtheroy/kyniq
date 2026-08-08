@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "baby-face-1933",
+  "field": "lead",
+  "film_id": "d8e51d54-4bf3-4270-9644-e42821ec2094",
+  "lang": "en",
+  "text": "Seventy-six minutes is barely time to build a career, and Baby Face spends every one of them on the climb. A young woman decides her body is the instrument available to her and uses it upward, deliberately, with the film declining to arrange a chorus of disapproval around the decision. Alfred E. Green keeps the tempo of a promotion: brisk, transactional, the next rung already in frame. Nobody here mistakes charm for feeling, and the transactions are stated as transactions. Then it quiets. What the climb has cost comes due as a question she puts to herself rather than a punishment the plot administers, and the National Film Registry has since taken in a picture content to leave that question open. American studios in 1933 did not often run those beats in that order.",
+  "model": "claude-opus-5",
+  "source_sha256": "a5093bcdc2757454c6f3cec7ee8a1f68482bfeb9023236e29466f1fcc7ee5d87"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "people-on-sunday-1930",
+  "field": "lead",
+  "film_id": "263a68ab-ba93-4b7c-8998-097fa92db383",
+  "lang": "en",
+  "text": "A Sunday at a lake outside Berlin, filmed with people who had never acted and were not asked to start. Menschen am Sonntag was made in 1930 on a small budget by young men whose names meant nothing yet, Billy Wilder and Fred Zinnemann among them, and it never settles into either documentary or fiction. The city arrives unstaged: traffic, shop fronts, crowds moving with the indifference of people who do not know they are being filmed. Seventy-four silent minutes, organized by the shape of a free day rather than by plot, with its own rhythm of arranging, dawdling and waiting. It now sits on the standard list of essential German films, a strange fate for a weekend hobby. What lasts is the texture of an ordinary Sunday, caught by amateurs who happened to be pointing at the right thing.",
+  "model": "claude-opus-5",
+  "source_sha256": "6ba89bf9659bc99308aed27b3668ee64b7b8821aeb20d282f07062cca8b6595e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-criminal-life-of-archibaldo-de-la-cruz-1955",
+  "field": "lead",
+  "film_id": "a5ac2117-dbe2-4e5a-b68a-d0536e45bb93",
+  "lang": "en",
+  "text": "Archibaldo means to become famous for murdering women, and he prepares for it with the diligence other men bring to a profession. What Luis Buñuel builds from that is a run of intentions that keep failing to become events, colder than farce and funnier than crime, entirely unbothered by the difference. The surface stays respectable: good rooms, good manners, a Mexican bourgeoisie that never raises its voice or examines an impulse. Underneath is a fixed erotic idea one man has mistaken for a destiny and carries around like a licence. Eighty-nine minutes, 1955, made inside a working commercial industry rather than at its edges, which is part of the joke. Somos ranked it among the hundred best Mexican films, and nothing in it is ever raised above room temperature.",
+  "model": "claude-opus-5",
+  "source_sha256": "9dca93b4f21428df047e38fc938fc24015228bc73c2469ba187ce15d2740d940"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-unknown-1927",
+  "field": "lead",
+  "film_id": "d709d45d-8d2a-4f44-9bbb-914927d7f4de",
+  "lang": "en",
+  "text": "A knife thrower who works with his feet, a woman who cannot stand to be touched by a man, and a tent where both of them count as ordinary. Tod Browning builds The Unknown out of a single unbearable arrangement: Alonzo's act depends on the arms he keeps hidden, and his standing with Nanon depends on his appearing not to have them. Sixty-eight minutes leaves no room for explanation, which suits a film built like a sideshow: entry, display, exit. The circus is a workplace here rather than a symbol, with acts to run and a strongman named Malabar who wants the same woman. What still gives the thing its horror charge is the economy of it. No condition exists to be pitied; each is a skill, a liability and a price, and Alonzo does that arithmetic in full view.",
+  "model": "claude-opus-5",
+  "source_sha256": "7b2a9c34e5c2c7d35cc2b8082275aed8003b20c26659a6fcf9009f4a954bbf3c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "india-song-1975",
+  "field": "lead",
+  "film_id": "5d00b1b4-7122-4800-bf09-3bdec95ae76d",
+  "lang": "en",
+  "text": "The wife of a French diplomat in 1930s India has an afternoon to get through, and then another, and takes lovers largely because the hours have to be filled with something. Marguerite Duras, a novelist directing, arranges a hundred and fifteen minutes in which almost nothing is permitted to happen, and that refusal is the work rather than a failure of it. The India on screen is India recalled from France in 1975: less a country than a residence, heat, protocol and the long gap between one obligation and the next. Boredom of this kind has a sound, and the film is built to be listened to as much as watched. Its music took a César. Anne-Marie Stretter is less a character than a center of gravity that other people drift toward, and Duras makes no effort to negotiate with anyone's patience.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ba2eb18e23f343c128d7d357f7011bb4cd0b0c9f62a212d8a5e7d4c426a1f65"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "berlin-symphony-of-a-great-city-1927",
+  "field": "lead",
+  "film_id": "5f3ce43e-143d-484f-bf77-f0b176fe1dd3",
+  "lang": "en",
+  "text": "Berlin in 1927 had climbed out from under one catastrophe and had not yet noticed the next one assembling. Walter Ruttmann filmed it across a single day, machines starting, streets filling, shutters going up, crowds, the whole working apparatus taken as movement rather than as subject, and cut the material by rhythm instead of argument. There is no narrator and no case being made. Sixty-nine minutes arranged the way a composer arranges: repetition, acceleration, a rest, then pressure again. The people in it are doing nothing in particular, which is harder to film than it sounds. Watched now, the ordinariness is what unsettles. They go to work, they eat, they go out in the evening, with no idea what the coming decade will ask of them.",
+  "model": "claude-opus-5",
+  "source_sha256": "addc5eae26762fdccf02860bcc46764795adac6def8f276905c315bc0753d3a1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "la-chienne-1931",
+  "field": "lead",
+  "film_id": "2036f539-86be-43ac-8f28-37d1394a55dc",
+  "lang": "en",
+  "text": "A cashier who cannot stand his wife meets a young woman on the street and decides, at his age, that this is love. Everyone in La Chienne is working an angle except Maurice Legrand, and his blindness is less stupidity than appetite: unhappy long enough, he takes the first warmth offered and asks nothing about where it comes from. Lulu's affection is professional. What she keeps for herself belongs to the man who lives off her earnings, and the triangle runs on money as much as on feeling. Jean Renoir shot this in 1931, when a French film could still be surprised by having sound in it, and ordinary street noise sits close to the drama instead of behind it. Ninety-six minutes, spent watching a mild man discover how much he will do to keep being lied to.",
+  "model": "claude-opus-5",
+  "source_sha256": "3c601016e9807f144799aec06d4d16ca7eca0c8976919a6d45bd281df680b03f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "cool-hand-luke-1967",
+  "field": "lead",
+  "film_id": "beeca6a1-aab4-4a95-bdd3-a87f8fe9c8ca",
+  "lang": "en",
+  "text": "Two years is a short sentence, short enough that the sensible course is to keep quiet and let it pass. Luke Jackson cannot do it, and the film is less curious about why than about what his refusal does to the men watching him. A Florida prison farm in 1967: ditch work in the heat, a warden who administers cruelty as policy, and a solitary cell the inmates call the box. The convicts need a hero more than Luke needs to be one, and Dragline, who starts out by beating him, ends up doing the recruiting; that turn took the supporting-actor Oscar. Stuart Rosenberg lets the length do the work, a hundred and twenty-seven minutes of repetition and small insurrections, so the pattern registers as a life rather than a plot. The farm needs its rebel as much as it needs the ditch dug.",
+  "model": "claude-opus-5",
+  "source_sha256": "300e8edcb485a00876dbcc308a73c46067a4de911241bd364c0ff2a81c805cf0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "point-blank-1967",
+  "field": "lead",
+  "film_id": "59a43feb-4c5a-41e1-a9ed-8c310d3938e6",
+  "lang": "en",
+  "text": "Revenge here is bookkeeping: a man comes back from being shot and left for dead, and asks for the exact figure he is owed. The sum is small enough that everyone he approaches treats the request as a category error, which is where the menace comes from. John Boorman shoots 1967 America as glass, corridors and hard color, and the violence that arrives looks administrative rather than passionate. Walker moves through rooms he has no business in, known by one name, repeating a number at men who would much rather discuss something else. Ninety-two minutes, no motive offered beyond the figure, no negotiation entertained. The National Film Registry holds it now, and what keeps it strange is the engine: not fury but insistence, which is a great deal harder to buy off.",
+  "model": "claude-opus-5",
+  "source_sha256": "7df644fc214a04735b10741cf9919a2903e2de562d155ba08a74222071b59117"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "young-mr-lincoln-1939",
+  "field": "lead",
+  "film_id": "3184c2cb-1a1c-4885-afac-9d9eb1653866",
+  "lang": "en",
+  "text": "Abraham Lincoln arrives here as a country lawyer nobody has any reason to remember, with a practice barely open and a murder case that lands on it. John Ford made the film in 1939, and its discipline is in what it declines to say: the future goes unmentioned, the jokes stay small-town, and the loss the young man carries is a girl who died before any of it began. A hundred minutes at ground level, porch talk and a county courtroom and a town whose opinion about the two accused brothers is already settled. Ford is interested in temperament rather than destiny, in how a slow, funny, obstinate man handles a room that outnumbers him. The Academy gave the story an award. What the film does is take a face every viewer recognizes and make it awkward again.",
+  "model": "claude-opus-5",
+  "source_sha256": "9461914d10e52a6d1083c5e952cf2036992162b4ddea042bdf94d94308dffaa6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "an-affair-to-remember-1957",
+  "field": "lead",
+  "film_id": "ce401826-a1da-4459-81f6-1f22518caaa6",
+  "lang": "en",
+  "text": "Two people agree on a place and a date six months out, the top of the Empire State Building, and then go home to live until then. Everything before the agreement is comedy between adults who each have someone waiting elsewhere, played light, the ache kept just under the wit. Everything after it is arithmetic: months to get through, arrangements to unmake, a promise that grows more expensive the closer it comes. Leo McCarey gives a hundred and eleven minutes to a structure most romances would settle inside twenty, and the delay is the design rather than a stall. The picture is upholstered to the last inch, its costume design honored with an Academy Award, and Cahiers du Cinéma later filed it among the hundred most beautiful films in the world. The register it works in is anticipation, held well past comfort.",
+  "model": "claude-opus-5",
+  "source_sha256": "a4391da628e815751c40e4e8886d80b1bac7442956ce3069ac3804587720c599"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-servant-1963",
+  "field": "lead",
+  "film_id": "0c0f3f9a-7d08-4eb0-8884-0a69203af4ac",
+  "lang": "en",
+  "text": "The house has more rooms than its owner has uses for, and the man hired to keep it learns them faster than he does. Tony is rich, idle and agreeable; Barrett is competent, and competence in that arrangement turns out to be leverage. Joseph Losey lets the transfer happen through domestic business, meals and staircases, who sits and who stands, which door is left open, so that no single moment can be pointed to as the one where it went wrong. When Barrett's sister moves in as maid, the household acquires a second set of intentions. Britain in 1963 is in every line of this without being announced: class as a set of manners nobody will name aloud, and the discovery that manners are load-bearing. A hundred and sixteen minutes, and the balance tips one small courtesy at a time.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a6e96a3af5c8166cc04d1f6ea075181bf8705870bcefcca83e537729828f654"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "cat-people-1942",
+  "field": "lead",
+  "film_id": "88410d3c-27fd-4b1b-87e6-f403eb53c087",
+  "lang": "en",
+  "text": "A woman in Manhattan loves a man and will not let him near her, because the curse she believes she carries attaches to precisely that closeness. The premise commits Cat People to withholding: a danger triggered by intimacy spends most of a film not occurring, and seventy-three minutes of that produces unease rather than shock. Jacques Tourneur keeps the register low and domestic, rooms and streets and ordinary daylight, a courtship conducted at arm's length. Underneath the folklore sits something plainer, a Serbian émigré being told in reasonable American voices that her fear is a matter for a doctor. Whether the curse is real changes nothing about how she is handled. That is the colder idea in the picture, and it needs no monster on screen to work.",
+  "model": "claude-opus-5",
+  "source_sha256": "f0d31ec154cc348100a75c665ea0768b3fdb6de0c38e2ce23ead67be577b0056"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "an-angel-at-my-table-1990",
+  "field": "lead",
+  "film_id": "0cf67362-4ba5-4b1f-adea-96b1a553e1fa",
+  "lang": "en",
+  "text": "Two children die in a poor New Zealand household, and one of the survivors grows up to write about all of it. Jane Campion takes Janet Frame's autobiography in three long movements across a hundred and fifty-eight minutes, and the shape is unusual for a life story: no crisis engineered at the midpoint, no lesson extracted at the end. What accumulates instead is temperament, a shy girl becoming a shy woman with a manuscript and a diagnosis she has been handed rather than asked about. Kerry Fox plays the adult Frame without once asking to be liked, and Venice gave the film its Grand Jury Prize. Campion films awkwardness with rare patience, the wrong clothes and the silences and the sentences that will not come out, and the domestic scenes land harder than the institutional ones.",
+  "model": "claude-opus-5",
+  "source_sha256": "db06cb5294366325e469c5bf9371be611dc9f1bfc5532a29b7f8f0015e35dd39"
+ }
+]

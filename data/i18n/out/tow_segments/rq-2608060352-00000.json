@@ -1,0 +1,119 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d365e52a71f4166c",
+  "field": "text",
+  "lang": "ko",
+  "text": "황금곰상과 은곰상 주연상에서 인정받은 작품이고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "d365e52a71f4166cb52bdff597aefda270a1ee750c2063657bb9930e5527ed94"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "bce42ca40de95a71",
+  "field": "text",
+  "lang": "ko",
+  "text": "아누라그 카시압 감독의 정전화된 작업이 떠받치는 작품이고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "bce42ca40de95a7101f0f44d4acd072ee5f2807bc0dc223edf260a319e8c4925"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "da825f4c1ea6b1f2",
+  "field": "text",
+  "lang": "ko",
+  "text": "캐나다 스크린 어워드 작품상을 받은 영화이고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "da825f4c1ea6b1f22daa34a34ca8c80fbfd14ff10d86c8d099b949ed60c41c30"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5816971f212d4463",
+  "field": "text",
+  "lang": "ko",
+  "text": "Najlepsze filmy polskie에서 인정받은 작품이고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "5816971f212d44635e232e2feea3a800ab4c7e30b07d4274015e893d8ba86b06"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "42a1b0ed4312709a",
+  "field": "text",
+  "lang": "ko",
+  "text": "리처드 링클레이터 감독의 정전화된 작업이 떠받치는 작품이고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "42a1b0ed4312709a76995a22f4cfce0e529d7e5fb310f861826db20ca1042216"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "858dfdd2b9d1b4bc",
+  "field": "text",
+  "lang": "ko",
+  "text": "남우주연상과 골든글로브 드라마 작품상을 받은 영화이고, 대중에게 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "858dfdd2b9d1b4bc05bc6936a91d618fd4094ab940d51a891e8bb87d1ac46b55"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "d9310d464d635dab",
+  "field": "text",
+  "lang": "ko",
+  "text": "WGA 각본상을 받은 영화이고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "d9310d464d635dabb00030ae46051bc19cdda1764e888922fdb02de5b430fbef"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "5c20123fb27dd643",
+  "field": "text",
+  "lang": "ko",
+  "text": "테리 길리엄 감독의 작가 계보를 통해 값이 다시 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5c20123fb27dd6435aa968da57a1e7e461ab684df92688b1621bc885a1f49674"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "2669953de54de139",
+  "field": "text",
+  "lang": "ko",
+  "text": "WGA 각본상에서 인정받은 작품이고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "2669953de54de139e29e00c5a45e6d7d0ae77b80b533d9e20cd5f2e5827f22d0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b78f523c661e6b84",
+  "field": "text",
+  "lang": "ko",
+  "text": "페드로 알모도바르 감독의 정전화된 작업이 떠받치는 작품이고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "b78f523c661e6b84c1af0415b77fb60e05cc920af6e780c19c2aab585168a3e8"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "70ae6d831ae0559d",
+  "field": "text",
+  "lang": "ko",
+  "text": "프랑수아 오종 감독의 작가 계보를 통해 값이 다시 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "70ae6d831ae0559dc9a71e6aa27741247d190aa607387469bb24d1442ea1b769"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "10c2a39f6a3118fd",
+  "field": "text",
+  "lang": "ko",
+  "text": "루카 구아다니노 감독의 작가 계보를 통해 값이 다시 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "10c2a39f6a3118fd555cd9960f0d6d1fb25e731f1c20507544e38cc30a365a03"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c3d0a0ad42d94a32",
+  "field": "text",
+  "lang": "ko",
+  "text": "나딘 라바키 감독의 작가 계보를 통해 값이 다시 매겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3d0a0ad42d94a32fb47e2e514865a8009a47b185f8632f29bb7a10f89f14e96"
+ }
+]

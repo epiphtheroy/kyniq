@@ -1,0 +1,322 @@
+[
+ {
+  "entity_type": "director_pick",
+  "entity_key": "alfred-hitchcock#rear-window-1954",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《이창》은 관객을 아파트 한 채와 지미 스튜어트의 휠체어에 가둔다. 그렇게 관음이 곧 서스펜스가 된다. 입문작으로 삼기 좋을 만큼 편하고 재치 있으며, 히치콕이 어떻게 우리를 훔쳐보기의 공범으로 만드는지 가장 또렷하게 보여준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "alfred-hitchcock#north-by-northwest-1959",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 경쾌한 블록버스터를 원한다면 《북북서로 진로를 돌려라》다. 스파이로 오인받은 캐리 그랜트, 농약 살포기의 추격, 러시모어산. 화려하고 빠르다. 히치콕이라는 쾌락 기계가 전속력으로 돌아가는 광경이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "alfred-hitchcock#vertigo-1958",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《현기증》은 집착의 정점이다. 스튜어트는 한 여자를 죽은 이상형으로 다시 빚는다. 나선처럼 조여드는 불안, 색채, 버나드 허먼의 스코어. 히치콕이 가장 사적이고 심리적으로 벌거벗은 자리가 여기다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "alfred-hitchcock#psycho-1960",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《사이코》는 구조 자체를 무기로 쓴다. 인물과 함께 관객의 예상까지 죽인다. TV 스태프를 데리고 싸게 찍은 이 영화가 공포의 회로를 갈아엎었다. 관객의 편들기를 히치콕이 얼마나 무자비하게 조종할 수 있는지 보라.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "alfred-hitchcock#notorious-1946",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《오명》은 잉그리드 버그먼과 캐리 그랜트를 죄책감과 그리움이 배인 첩보극 안에 세운다. 그 유명한 와인 저장고의 열쇠, 그리고 길게 늘어지는 키스. 서스펜스와 어른의 감정이 한 몸이 되는 순간이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "alfred-hitchcock#shadow-of-a-doubt-1943",
+  "field": "reason",
+  "lang": "ko",
+  "text": "악은 집 안까지 들어온다. 《의혹의 그림자》에서 미국 소도시를 찾아온 사랑스러운 삼촌은 살인의 비밀을 숨기고 있다. 히치콕 본인이 가장 아꼈다고 전해지는 작품. 햇살 좋은 가정의 표면 아래가 은근히 서늘하다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "alfred-hitchcock#rope-1948",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《로프》는 겉보기에 하나의 롱테이크로 흘러간다. 살인과 만찬을 실시간으로 밀어붙이는 도박이다. 이미 히치콕에 빠진 사람이라면, 기술적 제약이 폐소감을 어디까지 끌어올리는지 지켜볼 만하다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "alfred-hitchcock#the-lady-vanishes-1938",
+  "field": "reason",
+  "lang": "ko",
+  "text": "영국 시절의 히치콕을 보려면 《사라진 여인》이다. 기차 한 대, 사라진 노부인, 그리고 웃음 섞인 서스펜스. 훗날의 누명 쓴 남자 스릴러들이 여기서 설계도를 얻었다. 사랑스럽고, 놀랍도록 날렵하다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "alfred-hitchcock#frenzy-1972",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《프렌지》의 히치콕은 풀려나 있다. 런던으로 돌아와, 스튜디오가 한때 금지했던 폭력을 노골적으로 찍었다. 더 어둡고 거친 후일담. 절제가 그동안 무엇을 눌러두고 있었는지 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ali-abbasi#holy-spider-2022",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《성스러운 거미》부터 시작하면 된다. 마슈하드를 무대로 한 팽팽한 연쇄살인 수사극이자, 그 살인을 은근히 눈감아주는 사회를 향한 분노의 초상이다. 직설적이고, 손에 땀을 쥐게 한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ali-abbasi#border-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《경계선》은 북유럽 설화와 로맨스와 범죄극을 뒤섞어 분류 불가능한 무언가로 만든다. 중심에는 죄의 냄새를 맡는 세관원이 있다. 육체의 낯섦과 도덕적 불편함을 다루는 아바시의 재능이 여기서 절정에 이른다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ali-abbasi#the-apprentice-2024",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《어프렌티스》는 변호사 로이 콘의 지도 아래 있던 젊은 도널드 트럼프를 좇는다. 미국식 권력 축조에 아바시 특유의 임상적 시선을 들이댄 셈이다. 그의 사실주의적 인물 연구를 보고 싶은 관객을 위한 보상.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "andrea-arnold#fish-tank-2009",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《피쉬 탱크》에 아널드의 서명이 응축돼 있다. 안절부절못하는 십대 소녀, 손에 들린 카메라의 밀착, 공영주택 단지의 자연주의. 그를 규정하는 거칠고 지켜보는 리얼리즘으로 들어가는 가장 쉬운 입구다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "andrea-arnold#american-honey-2016",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《아메리칸 허니》는 그 스타일을 잡지 방문판매 십대들의 긴 로드무비 위로 늘여놓는다. 비직업 배우를 다루는 솜씨, 햇볕에 절은 4:3 화면, 어디에도 매이지 않은 자유. 장편 전체의 규모로 확장된 아널드다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "andrea-arnold#bird-2024",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《버드》는 다시 혼란한 집안의 성장기 소녀에게로 돌아오되, 특유의 거친 질감에 마술적 리얼리즘의 불씨를 섞는다. 그의 사회적 리얼리즘이 여전히 변해가고 있음을 보여주는 작품.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "andrea-arnold#wuthering-heights-2011",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《폭풍의 언덕》은 브론테를 촉각적으로 다시 상상한다. 비바람에 시달리는 핸드헬드 클로즈업, 통념을 거스르는 캐스팅. 아널드의 감각적이고 반고전적인 본능에 이미 사로잡힌 관객을 위한 형식 실험이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "andrei-tarkovsky#solaris-1972",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《솔라리스》는 죽은 이를 불러내는 지성체 바다라는 SF 설정을 빌려, 처음 온 관객을 타르콥스키의 느린 명상적 리듬에 적응시킨다. 애도와 기억이라는 감정의 중심이 손에 잡힌다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "andrei-tarkovsky#andrei-rublev-1966",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《안드레이 루블료프》는 15세기 이콘 화가를 따라 역병과 약탈과 침묵을 통과한다. 삽화처럼 이어진 장들은 마지막 종 주조 장면에서 하나로 맺힌다. 고통을 거쳐야 예술이 벼려진다는 타르콥스키의 믿음이 거기 결정된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "andrei-tarkovsky#mirror-1975",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《거울》은 줄거리를 버린다. 유년의 기억과 뉴스릴과 시가 꿈처럼 콜라주된다. 타르콥스키의 이미지를 일단 믿기 시작하면, 개인의 시간과 역사의 시간이 비선형으로 얽히는 이 직조가 가장 깊은 보상이 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "andrew-haigh#weekend-2011",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《주말》(2011)에 헤이의 서명이 응축돼 있다. 두 남자, 단 한 번의 주말, 실시간으로 흐르는 친밀함과 방어를 푼 대화. 낯선 사람이 어떻게 없어서는 안 될 존재가 되는지를 본다. 그의 조용한 감정 방식으로 들어가는 가장 깨끗한 입구.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "andrew-haigh#all-of-us-strangers-2023",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《올 오브 어스 스트레인저스》(2023)는 그 친밀함에 초자연을 겹친다. 외로운 각본가가 부모를 다시 만난다. 다정함과 슬픔이 함께 있는 이 영화가 그의 폭을 다 보여주고, 앤드루 스콧은 가장 무방비한 얼굴로 서 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "andrew-haigh#45-years-2015",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《45년 후》(2015)의 무대는 오래된 결혼���다. 묻어둔 비밀 하나가 그 세월에 금을 낸다. 샬럿 램플링은 수십 년치 의심을 눈빛 한 번으로 읽어낸다. 같은 참을성 있는 관찰이 노년까지 나이를 먹었다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "andrew-haigh#lean-on-pete-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《레인 온 피트》(2018)는 연인 대신 한 소년과 퇴역 직전의 경주마를 미국 서부의 길 위에 올린다. 헤이의 공감이 로맨스 바깥까지 간다는 증거이자, 자주 잊히는 예외작.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "andrew-stanton#finding-nemo-2003",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 따뜻한 입구는 《니모를 찾아서》다. 눈부시게 구현된 산호초를 가로지르는 아버지와 아들의 구조 여정. 감정을 또렷하게 만드는 스탠튼의 재능과, 곁가지 생물들까지 꼼꼼히 성격을 부여하는 솜씨가 떠받친다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "andrew-stanton#wall-e-2008",
+  "field": "reason",
+  "lang": "ko",
+  "text": "스탠튼이 왜 중요한지는 《월-E》가 답한다. 1막이 거의 무언극이다. 그런데도 로맨스 하나와 한 행성의 생태적 셈을 몸짓과 사운드 디자인으로 밀고 간다. 외로운 청소 로봇의 말 없는 표현력만으로.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "andrew-stanton#finding-dory-2016",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《도리를 찾아서》는 잘 잊는 조연을 한복판으로 옮겨놓는다. 단기기억상실이 가족과 자기 존중을 묻는 뭉클한 탐구로 바뀌면서 전작의 세계가 더 깊어진다. 이미 빠진 관객을 위한 보상.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "andrey-zvyagintsev#the-return-2003",
+  "field": "reason",
+  "lang": "ko",
+  "text": "즈뱌긴체프의 데뷔작 《리턴》은 앙상하다. 두 소년과 정체 모를 아버지가 호숫가로 떠나는 여정. 차가운 풍경과 침묵, 우화의 구조가 가장 받아들이기 쉬운 형태로 놓여 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "andrey-zvyagintsev#leviathan-2014",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《리바이어던》은 그 은밀한 공포를 국가 규모로 키운다. 한 남자의 집이 교회와 부패한 관료를 상대하고, 그 뒤로 바렌츠해의 광막한 해안이 펼쳐진다. 러시아 권력에 대한 그의 가장 완전한 진술.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "andrey-zvyagintsev#loveless-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《러브리스》는 이혼하는 부부가 아이를 잃는 이야기를 자기몰두에 대한 서늘한 고발로 바꾼다. 임상적인 화면과 자원봉사 수색대의 절차적 묘사. 이미 그의 황량한 엄정함에 조율된 관객이라면 값을 한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ang-lee#crouching-tiger-hidden-dragon-2000",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 손을 내미는 입구는 《와호장룡》이다. 무게가 사라진 나무 위 결투라는 무협의 스펙터클에 억눌린 그리움의 로맨스가 붙는다. 액션의 우아함과 감정의 억압을 함께 다루는 이안의 서명이 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ang-lee#brokeback-mountain-2005",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《브로크백 마운틴》은 이안의 감정적 정점이다. 와이오밍의 광활한 풍경과 긴 침묵으로 수십 년에 걸친 금지된 사랑을 저리도록 그려낸다. 그가 감정을 안무만큼 정확하게 연출한다는 증거.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ang-lee#life-of-pi-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "이미 빠졌다면 《라이프 오브 파이》다. 회화적인 3D 바다, 표류하는 소년과 호랑이, 그리고 믿음과 우리가 무엇을 믿기로 택하는가를 두고 벌이는 이야기의 손기술. 그의 가장 실험적인 솜씨가 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "anthony-russo#captain-america-civil-war-2016",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《캡틴 아메리카: 시빌 워》는 책임의 문제를 두고 영웅들을 갈라놓는다. 지상에 붙은 밀착 액션과 선명한 이념 대립. 러소 형제의 인물 우선 앙상블 스타일로 들어가기에 가장 독립적인 입구다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "anthony-russo#avengers-infinity-war-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《어벤져스: 인피니티 워》는 방대한 인물군을 한 악당의 시점 둘레로 굴린다. 위협이 쉼 없이 커지는 동안 교차편집의 구조와 톤을 장악하는 솜씨가 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "anthony-russo#avengers-endgame-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《어벤져스: 엔드게임》은 결말로 달려가기 전에 속도를 늦춘다. 애도와 시간여행의 회고에 자리를 내준다. 러소 형제가 여러 편에 걸쳐 쌓아온 긴 곡선에 마음을 준 관객을 위한 편이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "apichatpong-weerasethakul#uncle-boonmee-who-can-recall-his-past-lives-2010",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《엉클 분미》가 가장 다정한 입구다. 죽어가는 남자에게 유령들과 붉은 눈의 숲 정령이 찾아온다. 태국의 민간 신앙과 숨죽인 정글의 고요가 포개진다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "apichatpong-weerasethakul#tropical-malady-2004",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《열대병》은 둘로 쪼개진다. 앞은 병사의 다정한 연애, 뒤는 말 없는 숲속의 밤 사냥. 그의 서명과도 같은 이면화(二面畵) 구조, 그리고 인간의 욕망과 신화 사이의 성긴 경계가 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "apichatpong-weerasethakul#memoria-2021",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《메모리아》에서 틸다 스윈튼은 자기에게만 들리는 굉음을 쫓는다. 태국의 정글이 콜롬비아로 바뀌었다. 이미 그의 리듬에 몸이 맞춰진 관객을 위한, 인내와 소리의 명상.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ari-aster#hereditary-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "애스터의 가장 무난한 입구는 《유전》이다. 슬픔에 절은 가족극이 서서히 공포로 상해간다. 물려받은 트라우마를 향한 집착과 정교하게 구성된 가정 호러가 여기서 시작된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ari-aster#midsommar-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《미드소마》는 이별 영화를 눈부신 스웨덴의 대낮으로 옮겨놓는다. 어둠 없이 공포를 만드는 솜씨, 의례의 화려한 행렬, 그리고 흠 없는 프레이밍을 통해 무기가 되는 감정.",
+  "model": "claude-opus-5"
+ }
+]

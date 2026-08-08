@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luis-bunuel#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1946년 부뉴엘은 멕시코에 잠깐 들렀다 갈 생각이었다. 그러나 그는 남은 평생을 멕시코시티에서 살았고, 멕시코 국적을 얻었으며, 유난히 다작이었던 망명기 동안 스무 편을 찍었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e574d42c6ba1496d0b91e202f20999b47a1cbd0558a1c31fa2ebe79746ea490c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luis-bunuel#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "완벽한 드라이 마티니를 만드는 일에 집착한 것으로 유명하다. 자서전에서 그는 최고의 방법을 이렇게 적었다. 노일리 프라 베르무트 병을 통과한 햇살 한 줄기가 영국산 진에 가 닿게 하는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "10042386422206b8e6125cffb95ebb3385e3e22cbfcbc263f55be565b225cb72"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luis-bunuel#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1961년 프랑코 정권은 어리석게도 망명 중이던 감독을 스페인으로 불러들여 《비리디아나》를 찍게 했다. 부뉴엘은 네거티브를 몰래 빼돌려 칸영화제로 보냈고, 영화는 황금종려상을 받았다. 그러나 바티칸이 최후의 만찬 패러디를 규탄하자 스페인은 상영을 금지하고 영화총국장 호세 무뇨스 폰탄을 해임했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "889ba6688a33353709d8c68cee3f29c1349a240c311474fb2ebf38d0d482e29d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luis-bunuel#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생 격렬한 반교권주의자였고 \"나는 무신론자다, 신께 감사하게도\"라는 말을 남긴 사람이다. 그런 그가 말년의 멕시코시티에서는 훌리안 파블로 신부라는 예수회 사제와 긴 신학 토론을 즐기며 여러 날을 보냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b12a40a391df9da6cf9dd9700bbdc04a67001d999c737ed3bd8fda39a5273d16"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luis-bunuel#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1972년 《부르주아의 은밀한 매력》으로 그는 스페인 감독 최초로 아카데미 외국어영화상을 받았다. 그러나 정작 본인은 그 영예를 조롱했다. 우스꽝스럽게 큰 안경에 가짜 콧수염을 붙이고 오스카 트로피를 움켜쥔 채 사진을 찍은 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd6520e727f57456e0cf538d3f15c4b0198a528847e5bf72afd19ca1ed9bce3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luis-bunuel#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "전설적인 감독이라는 이름값과 달리, 말년의 부뉴엘은 극장에 거의 가지 않았다. 오후는 술집에서 보냈다. 단골 시나리오 협업자 장클로드 카리에르를 비롯한 소수의 남자 친구들과 함께.",
+  "model": "claude-opus-5",
+  "source_sha256": "92ba0fcfaa16f8877d7f836ea4ed5b6999bbcd0b77630d512284ee91ec51a3bd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luis-bunuel#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1930년 로스앤젤레스, 찰리 채플린이 연 만찬 자리에서 벌어진 일이다. 잔뜩 취한 부뉴엘이 장식된 크리스마스트리를 신나게 해체하고 장식품을 짓밟았다. 명절의 상업화에 대한 항의였고, 손님들은 경악했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e5a04fd4112c00c365eb046e583f8a0fe0754e8b693c0065351c190ce3093fd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "m-night-shyamalan#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마노즈 넬리야투 샤말란은 옛 프랑스 식민지였던 인도 마헤에서 태어나 필라델피아 교외의 부유한 동네 펜밸리에서 자랐다. 부모는 둘 다 의사였고, 아들이 당연히 의학의 길을 이어받으리라 믿었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1cf49b8c5348920a6f4c860ae99cd43de19998124009fa4f1cfef170e19e75ad"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "m-night-shyamalan#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "힌두교 가정에서 자랐지만 그가 다닌 곳은 규율이 엄격한 가톨릭 사립학교 월드런 머시 아카데미였다. 세례받지 않은 아이가 림보로 가느냐를 두고 교사들과 언쟁을 벌이다 벌을 받는 일이 잦았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6ae212bea8e10aed4985e21807110c6885f56ec25c4641feec693872bb8de24"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "m-night-shyamalan#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "뉴욕대학교 티시예술대학 재학 중 그는 미들네임을 넬리야투에서 '나이트'로 법적으로 바꿨다. 아메리카 원주민 문화에 영적으로 끌린다는 것이 이유였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d5381ae2986842521e8668ae2c3025ea19a1ab4a3be0882ae37a14235f269d0f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "m-night-shyamalan#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스물한 살에 찍은 반자전적 데뷔작 《Praying with Anger》의 제작비는 부모에게 크게 빚을 져 마련했다. 촬영지는 인도 첸나이. 미국화된 십 대가 자기 뿌리를 발견하는 주인공 역은 본인이 직접 맡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e6a412720729407a3424e4d8dbd41284e6d480638ec8099614e9618da903d9d2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "m-night-shyamalan#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "초자연 스릴러의 대명사가 되기 전, 그는 가족영화 각본을 손보는 스크립트 닥터로 할리우드에서 벌이가 좋았다. 대표작은 애니매트로닉스 생쥐 코미디 《스튜어트 리틀》의 각본이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3448437df9a697c311590cc58deecff95317eb91667889c959df072b4760675e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "m-night-shyamalan#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그를 알린 각본 《식스 센스》는 월트디즈니 스튜디오 사장 데이비드 보겔이 300만 달러에 사들였다. 상부와 상의도 없이 그 자리에서 결정한 거래였고, 자신이 연출하겠다는 샤말란의 양보 불가 조건까지 받아들였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1338aedf8ebabb9c0e374ee4988d935f98c8047e01cdb86fc466446fa5d16dfd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "m-night-shyamalan#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "독단적으로 《식스 센스》를 사들인 대가로 보겔은 디즈니 CEO 마이클 아이스너에게 해고당했다. 그 영화는 이후 7억 달러 가까운 수익을 올리고 아카데미 6개 부문 후보에 올랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6051ddb83f6773bd1ce7509df425a64126a491c725b6fe642fd6c454fbc46133"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "m-night-shyamalan#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "브루스 윌리스가 《식스 센스》에 합류한 데는 사정이 있었다. 갑작스레 엎어진 아이스하키 코미디 《브로드웨이 브롤러》를 둘러싼 1,750만 달러 소송을 정리하느라, 그는 디즈니에 세 편을 빚진 처지였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "01211dbb2aef1d2d754f0388dc2870fed6bacd29cd3ff3127283838bc6e747f0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "m-night-shyamalan#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "고향 주에 대한 지리적 충성이 집요하다. 주요 장편 거의 전부를 펜실베이니아주 필라델피아와 그 인근에서 찍었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b99e86bfb12e8744accebc4bf5cb6fa5c7e79c32ea19283e650a7b0a403324f2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "m-night-shyamalan#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "보안과 통제권을 완벽히 쥐기 위해 샤말란은 각본에 엄격한 색깔 코드를 매기고 이메일 전송을 거부한다. 스튜디오 임원들은 그의 125에이커짜리 펜실베이니아 사유지 레이븐우드까지 날아가, 조수들의 감시 아래 각본을 읽어야 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7b8321eca998b6c91fee32486b6d23a7e7680ee2cccd4a33bcc6df0a9ff2d7df"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "m-night-shyamalan#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1998년 코미디 《Wide Awake》를 미라맥스에서 하비 와인스틴과 작업한 시간은 비참했다. 악명 높은 그 제작자가 자신을 눈물이 날 정도로 몰아붙였고 결국 극장 개봉을 묻어버렸다는 것이 샤말란의 주장이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a460e2e8dc68566bb6cb9d23d0c7ca441834ce1e0366c9ab6566e33800c009c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "m-night-shyamalan#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2004년 그는 사이파이 채널과 손잡고 대형 홍보 사기극을 벌였다. 《The Buried Secret of M. Night Shyamalan》이라는 가짜 다큐멘터리에 직접 출연해, 어린 시절 물에 빠져 죽었다가 살아났고 영혼과 소통할 수 있다고 주장한 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "32c6ba4ce49a8ce3fced96964e4e7d154b6b2c02aff0dca7e50e49ef428ce099"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "m-night-shyamalan#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이 장난은 크게 역풍을 맞았다. 사이파이 채널 임원들이 모큐멘터리 홍보를 위해 AP통신에 가짜 기사를 심었다는 사실이 NBC 유니버설 경영진에게 발각되면서, 방송사는 공개 사과문을 내야 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "452520ca8c6aeeea033e36c1a0f9d2b162b51931dacef9ed883d5369306b1869"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "m-night-shyamalan#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "디즈니와의 관계는 임원 니나 제이컵슨이 《레이디 인 더 워터》 각본을 혹독하게 비판하면서 영영 틀어졌다. 샤말란은 기획을 워너브러더스로 들고 갔고, 훗날 자신이 겪었다고 믿는 순교를 상세히 기록한 책 《The Man Who Heard Voices》의 집필을 허락했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "830d3429b0268b2cf4ceff50168c6f51c624045d0b4e3909e9aaac1b84a03d45"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "m-night-shyamalan#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《레이디 인 더 워터》에서 그는 빅 랜 역에 스스로를 캐스팅했다. 미출��� 원고가 훗날 대통령에게 영감을 주어 인류를 구원하게 될 천재 작가다. 자기미화가 노골적인 이 선택은 평단의 잔인한 조롱을 불렀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "61f4aa21236ac082343ddc56301df3ae55d19e946cdf92611e27fe6096c9dd63"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "m-night-shyamalan#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자기 돈을 거는 도박은 대성공이었다. 이후 《23 아이덴티티》, 《글래스》, 《올드》, 《똑똑똑》까지 그는 제작비를 직접 댔다. 메이저 스튜디오를 배급 창구로 쓰는, 수익성 높은 독립영화 제작자였던 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d99829502dda3596b3277bcd6af54c8caaf33c52f189296968f6619e20d285bb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "m-night-shyamalan#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2013년에는 뜻밖에도 논픽션으로 방향을 틀어 《I Got Schooled》를 펴냈다. 미국의 교육 격차를 어떻게 좁힐 것인가에 관한 데이터 기반 이론서로, 필라델피아 공립학교에서 해온 자선 활동이 짙게 배어 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5a04690e9480857664437eecebac2c0652f2627b40d7d48e84748b0e7455d483"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "m-night-shyamalan#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아내 바브나 바스와니와는 뉴욕대 재학 시절 만났다. 두 사람은 함께 M. Night Shyamalan 재단을 세워, 소외된 지역에서 빈곤과 싸우는 풀뿌리 활동가들을 후원한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5462f853603219e1011aeedd0edb8bfb1839644d37d185bb87e3a7c5a33c4269"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "m-night-shyamalan#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "딸 이샤나 나이트 샤말란은 《올드》와 《똑똑똑》에서 세컨드 유닛 감독을 맡은 뒤 2024년 호러 《워쳐스》로 연출 데뷔했다. 제작은 아버지가 맡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "13a8bdbd161c524e0ca3d01539b54c7cded2cad3244e0e5d8021ffef84691a5c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "m-night-shyamalan#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "또 다른 딸 살레카 샤말란은 프로 R&B 가수다. 2024년 스릴러 《트랩》의 극중 음악을 직접 쓰고 불렀으며, 가상의 팝 아이돌 레이디 레이븐 역으로 공동 주연까지 맡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d9f6a860512e442e1200a719cbe2fad55a1e285900999be2f291946c42c6b208"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "m-night-shyamalan#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "20세기 폭스 임원들에게 자신의 첫 각본 《Labor of Love》를 되팔라고 요구한 일화가 유명하다. 1993년에 판 그 각본은 끝내 영화가 되지 못했다. 자신이 연출해야 한다는 그의 최후통첩을 스튜디오가 거부했기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "94de36ebe27c12ed6c126914cbea1d0b6ea222b785194f41963f389b54d07071"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "m-night-shyamalan#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2008년 인도 정부는 세계 영화에 기여한 공로로 그에게 파드마 슈리를 수여했다. 인도 최고 훈장 가운데 하나다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc877220ba23d23f3f5a6f9ebfb8c172cac51a2b95fa2b6263ba6c474917175b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "makoto-shinkai#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "본명은 니이쓰 마코토. 나가노현에서 백 년을 이어온 가업, 건설회사 니이쓰구미를 물려받을 사람으로 기대를 받았다. 그는 아버지의 뜻을 거스르고 애니메이션 쪽으로 갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f513838dcdaeaaea3068bba6f49fa4bf0b3425f243748a52006cb6ad1068658f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "makoto-shinkai#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자란 곳은 고지대 마을 고우미다. 유난히 맑고 별이 가득한 밤하늘이 그에게 평생의 집착을 남겼다. 극도로 세밀하게, 빛나도록 하늘을 그리는 일.",
+  "model": "claude-opus-5",
+  "source_sha256": "a4f061cf291b2077fd64a39a9738c549332f86ca547113ecd736a93c7a0132ba"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "makoto-shinkai#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "고등학생 때는 천문부에 들어갔고 아서 C. 클라크의 SF 소설을 닥치는 대로 읽었다. 그 우주적 주제가 훗날 그를 알린 단편들에 짙게 스몄다.",
+  "model": "claude-opus-5",
+  "source_sha256": "70e80cd86489d6c4ce30281cf925158947959394ed365e9d2f17ae79c0c47b21"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "makoto-shinkai#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "주오대학에서 일본문학을 전공했지만, 정작 시간을 쏟은 곳은 아동문학 동아리였다. 수업보다 그림책 그리기에 매달렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cf50215901f1d37553a0042db8e546f9167ce0030f2ee1d2c8677eaaf6a001fe"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "makoto-shinkai#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "첫 직장은 게임 회사 니혼팔콤. 5년 동안 패키지 디자인과 롤플레잉 게임 오프닝 영상 작업을 했다. 2000년판 《이스 II》 리메이크가 그중 하나다.",
+  "model": "claude-opus-5",
+  "source_sha256": "19906230e7262e5ecb10bb048a64de73f7e140cc8a3ed95fbb927e8fad924185"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "makoto-shinkai#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2002년 단편 《별의 목소리》로 이름을 알리기까지, 신카이는 게임 회사를 그만두고 사이타마의 좁은 아파트에서 일곱 달을 보냈다. 25분짜리 SF 한 편을 처음부터 끝까지 혼자 그렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e5ad66998d9d0c39307709b588fcfb238bc70fa8a7c4ef9816c39affa75efcb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "makoto-shinkai#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아내는 배우 겸 프로듀서 미사카 지에코다. 기타무라 류헤이의 2000년작 컬트 좀비 액션 《버서스》의 여자 주인공으로 가장 널리 알려졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1fdd9c722dcb99a342848253cc01fcc0d85cd2d64fefac56abe46549c11e3f17"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "makoto-shinkai#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "두 사람의 딸이 실사판 《3월의 라이온》에 출연한 아역 배우 니이쓰 지세다. 신카이는 자기 명성에 딸이 가려질까 봐 여러 해 동안 부녀 관계를 밝히지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "58188c8dcf7cf2a65e9e108f5ea85ece69dfe5a2a8cbd94016fe19c915e9aafe"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "makoto-shinkai#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "런던의 공원에서 비를 바라보던 시간이 2013년작 《언어의 정원》으로 곧장 이어졌다. 수업을 빼먹고 신주쿠 교엔에서 구두를 스케치하는 소년, 이야기는 온전히 그 자리에서 자란다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b27c36f689e025e29de0e727c8718082b49aeee5dec03c3c1b92bfaadb9646d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "makoto-shinkai#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《언어의 정원》을 그는 일본 고전 문학에 분명히 뿌리내렸다. 8세기 시가집 『만요슈』를 깊이 끌어왔고, 사랑을 뜻하는 옛말 '고이(恋)'도 그렇다. 글자 그대로는 외로운 슬픔이라는 뜻이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1f636ee9fa926b10bd44cc4dad4c013a26fe6ea6c18b21428023829723c2bfee"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "makoto-shinkai#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2011년 도호쿠 대지진과 쓰나미가 그의 궤도를 근본부터 바꿔놓았다. 사적이고 우울한 연애담에서, 공동체가 겪는 재난과 생존과 다른 시간선의 이야기로.",
+  "model": "claude-opus-5",
+  "source_sha256": "3554ecfe3ef5cb716bebdd9147c47934474dd6f18ba555e78379e2bd00e05984"
+ }
+]

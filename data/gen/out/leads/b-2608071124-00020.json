@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hamlet-1990",
+  "field": "lead",
+  "film_id": "4e7c9c6f-d9cb-473f-9dfa-427b5868e6d9",
+  "lang": "en",
+  "text": "Two hours and ten minutes is not enough time to speak all of Hamlet, and this version does not try. What survives the cutting is the plot in its rawest form: a son learns his uncle killed his father for the crown, and begins to arrange a reckoning. Franco Zeffirelli builds the play a house rather than a stage — cold stone, low doorways, wool and smoke and torchlight, the kind of castle where people eat with their hands and sleep in their clothes. The production design took an Academy Award, and it does argument as well as decoration: grief here is physical, a matter of drafty rooms, long corridors and nowhere private to think. The verse comes fast and plainly spoken. Anyone who has met the play in a theatre will notice what has gone, and may be surprised how little the surviving story misses it.",
+  "model": "claude-opus-5",
+  "source_sha256": "d023efba80843b9df405660607d50a97123130a11723db6386d2e71d02c6de24"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "croupier-2000",
+  "field": "lead",
+  "film_id": "79982283-9fb7-461b-bf82-ecbfad17b12a",
+  "lang": "en",
+  "text": "A writer stuck on his novel takes a job dealing cards, and the job turns out to be the easier discipline. Jack Manfred works nights in a London casino, where the rules are precise and the hands are trained not to hesitate: chips stacked, bets settled, faces read and forgotten. Mike Hodges films the tables as labour rather than glamour, all fluorescent back rooms and staff rotas, and lets the money stay other people's money. Ninety-four minutes, no fat. The pressure comes from the small print of the life — night shifts set against a daytime household, a manuscript that starts feeding on the people he watches lose, a house rule against knowing the customers. The film keeps its narrator at a slight cold distance from himself, which is exactly the distance the work demands.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d571e3d1d7892c0d6f0bca0e017dd2163030725d02bea9fbcdcfae6353b3ff8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "winchester-73-1950",
+  "field": "lead",
+  "film_id": "b0608929-8f07-40cc-9b55-69dbe71c9f97",
+  "lang": "en",
+  "text": "A one-in-a-thousand Winchester is won fairly in a shooting contest, stolen within the hour, and never again belongs to anyone for long. From there the film splits its attention. Lin McAdam rides after Dutch Henry Brown to settle something older than the theft, while the rifle passes on to traders, soldiers and men who want it badly enough to kill for it, each handover opening a small story of its own. Anthony Mann keeps the two lines from tangling by making the gun the only witness present in both. Ninety-two minutes carries all of it, which means scenes end a beat before a looser film would let them. The heat in the pursuit is not the property but the grudge underneath, barely spoken, legible mostly in how the two men stand beside each other at the firing line, taking turns, being polite.",
+  "model": "claude-opus-5",
+  "source_sha256": "653542972d40b23f60accf9937acbc336a636388b50bb0657aa9fc2df7ccf55a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "one-two-three-1961",
+  "field": "lead",
+  "film_id": "7a26c8ec-fc41-4f00-84c7-5aa5ece04199",
+  "lang": "en",
+  "text": "In 1961 someone made a farce out of a divided Berlin and set the timer to roughly a line a second. C.R. MacNamara runs Coca-Cola's West Berlin operation, dreams of selling east of the line, and has been handed his boss's seventeen-year-old daughter for safekeeping; the discovery that she is pregnant by a Communist turns a corporate errand into a rescue with a deadline. Billy Wilder plays the whole thing as logistics — telephones, cables, borrowed suits, subordinates clicking their heels out of an older habit — and finds the comedy in how efficiently a conviction can be bought, dressed and relabelled inside an afternoon. The black-and-white photography took an Academy Award and earns it by keeping up. Nothing is allowed to breathe. That is the joke: two systems, one office, no time to think about either.",
+  "model": "claude-opus-5",
+  "source_sha256": "971235e275a4c1801b4f55634316ff5e3acec7a855591c5f1c8a0d80101e78cd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "stop-making-sense-1984",
+  "field": "lead",
+  "film_id": "2ecee70d-fceb-4845-bdd2-f376513ae3d0",
+  "lang": "en",
+  "text": "The stage starts nearly bare and fills up one musician at a time, which is a structure rather than a gimmick. Jonathan Demme shot Talking Heads on the road behind Speaking in Tongues and made that accumulation the film's spine: a single performer, then another, then the full band and a cadre of guest players, with crew still visibly wheeling equipment into place. The camera stays on the people doing the work instead of cutting to the crowd for reassurance, so the eighty-eight minutes play as one continuous act of assembly. Choreography and lighting carry information a wide shot of an audience never could. The National Society of Film Critics named it the best film of its year, fiction included, which suggests how little it behaves like the record of a concert and how much like a performance built for a lens.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd0b3658e89d2d3c4b63a1d3c837bf310254c57617ef06bc0491c2399c80fab2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "3-10-to-yuma-1957",
+  "field": "lead",
+  "film_id": "aae32723-a8dc-4656-a20d-5471156f4c2e",
+  "lang": "en",
+  "text": "Most westerns settle things outdoors; this one turns on two men waiting for a scheduled train. Dan Evans farms on a small scale and takes money to deliver Ben Wade to the 3:10 out of town, which sounds like transport and becomes, hour by hour, a conversation. Wade is patient, courteous and perfectly aware that his gang is riding hard to reach him before the train does. Evans has a clock and a rifle and no particular gift for either. Delmer Daves lets the delay do the work: the timetable is the antagonist, and every minute is another chance for the farmer to reconsider what he agreed to. Ninety-two minutes, tightening throughout. The question is not courage in the abstract but whether a man who took the job for the fee is still doing it for the fee by the time the train is due.",
+  "model": "claude-opus-5",
+  "source_sha256": "7faf0d302555d79d41a6397dd5f33f427ad6e66026f7e9b310212e8a81785c51"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "safety-last-1923",
+  "field": "lead",
+  "film_id": "da371225-2d8d-4365-9ee5-7496d5a11f30",
+  "lang": "en",
+  "text": "Seventy-three minutes, no spoken words, and a good deal of the running time inside a department store during business hours. The clerk at the centre of Safety Last! is broke, in love, and committed to a lie about how well he is doing in the city, and that lie drives everything long before anyone goes near a wall. The comedy is built out of retail: bargain counters, floorwalkers, customers as a physical hazard, a lunch break used as a window for schemes. Then he proposes a publicity stunt in which somebody climbs the outside of a tall building, and circumstances hand him the job himself. What 1923 gives that no later film can fake is the plain fact of height in the same frame as the traffic below, small and legible and moving. The gags are engineered like machinery, each one arming the next.",
+  "model": "claude-opus-5",
+  "source_sha256": "82411ab867cc5047d73d536e7bc087e97aa3cd64cf602f4572e8cc6d759f9aa9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "moby-dick-1956",
+  "field": "lead",
+  "film_id": "6636c66e-b90e-4f9e-9b88-6eba6869798c",
+  "lang": "en",
+  "text": "New Bedford, 1841: a young man with no trade signs onto a whaler and finds out, days out from land, what the voyage is really for. John Huston keeps the Pequod a working vessel — watches, wages figured in shares, the grim business of turning an animal into oil — and lets the trouble arrive through the routine, as a captain with a private errand steers a commercial expedition steadily away from commerce. Ahab does not argue the crew round; he absorbs them. They have signed articles, the water is wide, and a whaling ship is not a place where a show of hands decides anything. A hundred and fifteen minutes is little room for a book that size, and Huston spends it on labour rather than doctrine. The obsession registers less as madness than as a standing order nobody aboard is positioned to refuse.",
+  "model": "claude-opus-5",
+  "source_sha256": "f9935b86cf32ead7172da6f991964b09d03926256c26bb22906c47986667855d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "adam-s-rib-1949",
+  "field": "lead",
+  "film_id": "bea40d26-c26e-4f5a-97f2-8e278a56cbd1",
+  "lang": "en",
+  "text": "Two lawyers married to each other take opposite sides of the same assault case and then go home to the same apartment. The trial is nearly a pretext: a woman has shot at the husband who neglected her, and Amanda means to argue that a jury would forgive a man who did the same. Adam is prosecuting. George Cukor stages the domestic scenes as though the courtroom were the smaller of the two rooms, letting the argument run on through dinner and bedtime in the wounded politeness of two people far too practised at winning. The screenplay took an Academy Award and it shows in the timing — long exchanges in which neither party will concede a definition. What the film watches is not the case but a marriage discovering that its private equality had never been tested against anything.",
+  "model": "claude-opus-5",
+  "source_sha256": "42d62e270ed68102a5faed13eb904eb5be707147b5123e7f62f27e796cca5d8e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "interiors-1978",
+  "field": "lead",
+  "film_id": "c3218a54-956d-4d78-9e45-daf6cf58b4e1",
+  "lang": "en",
+  "text": "A woman who arranges rooms for other people has made her own family's rooms pale, exact and nearly unlivable. Eve's husband Arthur has left after many years, and the three grown daughters gather around the damage without a shared language for it: Renata writes and is successful at it, Joey cannot settle on what she is, Flyn is starting out as an actress. The register is unbroken drama. Woody Allen keeps the talk careful, literary and mostly a means of not saying things, which is how such households actually sound, and the ninety-three minutes stay indoors and in muted light. Then Arthur falls for another woman and decides to marry her, and the family has to accommodate someone who arrived after all its rules were written and does not know a single one of them.",
+  "model": "claude-opus-5",
+  "source_sha256": "86c91db580228e1e5ec9e1062ebc099b581b0bd35c51c7cfa2e277885a658708"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "shaft-1971",
+  "field": "lead",
+  "film_id": "a631892c-902e-4b95-86c6-dd553eaa2110",
+  "lang": "en",
+  "text": "A private detective takes a missing-person job from a crime boss whose daughter has been kidnapped, which means staying on decent terms with everyone he cannot afford to trust. John Shaft works alone, moving between organizations that would each prefer he belonged to them, and his value lies exactly in belonging to none. Gordon Parks shoots at pavement level — stairwells, bars, cross-streets, traffic laid over the dialogue — and gives a detective story the texture of reportage. The score took an Academy Award, and it does more than announce the man; it keeps time with the walking, which is most of what he does. The errand itself is simple. The interest is in who has to be spoken to, in what order, and in what it costs to be the one man with access to both ends of a problem.",
+  "model": "claude-opus-5",
+  "source_sha256": "0f451c822843d4a3a148f2fdceb32aa9a75f1d2acf7e6ddc8cee2c2b3a721a36"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-ghost-and-mrs-muir-1947",
+  "field": "lead",
+  "film_id": "5dd2a54a-a1d7-435d-a9a2-c88614737b29",
+  "lang": "en",
+  "text": "A young widow in 1900 takes a house by the sea that nobody else will have, and declines to be frightened out of it. The ghost belongs to the cottage the way the damp does; the negotiation between them starts as a dispute over occupancy, becomes a working arrangement, and turns into something neither party can name without embarrassment. Joseph L. Mankiewicz keeps the fantasy plain — no fog-machine metaphysics, just two people in a room, one of them dead — and lets the pressure come from money and propriety: a small income, relatives who want her back where she belongs, years passing outside the window. The black-and-white photography took an Academy Award, and the sea in it is weather rather than atmosphere. Few films are this patient about solitude without turning it into a lesson.",
+  "model": "claude-opus-5",
+  "source_sha256": "e38dd4581f5dfb8466e36ce7f8678f133db117c259ff93111a54d01bde42012a"
+ }
+]

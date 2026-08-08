@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "little-nicholas-happy-as-can-be-2022",
+  "field": "lead",
+  "film_id": "dd15457b-6a58-4b2d-91a1-6aae669e14e7",
+  "lang": "en",
+  "text": "A large white sheet of paper, two men leaning over it somewhere between Montmartre and Saint-Germain-des-Prés, and out of that a boy with a name. Jean-Jacques Sempé and René Goscinny invent Little Nicolas, and Nicolas gets straight on with living: schoolyard fights, summer-camp conspiracies, the small treaties of friendship. Amandine Fredon keeps both levels running at once, so the drawing hand stays visible and the childhood never hardens into an illustrated memory. Eighty-six minutes, and the traffic runs both ways — the boy is what the two men are making, and also what makes them better company for each other. It took the Cristal at Annecy. Its one firm idea is that a life on paper is a life, and it argues this by refusing to be solemn about either side of the page.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ed62e23db12e4fcb528a1795b930aa8112910712e4643186fcdacc77be4308c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "33-scenes-from-life-2008",
+  "field": "lead",
+  "film_id": "63a460be-7afe-4e0b-8e2d-67c54ccb9694",
+  "lang": "en",
+  "text": "Her husband is in Cologne, at rehearsals, and the rehearsals do not stop. Julia is an artist in Kraków; her mother has stomach cancer; and the daily labour of that — appointments, the phone, the room with the bed in it — falls to whoever is standing nearest, which is the daughter. Małgorzata Szumowska lets the indignities accumulate at household scale: a father out of his depth, a friend who is simply there, the arithmetic of who visits and when. Much of it is funny in the way exhausted people are funny to each other, and the comedy is never used to soften what sits beside it. A hundred minutes, spoken in Polish, paid for out of Germany — a marriage conducted across a border by telephone, with the sick room on one side of the line only.",
+  "model": "claude-opus-5",
+  "source_sha256": "87363b2cb5fd4e02d412f1734f9072c1801ae020376e54828b64066201fc20e7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mausam-1976",
+  "field": "lead",
+  "film_id": "fcefdb46-3322-44ca-847f-27c4c66f6b9b",
+  "lang": "en",
+  "text": "Years after the fact, a doctor is told he has a daughter, and told what she has been living on. His plan is rescue, and Mausam is 156 minutes of that plan meeting resistance — from her, who did not ask for it, and from the arithmetic of a comfortable life built during the years she spent without one. The romance runs double, the woman he loved then and the young woman in front of him now, and Gulzar holds the two apart rather than letting the first absolve the second. The man's competence is medical; nothing in front of him can be treated. It moves at the pace mid-seventies Hindi cinema could afford, which is to say scenes run on until someone says the thing they meant not to. Filmfare gave it best film that year. Nothing in it accepts guilt as payment.",
+  "model": "claude-opus-5",
+  "source_sha256": "febb0c310cd84263e4fbb7a3acce93d3da458f5287f50f469e8a955bea0be04b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "promised-heaven-1991",
+  "field": "lead",
+  "film_id": "b1be2532-963a-4af7-a282-1f7065e83424",
+  "lang": "en",
+  "text": "The dump on the edge of the city has an elected government, a housing stock, and a population that until recently had apartments. Eldar Ryazanov shot this in 1991, in a country then in the act of ceasing to be one, and he shot it as a comedy: the scavenging, the courtships, the committee meetings, the quarrels over jurisdiction, all conducted by people who still argue like the professionals they were last year. The rubbish is not a figure of speech. It is where the food comes from, and the film is exact about what that does to a person's manners and what it leaves untouched. 125 minutes. Some residents mean to climb back into the society that dropped them, and Ryazanov gives that intention his full respect and no encouragement whatever.",
+  "model": "claude-opus-5",
+  "source_sha256": "90d47f8022a0f7f6e92718a87d3baa4f564532279785953bb11cc621eb86334a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "squint-your-eyes-2003",
+  "field": "lead",
+  "film_id": "26b884d9-affd-4b43-ae33-8db368d0e188",
+  "lang": "en",
+  "text": "A ten-year-old walks out of a comfortable house in town and declines to go back. Where she lands is a farm nobody works any more, kept by a former teacher whose job is to watch over fields that produce nothing, and who would rather not have a runaway on his hands. Andrzej Jakimowski stays inside that arrangement for all 88 minutes: an adult with no standing over her, a child with no plan beyond staying, and the domestic routine the two of them improvise to get the days spent. The comedy comes from how seriously they take it. Her parents' claim on her is out there the whole time, unhurried and certain, which is the only pressure the film needs. What it is finally about is being briefly unaccounted for.",
+  "model": "claude-opus-5",
+  "source_sha256": "e8a8e03540c6b3463ed3e97adee142baa6729466efe4afd83ea85101d65689b0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sparsh-1984",
+  "field": "lead",
+  "film_id": "91b24ddf-7ebc-4168-80ac-9be54166ddd1",
+  "lang": "en",
+  "text": "He runs a school for blind children, and is blind himself — a fact the film treats as a condition of how he works rather than an occasion for pity. Then a widow starts volunteering, still folded inside her own recent loss, and the two of them have to work out whether what is growing between them is affection or two kinds of charity meeting in the middle. Sai Paranjape spends 145 minutes on that distinction and tests it in ordinary registers: who is helping whom, who is permitted to refuse, whose competence is being quietly overruled by kindness. The children are not there to be affecting, and the school is a profession with troubles of its own. Sparsh is a Hindi film whose largest event is a man declining to be someone's good deed.",
+  "model": "claude-opus-5",
+  "source_sha256": "e4061e622f916ee924f98033cca14d1ae65b08485cef32eea98cf7cfaaccdcfc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "my-beautiful-girl-mari-2002",
+  "field": "lead",
+  "film_id": "071468eb-42ad-4cb5-8114-f8ee56986b60",
+  "lang": "en",
+  "text": "The marble comes out of a disused lighthouse, and the afternoons after that belong somewhere else. Two boys on the Korean coast, both households getting harder to live in in the way children register such things — as weather, as decisions taken elsewhere — and then, on the other side of the marble, Mari. Both worlds are drawn, so neither is allowed to look more real than the other. Lee Sung-gang keeps them unequal in a different way: the trouble at home is particular and the escape is not, and 86 minutes is just enough for the boys to work out which of the two they will have to keep. It took the Cristal at Annecy, an animated feature in which the fantasy is not an adventure but somewhere to put the parts of a childhood that cannot be raised at the table.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd40b0b3234ee8c138f1e620433c32df976575c926633a84216153cd540a03e2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bandini-1963",
+  "field": "lead",
+  "film_id": "ba408454-8955-4a4f-b3aa-e181ed1da1b5",
+  "lang": "en",
+  "text": "In 1930s Bengal, under British administration, the woman in the prison is serving a sentence for murder, and the doctor who attends her falls in love. Bimal Roy runs the courtship on the institution's terms — its hours, its permissions, its shortage of privacy — and never argues the sentence away or asks for it to be set aside. Behind her is the independence movement: a connection to a freedom fighter, a past with politics in it, which Roy sets beside the private crime without letting either explain the other. 157 minutes, spent on patience rather than incident. The asymmetry does the work: at the end of a shift he walks out through a gate she does not, and every tender scene between them is held under that arrangement.",
+  "model": "claude-opus-5",
+  "source_sha256": "e279363a64edb2c3cffbf98b63ed240c165cedc8ed4016e3f0d7a6a091897682"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "boot-polish-1954",
+  "field": "lead",
+  "film_id": "d7b4e40e-77b9-4f82-b95a-d6cf92ad167e",
+  "lang": "en",
+  "text": "Sent out each morning to beg, a brother and sister come back one day with a shoeshine brush. The distance between an open palm and a service performed is the entire argument of Boot Polish, and it is made by two children who remain under the authority of an aunt profiting from them either way. Bombay in 1954 supplies the setting and also the economics: pavements, doorways, the daily traffic of people who own shoes and people who do not. What the two are choosing between is not work and comfort but two kinds of street. At 149 minutes there is time for the shining to stop being a plucky idea and turn into a job. It is a family picture with a hard floor under it, and its sympathy goes to the children's judgment rather than to their misfortune.",
+  "model": "claude-opus-5",
+  "source_sha256": "08c03b0ae0c356fdfacde4344a0638eda7d5f66be95aa39d57f35ebdef93b9e1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "strike-first-freddy-1965",
+  "field": "lead",
+  "film_id": "e2f7581b-d7ca-40ee-9af3-5350ead4e0a8",
+  "lang": "en",
+  "text": "Frede Hansen sells games for a living, which is no qualification for espionage, and on a ferry he is taken for an agent and abducted before he can correct anybody. Erik Balling's 1965 comedy then plays the international thriller with a straight face: a liquidation list, a rendezvous in Stockholm, a woman named Sonja working for the other side, and an unseen chief called Dr. Pax whose identity is the one secret the plot genuinely keeps. What Frede brings is professional — tricks out of boxes, the sort of thing sold to children — and the pleasure lies in turning a party-trick mind loose in a genre that runs on gadgets and protocol. 100 minutes, Danish, untroubled by plausibility. The best joke in it is a man doing spycraft with the only toolkit he owns.",
+  "model": "claude-opus-5",
+  "source_sha256": "855e051a54df120e956d89993746773362255c199b45cf9a4e10bb8cfa444d19"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "rajnigandha-1974",
+  "field": "lead",
+  "film_id": "763000ee-1c4e-4ad6-a463-4771641d7ec6",
+  "lang": "en",
+  "text": "Nothing is wrong, which is the whole difficulty: she has work in Delhi, a man she means to marry, and a settled week ahead of her. Then a job interview in Mumbai puts her in a city where the person showing her around is someone she used to love. Basu Chatterjee gives this 110 minutes and very little incident: a courtesy that lasts slightly too long, an ease she had forgotten was available, a comparison she did not intend to begin. Two cities do the work a rival would do in a louder film. All of it stays inside her, with no confidante to explain it to and no scene in which anybody is confronted. Filmfare's best-film award that year went to this domestic-scale study of second thoughts. What remains is how little has to happen for a decided life to come loose.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c12d11b8944329b4560e83660cce63e283e4891f58efe03c871a43d0e732655"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "once-there-was-a-woman-2011",
+  "field": "lead",
+  "film_id": "e5228e41-0c56-48ab-8015-0e0236270585",
+  "lang": "en",
+  "text": "She cannot read, so the century reaches her by other means: through the men in the house, through what gets taken, through whichever authority is standing in the village this month. She is never consulted. Andrey Smirnov follows one peasant woman from 1909 to 1921 and keeps the vantage low throughout — a marriage, a yard, work that does not pause because history has arrived. 156 minutes is a long sit, and the length is the argument: the years pile onto her as they would onto anyone who cannot leave. The Nika for costume went to it, which here is a note about reconstruction, dress by dress, of a village that survives nowhere else. It is a chronicle told from beneath the level at which anything gets decided.",
+  "model": "claude-opus-5",
+  "source_sha256": "9ed9ade48fc27c33b146c1a02a165adc39ca62755495c8c085dd156bb9f31e24"
+ }
+]

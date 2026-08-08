@@ -1,0 +1,322 @@
+[
+ {
+  "entity_type": "director_pick",
+  "entity_key": "guillermo-del-toro#the-shape-of-water-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "델 토로의 감수성 전부가 《셰이프 오브 워터: 사랑의 모양》 한 편에 녹아 있다. 오해받는 아름다움으로서의 괴물, 동화적 로맨스, 냉전기를 빚어내는 솜씨. 입문자에게는 가장 문턱이 낮고 가장 따뜻한 묶음이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "guillermo-del-toro#pan-s-labyrinth-2006",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《판의 미로》는 한 아이의 신화적 지하세계를 파시스트 스페인에 겹쳐 땋는다. 환상과 잔혹한 역사가 서로를 비춘다는 델 토로의 믿음이 여기서 가장 또렷하다. 그의 비전이 온전히 실현된 한 편.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "guillermo-del-toro#the-devil-s-backbone-2001",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《악마의 등뼈》는 《판의 미로》의 유령 같은 짝이다. 같은 스페인 내전, 귀신 들린 고아원. 그러나 진짜 공포는 떠도는 소년이 아니라 인간의 잔인함이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "guillermo-del-toro#cronos-1993",
+  "field": "reason",
+  "lang": "ko",
+  "text": "데뷔작 《크로노스》는 흡혈귀 이야기를 노인과 손녀의 다정한 이야기로 바꿔 놓는다. 태엽 장치를 향한 애착과 연민을 부르는 괴물, 델 토로의 두 축이 이미 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "guillermo-del-toro#crimson-peak-2015",
+  "field": "reason",
+  "lang": "ko",
+  "text": "고딕의 사치를 끝까지 밀어붙인 쪽을 보고 싶다면 《크림슨 피크》다. 핏빛 저택과 코르셋을 조인 멜로드라마. 영화가 스스로 못 박듯, 유령은 은유(metaphor)일 뿐이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "guillermo-del-toro#nightmare-alley-2021",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《나이트메어 앨리》에서는 초자연적 피조물이 사라지고 느와르와 유랑 서커스의 사기꾼들이 그 자리를 채운다. 순전히 인간적인 괴물성, 그늘진 도덕의 부패에서도 델 토로는 공포를 길어 올린다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "guillermo-del-toro#frankenstein-2025",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《프랑켄슈타인》은 그가 오래 꿈꿔온 숙원이다. 앞선 모든 영화를 빚어낸 피조물과 창조자의 신화, 그에 대한 결정판. 이미 빠져든 관객에게 주어지는 보상이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "gus-van-sant#good-will-hunting-1997",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《굿 윌 헌팅》은 반 산트의 가장 친절한 작품이다. 노동계급 천재와 그의 상담사, 잘 다듬어진 대중적 화술. 상처 입은 젊은 남자들을 향한 그의 집착이 따뜻한 포장을 두르고 처음 모습을 드러낸다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "gus-van-sant#drugstore-cowboy-1989",
+  "field": "reason",
+  "lang": "ko",
+  "text": "약국을 터는 중독자 일당이 태평양 연안 북서부를 떠돈다. 《드러그스토어 카우보이》는 바깥으로 밀려난 사람들에게 보내는 반 산트의 공감, 그리고 판단도 훈계도 없는 느슨하고 무표정한 화법을 보여준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "gus-van-sant#my-own-private-idaho-1991",
+  "field": "reason",
+  "lang": "ko",
+  "text": "셰익스피어의 《헨리 4세》와 기면증에 걸린 거리 남창들의 삶이 《아이다호》에서 하나로 녹아든다. 꿈결 같은 로드무비 구조, 리버 피닉스의 날것 그대로의 연기. 반 산트가 아끼는 것 전부가 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "gus-van-sant#elephant-2003",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《엘리펀트》는 고등학생들을 길고 표류하는 스테디캠으로 좇아 예정된 총격으로 데려간다. 벨라 타르를 본뜬 지속의 영화, 거의 줄거리가 없는 예술영화로 반 산트가 급선회한 지점이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "gus-van-sant#paranoid-park-2007",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《파라노이드 파크》는 한 스케이터 소년의 죄책감 사이를 떠다닌다. 시간 순서를 흩뜨린 몽상, 거친 입자의 수퍼8 질감. 반 산트의 실험기에서 가장 덜 언급되면서 가장 순수하게 공기로만 이루어진 편이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "gus-van-sant#to-die-for-1995",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《투 다이 포》는 날 선 풍자 코미디다. 니콜 키드먼이 명성에 미친 기상 캐스터를 연기한다. 톤으로 보면 이질적인 한 편이지만, 모큐멘터리의 재치와 미디어 비판까지 감당하는 그의 폭을 증명한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "gus-van-sant#milk-2008",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《밀크》는 미국 최초의 커밍아웃한 선출직 공직자 하비 밀크의 부상을 기록한다. 아웃사이더를 향한 반 산트의 애정과 숀 펜의 생생한 연기가 역사 전기영화라는 단단한 틀 안으로 모인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "hayao-miyazaki#my-neighbor-totoro-1988",
+  "field": "reason",
+  "lang": "ko",
+  "text": "미야자키의 본질은 《이웃집 토토로》에 다 있다. 어린 시절의 경이, 시골의 고요, 악당 없음. 줄거리랄 것도 없는 이 온화한 목가는 처음 보는 이에게 속도 대신 공기를 음미하는 법을 가르친다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "hayao-miyazaki#spirited-away-2001",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《센과 치히로의 행방불명》은 그 온기에 끝없는 발명을 붙인다. 신들의 목욕탕, 한 소녀의 조용한 용기, 몇 번을 다시 봐도 바닥나지 않을 만큼 빽빽한 이미지. 그의 위대함을 증명하는 가장 명료한 사례다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "hayao-miyazaki#princess-mononoke-1997",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《모노노케 히메》에서는 더 어둡고 사나운 얼굴이 나온다. 깨끗한 영웅이 하나도 없는 생태 전쟁, 피와 맹렬함. 그의 비전이 서사시의 규모, 도덕적으로 뒤엉킨 규모까지 감당한다는 증거다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "hayao-miyazaki#kiki-s-delivery-service-1989",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《마녀 배달부 키키》는 판타지의 스펙터클을 내려놓고 어린 마녀의 성장과 창작의 소진을 택한다. 낯선 도시에서 제 발로 서는 이야기, 걸린 것 없이 다정한 소품이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "hayao-miyazaki#castle-in-the-sky-1986",
+  "field": "reason",
+  "lang": "ko",
+  "text": "지브리의 첫 공식 작품이 《천공의 성 라퓨타》다. 떠 있는 섬, 하늘의 해적, 잊힌 기술. 이후 그의 경력 내내 되풀이될 모험의 골격과 하늘을 향한 집착이 여기서 놓인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "hayao-miyazaki#howl-s-moving-castle-2004",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《하울의 움직이는 성》은 눈부시고 신나게 제멋대로다. 걸어 다니는 집을 두른 로맨스, 그 속의 전쟁 우화. 꿈의 논리로 짜인 이야기라 호오가 갈리지만, 참고 따라간 사람에게는 보답이 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "hayao-miyazaki#porco-rosso-1992",
+  "field": "reason",
+  "lang": "ko",
+  "text": "저주받은 돼지 조종사가 두 차례 전쟁 사이의 아드리아해를 난다. 《붉은 돼지》는 미야자키의 가장 사적이고 가장 어른스러운 영화다. 우울하고, 반파시즘적이며, 비행과 낡은 비행기를 향한 사랑에 흠뻑 젖어 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "hayao-miyazaki#the-wind-rises-2013",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《바람이 분다》는 판타지를 버리고 한 항공기 설계자의 생애로 간다. 아름다움을 만드는 일이 파괴에 복무할 때, 그 씁쓸한 사색. 미야자키가 자기 꿈을 정면으로 셈해 보는 자리다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "hayao-miyazaki#the-boy-and-the-heron-2023",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《그대들은 어떻게 살 것인가》는 애도의 색이 짙은 자전적 작별이다. 슬픔, 전시의 소년, 저편으로 열린 세계. 맨 마지막에 보라. 앞선 모든 영화의 메아리가 그때 가장 깊이 닿는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "hirokazu-kore-eda#still-walking-2008",
+  "field": "reason",
+  "lang": "ko",
+  "text": "고레에다의 서명이 여름 가족 모임 하나에 응축된 것이 《걸어도 걸어도》다. 시시한 대화와 함께 먹는 밥상이 묵은 슬픔과 원망을 조용히 드러낸다. 평범한 가정이라는 그의 세계로 들어서는 가장 부드러운 문.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "hirokazu-kore-eda#like-father-like-son-2013",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《그렇게 아버지가 된다》는 아들이 뒤바뀐 것을 알게 된 두 가족을 통해 무엇이 부모를 부모로 만드는지 묻는다. 핏줄이냐, 쌓아온 관계냐. 고레에다의 중심 질문이 여기서 가장 날카롭다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "hirokazu-kore-eda#shoplifters-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《어느 가족》은 좀도둑들로 이루어진 임시 가족을 도쿄의 비좁은 집에 모아 놓는다. 그러고는 사랑이 어떻게 기만과 나란히 설 수 있는지 파고든다. 선택된 가족이라는 주제의 가장 완전한 형태다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "hirokazu-kore-eda#nobody-knows-2004",
+  "field": "reason",
+  "lang": "ko",
+  "text": "아파트에 버려진 네 남매가 어른 없이 살아간다. 실제 사건에서 가져온 《아무도 모른다》는 고레에다가 가장 참을성 있게, 가장 처참하게 밀고 나간 영화다. 방치된 아이들을 끝까지 지켜본다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "hirokazu-kore-eda#monster-2023",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《괴물》은 학교에서 벌어진 사건 하나를 세 시점으로 쪼갠다. 매번 우리가 봤다고 믿은 것이 다시 쓰인다. 형식의 이탈이자, 그의 공감이 오독된 진실에 관한 구조적 미스터리로 바뀌는 지점.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "hirokazu-kore-eda#maborosi-1995",
+  "field": "reason",
+  "lang": "ko",
+  "text": "데뷔작 《환상의 빛》은 설명되지 않는 상실을 껴안는 젊은 과부를 따라간다. 길고 회화적인 고정 숏뿐이다. 후기의 온기 아래 깔린 관조의 시각적 뿌리, 오직 공기와 빛.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "hirokazu-kore-eda#our-little-sister-2015",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《바닷마을 다이어리》는 세 자매가 이복동생을 바닷가 집으로 맞아들이는 네 계절을 지켜본다. 줄거리도 없고 파고도 없다. 고레에다의 가장 작은 몸짓까지 읽어내게 된 관객에게 주어지는 보상이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "hirokazu-kore-eda#broker-2022",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《브로커》는 그의 가족 주제를 한국으로 옮긴다. 베이비박스를 두고 거래하는 이들이 길 위에서 뜻밖의 유대를 맺는다. 헐거운 로드무비 변주, 그의 생각을 낯선 언어와 낯선 톤에 담가 보는 시험이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "hong-sang-soo#right-now-wrong-then-2015",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《지금은맞고그때는틀리다》는 감독과 화가의 만남을 두 번 되풀이한다. 두 번째가 조금 더 다정하다. 변주를 동반한 반복이라는 홍상수의 방법이 가장 명료하고 가장 사랑스럽게 드러나는 입구다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "hong-sang-soo#in-another-country-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "바닷가 마을에 온 프랑스 여자 이자벨 위페르, 그 인물로 세 판본이 돌아간다. 《다른나라에서》의 각본은 영화 안의 한 여자가 쓴다. 홍상수의 구조 놀이를 가볍고 친절하게 보여주는 진열장.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "hong-sang-soo#the-day-after-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《그 후》는 홍상수를 눈부신 흑백으로 졸인다. 출판사 사장, 아내, 애인, 그리고 새 직원이 오인의 하루로 무너져 내린다. 비겁함과 자기기만을 다룬 그의 가장 두터운 연구다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "hong-sang-soo#the-woman-who-ran-2020",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《도망친 여자》는 남편이 없는 사이 여자 친구들을 세 번 찾아가는 한 여자를 따라간다. 더 조용하고 더 날카롭고, 남자가 거의 없다. 홍상수의 구조가 여자들의 대화와 사소한 침입 쪽으로 돌아섰다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "hong-sang-soo#hotel-by-the-river-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《강변호텔》은 죽음을 예감하는 늙은 시인과 상처 입은 두 여자를 겨울의 메마른 흑백으로 붙여 놓는다. 죽음이 어른거리는 가장 비가(悲歌)에 가까운 영화. 느리고, 무너뜨릴 만큼 다정하다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "hong-sang-soo#the-day-he-arrives-2011",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《북촌방향》은 서울을 찾은 영화감독을 거의 똑같은 눈 내리는 밤과 술집과 재회 속으로 돌린다. 데자뷔 구조를 실험한 초기작, 반복의 결에 이미 익숙해진 관객에게 최면처럼 걸린다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "hong-sang-soo#grass-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《풀잎들》은 카페의 대화 조각들이 소용돌이치는 가운데 엿듣고 타이핑하는 여자를 66분 동안 지켜본다. 가장 졸여지고 형식적으로 가장 대담한 한 편. 관찰이 곧 저술이 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "hong-sang-soo#oki-s-movie-2010",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《옥희의 영화》는 한 학생과 그의 선생, 그리고 감독을 둘러싼 네 편의 단편을 엮는다. 마지막에는 옥희가 같은 산을 두 번 오른 이야기를 들려준다. 훗날 그가 다듬어갈 모든 주제의 초기 스케치북.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "hong-sang-soo#walk-up-2022",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《탑》은 한 건물의 층을 올라가며 감독을 좇는다. 층마다 시간도 관계도 어긋난다. 건축적으로 교묘한 후기의 퍼즐, 그의 리듬을 알고 난 다음에 음미해야 제맛이다.",
+  "model": "claude-opus-5"
+ }
+]

@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dream-with-no-waking-frame-to-return-to",
+  "field": "title",
+  "lang": "ko",
+  "text": "깨어날 자리가 없는 꿈",
+  "model": "claude-opus-5",
+  "source_sha256": "867db5b430dbfab947eecf50a3d27a65af5c145af086049c11f24a89700711e8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dreamer-who-films-his-own-trance",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 몽환을 찍는 몽상가",
+  "model": "claude-opus-5",
+  "source_sha256": "e07904bd28fb4aa9abe880a98b164b44d597948aada4c717baedf0065b84be78"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dress-as-the-state-s-inscription-on-flesh",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가가 살에 새긴 문장, 옷",
+  "model": "claude-opus-5",
+  "source_sha256": "f410af0027e246489cfc12f7de5afd06f6410c9e341ec633ab3a04aa6380d925"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drifter-who-is-never-quite-a-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 주체가 못 되는 떠돌이",
+  "model": "claude-opus-5",
+  "source_sha256": "5a33c0eb9808524fdb7e53de2fbf588ff3bf9c7b6261aa96d393f36e0319f238"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drill-sergeant-whose-cruelty-is-love",
+  "field": "title",
+  "lang": "ko",
+  "text": "잔혹이 곧 사랑인 훈련 교관",
+  "model": "claude-opus-5",
+  "source_sha256": "c9f1df9d5c1d09b270d705017457d465929be6ebc2c430a04920cc1962949708"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drink-that-speaks-what-he-cannot",
+  "field": "title",
+  "lang": "ko",
+  "text": "그가 못 하는 말을 대신하는 술",
+  "model": "claude-opus-5",
+  "source_sha256": "ffcf8d4ff8062cd438aab4c08653ce2e027b918e99500055bcd61b81ecd14154"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drip-as-memory-leaking-through",
+  "field": "title",
+  "lang": "ko",
+  "text": "기억이 새어 나오는 물방울",
+  "model": "claude-opus-5",
+  "source_sha256": "6941b41decd475149ca29c951b050a863d62aede1b8a0702beb08a0a0f776273"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drive-speaking-through-a-borrowed-limb",
+  "field": "title",
+  "lang": "ko",
+  "text": "빌린 팔다리로 말하는 충동",
+  "model": "claude-opus-5",
+  "source_sha256": "6378e8e280c336154af5d293f2c470160dd9c9b84d03c8c4eb4507b6962aa631"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drone-as-outsourced-conscience",
+  "field": "title",
+  "lang": "ko",
+  "text": "양심을 외주 준 드론",
+  "model": "claude-opus-5",
+  "source_sha256": "cebbe6548e783885fbabc4a51961db4ef2e7ba36c7b683f230fbf0863cdc82fb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drone-as-unsymbolizable-real",
+  "field": "title",
+  "lang": "ko",
+  "text": "상징화되지 않는 실재(the Real)로서의 드론음",
+  "model": "claude-opus-5",
+  "source_sha256": "3119f3fcab676ffa70c1ea4d34576bb0f65ccf54caf78be8da3bca95ec28886f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drone-that-becomes-the-film-s-author",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화의 작가가 된 드론음",
+  "model": "claude-opus-5",
+  "source_sha256": "7e3bb8259e54fc4ff238fdef73aa2a920790f8fa41d48e14df67aa9802f80555"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drowned-body-released-from-gravity",
+  "field": "title",
+  "lang": "ko",
+  "text": "중력에서 풀려난 물속의 몸",
+  "model": "claude-opus-5",
+  "source_sha256": "392333c66f72833eaf0aa482e83806281dbcdc9e19780a47bb6f703051c71f6c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drowned-boy-who-carries-the-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "상처를 지고 가는 익사한 소년",
+  "model": "claude-opus-5",
+  "source_sha256": "d1895d87e76436a3c4df6b6ad362901283e0bc1ba911ef008ffcca2170280ba3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drowned-daughter-returns-to-indict-the-mother",
+  "field": "title",
+  "lang": "ko",
+  "text": "익사한 딸이 돌아와 어머니를 고발한다",
+  "model": "claude-opus-5",
+  "source_sha256": "686e1da547640ef2af10c4b6c89c1a5379f2703600e962c88398f90822bcc89d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drowned-father-as-the-fallen-law",
+  "field": "title",
+  "lang": "ko",
+  "text": "물에 빠진 아버지, 무너진 법",
+  "model": "claude-opus-5",
+  "source_sha256": "73d4b7441d7fcb2f7045d630e94146c9b3e21f1b46fa1ba142cdc7a581e15151"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drowned-returning-as-color-or-voice",
+  "field": "title",
+  "lang": "ko",
+  "text": "빛깔로, 목소리로 돌아오는 익사자",
+  "model": "claude-opus-5",
+  "source_sha256": "f9a63f6beff5f7d9b434556b5b71204610e24d7e02dc80551eb1111719b48b39"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drug-film-s-reception-as-moral-panic",
+  "field": "title",
+  "lang": "ko",
+  "text": "마약 영화가 부른 도덕적 공황",
+  "model": "claude-opus-5",
+  "source_sha256": "5bd4a3655642c84b867b17426ced2618b58c93154abcd8d12b7f7d9ff3318b80"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drug-film-that-breaks-linear-time",
+  "field": "title",
+  "lang": "ko",
+  "text": "선형의 시간을 부수는 마약 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "78669b871e3f4b85d8031b5e45228ca25ee242201c226085b7ee58efc634d2ba"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drug-war-as-the-hidden-sovereign",
+  "field": "title",
+  "lang": "ko",
+  "text": "숨은 주권자, 마약 전쟁",
+  "model": "claude-opus-5",
+  "source_sha256": "dd5bb2a7079a0e777c904a0ab4aadbcc3c8c8dd30552820f4b6e9d3f516170d4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drum-kit-as-death-drive-s-altar",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽음충동의 제단이 된 드럼",
+  "model": "claude-opus-5",
+  "source_sha256": "2bf94aff11828d92480eabee09161db38917a19a923e6184d0ee3712aec16aca"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-drum-sequence-as-embedded-cipher",
+  "field": "title",
+  "lang": "ko",
+  "text": "암호가 숨은 드럼 시퀀스",
+  "model": "claude-opus-5",
+  "source_sha256": "dfbedac098e07c50459c456f2e22ca160c991739c91a01ba8f5fcf7b5c6dad0a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dry-vessel-that-never-filled",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 차지 않은 마른 그릇",
+  "model": "claude-opus-5",
+  "source_sha256": "523710e53c2cd2fae2f60dd7ddca0bc6c4bb8888edef91adabe8417f53a84a2d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-duel-that-refuses-to-be-a-duel",
+  "field": "title",
+  "lang": "ko",
+  "text": "결투이기를 마다하는 결투",
+  "model": "claude-opus-5",
+  "source_sha256": "b9b5b1f704a18ed8fc23176eaf27a38824f0f9b9af97827f3375e101ae5d1d54"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-duty-no-one-assigned",
+  "field": "title",
+  "lang": "ko",
+  "text": "아무도 맡긴 적 없는 의무",
+  "model": "claude-opus-5",
+  "source_sha256": "3f8e6c45937c4d4d052cef35c63d9f93800bd899517d5f3fe4f6501ce7269ed3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-dwelling-disguised-as-a-tomb",
+  "field": "title",
+  "lang": "ko",
+  "text": "무덤인 척하는 거처",
+  "model": "claude-opus-5",
+  "source_sha256": "b03e93d1820e31977b47294581cf63313a092e70ce9bb26a7dade0513792d972"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-earth-s-geology-outlasts-all-narrative",
+  "field": "title",
+  "lang": "ko",
+  "text": "모든 서사보다 오래 남는 지층",
+  "model": "claude-opus-5",
+  "source_sha256": "d954d33d7b751ccaece358a96fe2130f6c7d518a6254050306bb80ccc4782901"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-earthly-desert-cast-as-elsewhere",
+  "field": "title",
+  "lang": "ko",
+  "text": "딴 세계 역을 맡은 지상의 사막",
+  "model": "claude-opus-5",
+  "source_sha256": "5920c8be54a8f5a9d513e46dcba26c0cadb81ab01833ce0e8903cfc3e46b74c9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-earthquake-that-authored-its-own-cinema",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 영화를 스스로 쓴 지진",
+  "model": "claude-opus-5",
+  "source_sha256": "0741b9b395a2616900dd1ba13652fc933db6bf4cd01d3db5a285fdc61e053ec9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-eastern-margin-as-europe-s-repressed-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "유럽이 억압한 몸, 동쪽 변방",
+  "model": "claude-opus-5",
+  "source_sha256": "83f4979b63ab1e6192312220f562c73f570186dca78733af5828ce3ed0c72e39"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-eclipse-as-cosmic-verdict-on-power",
+  "field": "title",
+  "lang": "ko",
+  "text": "권력에 내려진 우주의 판결, 일식",
+  "model": "claude-opus-5",
+  "source_sha256": "28c93915d6da392c96b064836a54a083367bbbad42fac69d3839d69f4521a1a5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-eclipse-that-devours-the-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "주체를 삼키는 식(蝕)",
+  "model": "claude-opus-5",
+  "source_sha256": "4423c33284d38c671d3a1fa31ff51edf9738536998a4a83783280401da6a9f18"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-economic-miracle-filmed-from-inside-its-casualties",
+  "field": "title",
+  "lang": "ko",
+  "text": "희생자 쪽에서 찍은 경제 기적",
+  "model": "claude-opus-5",
+  "source_sha256": "6d3a1e14f1473811c94b19d74fdb54350b916be2815243cc4cd1cb813ae582b5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-economy-disguised-as-a-lucky-break",
+  "field": "title",
+  "lang": "ko",
+  "text": "행운으로 위장한 경제",
+  "model": "claude-opus-5",
+  "source_sha256": "6a1120b8ed7d98bc327e59b78efe317967e30a6379fb24e4820ffc9989f6652c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-economy-no-ledger-records",
+  "field": "title",
+  "lang": "ko",
+  "text": "어느 장부에도 없는 경제",
+  "model": "claude-opus-5",
+  "source_sha256": "0a0b9f61d9fd248628eab1051496fee7b7e880e2510750dec7804008f43f58f2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-economy-spoken-in-criminal-tongues",
+  "field": "title",
+  "lang": "ko",
+  "text": "범죄의 말로 굴러가는 경제",
+  "model": "claude-opus-5",
+  "source_sha256": "46ab16288e907830ce0194c41bf013cf74f5fe7481cae12f0938f90cb63b8f9f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ecstasy-that-cannot-tell-saint-from-sinner",
+  "field": "title",
+  "lang": "ko",
+  "text": "성인과 죄인을 못 가리는 황홀",
+  "model": "claude-opus-5",
+  "source_sha256": "360ab89d636885dae4c73937f81209a8f2a753f67cb222829ca8e1185baf744e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-edit-as-the-grammar-of-memory",
+  "field": "title",
+  "lang": "ko",
+  "text": "기억의 문법이 된 편집",
+  "model": "claude-opus-5",
+  "source_sha256": "a7c0d97bf5ae0ffa5c7035abcae427668deac3f71e2e24a080c102aaf727c4b5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-edit-performs-its-subject-on-us",
+  "field": "title",
+  "lang": "ko",
+  "text": "편집이 제 주제를 관객에게 상연한다",
+  "model": "claude-opus-5",
+  "source_sha256": "c5232cf90d2f34c90320f2868fcf9d603d97dd35abbe13197c438acc5b306d6b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-edit-renders-the-verdict",
+  "field": "title",
+  "lang": "ko",
+  "text": "판결을 내리는 것은 편집이다",
+  "model": "claude-opus-5",
+  "source_sha256": "6346ff0c147eb9793e8629bd70cff83812ce6c95b2aab3f0c30f0bfbc15c4985"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-edit-that-confesses-its-own-hand",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 손을 실토하는 편집",
+  "model": "claude-opus-5",
+  "source_sha256": "8a6d11099ebaa781e91d0d0d0a5d35feb26b2705b9156fee437c940d78e617df"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-edit-that-refuses-its-own-continuity",
+  "field": "title",
+  "lang": "ko",
+  "text": "연속성을 스스로 저버리는 편집",
+  "model": "claude-opus-5",
+  "source_sha256": "538c192d82877c2fd6f9d6d9e9d304d2b2a6e73a21f8052291eaae2a2fe5ad7d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-edit-that-renders-time-visible",
+  "field": "title",
+  "lang": "ko",
+  "text": "시간을 눈에 보이게 하는 편집",
+  "model": "claude-opus-5",
+  "source_sha256": "7645aa1acffa835308e953f109419d944ff501da663b40f5ed0058e525f9f074"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-editing-that-becomes-the-author",
+  "field": "title",
+  "lang": "ko",
+  "text": "작가 자리에 올라선 편집",
+  "model": "claude-opus-5",
+  "source_sha256": "5d5ea127ea34f3c89d3f2ca80089a478d1e985f42906590826e4f3f2a8ddde39"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-effortless-surface-over-bleeding-feet",
+  "field": "title",
+  "lang": "ko",
+  "text": "피 흘리는 발 위의 태연한 표면",
+  "model": "claude-opus-5",
+  "source_sha256": "9a3c8854fad328b36f494113c810608f07d59c20965297554c4307114aa945d8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-egg-as-sealed-vessel-of-belief",
+  "field": "title",
+  "lang": "ko",
+  "text": "믿음을 봉인한 그릇, 알",
+  "model": "claude-opus-5",
+  "source_sha256": "7f84bf5fa32fbf128da5e0433970758193626188cfe07912437ed54036775e8b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-elegy-that-invents-its-lost-object",
+  "field": "title",
+  "lang": "ko",
+  "text": "잃은 것을 지어내는 비가",
+  "model": "claude-opus-5",
+  "source_sha256": "2d76cd73f94deb5605b972b8a5611839509bd6c1b0724086a7571ebe81db6589"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-elemental-real-that-shatters-the-symbolic",
+  "field": "title",
+  "lang": "ko",
+  "text": "상징계를 깨뜨리는 원초의 실재",
+  "model": "claude-opus-5",
+  "source_sha256": "cac4ecc2eb45d1fc03c5d9556ddf770c803d5bbfd4b1f792fb517342963ee4d2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-elevated-horror-alibi-for-critical-shame",
+  "field": "title",
+  "lang": "ko",
+  "text": "비평의 수치를 가려준 알리바이, “격상된 호러”",
+  "model": "claude-opus-5",
+  "source_sha256": "be211feb14d31d28d54c59a0d3fdfec1a7605577f899a81289ec3ef4ac603595"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ellipsis-as-secret-editing-grammar",
+  "field": "title",
+  "lang": "ko",
+  "text": "은밀한 편집 문법, 생략",
+  "model": "claude-opus-5",
+  "source_sha256": "d9c9395f2fe578ce506a833fe99f33b666a91ba51d88d2b3d974b2fd96f84a97"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-empathy-machine-as-cultural-symptom",
+  "field": "title",
+  "lang": "ko",
+  "text": "문화적 증상이 된 공감 기계",
+  "model": "claude-opus-5",
+  "source_sha256": "ddcc890163eabf165a75d789ac7a426c17d55632365076a6402f495d63cec4d4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-empire-built-on-addictive-sand",
+  "field": "title",
+  "lang": "ko",
+  "text": "중독의 모래 위에 세운 제국",
+  "model": "claude-opus-5",
+  "source_sha256": "8573b80e67a82b9ccadbbe907d3ded78437062db60ea8fd3dc335e43ebc00590"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-empire-that-returns-to-speak",
+  "field": "title",
+  "lang": "ko",
+  "text": "말하러 되돌아오는 제국",
+  "model": "claude-opus-5",
+  "source_sha256": "36b7781ce81260d289bea542889b4bbeb7cde965f627794c5418929684c7cb43"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-emptied-face-as-engine-of-grace",
+  "field": "title",
+  "lang": "ko",
+  "text": "은총을 돌리는 비워진 얼굴",
+  "model": "claude-opus-5",
+  "source_sha256": "f1b9ec96663e1524d04ecef84d56c97fb205e535df6d4b90226423ad51eefda5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-empty-american-landscape-as-predator",
+  "field": "title",
+  "lang": "ko",
+  "text": "포식자가 된 텅 빈 미국 풍경",
+  "model": "claude-opus-5",
+  "source_sha256": "3a0cc8db4fc8efed8dee8a20e1f516f35936eca0f0faf3433182853f08b1e41e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-empty-frame-as-withdrawn-presence",
+  "field": "title",
+  "lang": "ko",
+  "text": "물러난 현존, 빈 프레임",
+  "model": "claude-opus-5",
+  "source_sha256": "48657323bb9b377f6789d07f88477aeba93d025fd43aea57182478304ba95158"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-empty-house-as-demographic-ledger",
+  "field": "title",
+  "lang": "ko",
+  "text": "인구 장부로 읽히는 빈집",
+  "model": "claude-opus-5",
+  "source_sha256": "d173e5dc23897299a59aee0e1afbf9ec1cdace2aacfd800e5732118437b24e8b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-empty-room-borrowed-from-ozu",
+  "field": "title",
+  "lang": "ko",
+  "text": "오즈에게 빌려온 빈방",
+  "model": "claude-opus-5",
+  "source_sha256": "da71f58cae9a5d604b443e062554c5a32bdcb4fab40ae19b990563388693c6f1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-empty-tower-as-capital-s-vertical-void",
+  "field": "title",
+  "lang": "ko",
+  "text": "자본이 세운 수직의 공백, 빈 타워",
+  "model": "claude-opus-5",
+  "source_sha256": "296a94347e17af21112e44cba670133fbd233ecee9a94b06d7cb830eb620d7af"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-enclosed-house-is-the-empire-in-miniature",
+  "field": "title",
+  "lang": "ko",
+  "text": "닫힌 집은 제국의 축소판이다",
+  "model": "claude-opus-5",
+  "source_sha256": "b41e98145f31927919d2cfbf46a5ce78538bc05decc4c21e15df8a2c7dfe9f5a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-enclosed-interior-as-spain-s-political-settlement",
+  "field": "title",
+  "lang": "ko",
+  "text": "스페인식 정치적 합의로서의 닫힌 실내",
+  "model": "claude-opus-5",
+  "source_sha256": "838ad4afc8041aa7054392ec6f44a5913c579ea058761c2cafc0f9d53d523559"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-endgame-as-terminal-diagnosis",
+  "field": "title",
+  "lang": "ko",
+  "text": "말기 진단으로서의 엔드게임",
+  "model": "claude-opus-5",
+  "source_sha256": "8d957f4d6b16cee35c443d2aed1810c9720c64de565d6dfb3cde62481138f271"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ending-authors-its-own-argument",
+  "field": "title",
+  "lang": "ko",
+  "text": "결말이 제 논지를 쓴다",
+  "model": "claude-opus-5",
+  "source_sha256": "d74cabf5b49f65074b63bd4c6882e07342b842343c3f987f0f148f7605b028df"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ending-detonated-in-the-opening-frames",
+  "field": "title",
+  "lang": "ko",
+  "text": "첫 장면에서 터뜨린 결말",
+  "model": "claude-opus-5",
+  "source_sha256": "5a429396da24cbeb7345b52a7033916a8599fb0cd07bcd61c5032b60e8fe1ffc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ending-misread-to-escape-the-inescapable",
+  "field": "title",
+  "lang": "ko",
+  "text": "피할 수 없는 것을 피하려 오독한 결말",
+  "model": "claude-opus-5",
+  "source_sha256": "fc871773d04ba7b8789a3308900dffaa5b760d9f2cbe384c75ab6bbf834f0ad9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ending-that-confesses-its-own-impossibility",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 불가능을 실토하는 결말",
+  "model": "claude-opus-5",
+  "source_sha256": "12a02dedbae5a9a3874b2c53300405c2aea9ec42d55b416c9eea6d44b29c322d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ending-that-is-a-door-not-a-stop",
+  "field": "title",
+  "lang": "ko",
+  "text": "멈춤이 아니라 문인 결말",
+  "model": "claude-opus-5",
+  "source_sha256": "84be85703ee4dd26f5c94b416e549255c49f57908dafb3e134f608b83eeb2ce4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-engineer-who-wrestles-the-apocalypse",
+  "field": "title",
+  "lang": "ko",
+  "text": "종말과 맞���는 기술자",
+  "model": "claude-opus-5",
+  "source_sha256": "80a328523f1f1193508ce584f46c20589bf84ec7148ee4ce542512a804f64bfc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-engineered-survivor-of-a-failed-experiment",
+  "field": "title",
+  "lang": "ko",
+  "text": "실패한 실험이 설계한 생존자",
+  "model": "claude-opus-5",
+  "source_sha256": "fdd8ddfac31dc16039a78e1963097c07a8ef218a7dd4abdb81637730abee9fe7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-engineering-of-manufactured-consent",
+  "field": "title",
+  "lang": "ko",
+  "text": "동의를 제조하는 공학",
+  "model": "claude-opus-5",
+  "source_sha256": "496739a77c6263fc2d36fd07cdcaa36216c66e978c1f98bdc77f3589cada6da2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-english-address-wearing-another-realm-s-face",
+  "field": "title",
+  "lang": "ko",
+  "text": "딴 세계의 얼굴을 쓴 영국의 주소",
+  "model": "claude-opus-5",
+  "source_sha256": "0a2bb39046fbfdd13d8e32f6229ff3632ecd06dc61c28ad92d561bea527e57db"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-english-edgeland-as-map-of-the-mind",
+  "field": "title",
+  "lang": "ko",
+  "text": "마음의 지도가 된 잉글랜드 변두리",
+  "model": "claude-opus-5",
+  "source_sha256": "133a7d85ddaaa813c996da546c2fc47f5128361fa0acdbf6246d38d1225af6bd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-english-landscape-as-buried-counter-city",
+  "field": "title",
+  "lang": "ko",
+  "text": "땅에 묻힌 반(反)도시, 잉글랜드 풍경",
+  "model": "claude-opus-5",
+  "source_sha256": "34ab4efabf5a2612672f97be06141f6b9fad986642a08cb8d138f6faef10e4b8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-engulfing-sea-womb-of-return",
+  "field": "title",
+  "lang": "ko",
+  "text": "삼키는 바다, 되돌아갈 자궁",
+  "model": "claude-opus-5",
+  "source_sha256": "47e18296d6cc073a47ed7a6bf032d5ce4b98fd4ef69d31b4db3354dfca9150a2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ensemble-as-manufactured-democracy",
+  "field": "title",
+  "lang": "ko",
+  "text": "제조된 민주주의로서의 앙상블",
+  "model": "claude-opus-5",
+  "source_sha256": "ab81a104d7b78b58f7a95152af39a256bcbfd6f1f136d2113ae09454420f661b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-epic-conjured-from-the-render-farm",
+  "field": "title",
+  "lang": "ko",
+  "text": "렌더 팜이 불러낸 서사시",
+  "model": "claude-opus-5",
+  "source_sha256": "be42dba48b15105e1cc7d7d0cbd07c1f1fe24b96b9463b212c1ffed1df16dc21"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-era-that-demanded-its-own-mood",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 정서를 요구한 시대",
+  "model": "claude-opus-5",
+  "source_sha256": "479a46bf2db3d11cd9ded5ef5e85b6594db2d3e0930df8bb3c0fd45b950f6ee8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-erased-indigenous-body-of-arendelle",
+  "field": "title",
+  "lang": "ko",
+  "text": "아렌델에서 지워진 원주민의 몸",
+  "model": "claude-opus-5",
+  "source_sha256": "894824b1f7bef4a93a014e3ccd3af4efe79dcb6449a61aab0bbbd01b179addd0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-errand-as-the-death-drive-s-calm-mask",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽음충동이 쓴 태연한 가면, 심부름",
+  "model": "claude-opus-5",
+  "source_sha256": "95c20392642e2364c64ac8c6c79388b94b0c47c165e782fe2002f91623477506"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-estate-that-refuses-its-own-image",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 모습 찍히기를 마다하는 저택",
+  "model": "claude-opus-5",
+  "source_sha256": "67a7e659f5215b44ac337885ac9869ed634750780889c5b5c90278697e2959b4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-eternal-forest-is-a-working-landscape",
+  "field": "title",
+  "lang": "ko",
+  "text": "영원한 숲은 노동의 풍경이다",
+  "model": "claude-opus-5",
+  "source_sha256": "60e8c5074af76f91124fd893d1c937719b5574a1a43449cc83781c7b7f26d06c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-eternal-return-made-visible-in-a-single-image",
+  "field": "title",
+  "lang": "ko",
+  "text": "한 장면으로 눈에 보이는 영원회귀",
+  "model": "claude-opus-5",
+  "source_sha256": "4f20a3e69608ec7775120ab0d3a426ac984f932ead0af49042fc8b604677996b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ethics-of-the-filmed-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "상처를 찍는 일의 윤리",
+  "model": "claude-opus-5",
+  "source_sha256": "2f8445c379b3b001d1132fb32c69437d1c66fea516344ca3fa0dcd2818d94f83"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ethnographer-becomes-the-specimen",
+  "field": "title",
+  "lang": "ko",
+  "text": "표본이 되어버린 민족지학자",
+  "model": "claude-opus-5",
+  "source_sha256": "c8aa22228b2e7399d4cafa4c55bceb12bcf691b11a7cee6542eb6abf591ad792"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ethnographer-caught-in-his-own-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 프레임에 걸린 민족지학자",
+  "model": "claude-opus-5",
+  "source_sha256": "b1d326a8ab7649b66e03d8b23f62135d415d26d605b1463ac5b104910d873082"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-eucharist-reinvented-as-profane-sacrament",
+  "field": "title",
+  "lang": "ko",
+  "text": "세속의 성사로 다시 태어난 성찬",
+  "model": "claude-opus-5",
+  "source_sha256": "cc96c03263ac1281fc0cb62cb3a03bd0cdc8f0e893878060523ee3d426afd805"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-eulogy-for-the-still-living",
+  "field": "title",
+  "lang": "ko",
+  "text": "아직 산 사람을 위한 조사(弔辭)",
+  "model": "claude-opus-5",
+  "source_sha256": "0095ed3bf50fbc11a895ef6d94e9ce320ca1c149ce3411e91078b01e3177e492"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-euphemism-that-buries-the-politics",
+  "field": "title",
+  "lang": "ko",
+  "text": "정치를 묻어버리는 완곡어법",
+  "model": "claude-opus-5",
+  "source_sha256": "7bf8868fa9c1c948fcca4643adc2a805e92cd988c4bb1f03649650b3430f96bf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-european-festival-crowning-its-own-conscience",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 양심에 왕관을 씌우는 유럽 영화제",
+  "model": "claude-opus-5",
+  "source_sha256": "04c4f07c2009b5b6e49789332c4f17a1c385b848b7cdea8b8a76aa5c38b4bc7f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-european-migr-s-honest-love-of-hollywood",
+  "field": "title",
+  "lang": "ko",
+  "text": "유럽 망명자의 정직한 할리우드 사랑",
+  "model": "claude-opus-5",
+  "source_sha256": "07f259e07af6cef8c9e8297232e643e99cf20ff497894bb921f5af3b98bb7fee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-event-that-never-became-past",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 과거가 되지 않은 사건",
+  "model": "claude-opus-5",
+  "source_sha256": "1ee39402d948f5db8246d779355b6e187f8581c5db3f65b5074ed0ab2df45bea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-everyday-object-as-instrument",
+  "field": "title",
+  "lang": "ko",
+  "text": "악기가 된 일상의 사물",
+  "model": "claude-opus-5",
+  "source_sha256": "bcbcf2e93e16d2069d31892627846c2d483018dfdf529ffb51dbd3de4b0cd7ac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-execution-staged-as-sacred-liturgy",
+  "field": "title",
+  "lang": "ko",
+  "text": "거룩한 전례로 연출된 처형",
+  "model": "claude-opus-5",
+  "source_sha256": "cc828af46e54749a56ba89ce226deadb750c79c26f655af3b7980c171580bbd4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-executioner-who-feels-the-weight",
+  "field": "title",
+  "lang": "ko",
+  "text": "무게를 느끼는 사형집행인",
+  "model": "claude-opus-5",
+  "source_sha256": "d029083bd95956255164a9a3192e68e2b750d6406c1e55ed2822bd80c08259a6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-exile-s-cold-eye-on-his-banishers",
+  "field": "title",
+  "lang": "ko",
+  "text": "추방자가 쫓아낸 자들을 보는 차가운 눈",
+  "model": "claude-opus-5",
+  "source_sha256": "dccc3f8bcfe7e5366cb2f16e2b634b13a65a92d5b67e793d03a4f206560eaaee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-exiled-director-filming-his-own-displacement",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 유배를 찍는 망명 감독",
+  "model": "claude-opus-5",
+  "source_sha256": "639764af1f49fc2b0f7a88530c5ae341ded2490a81ed16cd842d826a34e46e66"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-exit-that-forecloses-return",
+  "field": "title",
+  "lang": "ko",
+  "text": "돌아올 길을 닫아버리는 퇴장",
+  "model": "claude-opus-5",
+  "source_sha256": "16aee8a569789a731eb7466159feeaa5939a392995eb0e994ab4044735f22f87"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-explorer-who-chose-the-void-over-return",
+  "field": "title",
+  "lang": "ko",
+  "text": "귀환 대신 허공을 택한 탐험가",
+  "model": "claude-opus-5",
+  "source_sha256": "d7e0b1a1a1ffe9b4d952f7ede944a2d8649a27d6df19036ce0e277a97f50931b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-explosion-as-the-return-of-the-repressed",
+  "field": "title",
+  "lang": "ko",
+  "text": "억압된 것이 돌아오는 방식, 폭발",
+  "model": "claude-opus-5",
+  "source_sha256": "fbccd9fe9f5b1bc972505d2958cb601a7ec57f24b07fb0324341bd6ffb5b609a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-eye-as-the-film-s-wound-and-lens",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화의 상처이자 렌즈인 눈",
+  "model": "claude-opus-5",
+  "source_sha256": "8978fdafde42b8db4920ce370a1e1b23b8e04b6a22570d8a48507edce12065d5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-eye-as-the-symbolic-order-refused",
+  "field": "title",
+  "lang": "ko",
+  "text": "상징 질서를 거부하는 눈",
+  "model": "claude-opus-5",
+  "source_sha256": "74abff13c2b2c82130842936c04be77f86ed805aa5bfe97be0fba7ce209b186d"
+ }
+]

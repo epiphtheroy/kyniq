@@ -1,0 +1,92 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "wilmington-stands-in-for-everywhere",
+  "field": "title",
+  "lang": "ko",
+  "text": "어디든 될 수 있는 도시, 윌밍턴",
+  "model": "claude-opus-5",
+  "source_sha256": "9042903d47a278f617b616b8ee9508bfa7b278322d3bbd15ee9a32d1f93eca71"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "winning-by-shedding-the-civilized-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "문명의 껍질을 벗어야 이긴다",
+  "model": "claude-opus-5",
+  "source_sha256": "1a876f39ef1ce16e2ae95302e8740840485498f83815abff7b047d9efc0a80e5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "withholding-as-a-pact-with-the-viewer",
+  "field": "title",
+  "lang": "ko",
+  "text": "보여주지 않겠다는 약속",
+  "model": "claude-opus-5",
+  "source_sha256": "a22fdf9a7b9e58baca08af57ca7fb0a0adee3cf5f5d6d98f2ca68a5ff691a803"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "withholding-the-image-as-method",
+  "field": "title",
+  "lang": "ko",
+  "text": "이미지를 아끼는 방법론",
+  "model": "claude-opus-5",
+  "source_sha256": "38c0af949ffbd389d5260d33fe06858c22fad60d3e9db9033aa16c99c1a3e05b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "woman-as-the-commodity-men-exchange",
+  "field": "title",
+  "lang": "ko",
+  "text": "남자들 사이를 오가는 상품, 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "2f80f3a07369283462a018a057a8638f80d976ae6fafcad26178a50ef40f323b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "women-disfigured-by-war-s-aftermath",
+  "field": "title",
+  "lang": "ko",
+  "text": "전쟁이 끝난 뒤 망가진 여자들",
+  "model": "claude-opus-5",
+  "source_sha256": "dbce4bcda7434e07d4f2f39ecf76717a436d6cb0774c0921fd026a470f67a81b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "wordlessness-as-the-engine-of-feeling",
+  "field": "title",
+  "lang": "ko",
+  "text": "말이 없어야 감정이 움직인다",
+  "model": "claude-opus-5",
+  "source_sha256": "7f2011b9283ef986a9d899569346e1667c94f8efc515e05ec5d7825f8ce16edc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "writing-as-confession-without-a-priest",
+  "field": "title",
+  "lang": "ko",
+  "text": "사제 없이 하는 고해, 글쓰기",
+  "model": "claude-opus-5",
+  "source_sha256": "39446be85fd38bf7fe4cabfe5e29c22f5196a783cf2973b4b5ab943b9848ad52"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "written-backward-from-the-lens",
+  "field": "title",
+  "lang": "ko",
+  "text": "렌즈에서 거슬러 올라간 각본",
+  "model": "claude-opus-5",
+  "source_sha256": "836bbec620b85725378ea9e6815cfbbd2cf80e064e5f6e44baa0ac20ba502a0c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "yakushima-as-lost-japan-s-last-refuge",
+  "field": "title",
+  "lang": "ko",
+  "text": "야쿠시마, 잃어버린 일본이 마지막으로 숨은 곳",
+  "model": "claude-opus-5",
+  "source_sha256": "afd74c4fc1248bc555d560a2348c1e0d6b829d1bfef8098f0d3d8adb9c75755e"
+ }
+]

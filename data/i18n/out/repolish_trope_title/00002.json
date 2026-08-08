@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-mourning-its-own-theatrical-death",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 죽은 극장을 애도하는 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "5811160eb4595d22d6e03e12dd0c40b876d5bbeccd7eee9051d97b4382342e3e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-on-the-threshold-of-sound",
+  "field": "title",
+  "lang": "ko",
+  "text": "소리의 문턱에 선 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "a27493d572b530b72112bad26cffb65f108dd4acf8f7696ca6dcaf55404c78e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-rewriting-history-s-ledger",
+  "field": "title",
+  "lang": "ko",
+  "text": "역사의 장부를 고쳐 쓰는 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "d043180dd23f3b0e724d71d9aff4c7de73efb44cd2a554588a78eb8fe44cae84"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-s-apparatus-turned-predatory",
+  "field": "title",
+  "lang": "ko",
+  "text": "먹잇감을 노리는 영화 장치",
+  "model": "claude-opus-5",
+  "source_sha256": "ed3e9b365f09e474c52062706f9db0c04aa72ffd7d75ca78cbe11d80a59a1373"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinema-stripped-to-bare-procedure",
+  "field": "title",
+  "lang": "ko",
+  "text": "절차만 남을 때까지 벗겨낸 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "b1f8dc7a1a15cb8d389d0c639a84551c1983a47ae12737638aae026857cd5fdf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cinephilia-as-the-critic-s-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "비평가의 고백이 된 시네필리아",
+  "model": "claude-opus-5",
+  "source_sha256": "73f44045c8d929f65cd1c1285346e0205a74fc149963c68b40764f5098e8c836"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "citizenship-as-the-price-and-liability-of-belonging",
+  "field": "title",
+  "lang": "ko",
+  "text": "소속의 값이자 짐, 시민권",
+  "model": "claude-opus-5",
+  "source_sha256": "2899c810f866b7469585438a0b42ff43e925019603907de7bbe15b2fcf7586bd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "civilization-as-mask-over-suppressed-instinct",
+  "field": "title",
+  "lang": "ko",
+  "text": "눌러둔 본능을 덮은 가면, 문명",
+  "model": "claude-opus-5",
+  "source_sha256": "0e8e4289c5f9e2f77087c9cba3f935ef4c3725eed430aff907c321c57d15fa07"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "civilization-is-the-crime-it-cannot-confess",
+  "field": "title",
+  "lang": "ko",
+  "text": "문명은 고백하지 못하는 범죄다",
+  "model": "claude-opus-5",
+  "source_sha256": "d1dbfe92168dd22bb9b22539b2262968b55ca748a08d8704dfdfae0b0ec38d25"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "claiming-the-public-sphere-as-forbidden-act",
+  "field": "title",
+  "lang": "ko",
+  "text": "공적 영역을 차지하는 일이 금지될 때",
+  "model": "claude-opus-5",
+  "source_sha256": "a1eb0c2500bf1663419a3f057bb9ecb2ce3c63485463b6f5ca23f027b590e891"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "class-war-erupts-in-a-confined-space",
+  "field": "title",
+  "lang": "ko",
+  "text": "밀폐된 공간에서 터진 계급전쟁",
+  "model": "claude-opus-5",
+  "source_sha256": "c3581860334f0fb7cc39f3586c0c0e5df7f9bc10ca295dbb61c16c4216dbb5ca"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cleveland-wearing-another-city-s-face",
+  "field": "title",
+  "lang": "ko",
+  "text": "남의 도시 얼굴을 쓴 클리블랜드",
+  "model": "claude-opus-5",
+  "source_sha256": "895a1295635ce87148c4c3a00cc49d8f53bea841b7b7b584083461a8aec7433c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "clothing-as-the-manufactured-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "공장에서 만들어진 자아, 옷",
+  "model": "claude-opus-5",
+  "source_sha256": "77bb25c0ed4693f78ccb53882dd4fb810223d35e773605d7ad1c347381008ff8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "clubbed-for-naming-the-order",
+  "field": "title",
+  "lang": "ko",
+  "text": "질서의 이름을 불렀다가 맞다",
+  "model": "claude-opus-5",
+  "source_sha256": "9e061e088644e7d175b91b25d89dd1e7f0b0a12c793cc8fcd8a147e0e15c1677"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cold-concrete-as-mausoleum-of-universalism",
+  "field": "title",
+  "lang": "ko",
+  "text": "차가운 콘크리트, 보편주의의 영묘",
+  "model": "claude-opus-5",
+  "source_sha256": "73c70f3dfc08c3084e258f266a13e2ebacaa038e83dc5407cb5daa8fbaa1d899"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "colonial-memory-returning-as-contagion-or-strike-ghost",
+  "field": "title",
+  "lang": "ko",
+  "text": "전염병으로, 파업의 유령으로 돌아오는 식민의 기억",
+  "model": "claude-opus-5",
+  "source_sha256": "7d5f757c78f769ff83b7c126affb7d7666862adc740f8eca4d0ace56a9795354"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "color-as-a-filmmaker-s-first-heresy",
+  "field": "title",
+  "lang": "ko",
+  "text": "한 감독이 처음 저지른 이단, 색",
+  "model": "claude-opus-5",
+  "source_sha256": "43decb7e989ce53acd24c8d17d38ccb1039b69ee69aaa1802c42bb0453aae50d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "color-as-defiance-of-a-national-austerity-aesthetic",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가의 긴축 미학에 맞선 색",
+  "model": "claude-opus-5",
+  "source_sha256": "5bd27556add36d1dc561f345e0c43a5220b43b6a7e2df170ed45d8867a28987c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "color-as-grammar-not-garnish",
+  "field": "title",
+  "lang": "ko",
+  "text": "색은 고명이 아니라 문법이다",
+  "model": "claude-opus-5",
+  "source_sha256": "e8a192395936213af7d0267fee3091cac65956b1648a534caa3bf1880fbf1aa3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "color-as-inherited-moral-light",
+  "field": "title",
+  "lang": "ko",
+  "text": "물려받은 도덕의 빛, 색",
+  "model": "claude-opus-5",
+  "source_sha256": "0c175c243a386861b80592fcd6685ee7d6e88a935a16434c8870869edac65851"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "color-as-the-confession-that-this-is-only-paint",
+  "field": "title",
+  "lang": "ko",
+  "text": "이건 물감일 뿐이라고 실토하는 색",
+  "model": "claude-opus-5",
+  "source_sha256": "a31de3ba9c5051dfd160f0fabc596502f07dd2954ce898e49d966fb4679b1c00"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "color-as-the-excess-symbolic-order-cannot-contain",
+  "field": "title",
+  "lang": "ko",
+  "text": "상징계가 담지 못하는 과잉, 색",
+  "model": "claude-opus-5",
+  "source_sha256": "ae83a20778246cf7cb1d5701d9f15332b66afcbd2daa708dd1c4b57a43457915"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "color-as-the-film-s-buried-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화가 묻어둔 고백, 색",
+  "model": "claude-opus-5",
+  "source_sha256": "c173e6c89f8d420d1bd82a761641bc2b1a55d665af953281d9f227d0fa7ba929"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "color-as-the-membrane-of-memory",
+  "field": "title",
+  "lang": "ko",
+  "text": "기억을 감싼 얇은 막, 색",
+  "model": "claude-opus-5",
+  "source_sha256": "a3e5d28637eb6cb7957e1d5814607540be93f8c23e891419aef8f4b138db8d21"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "color-as-the-threshold-of-embodied-being",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸으로 있음의 문턱, 색",
+  "model": "claude-opus-5",
+  "source_sha256": "7e61de64e1803a65573ea52d1152331440b02f229b732974493bfbe076f0926c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "color-engineered-to-stage-emotion",
+  "field": "title",
+  "lang": "ko",
+  "text": "감정을 무대에 올리려 설계한 색",
+  "model": "claude-opus-5",
+  "source_sha256": "641b3ec97e12292af9c8dacd1dcd7d9c113899129435ef846316a482fd06ba64"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "color-that-bleeds-beyond-its-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "프레임 밖으로 번지는 색",
+  "model": "claude-opus-5",
+  "source_sha256": "1b2d3a77d16023d279efe4e999993169fcd3c55f351b9b5f3c88147714dd2d8f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "color-wielded-as-an-authorial-signature",
+  "field": "title",
+  "lang": "ko",
+  "text": "작가의 서명처럼 휘두르는 색",
+  "model": "claude-opus-5",
+  "source_sha256": "1b5ee7afedd42a5a9f01cb7d257bb0b1ee12d3f91b54ed6b6ec5d65794ed9d8d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "colour-drained-or-bloomed-to-reroute-feeling",
+  "field": "title",
+  "lang": "ko",
+  "text": "감정의 방향을 틀려고 빼거나 피워 올린 색",
+  "model": "claude-opus-5",
+  "source_sha256": "e79f9c4d947ad79713b40e6ed295b24c11160207130f23fd6652ae7260bfab48"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "combat-staged-as-choreography",
+  "field": "title",
+  "lang": "ko",
+  "text": "안무로 짠 전투",
+  "model": "claude-opus-5",
+  "source_sha256": "68fd3712c1fb8345f35a252940e68f1ddeac40278b9fea33ac2b84f0a0ac525d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "comedy-cut-into-kinetic-rhythm",
+  "field": "title",
+  "lang": "ko",
+  "text": "움직임의 리듬으로 붙인 코미디",
+  "model": "claude-opus-5",
+  "source_sha256": "81097474ae282d7b53280232ba8a026f0a12739db4883907d91e34d3314a0e52"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "comedy-that-refuses-death-its-meaning",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽음에 의미를 주지 않는 코미디",
+  "model": "claude-opus-5",
+  "source_sha256": "27857bc7c215d3b6a2f5052d6a177b96042882e819b5ebd1a6577fcf9a0ebf24"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "comedy-where-language-fails-to-connect",
+  "field": "title",
+  "lang": "ko",
+  "text": "말이 서로 닿지 않는 코미디",
+  "model": "claude-opus-5",
+  "source_sha256": "b539a08980641e705336572d346cf5e2f395d0e5d3e27af8a574b78d9c76548f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "communication-without-a-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸 없이 오가는 말",
+  "model": "claude-opus-5",
+  "source_sha256": "a3d22fde9c29f8a9f471a1f6d8f8730fede25b3cb05f73e24ef5e762e88cb64c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "competence-as-the-woman-s-quiet-insurgency",
+  "field": "title",
+  "lang": "ko",
+  "text": "여자의 조용한 반란, 유능함",
+  "model": "claude-opus-5",
+  "source_sha256": "3b453cad641f292ccc46449158a46329524954764b584d8405f645a59f4c59c2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "composing-the-poem-at-language-s-vanishing-point",
+  "field": "title",
+  "lang": "ko",
+  "text": "언어의 소실점에서 쓰는 시",
+  "model": "claude-opus-5",
+  "source_sha256": "fde0614c9fd5a1ca9aa2066bbbb4e8fb8de18fcd977275c11be44b6e3b085e17"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "composure-as-foreclosed-or-defiant-selfhood",
+  "field": "title",
+  "lang": "ko",
+  "text": "닫혔거나 맞서는 자아, 그 평정",
+  "model": "claude-opus-5",
+  "source_sha256": "2e68174781440b47f210191138a312b19e166cb7ab65e7c6e0895e625d8015c7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "composure-as-survival-s-manic-armor",
+  "field": "title",
+  "lang": "ko",
+  "text": "살아남기 위해 두른 광기의 갑옷, 평정",
+  "model": "claude-opus-5",
+  "source_sha256": "54cf6b067cb3ad3aa280f5b1c71ca95649178356aabcc7fc64c9d08d1599264e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "compression-as-a-formal-cruelty",
+  "field": "title",
+  "lang": "ko",
+  "text": "형식이 저지르는 잔혹, 압축",
+  "model": "claude-opus-5",
+  "source_sha256": "e0364c5991c73a3ab5600bfb1c447768fb054f28be89d78b19a95bcf8f19a3df"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "concrete-utopia-read-as-its-own-indictment",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 고발장이 되어버린 콘크리트 유토피아",
+  "model": "claude-opus-5",
+  "source_sha256": "c25f4bda6b361d0966802d1c891b569db2d51b4a9a005f223ff5d827355e6542"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "coney-island-as-america-s-last-stop",
+  "field": "title",
+  "lang": "ko",
+  "text": "미국의 종착역, 코니아일랜드",
+  "model": "claude-opus-5",
+  "source_sha256": "5f169b7435f7b4f0627bba19462fede2896cf6f1a4ffc09fb37845ed399f9656"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "confession-as-the-body-s-involuntary-sincerity",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸이 저도 모르게 뱉는 진심, 고백",
+  "model": "claude-opus-5",
+  "source_sha256": "bff7d89192f32e30c8b1d59a086eb44ed76f65addc923bc0d86ddf3544dc0a1c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "confession-as-the-trial-of-class-power",
+  "field": "title",
+  "lang": "ko",
+  "text": "계급 권력을 심판대에 세우는 고백",
+  "model": "claude-opus-5",
+  "source_sha256": "0b28cbd3ab5c6fd07e414daab9da6a1a56423d2d43d56c98e5d948ee8015cf35"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "confinement-that-erupts-into-song",
+  "field": "title",
+  "lang": "ko",
+  "text": "노래로 터져 나오는 감금",
+  "model": "claude-opus-5",
+  "source_sha256": "1b67085ba50172e7b4bcea13f0fb8c2eb22bcc656e5c28b2ee84c6d0136c7e2b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "consciousness-distilled-from-flesh",
+  "field": "title",
+  "lang": "ko",
+  "text": "살에서 걸러낸 의식",
+  "model": "claude-opus-5",
+  "source_sha256": "36541e96604a976012b50af554dc5c9b9e1424c5abc04a3df7dff43fca83e2bd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "consent-as-the-film-s-own-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화가 스스로 다루는 주제, 동의",
+  "model": "claude-opus-5",
+  "source_sha256": "e703f4e13b18528533bf4a068409b6908329dc693674de3e258c10061115598d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "consent-as-the-forgery-it-always-was",
+  "field": "title",
+  "lang": "ko",
+  "text": "처음부터 위조였던 동의",
+  "model": "claude-opus-5",
+  "source_sha256": "6872859f192e1e899adf3ad0ec200d936aa63fe4a8a30a96af697d5237817e1e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "consent-as-the-last-ethics-of-intimacy",
+  "field": "title",
+  "lang": "ko",
+  "text": "친밀함에 남은 마지막 윤리, 동의",
+  "model": "claude-opus-5",
+  "source_sha256": "d8c268f1955d5396d265d810405af6ad02998df144b3090ceff00affe2d41dd7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "consent-at-the-vanishing-point-of-autonomy",
+  "field": "title",
+  "lang": "ko",
+  "text": "자율이 사라지는 지점의 동의",
+  "model": "claude-opus-5",
+  "source_sha256": "1681fffe0a389e769ae2ccec76adf265160fd6db1d87ceec634d0fb4b009450d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "contagion-as-the-test-of-the-collective",
+  "field": "title",
+  "lang": "ko",
+  "text": "공동체를 시험하는 전염",
+  "model": "claude-opus-5",
+  "source_sha256": "dd256691627142c3581fc9a0f1e76fc377e3ed8932177fd0663d02a52a17872c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "contradictory-tellings-manufacture-their-own-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "어긋나는 증언들이 제 진실을 만들어낸다",
+  "model": "claude-opus-5",
+  "source_sha256": "66c3ee16110f73cd45870929c18835735cd38bcf1d997b74a627dbed826c8105"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "conversion-is-always-a-seduction",
+  "field": "title",
+  "lang": "ko",
+  "text": "회심은 언제나 유혹이다",
+  "model": "claude-opus-5",
+  "source_sha256": "ed18c67e2489e33348f97412d04589cb3dd1f5ad0eb50005eac96b1231b38764"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cooking-as-the-highest-ethical-act",
+  "field": "title",
+  "lang": "ko",
+  "text": "가장 높은 윤리적 행위, 요리",
+  "model": "claude-opus-5",
+  "source_sha256": "6706199b557f40bf8583263ad602cc545dd21ae123ed637e99d14fdb6f28c06f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "copenhagen-as-moral-threshold-and-inferno",
+  "field": "title",
+  "lang": "ko",
+  "text": "도덕의 문턱이자 지옥, 코펜하겐",
+  "model": "claude-opus-5",
+  "source_sha256": "04793b0c918ebbbdbb064a728054bfd5a1368f09e38202d527304b4a5c4a590d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "couture-as-the-sweatshop-s-pretty-mask",
+  "field": "title",
+  "lang": "ko",
+  "text": "착취 공장이 쓴 예쁜 가면, 오트쿠튀르",
+  "model": "claude-opus-5",
+  "source_sha256": "d04a9a2d3f1053cc99ae2b9b2ea72a0caf99d534a64801c10a2a5e195feca4cf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "creation-as-the-maker-s-original-sin",
+  "field": "title",
+  "lang": "ko",
+  "text": "만든 자의 원죄, 창조",
+  "model": "claude-opus-5",
+  "source_sha256": "7b70ac40317b6c96c4f019b8283a28c5c74d294a0320c148368980bc90fc4fbe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "crime-as-atmosphere-detection-as-liturgy",
+  "field": "title",
+  "lang": "ko",
+  "text": "범죄는 공기가 되고 수사는 전례가 된다",
+  "model": "claude-opus-5",
+  "source_sha256": "0a00781161eaa0b61234b854a408acc9b849cde3d657f54f51354441436b53f1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "crime-as-wage-labor-in-disguise",
+  "field": "title",
+  "lang": "ko",
+  "text": "이름만 바꾼 임금노동, 범죄",
+  "model": "claude-opus-5",
+  "source_sha256": "9ca9f4c6c2494c0b41fa231cbd0f4c53ea997a996cd6e6b1b5287e44e88d4dcd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "critical-reception-as-cultural-symptom",
+  "field": "title",
+  "lang": "ko",
+  "text": "문화의 증상으로 읽는 비평 반응",
+  "model": "claude-opus-5",
+  "source_sha256": "c5251b433d3ef35c09a600cb4c9d851f13e32bf0f78286ce686dfbbe46740132"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "criticism-s-hunger-reveals-the-critic",
+  "field": "title",
+  "lang": "ko",
+  "text": "비평의 허기가 비평가를 드러낸다",
+  "model": "claude-opus-5",
+  "source_sha256": "5a824ea902a4e3105c07a47d7d02de3becb891d50ceb27dc250b97a755953433"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "criticism-s-verdict-as-self-incrimination",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 죄를 자백하는 비평의 평결",
+  "model": "claude-opus-5",
+  "source_sha256": "4da9a4471aaf7eb15553bc997bbd80259ec13aeeac48881a04e9adc97421dc93"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "critics-crowning-disney-s-restored-innocence",
+  "field": "title",
+  "lang": "ko",
+  "text": "디즈니의 되찾은 순수에 왕관을 씌운 평단",
+  "model": "claude-opus-5",
+  "source_sha256": "a57593c8b225a5082343307b62727a592432359369aac91216ff607191a5b6bf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "critics-embraced-catastrophe-as-their-own-mood",
+  "field": "title",
+  "lang": "ko",
+  "text": "파국을 제 기분처럼 껴안은 평단",
+  "model": "claude-opus-5",
+  "source_sha256": "70478eb734d203f72a320f8c286cfb9daf46a22d35eea47eb36552df49791a0b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "critics-faith-reflex-as-secular-tell",
+  "field": "title",
+  "lang": "ko",
+  "text": "평론가의 신앙 반사가 드러내는 세속",
+  "model": "claude-opus-5",
+  "source_sha256": "387c14305922142405c8c6226d12553e28f46095217267d5e69196a917131568"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "critics-flee-sincerity-into-metaphor",
+  "field": "title",
+  "lang": "ko",
+  "text": "진심을 피해 은유로 달��나는 평단",
+  "model": "claude-opus-5",
+  "source_sha256": "3e8a3e8de6f44b5ddb4cda27e995b5d097efcc008273f242709d926cced8e3b8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "critics-mourning-cinema-s-own-death",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화의 죽음을 애도하는 평단",
+  "model": "claude-opus-5",
+  "source_sha256": "2745c3f703c2f0f38c83d5bb8aa956e0437ce337e56531f9c0cd28e8b56d43df"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "critics-praised-what-let-them-off",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 면죄부를 준 작품을 상찬한 평단",
+  "model": "claude-opus-5",
+  "source_sha256": "10ee6fc61c51263798789dbba389b4821afa292526202e70064ed5e2a86689a8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "critics-recoil-from-the-beauty-of-atrocity",
+  "field": "title",
+  "lang": "ko",
+  "text": "잔혹이 아름다울 때 물러서는 평단",
+  "model": "claude-opus-5",
+  "source_sha256": "3db25689f6c5fa659b9667dc0bfa3395406bb966467fcc828364e73d53af0e6f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "critics-starved-for-male-tenderness",
+  "field": "title",
+  "lang": "ko",
+  "text": "남자의 다정함에 굶주린 평단",
+  "model": "claude-opus-5",
+  "source_sha256": "7455519381c245962b1726d41a4c4a2b870622eb2fb8bc2bc05d60ec5483030c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "critics-who-praise-horror-to-disavow-it",
+  "field": "title",
+  "lang": "ko",
+  "text": "부인하려고 공포를 칭찬하는 평단",
+  "model": "claude-opus-5",
+  "source_sha256": "654ab548047391bbe3fcdadd1b2e3a8295860803fd3ba3497d5f6ebfa2d68a7e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "crowned-abroad-silenced-at-home",
+  "field": "title",
+  "lang": "ko",
+  "text": "밖에서는 왕관, 안에서는 침묵",
+  "model": "claude-opus-5",
+  "source_sha256": "4b93353ef20c791b4a7be0b22486c99105254b9f519eb937167abf8f2b36a941"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cruelty-disguised-as-tenderness-or-taste",
+  "field": "title",
+  "lang": "ko",
+  "text": "다정함이나 취향으로 위장한 잔혹",
+  "model": "claude-opus-5",
+  "source_sha256": "87c4b733c584103e8f970829ba668734bba5da248364299a7202d0530aad528b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "custom-and-stillness-against-the-state-s-clamour",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가의 소란에 맞선 관습과 고요",
+  "model": "claude-opus-5",
+  "source_sha256": "abd117e5e7d857b4a871ddd2ead47603ec17fcfcda9dcb7d3b3378b404f0772d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "cyclical-time-defeats-the-line-of-plot",
+  "field": "title",
+  "lang": "ko",
+  "text": "도는 시간이 플롯의 직선을 이긴다",
+  "model": "claude-opus-5",
+  "source_sha256": "f21a95e04b1e93b790260def52bbf1650581a8b1d7ea3bc726469fc12b1dcf4b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "czech-art-made-under-the-boot",
+  "field": "title",
+  "lang": "ko",
+  "text": "군화 밑에서 나온 체코 예술",
+  "model": "claude-opus-5",
+  "source_sha256": "145cf79fe3a61ec199561afb019355b7e2e2587fc5471d22b258dfd49f17a3fb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "dakar-s-atlantic-as-threshold-of-exile",
+  "field": "title",
+  "lang": "ko",
+  "text": "유배의 문턱이 된 다카르 앞바다",
+  "model": "claude-opus-5",
+  "source_sha256": "53f75f5aa761be4768675ce6062c40502b43f3446eabb2eb14cc09fee5f2cba9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "damnation-composed-like-a-bosch-painting",
+  "field": "title",
+  "lang": "ko",
+  "text": "보스의 그림처럼 짜인 저주",
+  "model": "claude-opus-5",
+  "source_sha256": "91d9690ea5a9322ae245f9531b5a5c97cc689f842758c47f6ec455b426a444e2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "damned-by-the-accident-of-circumstance",
+  "field": "title",
+  "lang": "ko",
+  "text": "우연히 놓인 자리 때문에 저주받다",
+  "model": "claude-opus-5",
+  "source_sha256": "f86258b90ef9ba9f9e0fb8de70e4bf2f0cd12dfe7d72e6d626c311a56eae8602"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "dance-as-the-repressed-body-returning",
+  "field": "title",
+  "lang": "ko",
+  "text": "억눌린 몸이 돌아오는 자리, 춤",
+  "model": "claude-opus-5",
+  "source_sha256": "81baa12b75736393f58e3a5e19a0d4db2db2b431d26da3d235edbe84c24b1a4c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "daring-to-strip-the-score-bare",
+  "field": "title",
+  "lang": "ko",
+  "text": "음악을 벌거벗길 배짱",
+  "model": "claude-opus-5",
+  "source_sha256": "870d5672a94c1aa78424c8e0961cdb9121ee453007286584eb2d4d3e1d9850f8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "dawn-as-the-title-s-secret-resurrection",
+  "field": "title",
+  "lang": "ko",
+  "text": "제목이 감춰둔 부활, 새벽",
+  "model": "claude-opus-5",
+  "source_sha256": "6f4d96ef961a6207f00d79a157b7ec5167b6922df9353601fc2908e188bc2bec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "de-chirico-s-empty-piazza-of-stopped-time",
+  "field": "title",
+  "lang": "ko",
+  "text": "시간이 멈춘 데 키리코의 텅 빈 광장",
+  "model": "claude-opus-5",
+  "source_sha256": "559891610bdce5d3eb8365c99a13c59d52fef1b12eb6a039cc8ccc7f6cc74c71"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "de-quincey-s-connoisseur-of-self-ruin",
+  "field": "title",
+  "lang": "ko",
+  "text": "드 퀸시식 자기 파멸의 감식가",
+  "model": "claude-opus-5",
+  "source_sha256": "b08436b939a3e7b8071eababcbb987a1a5ce1421187224936aa0881c3567be59"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "dead-time-as-filmic-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽은 시간이야말로 영화의 진실",
+  "model": "claude-opus-5",
+  "source_sha256": "f07612bcc4cfa191bd9660c03a6bfc6e67714f215a9107d9393472682883fc42"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "deafness-as-the-real-that-resists-cure",
+  "field": "title",
+  "lang": "ko",
+  "text": "치료를 거부하는 실재, 들리지 않음",
+  "model": "claude-opus-5",
+  "source_sha256": "f7bf22736bdca0a89b8cf44d381cfcbf0acbcddd3e18ed98021448ba2721a895"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "deakins-photographs-power-into-sublime-abstraction",
+  "field": "title",
+  "lang": "ko",
+  "text": "디킨스, 권력을 숭고한 추상으로 찍다",
+  "model": "claude-opus-5",
+  "source_sha256": "0aeffed5e15213e12a111a23d7bd52dce158f88e2ece4d8834b7a5dc892eca3b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "death-anesthetized-into-comfort",
+  "field": "title",
+  "lang": "ko",
+  "text": "마취되어 안락해진 죽음",
+  "model": "claude-opus-5",
+  "source_sha256": "5d03d98f6979bd0527d8f56b85c2300232551804d34ff2c9bad74db968fe0c55"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "death-arrives-at-walking-speed",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽음은 걷는 속도로 온다",
+  "model": "claude-opus-5",
+  "source_sha256": "488f9526ae270ce647144cac6d440ea86fe100d8b9bbf6b79c07c2259351441b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "death-as-a-change-of-tenancy",
+  "field": "title",
+  "lang": "ko",
+  "text": "세입자가 바뀌는 일, 죽음",
+  "model": "claude-opus-5",
+  "source_sha256": "57099b046c1879075cbb09dd5811189510ed347c0cadb03915ba9a33b781ebc3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "death-as-the-object-that-cannot-be-possessed",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 가질 수 없는 대상, 죽음",
+  "model": "claude-opus-5",
+  "source_sha256": "0b031cfda123c239a647ae60b0aaef296362864e471dc0014cffaf9f030d3df8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "death-chosen-as-the-last-sovereign-act",
+  "field": "title",
+  "lang": "ko",
+  "text": "주권의 마지막 행사로 택한 죽음",
+  "model": "claude-opus-5",
+  "source_sha256": "15e51c8e776ecc9edd0809ca287133a6afb33f4b975223644644849290890231"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "death-eroticized-in-mishima-s-aesthetic-key",
+  "field": "title",
+  "lang": "ko",
+  "text": "미시마의 미학으로 에로스가 된 죽음",
+  "model": "claude-opus-5",
+  "source_sha256": "7ea8e8e8ba7bdfadddaa6102907a9ab88a125d494cdea097c5bd077a42791f96"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "death-made-looked-at-not-suffered",
+  "field": "title",
+  "lang": "ko",
+  "text": "겪는 대신 바라보게 만든 죽음",
+  "model": "claude-opus-5",
+  "source_sha256": "5c5446dee5491a4064e75a7606f483d718978cd937b90107a6d3145f41c202fa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "death-reconciled-as-mercy",
+  "field": "title",
+  "lang": "ko",
+  "text": "자비로 받아들인 죽음",
+  "model": "claude-opus-5",
+  "source_sha256": "fb88727d2e2297383da7e1b3e01785216c463de0c7e77745910871b1e92ac4fa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "death-sought-by-another-s-hand",
+  "field": "title",
+  "lang": "ko",
+  "text": "남의 손을 빌려 구한 죽음",
+  "model": "claude-opus-5",
+  "source_sha256": "a528eecc51bf1cf9babb797d3267f7df76e87b662acd81b562cbf513d538f68d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "death-written-as-sentence-already-ending",
+  "field": "title",
+  "lang": "ko",
+  "text": "이미 끝나가는 문장으로 쓴 죽음",
+  "model": "claude-opus-5",
+  "source_sha256": "d3b38f2ea8baf2813807b25bb97e8cd517b7acd2b81b17ecd9f25f4851cb2181"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "debt-not-death-as-the-absolute",
+  "field": "title",
+  "lang": "ko",
+  "text": "절대는 죽음이 아니라 빚이다",
+  "model": "claude-opus-5",
+  "source_sha256": "91e3a20a1ce9adf5f348c15007e1981ac88eed94ed1f93ca6f57d1ce1dd04823"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "deep-focus-refuses-to-direct-the-eye",
+  "field": "title",
+  "lang": "ko",
+  "text": "딥 포커스는 시선을 이끌기를 거부한다",
+  "model": "claude-opus-5",
+  "source_sha256": "2d30910e4be3494833fc1bbd33a8b0a47e8a2c438df1d3084471eda1fbbf2b21"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "defecation-as-cosmogony",
+  "field": "title",
+  "lang": "ko",
+  "text": "세계의 시작으로서의 배설",
+  "model": "claude-opus-5",
+  "source_sha256": "8861bdcdc486439b0da55acc63002563fa88dd447356169cd99acd4c75224ec2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "deferred-mourning-as-structure",
+  "field": "title",
+  "lang": "ko",
+  "text": "미뤄둔 애도가 구조가 될 때",
+  "model": "claude-opus-5",
+  "source_sha256": "b637cfd01cf483cc3c6fc2d303b3176f762df70987f45d8c73853890ab6d1a6a"
+ }
+]

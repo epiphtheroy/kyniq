@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joel-coen#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "조엘은 콘티를 곧이곧대로 지키기로 악명이 높다. 아티스트 J. 토드 앤더슨이 꼼꼼하게 그려낸 그 그림 그대로 찍고, 현장에서 배우가 대사를 한 단어라도 즉흥으로 바꾸는 일은 좀처럼 허락하지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc22b6ff87c5dcfc0a94233e9a101486983e61aefb7da4d1d104b3bc9a778ff2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joel-coen#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1995년, 조엘과 프랜시스 맥도먼드는 생후 6개월 된 아들 페드로를 파라과이에서 입양했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "391ac1787c94ce74221f84cf15a28254a213a304b4753605cc7ddf340604bed8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joel-coen#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2021년 조엘은 덴절 워싱턴을 앞세워 《맥베스의 비극》을 연출했다. 40년 가까운 경력에서 이선 없이 장편을 만든 첫 사례다. 당시 이선은 연극에 전념하겠다며 영화를 잠시 떠나 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "30349139ffe68c063a7c85d488a55c2050d44b0f584ad865ae553e1be4f7a482"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joel-coen#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "작가주의(auteurism) 감독으로 불리지만, 조엘이 가장 큰 영향으로 꼽는 것은 따로 있다. 십대 시절 게걸스럽게 읽어치운 하드보일드 범죄 소설들, 제임스 M. 케인과 대실 해밋과 레이먼드 챈들러다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f3821a90459c9c01173a80fbfc61b754ee18492c35b58d9948c4ac77ff22f2e0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joel-coen#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "테리 즈위고프의 어두운 크리스마스 코미디 《배드 산타》(2003)에서 조엘과 이선은 크레딧에 이름 없는 총괄 프로듀서였고, 각본을 손보는 데도 큰 몫을 했다. 이 영화 특유의 인간혐오적 유머 상당수가 그 손에서 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ea0a8ea1f18f1c0a0c92523968ee34424c54b457f1cbf8f64efea765d07118fc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joel-coen#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "어머니 리나는 세인트클라우드 주립대의 미술사학자였고, 아버지 에드워드는 미네소타대의 경제학자였다. 학자들 틈에서 자란 이 성장 배경이 《시리어스 맨》의 신경증적이고 지적인 공기에 짙게 배어 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e31035a58b98d3e2d8b127312cf2a14786b887c0205a18546d8d70c8c957b0b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joel-coen#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "인물의 겉모습을 두고 조엘이 부리는 완벽주의는 유명하다. 《노인을 위한 나라는 없다》에서 하비에르 바르뎀의 그 섬뜩한 단발머리에 그는 직접 매달렸다. 형제가 참고한 것은 1979년 어느 매춘업소 손님을 찍은 사진 한 장이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "770544b408b8e733c629f0e2bc3e967641fd53897c6800b3b03ee873ef697f8f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joel-coen#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《위대한 레보스키》의 '듀드'는 제프 다우드에게서 나왔다. 급진 반전 운동가였다가 독립영화 홍보업자로 변신한 인물로, 조엘과 이선이 《분노의 저격자》의 배급을 따내는 데 도움을 줬다. 화이트 러시안을 실제로 마시던 사람이기도 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "260ca07ea30d67249964a9bfbb3530d74ef0c7b417878b8e6ce9a7e6689266cf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joel-coen#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《아리조나 유괴사건》의 무시무시한 현상금 사냥꾼 레너드 스몰스 역에 조엘은 랜들 '텍스' 콥을 콕 집어 찾아 나섰다. 1982년 래리 홈스와 벌인 그 잔혹하고 피투성이였던 시합에 홀린 뒤였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6fbfc3b689840d1cd2c621a6626f450fd7191ce5265fc54c7b5ca58d2f4288f6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joel-coen#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "조엘과 이선이 샘 레이미와 함께 각본을 썼으나 연출은 맡지 않은 《크라임웨이브》(1985)는 평단에서도 흥행에서도 참담하게 무너졌다. 이 경험 이후 조엘은 자기가 쓴 오리지널 각본의 연출권만은 절대 남에게 넘기지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a62fd73d8fead14acf6487d3151b25a1cfd20b71967a18422d69cabb0b9d256f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carney#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화를 만들기 전, 카니는 더블린의 록 밴드 The Frames의 초대 베이시스트였다. 1991년부터 1993년까지, 훗날 오스카를 받는 프런트맨 글렌 핸사드와 나란히 무대에 섰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "36ef978c6e961b479277ab49b4c0a2ee5dc09198162c7bb95a47fc1e330001f2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carney#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그가 다닌 곳은 더블린의 엄격한 기독교 형제회 학교 싱스트리트 CBS였다. 숨 막히는 교육 환경이었고 그는 그곳을 몹시 싫어했다. 그러면서도 훗날 반자전적 영화 《싱 스트리트》(2016)의 중심 무대로 그 학교를 꼼꼼히 되살려냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a9d490f2661a2e5f112929b7da0d94ae5b5c0d5df81b506a52be9a9142fde5a4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carney#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화 쪽으로 방향을 튼 계기는 The Frames를 그만두고 밴드의 뮤직비디오를 찍기 시작한 일이다. 그렇게 주말 짬을 내어, 아주 적은 돈으로 흑백 데뷔 장편 《November Afternoon》(1996)을 완성했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "31cecaff89552af5821d5a8bba0d510dbd18ee13a8fc1085b4a0ccd8ef7661a4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carney#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "출세작 《원스》(2007)의 주연은 원래 킬리언 머피였다. 높은 음역으로 노래하는 것도, 비전문 배우 마르케타 이르글로바와 호흡을 맞추는 것도 부담스러웠던 머피가 하차하자, 카니는 옛 밴드 동료 핸사드를 그 자리에 앉혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f674212bf90b7f8d50db57b43580c5d4e80c0445ef36e98d259760e6990e84ae"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carney#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "첫 미국 대형 프로덕션 《비긴 어게인》(2013) 이후, 카니는 《인디펜던트》 인터뷰에서 \"다시는 슈퍼모델과 영화를 만들지 않겠다\"고 말했다. 주연 키이라 나이틀리의 기타 실력과 진정성을 대놓고 깎아내린 이 발언은 업계에 거센 반발을 불렀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "635cc74e0d4c69cac88756605229ca7c1d5b7c95bb66d34e8c18e9638772c0bb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carney#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "역풍이 워낙 거셌던 탓에 카니는 트위터에 공식 사과문을 올렸다. 자기 발언을 \"치졸하고 못됐고 상처를 주는\" 말이라 부르며, 자신의 연출 부족을 나이틀리 탓으로 부당하게 돌렸다고 인정했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e5a9f9d19d9f572185c7fb79984b808b8f0dbda565eeadc9c268d3416f2c039d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carney#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "뉴욕에서 《비긴 어게인》을 찍으며 마주한 것은 거대한 수행단과 스튜디오라는 기계장치였다. 환멸을 느낀 카니는 작정하고 아일랜드로 물러났고, 무명의 현지 십대들을 모아 《싱 스트리트》를 만들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e5490a705f48aa1459ef44d23dde1eddf292024f9d7be68fd81a84e871821e75"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carney#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "카니가 공동 기획하고 연출한 《Bachelors Walk》(2001)는 더블린의 한집에 사는 독신 남자 셋을 따라가는 아일랜드 코미디 드라마다. 크게 성공했고, 아일랜드에서는 하나의 문화적 표지가 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "df34b1f48dc170fe0908c64f22c693c06dd24f1554f26f97461b71f036d9b7e3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carney#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오랜 연인인 아일랜드 배우 마르셀라 플런킷과 자주 작업한다. 《원스》에서 잊히지 않는 옛 연인으로 나왔고, 《싱 스트리트》에서는 이몬의 어머니로 얼굴을 비쳤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f80f4dae2d5ce0429489353eb06c50e4f132c6ea65bef32afa1f365d97f92d5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carney#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2023년 음악 드라마 《플로라 앤 썬》에서 카니는 보노의 딸 이브 휴슨에게 주연을 맡겼다. 줌으로 기타를 배우는 고단한 싱글맘 역이다. 이 영화는 선댄스에서 치열한 입찰 경쟁을 불렀고, 결국 애플 TV+가 2천만 달러 가까운 금액에 가져갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "66c9abc2c36754f87dceb3a79683199e93d8e9fe7942a0bfb1fc425331f854cd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carney#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《싱 스트리트》의 1980년대풍 곡 여러 편은 카니가 스코틀랜드 뮤지션 게리 클라크와 함께 직접 썼다. 듀란 듀란이나 더 큐어를 흉내 내보는 십대들의 진짜 습작처럼, 어딘가 어설프게 들리도록 일부러 만든 노래들이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ef8d32a8af0e6ead7fb293076b3995494e14ecb8111949ec41a8a040ee8a2bb5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carney#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2019년 카니는 아마존 앤솔로지 시리즈 《모던 러브》의 쇼러너를 맡았고, 그중 \"When Cupid Is a Prying Journalist\" 편은 직접 연출했다. 자기 연애관이 드러나도록 원작을 크게 고쳐 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "91b1ffc9b0fead7db8e8d4a40dd6f0f54434f859121be2fa9330dcc980e116f1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carney#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "킬리언 머피가 정신병원의 자살 충동 환자로 나오는 2001년 심리 드라마 《온 디 엣지》는 카니의 필모그래피에서 유독 튀는 작품이다. 음악 연주 장면이 사실상 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "569db56a055ba4345846adea92b0b0a090275f47f8484523ea7ba4b03ade0cd0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carney#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《플로라 앤 썬》의 한물간 로스앤젤레스 뮤지션 역에는 조셉 고든레빗이 캐스팅됐다. 카니가 그의 디지털 플랫폼 HitRecord를 통해, 온라인에서 함께 음악을 만드는 일에 실제로 열정을 쏟는 배우라는 걸 알게 된 뒤였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6663a64bea80fcb48e8868b65a7e641bc8252d21bfd3f795590a61dea9a3bf86"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carney#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "십대 시절 부모가 갈라섰다. 그 상처를 카니는 《싱 스트리트》에 그대로 옮겨놓았다고 스스로 밝혔다. 어수선한 가족 관계, 그리고 끝내 무너지는 결혼이 그것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "11a934a48c92dd358c50c33c8d813c8fb224e4616945f0bd23e090503d9f3998"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carpenter#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "고등학교에 들어가기도 전에 어린 카펜터는 이미 뒷마당에서 8mm 괴수영화를 찍고 있었다. 《Revenge of the Colossal Beasts》나 《Gorgo Versus Godzilla》 같은, 손수 지어낸 제목들이 그때 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0aa3736fb88fd24f6654df9e6dc53d8880b91356b36011e69122ccc2326c3ff8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carpenter#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "데뷔 장편 《다크 스타》의 출발점은 USC 동기 댄 오배넌과 함께 쓴 45분짜리 학생 영화였다. 두 사람은 6만 달러라는 미미한 예산으로 3년에 걸쳐 이걸 천천히 장편으로 키워냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2dbae806621a7f049105f1d29c26ed4bc4f2d26de410928a42cdc6cb5d490208"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carpenter#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생 하워드 혹스를 흠모한 카펜터는 출세작 《분노의 13번가》(1976)를 혹스의 서부극 《리오 브라보》에 기대어 만들었다. 편집 크레딧에는 \"존 T. 챈스\"라는 가명을 썼는데, 바로 그 영화에서 존 웨인이 맡았던 배역 이름이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "234decb64264543c75c645019aabae56d3be3364a4abbd110efa429af3fa9c98"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carpenter#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그의 트레이드마크가 된 미니멀한 신시사이저 스코어는 순전히 돈이 없어서 나온 것이다. 《할로윈》 같은 초기 독립 제작에는 오케스트라를 쓸 여유가 없었고, 그래서 그 유명한 사운드트랙을 사흘 만에 직접 녹음했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dbd3681e401e1ba656167769add1bb00d06ccbfd1ec2a7a7eb8caa9e3abb850b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carpenter#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "공포영화의 대명사로 통하지만, 오랜 뮤즈 커트 러셀과의 첫 작업은 뜻밖에도 1979년 TV 영화 《엘비스》였다. ABC에서 《바람과 함께 사라지다》와 같은 시간대에 방영됐는데도 시청률 싸움에서 이겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "be00a8ece0cd7b7e844483646910e26255f78b0d9149dfa9614de9419d674532"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carpenter#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스릴러 《누군가 보고 있다》의 캐스팅 과정에서 배우 에이드리엔 바보를 만났다. 1979년 결혼했고, 이어서 유령 이야기 《안개》에 그녀를 냉소적인 라디오 DJ로 세웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f67c8c256d3b9632f705670eba7560911ae7f859ca8373944be5125a7efbedce"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carpenter#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "페이 더너웨이 주연의 1978년작 스릴러 《아이즈 오브 로라 마스》 오리지널 각본은 그의 것이다. 두둑한 원고료 덕에 《할로윈》이 아직 후반작업 중이던 시기를 버틸 수 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a857b4f7baf2b2c398bf9cfc5ac5386e3278056324f0288099cfe8fb228e790d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carpenter#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《탑건》 연출 제안은 거절했다. 각본이 지나치게 국수주의적이고 공중전이 화면에 제대로 옮겨지지 않으리라 봤기 때문이다. 훗날 그는 그 결정으로 수백만 달러를 날렸다고 농담했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3c1606f8be0c91da5d79bff3359c14d4a4e9023a851f66fb3d17330f44f62364"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carpenter#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1987년 종말론적 공포영화 《프린스 오브 다크니스》의 각본에 카펜터는 \"마틴 콰터매스\"라는 가명을 달았다. 영국 작가 나이젤 닐이 만든 SF 캐릭터 버나드 콰터매스에 바치는 헌사였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6815171bf45d412c0b28de2475bb3b63681be3b91391d23959b9b8b5966b4ec"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carpenter#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2001년 《고스트 오브 마스》가 평단과 흥행에서 모두 무너진 뒤, 카펜터는 심한 소진에 시달렸다. 그리고 10년 가까이 연출에서 사실상 손을 떼고 NBA를 보고 비디오게임을 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0c23a5a1c298038d8a8f87da8bc10f8b51e2e5a20912f15b613c2e0380f69c72"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carpenter#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "게임광인 그는 《폴아웃 76》, 《데스티니 2》, 그리고 소닉 시리즈를 향한 애정을 공공연히 밝혀왔다. 소닉 게임 음악을 맡겠다고 자청한 적도 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "104fe7884db1c277f47b500dfdb7f2081c31d4cf225ef35240a30b18dd2bc5e5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carpenter#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2015년 그는 프랑스 감독 뤽 베송을 표절로 고소해 이겼다. 베송의 SF 액션 《락아웃》이 《뉴욕 탈출》의 핵심 플롯과 인물을 대거 가져다 썼다는 주장을 파리 법원이 받아들였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca26af1d59e5989eb5668dbece1890e9585a59dbabdea680b66287860ce82cac"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carpenter#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "뮤지션 출신 감독 로브 좀비와 짧지만 격한 다툼도 있었다. 2007년 《할로윈》 리메이크를 두고 카펜터가 자신에게 냉랭했다고 좀비가 주장하자, 카펜터는 대학생들 앞에서 그를 \"쓰레기 같은 놈\"이라 불렀다. 두 사람은 결국 화해했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd754109c8c31117d66af7a927401fd82ade7f21775e6f08f522f1bba61e54c9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carpenter#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "슬래셔의 아이콘 마이클 마이어스를 만들어낸 장본인이면서도, 카펜터는 《할로윈 2》를 만든다는 발상 자체를 몹시 싫어한 것으로 유명하다. 돈을 받자고 마지못해 속편 각본을 쓰면서 그는 매일 버드와이저를 여섯 캔씩 들이켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf9c900bc6b342a78de7e8b6bedf30836c2ac43d758558fc631888ae2434fd83"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carpenter#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "경력 후반, 그는 예순을 넘겨 음악가로 방향을 틀어 순회공연에 나섰고 성공했다. 아들 코디 카펜터, 대자 대니얼 데이비스와 함께 영화와 무관한 오리지널 앨범 《Lost Themes》 연작을 내놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e3800a9e8008d7d77ea4a7f496e62c5e91ef9530aa5dc16eab5f6794d215b5e6"
+ }
+]

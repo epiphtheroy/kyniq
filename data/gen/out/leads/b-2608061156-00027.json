@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hannah-2017",
+  "field": "lead",
+  "film_id": "8b7e790b-cdf7-43fb-b044-446f63c5e1f8",
+  "lang": "en",
+  "text": "A prison door closes on her husband and the film stays outside it with her. Andrea Pallaoro's picture is an Italian production spoken in French, ninety-five minutes long, and pointed away from the case and toward the person left holding its consequences. A Volpi Cup for Best Actress went to the woman at the centre, which is the honest measure of a film assembled this way: talk is scarce, and most of what reaches an audience arrives through what a face declines to do while other people are watching. Domestic drama in the strictest sense — the pressure of an ordinary week on someone who has been charged with nothing and has to live as though she has. It asks for patience and returns something exact in exchange: the sound a household makes when one of its two members is simply gone.",
+  "model": "claude-opus-5",
+  "source_sha256": "48fe941018fe89633145ef68d5a376b0a88341b69379e4446fc72ff168e6ec9b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "what-time-is-it-1989",
+  "field": "lead",
+  "film_id": "5463d3a1-5f83-4feb-9039-b4c5599aaba6",
+  "lang": "en",
+  "text": "Ninety-two minutes, two men, and a conversation that keeps not arriving. Ettore Scola puts a father and a son opposite one another after a long separation and gives them a single day to account for themselves, which in his hands is comedy and injury at once, sometimes inside the same sentence. A Volpi Cup for Best Actor came out of it, and the film is built to earn that: little plot, nowhere to hide, two faces working out how much of the distance between them is temperament and how much is habit. Che ora è, 1989. The language is Italian, the production French. The premise promises a reconciliation, and the honesty of the thing lies in treating that promise as an open question — the differences on the table are not misunderstandings but positions each man has spent a life arriving at.",
+  "model": "claude-opus-5",
+  "source_sha256": "bceff71e5cc9063f85a77f576173181972ac524cca0e5f42532e069c97d69046"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-prayer-2018",
+  "field": "lead",
+  "film_id": "226adcb4-6971-471c-bb89-a911f2b28a83",
+  "lang": "en",
+  "text": "The cure on offer is a mountain, a group of men who have been where he is, and prayer on a schedule. Thomas arrives at that community wanting to stop, and Cédric Kahn takes its method seriously enough to film it as work rather than as miracle: the treatment is prayer, not medicine, applied daily by people with nowhere else to be. A premise like this can turn pious or sneering. At 107 minutes it does neither, settling instead into the ordinary difficulty of belonging to a group whose rules he did not choose and whose language he cannot yet speak without embarrassment. A Silver Bear for Best Leading Performance went to the actor carrying it, which follows from the construction — the change the film is about happens in posture and attention long before anyone puts a word to it.",
+  "model": "claude-opus-5",
+  "source_sha256": "0703c8c42a75f7a5a6924f8e88524eae3d92939b6d2adb93fe3d9cadd4338c36"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hedi-2016",
+  "field": "lead",
+  "film_id": "3a698693-8456-4166-ae03-d69e3772cc61",
+  "lang": "en",
+  "text": "Everything in Hedi's life has been arranged by other people — the work, the marriage, the order of the days — and he has consented to all of it, which is the harder thing to put on screen. Mohamed Ben Attia takes 88 minutes and a young man convinced that nothing can surprise him any more, then puts a woman named Rim in a hotel in Mahdia and lets the arrangement start to give. The film is in Arabic, produced out of Belgium, and pitched at the eye level of someone who has never been asked what he would prefer. Its Silver Bear for Best Leading Performance is well placed: the drama is a sequence of very small refusals, and the actor has to make each one legible without raising his voice. Freedom, in this account, arrives with a bill attached.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb4e1221bab075b742f02e598fe3f8b64edcdf70a5bd4e9fc0396bccb3013427"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "caterpillar-2010",
+  "field": "lead",
+  "film_id": "74123203-c52d-4abd-85f2-11628d189613",
+  "lang": "en",
+  "text": "A soldier comes back from the war in China with no arms and no legs, and the state declares him a living god. His wife is handed both things at once: the honour and the body. Kōji Wakamatsu keeps it to 87 minutes and largely indoors, which turns official language into a set of chores performed several times a day under a designation the village is expected to revere. The care includes sex, and the film says so plainly rather than arranging a tasteful ellipsis around it. A Silver Bear for Best Actress went to the woman at the centre, and the reason is structural: nearly everything the picture has to say about Japan at war is delivered by one face doing its duty in company and its arithmetic alone. War films rarely stay this far inside a single house.",
+  "model": "claude-opus-5",
+  "source_sha256": "53a76e44e0e7ca6aa8caa75a410fbd4c384cbd285d71f097d4497b7df055e30e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "our-father-2020",
+  "field": "lead",
+  "film_id": "c335142b-6f97-4318-802b-e5d8552d2267",
+  "lang": "en",
+  "text": "Childhood friendship gets two full hours here, and Claudio Noce does not treat that as indulgence. Valerio and Christian find each other over a summer and become inseparable the way children do, with no terms agreed and nothing explained. A Volpi Cup for Best Actor on a picture centred on two boys indicates where the other half of the story sits: with the fathers, seen from below and understood in pieces, the way a child understands the men in his own house. The film is Italian, made in 2020, and content to let long stretches pass without settling anything. It is steadiest in the middle — two boys turning up for each other in the afternoons while the grown world proceeds at a height they cannot see into.",
+  "model": "claude-opus-5",
+  "source_sha256": "7b762a203d48f0b90886cf0073813cd38e52458c0e83c6e1ad0fb31f8c44050a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-black-orchid-1958",
+  "field": "lead",
+  "film_id": "6fe40fa8-c40d-4f3c-9c84-46b352c305e1",
+  "lang": "en",
+  "text": "The obstacle is not the police, and not the men her husband worked for. It is the family, the neighbours, and a settled local opinion about what kind of woman a gangster's widow must be. Martin Ritt's 1958 picture is a studio romance whose lovers are past their first youth and whose impediment is respectability: ninety-four minutes in which two people who have each buried a spouse try to arrange a second marriage against the wishes of everyone with a claim on them. A Volpi Cup for Best Actress went to the woman at the centre, and the part asks for one specific thing — absorbing judgement from people who are perfectly polite while they deliver it. Melodrama, then, but the kind that knows exactly how a small community says no without ever saying it.",
+  "model": "claude-opus-5",
+  "source_sha256": "97f5df1223124a153f3ee464a574ea7c9aba338b17857f2601a90c254045bb50"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mister-johnson-1991",
+  "field": "lead",
+  "film_id": "a6d16641-dd12-4552-9a51-b87fe235833f",
+  "lang": "en",
+  "text": "He has never been to England and considers himself English. That is the whole predicament of the man who works for the British magistrate in a Nigerian district in 1923, educated into a language and a manner that neither his employers nor his neighbours will accept coming from him. Bruce Beresford stays with the ordinary machinery of the colony — the office, the ledger, the small favours traded to keep things moving — and lets Johnson's schemes run ahead of his ability to see where they lead. He is charming, which is not the same as safe. A Silver Bear for Best Leading Performance recognized the actor in the part, and the difficulty is plain: he has to be liked and misread at the same time, by the Englishmen in the story and by anyone watching them do it.",
+  "model": "claude-opus-5",
+  "source_sha256": "4749e7d8614838ee9c45e27d96fe774b4ad4910526f2c68ad5a09ac1c812c7ef"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tragedy-of-a-ridiculous-man-1981",
+  "field": "lead",
+  "film_id": "2a21e339-199b-4cd7-82a2-0bb458d97b12",
+  "lang": "en",
+  "text": "A father collects the ransom demanded for his kidnapped son and begins to consider what else that money could do. The factory makes cheese, it is close to bankruptcy, and the man who owns it built it from nothing and is subtle about nothing. Bernardo Bertolucci gives this two hours in 1981 and stays with the owner rather than with the crime, which is where its nerve is: the emergency is real, the son is missing, and the father's mind keeps drifting back to the balance sheet. A Best Actor prize went to the man playing him, and the role explains the choice — grief and accountancy have to occupy one face without either looking counterfeit. Whether that makes him a monster or merely a manufacturer stays open far longer than is comfortable.",
+  "model": "claude-opus-5",
+  "source_sha256": "f6af2397ba096f7204bb55a608c0c1ed14c95aa7e17c5d011438eda7062756c6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "seven-days-seven-nights-1960",
+  "field": "lead",
+  "film_id": "b2688afa-3bee-4bb8-8b9c-db172816594d",
+  "lang": "en",
+  "text": "Something happens in a café in Blaye, and Anne Desbarèdes goes back the next day to hear about it from a man who was there. Ninety-one minutes rest on that arrangement — a rich man's wife and a stranger named Chauvin at a table, going over an event that concerns neither of them, in a small commune where her days are otherwise identical to one another. Peter Brook keeps the method narrow on purpose: two people, a table, a conversation resumed. What accumulates is not information about the crime but the sense that discussing another person's violence gives her a way to approach something about her own arrangements that has no other route into speech. A Best Actress prize went to the lead, which is right for a part assembled almost entirely out of listening.",
+  "model": "claude-opus-5",
+  "source_sha256": "194de1c53f47e7af1bf6fb02c874291e6ac076bdc8f3d581e73fa53ac2959d99"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "wild-is-the-wind-1957",
+  "field": "lead",
+  "film_id": "414a5ebb-95e9-4cd1-832e-de9992735ec9",
+  "lang": "en",
+  "text": "The ranch is in Nevada, the new wife has been brought over from Italy, and she is the sister of the wife who died. George Cukor, 1957, lets that bargain operate across nearly two hours: a widower who talks about the woman he lost within the hearing of the woman he married, and a bride imported as a replacement who declines, slowly, to remain one. The work of the ranch gives everybody somewhere to be while the marriage fails to take hold. A Silver Bear for Best Leading Performance came of it, and the design accounts for the award — this is a two-hander conducted in the permanent company of a third party who is dead and mentioned daily. Romance is the listed genre. Property, grief and a poor exchange are the working materials.",
+  "model": "claude-opus-5",
+  "source_sha256": "c5f6581396e16d17f9cb8de2535a783da9acac1d624b37c8542c9dbacf1fd2f8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sugar-cane-alley-1983",
+  "field": "lead",
+  "film_id": "2ac4e0a8-4529-4ac1-8ee0-03c71131186d",
+  "lang": "en",
+  "text": "In the cane fields the overseer can fine a worker for almost anything, and the fine comes out of a wage that was never sufficient. Martinique, the early 1930s: José lives with his grandmother in a village where the one route out runs through a schoolroom, and she has decided he will take it. Euzhan Palcy's first feature runs 103 minutes and turns out to be largely a matter of arithmetic — exam results, a partial scholarship, the cost of moving to Fort-de-France set against what an old woman can still earn. A Volpi Cup for Best Actress went to the grandmother, and the film grants her an authority it never undercuts: she is not softened, she is simply right about what the island will and will not allow. Childhood here is a set of calculations other people are making on a boy's behalf.",
+  "model": "claude-opus-5",
+  "source_sha256": "704d706b609960dc33a69249522145cca3c7a05cbf34ec6a64fd9f7a29073351"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "giovanna-s-father-2008",
+  "field": "lead",
+  "film_id": "b493fdfa-61f6-4b7c-8c36-c3ac8e2dccce",
+  "lang": "en",
+  "text": "A professor and his daughter pass through the same school gate each morning, he to teach and she to be watched. Pupi Avati sets that in Fascist Italy and keeps the scale domestic: Michele Casali is decent, anxious, middle-class, and his love for Giovanna emerges as a vigilance he would never call by that name, which does little for a shy girl's confidence and a great deal for her sense of being under review, day after day, in the one building where she might otherwise have gone unnoticed. A Volpi Cup for Best Actor went to the man playing him, and the part is built to lose sympathy by degrees, since the film keeps asking whether care applied at this pressure is still care. 104 minutes, and it moves the way a school year moves: slowly, and then not slowly at all.",
+  "model": "claude-opus-5",
+  "source_sha256": "e5c9505489f99631079513109ef77407410fac1263765bc299bf964692b78cdc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "why-1972",
+  "field": "lead",
+  "film_id": "772abddd-a9df-44b9-99c4-083998709922",
+  "lang": "en",
+  "text": "He is stopped at the border on the way to a family holiday, and nobody will tell him what he is accused of. Giuseppe Di Noi has been living and working in Sweden; the country he is coming home to takes him in and passes him through cells and paperwork with the calm of a system that has no particular interest in him. Nanni Loy files this as comedy and drama at once, and it is both: the laughter comes out of procedure and so does the fear, often from the same clerk. A Silver Bear for Best Leading Performance went to the lead, and the part is essentially one man asking a reasonable question in every room he is moved to. 98 minutes, 1972, and funnier than that description suggests — which is the trap.",
+  "model": "claude-opus-5",
+  "source_sha256": "b09a353e2828c6fb2cd2a805ff3b5a2b6d42ba6e7e122da75510a639970070ad"
+ }
+]

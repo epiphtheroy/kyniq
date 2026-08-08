@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hayao-miyazaki#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1963년 도에이 애니메이션에 중간 작화 담당으로 입사했다. 그는 곧 노동조합의 불같은 지도자가 되어, 평생의 협업자이자 라이벌인 다카하타 이사오와 함께 파업을 이끌었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6abc2d285f94ce20ef474109b05f9b0d7c4c225175b919ddec57d482a416bf2f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hayao-miyazaki#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1965년 같은 도에이 애니메이터였던 오타 아케미와 결혼했다. 아내는 유망하던 자기 경력을 접고 두 아들을 키웠고, 미야자키는 훗날 그 희생이 부부 사이에 오래 남는 앙금이 되었다고 인정했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d4eadba677283a05d0bd8bc1d23ce7eac7b1478d2c20daa46ffee5b07e532db"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hayao-miyazaki#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미라맥스의 공동 회장 하비 와인스타인이 《모노노케 히메》 미국판을 대폭 잘라내라고 거세게 압박하자, 스튜디오 지브리 프로듀서 스즈키 도시오는 진짜 일본도 한 자루를 그에게 부쳤다. 짧은 쪽지가 붙어 있었다. \"No cuts.\"",
+  "model": "claude-opus-5",
+  "source_sha256": "d8a8821d91ba44d750384c68031b9ec2101b17caa921cedeb4e0fd7e6a8237ad"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hayao-miyazaki#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2003년 미국의 이라크 침공에 항의하며 그는 제75회 아카데미 시상식을 조용히 보이콧했다. 《센과 치히로의 행방불명》으로 받은 역사적인 장편애니메이션상 오스카를 받으러 로스앤젤레스에 가지 않은 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f5771787893ebf0e7938d5b6e8d43a1cfe37278ccb4b60701464f66f97527a35"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hayao-miyazaki#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장남 고로와의 관계는 악명 높을 만큼 껄끄럽다. 고로의 감독 데뷔작 《게드전기: 어스시의 전설》 시사회 도중 자리를 떠난 일화가 유명한데, 그때 그는 차갑게 말했다. \"내 아이를 봤다. 아직 어른이 못 됐더군.\"",
+  "model": "claude-opus-5",
+  "source_sha256": "5279c0da487777487c75d075e2164a4be75c12d8a1d7539311f09ab8033af473"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hayao-miyazaki#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "작가 어슐러 K. 르 귄은 어스시 연작의 각색을 미야자키에게 직접 청했다. 그러나 《하울의 움직이는 성》 작업에 매여 있던 그가 경험 없는 아들 고로에게 연출을 넘기자 르 귄은 크게 실망했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5c1150b24cd11f849ba89ba57af316f609c3ca2361b6d621ec65535edc946fa6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hayao-miyazaki#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "지독한 골초라 세븐스타 담배를 손에서 놓는 법이 없다. 지브리 책상 앞에서 그림에 몰두하는 순간에도 담배를 물고 있기로 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb85ce5c0c3643aa18fb631b78f940593df76a772a54e0c9c25c64651ea58b23"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hayao-miyazaki#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미타카에 지브리 미술관을 지을 때 그는 정해진 동선이 없도록 건물을 직접 설계했다. 아이들이 길을 잃으라고. 대신 거대한 고양이버스 인형에 어른이 올라타는 것은 엄격히 금지했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3a6d30e28ec9098b072c8ae7f1d84f521560eb139b42df2f2f22de13dd1819fb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hayao-miyazaki#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "픽사의 존 라세터와 가깝게 지낸 미야자키는 언젠가 커다란 토토로 인형을 픽사 사무실로 보냈다. 라세터는 그것을 자기 방에 두고 《토이 스토리》의 고된 제작 기간 내내 팀의 기운을 북돋우는 데 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a363955cd697f62763e0b1484b1bc1639aa6204f6cc4ea645b37aaa1af3be0fc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hayao-miyazaki#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 예술에 개입하는 첨단 기술과 인공지능을 대놓고 혐오한다. 2016년 AI가 만들어낸 기괴한 움직임을 들고 온 CGI 연구팀에게 던진 말이 유명하다. \"생명 그 자체에 대한 모독이다.\"",
+  "model": "claude-opus-5",
+  "source_sha256": "fb930a51d0dded84b8179943188141fb68e47ec6058461bbceabdab1616e0eaf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hayao-miyazaki#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "CGI를 그토록 꺼리면서도 2018년 단편 《털벌레 보로》에서는 컴퓨터 애니메이션을 잠깐 시험해봤다. 지브리 미술관에서만 상영된 작품이다. 그리고 《그대들은 어떻게 살 것인가》에서는 다시 손그림으로 완전히 돌아왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7d0c37af794a0c979f3e88d69123aad96eaa461c41d38edc7a8cb51ffa41155"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hayao-miyazaki#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《바람이 분다》의 주연 목소리로 그는 친구이자 또 한 명의 애니메이션 거장인 안노 히데아키를 캐스팅했다. 《신세기 에반게리온》을 만든 그 사람이다. 부서진 채 무언가에 집착하는 예술가의 말투를 안노의 목소리가 정확히 담아낸다고 믿었기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f36687f15dac7558053e98fb98df403fb6b0fc63a408a670a105688d1fe92198"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hayao-miyazaki#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1971년 미야자키는 아스트리드 린드그렌의 《말괄량이 삐삐》 애니메이션 판권을 따내려 스웨덴까지 갔다. 작가는 만나주지 않았다. 기획은 접어야 했고, 그때 그려둔 콘셉트 아트는 《팬더와 아기팬더》로 흘러갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d8440b88739faf9e027092036e6434fe2ee1ca2b7654f1c356a15e4750b7c31"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hayao-miyazaki#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "하루 일과가 엄격하다. 개인 작업실 니바리키(二馬力, '2마력')에 오전 11시 정각에 도착해 밤 9시까지 일한다. 그러다 자주 손을 놓고 지친 애니메이터들을 위해 라면을 냄비 가득 끓인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5873ee801b7284e57e2eef025f1a03efb293fa7a9dcee856ac1ced6302977837"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hayao-miyazaki#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2001년 《센과 치히로의 행방불명》이 《타이타닉》을 제치고 일본 영화사상 최고 흥행작이 되었을 때, 미야자키는 축하를 마다했다. 아이 하나의 진심 어린 웃음에 비하면 흥행 숫자는 아무것도 아니라고 프로듀서에게 말했다고 전해진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d4a229086301943c5b31c09a7309277316cdce98dd7a58da4162270a687588c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hayao-miyazaki#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 신토의 애니미즘에 깊이 물들어 있다. 돌, 강, 버려진 건물처럼 생명 없는 것에도 가미(神), 곧 정령이 깃든다고 믿는다. 지브리 영화의 그 집요한 배경 미술은 이 믿음에서 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5bbe53eb87f265a56276c3d416d529701854d4de89375bf98f30df6ca67a0368"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hirokazu-kore-eda#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아버지는 '히키아게샤(引揚者)', 곧 귀환자였다. 2차 대전이 끝난 뒤 시베리아의 소련 수용소에서 3년을 버티고 살아 돌아왔다. 일본에 돌아온 그는 깊이 망가진 사람이었고, 술을 많이 마셨으며, 한 직장에 오래 붙어 있지 못했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b68aa80a69b1e8b902f99b59321cb4da5e37c1fc3feec4c61c0b3a0a3255197"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hirokazu-kore-eda#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화를 향한 평생의 애정은 어머니가 심어준 것이다. 어머니는 텔레비전으로 미국 영화를 함께 봤고, 잉그리드 버그먼과 비비언 리, 조앤 폰테인 같은 할리우드 황금기의 여배우들을 특히 흠모했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "301b7943ff145faa6c126283c7933d698dbfdfee07ccf09a51ed4f94faf0c1cd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hirokazu-kore-eda#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스튜디오 시스템 대신 그가 택한 출발점은 1987년 독립 텔레비전 제작사 TV맨 유니온이었다. 거기서 날 선 사회 다큐멘터리를 만들며 관찰자의 눈, 꾸미지 않는 눈을 얻었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de1f9924b7049fd867dad5ce4507c681ad88401d3bb77edf10181f3761952e57"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hirokazu-kore-eda#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1994년 다큐멘터리 《그가 없는 8월이》는 일본 최초로 커밍아웃한 에이즈 환자 히라타 유타카의 마지막 몇 달을 따라간다. 이 촬영을 거치며 고레에다는 빡빡한 스케줄보다 사람과의 가까운 관계가 먼저라는 것을 배웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "63986b062afd9a4a53b1637a5c95aa1497440a000deb66767cc6ed6dc6e9838d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hirokazu-kore-eda#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "서구 비평가들은 그를 끊임없이 오즈 야스지로와 견준다. 정작 본인은 영국 감독 켄 로치의 거친 사회적 리얼리즘 쪽에 훨씬 가깝다고 여러 차례 말해왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e234a912a1fc3671f63801a6ea2cb133262e53d6e79ea9389561b0f202ec813"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hirokazu-kore-eda#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2008년의 사무치는 걸작 《걸어도 걸어도》는 어머니의 죽음이 남긴 슬픔과 후회에서 나왔다. 바쁘던 초년 시절 내내 어머니를 소홀히 했다는 자책이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8375da32a68f749ce2cd22e30dbec17c3efb4c13654c32cd9570153bb43fee2e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hirokazu-kore-eda#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2014년 그는 제작사 분부쿠를 차렸다. 모습을 바꾸는 너구리가 나오는 일본 옛이야기에서 따온 이름이다. 니시카와 미와 같은 신진 감독들이 위아래 없이 서로를 받쳐줄 공동체를 만들려는 뜻이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "da9ac293f4541f9291bfd438cd280e15d3e4be946ca7b7d2feda2fcfb91420a9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hirokazu-kore-eda#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2018년 《어느 가족》으로 황금종려상을 받은 뒤, 그는 아베 신조 총리의 축하 리셉션 초청을 공개적으로 거절했다. 영화를 만드는 사람은 정치 권력과 거리를 지켜야 한다는 이유였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "95e5b69012dad4258b7887b341437592c6c6274e9707e0d62b5217773683c949"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hirokazu-kore-eda#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "총리를 만나지 않겠다는 그 발언은 일본 우익 민족주의자들의 격렬한 반발을 불렀다. 그들은 감독을 '반일'로 몰았고, 영화에 들어간 공적 지원금을 회수하라고 요구했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "69e984d54963ea2197b92e9812b71c6f0f8cc35ee9978ed77d31988b4a8441e9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hirokazu-kore-eda#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "괴짜이자 전설인 배우 기키 기린과 그는 자주 함께 일했다. 결함투성이 어머니이자 할머니라는 그 전형적 인물로 여섯 편에 그를 세웠고, 2018년 기키가 암으로 세상을 뜨면서 그 협업도 끝났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e2d1e91fd536542b5f822e6630c15b483f997cee469089aed38d4f16e631d836"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hirokazu-kore-eda#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자기 영화의 편집은 거의 전부 직접 한다. 영화의 리듬은 편집실에서 발견되는 것이라 믿기 때문이고, 최종 호흡만큼은 완전히 손에 쥐고 싶기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a45fa54c40cb1ffd4075e663ff57dfaef2bb3f14d84f3dd63853c1c07959c1a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hirokazu-kore-eda#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "국제적 명성과 별개로 그는 일본 영화 산업의 구조적 병폐를 날카롭게 비판한다. 젊은 독립 감독들이 착취당하지 않도록 프랑스 CNC 같은 기구를 세우라고, 자신이 꾸린 단체 '액션4시네마'를 통해 정부를 압박하는 중이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "377efe677426d79ddbe5c5cfcace209d178be8cd764e5eaa65c803fe04075ded"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hirokazu-kore-eda#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2023년 《괴물》에서 그는 오랜 관행을 깼다. 각본은 늘 자기가 썼는데, 장편으로는 처음으로 남의 글을 받은 것이다. 상대는 이름난 텔레비전 작가 사카모토 유지였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "68ea71041cb3cec82b0f0ea2f5bb4b3dffaa31f1e3dcb69ba79acc14521341d1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hirokazu-kore-eda#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《괴물》의 잊히지 않는 미니멀한 음악은 사카모토 류이치가 썼다. 함께 하자는 고레에다의 간절한 청을 그가 받아들였고, 그로부터 불과 몇 달 뒤 사카모토는 암으로 세상을 떠났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d78030bd6ef17e0f32a8a228c400ef4afa3836270d8c514f910a3507c77be0aa"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hong-sang-soo#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "부유한 집에서 자랐지만 십 대의 그는 반항아였다. 집을 자주 뛰쳐나갔고, 중앙대 연극과도 끝내 중퇴했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ccbcfadaa18ab79c4907ce1edaa5cd965aef3257f047df6e05953e6dd62eebe"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hong-sang-soo#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "대사가 많은 관계 희극의 작가로 알려져 있지만, 1996년 데뷔작 《돼지가 우물에 빠진 날》은 달랐다. 파편처럼 흩어진 충격적인 스릴러였고, 1990년대 한국 영화의 멜로드라마 문법을 통째로 흔들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dda7eb22e7d77b3b1e47c5d4378335678f2d87fa9c796aa0771a5daf45545c13"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hong-sang-soo#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 자기 제작사 전원사를 직접 굴린다. 덕분에 창작의 결정권을 온전히 쥐고, 장편을 아주 적은 돈으로 찍는다. 10만 달러에 한참 못 미치는 경우도 흔하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a2a3a9a395568e55e1aafb3b646d95f9528a6455d704826fd50544be7ef1a477"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hong-sang-soo#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2016년, 자주 함께 작업해온 주연 배우 김민희와의 혼외 관계가 드러나면서 그의 사생활은 전국을 뒤흔든 스캔들이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "754abcbd7ed5910431556c88adeb04ec609992e76b96d3953d7f999dec304295"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hong-sang-soo#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "한국 법은 혼인 파탄에 책임이 있는 배우자가 이혼을 청구하는 것을 인정하지 않는다. 그래서 서울가정법원은 30년 넘게 함께한 아내 조성혜를 상대로 홍상수가 낸 이혼 청구를 기각했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "da799f0cbfebc35f71ab4597a672a8546b1426f1293ba3a7c48b96cfe5f2f599"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hong-sang-soo#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "베를린국제영화제 은곰상을 한국 감독으로는 가장 많이 받았다. 《도망친 여자》, 《인트로덕션》, 《소설가의 영화》로 3년 연속 트로피를 가져갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb79a0fd4ef5b489c7aee80890a53a83e7a01047f8ab7dd5b738458dc10e580a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hong-sang-soo#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "산책하다 우연히 마주친 평범한 장소에서 자주 찍는다. 강릉의 작은 바닷가 카페, 북촌의 좁은 골목 같은 곳. 그리고 그 한 공간의 공기에서 영화 전체의 이야기를 세워 올린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "48f8285333a255681cccf3ab7ac2969743717a3b287c88dcef491f296189865c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hong-sang-soo#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "현장 인원은 열 명이 채 안 된다. 촬영까지 직접 맡을 때도 있는데, 《소설가의 영화》와 《물안에서》가 그랬다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0c9e86a6cdb632eb3c52735e22595fa63be6281f49b46cbfbbd39f96c3342f57"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hong-sang-soo#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "프랑스 영화의 아이콘 이자벨 위페르는 그의 작업 방식에 완전히 매료됐다. 《다른 나라에서》, 《클레어의 카메라》, 《여행자의 필요》 세 편의 초저예산 영화에 출연하면서 선금도 받지 않았고 자기 옷을 입고 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e722d33b99ef777b057f6ec9c579974b27586f006a657c3458dbc9790208c60f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hou-hsiao-hsien#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "허우샤오셴은 중국 광둥에서 태어났다. 1948년 가족은 잠시 머물 생각으로 타이완에 건너갔지만, 죽의 장막이 갑자기 내려앉으면서 남부 소도시 펑산에 영영 발이 묶였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2378708ce4c1aad2b3bb54c64cc34a5bfb86bd4832aa3a389c9e9f220768d736"
+ }
+]

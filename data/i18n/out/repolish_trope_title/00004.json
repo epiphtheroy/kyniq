@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "fascism-incubated-in-the-nursery",
+  "field": "title",
+  "lang": "ko",
+  "text": "아이 방에서 자란 파시즘",
+  "model": "claude-opus-5",
+  "source_sha256": "2f33375b4aaedbc03a3a569de7ce400fec8a8e6fadb4f90fc573cb25b6972e6c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fascist-architecture-reframed-as-sacred-stage",
+  "field": "title",
+  "lang": "ko",
+  "text": "성스러운 무대가 된 파시즘 건축",
+  "model": "claude-opus-5",
+  "source_sha256": "afc0aa5337e5b81740c8df2977cc51e112541d36d879aef09c23e71437195ef2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fatherhood-as-something-spoken-not-born",
+  "field": "title",
+  "lang": "ko",
+  "text": "낳는 것이 아니라 말해지는 아버지",
+  "model": "claude-opus-5",
+  "source_sha256": "1cecf61d4aeff1e53517fb4be83614986a275a88abeb3b41252958fca59537bc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fear-engineered-by-showing-less",
+  "field": "title",
+  "lang": "ko",
+  "text": "덜 보여줘서 만드는 공포",
+  "model": "claude-opus-5",
+  "source_sha256": "e1f35925adce4cc7c1a0806f7394cdc01c25774a565a7297aab3293a6ee1b4b5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "festivity-as-manic-defence-against-death",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽음을 밀어내는 들뜬 축제",
+  "model": "claude-opus-5",
+  "source_sha256": "f1363bba8078d978c53f87e76ab304ea86b7853c7744f6eb7019376c77fcde46"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fidelio-the-theological-virtue-gone-to-brand",
+  "field": "title",
+  "lang": "ko",
+  "text": "피델리오 — 브랜드가 되어버린 신학의 덕목",
+  "model": "claude-opus-5",
+  "source_sha256": "6542557df47a94052b08c29d98b611f5cb07262fc58c1af45b214a5cf5fd4752"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fidelity-as-the-endless-re-choosing",
+  "field": "title",
+  "lang": "ko",
+  "text": "매번 다시 고르는 일로서의 정절",
+  "model": "claude-opus-5",
+  "source_sha256": "7711c88475ae3e4cb0565960e5496411f9cc1b99b02d2582c462b3b626f3ad12"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fidelity-praised-as-the-product-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "충실함 자체를 상품으로 파는 찬사",
+  "model": "claude-opus-5",
+  "source_sha256": "363fa76740673f633a04f3e323c258e209932f7b98ee9702d2f5877d77841e8d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "filial-duty-pressed-to-its-breaking-point",
+  "field": "title",
+  "lang": "ko",
+  "text": "부러질 때까지 밀어붙인 효(孝)",
+  "model": "claude-opus-5",
+  "source_sha256": "f69ec38e14c6b12bc3bc9b7a0aa6376eff4b6ac6369a63297c6fed9f3bf663dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "film-grain-as-polemic-against-the-digital-image",
+  "field": "title",
+  "lang": "ko",
+  "text": "디지털에 맞선 반론, 필름 그레인",
+  "model": "claude-opus-5",
+  "source_sha256": "d05d8e6cd29fe8f5b5fbdc45ad1bd757a3849754ad979cdeebd876d8043748e1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "film-stock-mourned-at-the-digital-threshold",
+  "field": "title",
+  "lang": "ko",
+  "text": "디지털 문턱에서 필름을 애도하다",
+  "model": "claude-opus-5",
+  "source_sha256": "e176465171887a7786e8418843ce4953a8bd3d8e61e498267c668d6e75a571be"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "film-stock-mourning-a-vanished-image",
+  "field": "title",
+  "lang": "ko",
+  "text": "사라진 이미지를 애도하는 필름",
+  "model": "claude-opus-5",
+  "source_sha256": "83987cdcf964eab6600981ea95c53d05a8da6245d7e8c493c17966221b53791f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "filmed-before-the-captivity-reckoning",
+  "field": "title",
+  "lang": "ko",
+  "text": "사육 논란이 터지기 전에 찍힌 화면",
+  "model": "claude-opus-5",
+  "source_sha256": "11fd5946ff2b5ac1e18ba1c068a7e13045f462483491cafa81c70b41aab2c9c7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "filmed-in-the-atrocity-s-real-shadow",
+  "field": "title",
+  "lang": "ko",
+  "text": "학살의 실제 그늘에서 찍다",
+  "model": "claude-opus-5",
+  "source_sha256": "9b9102bbc21419ef17f769c064e3348c2454bfa130c82ae7d2de75bb1745ddf4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "filmed-in-walker-evans-s-documentary-gaze",
+  "field": "title",
+  "lang": "ko",
+  "text": "워커 에번스의 눈으로 찍은 화면",
+  "model": "claude-opus-5",
+  "source_sha256": "7d422753fba5aad3628b00fb8406fba7f519d5aa6235ff5089a9eeb15a2f75c5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "filming-a-lost-era-as-eulogy-for-adolescence",
+  "field": "title",
+  "lang": "ko",
+  "text": "잃어버린 시대를 찍어 청춘을 추도하다",
+  "model": "claude-opus-5",
+  "source_sha256": "1281e7cf1a3376e24cf258ccefbdeed4f04258bf1f13b27ea81ea20cbf291990"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "films-built-from-a-datable-surveillance-panic",
+  "field": "title",
+  "lang": "ko",
+  "text": "날짜가 박힌 감시 공포에서 나온 영화들",
+  "model": "claude-opus-5",
+  "source_sha256": "76e4e4c85bf3e15993856fd10c64b9399668a12491fcbf9f5bfb32d002ef27e9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "films-clocked-to-brazil-s-wounded-political-calendar",
+  "field": "title",
+  "lang": "ko",
+  "text": "브라질의 상처 난 정치 일지에 맞춘 영화들",
+  "model": "claude-opus-5",
+  "source_sha256": "a17333d30549167b388f87a3f041befed0ffc8fed857b24790c3b7e10c3a119a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "films-dated-by-the-reagan-ledger",
+  "field": "title",
+  "lang": "ko",
+  "text": "레이건의 장부가 연도를 새긴 영화들",
+  "model": "claude-opus-5",
+  "source_sha256": "91bea1dfda695631d35c4c0e00d39cab6185dc6a042fdcd31b6422729f4d90ab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "films-forged-in-the-banlieue-s-burning-year",
+  "field": "title",
+  "lang": "ko",
+  "text": "방리유가 타오르던 해에 벼려진 영화들",
+  "model": "claude-opus-5",
+  "source_sha256": "c360abe7808a862613226938eff16260461b3c76ff2e5055bf5a1bcd53939500"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "films-shot-in-the-imf-crater",
+  "field": "title",
+  "lang": "ko",
+  "text": "IMF가 남긴 구덩이에서 찍은 영화들",
+  "model": "claude-opus-5",
+  "source_sha256": "7de38dab53b65435a70c72870873706c52c93b3fa6afc357716fd3a359318dc2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fire-as-inherited-wound-that-cannot-be-extinguished",
+  "field": "title",
+  "lang": "ko",
+  "text": "꺼지지 않고 대물림되는 상처, 불",
+  "model": "claude-opus-5",
+  "source_sha256": "67afdf6d3611f4c64f7ed162e71c869d1d082f7b036f423e96fcbfee61c81dce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fire-as-the-crime-the-psyche-replays-to-master",
+  "field": "title",
+  "lang": "ko",
+  "text": "이겨내려고 자꾸 되돌리는 범죄, 방화",
+  "model": "claude-opus-5",
+  "source_sha256": "4b6fc702508ea541139950b045719da8f89d5274ddc29437f86e5611bd698da5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "flat-affect-as-buried-grief-not-control",
+  "field": "title",
+  "lang": "ko",
+  "text": "무표정은 자제가 아니라 묻어둔 슬픔",
+  "model": "claude-opus-5",
+  "source_sha256": "e272bbbe6aa7c48440a747620b1ca36ea74c4ba13191926862a130f26c48649e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fleeing-straight-into-the-feared-thing",
+  "field": "title",
+  "lang": "ko",
+  "text": "두려운 것 속으로 곧장 달아나기",
+  "model": "claude-opus-5",
+  "source_sha256": "2de5165ec0fde8d39469491252cb7d73e2287f312044bdf7f5221d54e333f84c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "flight-as-privilege-without-cost",
+  "field": "title",
+  "lang": "ko",
+  "text": "값을 치르지 않는 특권, 도망",
+  "model": "claude-opus-5",
+  "source_sha256": "d44720334a4c7624ee3e242b351cf8dcf8eea305226c4ffae7043211e9b3c122"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "focus-as-the-hand-that-conjures",
+  "field": "title",
+  "lang": "ko",
+  "text": "불러내는 손이 된 초점",
+  "model": "claude-opus-5",
+  "source_sha256": "586f2248b31472028f133eb461fc1cef6445d5043fcf178a4e3d54179ad3ca36"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "food-named-as-a-film-s-title-mood",
+  "field": "title",
+  "lang": "ko",
+  "text": "제목에 놓인 음식이 정하는 정서",
+  "model": "claude-opus-5",
+  "source_sha256": "71203ee3b653e56f596b12bd3108fc6369aa31e3dfae461f84dd460e4229562a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "forced-perspective-as-worldview-made-visible",
+  "field": "title",
+  "lang": "ko",
+  "text": "눈에 보이는 세계관, 강제 원근법",
+  "model": "claude-opus-5",
+  "source_sha256": "75e6a305a0e42d25b10cc23d75563c21af842061dd247a68fb9c2c536c95cdb7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "foreclosed-grief-awaiting-detonation",
+  "field": "title",
+  "lang": "ko",
+  "text": "터질 날을 기다리는 봉인된 슬픔",
+  "model": "claude-opus-5",
+  "source_sha256": "a0b536312d400634f2ff2649a698593caca3d762ecfb8fc8b58565327f106e49"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "foreclosure-as-the-crime-with-no-villain",
+  "field": "title",
+  "lang": "ko",
+  "text": "범인 없는 범죄, 압류",
+  "model": "claude-opus-5",
+  "source_sha256": "bd6974289f9124dcec1784f7675f8a747c75af1973ad40c72d9806ef81112a59"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "forgetting-is-repression-not-absence",
+  "field": "title",
+  "lang": "ko",
+  "text": "망각은 없어진 게 아니라 눌러둔 것",
+  "model": "claude-opus-5",
+  "source_sha256": "d7ee118dd3651328d96e9e22cd2f0dc4dfd4a778020ddd4434eef8feb3255770"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "forgiveness-as-the-impossible-unearnable-gift",
+  "field": "title",
+  "lang": "ko",
+  "text": "벌 수도 없고 될 수도 없는 선물, 용서",
+  "model": "claude-opus-5",
+  "source_sha256": "7c7b44a9fede2942d52c1a190a513574cd1dcf35cfe6c2b3d26caafe111f0a61"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "forgiveness-earned-by-reliving-the-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "상처를 다시 겪고서야 얻는 용서",
+  "model": "claude-opus-5",
+  "source_sha256": "9bdba526f6b3f9fc68214f48951084ebad3903bee39fadac0d0dff3b4d422c48"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "forgiveness-that-severs-the-causal-chain",
+  "field": "title",
+  "lang": "ko",
+  "text": "인과의 사슬을 끊어버리는 용서",
+  "model": "claude-opus-5",
+  "source_sha256": "937b22ebcac8d89569a301e86879f6af9d5cfd7293075d23c91022d318e1dd82"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "france-doubled-in-a-single-summer",
+  "field": "title",
+  "lang": "ko",
+  "text": "한 해 여름에 둘로 쪼개진 프랑스",
+  "model": "claude-opus-5",
+  "source_sha256": "9725fa39dbf6fe8afe2f9617b6ec411d4cc13c1325f2c8a4565610a1c0642b83"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "france-s-consumer-modernity-inscribed-in-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "필름에 새겨진 프랑스식 소비 근대",
+  "model": "claude-opus-5",
+  "source_sha256": "9555569f9df10517013c4e448b8c52b6e33a1a473fb031da0582145d3ca38798"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "francis-bacon-s-screaming-meat-flesh",
+  "field": "title",
+  "lang": "ko",
+  "text": "비명 지르는 고깃덩이, 프랜시스 베이컨",
+  "model": "claude-opus-5",
+  "source_sha256": "70c642f379a118150ad54b88cd9fcef279911909ae6ff52d601d6180295d6139"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "freed-by-the-dying-censor",
+  "field": "title",
+  "lang": "ko",
+  "text": "검열이 숨을 거두며 풀려난 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "e98b38a35155562461e24b669bd6fc5b5e9d08f7c6f755c95d48682b0cc114cd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "freedom-as-wound-never-arrival",
+  "field": "title",
+  "lang": "ko",
+  "text": "자유는 도착이 아니라 상처다",
+  "model": "claude-opus-5",
+  "source_sha256": "eba3d58e898bf2aede5f423589c6c1ca3cd9f0f479fbc80147de9732b6b516f2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "freedom-disguised-as-fate",
+  "field": "title",
+  "lang": "ko",
+  "text": "운명의 탈을 쓴 자유",
+  "model": "claude-opus-5",
+  "source_sha256": "377d5be6bfedb5c03f15116e1c5bb6940b3cba88477e30135843435c91f74662"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "freedom-forged-inside-the-cage",
+  "field": "title",
+  "lang": "ko",
+  "text": "우리 안에서 벼려진 자유",
+  "model": "claude-opus-5",
+  "source_sha256": "7d458e53e838ae00a66da24f80f9536df729f88831ddefca36ad71b02d6468b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "freedom-is-geographic-not-innate",
+  "field": "title",
+  "lang": "ko",
+  "text": "자유는 타고나지 않고 어디 있느냐에 달렸다",
+  "model": "claude-opus-5",
+  "source_sha256": "d0f52f0b1f3326d95e899ff000dde841ff13ea5000863b945ff5791ee330f191"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "friendship-as-the-aristotelian-ethical-test",
+  "field": "title",
+  "lang": "ko",
+  "text": "윤리를 재는 시험대가 된 우정 — 아리스토텔레스의 방식으로",
+  "model": "claude-opus-5",
+  "source_sha256": "e2793f47ee5537c5f568b99fd7c8f0b0caff54dc894e24e6ba305eceffb4181d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "friendship-as-the-promise-capital-cannot-keep",
+  "field": "title",
+  "lang": "ko",
+  "text": "자본이 끝내 지키지 못하는 약속, 우정",
+  "model": "claude-opus-5",
+  "source_sha256": "814f6d6f293eb7840e70b282528584cd7eff5abfe1300932f6b17c6737a5f3cb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "from-object-of-gaze-to-subject-who-looks",
+  "field": "title",
+  "lang": "ko",
+  "text": "보이던 자리에서 보는 자리로",
+  "model": "claude-opus-5",
+  "source_sha256": "bd797e9f9060e9a24b6fc9225502442c2d5f3b9ffdb520850d2df78a73cff0c3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fuji-s-slopes-as-disorienting-threshold",
+  "field": "title",
+  "lang": "ko",
+  "text": "방향을 잃게 만드는 문턱, 후지산 비탈",
+  "model": "claude-opus-5",
+  "source_sha256": "97609f0ce76aa0ca6122435c1969a9fac60e11d069f526b49904cb94f0ecedb2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "fusion-as-the-plot-s-hidden-engine",
+  "field": "title",
+  "lang": "ko",
+  "text": "플롯을 몰래 굴리는 동력, 융합",
+  "model": "claude-opus-5",
+  "source_sha256": "712df5b100c534bd13e4a27210fce6e40ae51892510eff35867015e755e1da1b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "garment-as-the-cut-of-class-passage",
+  "field": "title",
+  "lang": "ko",
+  "text": "계급을 건너는 재단선, 옷",
+  "model": "claude-opus-5",
+  "source_sha256": "42d14621e8773230f00d8cc504f267373a7b00ab94efc5cc7ab29f4758253d10"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "genet-s-liturgy-sanctifying-the-outlaw",
+  "field": "title",
+  "lang": "ko",
+  "text": "주네의 전례: 무법자를 성인으로 올리다",
+  "model": "claude-opus-5",
+  "source_sha256": "ffbac435d518da6ef676a452ad312dc89c2c15b7caa1fc0c8d26ac46ea7c2b0e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "genius-improvising-from-the-cutting-room-scraps",
+  "field": "title",
+  "lang": "ko",
+  "text": "편집실 자투리로 즉흥하는 천재",
+  "model": "claude-opus-5",
+  "source_sha256": "7796acd45dfc904bd8130ee6f9087b5679f52308a48907a9b694e4e8f34e651e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "genre-as-disguised-mourning-work",
+  "field": "title",
+  "lang": "ko",
+  "text": "애도를 장르로 위장하기",
+  "model": "claude-opus-5",
+  "source_sha256": "0f812c020bdf4de8e13ab2ebc18c4dcc1ae8562f2b879f3455c5c92562903838"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "genre-as-the-critic-s-defensive-misreading",
+  "field": "title",
+  "lang": "ko",
+  "text": "‘장르’라는 이름의 방어적 오독",
+  "model": "claude-opus-5",
+  "source_sha256": "e4acda93755b630c71f85cc3f6095aaeda8f7a65cf517a5e63decbdb4ea10533"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "genre-contempt-smuggled-into-praise",
+  "field": "title",
+  "lang": "ko",
+  "text": "칭찬에 숨겨 들여온 장르 경멸",
+  "model": "claude-opus-5",
+  "source_sha256": "f5547d764a8ef279ba881b456d74f10bc14452fad468b47a9ac78403cc6e43a4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "gentle-as-critical-sedation-of-an-accusation",
+  "field": "title",
+  "lang": "ko",
+  "text": "고발을 재우는 진정제, ‘온화하다’는 말",
+  "model": "claude-opus-5",
+  "source_sha256": "2ec54da0a1170bb1aa760f054436d3621bb57b3025006667640e1dc6a123a626"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "german-art-pressed-into-the-service-of-annihilation",
+  "field": "title",
+  "lang": "ko",
+  "text": "절멸에 징발된 독일 예술",
+  "model": "claude-opus-5",
+  "source_sha256": "3baca150ac4e3d3074d0e7f8b2fbc044fc0b67de30cdb79dd0f63b242ad9810e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "glass-and-tower-as-architecture-of-surveillance",
+  "field": "title",
+  "lang": "ko",
+  "text": "유리와 고층빌딩, 감시의 건축",
+  "model": "claude-opus-5",
+  "source_sha256": "9d81d521cb71bd046f3fc73d4cbb74b7233523357e59c22e5af0bcefdfeaa44d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "glass-as-the-camera-s-own-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "카메라가 제 입으로 하는 고백, 유리",
+  "model": "claude-opus-5",
+  "source_sha256": "c923458f456712fffb5b02b03dc501536cdfcb232f30624f1e6d60ae606943b3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "glenn-gould-flees-into-the-instrument",
+  "field": "title",
+  "lang": "ko",
+  "text": "글렌 굴드, 악기 속으로 숨다",
+  "model": "claude-opus-5",
+  "source_sha256": "46f9055f68a7ccbbe04129a3bcc2fbbc1f179c4d270ad6b5f848c30c8c7a932c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "god-decoded-as-a-hidden-system-logic",
+  "field": "title",
+  "lang": "ko",
+  "text": "숨은 시스템의 논리로 풀어낸 신",
+  "model": "claude-opus-5",
+  "source_sha256": "6ec96566a6cdc080bd8bf7e69ecb3f03a113b33d488d7168f9203d4f22ef044b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "god-replies-from-the-whirlwind",
+  "field": "title",
+  "lang": "ko",
+  "text": "신은 회오리바람 속에서 답한다",
+  "model": "claude-opus-5",
+  "source_sha256": "cb45b3caa876651988cebdda72ea29d3cb1419a1e3e50b1099a6800782468d4b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "going-electric-as-betrayal-of-the-collective",
+  "field": "title",
+  "lang": "ko",
+  "text": "일렉트릭으로 갈아탄 것은 배신이었다",
+  "model": "claude-opus-5",
+  "source_sha256": "d03fb93b607a95fd8f9dc1b39d9b92a27aeb1e738a83524f4a904870b3e4e601"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "going-the-distance-not-winning-is-victory",
+  "field": "title",
+  "lang": "ko",
+  "text": "이기는 게 아니라 끝까지 버티는 게 승리다",
+  "model": "claude-opus-5",
+  "source_sha256": "ca6e2e3da43216626393fbfb844ea70083727ed75c94c17f4146c5f0e9432298"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "gold-as-congealed-dead-labor",
+  "field": "title",
+  "lang": "ko",
+  "text": "굳어버린 죽은 노동, 금",
+  "model": "claude-opus-5",
+  "source_sha256": "a62795d9bffb393161b848abc8df752c3d4163cbe7b763a21c9df16eeaf0e19e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "gold-as-moral-test-not-mere-loot",
+  "field": "title",
+  "lang": "ko",
+  "text": "금은 전리품이 아니라 시험이다",
+  "model": "claude-opus-5",
+  "source_sha256": "af8190c3a3808796a982162ebb4ca88ed2fadac359e3ef54a18f7a2fe75c9dc6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "gold-as-the-mirage-of-sovereign-capital",
+  "field": "title",
+  "lang": "ko",
+  "text": "주권 자본이 만든 신기루, 황금",
+  "model": "claude-opus-5",
+  "source_sha256": "b9a16dbf30702933853f30967506dd0921a071404d8ce3ff7b8aca623f9d9d56"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "gold-as-the-true-protagonist",
+  "field": "title",
+  "lang": "ko",
+  "text": "진짜 주연은 황금이다",
+  "model": "claude-opus-5",
+  "source_sha256": "6ef50883e8707d19d47d718615abcedffb7e5e200ca2d17ec048e5e43407c0a6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "golding-s-children-restaged-beyond-the-reef",
+  "field": "title",
+  "lang": "ko",
+  "text": "산호초 너머에서 다시 자라는 골딩의 아이들",
+  "model": "claude-opus-5",
+  "source_sha256": "4e01958b0755309b6c0f29b9bcb5c86542f5898ffd34955a735836d66202fcc4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "gollum-the-first-citizen-of-the-digital",
+  "field": "title",
+  "lang": "ko",
+  "text": "골룸, 디지털의 첫 시민",
+  "model": "claude-opus-5",
+  "source_sha256": "0c758e10c5fa366389265bbabc897a396b82dd2dbe205b302a4211ec425f598c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "gotham-as-stage-managed-political-theatre",
+  "field": "title",
+  "lang": "ko",
+  "text": "연출된 정치극의 무대, 고담",
+  "model": "claude-opus-5",
+  "source_sha256": "e937a82e88ce5d05fcf9f852f85a8926f048d85397bace957cbf4af7d1dd1635"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "goya-s-black-paintings-as-filming-manual",
+  "field": "title",
+  "lang": "ko",
+  "text": "고야의 검은 그림을 촬영 지침으로",
+  "model": "claude-opus-5",
+  "source_sha256": "4e264af4b37ac38fbc8d3f1de7958dbe15c0f580bfd105d16de0ec5a8e92b59b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "goya-s-hand-drawing-the-atrocity",
+  "field": "title",
+  "lang": "ko",
+  "text": "참상을 그려내는 고야의 손",
+  "model": "claude-opus-5",
+  "source_sha256": "1edd5ec0daee7848a5e8512d2154543e9c84e1d1d28f10b8c6b783a926d7d71b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "goya-s-witness-behind-the-camera",
+  "field": "title",
+  "lang": "ko",
+  "text": "카메라 뒤에 선 고야의 눈",
+  "model": "claude-opus-5",
+  "source_sha256": "c39c3a6533d843755cc39c759ba6c2426f8741530fcd1e18d70cebcd345c7d27"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grace-arrives-unearned-without-cause",
+  "field": "title",
+  "lang": "ko",
+  "text": "은총은 까닭도 값도 없이 온다",
+  "model": "claude-opus-5",
+  "source_sha256": "ba405fba3024ef0eed51552f4fe9be07eb1865915e59b1ddd077616c2cde66ab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grace-as-composure-before-defeat",
+  "field": "title",
+  "lang": "ko",
+  "text": "질 줄 알면서 흐트러지지 않는 것, 품격",
+  "model": "claude-opus-5",
+  "source_sha256": "4d1d7827e2dc52ca473012c85297f5c582456aabec2386856d4c8d44b3ee7d55"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grace-mistaken-for-engineered-chance",
+  "field": "title",
+  "lang": "ko",
+  "text": "짜맞춘 우연으로 오해받은 은총",
+  "model": "claude-opus-5",
+  "source_sha256": "aedf04c0c6c496ec6c54b7e214e9a7868e9b5fc7b2bab35a1a08ad77f7378d5d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grace-that-cannot-be-willed-only-awaited",
+  "field": "title",
+  "lang": "ko",
+  "text": "의지로는 못 얻고 기다릴 수만 있는 은총",
+  "model": "claude-opus-5",
+  "source_sha256": "eb3320f9ad7b367d2f2e7c485365d4d657a2a82ea1f673514ec73660dd51d62b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grain-as-the-texture-of-memory",
+  "field": "title",
+  "lang": "ko",
+  "text": "기억의 결이 된 그레인",
+  "model": "claude-opus-5",
+  "source_sha256": "cff6657c33867ece2dc829e155bd2d2748e735bbe5a098b9211a62753af2e1f7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grammar-as-the-film-s-true-tense",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화의 진짜 시제는 문법에 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "55d951aa6fa30a250259b1332c9bfcf9f789a8982df60437ce9769312b4d864b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "gravity-as-fall-sinking-and-surrender",
+  "field": "title",
+  "lang": "ko",
+  "text": "떨어지고 가라앉고 끝내 놓아버리는 중력",
+  "model": "claude-opus-5",
+  "source_sha256": "f508395608c699d050f13661577ae891f18aebb6f1eaa0ee882edb3f350781e1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "greece-as-beautiful-backdrop-for-civilizational-rot",
+  "field": "title",
+  "lang": "ko",
+  "text": "문명이 썩는 자리에 놓인 아름다운 배경, 그리스",
+  "model": "claude-opus-5",
+  "source_sha256": "0302c1e4bdc13d0ccf33da1a020c206b902239cc1ee1cf830ee3738cd674556c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "greece-is-always-somewhere-else-in-disguise",
+  "field": "title",
+  "lang": "ko",
+  "text": "그리스는 늘 다른 곳이 변장한 모습",
+  "model": "claude-opus-5",
+  "source_sha256": "537029f402832e435c8f0aca78b73781a3006ad179bebfb042aa529099b48cdc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "greek-ruins-as-mirror-of-the-decaying-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "허물어지는 자아를 비추는 그리스 폐허",
+  "model": "claude-opus-5",
+  "source_sha256": "da0b0d93cb8a4ba56abe9b66297c6d1fe86f495ce288a50c59a7c6bab4b23b2f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "green-named-in-the-title-erased-on-screen",
+  "field": "title",
+  "lang": "ko",
+  "text": "제목에만 있는 초록, 화면에선 지워진",
+  "model": "claude-opus-5",
+  "source_sha256": "d2de35540c563660b632a47594e778c0ad5a92df318009fcc39c5bd2ae7380b2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grief-as-an-object-with-mass",
+  "field": "title",
+  "lang": "ko",
+  "text": "무게가 나가는 물건이 된 슬픔",
+  "model": "claude-opus-5",
+  "source_sha256": "01601633fb103ce9addbc4a15a17ae556db0110c2d7e20a573d28f95c9b348af"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grief-as-the-disavowed-death-drive",
+  "field": "title",
+  "lang": "ko",
+  "text": "애도라 부르며 부인한 죽음 충동",
+  "model": "claude-opus-5",
+  "source_sha256": "b36416797451a160d35368dabd2bc597db677e8c66932492053d548d01e8aa0a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grief-frozen-into-relentless-drive",
+  "field": "title",
+  "lang": "ko",
+  "text": "멈추지 않는 추진력으로 얼어붙은 슬픔",
+  "model": "claude-opus-5",
+  "source_sha256": "f1316c92deb5eeed054f59082271b0ab039108aad2969c429fd65862077326f4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grief-given-a-form-without-a-face",
+  "field": "title",
+  "lang": "ko",
+  "text": "얼굴 없는 형체로 나타난 슬픔",
+  "model": "claude-opus-5",
+  "source_sha256": "ed376c017cedcc2e77412ae70afd08df11bf643aa9f7ed2824235c4c15ed1c72"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grief-has-no-tense",
+  "field": "title",
+  "lang": "ko",
+  "text": "슬픔에는 시제가 없다",
+  "model": "claude-opus-5",
+  "source_sha256": "d99fbea64d4d4f60cc1893eeee4e6fbbdbe428a19e540302aac175f8446ced53"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grief-reassigned-to-the-private-ledger",
+  "field": "title",
+  "lang": "ko",
+  "text": "개인 장부로 떠넘겨진 슬픔",
+  "model": "claude-opus-5",
+  "source_sha256": "26a5f5a5afcd8827fa10c32591834bd94aa5008550fe1ac24afbb480c3df82aa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grief-reengineered-into-motion",
+  "field": "title",
+  "lang": "ko",
+  "text": "움직임으로 개조된 슬픔",
+  "model": "claude-opus-5",
+  "source_sha256": "ab9a9401a2683ffdfe74aea9340c1d35470b525c564e2628c2f46f77ee110a1a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grief-sublimated-into-empire-building",
+  "field": "title",
+  "lang": "ko",
+  "text": "제국을 세우는 일로 승화된 슬픔",
+  "model": "claude-opus-5",
+  "source_sha256": "77012cc837d43f00647cf2d4320d3505f228c37dc10abf955d4ed48b6f194fca"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "grief-worn-as-another-s-borrowed-face",
+  "field": "title",
+  "lang": "ko",
+  "text": "남의 얼굴을 빌려 걸친 슬픔",
+  "model": "claude-opus-5",
+  "source_sha256": "0b287d4f77a336391c39de209be968e98c8e7c4a8f38dd2ef49ace38475fa4f6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "guilt-as-a-permanent-cosmetic-surface",
+  "field": "title",
+  "lang": "ko",
+  "text": "지워지지 않는 화장이 된 죄책감",
+  "model": "claude-opus-5",
+  "source_sha256": "2b4d02c5203b240e6d1618c6648f6cc7170bc66dd7deabcd3e61d06aa946b47a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "guilt-conserved-in-a-closed-economy",
+  "field": "title",
+  "lang": "ko",
+  "text": "닫힌 경제 안에서 총량이 유지되는 죄",
+  "model": "claude-opus-5",
+  "source_sha256": "2893b867cecfd8a769c55e869cfbeaaa4813f7e389f203a82142250ed1e23183"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "hair-and-veil-as-the-concealed-female-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "머리카락과 베일, 가려진 여성의 몸",
+  "model": "claude-opus-5",
+  "source_sha256": "b82bc28202d075adaa56a9d77e241d33ff6d9687b55e128c35ad77d20d1d48fa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "hair-as-the-shape-of-borrowed-selves",
+  "field": "title",
+  "lang": "ko",
+  "text": "빌려온 자아가 취하는 형태, 머리카락",
+  "model": "claude-opus-5",
+  "source_sha256": "dd5eff2fb675b38256652aea8b3e608831ebe5111e71783f027f2a51d34b5194"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "hammersh-i-s-empty-light-set-in-motion",
+  "field": "title",
+  "lang": "ko",
+  "text": "하머스회의 텅 빈 빛이 움직이기 시작한다",
+  "model": "claude-opus-5",
+  "source_sha256": "73660ce4bfa4c822ad6fc65693ffa410374e8a947d9b71defaeee6d502b800be"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "hands-as-the-site-where-labor-is-read",
+  "field": "title",
+  "lang": "ko",
+  "text": "노동이 읽히는 자리, 손",
+  "model": "claude-opus-5",
+  "source_sha256": "938c787bb4b789f2635b278b68d09014cb376358b48bb64b1920bc954ac644cd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "he-sentences-himself-before-the-world-can",
+  "field": "title",
+  "lang": "ko",
+  "text": "세상이 선고하기 전에 스스로를 선고하다",
+  "model": "claude-opus-5",
+  "source_sha256": "f53b0649e037bc567a99a87c873f99c960316c3c296d89e9979bdd185875571e"
+ }
+]

@@ -1,0 +1,102 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "in-the-name-of-the-pope-king-1977",
+  "field": "lead",
+  "film_id": "5895cdcb-0fc1-4fe0-91ec-26e7d8da8ee3",
+  "lang": "en",
+  "text": "1867, and Garibaldi's columns are close enough to Rome that the papal government can hear them coming; one of its judges would like to be let go. Monsignor Colombo da Priverno has spent a career applying the law of a state that is also a church, and the violence it now uses to hold its worldly power has worn through whatever conviction kept him in the job. Luigi Magni keeps the frame narrow: corridors, chambers, conversations conducted in the careful register of men who know the walls are thin, while outside the city prepares to change hands. In 105 minutes almost nothing is argued directly. The film follows an official who has understood the machinery he serves and can no longer pretend otherwise, and lets the paperwork of conscience do the work. It took the David di Donatello for Best Actor.",
+  "model": "claude-opus-5",
+  "source_sha256": "52b5f51bb7b4bb613cc138c4d336023d8396301730fcc3a436ba8a689cf104aa"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "leo-the-last-1970",
+  "field": "lead",
+  "film_id": "4adb98bc-93e4-4d3c-8a8e-e737454fc790",
+  "lang": "en",
+  "text": "Rest, he says, is what he has come for: the last heir of a monarchy that no longer governs anything, closing the door of his father's London house behind him. The European circuit of parties that had been keeping him occupied has stopped working. John Boorman filmed this in 1970 and treats the arrangement as funny and not funny at once, a man with money, staff and no function whatever installed in a large house in a city with its own business to get on with. Rooms built for a court, occupied by one tired man. Nothing in the setup obliges Leo to do anything at all, and 104 minutes spent with someone under no obligation is a stranger proposition than it sounds, because a town house is not a palace: it stands on a street, with the rest of the city at arm's length.",
+  "model": "claude-opus-5",
+  "source_sha256": "f02172325e63d20e0ef76b3962f6127dfa53d1fd598d56505227e32262eae9f2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "we-believed-2010",
+  "field": "lead",
+  "film_id": "f0037efc-e941-4952-a4b1-34e8b59ae03a",
+  "lang": "en",
+  "text": "Three friends sign on with Giuseppe Mazzini in 1828, and Mario Martone stays with them for decades, which is what the 170 minutes are for. The film opens on the repression of the risings in the monarchist south, the thing that decides them, and then does the unusual work of following a conviction after the meeting has broken up: cells, exile, disagreements about method, the long stretches in which a republic is a plan and not a prospect. The scale is not military. It is the slow divergence of people who once agreed. Period detail is handled without gloss, and the attention goes to safe houses and correspondence rather than to the battles that get remembered. Made in 2010, it treats unification as unfinished business rather than settled inheritance. It won the David di Donatello for Best Director.",
+  "model": "claude-opus-5",
+  "source_sha256": "40c681ed920dbf653861e6fbf9d6cb63d4a3b2327ed1f9b6d57db516123b5ad4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "this-is-not-an-exit-the-fictional-world-of-bret-easton-ellis-1998",
+  "field": "lead",
+  "film_id": "2f4e1c88-4322-4c71-8b8e-7c51fd6c140b",
+  "lang": "en",
+  "text": "A camera spends eighty minutes with a novelist whose reputation arrives before he does, and the reputation is part of what gets filmed. Gerald Fox takes Bret Easton Ellis as a figure already assembled by publishers, by the argument over American Psycho, and by the phrase bad boy attached to a man who works at a desk like anyone else. What a portrait film can do at this length is limited and specific: rooms, talk, the places the books came out of, the distance between a prose style and the person holding the pen. The interest lies less in what Ellis says about his fiction than in the machinery visible around him while he says it. Eighty minutes leaves no room for a career survey, so the documentary settles for the world the novels are set in and the one their author occupies, and lets the fit between them stand.",
+  "model": "claude-opus-5",
+  "source_sha256": "b2ae3e80c08ec7a89361e0877df45d5d58e3664d752cf1d3d1c5b03d9e39a130"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "chronicle-of-flaming-years-1961",
+  "field": "lead",
+  "film_id": "82297763-e296-4205-bd93-1e143225fa92",
+  "lang": "en",
+  "text": "A screenplay outlived the man who wrote it, and his widow took it to the floor: Yuliya Solntseva shooting Alexandre Dovchenko's war material in 1961. Ninety-one minutes, in Russian, and the war in it happens to a whole population at once, soldiers and villagers held under the same demands. One man's story runs through the middle, but he is carrying more than himself; the design is frankly representative, and the film makes no secret of wanting a single figure to answer for the many. That commits it to scale: landscape, crowds, a rhetoric of endurance rather than of incident. Sixteen years after the fighting ended, working from a script by a director who did not live to shoot it, Solntseva is completing another filmmaker's picture with her own hands on it.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b7d8611c50801bafeb53624b26cbbd56aea12a7e9291a2b2653cd0396e1ed53"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lenin-in-poland-1966",
+  "field": "lead",
+  "film_id": "d514507e-c7d6-4aa7-9f4d-4114c2e21a05",
+  "lang": "en",
+  "text": "Before the revolution that carries his name, Lenin is a foreigner living quietly in Poland, and that is the stretch this film chooses. Sergei Yutkevich sets aside the platform and the podium for a period of waiting: a political exile among peasants, in a country not his own, in years when nothing he intends has happened yet. Ninety-three minutes, in Russian, made deep inside the state whose founding story he is. The constraints on such a picture are not hidden, and part of what holds attention is how a portrait manages any intimacy at all while remaining official. The friendships are small and local; the history is enormous and offscreen. It received the USSR State Prize, which is itself information about the terms it was working under.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd50eb6712b7daaf3f9ed341cc98b63861192e1c80a5631be93390596e7149d5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "pictures-from-a-revolution-1955",
+  "field": "lead",
+  "film_id": "34641c95-0b3e-431b-a097-cde76fff07b9",
+  "lang": "en",
+  "text": "Ten years after the shooting stopped, a photographer went back to Nicaragua carrying prints of her own work and looking for the faces in them. Susan Meiselas had published seventy pictures from the revolution in 1981; Alfred Guzzetti's film follows her method rather than a thesis, a print held up, a face recognised or not, a conversation about what the photograph was a moment of. A woman who buried her husband at fourteen. Fighters who are finished with the subject and fighters who are not. One man who changed sides afterwards. A mother talking about her son. The film keeps circling the awkward fact that a photograph makes a permanent image of an instant nobody chose, while the person inside it has gone on living at a different speed, and Meiselas says as much herself.",
+  "model": "claude-opus-5",
+  "source_sha256": "56d8ecbdcae4ea74e65da32bcae95e834b20c1da3b081434f50e4292151c37d9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "my-family-1986",
+  "field": "lead",
+  "film_id": "dc775cf8-ae60-4758-ac3b-1c3b689428a1",
+  "lang": "en",
+  "text": "The Ng household holds a doctor, his wife, three children from two marriages, and more private infatuations than an eighty-six-minute comedy can reasonably carry. Raymond Fung Sai-Hung starts them on a picnic, the sort of scene that establishes who is allied with whom before the pulling apart begins. Then everyone is given someone to want and nobody is told about anybody else: a son and a daughter both reaching slightly beyond themselves, a small girl loyal to the boy who stood up for her, a mother who auditions for an amateur drama company and finds its director looking back. Hong Kong in 1986 could make this kind of picture at speed and at domestic scale. The arithmetic is the point, how many separate wants one family can hold before the dinner table stops working.",
+  "model": "claude-opus-5",
+  "source_sha256": "24e4880fe84048df2e7051a8fe337af7a4575e8b19f9a4020b5cdb9fd2b35550"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "othello-1955",
+  "field": "lead",
+  "film_id": "27010d64-4ebf-49ce-862d-bbab5f47b2d7",
+  "lang": "en",
+  "text": "Most of this Othello went out live, with the Venice scenes recorded in advance and cut in, which is how television in 1955 did Shakespeare when it did it at all. Gordon Heath, an American who had come to Britain in 1947, played the title role, the first black actor to do so in a televised production of the play; Kenneth Tynan had already cast him as Othello for an Arts Council staging in 1950. Tony Richardson directed. What survives is the earliest British television Othello still in existence, 108 minutes of it, and the conditions are part of the text: actors crossing from Venice to Cyprus inside a studio, entrances timed to a broadcast clock, no second chance at a line once it has gone out. The play's pressure is close and domestic, which is what a small screen can hold.",
+  "model": "claude-opus-5",
+  "source_sha256": "2da94049ffe0ba47f1354f412c1f7248909b32606d01f81e83ab16ec2e4d75d0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "perfect-strangers-2015",
+  "field": "lead",
+  "film_id": "cc758d72-6821-40cc-924a-d2311bb638d1",
+  "lang": "en",
+  "text": "Twenty-six minutes, Christmas Eve, two people who have never met, and the Scottish Highlands between them and home. Ryan Hendrick's short has no room to build a courtship, so it builds a journey and lets the acquaintance happen as a by-product of logistics: the next lift, the next stretch of road, the weather and the timetable making decisions neither traveller would have made alone. Romance at this length is a matter of proximity and hours. The Highlands supply the obstacle rather than the scenery, distance and dark and a date that turns being stranded into a particular kind of failure. What a film this short can do is pick one situation and stay inside it, holding two strangers in a confined stretch of time where being pleasant is not optional.",
+  "model": "claude-opus-5",
+  "source_sha256": "e82ceb3d3039f4a7df341bab74973fcfb444312cbd8fb5e9fbaad78e8be22cb5"
+ }
+]

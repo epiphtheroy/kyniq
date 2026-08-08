@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satoshi-kon#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "병원에서 마지막을 보내기를 그는 거부했다. 집에서 완화 치료를 받기로 하고, 시한부 진단은 대중은 물론 가까운 동료에게까지 철저히 숨겼다. 동정이 자신의 작업을 덮어버릴까 두려웠던 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ad7aa744603e8bfa8dbc264edd2bcf96ccd80a8bf679c723bd8ab7aa21e41dc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satoshi-kon#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "몸이 급격히 무너지는 동안 그가 가장 아쉬워한 것은 마지막 작품 《드리밍 머신》을 끝내지 못한 일이었다. 아이들을 위한 모험담이었다. 워낙 많은 부분을 직접 디자인해 둔 터라, 매드하우스의 누구도 이 영화를 완성할 수 없으리라고 그는 걱정했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "543ab5666833d08845c61d508b48154d1d54d079223a6d57a642a0d618deee98"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satoshi-kon#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2010년 8월, 마흔여섯에 세상을 뜨기 직전 그는 4천 자에 이르는 작별의 글을 썼다. 제목은 '사요나라'. 자신이 떠난 뒤 블로그에 올려 달라고 가족에게 당부했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d899cbf31412bf710eac4229b5220b1c36881cba7ea9195df2907813e84e4c7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satoshi-kon#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "사후에 공개된 '사요나라'의 마지막 문장은 오래 회자된다. \"이 세상의 좋은 모든 것에 감사하는 마음으로 펜을 놓겠다. 자, 이제 나는 간다.\"",
+  "model": "claude-opus-5",
+  "source_sha256": "51384badbe984986a14f4d1efcc04f264d47b80b2ca1cb3b40563b62ea086be6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satoshi-kon#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마루야마의 약속도, 몇 해에 걸친 모금 시도도 소용없었다. 《드리밍 머신》은 지금까지 미완으로 남아 있다. 2018년 마루야마는 결론을 내렸다. 곤의 비전을 되살릴 만한 천재는 다른 어떤 감독에게도 없다고.",
+  "model": "claude-opus-5",
+  "source_sha256": "3709d52f2b3a192b5311614af3edfe9d00939a011166c7ddbcdbc1d546fc45d8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satyajit-ray#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "할아버지 우펜드라키쇼르 라이 초두리는 하프톤 인쇄술을 개척한 발명가였고, 아버지 수쿠마르 라이는 벵골에서 가장 사랑받은 넌센스 시인이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "21a9445b1a1cd33b041ddfba9c2d5a07e2e589ed7a52f463db7a94c06d596ae7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satyajit-ray#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "수쿠마르가 흑열병으로 세상을 떠났을 때 레이는 두 살이었다. 남은 것은 무거운 빚뿐이라, 어머니는 아들을 데리고 캘커타의 오빠 집으로 들어가야 했다. 사람이 넘치는 집이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d691a2e47e661885ef1ba6c7f217978dc67b237230d909c4f842dead94c8d6f9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satyajit-ray#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "키 6피트 4인치. 동시대 인물들 사이에서 레이는 머리 하나가 더 솟아 있었다. 깊게 울리는 바리톤 목소리까지 더해져, 현장에서 그의 말은 곧 권위였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b653c50655c053f91ad773326f92137a09f79fbeb0054ff948676978e5b65b1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satyajit-ray#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "산티니케탄의 비스바바라티 대학에서 미술을 공부했고, 노벨상 수상자 라빈드라나트 타고르에게 직접 배웠다. 그러나 학위는 중도에 포기한다. 캘커타의 도시적 문화 소음이 그리웠기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "363873970dbc74a1a631824dbdec6cf80db9b006d7dd1ca56981439d3de24740"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satyajit-ray#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영국계 광고회사 D.J. 케이머의 말단 비주얼라이저로 사회생활을 시작한 레이는 비부티부산 반도파디아이의 소설 《Pather Panchali》 한 판본의 표지를 디자인했다. 훗날 그의 데뷔작이 될 바로 그 소설이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "45a3c96a56af46341e0d61feb8b7317168a1d883b6cdf8f3f8e175aadcb5b996"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satyajit-ray#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1949년 봄베이의 등기소에서 그는 사촌 비조야 다스와 비밀리에 식을 올렸다. 보수적인 벵골 집안이 근친혼을 결코 용납하지 않으리라는 것을 알았던 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fdbd350dd4f34fc319102312e44cf2079d2bd34f95b882ab3d90c1fb8cdb5a31"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satyajit-ray#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1949년, 《The River》의 로케이션을 물색하러 캘커타에 온 프랑스 작가감독 장 르누아르와 레이가 만난다. 레이는 벵골 시골을 안내했고, 르누아르는 직접 연출해 보라고 그를 적극적으로 부추긴 첫 번째 사람이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9def25fa1c2c15652fc169d3d6203d9e549d2b7b2d8d0a8865bfef391938716"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satyajit-ray#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1950년 케이머 런던 지사에서 보낸 여섯 달이 그의 인생을 바꿨다. 그 기간에 그는 홀린 듯 99편을 봤다. 비토리오 데 시카의 《자전거 도둑》을 보고 나서 확신이 왔다. 아마추어 배우와 실제 장소만으로도 걸작을 찍을 수 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4aecb4ae67dc78de6bf6c0f4e4b6eb73df20031cb5c9ddb9fbe563e4f5b5a363"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satyajit-ray#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "데뷔작의 핵심 배역인 늙은 아주머니를 위해 레이는 추니발라 데비를 수소문해 찾아냈다. 여든 살의 은퇴한 연극배우였던 그는 하루 20루피와 매일의 아편을 조건으로 출연을 승낙했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "db64cf76770fd51106045c6670ff70bfa35c72f0972f96962e6eb884d48f3ebc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satyajit-ray#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "경력 초기, 레이의 거친 스타일은 프랑스 누벨바그의 개척자 프랑수아 트뤼포를 자극했다. 1956년 칸에서 《Pather Panchali》 상영 도중 그는 자리를 떴다. \"손으로 밥 먹는 농부들 영화는 보고 싶지 않다.\" 훗날 트뤼포는 그 말을 거둬들였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "97b62a20003a3ea33173fef61a8da24d93e284ccf8739cb471c5bd9d0ec12a02"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satyajit-ray#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "레이는 통상적인 시나리오를 타자로 치는 대신 영화의 모든 프레임을 손으로 그렸다. '케로르 카타'라 불린 붉은 천 장정 노트가 그것이다. 카메라 앵글, 대사, 음악 큐까지 촘촘한 스토리보드에 담겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "021375669c92248a0aa185482d3c993db83451c2a3218961058e4324bd7a84a4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satyajit-ray#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《아푸 삼부작》의 음악을 맡은 라비 샹카르 같은 고전 음악가들의 완고함에 지친 그는 서양 기보법을 독학했다. 그리고 1961년 《Teen Kanya》부터 대단히 실험적인 자기 영화의 음악을 직접 쓰기 시작한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ec2ac349b6e9e0b142bc1bd549d23f072b1043301e6e0bd0f6da34752f4a8e35"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satyajit-ray#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "타이포그래피의 대가이기도 했던 그는 서체 네 벌을 창작했다. 그중 Ray Roman과 Ray Bizarre 두 벌은 1971년 국제 타이포그래피 공모전에서 수상했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2abab55ef0a9704bd99929c9c5b985b4d928b205358860039ec2e58586d7c0a4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satyajit-ray#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1967년 레이는 컬럼비아 픽처스에 《The Alien》이라는 각본을 썼다. 아서 C. 클라크가 후원했고 피터 셀러스 주연이 예정돼 있었다. 기획은 할리우드의 개발 지옥에서 무너졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4df4262badac491b4694a13852507d17eae5d754e9348f393b108732914cdea8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satyajit-ray#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1982년 스티븐 스필버그의 흥행작 《E.T.》가 자신의 무산된 《The Alien》 각본을 표절했다는 믿음을 레이는 평생 품고 살았다. 그 각본에도 식물을 되살리는 선량한 외계 존재가 나오고, 인도 시골 소년과 친구가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a590e173b5398b4adcbda1694812f89cad824431f5b177dec58dd597d7a6b5ea"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satyajit-ray#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화 밖에서도 레이는 베스트셀러 작가였다. 할아버지가 남기고 폐간된 어린이 잡지 《Sandesh》를 혼자 힘으로 되살렸고, 명석한 탐정 펠루다와 괴짜 과학자 숑쿠 교수를 앞세운 이야기들을 직접 쓰고 그려 폭발적인 인기를 얻었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5474ecf5740a32ec1676496e2a270b4fef557e0ef8ed8bf9c863d0b149acd11a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satyajit-ray#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "타협 없는 독립성으로 알려진 그는 인디라 간디 총리가 자기 생애를 미화하는 다큐멘터리를 만들어 달라고 직접 청했을 때도 정중하게, 그러나 단호하게 거절했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "09d691e033f207215fa417273a5539c0e0fee75bd66e50fc61481d4fbf3382bc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satyajit-ray#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "인도 의회에서 전설적인 배우 나르기스 두트가 레이를 거세게 몰아붙였다. 유럽 영화제의 상을 타려고 '인도의 가난을 수출한다'는 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f8b15cf630bf4e8a36d5e90345ad9ec70ab7623846dfb66106df054517f05a9b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satyajit-ray#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "할리우드와 봄베이의 끈질긴 제���에도 레이는 벵골어 아닌 언어로는 연출하지 않았다. 예외는 단 하나, 1977년의 우르두·힌디어 시대극 《Shatranj Ke Khilari》뿐이다. 음절 하나하나의 문화적 무게를 정확히 아는 말이라야 배우를 연출할 수 있다는 것이 그의 고집이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "530b56f81cc5957f00d77c20914a1316eec9872da901264937d0b7bcb9f6b600"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satyajit-ray#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "열렬한 오디오파일이자 서양 고전음악 수집가이기도 했다. 모차르트와 베토벤, 바흐로 채운 방대한 레코드 컬렉션을 자랑했고, 자신의 편집 리듬에 영향을 준 것은 다른 영화보다 이 음반들이라고 자주 말했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a92ea5219a070de8941b718757ec39b8de0e47e09d78eccad595afeb77966816"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satyajit-ray#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1947년 치다난다 다스굽타와 함께 캘커타 필름 소사이어티를 세운다. 할리우드 멜로드라마와 봄베이식 오락물이 완전히 장악한 도시에서 세계의 예술영화를 보여주겠다는 결심이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c71a2a3a2301a7114d00a93eac0e66bb4c1e3afac5b1177ac41b79a94ab74a36"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satyajit-ray#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1987년 프랑스 대통령 프랑수아 미테랑은 외교 관례를 건너뛰고 캘커타로 직접 날아갔다. 레지옹 도뇌르 훈장을 레이의 가슴에 달아주기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b7ab7a2fb33f9af74ad10ab122e449682bfc6da8a948b3ec06d028642ac7e454"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satyajit-ray#23",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1992년, 세상을 뜨기 몇 주 전이었다. 캘커타의 병상에 누운 채 레이는 오드리 헵번에게서 아카데미 명예상을 받았다. 트로피를 손에 쥐고, 화상 중계로 로스앤젤레스를 향해 힘없는 수상 소감을 전했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "85616f28299f6991be60bd8941f88ccabe5f913f04e61e590f391bd3b0eb7da0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satyajit-ray#24",
+  "field": "fact",
+  "lang": "ko",
+  "text": "열렬한 찬미자였던 구로사와 아키라는 이런 말을 남겼다. \"레이의 영화를 보지 않았다는 것은 해와 달을 보지 못한 채 이 세상에 살고 있다는 뜻이다.\"",
+  "model": "claude-opus-5",
+  "source_sha256": "7506bdf0903bc914cc2a5e258145886d7eb221214ad6fc29de77f080059d6667"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "scott-derrickson#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1970년대 노스덴버, 폭력이 일상이던 노동계급 동네에서 그는 자랐다. 동네 불량배들과 가정 폭력으로 남은 어린 시절의 상처를 그대로 끌어와 2021년 호러 《The Black Phone》에 그 시절을 생생히 복원했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d386cd38a8e5bbb5de445bb0e79d3c7c40e0eec4b56937d6268a3ba9b124512"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "scott-derrickson#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "남캘리포니아의 보수 복음주의 학교 바이올라 대학에서 문학과 신학 중심의 인문학 학위를 받았다. 그다음 향한 곳이 서던캘리포니아 대학 영화예술학부다.",
+  "model": "claude-opus-5",
+  "source_sha256": "70d21938f988219c10722ec33b151e3271d07c1cdc84bcf09f5a7b73ad50dfb5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "scott-derrickson#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "근본주의 가정에서 자랐지만 지금은 현대 기독교 민족주의를 공개적으로 비판한다. 그러면서도 개인의 신앙은 굳건히 지키고, 그 신앙이 영적 전쟁과 악마 들림을 거듭 다루는 그의 영화에 깊이 배어 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a99f696c6f4e704ca88f5a78312bc5f8f14b5185073b76b76500a7152e562d9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "scott-derrickson#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "USC 재학 시절의 돌파구는 단편 《Love in the Ruins》(1995)였다. 할리우드 경영진의 눈에 들면서 그의 직업적 경력이 열렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e0321f0b2a75b28d1b236ca1701cb25c837a11a94778696819e96b1fd2233467"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "scott-derrickson#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편 데뷔는 DVD 직행 속편 《Hellraiser: Inferno》(2000). 초기의 단골 협업자 폴 해리스 보드먼과 함께 쓴 각본을 직접 연출하겠다고 나선 결과였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "005b5e1d1ac02031af3ce212e85f1bc90a4145d39f24f78707459c8513b880e5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "scott-derrickson#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "메이저 스튜디오에서 처음 각본 크레딧을 올린 작품은 캠퍼스 슬래셔 속편 《Urban Legends: Final Cut》(2000)이다. 호러 장르에 발을 붙이게 해 준 기획이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "25bfd5c2ae7f7484b5e2772f1a09f30798ae81daa4335a0285e5ab91cdffcb2c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "scott-derrickson#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오랜 각본 파트너 C. 로버트 카길과의 만남은 라스베이거스의 한 술집에서 이뤄졌다. 당시 카길은 Ain't It Cool News에서 'Massawyrm'이라는 이름으로 활동하던 영화 평론가였고, 그 자리에서 호러 흥행작 《Sinister》(2012)의 핵심 아이디어를 그에게 내밀었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e2b0a3de114750c21b8b38abe9111e0f20261274f3f79e1afca41bce6340a897"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "scott-derrickson#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《The Exorcism of Emily Rose》(2005)를 쓰기 위해 데릭슨과 보드먼은 안네리제 미헬 사건을 파고들었다. 1970년대 독일에서 예순일곱 차례의 가톨릭 구마 의식을 받고 숨진 여성의 실화다.",
+  "model": "claude-opus-5",
+  "source_sha256": "005a1b4ffc936aa172f803369cef37ce291bdb0b8ff83b6d9c7f6e7e827ad1eb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "scott-derrickson#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2020년 1월, 그는 마블 시네마틱 유니버스 속편 《닥터 스트레인지: 대혼돈의 멀티버스》 연출에서 물러났다. 표면적 이유는 '창작상의 견해차'. 진짜 무서운 호러로 밀어붙이려 했다는 이야기가 전해진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8cbb9d583c4bd4d9b97184bf30afa37a264e79f4cd943bf458e2481d90a27ea1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "scott-derrickson#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "단편 〈The Black Phone〉을 확장해도 되겠느냐고 그는 작가 조 힐에게 직접 허락을 구했다. 폭력적인 아버지에 대한 기억, 콜로라도에서 어린 그가 목격한 그 잔인한 주먹다짐들을 이야기에 심기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f578675fb83acf6bd464aecc6b860084f8c9555f679259fe8b536d831e6e264"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "scott-derrickson#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "창작의 뮤즈로 여기는 호크와 그는 자주 손을 잡는다. 《The Black Phone》에서 다시 만났을 때는 배우의 이미지를 일부러 거슬러, 가면을 쓴 가학적 아동 살해범 '그래버' 역에 앉혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "20756f9be448b543950293d90b61faf8dbc706344bee5d5a55f66f8548bf2d79"
+ }
+]

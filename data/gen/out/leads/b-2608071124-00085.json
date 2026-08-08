@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "all-night-long-1982",
+  "field": "lead",
+  "film_id": "d33448aa-f140-4ad3-95aa-a106d6357a07",
+  "lang": "en",
+  "text": "Doors open onto lit rooms, someone crosses to a table, an embrace either happens or it does not, and the night moves on to the next address. Brussels after dark, ninety-one minutes, more than two dozen people, and almost none of them speaking. Chantal Akerman assembles the film out of arrivals and departures rather than a plot, and that choice has consequences: with no dialogue to explain who these people are to each other, everything falls to a hand withdrawn, a coat kept on, the length of a pause in a doorway. Each encounter is a small verdict, yes or no, and the film keeps count without comment. What comes fastest is the skill of reading strangers from posture alone. By the fourth or fifth doorway the rhythm has become the subject, and the dark of one night is the only thing all of them share.",
+  "model": "claude-opus-5",
+  "source_sha256": "a400640f48a509742380231242bedbe6240f269102c72cd0102f3dc17a122096"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-white-bus-1967",
+  "field": "lead",
+  "film_id": "625aeb08-0994-44be-afea-784e05eb0639",
+  "lang": "en",
+  "text": "Forty-six minutes - too long for a short, too brief for a feature - and the odd measure is the first thing to notice. A journey home is thin material for a feature and generous material at this length: it commits Lindsay Anderson to faces, weather, streets and the passage of time rather than to incident, and it lets the despondency of the young woman at the centre go unexplained. She travels north. The England that arrives with her is the England of 1967, filmed as it stood, its civic ceremonies and industrial edges available to anyone with a camera and the patience to look twice. What the film withholds is motive. What it offers instead is proximity, close enough that her silence starts to read as a position rather than a mood, and close enough that the country beside her looks stranger than it means to.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6bbd03ada4d2ea10b6dc50677d8213a07ef2710affb093c54f796debb901255"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "time-of-the-gypsies-1988",
+  "field": "lead",
+  "film_id": "f251a063-801e-4dc8-850d-1cc10e99050b",
+  "lang": "en",
+  "text": "A sick girl might be cured in Italy, if her brother agrees to travel with the man who is paying. Perhan can move objects without touching them, and Emir Kusturica films this the way he films rain or a wedding: as one more thing that happens, neither miracle nor metaphor. Across 142 minutes the picture slides out of the village and into Ahmed's business abroad, and the slide is the design - errands turn into complicity long before anyone says the word, and a debt taken on for a sister's medical treatment is not the kind that gets settled. Serbo-Croatian dialogue, Italian money, a lead performance that took the European Film Award for Best Actor. The reason for that prize shows early, in the long stretches where Perhan still expects to be going home soon.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ca679347fbaf36fe9eb0ee4d9639e2e3cd4ac2ba648bbe0fad514538d2b7a0e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-night-porter-1974",
+  "field": "lead",
+  "film_id": "e57e5bd1-441e-45ec-8f9f-b260f579f137",
+  "lang": "en",
+  "text": "A hotel in postwar Vienna, a night shift, and a guest at the desk who is recognized by the man handing over her key. Neither of them reports the other. Liliana Cavani builds the film out of that silence: he was her keeper and her torturer in the camp, she survived it, and the reunion goes upstairs instead of to the police. Vienna in these years is a city tidying itself, where a man with a history can find work at hours nobody wants and paperwork nobody reads - and where his old comrades still meet, still keep accounts, and find a living witness inconvenient. The past arrives in fragments cut into the present, so that the crime and the erotic charge are never available separately. The job title is the least of it and exactly right: a man who works nights, opens doors, and is paid not to remember faces.",
+  "model": "claude-opus-5",
+  "source_sha256": "bd1066376384a64edd3365615c83429b51d5a7a9099fe1d97d188902d1078e43"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "female-trouble-1974",
+  "field": "lead",
+  "film_id": "61ee0ec8-d97b-4c4c-9b43-dfd8af91c80d",
+  "lang": "en",
+  "text": "A pair of cha-cha heels, withheld at Christmas, is the entire motive; everything after is consequence. Dawn Davenport leaves home over the shoes and proceeds to collect the standard punishments - a child she did not plan, a marriage to a hairdresser, a long stretch of squalor - except that John Waters declines to file any of it as punishment. That refusal is the argument inside the joke. When the owners of the salon offer her fame in exchange for crime, they are only naming a bargain the film has been describing since the first scene: that beauty and criminality can be the same career, and an audience will applaud either one. The performances are pitched to be legible from across a parking lot. The vulgarity is engineered, and the engineering is easy to miss while laughing.",
+  "model": "claude-opus-5",
+  "source_sha256": "025bdff804c9c293f16f5388ed4ba96d934e588ed35e50191c6b64f7d0e2b363"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "they-were-expendable-1945",
+  "field": "lead",
+  "film_id": "a2aec3b9-2171-4a6c-8416-7e4cc385440d",
+  "lang": "en",
+  "text": "The film opens as a sales pitch: plywood torpedo boats, a row of unconvinced Navy brass, and two lieutenants nobody will take seriously. Pearl Harbor settles the argument for them. Made in the war's last year, John Ford's picture spends a surprising share of its 135 minutes on waiting - orders that do not come, repairs, men standing on docks with nothing to do until everything is needed at once. Its Academy Award for special effects is the visible part of the craft: boats at speed on open water and at night, staged so that the scale of a small craft against a warship stays readable. The rest is quieter. A squadron earns its keep by relaying messages, running errands between islands, and being available once larger plans have already failed, and Ford knows what that costs the men doing it.",
+  "model": "claude-opus-5",
+  "source_sha256": "3ed4101f68fbb76b8a3e4c6606e4084d49364046ae7949c6a0d4ba3f8b09646a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "angel-1937",
+  "field": "lead",
+  "film_id": "cd1c8cdf-50b7-4dff-90bb-7f1b59bf6058",
+  "lang": "en",
+  "text": "The husband is busy; the film asks nothing more of him than that. A British diplomat's wife takes a holiday alone, meets a man, and Ernst Lubitsch spends ninety-one minutes arranging who knows what, in whose company, and how long each of them can go without saying it. Comedy in this mode runs on doors, servants, seating plans and the exact position of a name that will not be spoken aloud. Nothing is stated plainly, which is method rather than coyness: a menu, a piece of music, a question asked a beat late, each doing the work a confession would do in a coarser picture. Underneath, the situation is not funny at all - a marriage with a vacancy in it, and three people who are all, in their fashion, well mannered. The decisive information passes in the pauses.",
+  "model": "claude-opus-5",
+  "source_sha256": "c5de54321c82dc8968d8d282cc78f6b5f18f2cfcf124db79a83f4f7e02559743"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "l-amour-fou-1969",
+  "field": "lead",
+  "film_id": "714bc3e2-b5c7-4816-9e83-38b6bbd493b8",
+  "lang": "en",
+  "text": "A couple in trouble at home, Racine's Andromaque in rehearsal at the theatre, and four hours and twelve minutes in which the two are allowed to contaminate each other. Jacques Rivette gives the play the schedule and the marriage nothing: the theatre has dates, deadlines and other people to answer to, while the apartment has only the hours left over. Much of the film is the labour of rehearsal, which means repetition, correction, and long passages where nothing is achieved and nobody leaves. Past a certain length the ordinary rules of attention slacken, and other information starts coming through - who is tired, who is performing tiredness, what a day feels like when it has not been trimmed for consequence. Made in 1969, it behaves as though it has all the time in the world, because it does.",
+  "model": "claude-opus-5",
+  "source_sha256": "0a6d4210ef587613124f9f4dcd242ab777eb61a4f83b895e0187a5d85d849dc1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "showgirls-1995",
+  "field": "lead",
+  "film_id": "24ba5fd3-ace9-470d-9448-f0d02a6ad4cf",
+  "lang": "en",
+  "text": "The crowd rating sits near the bottom of the ten-point scale, and the film also holds a place in the thousand-title canon assembled by They Shoot Pictures, Don't They? Both facts concern Showgirls, and the distance between them is the interesting part. Paul Verhoeven treats Las Vegas as a labour market: a woman arrives with no contacts, takes work taking her clothes off, and climbs by making herself useful to a headliner who intends to use her first. Nobody here is ironic about wanting the top spot; they say so, loudly, at length, in dressing rooms. What gets called bad taste is largely a refusal to grant the audience any distance from the transaction on screen - the sex is work, the friendship is a contract, the applause is payroll. One hundred and thirty-one minutes at full volume.",
+  "model": "claude-opus-5",
+  "source_sha256": "08e66344b2a1e37482c3d38026634688626170229ac603ee242e59c3e31ccbc4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "best-in-show-2000",
+  "field": "lead",
+  "film_id": "75132169-dafd-4f8d-ae88-ba57a21ea5c7",
+  "lang": "en",
+  "text": "The owners have organized their lives around a dog, and a documentary crew has been given the run of the hotel. Christopher Guest's ninety minutes are spent mostly before the Mayflower show even begins: car journeys, motel rooms, marriages conducted in the presence of an animal that cannot be held responsible for any of it. The method is the joke. Everyone addresses the camera in the reasonable tone of a person explaining a hobby, so the absurdity arrives without a raised voice, and each performer stops just short of the line past which sympathy would break. A place on the New York Times' list of the century's best films is an odd destination for a picture about show dogs. Competition organizes the last third; the rest is people describing their animals slightly too long, to strangers, with total conviction.",
+  "model": "claude-opus-5",
+  "source_sha256": "5013f2383fe9ec1c7b3d7416543e51d3b70bb803e2c4d994062430f8fa9219f0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sicily-1999",
+  "field": "lead",
+  "film_id": "c89b7b77-7785-4d8a-8109-8b08accdb05c",
+  "lang": "en",
+  "text": "A man who spent years in New York comes back to Sicily, and for sixty-six minutes he talks to people. An orange picker. Passengers in a train compartment. His mother. A man who sharpens knives. Danièle Huillet directs speech as speech - delivered rather than acted, each sentence given its full length, faces held while the words settle - and the effect is that ordinary matters become examinable: what the work pays, what is eaten, what a mother remembers and what she declines to say. The island is not scenery here. It is a set of specific answers to specific questions, given by people with no reason to charm anyone. Whoever waits for the film to soften into a homecoming will wait the whole hour, and the waiting is not an accident; the severity is where the tenderness is kept.",
+  "model": "claude-opus-5",
+  "source_sha256": "d3abc4dbafc1e5741fd36eed79476f90adf5cc2676040fc3fcbad5a7d06a5a2b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hitler-a-film-from-germany-1977",
+  "field": "lead",
+  "film_id": "18be7cf7-0271-4c2d-88f9-47520df4522b",
+  "lang": "en",
+  "text": "Watching all of it takes the better part of a working day, and the length is the argument. Hans-Jürgen Syberberg treats the Third Reich as a subject for examination rather than reconstruction, across four parts and 410 minutes: the cult assembled around one man in propaganda, the older German culture that propaganda annexed and claimed to speak for, the reasoning behind the camps considered from inside the administrative mind that ran them. No story carries any of this, which is the point - a story is what the propaganda was, and two hours would force one. Made in 1977, in German, produced out of France. What it requires is less endurance than a willingness to stay in the presence of the material while it is talked about, from every side, without the relief of incident.",
+  "model": "claude-opus-5",
+  "source_sha256": "cbb4dc5bd454dc60696870100512a11eae0528c96b02482eff0eb3b142851055"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "too-early-too-late-1981",
+  "field": "lead",
+  "film_id": "b9525cea-77de-4bd4-8a7c-5c166ef6c8b3",
+  "lang": "en",
+  "text": "A camera set down in a French field, left running, turning slowly while a voice reads Engels. Straub-Huillet filmed in France and Egypt in 1980, and what they assembled is mostly present-day places with texts about their past spoken over them: rural grievance in the years before 1789, and in Egypt a long history of peasant struggle and of liberation from Western rule, joined by a 1974 account of two Marxist writers jailed under Nasser. Roads, fields, gates, engine noise. Among the quotations is Workers Leaving the Lumière Factory, the 1895 film of a shift ending, set against ground where other people worked and revolted. Nothing is illustrated. The working part is the gap between a sentence and a landscape that neither confirms nor refuses it, held long enough to be felt.",
+  "model": "claude-opus-5",
+  "source_sha256": "5163cfb3fbcd13e44122ddd427ad02d6cba16ad42057893859db62cb3906d6da"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "welfare-1975",
+  "field": "lead",
+  "film_id": "675b5618-f60a-4766-a286-136140e930a7",
+  "lang": "en",
+  "text": "A rule is read aloud across a desk, and the person hearing it has an answer the rule has no box for. Frederick Wiseman filmed inside the welfare system and came back with 167 minutes of that exchange, repeated: housing, unemployment, divorce, illness, children with nowhere to go, old people with nobody to call. Each case arrives as a person and leaves as a form. What the running time secures is the thing a shorter treatment cannot - the actual duration of an argument about eligibility, the number of times a regulation has to be restated, the way the clerk is bound by the same paragraph as the claimant and knows it. The camera stays where it is and the clock keeps running. By the second hour the counter has stopped looking like a line between two kinds of people.",
+  "model": "claude-opus-5",
+  "source_sha256": "55c80862a20e87550d2911f54714566780e917f1604cb6918f7d58a31d1111bb"
+ }
+]

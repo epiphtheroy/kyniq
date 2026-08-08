@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "kill-it-and-leave-this-town-2019",
+  "field": "lead",
+  "film_id": "eb470a17-8f4f-449c-b612-addd97567f1c",
+  "lang": "en",
+  "text": "Animation is the one form that can put the dead back in a room and keep them breathing. Mariusz Wilczyński takes eighty-eight minutes to do exactly that: a man wrecked by loss withdraws into a private country made of memory, where the clock has stopped and everyone he wants is still there. The odd note sits in the genre paperwork — fantasy, drama, and also thriller, which is a strange word for a sanctuary until one weighs what staying inside it costs. What is at risk here is not the man's life but his willingness to come back out. Poland gave the film its Gdynia Golden Lions and the Polish Film Award for Best Film; Annecy gave it the Cristal. Zabij to i wyjedź z tego miasta is difficult going, and the difficulty is not in what happens but in a place built precisely so that nothing has to.",
+  "model": "claude-opus-5",
+  "source_sha256": "3cd81219223eb2533ba1abed07e02adefd4b58b897c48ef3b1a84c1c0814b477"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "anna-s-war-2018",
+  "field": "lead",
+  "film_id": "518d82cc-d1bb-45d5-a1e3-a20311c4d0e1",
+  "lang": "en",
+  "text": "Seventy-five minutes, one child, and a disused chimney in the building where the occupiers keep their offices. Anna is six. Her family is killed in a mass execution she survives by accident, and the war reaches her afterward as sound from below and whatever narrow daylight the shaft allows. The enemy is downstairs the whole time, at work. Alexey Fedorchenko gives up nearly everything a war picture runs on — maps, strategy, adults who explain the situation — and works instead at the scale of what a small body can reach, carry, and conceal. Rotterdam's audience gave Война Анны their award; at home it took the Golden Eagle and the Nika for best picture. None of which prepares anyone for how much of the film is a girl doing arithmetic with food and hours, or how completely that holds.",
+  "model": "claude-opus-5",
+  "source_sha256": "93bc31129b7f6238d39641d49875285ca81c71c561224c81c6ef478d710cc21e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "jacob-the-liar-1974",
+  "field": "lead",
+  "film_id": "0a3c7c63-65b4-48f5-8213-bee6411bcaa7",
+  "lang": "en",
+  "text": "A radio in the ghetto is punishable by death, which is the only reason the one Jakob Heym claims to own has to stay imaginary. The year is 1944 and the ghetto is somewhere in the east of Europe. He has overheard a real broadcast — the Soviet army moving west, slowly — and he repeats it to a friend to stop the man getting shot over a sack of potatoes. Then the news has to keep coming, because people have started living on it. Frank Beyer files the result as comedy, accurately: the farce machinery of a man improvising bulletins carries the worst stakes available here, since the people listening have nothing else to stay alive on. Jakob der Lügner went to the Academy Awards as an international submission, and a Silver Bear went to its lead performance. Hope, in this ghetto, is a supply problem.",
+  "model": "claude-opus-5",
+  "source_sha256": "e80d972e41255368772bd1ad4cdec51bffffeecf7abc505f79d03857c6f69389"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "cousin-angelica-1974",
+  "field": "lead",
+  "film_id": "3ac36649-10c1-4c15-b821-77736f8f0b1a",
+  "lang": "en",
+  "text": "The errand is simple: drive from Barcelona to Segovia, put his mother's remains in the family vault, go home. Luis is middle-aged and unmarried, and the aunt who lodges him for the night keeps the house where he spent the summer of 1936. His cousin, the first person he ever loved, lives one floor up with a husband and a daughter. One house, two eras, and a man who came intending to stay a single night. Carlos Saura lets the childhood and the visit run entwined rather than in sequence, which turns a weekend of family duty into a war nobody has agreed is finished. La prima Angélica took a Jury Prize, stood as Spain's international submission to the Academy Awards, and sits on Caimán's hundred best Spanish films. Grief is the pretext. The summer of 1936 is the subject.",
+  "model": "claude-opus-5",
+  "source_sha256": "d05e7814d418075c8431357218c263f4359e2cdf917263353162a5a3d3945e60"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "solo-sunny-1979",
+  "field": "lead",
+  "film_id": "2efc5e1b-4ae2-455e-9bc2-e2b14a834feb",
+  "lang": "en",
+  "text": "Sunny sings to small-town halls that would be equally happy with somebody else, then rides back to East Berlin. What she wants is not exactly fame; it is to be met. Konrad Wolf stays close to a singer who has priced her own dignity and can find nobody willing to pay it — least of all Ralph, an amateur saxophonist with a philosophy degree, who writes her a song so personal it turns out to be about him. Music here is work rather than montage: a band playing provincial dates while waiting to become a name, which is a job with no promotion structure in it. A Silver Bear went to the lead performance, and Die wichtigsten deutschen Filme keeps the title. Nineteen seventy-nine, and the argument on screen is over who decides when a woman's life is going badly.",
+  "model": "claude-opus-5",
+  "source_sha256": "f187be9e186020d1adc20b3b936f9a5235726d5c0d0f7f1fbf3028dadae72245"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-trial-1984",
+  "field": "lead",
+  "film_id": "ba08d63f-a150-4b4e-9fe2-b99d06d1c0ba",
+  "lang": "en",
+  "text": "In 1882 a girl goes missing from a Hungarian village, and the village decides, quickly and comfortably, that the Jews took her. Der Prozeß is less interested in the courtroom than in the weeks before it, when a charge gets assembled: statements shaped, witnesses chosen, a story made solid enough to walk into a hearing on its own legs. That is the uncomfortable expertise on offer here — how an accusation is built, part by part, out of material people already wanted to believe. What is at stake is not the verdict but the appetite that arrives before it, which no verdict can settle. A hundred and four minutes in German, with a Volpi Cup to its lead actor and a place on Die wichtigsten deutschen Filme. The film needs no villain with a plan. Neighbours are sufficient.",
+  "model": "claude-opus-5",
+  "source_sha256": "ecd558098493de660d7838271b574d26e4d4dca17fdc9f048ca5bfcdd94370b0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-fisher-king-1991",
+  "field": "lead",
+  "film_id": "7951321a-1ef0-466f-9f7c-74ae52b19a07",
+  "lang": "en",
+  "text": "Two wrecked men decide to go looking for the Holy Grail, and only one of them is joking. Terry Gilliam takes a hundred and thirty-eight minutes over it, which is long for a comedy and about right for a film in which the joke keeps being interrupted by whatever put these two where they are. The quest is literal to one man and a therapy project to the other, and the picture declines to say which reading it prefers; medieval apparatus arrives in an American city with no wink and no apology. Three Academy Awards went to it, for a performance, the score, and the production design. The spectacle is generous, and it is spent on the least commercial subject available: two people carrying damage they did not consent to and cannot put down.",
+  "model": "claude-opus-5",
+  "source_sha256": "c50543ff1b152e397bd7d8a3d7210fecaca37015a431464a6b421a0d28f6bacd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-life-of-chuck-2024",
+  "field": "lead",
+  "film_id": "edb25a34-37cf-4807-b725-05ee60e1e6c3",
+  "lang": "en",
+  "text": "The story is one ordinary man's life; the genre listed beside it is fantasy. Mike Flanagan works that gap for a hundred and eleven minutes, and the tension is structural rather than dramatic — a life has no antagonist and no deadline, so something else has to hold the thing upright. What holds it is a claim about scale: that one unexceptional person contains more than the world he passes through can account for. Fantasy, here, is not a world with rules; it is permission to look at a single man from a distance realism does not allow. It carries a People's Choice Award, a prize that measures a room rather than a jury. Love and loss are the stated materials, which describes most films ever made, until one notices how few of them will take on a whole life instead of the interesting week of one.",
+  "model": "claude-opus-5",
+  "source_sha256": "0312a5ed13ca462bb20f62364a9687a1d2c22d4e1f1721b3e1b41bda4b0ba231"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "priest-1994",
+  "field": "lead",
+  "film_id": "41dcd0af-a340-49c1-bfc9-6c91b648a683",
+  "lang": "en",
+  "text": "The congregation is the problem, which is not a thing a priest is trained to expect. Antonia Bird has ninety-eight minutes and spends them on one man, one parish, and a set of convictions asked to carry weight they were never tested for. A priest is bound twice — by what he may not repeat and by what he is supposed to believe whatever it costs — so pressure on either binding turns the film into a story about an institution rather than a story about God. Britain in 1994, a working parish, an idealist at the front of it: the setup alone sets the terms. It found enough of an audience for a People's Choice Award. Ninety-eight minutes is barely room for one crisis, and the film does not attempt two.",
+  "model": "claude-opus-5",
+  "source_sha256": "38dca8fbf2c6ea2dc3e0956244af43a6bd36210a35beb91e661495440e93de3d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bella-2006",
+  "field": "lead",
+  "film_id": "d0af3edd-6de0-4a2a-b6f8-01a3083eab75",
+  "lang": "en",
+  "text": "One afternoon takes a soccer player's career away from him on the way to the contract that would have crowned it. The film is Mexican, made in English, and set in a New York where a waitress is failing to make rent and has just learned something about herself she has no plan for. Alejandro Monteverde spends ninety-one minutes on the part most films skip: not the event, but the long ordinary day afterward, when two people decide what to do with each other's trouble. The moral question underneath is large and old, and the film refuses to argue it in the abstract — it argues it between two strangers who each have somewhere else to be. A People's Choice Award followed, which is the prize a film wins by asking an audience directly.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b148c9e88474578dca3e009374fc5e28eabbecdecaa0ef4efc3a667418a71da"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bad-timing-1980",
+  "field": "lead",
+  "film_id": "d1e658da-4698-45f1-bcde-bf289d2c3f2e",
+  "lang": "en",
+  "text": "Inspector Netusil wants the evening accounted for, hour by hour, and the man he is questioning is a psychiatrist. Alex Linden practises in Vienna, older than Milena Flaherty by a good margin, drawn to her through a mutual friend and then into an affair that runs well past anything either of them planned for it, her marriage included. Setting a psychiatrist down in Vienna is not a neutral choice, and the film knows it. Nicolas Roeg cuts the affair against the aftermath until the distance between analysis and interrogation stops being obvious: the same questions, the same appetite to know, only one of them licensed. A hundred and twenty-three minutes, and the discomfort is not in the sex. It is in the watching, a habit the film assigns first to the man who made a profession of it, and then to the room.",
+  "model": "claude-opus-5",
+  "source_sha256": "5eb9f7173f7b54828ef92aac6610dde44da768db748e877bccac0333c8ebfa81"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-snapper-1993",
+  "field": "lead",
+  "film_id": "b73e750d-f738-42f1-8fa4-056f3e2aa109",
+  "lang": "en",
+  "text": "Sharon Curley is twenty, pregnant, and will not say by whom, which turns a private fact into public property. The house she is withholding it in is already full — parents, a long queue of brothers and sisters, no door that closes on anything — and Dublin outside it has opinions. Stephen Frears plays this as comedy, the harder and more honest option: the jokes come from the family, at the family, in the register people actually use when something has gone wrong and dinner still has to be made. A Goya arrived from Spain, of all places, for best European film. The pressure lands as heavily on her father as on her, since he is the one who has to decide in front of neighbours whether loyalty is a sentiment or a practice.",
+  "model": "claude-opus-5",
+  "source_sha256": "b8f935998487d9597e35ff3af03f2d28ac63116dc295221ead4ad696b6d5bd60"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-hanging-garden-1997",
+  "field": "lead",
+  "film_id": "ab73e420-de7d-429e-b5db-9434c5ee7e5e",
+  "lang": "en",
+  "text": "Ten years of silence, and then William comes back up the drive as though a visit could be a small thing. He left the house heavy and miserable; he returns from the city thinner, steadier, out, and apparently done with the place. Thom Fitzgerald's proposition is that the second condition is rented. Ten years is long enough to build a self and not long enough to test it at home. The adolescence William filed away takes up physical residence in the family home — old reasons walking around in the present tense, among people who have spent a decade arranging themselves around an absence. Toronto named it the best Canadian film of its year. Ninety-one minutes, and coming out is not the ending of anything here; it is the equipment he brought back to a house that has been waiting.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a5036cf031a32d22c72628cf347530d522503ca0a3e47b1ed4f6a01c2f96a43"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tempest-1982",
+  "field": "lead",
+  "film_id": "9388792f-785f-4074-ac54-a68ebaff17fc",
+  "lang": "en",
+  "text": "An architect at the top of his profession quits the marriage and the career in a single motion and moves to a remote Greek island to find out what he means. The joke, which this film is patient enough to let ripen across a hundred and forty minutes, is that nobody goes into exile alone: he brings a new girlfriend and an angry teenage daughter, and their patience becomes the real weather of the island. Paul Mazursky keeps the comedy warm and lets the self-regard show anyway, which is the only honest way to film a man who has decided that his own meaning is an emergency. Golden Globes went to a supporting performance and to a newcomer, and Toronto's audience gave it their award. The sound it makes is a family holiday nine days past its natural end.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc213e58fe39920aa280158c80179ff2f1ceb932882b3aac0e0c7e4a16217fd6"
+ }
+]

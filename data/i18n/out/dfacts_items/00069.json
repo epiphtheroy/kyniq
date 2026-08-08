@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roman-polanski#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《차이나타운》 현장에서 페이 더너웨이와의 관계가 험악했던 일은 널리 알려져 있다. 정점은 폴란스키가 그녀의 머리카락 한 올이 빛을 받아 반짝인다는 이유로 뽑아버린 순간이었다. 격분한 더너웨이는 오줌이 든 컵을 그의 얼굴에 끼얹었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bd7c7c257ef7fe8b5d0c7e8ca7f134c09351422f9fe104aeb3714415d2420e2a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roman-polanski#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "같은 《차이나타운》 현장에서 잭 니컬슨과도 격렬하게 부딪쳤다. 니컬슨이 로스앤젤레스 레이커스 농구 경기를 보느라 촬영을 지연시키자, 폴란스키는 대걸레로 휴대용 텔레비전을 부숴버렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "da3ae6dd8d7dd6d9e362635ed323db47e5056c0b17a521878919e4a5a1a1fede"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roman-polanski#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1969년 8월, 폴란스키는 《The Day of the Dolphin》 로케이션 헌팅차 런던에 머물고 있었다. 그 사이 맨슨 패밀리 일당이 시엘로 드라이브 10050번지의 셋집을 습격해 만삭이던 아내 샤론 테이트와 네 사람을 살해했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8dd4588d5bdcbacbf220d0e885023475cac79cade92c66cfd27bcea1c704880"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roman-polanski#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "무술 스승이던 이소룡이 도수 있는 선글라스를 잃어버렸다고 무심코 말한 적이 있다. 범행 현장에서 똑같은 뿔테 안경이 발견된 터라, 폴란스키는 한동안 그를 시엘로 드라이브 살인의 용의자로 의심했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "35f075e5f9be72a5d19ea007af571aceaf33c8fc8f12196e0739ebed88567607"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roman-polanski#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "살인 사건 이후 그가 처음 만든 영화는 황량하고 극도로 폭력적인 《맥베스》(1971)였다. 음산한 소재에 할리우드 주요 스튜디오가 발을 빼자, 뜻밖에도 휴 헤프너와 플레이보이 엔터프라이즈가 제작비를 댔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a465b250cde99a3f44eea6019383f4cd23a2500260889cc41f3e051720f8b9b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roman-polanski#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1977년 3월, 폴란스키는 잭 니컬슨의 멀홀랜드 드라이브 저택에서 진행된 《보그》 화보 촬영 중 13세 서맨사 가이머에게 약물을 먹이고 성폭행한 혐의로 체포됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c1317a0081805b2ef36ad6d9441bf412461757caf169d55733d734a51248d7f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roman-polanski#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "치노 주립교도소에서 42일간 정신감정을 받은 뒤, 그는 변호사를 통해 로런스 리튼밴드 판사가 형량 합의를 깨고 최대 50년형을 선고할 작정이라는 말을 들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d20347cd0817a9beaf012b724a937b75b878ff050d4b9c13d6ba3ad0d8b5dac"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roman-polanski#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1978년 2월, 정식 선고를 몇 시간 앞두고 그는 로스앤젤레스발 런던행 비행기에 올랐다. 결국 파리에 정착해 인도를 피했고, 그때 이후로 줄곧 미국 사법체계의 도망자로 남아 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b594c6c819327f99f27592b70256a9d2753d6b2861cca98b8742e2a58fbbb90"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roman-polanski#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "파리에서 태어난 덕에 그는 프랑스 국적을 갖고 있다. 자국민은 인도하지 않는다는 프랑스의 엄격한 원칙이 미국의 신병 인도로부터 그를 영구히 막아준다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d5514041bb2478309f110fb08ef5cf0ef0e0f25c1b0640dc22580ab29b7a1bb3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roman-polanski#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2003년 홀로코스트 생존기 《피아니스트》로 아카데미 감독상을 받았다. 다만 미국 입국이 불가능해 트로피는 해리슨 포드가 대신 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "440408f447c485d2e6e3b31c530533107ec3aa3296b9c37eba1b77e4002d4aa1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roman-polanski#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "도망자 신분이면서도 2005년 런던 법정에서 《배니티 페어》를 상대로 명예훼손 소송을 걸어 이겼다. 샤론 테이트의 장례식으로 가는 길에 한 여자에게 수작을 걸었다는 보도를 반박하려고, 그는 파리에서 화상 연결로 증언했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "85ffa59dbb2c85e86c85da34145bb5a6e5b2d7658679a5e956a9d839493a8d9a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roman-polanski#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2009년 9월, 취리히 영화제에 평생공로상을 받으러 도착한 폴란스키를 스위스 경찰이 돌연 체포했다. 그는 그슈타트의 호화 산장 '밀키 웨이'에서 열 달간 가택연금을 살았고, 스위스는 끝내 그의 인도를 거부했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "78dc21fb3e6e5573535f7219231f93694073d0cb07b2e84151469ad17d378036"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roman-polanski#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미국을 떠난 지 사십 년 가까이 지난 2018년 5월, 미국 영화예술과학아카데미는 새로 제정한 행동강령 위반을 이유로 그를 회원에서 정식 제명했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b7103aa120c00dad635798d24d1c1aa7e3b2f8396a4b06fcccef98902c9acfe3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roman-polanski#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "현재의 아내인 프랑스 배우 에마뉘엘 세녜와는 캐스팅 디렉터의 소개로 처음 만났다. 이후 그는 그녀를 스릴러 《실종자》(1988)에 캐스팅했고, 서른세 살 나이차에도 이듬해 결혼했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b948c6290d3fd029c9792a05e4b08cd2f256981b372fd1ecf4a20e04573b98ff"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roman-polanski#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스티븐 스필버그가 《쉰들러 리스트》(1993)의 연출을 처음 제안한 상대는 폴란스키였다. 그러나 크라쿠프에서 촬영한다는 것이 게토에서 겪은 자신의 아물지 않은 유년의 상처에 너무 가까이 닿아, 그는 제안을 거절했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "38b7549a5fe89e891ca50f7a98fc26cc5908b7cc5cbc1daa91271c8208212307"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roman-polanski#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2020년, 그는 야드 바솀에 청원해 스테파니아와 얀 부하와 부부를 '열방의 의인'으로 사후 인정받게 했다. 홀로코스트 시기 그를 이 년간 숨겨준, 가난한 폴란드 가톨릭 농민 부부였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c588b3b3aba67990828d064b46584b13b72c85b896b75178bb28c9968cead7bd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roy-andersson#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편 데뷔작 《A Swedish Love Story》(1970)는 비평과 흥행을 한꺼번에 거머쥐었다. 베를린 국제영화제에서 상 네 개를 받았을 때 그의 나이 겨우 스물여섯이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9ad928826758d2400e64091051f42b12976cc5ee6bb776ea7081a02e6be578a7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roy-andersson#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "두 번째 장편 《Giliap》(1975)은 전설적인 재앙이 됐다. 예산은 걷잡을 수 없이 초과됐고 스태프는 등을 돌렸으며, 흥행 참패의 여파로 그의 장편 경력은 정확히 이십오 년간 멈춰 섰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "976672f8fc3f3868314a89850e6c3c15673e6fb5d11e5d01399e5810647343dc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roy-andersson#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Giliap》이 남긴 빚을 갚기 위해 안데르손은 텔레비전 광고 연출로 방향을 틀었다. 트뤼그한사와 에어프랑스 같은 브랜드를 위해 그가 만든 광고는 400편이 넘는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0ba5ca9c0c72c4f48fbc23b5b7f1edaff2a7dad8e428301663a3337e6395cf6b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roy-andersson#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1981년, 광고로 번 돈으로 그는 스톡홀름 부촌 외스테르말름의 옛 타운하우스를 사들여 독립 제작 시설 'Studio 24'로 개조했다. 이곳에서 그는 현장을 완전한 독재자처럼 장악한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd200552e31f8207d38f610b83f59732c0c493b86517669a1cad9bdfd434b93e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roy-andersson#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "로케이션 촬영은 하지 않는다. 대신 몇 달에 걸쳐 강제 원근법을 쓴 정교한 세트를 Studio 24 안에 전부 짓는다. 도시의 거리도, 기차역도, 광대한 풍경까지도.",
+  "model": "claude-opus-5",
+  "source_sha256": "f22775dff39d2c63cb9332d0e74c11004edcf4e28217f9082851acb5a0517406"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roy-andersson#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "배우는 거의 전부 비전문가이고, 그가 직접 거리에서 찾아낸다. 《You, the Living》(2007)의 주연 하나는 이케아 식당에서 미트볼을 먹던 남자에게 말을 걸어 구했다는 일화가 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "208be1798ecc02404dd3888c5e62bc4bc51175d4114dfe3e05a2bac05c1ced45"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roy-andersson#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "일본 부토(舞踏)와 오토 딕스의 그림에서 끌어온 화면을 위해, 안데르손은 배우들의 얼굴을 창백한 흰 분장으로 덮게 한다. 자연스러운 피부색을 걷어내면 남는 것은 유령이나 광대의 얼굴이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2bdde59a25141b06b7b5ed0b117293d77063c087f182ecd18af3a50a90042539"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roy-andersson#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그가 자기 예술의 뿌리로 꼽는 것은 다른 영화감독들이 아니다. 바이마르 시기 게오르게 그���스의 그로테스크한 풍자화, 그리고 페루 시인 세사르 바예호의 황량한 실존적 시다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc2dbce3fbe1e2d178ac07122fa7bfb1979a648001d2fc8dd76a046ec3e47eee"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roy-andersson#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편으로의 복귀작 《Songs from the Second Floor》(2000)는 Studio 24 안에서 사 년의 고된 촬영 끝에 완성됐고, 칸 영화제 심사위원상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ab5a55fa8ab104f15521d5771e7f2d8a1f8bed96af5acead5baecc7d5f62ebaa"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roy-andersson#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《비둘기, 가지에 앉아 존재를 성찰하다》(2014)에는 18세기 스웨덴 왕 칼 12세와 그의 군대 전체가 말을 탄 채 현대 예테보리의 술집으로 불쑥 들이닥치는 초현실적 장면이 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d28a35f1e80a81545fab4b932268b7a63f6bceac3ff330d37ded3e1b24e49567"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roy-andersson#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《비둘기, 가지에 앉아 존재를 성찰하다》는 제71회 베네치아 국제영화제에서 황금사자상을 받았다. 스웨덴 감독으로는 처음이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a3c557285a8dcd9f45dddfcf0484101b3f96b2188e5b77354695199691db391c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roy-andersson#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "거대한 놋쇠 원통 안에서 노예들이 산 채로 구워지는 끔찍한 초현실 장면을 위해, 제작진은 Studio 24 안에 거대한 회전 세트를 세웠다. 설계에만 몇 달이 걸렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "87b5c802f572153bd1738a17b525167e2064b98c59fdea723e709d9ecfef788d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roy-andersson#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1987년 스웨덴 보건복지청은 그에게 에이즈 교육용 단편을 의뢰했다. 그렇게 나온 《Something Happened》은 지나치게 어둡고 논란거리라는 판정을 받았고, 보건 당국은 공식 배급을 취소했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f534e60875fdf2df807f879b1ba1442885e083d6ff76a2af13b8e0c243b21006"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roy-andersson#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2004년에는 선언문에 가까운 책 《우리 시대의 진지함에 대한 공포》를 냈다. 현대 미디어의 얄팍함을 강도 높게 비판하면서 '복합적 이미지'라는 자신의 철학적 지향을 정리한 책이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ee0308c331df56f73d6b15632d008cc56f13415fd69fa001d79d6d141ac47bd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roy-andersson#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "어린 시절 홀로코스트 기록영상을 본 충격이 깊은 상처로 남았다고 그는 말한다. 스웨덴 사회의 집단적 죄책감과 방관자의 무관심, 평생 그를 놓아주지 않은 주제가 거기서 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3dc642b7c4aa621a06e752dfdd9fb63954e8a94e40bc4cd1a1d1f7a62b698408"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ry-suke-hamaguchi#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "상업 텔레비전 프로그램의 조감독으로 잠시 일했으나 만족을 얻지 못했다. 그는 갓 개설된 도쿄예술대학 대학원 영화 과정에 들어갔고, 거기서 호러의 거장 구로사와 기요시에게 직접 배웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ed167434fac499b6066f689f6e95baeb981037f798736c596272cfabd085f417"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ry-suke-hamaguchi#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2011년 동일본 대지진과 쓰나미 이후, 하마구치는 재해 지역으로 거처를 옮겨 사카이 고와 함께 친밀한 다큐멘터리 연작을 공동 연출했다. 이 경험 이후 그의 연출은 능동적이고 공감적인 듣기의 힘 쪽으로 완전히 방향을 틀었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ae4ec47843a90a360214fe8faab3f61d482c2069dd9f3377c2517761589fdba"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ry-suke-hamaguchi#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "다큐멘터리에서 만난 사람들, 그리고 프랑스의 거장 장 르누아르의 방법에서 출발해 그는 독특한 리허설 기법을 만들어냈다. 배우들은 감정을 완전히 뺀 채 대본을 수십 번 소리 내어 읽는다. 억양을 넣는 일은 실제 촬영 전까지 금지된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "61e8bc41c4ac77be11738c4d65d91f04ba77bc84ebe3fab5c0995322b31ca914"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ry-suke-hamaguchi#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "국제적 도약을 안긴 다섯 시간 십칠 분짜리 대작 《해피 아워》는 고베의 디자인·창조 센터 KIITO에서 그가 연 즉흥 연기 워크숍에서 통째로 태어났다. 참가자는 연기 경험이 전혀 없는 그 지역 여자들이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ab6b8d0b15f373a6fbeb86b0e6f6ce73f70489a241ceec437bb6b7cfc1b04634"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ry-suke-hamaguchi#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2023년 베네치아 은사자상을 받은 《악은 존재하지 않는다》의 출발점은 극영화가 아니었다. 작곡가 이시바시 에이코가 자신의 라이브 공연에 쓸 무성 배경 영상을 찍어달라고 청한 실험적 의뢰가 씨앗이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "279e4f5ded2348cecd96d6580218b6b7972e88c55ad5651ebb3c321c39c49e66"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ry-suke-hamaguchi#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《우연과 상상》으로 베를린, 《드라이브 마이 카》로 칸, 《악은 존재하지 않는다》로 베네치아에서 연달아 주요 심사위원상을 받았다. 단 삼 년 만에 유럽 영화제의 '빅 3'를 모두 정복한, 동시대에 드문 감독이 된 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d4e6a8aec7c026c51187b81ac3dc5418c3b5f7fa26361555ee7ce48cf9280ac2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ry-suke-hamaguchi#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "사제 관계가 뒤집힌 일도 있다. 하마구치가 공동 각본을 쓴 2020년 시대극 스릴러 《스파이의 아내》는 도쿄예술대학 시절 스승이던 구로사와 기요시에게 베네치아 감독상인 은사자상을 안겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "28315e87aa14077a442e528e4919b1e6f91719dd0e83a699dce2b08c99465f49"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryan-coogler#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "어려서부터 이름난 운동선수였던 쿠글러는 미식축구 장학금으로 세인트메리스 칼리지 오브 캘리포니아에 진학했다. 애초 계획은 화학을 전공해 의사가 되는 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d00214f702ad6c841f74e7ac005f1bfa06c18648eb84276d37088e327c2c708"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryan-coogler#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "진로가 완전히 바뀐 계기는 신입생 시절 영문학 교수 로즈메리 그레이엄이었다. 아버지가 자기 품에서 피를 쏟으며 죽어가던 일을 쓴 지극히 사적인 글쓰기 과제를 읽은 그녀는, 이 젊은 운동선수를 따로 불러 각본가가 되라고 못을 박았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ad7d8f6cfcf117b0a9044467a0198320ba68f29205409dc5d38390c658f3d791"
+ }
+]

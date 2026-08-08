@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-curse-of-page-3-2003",
+  "field": "lead",
+  "film_id": "769217ea-fa23-423a-a9d0-f016b0ed34d6",
+  "lang": "en",
+  "text": "Page three of a British tabloid carried a photograph of a topless young woman, and the women in those photographs went on having lives after the shutter closed. Julian Jones takes fifty-five minutes — a television hour, near enough — to follow what came of that. The brevity matters. There is no room for extended editorialising, so the film lets the arithmetic speak: how a mass circulation converts into being recognised on a street in a small town, and what recognition converts into after that. Shot in 2003, in the present tense of its subject rather than at a safe historical distance, it declines the easy posture of disapproval and the easier one of celebration. What it documents is a transaction — the terms of it, who set them, and who was holding the paper on the other end.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c4b7b136cba93a4da3ec9fa362f9c480e789cb47ac59a3c570bc7b40eb3f244"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-story-of-ti-ying-1971",
+  "field": "lead",
+  "film_id": "72479c3e-6c4a-48ff-ae16-ee6f263c65c5",
+  "lang": "en",
+  "text": "A film named for one person makes a promise about where the camera intends to stand. Ti-Ying holds this title, and Li Han-Hsiang spends 116 minutes of costume history keeping that promise. Period pictures are the expensive end of any film industry — robes, courts, crowds, a past that has to be built before it can be photographed — and Taiwan in 1971 was willing to put that money on screen. The Golden Horse jury gave the picture its award for best feature, the domestic industry marking its own high line for the year. The length suggests patience rather than spectacle: nearly two hours is room for a case to be argued slowly, for a decision to gather weight before anyone acts on it. Historical drama is rarely about the period it depicts. It is dressed argument, and the costumes are the least of it.",
+  "model": "claude-opus-5",
+  "source_sha256": "e3a59e2b6450f93502157eef10775ca15059214def917d14ccaa714cf663a32e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "land-of-the-undaunted-1975",
+  "field": "lead",
+  "film_id": "7eb4a6a6-5976-4d37-84e8-f6468bf8b3f2",
+  "lang": "en",
+  "text": "History pictures need a population, and populations have to be assembled: costumed, placed on the ground, told when to move and when to hold still. Lee Hsing took on that labour in Taiwan in 1975. A title claiming both land and people sets its terms early — the film will be about belonging to a place, and about what the place asks in return from those who belong to it. The risk in this kind of work is stiffness: faces arranged into a tableau of national feeling, holding a pose until the music ends. The reward, when the faces are allowed to be faces, is a plainness that costume drama seldom reaches. A Golden Horse jury with the whole domestic year in front of it gave this the award for best feature, which is the closest thing to contemporary evidence that the plainness got through.",
+  "model": "claude-opus-5",
+  "source_sha256": "375e9d77e56622e4c24c7aa950edaf889fb404002755c882292a8497338a88e9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "orchids-and-my-love-1965",
+  "field": "lead",
+  "film_id": "2c9b6724-796d-4ba5-a7af-5437e8c068ea",
+  "lang": "en",
+  "text": "Meng Rou-lan loves ballet and cannot dance; polio decided that before the film starts. Her father grows orchids — a crop that punishes impatience, raised under cover by someone prepared to wait years for a bloom — and raises her on the farm alongside them. Li Chia has 119 minutes and declines to hurry them. The situation is domestic and nearly without incident, which puts the pressure exactly where melodrama usually refuses to leave it: on the daily arrangement between a man and a child who both know what her body will not do, and on a household quietly rebuilt around one person's illness. Taiwan gave it the Golden Horse for best feature in 1965. The greenhouse is the better clue to what the film is up to — a place where growth is counted in seasons and nothing is asked to be finished early.",
+  "model": "claude-opus-5",
+  "source_sha256": "12eaa928fd3afe0adc352ccd5e9c8a1023a77c93a567b767520668aad99ef8af"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "agantuk-1990",
+  "field": "lead",
+  "film_id": "783d6f20-f8c1-4152-9cfc-969a231be992",
+  "lang": "en",
+  "text": "There is no such thing as a self-appointed detective; there are only people who cannot let a death alone. Shobharani Basu, an old woman, is found dead in her apartment, and the man who insists it was murder holds no badge and no brief — his authority is entirely his own conviction. That is the engine of Indraadip Dasgupta's film. Bengali, 128 minutes, and shaped as a mystery, which in practice is a licence to trespass: the investigation gives the camera a reason to enter rooms, question households, and sit in on lives it would otherwise have no business observing. The genre labels say crime. The behaviour of the film is closer to social observation — patient about interiors, more interested in who gets asked than in what the answers add up to.",
+  "model": "claude-opus-5",
+  "source_sha256": "065289db0784ffecaaa7b8bc710afff656db5b2c156daa3524787cc1ae6b6be9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mrigaya-the-hunt-1975",
+  "field": "lead",
+  "film_id": "f1cd2e6e-332c-4536-b246-0877fa5fea29",
+  "lang": "en",
+  "text": "The dead woman worked in Sonagachi, and the four policemen sent to establish how she died were not selected for compatibility. Abhirup Ghosh files this as an action picture and then spends two hours on the thing action pictures skip: the friction inside the unit doing the hunting. Four men, one case, and a Kolkata neighbourhood where the arrival of police means something specific to everyone who sees it. The genre promises pursuit; the material keeps returning to who is entitled to conduct it, and on whose behalf. Bengali, 1975, and holding the national award for best feature. A jury prize on a film like this reads as permission — that the picture was allowed to stay harder and less resolved than its packaging, and that nobody treated the difficulty as a defect.",
+  "model": "claude-opus-5",
+  "source_sha256": "db2db188c59902a7b0eee2138b3f70cbff225ea30ad0360376db4ac19ac64b7b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-road-1967",
+  "field": "lead",
+  "film_id": "f9ea0604-66bf-47be-b58d-de82f2049c68",
+  "lang": "en",
+  "text": "The father builds roads; the son studies for the university entrance examination. Lee Hsing sets those two labours side by side for ninety-six minutes and never once announces the comparison, which is why it holds. Kuo Chang Ying's evenings are books; his father's days are gravel. Next door lives Chen Shu Chun, who sells sex and shares a room with a husband who beats her, and the friendship that forms across that wall is precisely what a father with one hope left would forbid. Taiwan, 1967; the Golden Horse for best feature followed. The film's real subject is proximity — thin walls, shared stairs, a lane where everyone's circumstances are audible to everyone else — and what it costs a poor family to hold a line in a place with nowhere private to hold it.",
+  "model": "claude-opus-5",
+  "source_sha256": "19de9d7ebe182258d3e49dbbd25c26debbeb70e5d4973f91f9df433880fc414a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-foggy-tale-2025",
+  "field": "lead",
+  "film_id": "fd42d52b-0cab-4d79-abac-79f4b9614156",
+  "lang": "en",
+  "text": "A body has to be collected, and the state that made it a body will not be helping. Yue's brother was executed; she travels to Taipei alone to bring him home, which is a transport problem, a paperwork problem, and a way to get herself killed. Chen Yu-hsun gives that errand 134 minutes and gives Yue exactly one ally: Chao Kung-tao, recently discharged from the army and therefore both useful and compromised. Two strangers with no prior claim on each other, moving through a country where asking a clerk a direct question is the risk. The scale is deliberately narrow. Not the machinery that produced an execution but the logistics downstream of one — the trains, the forms, the officials who study a wall while they answer, the distance between a city and a home measured in permissions.",
+  "model": "claude-opus-5",
+  "source_sha256": "543fa0b45169f7e6924602c753b378c71370e22a21774b7ee01cbe9b47bbf18f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "intolerance-love-s-struggle-throughout-the-ages-1916",
+  "field": "lead",
+  "film_id": "16700bf8-47f0-4340-a30c-f340301bf006",
+  "lang": "en",
+  "text": "Three hours and seventeen minutes, made in 1916, and it refuses to stay in one century. The spine is a poor young woman kept from her husband and her infant by other people's righteousness; around her, D.W. Griffith runs episodes of intolerance drawn from the distant past, and rather than tell them in sequence he cuts between them, so that a judgment passed in one age lands on a face in another. The method is the argument. Any film can state that cruelty repeats; this one makes the repetition a property of the editing, so a viewer feels the rhyme before deciding whether to accept it. It is also enormous — crowds, sets, an appetite for scale that had to be paid for somewhere. The National Film Registry holds it. What still startles is the assumption that an audience could keep several clocks running at once.",
+  "model": "claude-opus-5",
+  "source_sha256": "435701055e90640d75808f9542569a6801f88b6af17051ad465cb7a8c8fd4f5c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-gold-rush-1925",
+  "field": "lead",
+  "film_id": "25aa0229-1ecc-425f-8d98-36913685a016",
+  "lang": "en",
+  "text": "Comedy set where people freeze and starve is a difficult trick, and the whole picture rests on bringing it off. Charlie Chaplin puts a prospector in Alaska with nothing, then hands him a second appetite — a dance hall girl — so that wanting runs on two tracks at once and neither one can feed the other. Ninety-five minutes is short for an adventure and about right for a joke obliged to keep escalating. What makes the physical business land is that the danger under it is real in the film's own terms: weather, distance, a cabin, not enough to eat. Slapstick normally cancels consequence. Here the gags are how survival gets negotiated, which is why they still work on people who have never sat through another silent film. It is also funny, and funny is the hardest property to keep across a century.",
+  "model": "claude-opus-5",
+  "source_sha256": "f03b11c1ce50b277f63203e68e670ac28e49021b199f6344a89425e41b956041"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-crowd-1928",
+  "field": "lead",
+  "film_id": "68dd6d6f-8b52-4ca8-b8ee-9c46adc245ed",
+  "lang": "en",
+  "text": "John is ambitious and undisciplined, a combination that costs more in an office than it does anywhere else. King Vidor follows him out of that job into a marriage with Mary and then into the ordinary arithmetic of rent, children, and a wage that does not move. Ninety-eight silent minutes, and the pressure arrives as numbers: sidewalks, workrooms, the daily demonstration that this man is one of a great many doing the identical thing at the identical hour. The Academy gave Vidor its award for directing a dramatic picture. What is unusual, for 1928, is the absence of an antagonist — no scheming rival, no ruinous vice, only a temperament meeting an economy with no particular use for it. New York is not a symbol here. It is a rent bill, an office floor, and everyone else who also needs the job.",
+  "model": "claude-opus-5",
+  "source_sha256": "74f023c2b57080906148da44abfb646c6a40d67b05ca01dee98bdbc71ccd89f5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "wanda-1970",
+  "field": "lead",
+  "film_id": "b40fbb6f-a5ba-4b60-b767-b45c1fea1733",
+  "lang": "en",
+  "text": "A woman walks out on her husband and her children, and the film builds her no case. Barbara Loden made Wanda in 1970 and held the camera at a distance most American pictures of the period would have closed — no scene in which someone explains the decision, no moment arranged to make it forgivable. Wanda drifts, falls in with a small-time criminal, and spends a great deal of the running time waiting. What the film withholds is what most films exist to supply: here is a woman who will not narrate herself, filmed by a director unwilling to narrate her either. A hundred and three minutes of watching a person without being told how to read her. The Sight & Sound critics' poll carries it. Nobody in it is asking to be liked, which is rarer than any prize.",
+  "model": "claude-opus-5",
+  "source_sha256": "89223db61b1e7c44e82a38b4d939c67fbf1fcb5a058f3fc73e0447a5f9750378"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "greed-1924",
+  "field": "lead",
+  "film_id": "262d2b12-f3fa-4c67-9a68-2112ddcdf2ba",
+  "lang": "en",
+  "text": "The money arrives early, and everything after it is spending. Trina wins a lottery; her husband John is a dentist; the household is comfortable, and then by degrees it is not — first because of what she comes to believe about her own security, then because an acquaintance named Marcus has arrangements of his own in mind. Erich von Stroheim takes 140 minutes and gives them to deterioration rather than event, which is far harder to keep watchable. His method is confinement: the same rooms, the same two people, one argument about money repeated until it hardens into something else. The performances sit at a physical register that reads as deliberately ugly. Cruelty here is administered in domestic increments, and the increments are what make it land — nobody is ruined in a single stroke.",
+  "model": "claude-opus-5",
+  "source_sha256": "f968118ef8be4eed7ee8ca90ff110cdf704550f1053816684d70c3b4d98ceb11"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-single-man-2009",
+  "field": "lead",
+  "film_id": "78d2c48e-622f-44ae-8b00-b4542954eba8",
+  "lang": "en",
+  "text": "Los Angeles in 1962, a missile crisis running on the radio, and the emergency the film attends to is a man getting dressed. He is British, he teaches at a college, his partner Jim is dead, and Tom Ford confines the whole picture to one of his days: a lecture, errands, encounters that would be unremarkable if he were not carrying through them what he is carrying. The design is conspicuous. Every surface composed, every shirt exact — which could be decoration and mostly is not, because grief here operates as a discipline of appearances, and the precision of the objects measures the effort involved in staying upright. A hundred minutes, one day. Public catastrophe on the radio, private catastrophe in the kitchen, and the film is clear about which is louder in any given room.",
+  "model": "claude-opus-5",
+  "source_sha256": "bc6c262782ce735386c244321712c9f6bad24142931b4281f6462b98d321c939"
+ }
+]

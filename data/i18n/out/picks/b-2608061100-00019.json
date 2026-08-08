@@ -1,0 +1,322 @@
+[
+ {
+  "entity_type": "director_pick",
+  "entity_key": "quentin-tarantino#inglourious-basterds-2009",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《바스터즈: 거친 녀석들》은 그의 예술적 정점이다. 농가와 선술집, 길게 늘어지는 대화 장면에서 견디기 힘든 긴장을 쌓아 올린다. 그러면서 2차대전을 영화가 꾸는 복수의 환상으로 다시 쓴다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "quentin-tarantino#once-upon-a-time-in-hollywood-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "플롯 대신 분위기다. 《원스 어폰 어 타임... 인 할리우드》는 1969년 로스앤젤레스를 애정 어린 눈으로 느릿하게 배회한다. 여기서 타란티노의 다정하고 향수 어린 면모가, 영화 만들기 자체를 향한 집착이 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "quentin-tarantino#kill-bill-vol-1-2003",
+  "field": "reason",
+  "lang": "ko",
+  "text": "장르적 광기가 그대로 터져 나온다. 사무라이 검, 애니메이션, 쿵후, 그리고 푸른 잎사귀의 집 학살극. 《킬 빌 Vol. 1》은 타란티노가 그러모은 영화적 인용의 콜라주를 전속력으로 돌린다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "quentin-tarantino#django-unchained-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "미국 노예제에 스파게티 웨스턴의 틀을 씌운 《장고: 분노의 추적자》. 여기서부터 타란티노는 역사를 복수극으로 다루기 시작한다. 잔혹한 소재 옆에 크리스토프 발츠의 수다스러운 현상금 사냥꾼을 세워둔 것이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "quentin-tarantino#the-hateful-eight-2015",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《헤이트풀 8》은 이미 빠져든 사람에게 주어지는 실내극이다. 눈보라에 갇힌 오두막, 거짓말쟁이 여덟 명, 70mm 촬영. 애거서 크리스티식 추리가 편집증을 머금은 채 천천히 타들어간다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "rainer-werner-fassbinder#ali-fear-eats-the-soul-1974",
+  "field": "reason",
+  "lang": "ko",
+  "text": "파스빈더에게 들어가는 가장 따뜻한 문은 《불안은 영혼을 잠식한다》다. 나이 든 청소부와 젊은 모로코 노동자의 사랑을 다정하게, 그러나 눈 돌리지 않고 그린다. 독일 사회의 편견이 멜로드라마의 선명한 화법으로 드러난다. 입문자에게 더없이 좋다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "rainer-werner-fassbinder#the-marriage-of-maria-braun-1979",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《마리아 브라운의 결혼》은 BRD 3부작의 왕관이다. 전후 독일 재건기를 억척스럽게 타고 오르는 한 여자의 이력을 따라간다. 한나 시굴라의 연기, 그리고 영화 전체가 하나의 국가 알레고리로 읽히는 방식이 파스빈더가 왜 중요한지 말해준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "rainer-werner-fassbinder#the-bitter-tears-of-petra-von-kant-1972",
+  "field": "reason",
+  "lang": "ko",
+  "text": "패션 디자이너의 잔인한 연애를 방 하나에 가둔다. 권력 게임과 양식화된 절망뿐이다. 《페트라 폰 칸트의 쓰디쓴 눈물》은 연극적이고 밀실 같은 그의 장악력을 보여주는 실내극(Kammerspiel)이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "rainer-werner-fassbinder#fox-and-his-friends-1975",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《폭스와 그의 친구들》에서는 파스빈더 본인이 주연을 맡는다. 복권에 당첨된 노동계급 남자가 부르주아 애인의 무리에게 삼켜지는 이야기. 게이 세계 안에서 벌어지는 계급 착취를 무뚝뚝하게 뜯어본다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "rainer-werner-fassbinder#veronika-voss-1982",
+  "field": "reason",
+  "lang": "ko",
+  "text": "그가 완성한 마지막 영화. UFA의 퇴락한 스타가 모르핀에 젖어 무너지는 과정을 눈부신 흑백으로 담았다. 화려하면서 불길한 진혼곡, 《베로니카 포스의 갈망》이 BRD 3부작을 닫는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "rainer-werner-fassbinder#in-a-year-of-13-moons-1978",
+  "field": "reason",
+  "lang": "ko",
+  "text": "트랜스 여성의 마지막 며칠을 프랑크푸르트의 밑바닥을 따라 좇는다. 연인의 자살 뒤에 만든, 파스빈더의 가장 사적이고 참혹한 작품. 《In a Year of 13 Moons》는 이미 빠져든 사람의 몫이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "rian-johnson#knives-out-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 편안한 입구는 《나이브스 아웃》이다. 시계태엽처럼 맞물리는 후더닛에 계급 풍자가 능청스럽게 박혀 있고, 대니얼 크레이그가 느릿한 말투의 탐정으로 나온다. 시선을 딴 데로 돌리는 솜씨와 앙상블 운용이 여기 다 있다. 그의 SF 취향을 미리 알아둘 필요는 없다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "rian-johnson#looper-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《루퍼》는 존슨이 가장 단단하게 벼려낸 오리지널이다. 시간여행이라는 큰 설정을 도덕적 무게와 군더더기 없는 누아르 문법으로 땅에 붙들어 맨다. 장르의 기계를 짓고, 그 안에서 관객의 예상을 부수는 사람이라는 증거.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "rian-johnson#glass-onion-a-knives-out-mystery-2022",
+  "field": "reason",
+  "lang": "ko",
+  "text": "브누아 블랑을 테크 억만장자의 섬으로 보낸다. 《글래스 어니언: 나이브스 아웃》은 전편의 서늘함 대신 햇볕에 달궈진 부조리를 택하고, 구조 자체를 뒤집는 한 방을 숨겨둔다. 퍼즐을 다시 짜는 존슨의 취향에 이미 걸려들었다면 보상받는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "rian-johnson#star-wars-the-last-jedi-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 말이 많았던 스윙은 《스타워즈: 라스트 제다이》다. 사랑받는 프랜차이즈에 특유의 전복적 본능을 들이밀어, 블록버스터 화면 위에서 영웅주의와 유산을 심문한다. 그의 반골 기질이 어디까지 가는지 궁금한 팬이라면 여기까지 오면 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "richard-donner#superman-1978",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《슈퍼맨》(1978)에는 진심으로 스펙터클을 밀어붙이는 도너의 재능이 있다. 크립톤의 장대함, 스몰빌의 온기, 메트로폴리스의 재치가 균형을 이룬다. 날아다니는 남자를 감정적으로 실재하게 만든 영화. 가장 반가운 입구다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "richard-donner#lethal-weapon-1987",
+  "field": "reason",
+  "lang": "ko",
+  "text": "도너의 액션 기술은 《리쎌 웨폰》(1987)에서 결정화된다. 깁슨의 불안정함과 글로버의 피로를 맞붙여 장르를 정의한 버디 공식을 만들었다. 운동감 있는 연출과 배우들 사이의 진짜 화학반응이 영화를 민다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "richard-donner#the-omen-1976",
+  "field": "reason",
+  "lang": "ko",
+  "text": "어두운 음역은 《오멘》(1976)에 있다. 절제되고 방법론적인 공포로 불안을 쌓고, 그레고리 펙의 무게가 그것을 받친다. 스릴만큼이나 공포도 능란하게 다뤘다는 증거.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "richard-donner#the-goonies-1985",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《구니스》(1985)에는 유년의 모험을 향한 도너의 애정이 있다. 함정투성이 지하 통로로 아이들 한 무리를 몰아넣고 그 소란을 지휘하는데, 그 너그러운 마음이 한 세대의 기준점이 되었다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "richard-linklater#before-sunrise-1995",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《비포 선라이즈》는 링클레이터가 하려는 일 전부를 하룻밤으로 압축한다. 낯선 두 사람이 빈 거리를 걸으며 이야기한다. 그뿐인데 매혹적이고, 어렵지 않다. 실시간 대화를 향한 그의 집착으로 들어가는 가장 따뜻한 문.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "richard-linklater#dazed-and-confused-1993",
+  "field": "reason",
+  "lang": "ko",
+  "text": "로맨스 대신 떼거리를 택한다. 1976년 종업식 날 하루, 《데이즈드 앤 컨퓨즈드》는 플롯 없이 어울림과 기억만으로도 영화가 굴러간다는 걸 보여준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "richard-linklater#boyhood-2014",
+  "field": "reason",
+  "lang": "ko",
+  "text": "같은 배우들이 화면 안에서 실제로 나이 드는 것을 12년에 걸쳐 찍었다. 《보이후드》는 시간을 향한 링클레이터의 집착을 형식 실험으로 바꿔놓고, 관객은 그것을 몸으로 느낀다. 그가 왜 중요한지는 여기서 답이 난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "richard-linklater#before-sunset-2004",
+  "field": "reason",
+  "lang": "ko",
+  "text": "9년 뒤, 빈의 두 사람이 거의 실시간으로 다시 만난다. 《비포 선셋》의 대화에는 이제 후회가 날처럼 서 있다. 로맨스가 잃어버린 시간에 관한 이야기로 깊어진다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "richard-linklater#before-midnight-2013",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《비포 미드나잇》은 같은 두 사람을 결혼시켜 그리스에서 다투게 한다. 설렘 자리에는 오래된 동반 관계의 날것 그대로의 마찰이 들어선다. 3부작의 감상 없는 종착점.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "richard-linklater#waking-life-2001",
+  "field": "reason",
+  "lang": "ko",
+  "text": "실사 위에 로토스코프를 입힌 《웨이킹 라이프》는 철학적인 꿈-대화 사이를 떠다닌다. 링클레이터의 말하는 영화가 사실주의에서 풀려나는 순간. 생각을 따라 어디든 갈 준비가 된 사람에게 권한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "richard-linklater#bernie-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《버니》는 다큐멘터리식 주민 인터뷰와 잭 블랙이 연기하는 사랑받는 텍사스 장의사를 뒤섞는다. 톤 자체가 모험인 실화 범죄 코미디이자, 링클레이터가 지역에 품은 호기심이 드러나는 자리.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "richard-linklater#blue-moon-2025",
+  "field": "reason",
+  "lang": "ko",
+  "text": "술집 하나, 하룻밤. 《Blue Moon》은 링클레이터를 그 안에 가둔다. 작사가 로렌즈 하트를 앉혀놓은 실내극인데, 수십 년이 지나도 그의 대화 중심 솜씨가 여전히 깊이 벤다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ridley-scott#the-martian-2015",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 접근하기 쉬운 영화는 《마션》이다. 밝고, 문제를 하나씩 풀어가는 생존기이며, 맷 데이먼의 재치가 그것을 민다. 어두운 작업에 깔린 공포나 폭력 없이도 스케일과 톤을 다루는 솜씨가 보인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ridley-scott#alien-1979",
+  "field": "reason",
+  "lang": "ko",
+  "text": "명성의 토대는 《에이리언》이다. 밀실 같은 공업용 통로에서 서서히 조여드는 공포. 분위기와 프로덕션 디자인에 관한 한 스콧의 천재성은 여기서 증명되고, 유령의 집이라는 설정이 심우주의 공포로 바뀐다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ridley-scott#thelma-louise-1991",
+  "field": "reason",
+  "lang": "ko",
+  "text": "장르적 볼거리 바깥의 스콧을 보려면 《델마와 루이스》다. 햇빛에 잠긴 미국 풍경을 가로지르는 여성들의 우정과 반란. 괴물만이 아니라 얼굴과 자유 앞에서도 그의 눈이 똑같이 작동한다는 걸 알게 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ridley-scott#prometheus-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《프로메테우스》는 큰 야심을 품고 에이리언의 세계로 돌아온다. 공포 대신 기원에 관한 우주적 질문과 압도적인 풍경을 택했다. 스콧의 더 큰 철학적 스윙까지 보고 싶어진 사람에게 맞다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ridley-scott#alien-covenant-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《프로메테우스》의 논쟁적인 짝이 《에이리언: 커버넌트》다. 창조 신화와 크리처 호러를 마이클 패스벤더의 쌍둥이 안드로이드 둘레에 녹여 붙였다. 기이하고 관념이 앞서는, 끝까지 따라온 이들을 위한 보상.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ridley-scott#gladiator-ii-2024",
+  "field": "reason",
+  "lang": "ko",
+  "text": "만년의 스콧이 로마의 스펙터클을 향해 다시 크게 휘두른다. 《글래디에이터 II》에서는 서사시들을 만든 지 수십 년이 지난 여든여섯 살 감독이 여전히 거대한 원형경기장 장면을 짜고 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "rob-reiner#the-princess-bride-1987",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 문턱이 낮은 영화는 《프린세스 브라이드》다. 검술과 로맨스, 두고두고 인용되는 농담이 겹겹이 쌓인 동화 모험담. 어느 나이에 어느 지점에서 들어와도 통한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "rob-reiner#when-harry-met-sally-1989",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《해리가 샐리를 만났을 때》에는 인물과 리듬을 다루는 라이너의 재능이 있다. 몇 해에 걸친 티격태격과 노라 에프런의 날 선 대사로 현대 로맨틱 코미디의 표준형을 세웠다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "rob-reiner#stand-by-me-1986",
+  "field": "reason",
+  "lang": "ko",
+  "text": "웃음 대신 애틋한 향수를 택한 《스탠 바이 미》. 철길을 따라 걷는 네 소년을 좇으며, 라이너가 어린 배우들에게서 날것의 감정을 오래 남게 끌어낼 줄 안다는 걸 증명한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "rob-reiner#misery-1990",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《미저리》는 그의 폭을 보여준다. 밀실 스릴러, 캐시 베이츠가 연기하는 소름 끼치는 팬, 그 손에 갇힌 작가. 여기엔 온기 대신 긴장뿐이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "rob-reiner#a-few-good-men-1992",
+  "field": "reason",
+  "lang": "ko",
+  "text": "법정극 진열장은 《어 퓨 굿 맨》이다. 에런 소킨의 말싸움을 계단처럼 끌어올려, 폭발하는 재판 드라마를 정의한 심문 장면에 이른다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "rob-reiner#this-is-spinal-tap-1984",
+  "field": "reason",
+  "lang": "ko",
+  "text": "감독 데뷔작이 《This Is Spinal Tap》이다. 모큐멘터리라는 형식을 발명해버린 헤비메탈 패러디. 표정 하나 안 바꾸고 굴러가는 즉흥의 헛소리들은 자세히 볼수록 값을 한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "robert-bresson#a-man-escaped-1956",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《사형수 탈옥하다》는 탈옥을 순수한 과정으로 바꿔놓는다. 손, 도구, 소리. 브레송의 덜어낸 문체가 입문자의 멱살을 곧바로 잡는데, 서스펜스는 조금도 손해 보지 않는다.",
+  "model": "claude-opus-5"
+ }
+]

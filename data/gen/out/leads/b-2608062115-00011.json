@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-crime-of-monsieur-lange-1936",
+  "field": "lead",
+  "film_id": "2eedcca4-07d5-46c1-b141-2179435a6694",
+  "lang": "en",
+  "text": "The boss vanishes, and the people who actually made the magazines keep making them. Amédée Lange writes cowboy fiction for a publishing house that profits from him and pays him little; with the owner gone, the staff run the place themselves, and it works. Jean Renoir gives the co-operative eighty minutes and spends most of them on labour rather than on the crime the title advertises — copy, print runs, the daily business of a firm that has quietly changed hands. The comedy comes from how quickly the new order stops feeling like an emergency measure. Then the owner reappears, wanting the profits of a success he had no part in. The pressure is small and exact: a room of employees who have found out they were never the ones who needed the man whose name was on the door.",
+  "model": "claude-opus-5",
+  "source_sha256": "53fd6d5460dc226a628f0b04a18d2a1d1b0bcc8dce2de1aba10859f3540284a0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-kid-1921",
+  "field": "lead",
+  "film_id": "b6777aee-eeaa-4653-b841-ac447c3fd2f4",
+  "lang": "en",
+  "text": "A man with no money and no address takes in a newborn somebody left behind, and somehow it holds. Sixty-eight minutes is a short life for a film that covers years; Charlie Chaplin compresses them into a household of two, assembled out of whatever the street will give up. Much of the comedy is domestic — meals, chores, the working partnership of an adult and a small boy who has learned to keep up. Underneath sits a claim nobody in that household knows about: the mother who gave the child away has changed her mind and is looking for him. Chaplin directs and plays the tramp, so the timing and the sentiment come from one hand and neither is permitted to cancel the other. It is funny in the ordinary way of two people who know each other's habits, and it keeps account of who the boy belongs to.",
+  "model": "claude-opus-5",
+  "source_sha256": "fdfa22c4bb318c5d53aba0107e65a663f783d8e8c4ad982f88b26b2bdd162fe2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "peeping-tom-1960",
+  "field": "lead",
+  "film_id": "41dacb21-b3c6-4a8b-9ed5-f64f3aa19b98",
+  "lang": "en",
+  "text": "Mark Lewis works in a film studio by day, and after hours he keeps using the same equipment. Michael Powell builds a horror picture around a technician — a quiet man with a job, a camera he handles like part of his own body, and a private project he describes to almost nobody as a documentary about fear. The unnerving thing early on is how ordinary he seems to everyone near him: a colleague, a neighbour, a man it is easy to be kind to. Helen and her family live in the flat below; he tells her something vague about the film he is making, and the vagueness is the whole of it. Powell keeps the story inside the language of moviemaking — lenses, footage, the business of watching what has been shot — until that language becomes the method of the crime. The horror sits in the equipment.",
+  "model": "claude-opus-5",
+  "source_sha256": "09a2740a7fabf4616888f803b236165ab1608dfbe51e93367b9890b0cd0f464c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "seven-chances-1925",
+  "field": "lead",
+  "film_id": "1daec927-f357-4c05-84a7-9dde003b7ecf",
+  "lang": "en",
+  "text": "The deadline is seven in the evening, the inheritance is seven million dollars, and the film runs fifty-six minutes. Jimmie Shannon is a stockbroker whose business is going badly when the terms reach him: marry today, on his twenty-seventh birthday, or the money goes to somebody else. Buster Keaton builds the whole picture out of that arithmetic, and at this length there is room for exactly one idea. A man obliged to propose to near-strangers, and a clock subtracting. Nothing in the setup is romantic; the terms are financial and the proposals are made under them. Comedy like this depends on the audience believing the deadline, so the early stretch is spent making the money matter before any of the time gets spent. After that it becomes a chain of consequences, each solution manufacturing a larger problem, until the problem outgrows anything one man could steer.",
+  "model": "claude-opus-5",
+  "source_sha256": "a465f9cfb753a1cbba71b641cc8a6b7e928c73656100fa69a34b5ff71f0de6cd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "antonio-das-mortes-1969",
+  "field": "lead",
+  "film_id": "b237f534-bb95-4956-b831-e4116219e033",
+  "lang": "en",
+  "text": "A blind landowner pays a hired gun to put down a rebellion he cannot see. The bandits have a leader called Coirana and a following that treats him as something more than a bandit; Antônio, who has cleared such men out of the badlands before, is brought in to finish him. Glauber Rocha files the film as a Western and the grammar holds — an armed outsider, hard country, a duel everyone agrees has to happen. What the genre does not usually carry is the crowd. Rocha keeps returning to the people standing behind the fight, the ones who followed Coirana out there and who gain nothing whichever man wins, and across a hundred minutes that pressure turns the hired man's employer into the harder problem. Ritual and ambush trade places without anyone marking the change.",
+  "model": "claude-opus-5",
+  "source_sha256": "2060e3527e8c703735b205b150308d10d2ea67be7418d31ab323bf8f16acee69"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "eat-drink-man-woman-1994",
+  "field": "lead",
+  "film_id": "da454a4d-5056-4952-bf3f-5d4ccf59015e",
+  "lang": "en",
+  "text": "The kitchen job is over; the cooking is not, and it lands each day on three grown daughters who would rather be elsewhere. Chu's house in Taipei runs on a schedule nobody voted for: elaborate meals produced by a master chef with no restaurant left to feed, eaten by women whose real lives have already moved past the front door. Ang Lee takes two hours to let the household come apart, and he does it through announcements made at the table — a man, a move, a decision already taken — each one landing between courses. The film is patient with all four of them and partial to none. Its weight comes from the practical matter beneath the manners: who pays for the house, who is expected to stay in it, and what a father who says everything through food does when the food stops being the point.",
+  "model": "claude-opus-5",
+  "source_sha256": "0405e02f74ba06ebf996406e07d4ab10f4a49b3719744eb1f1f8c345b2821479"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "chronicle-of-anna-magdalena-bach-1968",
+  "field": "lead",
+  "film_id": "f5290ca9-83f3-47f6-8f4d-2eb477d219bd",
+  "lang": "en",
+  "text": "The account comes from the wife, and she keeps it the way a household keeps its records. Anna Magdalena narrates the life of Johann Sebastian Bach in a flat register of attested things, and the composer stays at one remove throughout — described from across a room by the person who lived with the music while it was still work rather than inheritance. The playing is not accompaniment to the biography; it is the substance, and the words arrive in the gaps between pieces. Jean-Marie Straub reduces the life of a great man to what a household could honestly report, and ninety-four minutes of that makes a particular demand: nearer to sitting inside a performance than to following a story. Nothing here moves to soften it. What remains is a marriage seen through its labour.",
+  "model": "claude-opus-5",
+  "source_sha256": "70ca5bedd62998b5c045b29bcdb9872e787a2b1444a57336625cccbfd89da7d1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-age-of-the-earth-1980",
+  "field": "lead",
+  "film_id": "17508854-2294-49f3-aa13-6b6b984038b0",
+  "lang": "en",
+  "text": "Four men each carry the figure of Christ — a black man, a soldier, an Indian, a guerrilla — and the film declines to choose among them. Glauber Rocha started from a poem by Castro Alves and built something nearer to a procession than a plot: 148 minutes in which the four move through the Brazil of the late 1970s at the scale of myth rather than incident. Their opponent has a name and a nationality that are not Brazilian. John Brahms arrives to take what can be taken and calls the taking civilization, which is the transaction the film keeps circling. It is not an accommodating picture — figures speak in declarations, sequences are ordered by image rather than by cause — and what it asks is that a country be read as a body of types rather than a cast of characters.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9b533e091f3855b9c030167cea3a7e9869d65eb05d55b1e9f86c6f1d88d2a0d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "strike-1925",
+  "field": "lead",
+  "film_id": "3213058c-79d4-46fc-84f4-a113a3aeffb5",
+  "lang": "en",
+  "text": "Pre-revolutionary Russia, filmed in 1925 by people who already knew how it turned out. Sergei Eisenstein gives the workforce the part usually reserved for a hero, draws the owners as a small committee of grotesques, and lets nobody have a private life. What holds his attention is procedure: how a grievance becomes a decision, how a decision becomes silence in a building constructed to be loud, and how a stoppage has to be held once it has been called. The arguing is done in the cutting, one shot set hard against the next so that the meaning lands in the join rather than in either image. Eighty-nine minutes, and the distance between the setting and the vantage is the film's licence to be blunt about who stands where. Subtlety is not on offer. It is a machine made of people, filmed while it runs.",
+  "model": "claude-opus-5",
+  "source_sha256": "7e11dd9d04901e9a6f4bf55eed6f3f37ca8d2f03589a76f60cf94de3ce353c33"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "portrait-of-jason-1967",
+  "field": "lead",
+  "film_id": "ad965012-0b59-4bec-aaeb-285dbb603495",
+  "lang": "en",
+  "text": "One man, one room, and a camera that keeps running while the drinks go down. Jason Holliday — born Aaron Payne, and exact about the difference — talks for a hundred and eight minutes about work as a house-boy, a cabaret act he has not yet managed to have, and a life hustled together in a country where being black and gay was a daily calculation. Shirley Clarke does very little that resembles directing. She lets the recording run and prompts from off screen, so what accumulates is not testimony but performance under pressure: a man who has told these stories many times, telling them now to a machine that will not laugh in the right places. Whether any of it happened as described is a question the film puts on the table and leaves there. It was preserved in 2013, and what survives is a voice rather than a story.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d50739ffa9036a3a7c89423aae1f78595bb1e85a18f392de706ece528982dc8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dracula-1931",
+  "field": "lead",
+  "film_id": "ab9c03ef-7bfd-4fa7-92ae-49fb05b91460",
+  "lang": "en",
+  "text": "The Count wants to lease a property in London, and the paperwork requires that somebody travel out to meet him. Tod Browning opens on what is effectively a business trip: an English agent, a long journey east, a host with odd hours and courtly manners. Seventy-four minutes is no time at all in which to adapt a novel, so the picture keeps the load-bearing parts — the lease, the crossing, and the London drawing rooms where the lease pays off. It moves at the speed of conversation. Nobody in those rooms has a vocabulary for what has arrived among them. Most of the menace is carried by stillness and by talk rather than by anything lunging at the camera, and that has aged into something stranger than fright: a horror film in which the monster is a guest, correctly introduced, working his way down a list of hosts.",
+  "model": "claude-opus-5",
+  "source_sha256": "e887f67e8da3a3f747f2d8684b9c6b5f4e1f1bb6900e61906ec0a2d7dd124a79"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "my-man-godfrey-1936",
+  "field": "lead",
+  "film_id": "16cf6600-ff80-4d2e-a03d-6a07bb45955c",
+  "lang": "en",
+  "text": "A scavenger hunt sends Fifth Avenue down to the city dump to bring back a forgotten man, and Irene Bullock brings back Godfrey. He accepts the job she invents for him, butler to a household that treats employment as a party favour, and what follows is class comedy of the harder kind: everything funny in the Bullock house is being paid for by somebody. Gregory La Cava keeps the tempo high enough that the arithmetic never stops the jokes. Irene falls for the servant, her sister Cornelia works to get him dismissed, and Godfrey — who came from the riverbank and has seen how the money looks from underneath — runs the house better than its owners run their lives. Ninety-five minutes, 1936, and the film's best instinct is to let the rich be likeable and absurd at once without ever conceding that any of it is fair.",
+  "model": "claude-opus-5",
+  "source_sha256": "f12987702487e2b7e8becac0f91bcd5840bc813a403706380b873ed5be9d7eac"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "angels-with-dirty-faces-1938",
+  "field": "lead",
+  "film_id": "503df582-2c39-4efc-8297-5378c9c3818e",
+  "lang": "en",
+  "text": "The same block produced both of them: the priest working the parish and the gangster who has come back to it. Rocky Sullivan and Jerry Connelly grew up together in the tenements, and Michael Curtiz keeps them within walking distance of each other for ninety-seven minutes, which is where the friction comes from. Nobody argues about morality in the abstract here. The argument is about one street, the boys on it, and which of the two men those boys are going to copy. Rocky is good company and generous with money whose origin everyone on the block knows; Jerry has the parish, the kids, and a case that pays nothing. The film's honesty lies in refusing to make the gangster less attractive than he is — the priest's difficulty is that his oldest friend is the best company in the neighbourhood.",
+  "model": "claude-opus-5",
+  "source_sha256": "f7a9b84d594ce2a2126294e31b663b03a6c9302f188054645ae91149d7c1d89f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-public-enemy-1931",
+  "field": "lead",
+  "film_id": "1ffece03-8eb8-4c6a-b22c-0aa43934170d",
+  "lang": "en",
+  "text": "The money comes out of a commodity that is illegal to sell and that nobody has stopped wanting. Tom Powers and Matt Doyle begin as boys stealing from their own Chicago neighbourhood and end up supplying it, and William A. Wellman covers that distance in eighty-three minutes with barely a pause for regret. The film's real address is the family house. Tom keeps going back — cash in his pocket, an account ready for his mother, a brother who knows precisely what the cash is — and every return is harder than the last while the man making it grows surer of himself. Wellman shoots crime as employment: territory, hours, supply, men discussing it the way other men discuss a trade. The swagger is the attraction, and it is also the miscalculation.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d0b956eebffddd8bf248f17222e653befad580befc2aef95dad8c77b2942c6f"
+ }
+]

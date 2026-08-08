@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-sting-1973",
+  "field": "lead",
+  "film_id": "6504930e-7c91-425d-96f1-b10af3f03b8e",
+  "lang": "en",
+  "text": "A con only works if the mark believes he is the one doing the taking. George Roy Hill builds The Sting on that asymmetry: a young grifter, an older one who has done it all before, a murdered friend between them, and a mobster whose money has to be removed without his ever thinking to ask for it back. Revenge here is not a shootout but a payroll. Rooms are rented, roles cast, a crew assembled, lines rehearsed, and the period surfaces stay in the foreground, which is where the Academy's attention landed too, on the camerawork and the clothes. Comedy and crime run on the same engine, which is timing. The audience is let in on part of the mechanism and not all of it, and the distance between those two amounts is where the film actually lives.",
+  "model": "claude-opus-5",
+  "source_sha256": "615a617ceb0046b8231e2680807531b41526eac28313ae47c17c5c91254ace84"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "in-the-heat-of-the-night-1967",
+  "field": "lead",
+  "film_id": "eca10192-e677-47ec-a1c3-cc052a7f6326",
+  "lang": "en",
+  "text": "The detective who will crack the case is arrested for it first, on nothing but what the police chief sees when he looks at him. Sparta, Mississippi is small; Virgil Tibbs works homicide in Philadelphia; and the murder that throws them together interests Norman Jewison less than the arrangement it forces. Two men who would not choose each other, obliged to work. The case becomes a pretext for climbing every social level of the town, and Tibbs collects enemies on each landing and, less predictably, a few people willing to stand near him. A hundred and nine minutes, and almost none of it spent on the puzzle for its own sake. The pressure sits instead on what the asking costs the man doing the asking, in a place that decided about him before he opened his mouth.",
+  "model": "claude-opus-5",
+  "source_sha256": "1960df69e7b3f480456dcb74b4ac3e2abc941a64121cb255eb7d0f46ee73c61b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "cabaret-1972",
+  "field": "lead",
+  "film_id": "21cf82f4-e480-4149-8a05-9ff15f2c0a50",
+  "lang": "en",
+  "text": "Berlin, 1931, and inside the Kit Kat Club the numbers keep landing while the street outside fills with something that will not stay outside. Putting the singer and the emcee inside a working club buys Bob Fosse an unusual freedom: the songs can comment on the daylight instead of interrupting it, in rouge and glitter and with the house lights up. Sally Bowles wants a career and a good time, in that order or the reverse. The emcee wants an audience and is not fussy about which one, or about what it has come to enjoy. An English-language production filed under Germany, 124 minutes, its recognitions naming the direction, the lead performance and the camera. Decadence is easy to photograph. What is harder, and what the film gets, is the arithmetic by which it turns cheap.",
+  "model": "claude-opus-5",
+  "source_sha256": "58d0eba2e759c8ec02d1090fb0c6436a924b4c02274c17fd3cfe9dfcc61c33cc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mrs-miniver-1942",
+  "field": "lead",
+  "film_id": "e61439d3-0eab-41b9-8136-a96f1173ac06",
+  "lang": "en",
+  "text": "The picture reached cinemas in 1942, while the war inside it was still going on outside them. That sits under every domestic scene: a housewife's small troubles, a son down from Oxford, a courtship complicated by a grandmother with a title, and then the RAF. William Wyler declines to separate the two halves. The household business runs beside the war as though they were one continuous life, which for the audience it was made for they were. An American production about an English village, a hundred and thirty-four minutes, black and white, directed by a man who trusts a face to hold a long scene; the recognitions it drew name the two leads and that camerawork. The claim underneath is that a kitchen and a war are one story told at different scale.",
+  "model": "claude-opus-5",
+  "source_sha256": "b14f2752512f62cc6a59b3e31c1dea3ca51796c22fcabe9ac832022dd518482b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-deer-hunter-1978",
+  "field": "lead",
+  "film_id": "21b471d7-7996-45f6-8568-9de0b45d1488",
+  "lang": "en",
+  "text": "A hundred and eighty-three minutes for a story that could be told in ninety. The length is the argument. Michael Cimino spends it on the town first — the mill work, the drinking, a marriage put together in a hurry, a love shared awkwardly between two of the men — so that when Vietnam arrives it arrives on people rather than on types. A British production about American steelworkers, which may account for some of the steadiness with which it watches ritual. AFI keeps it on its hundred; Cahiers du Cinéma keeps it among the 100 plus beaux films du monde; the citations at home named the direction, the lead and the photography. Nothing in the early stretches announces itself as consequential. That is the trap, and it is laid with patience.",
+  "model": "claude-opus-5",
+  "source_sha256": "440c776c1d2b4fc7b5ae4eac0d9f2d9fbb5fd4c34f70d6d57f7968c01aff15a3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "m-a-s-h-1970",
+  "field": "lead",
+  "film_id": "a14e446d-8ffd-4e86-987d-7a0b9e5156e2",
+  "lang": "en",
+  "text": "Surgeons at a field hospital keep people alive all day and behave off duty like delinquents, and the film declines to treat that as a contradiction. The war is Korea. The enemy on screen is the officer class. Robert Altman gives the operating tent no more reverence than the mess line, and distributes the picture across a company rather than a hero, so that Sutherland, Gould and Skerritt keep being interrupted by Duvall, Kellerman, Burghoff and whatever else the scene has going on at its edges. The jokes are cruel, the surgery is not funny, and both are shot at the same temperature. A hundred and sixteen minutes, 1970, on AFI's hundred and in the National Film Registry. The target is never the soldiering. It is the paperwork, the piety, and the men who mistake rank for skill.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f20f065f0e839e4e185cc0a474a274a89e074eb3336ed3ccd09c078232077d3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "west-side-story-1961",
+  "field": "lead",
+  "film_id": "775efd05-5faf-4c68-980c-b0b9e57b99a8",
+  "lang": "en",
+  "text": "Two gangs, one neighborhood, and a quarrel that is really about who arrived when. On Manhattan's Upper West Side the Polish-American families have a generation's seniority and the Puerto Rican families have just landed, and the film compresses the whole dispute into a few contested blocks, so that crossing a street becomes a claim. Then two kids from opposite sides ruin the arithmetic by falling in love, which the neighborhood reads as a breach of contract. Where the money went is visible in what the film was cited for — color photography, color art direction, color costume — and the palette does real work, sorting people at a glance before anyone speaks. A hundred and fifty-three minutes, 1961, on AFI's hundred since. The romance is conventional by design. The pressure comes from the map.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b2dff2687800160d62603fb13d7571c4ec7e9734e5f453fd3cb01caa28e5bbd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hamlet-1948",
+  "field": "lead",
+  "film_id": "0edd7b2d-40b8-4d5c-947b-35766082593f",
+  "lang": "en",
+  "text": "An actor cast himself as the prince who cannot decide, and then, as director, had to decide where the camera stands while the prince thinks. That is the working problem of Laurence Olivier's Hamlet, and it takes a hundred and fifty-three minutes — less time than the play needs on the page, which makes the film equally an argument about what can go. Black and white, British, 1948, and the money went where it shows: the recognitions name the art direction and the costumes alongside the lead performance. The spaces are not decoration; they give the thinking somewhere to happen. The BFI keeps it among a hundred British films. What is on offer is technical pleasure — a face held past comfort, a line taken slowly, a room shaped to a mood.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ca4c92604e74517e8dcd30b653575172b5e3731abf84eda938871d4996c3c1e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "all-the-king-s-men-1949",
+  "field": "lead",
+  "film_id": "0c9d5685-bc13-44fa-b138-52ad82652a5b",
+  "lang": "en",
+  "text": "A man begins with honest intentions and a poor address and ends with power he could only have got dishonestly; the real subject is the exchange rate. Robert Rossen runs it at a hundred and nine minutes, which for a career-length political story means the thing is mostly acceleration: speeches, deals, the noise of a machine assembling around one voice. The vantage is not the boss's, though. It belongs to the people who attached themselves to him — a reporter still taking notes, a woman raised too carefully for the company she now keeps, a press aide clever enough to see what she is helping to build. The citations went to the direction, the lead and the cutting. Corruption is easy to depict. Rossen is after the smaller and worse matter of consent.",
+  "model": "claude-opus-5",
+  "source_sha256": "4cf5eeed0d495493dcdcd7d8a3ee9824d0fe373714ab440d906719bb72cf4b76"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "places-in-the-heart-1984",
+  "field": "lead",
+  "film_id": "0255dca1-e12b-4fa3-b55e-ff3f26adf2b1",
+  "lang": "en",
+  "text": "Edna Spaulding is widowed in 1935 with two small children, a farm she has never worked, and a bank balance that will not reach the next harvest. What she assembles in order to survive is the interesting part: a sister with a beauty trade, a boarder who is blind, and a drifter caught stealing who happens to know cotton. Rural Texas in the Depression is also ground the Ku Klux Klan walks on, and the film does not pretend otherwise; by local arithmetic, the household on that farm is a provocation. Robert Benton keeps the scale domestic and the weather hostile, tornado included, across a hundred and eleven minutes. It turned up on the National Board of Review's ten and on the People's Choice list in one season. Survival, as figured here, is a question of who will stand on the land with her.",
+  "model": "claude-opus-5",
+  "source_sha256": "f83a0f8be31c0e9a3bbc00bf4c4dcb5c653e18f86cbc3643dcc9900f7a3f128b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "gigi-1958",
+  "field": "lead",
+  "film_id": "268085ff-f9b1-4ce2-971d-2b0d8bc987c1",
+  "lang": "en",
+  "text": "A home of her own, a motorcar, servants, clothes in the current fashion: everything on the list can be bought, and what Gigi wants is not on the list. Vincente Minnelli films the offer with full complicity — color photography and costume design are among the things the picture was cited for, and both do argumentative work rather than dress a set. The story is an education. A girl is trained, on screen, out of her gawkishness and into the manners that will make her worth offering things to, and the film watches that process as pleasure and as cost in the same shot. Paris, 1958, a hundred and fifteen minutes. The comedy runs on the distance between what the adults believe they are arranging and what the arrangement is going to produce.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b913e095a4e515ce306d1d1a02f0b682bf0ab894b866433d980d1625d10d674"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-sound-of-music-1965",
+  "field": "lead",
+  "film_id": "83c2789a-722e-4fae-8879-24518477d59a",
+  "lang": "en",
+  "text": "A postulant not much good at being a postulant is sent from her abbey to a naval captain's household, which turns out to be the same institution under different rules. Seven children, a widower who runs the place by rank, and a governess whose only instrument is music. Robert Wise takes a hundred and seventy-four minutes over it and builds the film to be looked at as much as followed; the color photography and the art direction were both cited, and the frames keep asking to be wide. The years before the war sit at the edge of the story, mostly out of the house, audible the way weather is audible. The songs are not interludes. They are how authority gets renegotiated in that household without anyone having to lose an argument out loud.",
+  "model": "claude-opus-5",
+  "source_sha256": "1476f78dc5eac38157eac24c1cc23ecc2db7ef906006a0ee8757c5dd054f81eb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "out-of-africa-1985",
+  "field": "lead",
+  "film_id": "db2388f2-0c40-4a66-9e92-118dade627f3",
+  "lang": "en",
+  "text": "Karen Blixen wrote the account of her own life in Africa, and this film adapts it, so the story arrives already shaped once by the woman who lived it. Sydney Pollack takes a hundred and sixty-one minutes and lets the country carry much of the argument; the photography was cited, and the costumes, and both belong to how the film persuades. It is filed as history and as romance at once, and the two labels pull against each other. Worth naming plainly: the premise is a European arriving early in the century to build a life on somebody else's country, and what has been made of that is a love story. The film does not reconcile the two. What it does is stay close enough to Blixen's own telling that her voice, rather than the landscape, sets the terms.",
+  "model": "claude-opus-5",
+  "source_sha256": "f51889f7367dce148677f153ccef2a0c803fb06084383de10b28a4f77d401ddc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "gentleman-s-agreement-1947",
+  "field": "lead",
+  "film_id": "f9cdd6f2-2a65-4aa3-9dd6-d9aaed735500",
+  "lang": "en",
+  "text": "A magazine writer takes an assignment on prejudice and concludes that the only way to report it is to say he is Jewish and watch what changes. The device has an obvious flaw, and the film is alert to it: he can stop whenever he likes. The people around him cannot, and never could. Elia Kazan runs it at a hundred and eighteen minutes, and the objects of the study are not thugs but the pleasant ones — friends, hosts, employers, the well-mannered who never have to say the thing out loud and have arranged matters so that they never need to. The citations went to the direction and to both leads. As plot it is thin, a single device stretched to feature length. As social observation it is exact enough that the discomfort becomes the reason to watch.",
+  "model": "claude-opus-5",
+  "source_sha256": "3f794ab950cbd1f0c9b87335d98735d6a4581057f7591129d11814a39a68c397"
+ }
+]

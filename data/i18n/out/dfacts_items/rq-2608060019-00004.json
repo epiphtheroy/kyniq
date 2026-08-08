@@ -1,0 +1,182 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alejandro-gonzalez-inarritu#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2019년, 그는 칸영화제 심사위원장을 맡은 첫 라틴아메리카 감독이 되었다. 그해 황금종려상은 봉준호의 《기생충》에 돌아갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d2c75682a1b92f831c48c5750169a6fc0c283120c72bb9618d1ab70211df3b5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alejandro-gonzalez-inarritu#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자전적 색채가 짙은 《Bardo》를 위해 그는 멕시코시티의 어린 시절 아파트를 그대로 재현한 세트를 지었다. 자신을 반복해서 찾아오던 불안, 그리고 미국-멕시코 전쟁이 남긴 역사적 상처에서 곧장 끌어온 초현실적인 꿈 장면들도 영화 안에 심었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "17138b9080912a98738e3b52df30d7cd7d7afd5a107af247ea8d615d97551bf8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alejandro-gonzalez-inarritu#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "안드레이 타르콥스키의 《안드레이 루블료프》를 그는 영적으로 가장 깊은 영향을 준 작품으로 꼽는다. '시간을 조각한다'는 러시아 거장의 능력이야말로 자신의 방대한 이야기가 끝내 닿아야 할 목표라고 그는 자주 말한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a8eba7af3a37b0f468cca6568cb8666f6c773016c2207578b39fe5462e5f0446"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alex-garland#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "알렉스 갈런드가 자란 집은 예술과 과학이 묘하게 균형을 이룬 곳이었다. 아버지 니컬러스 갈런드는 일간지 데일리 텔레그래프의 이름난 정치 만평가였고, 어머니 캐럴라인은 정신분석가였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7631261ef89e7a5cc7f47d0470aa9090f4733d3e871ab6e00cb144b9227e1aba"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alex-garland#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "외할아버지는 노벨상을 받은 생물학자 피터 메더워다. 면역학과 조직 이식 분야를 개척한 그의 연구는 훗날 갈런드가 영화에서 집요하게 파고들 주제를 미리 예고한 셈이다. 생물학, 변이, 그리고 부서지기 쉬운 몸.",
+  "model": "claude-opus-5",
+  "source_sha256": "0a2c96bbba85fef4caeba3895c07f5939a5dce1a108e98802850326429c4d74d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alex-garland#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "갈런드는 아버지의 그림 솜씨를 깊이 존경했다. 그래서 소설 『The Coma』 곳곳에 실린 거친 목판화풍 삽화를 아버지 니컬러스 갈런드와 바짝 붙어 만들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "16dabdbac2a877b9651e8628c2faf6afeae99898d60daf340483bd95cdbf5e10"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alex-garland#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "조지 A. 로메로의 고전에 나오는 좀비들이 느릿느릿 발을 끄는 것이 그는 답답했다. 그래서 《28일 후》 각본에서 '감염자'를 다르게 설계한다. 올림픽 단거리 주자처럼, 광견병에 걸린 짐승처럼 터져나가는 속도로 달리게 한 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fca3267ef1a72f83030e820ea8933794a9eccad959fe2323a2f0af44472255ab"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alex-garland#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2005년 마이크로소프트는 100만 달러를 지불하고 그에게 《Halo》 영화의 각본을 맡겼다. 완성된 원고는 마스터 치프의 스파르탄 갑옷을 완전히 갖춰 입은 배우들이 할리우드 대형 스튜디오 임원들에게 직접 들고 가 전달했다. 두고두고 회자되는 일화다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ebcdf49ff7fd6c7cbb6df0cca196306e66b1f6c6a46fde5f1a45e9f9e6918bd6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alex-garland#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "가즈오 이시구로의 소설 『나를 보내지 마』를 각색하는 동안 두 사람은 아주 가까이서 함께 움직였다. 노벨상을 받은 이 작가는 오히려 갈런드에게, 영화라는 매체에 맞도록 원작의 구조를 가차 없이 뜯어고치라고 부추겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7e2148ca2bb5a9a6534e756f34eec0a659f51e34ab81c407cacfc19996e5ce82"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alex-garland#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "게임을 진지한 이야기 매체로 여기는 열성 플레이어답게, 그는 2010년 영국 개발사 닌자 시어리가 만든 포스트 아포칼립스 액션 어드벤처 《Enslaved: Odyssey to the West》의 각본에 공동으로 참여했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf8cd0d35df1162894a2c9b2583ea88df9a125ce9238c2bbdf5ff6f5a446c923"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alex-garland#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2012년 컬트 SF 《드레드》의 공식 연출자는 피트 트래비스다. 그런데 주연 칼 어번은, 편집 단계에서 트래비스가 사실상 배제됐고 각본과 제작을 맡은 갈런드가 실제 연출을 했다고 공개적으로 밝혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f0510d7a279be46806ddcb347b1159b0f10c56509f83a1514b06808e45f40eb9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alex-garland#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "연출 데뷔작 《엑스 마키나》의 인공지능에 실체를 주기 위해 그는 임피리얼 칼리지 런던의 인지 로봇공학 교수 머리 섀너핸의 연구를 오래 파고들었다. 결국 그 학자를 영화의 수석 과학 자문으로 불러들였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3a515d751d438905ced607e080ef6b4efa8fedc4cff1a11199793c0e61505181"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alex-garland#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Annihilation》의 후반 작업 도중 스카이댄스의 프로듀서 데이비드 엘리슨이 결말을 바꾸라고 요구했다. 영화가 '너무 지적이다'라는 이유였다. 공동 프로듀서 스콧 루딘은 최종 편집권을 앞세워 갈런드의 타협 없는 원안을 끝까지 지켜냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "af8333a2e28aaac2ca0306bef00237778500c50af168a676f39cb6efce67a9e4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alex-garland#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "텔레비전에 처음 발을 들이면서 그는 FX 미니시리즈 《Devs》의 전 회차를 직접 쓰고 연출했다. 결정론(determinism)과 자유의지라는 환상, 오래도록 그를 개인적으로 사로잡아온 그 문제를 끝까지 밀어붙이기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d4245d1b844cff2ca07cc201daf3dc0e3a66c6e673473208fde571e72a995ccc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alex-garland#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2022년의 기이한 포크 호러 《Men》에서는 배우 로리 키니어 한 사람이 마을의 남자 인물 거의 전부를 연기한다. 남자라는 것을 하나로 뭉뚱그려 보게 된 주인공의 상처 입은 지각, 그것을 화면에 그대로 옮기려는 초현실적 캐스팅이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "299f9287d34eccc26b4d25ae944f75220fa791525238d3d430b96073524f4127"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alex-garland#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "음악은 벤 솔즈베리와 포티스헤드의 제프 배로, 이 듀오가 자주 맡는다. 흔치 않은 악기와 잔뜩 일그러뜨린 신시사이저로 갈런드 특유의 불안하고 금속성 도는 음향을 빚어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8a7d8a112f0be0a486032a82fb312dc2701deed128e769b4b85ed49d5cc9d6ac"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alex-garland#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2024년 디스토피아 스릴러 《Civil War》를 찍으면서 그는 카메라 오퍼레이터들을 실제 종군 사진기자처럼 사건 한복판에 세웠다. 핸드헬드 장비에 크게 기대어, 가상의 교전에서 다큐멘터리에 가까운 날것의 혼란을 건져 올렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f915b94d2953822d0142fdb6a1e44db92dee07e11ca0e6bb9739fd0effa517fc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuar-n#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "안정된 직업을 가지라고 다그친 어머니는 제약 생화학자였다. 그는 절충안을 냈다. 오전에는 멕시코 국립자치대학교에서 철학을, 오후에는 대학영화연구센터(CUEC)에서 영화를 배웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d6baf8c54e7342924b3a48c51eb3a6e8aa1530f7743f40f3ecfa68f9dab60d7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuar-n#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영어로 찍은 단편 《Vengeance Is Mine》 때문에 그는 영화학교에서 쫓겨났다. CUEC 교수진이 보기에 그 선택은 멕시코 문화에 대한 용납할 수 없는 배신이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "67f0859d5db5d1e7a8b34f4c39aba9e847adbb2f12b9124952539f68dee7d977"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuar-n#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생의 친구가 될 기예르모 델 토로와 처음 마주친 곳은 멕시코 TV 앤솔러지 《La Hora Marcada》 작업 현장이었다. 델 토로는 다가와 대뜸 말했다. 스티븐 킹 소설을 옮긴 쿠아론의 그 연출, 형편없다고.",
+  "model": "claude-opus-5",
+  "source_sha256": "769d76a55b910aecdfb62c726f51a6b2f416302fef65e63b776ff70248d5fc17"
+ }
+]

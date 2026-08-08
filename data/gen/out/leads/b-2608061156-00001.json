@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dear-michele-1976",
+  "field": "lead",
+  "film_id": "b4b27747-3363-4c10-9693-858b099619fb",
+  "lang": "en",
+  "text": "A family writes letters to a son who has gone abroad to fight for a revolution, and the letters are mostly about themselves. Mario Monicelli builds the picture out of that correspondence: a mother, a sister, a friend, each reporting a life that has quietly settled into the shape it once would have refused. The comedy is in the reporting. The drama is in what the reporting admits without meaning to. Mara is the exception and the awkward one, since she has Michele's child, no interest in becoming respectable, and no way to stay afloat except on the help of the very people whose respectability she declines. Monicelli lets that arrangement stand without drawing a moral from it. Italy in 1976 is late enough for a family to have finished changing its mind and early enough to still be embarrassed about it.",
+  "model": "claude-opus-5",
+  "source_sha256": "5c19013ecdf5832aab1815f6f5b839f8a754a932336b246f8512dca4eab305c5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "people-mountain-people-sea-2011",
+  "field": "lead",
+  "film_id": "2da3bd91-921d-4a6f-bb96-e0620c848ae3",
+  "lang": "en",
+  "text": "Vengeance in the southwest of China, in a region where violence is common enough that it does not count as news. That second part is the difficult one. A pursuit hands a film its spine and its clock; what Cai Shangjun has to build alongside it is a place where the thing being pursued is unexceptional, where the shrug comes before the alarm. Drama and thriller sit oddly together on one line, and the friction is the point, since genre supplies the momentum and the country the man crosses supplies whatever the momentum is meant to reveal. Ninety-one minutes leaves no room for detours, so anything the film has to say about the region must arrive inside the chase rather than beside it. The Silver Lion it took was for direction, which fits: the pressure is in arrangement and duration, not in incident.",
+  "model": "claude-opus-5",
+  "source_sha256": "9fe91e346bc467a5c2075f98d35eb6c22afe321ae4e039ef38c540c83176dbf3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "pepe-2024",
+  "field": "lead",
+  "film_id": "142dc994-96dd-470a-a808-e2ed79b302f0",
+  "lang": "en",
+  "text": "The voice telling this story says it belongs to a hippopotamus, and it cannot keep time the way people keep it. Nelson Carlos de los Santos Arias runs two hours on that premise, which means inventing, minute by minute, what an animal's account of its own life sounds like when before and after are of no use to it. A hippopotamus in the Americas is displaced by definition, arrived from elsewhere because somebody decided it should, and the telling of that arrival is handed to the animal and to the talk of the Dominican towns around him: digression, repetition, a story swelling as it passes from mouth to mouth. The texture is the method, not the decoration. Narrative in the usual sense is not what carries this. Voice is, in Spanish, for a hundred and twenty-two minutes, and the Silver Bear for Best Director followed.",
+  "model": "claude-opus-5",
+  "source_sha256": "b7ead68fe100440fa908b0ca7530f526cc56783ac22e72936c02e7efc58d3809"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-wrestlers-2000",
+  "field": "lead",
+  "film_id": "143a78ee-0eee-4d2d-a2cd-0af3e2ab80cb",
+  "lang": "en",
+  "text": "Two railway signalmen spend their off-hours wrestling each other, and for a long time that is the whole of their friendship. Nemai and Balaram work a job made mostly of waiting; the grappling gives the waiting a shape, and it is also, plainly, how they talk. Then Balaram marries Uttara, and a world built for two acquires a third person and a household. Buddhadeb Dasgupta takes ninety-nine minutes in Bengali to let that do its damage, and the damage is slow, because a routine does not break, it simply stops fitting. The Silver Lion for Best Director points at where the work is: in framing and duration, in how long two men locked together can be watched before the watching turns into something else, and in what a third figure does to a shape that was made for two.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e41a076e7af861688d30b17e0a8e8842f0d21ecd387992fc40f04e097b57c61"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "wwe-clash-of-champions-2017-2017",
+  "field": "lead",
+  "film_id": "479c6e39-7325-439e-9f9d-ce19622609fb",
+  "lang": "en",
+  "text": "156 minutes of live television out of the TD Garden in Boston, with a championship on the line match after match. That is the design of the whole evening. A card stacked with title bouts turns a variety show into an accounting, where everyone walking out holding something walked in either defending it or wanting it. The main event sets AJ Styles, the WWE Champion, against Jinder Mahal, who held the belt before him, a rematch structure that supplies its own history without a line of exposition. What is on offer is less a story than a craft: performers building a fight in real time, in front of an arena and a camera that cannot cut away. The promotional copy promises that absolutely anything can happen. That is a promise about pacing more than about outcome.",
+  "model": "claude-opus-5",
+  "source_sha256": "62acda409513832c0d6500f3ffeb97ca61025df73940cbf1bfa7bac92757d362"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "how-to-meet-the-lucky-stars-1996",
+  "field": "lead",
+  "film_id": "2ef57210-e47f-4ce2-b1c1-4ba05d56e188",
+  "lang": "en",
+  "text": "The last of the Lucky Stars films was made as a benefit for the Hong Kong director Lo Wei, who died that year. That reorders how the rest of it reads. A 1996 series comedy assembled around Sammo Hung, Eric Tsang, Stanley Fung and Richard Ng, performers who had been running the same routine together across the run of films, becomes an occasion rather than an installment, and the guest list follows suit: Cheng Pei-pei, Chen Kuan Tai, Nora Miao, Françoise Yip. Hung takes a supporting part and doubles as a cop. Frankie Chan directs, Tsang produces and appears, Yuen Cheung-Yan and Mars work out the fighting. Whatever the 112 minutes are doing, they are doing it among people who owe one another work, which is a different comedy than the one in the script.",
+  "model": "claude-opus-5",
+  "source_sha256": "64ea781a6d6e8acdf92dc8614a8955848a5a51101bd16425bd4c2c35a4f77e0a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "i-love-you-love-1989",
+  "field": "lead",
+  "film_id": "9d87652b-3220-4c15-adb5-ae5409215048",
+  "lang": "en",
+  "text": "The film was finished in 1980, held back by an ideological ban, and allowed into cinemas nine years later. What was kept from view is this: Pišta, a short and unhandsome man, loads letters and parcels onto freight wagons and drinks enough to make himself bearable to himself. He wants Viera, older than he is, who reloads the same cargo and has a soft spot for someone else. At home a mother sometimes fails to recognize him. Dušan Hanák works in Slovak, in a hundred minutes, at exactly the scale of that life and not an inch larger, which is presumably the offence, since a portrait this small leaves no room for the future everyone was meant to be building. Berlin gave it the Silver Bear for Best Director. The tenderness in it is not soft. It comes from looking at a man a long time without deciding to improve him.",
+  "model": "claude-opus-5",
+  "source_sha256": "91f68c2d2220d84c19f51fae1a1a75588dd355e876ab7c8c81f08429b376a75e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "black-litter-1977",
+  "field": "lead",
+  "film_id": "e88fb73c-c5bf-47e6-b388-5207e6d48d3c",
+  "lang": "en",
+  "text": "Tatin is fifteen when he joins a violent group of the far right, and the person running it is a woman with a gift for being obeyed. Manuel Gutiérrez Aragón made this in Spain in 1977, when the question of what the country's political brawlers would do next was not yet a historical one. Blanca does not have to threaten Tatin. He wants in, and the attention goes to what wanting in costs a boy that age: the need to be trusted by adults, and what adults will accept as payment for that trust. Eighty-nine minutes is a tight frame for an initiation, and the tightness helps, since there is no room to explain the boy, only to watch him. The Silver Bear for Best Director is the right department. Everything depends on temperature, on how far the camera declines to editorialize about a child doing as he is told.",
+  "model": "claude-opus-5",
+  "source_sha256": "a1c84cf03fbcf02732503ff73aa1eb2668acb7ba255c97ca3460fa4b3e0bc2e8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "winterborn-1979",
+  "field": "lead",
+  "film_id": "c60c444d-7307-4a2a-872d-98803ea2e0a1",
+  "lang": "en",
+  "text": "The setting is a Danish maternity ward and the subject is the waiting. Women who have not yet given birth are put in rooms together and become acquainted because nothing else is available to do. Astrid Henning-Jensen adapts Dea Trie Moerch's novel and keeps almost the whole hundred minutes inside that arrangement, a stranger structural decision than it first appears: a hospital sorts people by condition and never by anything they chose, so what these women hold in common is a due date and a ceiling. Their friendships run on a schedule someone else set and end at discharge. Denmark, 1979, and the camera treats the institution itself, its rounds and shared rooms and particular hours, as the thing doing the shaping, which leaves the women free to be individually and unsentimentally themselves.",
+  "model": "claude-opus-5",
+  "source_sha256": "57af21334356be6cdf08dd87e07793b07ee2e86e4e8147ac990bdebf3cafbd3c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "voyage-of-the-young-composer-1986",
+  "field": "lead",
+  "film_id": "c1ab841f-7ab3-44c0-84ae-4245237bce2c",
+  "lang": "en",
+  "text": "In 1907 a young composer walks the villages of central Georgia collecting folk songs, and his travelling companion is convinced the map he carries marks the sites of a coming uprising. Giorgi Shengelaia gets an entire film out of that gap. The comedy is plain enough, one man on a musical errand and the other reading conspiracy into every village they reach, but the year does quieter work underneath, because in 1907 being taken for a revolutionary was not a harmless error, and the people whose songs Nikusha wants have reasons of their own to be careful around a stranger with a notebook. A hundred and five minutes, made in Soviet Georgia in 1986, about a Georgian setting out to write down what Georgians sing. The doubling is not decoration, and the Silver Bear for Best Director went to the handling of it.",
+  "model": "claude-opus-5",
+  "source_sha256": "f074bcd6684f8bf0f43e112b0e2c52663c47436bf2e0a88c8817a539d66c7f0f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "port-djema-1997",
+  "field": "lead",
+  "film_id": "af3bd407-76f5-41d2-8225-6c143ab62f46",
+  "lang": "en",
+  "text": "Éric Heumann sends a Paris doctor to North Africa with two errands that do not fit together: establish how a friend was killed, and find a boy who has gone missing. He is trained for neither. What a doctor carries into such a place, the medicine, the passport, the return ticket, is exactly what makes him legible to everyone he meets, and where questions are a form of trade, being legible is expensive. Ninety-five minutes, and the asymmetry never lets up, since he can leave and most of the people helping him cannot. The errands pull apart, too. A killing is a fact that can be settled; a missing child is an account that stays open. The Silver Bear for Best Director suggests a film carried by bearing and pace rather than by whatever the investigation turns up.",
+  "model": "claude-opus-5",
+  "source_sha256": "e95e7f5ebdd30e52a94b8227fe2a364fcbf6660cc0f0420a89aa83d2ea221b3b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-miracle-of-father-malachia-1961",
+  "field": "lead",
+  "film_id": "eb043fbc-e670-475a-861f-d15c23117b64",
+  "lang": "en",
+  "text": "A monk prays, the prayer is answered, and that is the beginning of his difficulties. Bernhard Wicki puts the miracle in a West German industrial town in 1961 and plays the result as comedy, though the joke has a cold centre: the event is genuine, and nobody in the town has any equipment for treating a genuine thing as genuine. What they do have is an instinct for converting an event into revenue. Two hours is a long stretch for a single gag, so the pressure keeps shifting, from the monk who asked for something and received it, to the crowd who asked for nothing and now have a property on their hands. Faith is not the target. The reflex is. West Germany sent the film to the Academy Awards, which says something about how a comedy could be weighed at home.",
+  "model": "claude-opus-5",
+  "source_sha256": "e328ae99e285aa259232de4a0e24de2caf19dffcb0f57f4caedade33247f692b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "everybody-digs-bill-evans-2026",
+  "field": "lead",
+  "film_id": "1839a8cb-b413-4b4a-96ff-338da744a6d4",
+  "lang": "en",
+  "text": "One night in June 1961, a trio finishing a New York club residency was taped, and two albums came out of that single session. Bill Evans had arrived by then at the group he wanted, a piano trio with Scott LaFaro on bass, a player described as his soulmate through music, which in practice means a bass that argues rather than accompanies. Grant Gee builds 102 minutes around that arrangement and the few weeks holding it. Music films usually run on career shape, decade by decade. This one runs on a season, and the narrowing pushes attention down to the scale where playing actually happens: who is listening to whom, and how fast. What the rest of that summer did to the trio is the film's other half, and Gee lets it arrive at its own pace rather than a summary's.",
+  "model": "claude-opus-5",
+  "source_sha256": "e16a7802d4a687a53cc1526c1e09b7f3cd38f07db40bcfca552532336c828c10"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-story-of-pure-love-1958",
+  "field": "lead",
+  "film_id": "d7e32533-53dd-485c-80a0-0a40283ebe8b",
+  "lang": "en",
+  "text": "Mitsuko and Kando are poor, in love, and repeatedly returned to state custody. Most of the 133 minutes go to the custody. Tadashi Imai, filming in Japan in 1958, is precise about the machinery that processes children who steal: the labour, the assignments, the working assumption that a young thief is an administrative problem with an administrative solution. Against that, the romance is neither decoration nor consolation. It is the one arrangement either of them entered without being assigned to it, which is why every separation the system imposes costs what it costs. Mitsuko's health worsens across the story, and Imai neither works it up nor looks away. Two hours and thirteen minutes at this temperature is a long sit, and the length carries the argument: nobody here is going to grow out of this.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3b8b9cac6e63c8040e200632b692e7e07ef57aa0f42a3c1a0dad05ec025b886"
+ }
+]

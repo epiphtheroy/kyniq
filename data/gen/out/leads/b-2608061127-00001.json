@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "shivers-1981",
+  "field": "lead",
+  "film_id": "1e07da18-ceb7-40d1-ab5e-8243a4d283fe",
+  "lang": "en",
+  "text": "A school and a household can be reorganized by decree; a boy's own thinking takes longer to bend, and that lag is the subject. Poland, 1981, 106 minutes, and Wojciech Marczewski keeps to the height of a child learning which sentences are safe aloud and which stay private, then learning that the line between the two is being moved without his consent. The cruelty is administrative rather than theatrical: a teacher's warmth, a parent's caution, the small rewards handed out for enthusiasm. The distortion reaches the school and the family first and the boy last, by which point he has stopped registering it as distortion. It carries the Silver Bear Grand Jury Prize. What it stages is not a confrontation but an accommodation, which is harder to dramatize and much harder to shake off.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d1fcaad27deaa7d49d30efcab249069fdf85fd2c9ee264d75a0b6c7712a3423"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-divine-comedy-1991",
+  "field": "lead",
+  "film_id": "499d3c75-99d7-48f9-a281-68255bc3a8e0",
+  "lang": "en",
+  "text": "Adam and Eve, Raskolnikov, Santa Teresa d'Avila and a man who answers to Lazarus share the corridors of one institution, and each of them is entirely serious. Manoel de Oliveira gives them 136 minutes to talk. What follows is closer to a disputation than to a case study: the arguments of scripture and of Dostoevsky detached from their authors and handed to people who have nothing left to lose by making them out loud. Nobody is being diagnosed here, and the asylum works less as a setting than as a licence, the one place where a philosopher, a prophet and Eve can occupy the same room without anyone asking for credentials. The frame stays fixed and patient; the delivery is declamatory on purpose. Venice's Grand Jury Prize went to it. The pleasure, when it comes, is in how well borrowed words fit new speakers.",
+  "model": "claude-opus-5",
+  "source_sha256": "63fd2fd25808461c29a2fd2c3e638cc774c90f9aad6771889a21fb1f16bd25b9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-challenge-1958",
+  "field": "lead",
+  "film_id": "b5d28e54-4b12-4c12-bf57-3f5a14c46cb5",
+  "lang": "en",
+  "text": "The commodity in question is fruit and vegetables, crates arriving before dawn, sold on by men who never touch a field. Vito Polara wants the whole regional trade, having decided that smuggled cigarettes are small change, and to get it he has to ask an older rural boss for permission. That request is the engine. Francesco Rosi filmed it in 1958 and held it to 87 minutes, with the flat attention of someone more interested in how a market is captured than in who is dangerous: the routes, the middlemen, the courtesies that carry a threat inside them. Ambition here is a logistics problem before it is a moral one. It took the Grand Jury Prize at Venice. Vito calculates well, and the tension is in how far such a system will let a man calculate before it decides to stop him.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9129cb3ba9f1440f5317f021dd161a7a4aa98b429863b2f5373a9efd0a1fb78"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "brigands-chapter-vii-1996",
+  "field": "lead",
+  "film_id": "8e3f3b33-2396-4990-a8be-ef74b6c319f5",
+  "lang": "en",
+  "text": "The same actors turn up in three Georgias and one Paris, four centuries apart, and the film never once treats this as a trick. Otar Ioseliani runs 117 minutes on that repetition: a 16th-century court, the Stalin years, the present day, and a French city where none of the earlier violence is supposed to be able to reach. It is filed as comedy, and it is funny the way a man becomes funny once he has stopped expecting improvement, with cruelty handled as routine and power changing costume while keeping its habits. Money came from four countries, French, Russian, Italian and Swiss, and the unhurriedness shows. It holds a Golden Lion, the Grand Jury Prize of the Venice Film Festival, and a Nika Award, which is a great deal of official approval for a picture this uninterested in being agreed with.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d5fd595d1f29f6469cb48da54f0c5f4d085b8f0958298ac1d89ec8ddf42b914"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "and-then-there-was-light-1989",
+  "field": "lead",
+  "film_id": "56acd43f-d365-40cc-aea9-b96769863091",
+  "lang": "en",
+  "text": "Before anything happens, there is the village itself, shown in detail and at the pace it actually runs: a working economy, filmed by someone in no hurry to disturb it. The logging trucks come later, and after them the shantytown on the edge of a city. Otar Ioseliani spends much of these 105 minutes on ordinary competence instead, and that decision is what keeps the film clear of the pity such stories usually collect. The villagers are played by villagers rather than actors, and they are photographed as adults with skills, not as people waiting to be ruined. Comedy and drama sit inside the same shot. It carries the Grand Jury Prize of the Venice Film Festival, and what holds it together is the refusal to grieve in advance for people who are still living.",
+  "model": "claude-opus-5",
+  "source_sha256": "33c5a48592e2e0d53bfb50800972990a2ccd06e38f2c93e24e75abece836775e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-conviction-1991",
+  "field": "lead",
+  "film_id": "025c5c73-1d54-4db6-a002-2190b89526f9",
+  "lang": "en",
+  "text": "A castle-museum closes for the night with two people still inside it, a woman and her art professor. What took place between them is not much in dispute; what it was is the entire film. Marco Bellocchio takes 92 minutes to move from that locked building to a court where consent has to be argued in language never built for the job, and he declines to make either party easy to hold onto. The professor's assurance and the woman's account get the same weight and the same scrutiny. Bellocchio stages the night itself without heat, which is part of the provocation. It is talk, mostly, and the talk is arranged so that agreement with it keeps slipping away. It carries the Silver Bear Grand Jury Prize. Nineteen ninety-one, ninety-two minutes, and an argument that has not aged into safety.",
+  "model": "claude-opus-5",
+  "source_sha256": "d40799067e45721ae7ba696dc73f5cb0429977dd5efe514840d42beb7774cf93"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "marianna-ucria-1981",
+  "field": "lead",
+  "film_id": "f0ce1308-71f7-4f4e-9f59-89ccad80ffe2",
+  "lang": "en",
+  "text": "Married at thirteen, a mother three times before sixteen, and deaf to every word of it: Marianna Ucrìa's life is arranged by people who assume she cannot follow the arrangement. Roberto Faenza sets this in 18th-century Sicily and gives it 108 minutes, and the interesting problem is formal. A protagonist with no speech means interiority has to travel some other way, and a noble household, with its rituals of address and its long silences, turns out to supply the channel. Silence is a vantage here rather than an affliction. The camera stays close to what she can see and to what is put in front of her. Faenza took the David di Donatello for Best Director for it. The film is less about escape than about the slow assembly of the means to think on one's own terms.",
+  "model": "claude-opus-5",
+  "source_sha256": "b5487589c3e30b405e587825afe712324907ec3f69ad5831aff3754ddfcaca19"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "peace-to-him-who-enters-1961",
+  "field": "lead",
+  "film_id": "567c3410-9880-4d0f-bd44-f28f44175e63",
+  "lang": "en",
+  "text": "Three Soviet soldiers spend a stretch of the war driving a pregnant German woman toward a field hospital. Vladimir Naumov keeps the whole thing to 90 minutes and mostly to the inside of a truck: a newly commissioned officer with his rules, a driver who talks, and a third man whom shellshock has left without speech. Made in the Soviet Union in 1961, it takes the one subject a war film from that place and moment could most easily have turned into a slogan, the enemy's child, and treats it instead as a practical problem requiring men to behave decently while under threat. The comedy is real and so is the danger, often inside the same minute. Venice's Grand Jury Prize went to it. What stays is how much can be got from three men, a road, and a passenger who cannot help.",
+  "model": "claude-opus-5",
+  "source_sha256": "c19e9689f7db8e6852fb654e43b6c4ebe5734ec298cbbd7b3c271994168db970"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "days-of-inspector-ambrosio-1988",
+  "field": "lead",
+  "film_id": "46fa27f4-5293-4a98-a0b4-78bfdfe23c1b",
+  "lang": "en",
+  "text": "The bank is directly opposite the inspector's house, and the robbery happens a few days before his holiday. Sergio Corbucci builds 96 minutes on that inconvenience. It is a crime film in which the crime intrudes on domestic arrangements rather than the other way round: a suitcase half packed, a case nobody went looking for, a neighbourhood carrying on with its own business at eye level while the investigation moves through it. Italy, 1988, and the tone runs nearer exasperation than menace. The pleasure is one of scale, a professional handling a job the way anyone handles a task that lands the day before leave, with competence and a certain amount of resentment. Ninety-six minutes is about as long as that idea can be stretched, and the film appears to know it.",
+  "model": "claude-opus-5",
+  "source_sha256": "56690d9591096c31756d9d0883549eb5ca679154441764c65d3f04cc4c4fb730"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "flowers-of-reverie-1985",
+  "field": "lead",
+  "film_id": "31e3ef60-039e-4ede-93d2-7dc900ea7c27",
+  "lang": "en",
+  "text": "Hungary lost its bid for independence from Austria, and two years later a former officer is trying to feed a household while giving no sign at all of where his sympathies lie. That performance is the film. László Lugossy sets 102 minutes in the mid-19th century and spends them on the private cost of caution: the secret police are everywhere, everyone knows it, and the discipline of seeming unremarkable wears down the men who manage it as surely as the men who cannot. Gyorgy Cserhalmi plays Ferenc as someone rationing every gesture. When an old commanding officer, played by Lajos Oze, reappears with revolution still in his mouth, the danger is not that anyone will be persuaded; it is that proximity has become enough. It carries the Silver Bear Grand Jury Prize, and it stays with defeat as something lived through rather than fought.",
+  "model": "claude-opus-5",
+  "source_sha256": "040f4c70051e104dd9f630473ae378c643c6349d5035989f476b6efccc29dbe0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "storia-d-amore-1986",
+  "field": "lead",
+  "film_id": "bdbe9141-2b76-499f-8829-8a37e4895567",
+  "lang": "en",
+  "text": "The whole story fits in a line, a young woman and the daily work of not being reduced by poverty, which puts every ounce of weight on the performance. It held. The lead took a Nastro d'Argento for Best Actress, Venice gave the film its Grand Jury Prize, and Francesco Maselli took a David di Donatello for direction. What a film like this has to do across 107 minutes is refuse the two shapes waiting for it, the uplift and the wallow, and stay with texture instead: rooms, wages, the arithmetic of a week, the exact point where somebody else's kindness turns into a transaction. Maselli keeps the scale domestic and the attention on one face. Poverty as a condition is easy enough to depict; poverty as a run of small negotiations, each one costing something, is the harder thing on offer.",
+  "model": "claude-opus-5",
+  "source_sha256": "61a1024c0e72b2beb6391fa977519e6e7f25014c15beb5db638b637032ce78eb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "satan-1991",
+  "field": "lead",
+  "film_id": "97c57f1b-a748-4220-8a5c-bbd9fa174927",
+  "lang": "en",
+  "text": "He is handsome, unhurried, and never once troubled by what he does; the discomfort is that his reasoning is perfectly legible. Viktor Aristov made this in the Soviet Union in 1991, 108 minutes of thriller machinery resting on a single proposition: where nothing functions, opportunism stops being a deviation and becomes a method. The film registers shock at him without moralizing about him. It follows closely, at his pace, and lets ordinary surfaces do the accusing. The pessimism is not really about one young man; it is about how much of the world around him turns out to be quietly in agreement. It carries the Silver Bear Grand Jury Prize. Thrillers usually offer the consolation that the criminal is an aberration, and this one withdraws it early.",
+  "model": "claude-opus-5",
+  "source_sha256": "20581eb3de0baf9436edd09e87fa624d2e2aa2e9b3f6bcecfe53c5d018cbc177"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "introduction-to-life-1963",
+  "field": "lead",
+  "film_id": "9ae5393d-4f91-4271-aced-470fbb12f5ac",
+  "lang": "en",
+  "text": "The front line stays almost entirely offscreen; the war arrives instead as rearranged households, new adults, other people's rooms. Igor Talankin made this in 1963, 101 minutes about a boy from Leningrad whose parents come apart in the same season the fighting reaches him, and it holds to the child's vantage throughout: information he is not given, decisions taken above his head, a city he is moved out of without being consulted. Close enough to the war that everyone on screen remembers it exactly, far enough after it to ask what those years cost the children who were handed from one household to the next. Venice's Grand Jury Prize went to it. The patience is the unusual part, long stretches in which nothing gets explained, because nothing was explained at the time.",
+  "model": "claude-opus-5",
+  "source_sha256": "70ab418a16209511d922a6fb24a1ab7e45173eab9b15186fe60647f06dec74e0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "salvation-2026",
+  "field": "lead",
+  "film_id": "0a87accc-5037-41ff-b659-a66cf822a0a2",
+  "lang": "en",
+  "text": "A clan returns to land it was driven from, and a quarrel dormant for decades starts breathing again. Emin Alper gives this 120 minutes and complicates it immediately: Mesut, seized by visions he takes to be divine, moves against his own brother's authority over their people, and nobody, least of all Mesut, can establish whether what he hears is God or grievance in better clothing. The village is remote and Turkish, the feud is about land, and land feuds are inheritance feuds, which makes them arguments about who gets to say what the family is. Alper keeps the mystery structural rather than atmospheric: belief is the unstable element here, and the household is where it goes off first. Nothing in the setup discloses which way it will break.",
+  "model": "claude-opus-5",
+  "source_sha256": "e80a874f9dd1aff029809b9271c90e142bb780b63fb53a0e71aafd4bc1035b7d"
+ }
+]

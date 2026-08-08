@@ -1,0 +1,26 @@
+[
+ {
+  "entity_type": "director_pick",
+  "entity_key": "abbas-kiarostami#where-is-the-friend-s-house-1987",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《내 친구의 집은 어디인가》는 친구의 공책을 돌려주려는 소년의 이야기다. 단순한 도덕적 여정 하나로 키아로스타미의 아이 눈높이 휴머니즘과 느긋한 시골의 리듬이 한꺼번에 들어온다. 진입 장벽이 없다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "abbas-kiarostami#certified-copy-2010",
+  "field": "reason",
+  "lang": "ko",
+  "text": "토스카나에서 줄리엣 비노슈와 찍은 《사랑을 카피하다》. 한 남녀의 대화가 수수께끼로 변한다. 방금 만난 사이인가, 몇 년째 부부인가. 장난기와 로맨스가 함께 있는, 그의 유럽 작업 중 가장 다가가기 쉬운 편이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "abbas-kiarostami#taste-of-cherry-1997",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《체리 향기》의 남자는 자기 죽음을 도와줄 사람을 찾아 테헤란 언덕을 운전한다. 차 안의 긴 대화, 그리고 마지막 그 동작. 삶과 영화를 향한 키아로스타미의 물음이 가장 순수한 형태로 남는다.",
+  "model": "claude-opus-5"
+ }
+]

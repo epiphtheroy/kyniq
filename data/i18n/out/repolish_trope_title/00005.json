@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "heaven-and-hell-share-one-address",
+  "field": "title",
+  "lang": "ko",
+  "text": "천국과 지옥, 같은 주소",
+  "model": "claude-opus-5",
+  "source_sha256": "7605a9e6c9900fc2417516b8be6d38624331d4e5f77bd4f4974467ec050c9419"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "heaven-as-a-neurological-event",
+  "field": "title",
+  "lang": "ko",
+  "text": "천국이라는 신경학적 사건",
+  "model": "claude-opus-5",
+  "source_sha256": "43de71a56b79e688d23ef26e828e91906fb90d15f90ac8117b028d82200adc86"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "hell-is-a-government-office",
+  "field": "title",
+  "lang": "ko",
+  "text": "지옥은 관공서다",
+  "model": "claude-opus-5",
+  "source_sha256": "6d63df16361ef4d433afe293e473b6b86b43b9b1a6770fd2d647ec721d8cb0b8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "her-silence-is-the-argument-not-the-absence",
+  "field": "title",
+  "lang": "ko",
+  "text": "그 침묵은 비어 있는 게 아니라 말하고 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "3cf71b38b415ed75e2996ed08bb817edf2c7e304a48ccac9b5524044066ea57d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "history-as-accident-not-design",
+  "field": "title",
+  "lang": "ko",
+  "text": "설계가 아니라 사고로서의 역사",
+  "model": "claude-opus-5",
+  "source_sha256": "c59ae8136126f91525a32ee5d7f5672a8f6707fa20f0a1b545007e438b4fd050"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "history-as-medium-not-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "소재가 아니라 매질인 역사",
+  "model": "claude-opus-5",
+  "source_sha256": "d276712ba5a3493ab08133d89293ded4834556fa2ab4b01d315d4c94c592037d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "history-bleeding-into-the-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "화면 안으로 번지는 역사",
+  "model": "claude-opus-5",
+  "source_sha256": "b9f0ad7373158ca3fc15e67233aa956a9c007e71a060f267eb29894db4a09100"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "hokusai-s-wave-set-in-motion",
+  "field": "title",
+  "lang": "ko",
+  "text": "움직이기 시작한 호쿠사이의 파도",
+  "model": "claude-opus-5",
+  "source_sha256": "cdad3ffd617acafa6d148fa7c7e4413437e5b7e8758b506fe1874d131e7ea503"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "hollywood-s-disowned-unconscious-beneath-the-city",
+  "field": "title",
+  "lang": "ko",
+  "text": "도시 밑에 묻은 할리우드의 무의식",
+  "model": "claude-opus-5",
+  "source_sha256": "69e5c1d9b02c4fb6403267b5ffe21283aaf9d3403e6cd8f378fb4e025d2dad56"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "honest-capitalism-in-miniature",
+  "field": "title",
+  "lang": "ko",
+  "text": "손바닥만 한 정직한 자본주의",
+  "model": "claude-opus-5",
+  "source_sha256": "56f2cb60b63cfe9581e131396f288ecc5e7a3782fc2036d8258844af8a71d572"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "honesty-as-a-weapon",
+  "field": "title",
+  "lang": "ko",
+  "text": "무기가 된 정직",
+  "model": "claude-opus-5",
+  "source_sha256": "cf804bdcb595edb35e9fbfdeafc20cb54b8f125e126c09f615d3156f1a6b10fa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "hong-kong-filmed-as-its-own-demolition",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 철거 현장으로 찍힌 홍콩",
+  "model": "claude-opus-5",
+  "source_sha256": "1a1116f0a8a4d1a71732f6ddca22f2005294cce74d19e2074d51bc8d0169fef6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "honor-as-property-polices-the-woman",
+  "field": "title",
+  "lang": "ko",
+  "text": "재산이 된 명예가 여자를 감시한다",
+  "model": "claude-opus-5",
+  "source_sha256": "6591dd4894f18afcc25872e32071f93a54003e151e0e84e28639447c40ac1473"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "hopper-s-lonely-american-light",
+  "field": "title",
+  "lang": "ko",
+  "text": "호퍼의 쓸쓸한 미국 빛",
+  "model": "claude-opus-5",
+  "source_sha256": "e502f75507cc79f741ce90ba296a591e6cc0491cd326cd17d431209e48cda309"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "horror-as-inheritance-that-cannot-be-escaped",
+  "field": "title",
+  "lang": "ko",
+  "text": "벗어날 수 없는 유산, 공포",
+  "model": "claude-opus-5",
+  "source_sha256": "358391415908bc851ec608bceb412b10fad58169cc61030573b409ef8f1dc0fb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "horror-as-the-wage-of-surplus-labor",
+  "field": "title",
+  "lang": "ko",
+  "text": "잉여노동이 치르는 삯, 공포",
+  "model": "claude-opus-5",
+  "source_sha256": "26849b0fc49fa32ec2d6dc30c2279b93bca72d4fa686a78db94dd38d460f6881"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "horror-authored-by-the-craftsman-not-the-monster",
+  "field": "title",
+  "lang": "ko",
+  "text": "괴물이 아니라 장인이 지은 공포",
+  "model": "claude-opus-5",
+  "source_sha256": "95a11ca13c9bae6331826e9d7bb43c96704bd969a766a7f094afe09f25d7ec5d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "hospitality-that-outranks-the-law",
+  "field": "title",
+  "lang": "ko",
+  "text": "법 위에 놓인 환대",
+  "model": "claude-opus-5",
+  "source_sha256": "54dc8fd64a542d518b6aa52b040e1521a35b0e487516ed74b357c6bfb79f9fa1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "hostility-as-defense-against-inner-lack",
+  "field": "title",
+  "lang": "ko",
+  "text": "결핍을 가리는 방어로서의 적의",
+  "model": "claude-opus-5",
+  "source_sha256": "d82d1af7a94977bb4ac67da2f3740dfa9026c2e87a74bd973177d19deadd3672"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "ignorance-as-the-engine-of-power",
+  "field": "title",
+  "lang": "ko",
+  "text": "권력을 굴리는 무지",
+  "model": "claude-opus-5",
+  "source_sha256": "3f48424cdc0f4145e49a2e34d333182a87b12bc099bd7e089deba3b6ea390a79"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "immanence-and-transcendence-in-dialogue",
+  "field": "title",
+  "lang": "ko",
+  "text": "내재성과 초월성의 대화",
+  "model": "claude-opus-5",
+  "source_sha256": "9bf19a9c8587cf95b4a61e9df9b7097d2d146e309e9ef96c14acf1a9a4ad4220"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "immigration-processed-as-alien-bureaucracy",
+  "field": "title",
+  "lang": "ko",
+  "text": "외계 관료제로 처리되는 이민",
+  "model": "claude-opus-5",
+  "source_sha256": "d8c9f77f8d96255214d105549fb5550aa50173cd51c451e4c2cd486991b1e7fd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "impermanence-as-the-world-s-true-ontology",
+  "field": "title",
+  "lang": "ko",
+  "text": "세계의 참된 존재론, 무상(無常)",
+  "model": "claude-opus-5",
+  "source_sha256": "733de1f5bda2244093dcbcd773b69f17a78ecaba9d6f32ef39d1d42926d295b6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "impotence-as-the-engine-of-male-cruelty",
+  "field": "title",
+  "lang": "ko",
+  "text": "남자의 잔혹을 굴리는 무력함",
+  "model": "claude-opus-5",
+  "source_sha256": "d93bf168902dd3add9157834e5e52586759ce5ef72824feec2d65c6010fb086e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "improvisation-against-the-franchise-machine",
+  "field": "title",
+  "lang": "ko",
+  "text": "프랜차이즈 기계에 맞선 즉흥",
+  "model": "claude-opus-5",
+  "source_sha256": "076497cb19cfe4295d6126fb4ec713a06ad92042e9d97ac914750605830af31d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "improvisation-as-the-engine-of-form",
+  "field": "title",
+  "lang": "ko",
+  "text": "형식을 밀고 가는 즉흥",
+  "model": "claude-opus-5",
+  "source_sha256": "0732631367660dcc6d0ee4a1b5ce57a99d8fc6c99f40e0f7430367f353d2dc39"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "improvisation-as-the-soul-without-a-script",
+  "field": "title",
+  "lang": "ko",
+  "text": "대본 없는 영혼, 즉흥",
+  "model": "claude-opus-5",
+  "source_sha256": "d487e9efe1765e5d7278359f914d771757ecd5a7832e82e9048760a5dacd1858"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "improvisation-mistaken-for-documentary-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "다큐의 진실로 오인된 즉흥",
+  "model": "claude-opus-5",
+  "source_sha256": "a052cd09c535b1dd08579f68e3e8f3f34ef2b1886c74af07a8e3166640192438"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "improvised-biography-as-the-engine-of-authenticity",
+  "field": "title",
+  "lang": "ko",
+  "text": "즉흥으로 지어낸 생애가 진정성을 만든다",
+  "model": "claude-opus-5",
+  "source_sha256": "46f72872be9b414e008681a5510d62775cb522ea1c2c68cca2266b9fc36c904f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "incoherence-as-auteur-s-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "앞뒤가 안 맞는 것, 작가의 상처",
+  "model": "claude-opus-5",
+  "source_sha256": "ef6beb83c4523b1069e26701d27f53d2cb3072423b144f28da62eadd5c34c461"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "incoherence-as-the-viewer-s-genre-hunger",
+  "field": "title",
+  "lang": "ko",
+  "text": "관객의 장르 허기가 만든 균열",
+  "model": "claude-opus-5",
+  "source_sha256": "25d56a5abb46863dfefec3cdcfadf4397e834536e15966f45192565e24109404"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "indonesia-as-stage-for-its-own-violence",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 폭력을 무대에 올린 인도네시아",
+  "model": "claude-opus-5",
+  "source_sha256": "10f06e1a6891368f3dbbb4c9d47b136282a11f460923aed4f8a13c27c3c6f4f1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "inertia-as-the-strenuous-refusal",
+  "field": "title",
+  "lang": "ko",
+  "text": "안간힘을 다한 거부, 무기력",
+  "model": "claude-opus-5",
+  "source_sha256": "c2b6ac7d9a0ced67e0592a6e2ae0764f68ac726e289813a0e2a3722210054cf1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "infinity-as-the-name-without-an-exit",
+  "field": "title",
+  "lang": "ko",
+  "text": "출구 없는 이름, 무한",
+  "model": "claude-opus-5",
+  "source_sha256": "87199314fbd899dc4f0c11f41e78d33bea23d83af7bed7b0a15b1a4ddb5351ae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "inheritance-as-biological-sentence",
+  "field": "title",
+  "lang": "ko",
+  "text": "생물학이 내리는 선고, 유전",
+  "model": "claude-opus-5",
+  "source_sha256": "693efa6cc6b507a58f0653005f75383a51929cefd55cfde00f213b37f8647a67"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "innocence-as-the-word-that-accuses",
+  "field": "title",
+  "lang": "ko",
+  "text": "고발하는 말이 된 순수",
+  "model": "claude-opus-5",
+  "source_sha256": "385d0dde987c78db06850b12310cd408a8ed90273852cd1f7f32a30c25bf54ce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "instrumental-reason-as-engine-of-atrocity",
+  "field": "title",
+  "lang": "ko",
+  "text": "잔혹을 굴리는 도구적 이성",
+  "model": "claude-opus-5",
+  "source_sha256": "013ea1fe01916c1fa75ec6882f67f8dc4c98706da10f7f92a50952801d66fdcb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "insurgency-turned-on-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 목을 겨눈 봉기",
+  "model": "claude-opus-5",
+  "source_sha256": "495ac63242f22def398c1ae6423d2d1851bad54a04a19399b42d9a5d985e6347"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "intimacy-as-performance-or-purchased-object",
+  "field": "title",
+  "lang": "ko",
+  "text": "연기이거나 사들인 물건인 친밀함",
+  "model": "claude-opus-5",
+  "source_sha256": "4b28e7f193a8f675f26c09101a0bac26c2d6adad8969da977ed58d3412e381c1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "intimacy-improvised-at-a-shared-table",
+  "field": "title",
+  "lang": "ko",
+  "text": "한 식탁에서 즉흥으로 생긴 친밀함",
+  "model": "claude-opus-5",
+  "source_sha256": "dab46c8a4a367fa5c45bf958e31df6cdb649d621784a2c790dc53299d4af587e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "intoxication-as-the-only-available-grace",
+  "field": "title",
+  "lang": "ko",
+  "text": "허락된 유일한 은총, 취기",
+  "model": "claude-opus-5",
+  "source_sha256": "894e91617f4b36c134010074f002efb133c0a62d1c3a656f7a4c2166e8f0cab1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "intoxication-as-way-of-seeing",
+  "field": "title",
+  "lang": "ko",
+  "text": "취해서 보는 법",
+  "model": "claude-opus-5",
+  "source_sha256": "3c7c17c2a1a2975043b799ca1b2d124ff5c7824d8fdd03e456c6d76327f4650c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "isengard-as-the-dark-satanic-mill",
+  "field": "title",
+  "lang": "ko",
+  "text": "검고 사악한 공장, 아이센가드",
+  "model": "claude-opus-5",
+  "source_sha256": "8f6a88ec5601bc99a7c6ca50a025f58f17f6fb6cd513fa756996c34c59f9ce05"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "italy-s-economic-miracle-as-hollow-monument",
+  "field": "title",
+  "lang": "ko",
+  "text": "속 빈 기념비가 된 이탈리아의 경제 기적",
+  "model": "claude-opus-5",
+  "source_sha256": "ccd719eca19d414b5e5a54c50e18fc8c583556ddccf2e45cf11b310929808260"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "italy-s-nation-read-through-its-buried-peasants",
+  "field": "title",
+  "lang": "ko",
+  "text": "파묻힌 농민으로 읽는 이탈리아",
+  "model": "claude-opus-5",
+  "source_sha256": "480c5312263a7983a55a3389c3efce7be75be81498df94dc5dff721356220761"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "jealousy-that-secretly-wants-its-own-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 상처를 몰래 바라는 질투",
+  "model": "claude-opus-5",
+  "source_sha256": "170d9472a73705d3a80f29b02d76330cc6a934bf6ada881c8c9a2fa028d4844b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "jenny-the-film-s-buried-conscience",
+  "field": "title",
+  "lang": "ko",
+  "text": "제니, 영화가 묻어둔 양심",
+  "model": "claude-opus-5",
+  "source_sha256": "a0b6a698c584729f5838fdbf8673d16a2df9d7ea6e7a9330cc055dd5df9d2873"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "jouissance-beyond-the-pleasure-principle",
+  "field": "title",
+  "lang": "ko",
+  "text": "쾌락원칙 너머의 주이상스(jouissance)",
+  "model": "claude-opus-5",
+  "source_sha256": "6a099c10d0e1b66d946c1667dd58248d3700f908a9d34c6929fb93a272104e80"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "joy-as-survival-under-siege",
+  "field": "title",
+  "lang": "ko",
+  "text": "포위된 자리에서 살아남는 기쁨",
+  "model": "claude-opus-5",
+  "source_sha256": "b3084c1d242c0ee68f3f5bcc0c8bd7bb039186adca8c0d2f28ae6b702623d02e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "junkyard-instruments-for-off-kilter-interiors",
+  "field": "title",
+  "lang": "ko",
+  "text": "뒤틀린 속내를 위한 고물 악기",
+  "model": "claude-opus-5",
+  "source_sha256": "06e7a24902570b187cf3d124574e509c7a487fdbfbbc0d6bc992728641923806"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "just-following-orders-the-self-dissolved",
+  "field": "title",
+  "lang": "ko",
+  "text": "명령을 따랐을 뿐, 자아는 녹아 없어졌다",
+  "model": "claude-opus-5",
+  "source_sha256": "94df5ae017223547a46123f2e6043c28963a54b3c3bf7e41117e50d666cbe72a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "justice-as-a-procedure-for-choosing-whom-to-sacrifice",
+  "field": "title",
+  "lang": "ko",
+  "text": "누구를 버릴지 고르는 절차, 정의",
+  "model": "claude-opus-5",
+  "source_sha256": "a3d7fa7fc4717a5d6a19194b5e8af5d4e7f573039a21b1f6fe931baf00cde3c6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "justice-as-theater-without-ground",
+  "field": "title",
+  "lang": "ko",
+  "text": "바닥 없는 연극이 된 정의",
+  "model": "claude-opus-5",
+  "source_sha256": "49fc9a3e9b568532060ce4bab20054b5ef1cd3d444de5123082789da01fb3918"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "justice-laundered-into-class-self-preservation",
+  "field": "title",
+  "lang": "ko",
+  "text": "계급의 자기보존으로 세탁된 정의",
+  "model": "claude-opus-5",
+  "source_sha256": "42a4c85dba06696093cf41b3681133e7256d9e0b0a76611e3df476d7b88b54cb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "justice-must-be-built-by-hand",
+  "field": "title",
+  "lang": "ko",
+  "text": "정의는 손으로 세워야 한다",
+  "model": "claude-opus-5",
+  "source_sha256": "8f069d065d914ae3c78062e1af70d9a9865a0723c8e321ea8d283060c26e2669"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "justice-privatized-into-sovereign-violence",
+  "field": "title",
+  "lang": "ko",
+  "text": "주권적 폭력으로 사유화된 정의",
+  "model": "claude-opus-5",
+  "source_sha256": "1523a1a6493cc69fb5674347f7a30d4edca8ff3d4cad22547f93600113845e04"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "justice-privatized-into-the-citizen-s-own-fists",
+  "field": "title",
+  "lang": "ko",
+  "text": "시민의 주먹으로 넘어간 정의",
+  "model": "claude-opus-5",
+  "source_sha256": "8f3b054ec6940e62966914b5e3746a49c60969d4719b1d5b53f5f45fd93a16cb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "justice-privatized-where-the-state-withdraws",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가가 빠져나간 자리, 사유화된 정의",
+  "model": "claude-opus-5",
+  "source_sha256": "fe5fb6a5da5a18d4bff644b439049e7c2b7ee2ddaf3d673a7b5166c087d44807"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "justice-won-outside-the-law-s-hand",
+  "field": "title",
+  "lang": "ko",
+  "text": "법의 손이 닿지 않는 곳에서 얻은 정의",
+  "model": "claude-opus-5",
+  "source_sha256": "8dbb75303e4a7e905871767508235ed765b5279c41177d05619f008872b0c6c4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "kafka-s-burrow-as-architecture-of-grief",
+  "field": "title",
+  "lang": "ko",
+  "text": "슬픔의 건축, 카프카의 굴",
+  "model": "claude-opus-5",
+  "source_sha256": "28923a473e6ec8771c6571eb307b2c3276c7e0483f8b63544c3ffa751df1b7fb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "kafka-s-door-meant-only-for-you",
+  "field": "title",
+  "lang": "ko",
+  "text": "오직 당신을 위한 카프카의 문",
+  "model": "claude-opus-5",
+  "source_sha256": "7afafb504c2c24888d513cc7b683faffde75500776510b65d9446ef2ecc6d50d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "kant-s-imperative-wielded-as-rule-or-weapon",
+  "field": "title",
+  "lang": "ko",
+  "text": "규칙으로도 무기로도 쓰이는 칸트의 정언명령",
+  "model": "claude-opus-5",
+  "source_sha256": "2895f1812031af5d4151ed350e4efc28fa1c27c1de9b5e973d082927ae78ec9d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "kaurism-ki-s-stillness-withholds-what-tenderness-restores",
+  "field": "title",
+  "lang": "ko",
+  "text": "카우리스마키의 정적이 아껴둔 것을 다정이 돌려준다",
+  "model": "claude-opus-5",
+  "source_sha256": "1c30a0eb616ea393b8ea4768f8f4c63a25bf15f6a5768e9de52c0c3ad91b7d8f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "keaton-s-stone-face-haunts-the-genre",
+  "field": "title",
+  "lang": "ko",
+  "text": "장르에 남은 키튼의 무표정",
+  "model": "claude-opus-5",
+  "source_sha256": "794fae9b1ca1b3a5031cc6e81b3fc59a781e07e570e89a5be4e7d4a4d0867c3f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "kierkegaard-s-aesthetic-flight-from-the-ethical",
+  "field": "title",
+  "lang": "ko",
+  "text": "윤리에서 달아나는 키르케고르의 미적 단계",
+  "model": "claude-opus-5",
+  "source_sha256": "1994c37661df1dfe41faa489fd9bbf3d6194cc7773326d6839fd9404bc6d73c8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "killing-engineered-as-cold-calculation",
+  "field": "title",
+  "lang": "ko",
+  "text": "차가운 계산으로 설계��� 살육",
+  "model": "claude-opus-5",
+  "source_sha256": "9683263d890113f563e3cec127754dec25f8f03bdd40ba8564d445fb4ee38c1e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "kinship-is-cultivated-not-inherited",
+  "field": "title",
+  "lang": "ko",
+  "text": "가족은 물려받는 게 아니라 기르는 것",
+  "model": "claude-opus-5",
+  "source_sha256": "5d40b20b8f774fd76f28816d3c11e768742bb9de0f91b3f2ab1fb0574608b2e7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "knowledge-itself-is-the-punishment",
+  "field": "title",
+  "lang": "ko",
+  "text": "앎이 곧 형벌",
+  "model": "claude-opus-5",
+  "source_sha256": "8f1caa2a73b4189937bb52e0c1e9eeee56cc316b22f2b232c570aaa9bf90db8b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "knowledge-that-arrives-too-late",
+  "field": "title",
+  "lang": "ko",
+  "text": "너무 늦게 도착한 앎",
+  "model": "claude-opus-5",
+  "source_sha256": "bde4d296cd4f05e6ff2417c2dafebd5126562cebd666fd893ebfe0c2b9d58ced"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "korean-cinema-s-lavish-surface-as-money-made-visible",
+  "field": "title",
+  "lang": "ko",
+  "text": "눈에 보이는 돈, 한국영화의 화려한 표면",
+  "model": "claude-opus-5",
+  "source_sha256": "9f95f5f67f5402380355cfbcb2acb97b6d7e4c1fa58d55e293e2814909076586"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "korean-concrete-as-compressed-modernity-s-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "압축근대의 몸인 한국의 콘크리트",
+  "model": "claude-opus-5",
+  "source_sha256": "4873516a47d60724a3d7d38de3c4a2ee436fe0ff07e4c0aa8c4ac52f2908eed6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "korean-genre-film-as-economy-in-miniature",
+  "field": "title",
+  "lang": "ko",
+  "text": "경제를 축소해 담은 한국 장르영화",
+  "model": "claude-opus-5",
+  "source_sha256": "d204062e64dcf88721f3f36d3612f6d3fe0e1892c580ba90152465ead12dbd65"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "l-aud-the-actor-as-his-own-ghost",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 유령이 된 배우 레오",
+  "model": "claude-opus-5",
+  "source_sha256": "85c6f8d8583d80f7cf0b6467c5fad033596c6e37d01823903d110cb8847c25f2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "labor-as-the-hidden-substance-of-the-image",
+  "field": "title",
+  "lang": "ko",
+  "text": "이미지를 이루는 숨은 실체, 노동",
+  "model": "claude-opus-5",
+  "source_sha256": "3b62ebddc69e20e95a228a324d81f68292f0993e7dc6a3fcb5366cc437a35188"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "labour-and-the-tyranny-of-the-shop-clock",
+  "field": "title",
+  "lang": "ko",
+  "text": "노동, 그리고 작업장 시계의 폭정",
+  "model": "claude-opus-5",
+  "source_sha256": "fd7f813b1e6c1e2f754849cff510dbb9e0b3b9d27fbd1249309fc098a9b5e938"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "landscape-as-indifferent-co-author-of-fate",
+  "field": "title",
+  "lang": "ko",
+  "text": "운명을 함께 쓴 무심한 풍경",
+  "model": "claude-opus-5",
+  "source_sha256": "c6b11c41f2b8daee23455bb1215748ff035877a908052c1da52d91e746c07ee4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "language-mismatch-as-diaspora-s-encoded-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "어긋난 언어에 새겨진 디아스포라의 상처",
+  "model": "claude-opus-5",
+  "source_sha256": "17bd4a3576c1a655248f53540559d0c8a1fc9e340a15ced4c3c60842213368c5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "lanzmann-s-interdiction-against-the-reenacted-image",
+  "field": "title",
+  "lang": "ko",
+  "text": "재현 이미지를 금한 란즈만의 계율",
+  "model": "claude-opus-5",
+  "source_sha256": "e0629db7f90cea75d946af173f60bca3693342a2f28abd941567fb2634350139"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "laughter-as-the-last-free-act",
+  "field": "title",
+  "lang": "ko",
+  "text": "마지막 남은 자유, 웃음",
+  "model": "claude-opus-5",
+  "source_sha256": "9ca05d83e6c4167b2bc59fa138752c787da58e70b835f6f2445ddf6c11ce80bc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "laughter-as-universal-sacrament",
+  "field": "title",
+  "lang": "ko",
+  "text": "만인의 성사(聖事)가 된 웃음",
+  "model": "claude-opus-5",
+  "source_sha256": "23c55f756a4c41fd6b7336cdda6a0ec9fd3d2b3682e004e90bef843d6c5f2485"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "lens-artifacts-faked-onto-the-drawn-image",
+  "field": "title",
+  "lang": "ko",
+  "text": "그린 그림에 얹은 가짜 렌즈 흔적",
+  "model": "claude-opus-5",
+  "source_sha256": "5e39802241a89835579ad61b7d46ad1e823d94e2d3fc6a28ee5aff068c5ecfe5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "levitation-as-the-self-unbound-from-law",
+  "field": "title",
+  "lang": "ko",
+  "text": "법에서 풀려난 몸이 떠오른다",
+  "model": "claude-opus-5",
+  "source_sha256": "651dbd008fb5c5138862fb0b2749c13788f1ae33e6b3c566ac9c63553c4eace2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "lies-told-because-we-crave-them",
+  "field": "title",
+  "lang": "ko",
+  "text": "우리가 원해서 듣는 거짓말",
+  "model": "claude-opus-5",
+  "source_sha256": "05461ffad4e9c837ccf436372bb05c9f46a382ce1c402122641d98958137045f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "life-composed-in-drafts-never-final",
+  "field": "title",
+  "lang": "ko",
+  "text": "영영 초고로 남는 생",
+  "model": "claude-opus-5",
+  "source_sha256": "f9d219f5d2d5f45b23d4f3963181149381c70037cdffbc1991eff5d599fac1f4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "life-stripped-to-bare-survival",
+  "field": "title",
+  "lang": "ko",
+  "text": "목숨만 남기고 벗겨진 삶",
+  "model": "claude-opus-5",
+  "source_sha256": "f454680a5baedf7a1c2f1f940a96c6bcf5833ad9a1b08a73936f61884bba4fcf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "life-turned-into-forensic-confession-literature",
+  "field": "title",
+  "lang": "ko",
+  "text": "부검하듯 쓴 고백문학이 된 삶",
+  "model": "claude-opus-5",
+  "source_sha256": "4bee6b7875cf76a00dc339a8385875ce221755ef565ab722f0f91b1f09675eff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "light-as-argument-not-illumination",
+  "field": "title",
+  "lang": "ko",
+  "text": "밝히는 대신 주장하는 빛",
+  "model": "claude-opus-5",
+  "source_sha256": "53f19cc8e1f8358fe7db1776b824e4ee766dabd52d358127f628634eea272286"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "light-as-borrowed-never-owned",
+  "field": "title",
+  "lang": "ko",
+  "text": "빌려 쓸 뿐 가질 수 없는 빛",
+  "model": "claude-opus-5",
+  "source_sha256": "c5b5fb8c08b01581818bea75b302056ca147576163c6bb990275641c16c59c8f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "light-that-refuses-to-release-the-watched",
+  "field": "title",
+  "lang": "ko",
+  "text": "응시당한 자를 놓아주지 않는 빛",
+  "model": "claude-opus-5",
+  "source_sha256": "d6a8adc4afc36c5a317928cf8fc358cbce8b7b7a2ca38d4e32747ca3c0478b61"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "likability-as-the-critic-s-secret-verdict",
+  "field": "title",
+  "lang": "ko",
+  "text": "비평가가 감추는 진짜 평결, 호감",
+  "model": "claude-opus-5",
+  "source_sha256": "20ba054d3b367f9d76420f615dbeb79ffd39419ea213d9b4c8127938babe345b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "liquor-as-the-film-s-operating-logic",
+  "field": "title",
+  "lang": "ko",
+  "text": "술이 이 영화를 굴리는 논리",
+  "model": "claude-opus-5",
+  "source_sha256": "a939e0bbc5bb433aab1e842368e643937300e7b52a440d08bd5477fa6d5419dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "lisbon-as-a-geography-of-mourning",
+  "field": "title",
+  "lang": "ko",
+  "text": "애도의 지형도, 리스본",
+  "model": "claude-opus-5",
+  "source_sha256": "90d639f7f880955597d6a73c6622c90affde42ec1a5cec7ad950e6140dc115ca"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "listening-as-the-film-s-hidden-ontology",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화의 숨은 존재론, 듣기",
+  "model": "claude-opus-5",
+  "source_sha256": "53a3c98dc0b7f42c0dd772ad965daa6d600343cacdef688d8e46ea775b5cfd6c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "literacy-as-the-class-frontier",
+  "field": "title",
+  "lang": "ko",
+  "text": "계급을 가르는 선, 글",
+  "model": "claude-opus-5",
+  "source_sha256": "c082f62fc29ef7d7ac43853938db1e8bc06ded83e6b939dbe87165c66936a24b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "literacy-as-the-weapon-of-power",
+  "field": "title",
+  "lang": "ko",
+  "text": "권력이 쥔 무기, 글",
+  "model": "claude-opus-5",
+  "source_sha256": "e94700c13f80dafa108b2f753d71aa0a6b56fa8e023d028073c15b6400311829"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "lived-experience-sold-back-as-product",
+  "field": "title",
+  "lang": "ko",
+  "text": "겪은 삶을 상품으로 되판다",
+  "model": "claude-opus-5",
+  "source_sha256": "f7f2a97b20e775566b36f1ac04c349378b87bfe1d4711832072d2a924763bbb0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "living-on-without-a-reason",
+  "field": "title",
+  "lang": "ko",
+  "text": "이유 없이 계속 사는 일",
+  "model": "claude-opus-5",
+  "source_sha256": "dbd7f0c2e73562e4d956f67cb4b6dfcf1641320f908fbea4e48761d0b712f994"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "london-drained-into-anonymous-anywhere",
+  "field": "title",
+  "lang": "ko",
+  "text": "어디에나 있는 익명의 도시가 된 런던",
+  "model": "claude-opus-5",
+  "source_sha256": "f98469212e3a19b121f446c8f5cf48201bc6c5544f07d41a505c4009d274b904"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "los-angeles-as-counterfeit-dream-stage",
+  "field": "title",
+  "lang": "ko",
+  "text": "가짜 꿈의 무대, 로스앤젤레스",
+  "model": "claude-opus-5",
+  "source_sha256": "fbc9821735d8e49c8afdef95f920092c3f9e4635e8e76e29b731e51438e0b89b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "los-angeles-filmed-as-its-own-hell",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 지옥으로 찍힌 로스앤젤레스",
+  "model": "claude-opus-5",
+  "source_sha256": "4e15dbded14ad0254ddac3b1909d96bee8a859193750332650c039b7ac0ccdd4"
+ }
+]

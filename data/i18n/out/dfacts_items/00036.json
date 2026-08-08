@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《시골에서의 하루》(1936)를 찍을 때 비가 그치지 않았고, 르누아르는 스태프와 격렬하게 부딪쳤다. 결국 그는 촬영을 아예 접었다. 미완으로 남은 필름은 10년이 지나서야 제작자 마르그리트 울레가 40분짜리로 편집해 내놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "39bc20751a2e739fdaf80a776a55f0e93d98bd2e7f69ecfb2542b1c0a95136e8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "프랑스 배우 장 가뱅과는 깊은 창작 동반 관계를 맺었다. 《위대한 환상》 촬영 당시 르누아르가 1차 세계대전에서 자신이 실제로 입었던 군복을 가뱅에게 입히겠다고 고집한 일화는 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "90cc050926777d8fad750679e0d912fa10646998c88b3481b7f87e9f2210a843"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《게임의 규칙》(1939)에서 곰 인형 옷을 입은 비극적 인물 옥타브, 그 결정적인 배역을 르누아르가 직접 맡은 것은 형 피에르 르누아르와 배우 미셸 시몽이 차례로 거절한 뒤의 일이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eeac38e040ef42dffa2481d547e6b026a57c3068b853dfe8977bf63e4f2005cf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《게임의 규칙》의 오리지널 네거티브는 1942년 연합군의 불로뉴비양쿠르 현상소 폭격으로 소실되어 영영 사라진 것으로 여겨졌다. 살아남은 프린트들을 일일이 대조해 복원해낸 것은 1959년이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8e37383778e94959553ab58c1c6d1c07c20bc111b793abd9482f62fc8fb4d047"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1940년 나치 점령을 피해 프랑스를 떠날 때, 그는 친구인 다큐멘터리 감독 로버트 플래허티의 도움으로 비자를 얻었다. 미국으로 건너간 뒤 로스앤젤레스에 자리를 잡는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "023824914d584fd3170e965a72acc19b6fc0fc1d288af6cdd4a499af3b3e3399"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "할리우드 적응은 악명 높을 만큼 험난했다. 미국에서 만든 첫 영화 《Swamp Water》(1941)를 찍는 내내 그는 20세기 폭스의 수장 대릴 F. 재넉과 충돌했다. 느리고 즉흥에 기대는 그의 촬영 방식이 문제였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7da5a6a2efc14c37ea1c13ad82098f6f9a9affdf0f6d4b9206b99342c92ed888"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "할리우드가 만들어낸 기이한 조합. 르누아르는 디애나 더빈 주연 뮤지컬 《The Amazing Mrs. Holliday》(1943)의 연출을 잠시 맡았지만, 유니버설의 빡빡한 요구에 끝내 맞추지 못하고 해고당했다. 후임은 브루스 매닝이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4bf41dfb1d1f1f277cd2230071bc544f6dee8c484898ca373274d6e186f6f9c1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1946년 미국 시민권을 취득했다. 프랑스와 미국 양쪽의 정체성을 지닌 채, 남은 생을 베벌리힐스에서 보냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5cc8871c449ab341c38169d18c9a893d6f9c14d3ae4a33f920faa185092d8829"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "첫 컬러 영화 《강》(1951)의 로케이션을 찾아 캘커타에 머물던 시절, 그는 무명의 젊은 그래픽 디자이너를 조수로 썼다. 사티야지트 레이였다. 르누아르는 레이에게 영화를 직접 해보라고 적극적으로 권했고, 그 길은 하나의 거대한 이력이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6ff03763733c9f0d4a8f136bd5fb2a5a6b091031102a93351624cb1f9a3c1e8e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1954년에는 아를의 고대 로마 원형극장에서 셰익스피어의 《줄리어스 시저》를 무대에 올렸다. 거대한 세트를 세우고 현지 엑스트라 수백 명을 동원한 무대였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae885696dbee80738958e7dcac51298ade535af92c8c77e4e5b9e55f0e6503e3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아버지를 다룬 사적인 전기 《나의 아버지 르누아르》(1962)는 큰 호평을 받았다. 책의 밑감은 두 사람이 나눈 대화다. 오귀스트는 류머티즘 관절염으로 몸이 굳어가던 때였고, 장은 전상에서 회복하던 중이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ae67e46d1697853747f2eb7a0b67b941e2abf22e7e2b8484e8af034b831427c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir#23",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 협업을 신조로 삼았고 빈틈없이 짜인 각본을 혐오했다. 배우들에게 자주 건넨 말이 있다. \"누구에게나 그럴 만한 이유가 있다.\" 옥타브의 대사이자, 그 자신의 삶과 예술을 관통한 문장이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e4e4c89441ef7a8b93701aa82188a90bac680a202792c753cd04b5634e3249e7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir#24",
+  "field": "fact",
+  "lang": "ko",
+  "text": "작가 앙투안 드 생텍쥐페리와는 평생 친구로 지냈다. 생텍쥐페리는 할리우드로 르누아르를 찾아와 《인간의 대지》를 영화로 만들어달라고 설득했다. 그가 비행 중 실종되기 전의 일이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a29fcfc4093fc370ca714044b405812c73366cfe27a5265ab6aa785d191bfa22"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir#25",
+  "field": "fact",
+  "lang": "ko",
+  "text": "초기의 궁핍도, 1930년대 걸작들이 당대에 얻어맞은 혹평도 결국 그를 막지 못했다. 1975년 아카데미 명예상이 주어졌고, 시상자는 그를 흠모하던 잉그리드 버그먼이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f2201a2f1695deb42606c60ded7279141dd0bc0e3b49c7ff7c77a2776781a38c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir#26",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1979년 베벌리힐스에서 심장마비로 84세에 세상을 떠났다. 프랑스 정부가 유해 송환을 주선했고, 그는 에수아의 가족묘에 부모 곁으로 묻혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6091682f45139a34774772b3d0ddc54437ac9cb7caaeab14f2afa47b407e93d6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jeremy-saulnier#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "버지니아주 알렉산드리아에서 자란 솔니에는 초등학교 5학년 때 메이컨 블레어를 만나 평생의 동료가 됐다. 둘의 우정을 굳힌 건 교외 뒷마당에서 슈퍼8과 VHS로 찍어댄 유혈 낭자한 영화들이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "14ff667b3e9805bcf73b9a816979b8a0f32ad553366996c44e5b1028e7a90ece"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jeremy-saulnier#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "경력 초반은 촬영감독으로, 또 기업 홍보 영상 연출자로 보냈다. 영혼을 갉아먹는 시기였고, 극영화를 아예 포기할 뻔했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b674cc1cb6aa084d24bcadb652ab52143e577e4cca7931971025f3e9e2afe459"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jeremy-saulnier#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "*Blue Ruin*의 주인공은 애초에 어린 시절 단짝 블레어를 염두에 두고 쓴 배역이다. 이름값 있는 배우를 써야 제대로 된 투자를 받는다는 업계의 조언은 그냥 흘려들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4690c512c915f5783cab8e2b2238c73e82e9d54c51c4be09e13ba646d5674da4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jeremy-saulnier#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "*Blue Ruin*에서 그는 촬영까지 직접 맡아 이 황량한 복수극을 아리 알렉사로 찍었다. 인디 현장의 밥은 그의 어머니가 챙겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "122917c993dbcdd9cf4e4e43f607f9ca1c9ada7ea3ebd319135bc32ada875b32"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jeremy-saulnier#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "*Blue Ruin*에 건 막대한 도박은 기적처럼 값을 했다. 칸영화제 감독주간에서 첫선을 보였고, 국제비평가연맹상(FIPRESCI)을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b5b942d8b79c13b940a876116ed4c9a68104e06dedc9ff824fbedd9e772b820f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jeremy-saulnier#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "펑크록 농성 스릴러 *Green Room*(2015)의 뼈대는 그 자신의 십대 시절이다. 1990년대 워싱턴 D.C.의 거친 펑크 신, 하드코어 공연장을 드나들던 기억에서 상당 부분을 끌어왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aa127db7301f5d4e65a48fb22f07345f5d84e1f533f36f8cfb7e382b6d6121e8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jeremy-saulnier#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2016년 *Green Room*의 주연 안톤 옐친이 어처구니없는 사고로 세상을 떠났을 때 솔니에는 무너졌다. 훗날 그는 이 젊은 배우를 사나운 재능이라 불렀고, 혹독했던 오리건 촬영을 거치며 가까운 친구가 되었다고 회고했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0542b6a73bf847fc44eafc46b0991de941ebaac62bdb47fd55f26c23180b858a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jeremy-saulnier#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "*Murder Party*, *Blue Ruin*, *Green Room*. 초기 장편 세 편의 분위기를 만든 음악은 모두 브룩 블레어와 윌 블레어 형제의 손에서 나왔다. 단짝 메이컨의 동생들이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c48a649f27e5c70914d3d419dc54ff844f2a6b7fb4e7a40320ad61ee6f23a425"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jeremy-saulnier#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "늘 쓰던 오리지널 각본을 잠시 내려놓고 연출한 것이 *Hold the Dark*(2018)다. 윌리엄 지랄디의 알래스카 스릴러 소설이 원작이고, 각색은 메이컨 블레어가 맡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "737a4bd50092e9e31ed2a7e2677216274b4ba9b4d042bdcd8441da67938bebac"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jeremy-saulnier#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "얼어붙은 캐나다 앨버타의 황야에서 *Hold the Dark*를 찍으며, 그는 잔혹한 폭력 장면을 전부 실물 효과로 처리하게 했다. M249 경기관총이 등장하는 거대하고 아수라장 같은 총격전까지 그렇게 갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "95d3fc76ac1963bbd0ed8f449c9a9005c5a5392023372624f3b31f01d83fd5e4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jeremy-saulnier#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2018년 그는 닉 피졸라토의 *True Detective* 시즌 3 초반 세 편의 연출을 맡았다. 그러나 두 편만 마친 채 HBO 제작에서 돌연 하차했다. 표면상 이유는 일정 충돌이었고, 창작상의 마찰이 있었다는 말도 돌았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0fc30257fd9c52420c9f6d75a14bb7bc675471240f72ea5f22f194a936fc8a5b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jeremy-saulnier#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2024년작 스릴러 *Rebel Ridge*는 2021년 제작이 통째로 멈추는 사태를 겪었다. 주연 존 보예가가 예고 없이 루이지애나 현장을 떠나버린 것이다. 보예가 측은 \"가정사\"라고 밝혔지만, 업계에서는 각본을 둘러싼 이견을 두고 수군거렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "48a210c9a015ba1080f7b801ce49fa9ec88e11167b84503ec5caf490344e61e9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jeremy-saulnier#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "보예가가 갑작스레 빠진 뒤 넷플릭스는 *Rebel Ridge*를 1년 넘게 세워두었다. 그 사이 솔니에는 테리 리치먼드 역을 이어받을 배우로 영국 출신 에런 피어를 직접 골랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "405d597ff438c5d1a4b2de28b8eb6e8597a76a54876282c1c148801e75c0de78"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jeremy-saulnier#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "코로나로 지연을 거듭한 *Rebel Ridge*의 촬영은 그를 갉아먹었다. 솔니에는 스트레스가 너무 심해 정신과 몸이 모두 크게 상했다고 털어놓았다. 몇 해에 걸친 그 시련이 생애 가장 힘든 일이었다는 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4375023fbc58fb5acc65cdf8a9ff80d3ffe16fc02ff5a97aeefa5ed5b1cc28a9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jia-zhangke#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자장커는 산시성 펀양에서 태어났다. 성벽으로 둘러싸인 작은 탄광 도시다. 아버지는 중학교 국어 교사였고, 어머니는 국영 상점의 판매원이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "af26d5cb7cb2cdb3b8f81e7e470e164033ebf3925a35b36ef1ec3da6c1a4edc0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jia-zhangke#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화를 알기 전 그의 꿈은 작가였다. 고등학생 신분으로 지역 문예지 '산시문학'에 첫 소설을 실었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "96e260c5f998531383af2e126d08f718aed9055f887db041fe45dd210bd32949"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jia-zhangke#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1990년 타이위안의 한 극장에서 천카이거의 '황토지'를 보았다. 눈물을 흘렸고, 그 자리에서 그림을 접고 영화로 가기로 마음먹었다. 그의 개안(開眼)은 그렇게 왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "187f3ee419226dc882932f6b7e5c23db3131692c6a169db7b63e469fa3fd2eb2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jia-zhangke#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "베이징영화학교에 들어가려고 그는 두 번 낙방했다. 1993년 마침내 합격했지만 연출과는 그해 신입생을 뽑지 않았고, 그래서 등록한 곳이 영화이론과였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a9651c638c81b3db8ed9f191b680c945621c4fe41f29b29f8845daee3b24c355"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jia-zhangke#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "학생 시절 동기들과 '청년실험영화소조'를 꾸렸다. 1995년 단편 '샤오산의 귀가' 제작비는 친구 아내가 운영하던 웨딩 촬영 업체를 설득해 후원으로 메웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "25bbc6aa9ffaf82458b0fef9e946874cd41014d7d842d25822981e9c958426d4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jia-zhangke#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "'소무'가 베를린국제영화제에서 상을 받자 중국 영화국은 자장커를 불러들여 영화 제작 금지를 통보했다. '지하' 감독으로서의 이력은 여기서 시작된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4e21916707cc33fa8c61bfd50c9ff5ec1c36ac1f1b5737bf9f8a7517f9503c06"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jia-zhangke#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "지하 시절 그를 떠받친 결정적 후원자는 일본의 기타노 다케시였다. 세 시간짜리 야심작 '플랫폼'의 자금을 기타노의 제작사 오피스 기타노가 댔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "66a8fcf5fe428ecbcd57f70e39c24c89b58f3362c6c766c8bd401a6d4c9e71e3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jia-zhangke#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1999년 타이위안사범대학으로 배우를 찾으러 갔다가 자오타오를 만났다. 당시 그곳에서 중국 전통무용을 가르치던 그는 훗날 자장커의 아내이자 평생의 뮤즈가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "edb028329d97a1b1e96b0a99218daea05ad5723ab18bf921754c312e6fb16ec5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jia-zhangke#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1980~90년대 대만과 홍콩 대중가요를 화면 안 음악으로 끌어들이는 것으로 그의 영화는 유명하다. 특히 덩리쥔과 예첸원의 노래들. 자장커에게 그 소리는 갑작스레 열린 중국의 사운드트랙이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e37cd3b0abd2b65e710d8c38780bb7cf2a1edba843af6f4aee986e4776e33b9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jia-zhangke#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2004년 중국 정부는 자장커를 비롯한 '6세대' 감독 몇몇에 대한 금지를 공식 해제했다. 덕분에 테마파크를 무대로 한 '세계'가 그의 첫 합법 국내 개봉작이 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cec19280ffa94aee3dc758ed4d4cbb950e85ea0973345a43ae8f57a73e98960f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jia-zhangke#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "싼샤댐 공사로 헐려나가던 펑제에서 찍은 2006년의 걸작 '스틸 라이프'는 뜻밖에도 베네치아영화제 황금사자상을 안았다. 그의 국제적 위상은 이때 굳어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a3035d2371435a1d71d58664ec522e395065ac1542295ac3f9796dfe24cdef97"
+ }
+]

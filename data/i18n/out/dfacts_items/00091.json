@@ -1,0 +1,20 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "zhang-yimou#28",
+  "field": "fact",
+  "lang": "ko",
+  "text": "앞선 결혼도, 공리와의 오랜 동행도 끝난 뒤 그는 무용수 출신 천팅과 재혼했다. 서른 살 넘게 어린 여자였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "95f61859e15d95bd961b117a06728ddadc75af48d3273405cb10d6e24aaa2bb3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "zhang-yimou#29",
+  "field": "fact",
+  "lang": "ko",
+  "text": "중국 영화사에서 가장 돈이 많이 든 스펙터클을 여럿 만들었지만, 정작 그는 현장을 떠나지 않고 세부 하나까지 붙들고 늘어지는 일벌레로 통한다. 일흔이 넘어서도 작품을 쉼 없이 내놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c77b93e725e044cda444755c3262f839908c593c3169dae179bd2c7335642181"
+ }
+]

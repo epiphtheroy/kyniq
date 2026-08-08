@@ -1,0 +1,102 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "free-jimmy-2006",
+  "field": "lead",
+  "film_id": "0ef5b69a-2248-46e6-b111-8d5781504751",
+  "lang": "en",
+  "text": "The elephant is a junkie, and everyone who wants him — four stoners, five vegans, three mobsters, four hunters — wants him for a different reason. Christopher Nielsen lays the arithmetic out in the premise itself, which is fair warning about the kind of comedy this is: a farce of collisions, in which every faction is certain of its own decency and none of them is thinking about the animal. The dialogue is Norwegian, the production British, the running time a lean eighty-six minutes. Annecy gave it the Cristal for a feature. What holds it together is that Nielsen treats the drug trade, the activists and the hunting party as three professions with comparable logic, all of them working the same small country, all of them convinced the elephant is a means rather than a creature.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d5f8a204ea8bddd82a410c26dfff92e0d45f6177d9193ce7f97de69750a70a0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hard-to-be-a-god-2013",
+  "field": "lead",
+  "film_id": "f4af2732-7ac3-46bd-b9f7-02b9bd029392",
+  "lang": "en",
+  "text": "The scientists sent to Arkanar are permitted almost nothing: no violent interference, and under no circumstances a killing. The planet is stuck in its own Middle Ages, its thinkers are being disposed of at a steady rate, and Rumata, who came to observe, finds out how quickly a prohibition turns into a position. Aleksei German gives this 177 minutes. That is less a length than a method: long enough that Arkanar stops behaving like a thought experiment and starts behaving like a place. The Nika the film took was for costume, which on a picture like this is no decorative credit — someone had to decide what every person on that planet wears while the culture goes about the business of killing its intellectuals. Science fiction with nothing polished anywhere in it.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a5e1a192b700263a7aad48ec16dfc175d8d38bf3d21da530c5979c8d01e9772"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dear-comrades-2020",
+  "field": "lead",
+  "film_id": "16072e15-57db-4422-81c5-a347e6a239a6",
+  "lang": "en",
+  "text": "In 1962 the state raised the price of food, and a small industrial town called Novocherkassk stopped working. Andrei Konchalovsky's governing decision is whose eyes the strike is seen through: not a dissenter's and not a historian's, but a party activist's — someone for whom the correctness of what is being done is not in question. That is a hard seat to occupy for 121 minutes, and the film offers no easier one. Period detail here is argument rather than decoration: the queues, the ration privileges, the vocabulary people reach for when they want to be heard saying the correct sentence. Russia put it forward as its entry to the Academy Awards. What the film is really about is the widening distance between what an official is told is happening and what can be seen from the window.",
+  "model": "claude-opus-5",
+  "source_sha256": "4649ad4f9224ffa34ebbfff481573379f59985315490ac44c03afbe0f1183d3b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "arrhythmia-2017",
+  "field": "lead",
+  "film_id": "a0cf0edd-ea4b-42ec-b794-00ffbc29630c",
+  "lang": "en",
+  "text": "Oleg is a gifted paramedic and a hopeless husband, and Katya has stopped waiting for the second thing to change. She says the word divorce; they both go to work anyway. Boris Khlebnikov runs two pressures against each other — a marriage neither person has the language to repair, and a new department head with new rules about response times, the sort of reform that reads as sensible on a form and as something else at three in the morning. The film takes the shifts seriously as labour: the equipment, the stairwells, the hours afterwards that get drunk away. It took the audience award at IFFR. What keeps it from being a domestic drama with an ambulance parked in it is that the thing Oleg does well and the thing that makes him unbearable to live with are the same thing.",
+  "model": "claude-opus-5",
+  "source_sha256": "47c16d1a493861f14937b2af3e0abe9f0c14a43a7305715dfc9189f91cef05c3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-geographer-drank-his-globe-away-2013",
+  "field": "lead",
+  "film_id": "bffb0cff-f32b-4332-b910-a605a1a05fd9",
+  "lang": "en",
+  "text": "A man takes a job teaching geography in Perm, in the Urals, chiefly because he needs a job. Victor Sluzhkin drinks, teaches badly, and develops an attachment to one of his own students that he has no business having; the film neither excuses this nor turns it into a case file. Alexandr Veledinsky keeps the register wry rather than tragic, the harder line to hold across 120 minutes: a man can be funny about his own failure and still not be let off it. It sits in the Nika best-picture list. Then he takes a party of teenagers rafting into the country he has been pointing at on a map all year, and the river does what the classroom could not — no authority, weather that will not negotiate, adolescents who handle the boat better than he does. The gap it watches is between a man who can name every river and one who has never left the town he was born in.",
+  "model": "claude-opus-5",
+  "source_sha256": "0fcf29616e53f488d7deb99d01b59ad6e54e37e514e261c2406bdb5c3ed1a841"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-thief-1997",
+  "field": "lead",
+  "film_id": "7773d2a8-dbf0-4250-973c-7b2ba1c36aa6",
+  "lang": "en",
+  "text": "Everything Tolyan gets in 1952, he gets because of the uniform he is wearing. The word veteran does heavy work in that year: an officer's tunic opens doors, and nobody wants to be the one who asks a second question. Katya falls for him. Her six-year-old son Sanya gets something he has never had, a man behaving like a father, and the film keeps its centre at the boy's height, so the adult business happens above him in half-heard sentences he takes entirely on faith. Pavel Chukhray does it in ninety-six minutes with nothing padded and no scene that exists only to explain. Russia sent it forward to the Academy Awards. The ache of it is Sanya's loyalty: immediate, total, and given to a man who has done nothing to earn it beyond arriving.",
+  "model": "claude-opus-5",
+  "source_sha256": "05b969b5895bafa1c7de1519645936e0c2449ab2d2ee158f22c6530847d1dea4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sita-sings-the-blues-2008",
+  "field": "lead",
+  "film_id": "7841b863-d54a-43e4-a34d-376ff796225a",
+  "lang": "en",
+  "text": "Annette Hanshaw recorded these songs in the 1920s, and eighty years later they belong to Sita. Nina Paley runs three things at once: an episode from an Indian epic, a present-day breakup in which a woman is left in much the same position, and three shadow puppets who talk the source over amiably, disagree, and admit where they are unsure. The jazz supplies what the epic leaves implicit — a woman waiting, and the particular indignity of being expected to wait well. Eighty-two minutes, several incompatible drawing styles, no attempt to resolve them into one look. The nerve of it is the pairing: a torch singer out of Jazz Age America lending her voice to a figure from a very old epic, done without a smirk anywhere, and landing far nearer devotion than parody.",
+  "model": "claude-opus-5",
+  "source_sha256": "3c8e576555902d57953873345ebba06b74987f54f11e6de9327ec8364e188547"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-wedding-2004",
+  "field": "lead",
+  "film_id": "ece63c7b-069f-4c9c-9224-47e9c3bee60b",
+  "lang": "en",
+  "text": "Nobody at this reception is thinking about the marriage; they are thinking about what they are owed. Wojnar has bought a groom for his pregnant daughter, and the car that closed the deal arrives driven by the gangster who supplied it, who would now like his money and also the deed to the grandfather's land, which the grandfather has no intention of signing away. Everyone hired to make the day look like a day wants paying too, and the father of the bride will haggle with each of them in turn sooner than open his wallet. Wojtek Smarzowski holds all 109 minutes inside one Polish wedding in the present day and lets the debts fall due in order. The form is farce; the pressure is arithmetic. It holds the Polish Film Award for best film. Every scene is somebody calling in a favour that was never free.",
+  "model": "claude-opus-5",
+  "source_sha256": "dea32712b47c49669da3c1ba68e2cc86974a9914363a3f83dafe020361f9c70b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "peculiarities-of-the-national-hunt-1995",
+  "field": "lead",
+  "film_id": "67ca4f33-d26e-4874-bb57-9346f6a8a85a",
+  "lang": "en",
+  "text": "The hunting party sets out, drinks, and never quite gets around to the hunting. The man taking notes is a Finn who came to Russia to document its hunting traditions and has been folded into them instead, which is the joke and also the method: everything he witnesses is explained to him as ancient custom and appears to be invented on the spot. His companions are an army general, a police detective, a forest ranger who has taken up Zen Buddhism, and some city men down from St. Petersburg. Aleksandr Rogozhkin made this in 1995, with the ranks and offices on display being rearranged underneath the men who held them, and the comedy runs on that slack — ceremony intact, purpose missing. It took a Nika. Ninety-three minutes, mostly talk, and the affection in it is what makes the satire stick.",
+  "model": "claude-opus-5",
+  "source_sha256": "731c5befc5ad3ef34441b8a283507ed8d7d0b2153460f548a8166f41ecb5d929"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "holiday-2018",
+  "field": "lead",
+  "film_id": "e1272920-dca0-41c9-a4ea-5a340416a50f",
+  "lang": "en",
+  "text": "Bodrum in summer: a villa above the sea, and a young woman who knows exactly what she has been brought along to be. Sascha belongs to a Danish dealer roughly the way the villa and the view do, and Isabella Eklöf's decision is to stay with her rather than with the men who own the trip, which turns a crime film inside out: the business is overheard, the day is mostly leisure, and the person the camera follows has no vote in any of it. Shopping, ice cream, sunburn, a Dutch traveller who takes her for someone with options. Ninety minutes on the Turkish Riviera, in the weather a holiday would have. It took the Bodil for best Danish film. The pleasantness of the surface is not relief; it is the mechanism, and it does not break character.",
+  "model": "claude-opus-5",
+  "source_sha256": "9172490c00256df3a5936fa4434395a375bd7207a62fe0036e665de726592d51"
+ }
+]

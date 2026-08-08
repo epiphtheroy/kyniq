@@ -1,0 +1,322 @@
+[
+ {
+  "entity_type": "director_pick",
+  "entity_key": "michael-haneke#the-white-ribbon-2009",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《하얀 리본》은 1차대전 직전 독일의 한 마을에 잔혹이 번져가는 과정을 메마른 흑백으로 좇는다. 아이들을 통해 권위주의의 뿌리를 짚는, 하네케가 펼친 화폭 가운데 가장 크고 역사적으로도 가장 야심 찬 그림.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "michael-haneke#the-piano-teacher-2001",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《피아니스트》에서 하네케는 성과 심리의 날것 지대로 방향을 튼다. 억눌린 피아니스트를 겁 없이 연기한 이자벨 위페르가 중심을 잡고, 그 차가운 통제력이 한 사람의 내면 하나에 고스란히 쏟아진다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "michael-haneke#funny-games-1997",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가택 침입 스릴러를 관객 자신에게 겨눈 무기로 바꿔놓는다. 《퍼니 게임》은 제4의 벽을 부수고, 스크린 위 폭력을 탐하는 우리의 식욕을 고발한다. 가장 대결적이고 가장 자의식적인 하네케.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "michael-haneke#the-seventh-continent-1989",
+  "field": "reason",
+  "lang": "ko",
+  "text": "장편 데뷔작 《The Seventh Continent》은 한 중산층 가족이 의례와 일과를 되풀이하며 삶에서 조직적으로 물러나는 과정을 기록한다. 이후의 모든 작품을 규정하는 임상적 문체와 불안이 여기서 시작됐다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "michael-haneke#code-unknown-2000",
+  "field": "reason",
+  "lang": "ko",
+  "text": "파리의 거리에서 벌어진 사건 하나가 계급과 국적을 가로지르는 여러 삶으로 흩어진다. 《Code Unknown》은 형식적으로 과감한 불통의 모자이크다. 품을 들일 각오가 된 관객 몫.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "michael-powell#a-matter-of-life-and-death-1946",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 너그러운 입구는 《A Matter of Life and Death》다. 전시의 로맨스가 테크니컬러의 지상과 흑백의 천국 사이를 오간다. 환상적이면서도 따뜻하고, 파월-프레스버거 특유의 장난기와 시각적 대담함이 여기 다 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "michael-powell#the-red-shoes-1948",
+  "field": "reason",
+  "lang": "ko",
+  "text": "예술적 정점은 《분홍신》이다. 한복판에 놓인 발레 시퀀스가 무대를 꿈으로 녹여버린다. 예술에 몸을 바친 대가가 어떻게 사람을 삼키는지, 압도적인 색과 움직임으로 붙든다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "michael-powell#black-narcissus-1947",
+  "field": "reason",
+  "lang": "ko",
+  "text": "열병 같은 꿈에 값하는 보상이 《Black Narcissus》다. 히말라야의 수녀원은 전부 스튜디오 세트로 지어졌고, 그 안에서 수녀들이 하나씩 무너진다. 잭 카디프의 온실 같은 촬영이 억눌린 욕망을 순전한 공기로 바꾼다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "michelangelo-antonioni#the-passenger-1975",
+  "field": "reason",
+  "lang": "ko",
+  "text": "잭 니컬슨이 남의 신분을 갈아입는다. 《The Passenger》는 그 설정을 최면 같은 여정으로 끌고 가, 안토니오니의 소외라는 주제로 들어가는 가장 편한 입구가 된다. 여행기의 긴장, 그리고 끝에서 두 번째에 놓인 저 유명한 무편집 쇼트가 처음 온 사람을 붙든다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "michelangelo-antonioni#l-avventura-1960",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《정사》는 자기 플롯을 도중에 내던지고 남겨진 사람들을 들여다본다. 현대 예술영화의 정서적 표류가 여기서 발명됐다. 영화가 무엇을 감출 수 있는지, 그 경계를 안토니오니가 왜 다시 그었는지 알게 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "michelangelo-antonioni#la-notte-1961",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《밤》은 《정사》의 정서를 결혼 하나로 좁혀 들어간다. 밀라노의 낮과 밤, 단 하루 사이에 부부가 허물어진다. 마스트로이안니와 잔 모로가 두 사람 사이의 침묵을 하나씩 짚어낸다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "michelangelo-antonioni#il-grido-1957",
+  "field": "reason",
+  "lang": "ko",
+  "text": "네오리얼리즘의 기운이 아직 남아 있던 초기의 안토니오니. 《Il Grido》에서는 사랑이 무너진 뒤 한 노동자가 포 강 유역을 떠돈다. 그 유명한 추상이 자리 잡기 전, 소외라는 주제가 어떤 얼굴이었는지 알 수 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "michelangelo-antonioni#zabriskie-point-1970",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《자브리스키 포인트》는 미국 대항문화(counterculture) 한복판으로 건너간 실험이다. 사막의 풍경, 핑크 플로이드, 그리고 폭발하는 결말. 호오가 갈리는 감각의 급선회이니 이미 빠져든 사람이 볼 것.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "miguel-gomes#tabu-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《타부》는 둘로 갈라진다. 오늘의 리스본을 담은 서두, 그리고 내레이션만 얹은 무성의 식민지 로맨스. 뒤쪽은 눈부신 흑백으로 찍혔다. 기억과 멜로드라마, 옛 영화의 질감을 향한 고메스의 애정이 가장 맑게 응축된 편이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "miguel-gomes#grand-tour-2024",
+  "field": "reason",
+  "lang": "ko",
+  "text": "1918년 아시아를 가로지르는 추격에, 같은 땅을 지금 찍은 다큐멘터리 화면이 겹쳐 짜인다. 《그랜드 투어》는 스튜디오의 인공과 여행기의 실물을 한 몸으로 붙여, 식민지 향수와 이야기하기 자체에 대해 고메스가 내놓은 가장 자신 있는 대답이 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "miguel-gomes#arabian-nights-2015",
+  "field": "reason",
+  "lang": "ko",
+  "text": "여섯 시간짜리 삼부작. 《천일야화》는 셰에라자드의 이야기를 빌려 긴축 시대의 포르투갈을 굴절시킨다. 사방으로 뻗고 자꾸 곁길로 새는 실험이라, 르포와 우화와 부조리 코미디를 뒤섞는 고메스의 방식에 몸을 맡길 준비가 된 사람에게 권한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "na-hong-jin#the-chaser-2008",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《추격자》는 군더더기 없이 내달리는 데뷔작이다. 경찰을 그만두고 포주가 된 남자가 시간과 다투며 서울의 골목을 뛴다. 나홍진 특유의 불길함, 도덕적으로 이미 더러워진 주인공. 그 둘이 가장 받아들이기 쉬운 형태로 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "na-hong-jin#the-wailing-2016",
+  "field": "reason",
+  "lang": "ko",
+  "text": "수사물과 시골 민속 호러, 굿이 한데 녹아 믿음과 의심의 거대한 수수께끼가 된다. 장르를 녹여 붙이고 공기로 관객을 적시는 감독. 나홍진이 왜 중요한지 《곡성》이 답한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "na-hong-jin#the-yellow-sea-2010",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 잔혹하고 가장 넓게 퍼진 중간의 작품이 《황해》다. 조선족 남자가 청부 살인을 위해 국경을 넘었다가 도리어 쫓기는 신세가 된다. 칼과 뼈로 짠 추격의 안무는 나홍진에게서도 가장 집요하다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "nadav-lapid#the-kindergarten-teacher-2014",
+  "field": "reason",
+  "lang": "ko",
+  "text": "라피드에게 처음 다가가는 길은 《The Kindergarten Teacher》다. 아이가 쓴 시에 사로잡힌 교사를 그린 조용하고 불편한 우화. 예술과 언어와 이스라엘 사회를 향한 그의 집착이, 후기작의 형식적 요동 없이 소개된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "nadav-lapid#synonyms-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《Synonyms》는 라피드가 최대 출력으로 달리는 영화다. 한 이스라엘 청년이 오직 단어만으로 프랑스인이 되려 발버둥친다. 쉬지 않고 흔들리는 핸드헬드, 자전적인 분노. 정체성과 국가와 언어라는 그의 주제가 여기서 한 덩���리로 굳는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "nadav-lapid#ahed-s-knee-2021",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《아헤드의 무릎》은 여기까지 따라온 사람의 몫이다. 사막에 도착한 영화감독이 국가 검열을 향해 분노를 쏟아낸다. 방향 감각을 흐트러뜨리는 카메라와 관객을 정면으로 겨눈 일갈이, 그의 대결적 스타일을 가장 날것이고 가장 사적인 극단까지 밀어붙인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "nagisa-oshima#merry-christmas-mr-lawrence-1983",
+  "field": "reason",
+  "lang": "ko",
+  "text": "오시마 나기사에게 가장 쉽게 가닿는 작품. 《전장의 크리스마스》는 2차대전 포로수용소를 무대로 삼고, 보위와 사카모토가 그 축을 이룬다. 문화의 충돌과 억눌린 욕망이 영어와 일본어를 오가며 벌어진다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "nagisa-oshima#death-by-hanging-1968",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《교사형》은 브레히트식 부조리를 써서 사형 제도와 조선인을 향한 일본의 인종주의를 한꺼번에 해체한다. 실패한 사형 집행을 잔혹한 소극(笑劇)으로 다시 무대에 올린다. 정치적으로 가장 불을 지르고 형식적으로 가장 대담한 오시마가 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "nagisa-oshima#in-the-realm-of-the-senses-1976",
+  "field": "reason",
+  "lang": "ko",
+  "text": "집착을 육체의 한계까지 밀어붙인 영화. 《감각의 제국》은 1936년의 실제 사건에서 출발해, 연기로 대신하지 않는 성애의 소용돌이로 내려간다. 정치적 불안과 사람을 삼키는 친밀함이 한 몸이 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "nagisa-oshima#boy-1969",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《소년》은 교통사고를 위장해 운전자에게서 돈을 뜯는 가족을 따라간다. 그 일에 가담한 아이를 앞세워 일본의 가족이라는 단위를 고발한다. 도발로 가득한 다른 작품들보다 조용하고 다정하다. 이미 붙들린 관객이라면 여기서 얻는 게 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "noah-baumbach#frances-ha-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《프란시스 하》부터 시작하면 된다. 흑백이고, 가볍게 튀어 오르고, 어디에도 정착하지 못한 그레타 거윅의 무용수가 바움백 특유의 코미디와 잔잔한 통증을 함께 붙든다. 거슬리는 구석이 하나도 없다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "noah-baumbach#marriage-story-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "정점은 《결혼 이야기》다. 이혼을 외과적인 공감으로 해부하되, 두 사람 어느 쪽의 무게도 덜어내지 않는다. 그 유명한 아파트 말다툼 장면은 배우 둘이 정면으로 맞붙는 연기로 세워졌다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "noah-baumbach#the-squid-and-the-whale-2005",
+  "field": "reason",
+  "lang": "ko",
+  "text": "자전적 출발점은 《오징어와 고래》다. 브루클린의 한 가족이 허세와 사춘기의 혼란을 지나며 쪼개진다. 잔인하면서 웃긴 지성, 바움백을 규정하는 그 감각이 여기서 자리를 잡았다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "noah-baumbach#the-meyerowitz-stories-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가족이라는 상처는 《The Meyerowitz Stories》에서 다 자란 형제자매에게로 옮겨간다. 자기밖에 모르는 예술가 아버지 주위를 그들이 맴돈다. 티격태격하는 와중에 애덤 샌들러가 뜻밖의 다정함을 내보인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "noah-baumbach#greenberg-2010",
+  "field": "reason",
+  "lang": "ko",
+  "text": "까끌까끌한 보상이 《그린버그》다. 벤 스틸러가 스스로를 망치는 인간 혐오자로 로스앤젤레스를 떠돈다. 바움백과 거윅이 처음 만난 작품이자, 불편함의 코미디가 날을 세운 자리.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "noah-baumbach#mistress-america-2015",
+  "field": "reason",
+  "lang": "ko",
+  "text": "스크루볼로 간 바움백. 《미스트리스 아메리카》에서는 거창한 계획을 늘어놓는 거윅과 그를 동경하는 학생이 부딪히고, 말이 쉴 새 없이 쏟아진다. 끝에 가서는 거실 하나를 통째로 쓴 소동이 벌어진다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "noah-baumbach#white-noise-2022",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 크게 휘두른 방망이가 《화이트 노이즈》다. 드릴로를 옮겨와 재난과 죽음 부정을 다룬 교외 풍자로 만들었고, 영화 전체가 불안에 절어 있다. 마무리는 슈퍼마켓 한복판의 춤.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "nuri-bilge-ceylan#distant-2002",
+  "field": "reason",
+  "lang": "ko",
+  "text": "사이가 벌어진 사촌 둘이 이스탄불의 좁은 아파트를 나눠 쓴다. 《Distant》는 그 방에서 제일란의 앙상하고 겨울 같은 문체를 처음 내보인다. 조용한 사진가의 눈과 마른 우울. 처음 한 편으로 이만한 게 없다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "nuri-bilge-ceylan#climates-2006",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《Climates》는 계절을 따라 한 관계가 무너지는 과정을 좇는다. 부부 역은 제일란과 그의 아내가 직접 맡았다. 가깝고, 그래서 아프다. 《Distant》의 실내극 정서가 여기서 한층 깊어진다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "nuri-bilge-ceylan#once-upon-a-time-in-anatolia-2011",
+  "field": "reason",
+  "lang": "ko",
+  "text": "묻힌 시체를 찾아 헤매는 하룻밤이 최면 같은 수사극으로 길게 늘어난다. 의사와 경찰, 그리고 인간의 약함에 관한 이야기. 《원스 어폰 어 타임 인 아나톨리아》에서 제일란은 화폭과 리듬을 크게 넓혔다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "nuri-bilge-ceylan#winter-sleep-2014",
+  "field": "reason",
+  "lang": "ko",
+  "text": "황금종려상을 받은 《윈터 슬립》은 체호프를 눈에 갇힌 카파도키아의 호텔로 옮겨놓는다. 그곳에서 대화는 곧 전쟁이다. 메스처럼 날 선 긴 말들, 제일란이 도덕적으로도 극적으로도 가장 멀리 간 자리.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "nuri-bilge-ceylan#the-wild-pear-tree-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《야생 배나무》는 작가를 꿈꾸는 청년이 시골 고향에서 노름꾼 아버지와 부딪치는 이야기다. 《윈터 슬립》 다음에 보기 자연스러운 편이다. 말이 많기로는 똑같고, 대신 더 젊고 더 헤프다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "nuri-bilge-ceylan#about-dry-grasses-2023",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《마른 풀에 대하여》는 환멸에 빠진 교사를 눈 덮인 아나톨리아의 지방으로 데려간다. 한 건의 고발이 그의 삶을 뒤집는다. 정치와 양가감정, 자화상으로까지 뻗어간 최근의 제일란을 볼 수 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "nuri-bilge-ceylan#three-monkeys-2008",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 조이고 가장 누아르에 가까운 편. 《Three Monkeys》에서는 덮어버린 범죄 하나가 한 가족을 천천히 중독시킨다. 폭풍우의 빛과 구릿빛 톤으로 찍혔다. 덜 알려진 만큼, 빠져든 뒤에 꺼내 볼 몫이다.",
+  "model": "claude-opus-5"
+ }
+]

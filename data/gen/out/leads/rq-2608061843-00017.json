@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "los-evadidos-1964",
+  "field": "lead",
+  "film_id": "90ceae53-ebaa-4ccc-bcff-0514b16cbb46",
+  "lang": "en",
+  "text": "Argentina sent a prison-break picture to the Berlin Film Festival in 1964. A break on that scale is a logistics problem before it is anything else — schedules, keys, who can hold his nerve for ten silent minutes — and Enrique Carreras keeps the film at that practical altitude, where a plan is worth exactly as much as the least steady man in it. Ninety-seven minutes allows almost no backstory. Nobody arrives with a case history; they arrive with a job and a date to do it on. The inmates have measured the walls and the routines carefully. They have measured the guards and the administration less carefully, and the film understands this before they do, which is why it keeps drifting to the other side of the door, where men in uniform are doing arithmetic of their own.",
+  "model": "claude-opus-5",
+  "source_sha256": "9d14a920d57d3127aae3c5d13400006c6843d8d1a4f11811ab8a6611f46fa2a8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "full-autumn-1966",
+  "field": "lead",
+  "film_id": "6233bdf5-3609-46df-ba4a-fa59d507c492",
+  "lang": "en",
+  "text": "A woman on parole is riding a train back toward the gate she walked out of. That is the whole situation, and Lee Man-hee makes the time it buys into the subject: her leave is counted in hours, and every hour spent with the man in the next seat comes off a total she already knows. He is running; she is returning. The arithmetic sits between them and neither says it aloud. Ninety-five minutes, a moving train, a fixed hour waiting at the end of it — the machinery of a stopwatch, which is a strange engine for a love story and the right one here. The Baeksang went to it as best film. What it is made of is smaller than a prize: two people behaving decently inside a window that is closing on both of them.",
+  "model": "claude-opus-5",
+  "source_sha256": "63a216a96cd7053b27566cd8a815477e575aa20a2eafd8621bad9d904250ba80"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "adultery-tree-1984",
+  "field": "lead",
+  "film_id": "9c004b16-d98c-443e-86ee-44ab194decf3",
+  "lang": "en",
+  "text": "A year to produce a child, and the deadline is set by another woman — the head of a household everyone in the district respects. Chung Jin-woo gives that arrangement a hundred and twenty-five minutes, which is long for something statable in a single sentence, and the length is the argument: the year has to be lived through month by month, in a house where the person who issued the order also keeps the keys, the calendar and the family's standing. It took the Grand Bell as best film in 1984. The cruelty in it is administrative, delivered in the vocabulary of duty by a woman who was very likely handed the same terms herself once, and that loop — the ordered becoming the one who orders — sits closer to the film's subject than the ultimatum does.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b2bed1336fc190369f8fdde253409b23b84587b64fb7504a6b0b8e81beaa9a5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "juvenilia-1943",
+  "field": "lead",
+  "film_id": "3c5d0dc7-54a8-4347-8d71-683080e77908",
+  "lang": "en",
+  "text": "At the Colegio Nacional Buenos Aires the students are the story and the nation being organized around them is the weather. They do the telling — their wanderings through the city, the ordinary traffic of adolescence — while the era they happen to be living in, the National Organization, is settled somewhere above their heads by men they will read about later. The film was made in 1943 and looks back across that gap with no appetite for instruction, which is rarer in a school picture than it sounds. A hundred and four minutes is a great deal of time to give to anecdotes, so plot was never the draw; recall was. Augusto César Vatteone directs, and it was named best film at the Silver Condor, a curious fate for a picture built almost entirely out of small remembered things.",
+  "model": "claude-opus-5",
+  "source_sha256": "0ec0d6ea1730681aa5a559725fbf95b302dc5782ed0db257ee54cbd34e05fd04"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "celos-1946",
+  "field": "lead",
+  "film_id": "5d8a95fb-c5f7-4475-aba0-b96a5d909df6",
+  "lang": "en",
+  "text": "Tolstoy in Spanish, at ninety-five minutes: Celos is an Argentine adaptation of The Kreutzer Sonata. The useful question with a transfer like that is what has to be built to replace what the page supplied for free — a face doing the work of a paragraph, a room doing the work of a narrator. Mario Soffici was directing in 1946, when the industry in Buenos Aires had the stages, the contract players and the nerve to take a European name and set its own beside it. What a studio chooses to adapt is also a claim about the audience it believes it has. A novella hands a production very little furniture and a great deal of interior, and the exchange rate between those two is unforgiving; most of it is settled in casting, long before a camera turns.",
+  "model": "claude-opus-5",
+  "source_sha256": "6dba132507c4fd2d33161ff560c6d4fdf83aee2cc0cae6092e512299c90588bd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "crime-2010",
+  "field": "lead",
+  "film_id": "9f911425-d0d1-41e0-b58d-024232856671",
+  "lang": "en",
+  "text": "A dealer who has run out of customers wants to close the business and open a bookstore. Vincent Ostria gives that plan seventy minutes and no daylight. Muinski works nights in an old housing project, alongside Tô, who is dying and will go on dying for the length of the film. Then the packets start arriving: black powder, a drug with no name attached to it, turning up as though the trade he is trying to leave has decided to keep him. A man who has spent his working life measuring other people's doses is the likeliest of all men to mismeasure his own. Seventy minutes gives the thing the shape of one bad night rather than a case file, and it stays at street level, where an unknown substance is a delivery before it is a mystery.",
+  "model": "claude-opus-5",
+  "source_sha256": "4878a34e27c763de6a99e5c63e19f40d2933464db9819ba95a3d6cfd6ffe3d32"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "nosotros-los-monos-1971",
+  "field": "lead",
+  "film_id": "c6d4f6da-b0a9-4ea4-bf9a-47d672558a2a",
+  "lang": "en",
+  "text": "Mario Paladino came out of the Pampas, boxed, and died in the ring. Edmund Valladares takes his life as the route into something with no glory in it: for a young man from the Argentine interior, fighting was one of the few trades that would have him, and this documentary treats it accordingly, as work, with hours and wages and men who make a living off other men's bodies. Eighty-one minutes is short for a life and about right for an argument. The year is 1971 and the camera is pointed at the supply side of a national sport. Boxing pictures usually run on the promise of a title shot. This one runs on recruitment, on the provinces emptying out one young man at a time, and it needs no fight sequence to make that visible.",
+  "model": "claude-opus-5",
+  "source_sha256": "1488731b25ed40e05846bca33c4e95d6cb0cbe4f05f4c9bc00773f8349d4aa3f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "patriotic-martyr-an-jung-gun-1972",
+  "field": "lead",
+  "film_id": "07513f96-cf0b-4fee-81cd-3a63f0b89abd",
+  "lang": "en",
+  "text": "The judgment is fixed before the first frame: the title does not describe its subject, it confers a standing on him. So the film begins where a life story usually ends, with the verdict already in the hands of everyone watching. Joo Dong-jin runs it to two hours and six minutes, the length reserved for a life meant to be seen whole rather than at its one decisive hour, and in that year it was named best film at the Grand Bell. That is a formal problem before it is anything else. When the name and the standing are known to every person in the theater before the lights go down, what is left to dramatize is the ordinary time around them: the waiting, the arranging, the years before a man becomes a word.",
+  "model": "claude-opus-5",
+  "source_sha256": "44fd8b8f5c77e1ceb932eaeaec3392284157224930b3f3d4af36f6971696b659"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "until-we-meet-again-1950",
+  "field": "lead",
+  "film_id": "687cb431-00cd-481a-aacc-8f094d5d9d72",
+  "lang": "en",
+  "text": "The job she finally gets is the one nobody applies for: a funeral company took her when the interviews did not. Shimizu Misora arrives at Bando Kaikan as an intern, with no vocation and no plan, and is handed to Urushibara Reiji, who is strict about procedure and gentle about people. Takahiro Miki keeps the register low and the pace even. The film's quiet proposition is that in this trade those two qualities are one and the same, that grief is met with competence rather than with words, and that the competence has to be learned like any other skill, badly at first. A hundred and twenty-four minutes of somebody learning a job is a slower engine than most dramas will trust. Kinema Junpo named it best film of the year, which reads as a vote for that patience.",
+  "model": "claude-opus-5",
+  "source_sha256": "5facc3c44cc920105afd4ff81e1367980b42b514663b6a7fdeab005f133c6a06"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "del-brazo-y-por-la-calle-1966",
+  "field": "lead",
+  "film_id": "e8c38d46-9421-4596-8c2d-d2d4b09cd743",
+  "lang": "en",
+  "text": "What comes between them is money — not another lover, not a family veto, just a sum that will not stretch across two lives. Enrique Carreras plays it as comedy and drama at once, which is the honest register for the subject, since being broke is funny to everyone except the person doing the paying. Eighty-five minutes holds the film to the size of its problem: a couple, a room, a set of dates by which things fall due. Neither of them is being punished by fate; they are being outpaced by a budget. Nothing is inflated into hardship of the historic kind. The pressure is a rent day and a wage that has not moved, and the interest lies in what that does to two people who still like each other, which is harder to dramatize than a betrayal.",
+  "model": "claude-opus-5",
+  "source_sha256": "0543c9dbf34d11f5b9b9f93f1c86d6f2654b32745be1f980a37b7a263cc8432c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "viva-love-2008",
+  "field": "lead",
+  "film_id": "34de3c5e-c636-468d-9488-1f30f9df04e3",
+  "lang": "en",
+  "text": "A woman in her fifties is pregnant, and the father is her daughter's boyfriend. Oh Jeom-gyoon does not treat that as a scandal to be cleared up but as a condition to be lived in for a hundred minutes, which is a different and much riskier film. The night itself is already over when the real problem begins, which is the part most pictures skip. The neighborhood finds out, because neighborhoods do, and the family arranges itself into positions. What gives the setup its sting is that every party to it has an argument with something behind it: a daughter with a claim, a mother who has been unhappy so long that nobody counts it as news, a young man nobody intends to ask. Comedy and melodrama both want this material, and the film declines to hand it to either.",
+  "model": "claude-opus-5",
+  "source_sha256": "ffc0db4aabaaa41e17c8351e2123fd5d840b98a33ae9046dfddf1f17f11153ff"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "pillar-of-mist-1986",
+  "field": "lead",
+  "film_id": "948fbb37-43fa-4d7a-911d-eea40226a19a",
+  "lang": "en",
+  "text": "She quits her job because her husband asks her to, and then tells her to. Park Cheol-su starts from a marriage everyone would have called a good match — she chose him, she wanted him — and follows it across the years in which his career rises and her days narrow to the flat and the child. A hundred and fifteen minutes is enough time to show that no single act of cruelty is required for this. The distance accumulates in small permissions withdrawn, one at a time, each of them defensible on the day. That is the harder thing to film and the truer one. Made in South Korea in 1986, it puts a wife's work at the center of the household drama rather than at its edge, and what it examines is less one man than an arrangement.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc7d35833d7c24d21999d809e9f4a42d09d6496a53f8c32cacaf6aec5ef17944"
+ }
+]

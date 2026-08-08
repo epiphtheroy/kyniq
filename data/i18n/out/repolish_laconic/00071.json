@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unseen-atrocity-indicts-the-watcher",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "학살을 찍는 윤리는 하나뿐이다. 볼거리로 만들기를 거부하는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "b2802db694d1048f64da6e35ce0dd1cf5e599e8c2365c9541422295f15e11052"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unseen-sound-as-acoustic-return",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "화면 밖의 소리. 억눌리고 파묻힌 것이 귀로 돌아온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9a676d0a267bf21771f33345d5f66d7c28eb0f31ec50a5822d86e1c2cfe4fb2e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unspoken-father-haunting-the-pause",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끝내 나오지 않는 아버지가 침묵과 정처 없는 움직임 사이로 새어나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ac6e23478bd65c6b8877067171eee6793aa7be3ed72aaceb6f52080ef60411e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unspoken-word-that-anchors-desire",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "말하지 않았기에 그리움이 살아남는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ba87dfa863bf1913db0cf4f82ce9f97dd7600b241cfb7e462d76200d95b375ef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-untraceable-power-with-no-center",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "목 하나쯤 내주고도 끄떡없는 권력, 그만큼 완벽한.",
+  "model": "claude-opus-5",
+  "source_sha256": "0f9dda2c0829e2d0dc02a853072e4967edceb8e4d8ed781f93eb3a47b11751e6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-untranslatable-ritual-shot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "이름 붙은 술 한 잔. 말로는 담기지 않는 제의.",
+  "model": "claude-opus-5",
+  "source_sha256": "6869275d45f84c846c9de86a708098ef9af1d6cc9e18fbfc787781b740a7e0f8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-untranslatable-wound-between-tongues",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "언어를 건너지 못하는 것들. 고통과 상실, 그리고 자아.",
+  "model": "claude-opus-5",
+  "source_sha256": "a2add3c37e0410b79e60f1801e42d3bfd80d0b0d11b31209293896a90dde6482"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-untranslated-tongue-as-estranging-engine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "알아듣지 못하는 말, 막혀버린 말이 거리를 만들고 공감을 만들고 합작의 조건까지 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "10edcff77dc095802cf141e2af5118739fce8015c2c170eb048afb6e2cc0d071"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unwaged-care-that-subsidizes-everything",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "눈에 보이는 모든 성취 밑에 깔린 기반시설. 보이지 않는 집안일이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bd8403989709ba358472e7550465a6845b7dd2cd87c0b4f393d87d38658c525"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unwaged-labor-beneath-the-wage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "임금 경제를 떠받치는 보이지 않는 노동, 집안의 돌봄.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd053c60a28920ed3ddf8edec6852003188a0dc9fbbd9ef71f1cfeb7cc48bbfd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-unwaged-labor-that-built-japan",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가사와 여성의 일을 일본 경제의 숨은 토대로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ea6c9359e21fa46932ad53db95c1b60ced15077faf600754cd5fe919c72b0868"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-utensil-that-refuses-its-category",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "분류에 맞지 않는 포크 하나, 스포크 하나가 자아와 증명의 문턱이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "920e8f2ede89c0e0753c4e2b05987c8d3951cb7a0769336a92324b663db493b2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-utopian-blueprint-that-curdles-into-tyranny",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "순수를 설계한 자. 그가 그린 이상 도시는 죽음의 기계가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0813501430bf5e6062827788434411dd20dc3ca2b1bcf0537b048a648a150912"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vacant-dwelling-as-speculative-economy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "빈 아파트를 부동산 거품이 세운 텅 빈 건축으로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6dfd4366d16608e812b3b1b4ef5439c2b462dc818d760fc87e68f2d6bab4752"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vacant-lot-as-liquidated-frontier",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미국의 빈터. 팽류이 저당 잡힌 채 남긴 사후의 풍경.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c84fc41f4f21a6595d23c1dad6e5e86b92e14416a2eb57161e754ea9cdbf647"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-valley-as-america-s-backlot-of-disavowal",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "광역 로스앤젤레스는 국가가 제 신화를 지어내는 변방, 인종의 선이 그어진 뒷마당이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc9979a24a5765cee356115cc6eafbb33cc721cdac1467352840c80405ca84b1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vampire-as-empire-feeding-on-the-colonized",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "피를 빤다는 것. 서구가 제가 훔친 것을 다시 캐먹는 일로 고쳐 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7044ae16b1dd46456cb73359702600e2eef2306eb08afbb66b6b8afaf6eaad31"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vampire-bound-by-moral-law",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 식욕에 칸트의 윤리를 들이대는 포식자.",
+  "model": "claude-opus-5",
+  "source_sha256": "3a37cd0f718fe8973d7f3195536b0097ecd7b98102316c1e880e9f7702bacb3b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vampire-disciplines-the-desiring-woman",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흡혈은 여자의 욕망을 가부장의 위협으로 무대에 올리고, 그 자리에서 처벌한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "561f680785633b2c989357ef38f27716fcb8535e2d3736f5e3e9b529c5addff1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vampire-made-of-film-s-dying-light",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "밤의 이미지가 필름에 노출되어 스러진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c47f28d78b5084e34654f0c25c342fe6cdfd306a9d6ff47b5ca1193f60fa346"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vampire-names-a-condition-not-a-beast",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "언데드는 괴물의 이름이 아니라 상태의 이름이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bc39b03019ba5ae466d07196b3bbd998b2625884b72fd98e30ce6edc877acae7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vampire-s-curse-is-aging-flesh-not-death",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "불멸의 공포는 죽음이 아니라 몸이 삭아가는 데 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aa7d97d58dfcf4a77cbf82813ca85c9246a231962cef739a215eb6855ee91262"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vanished-city-rebuilt-as-memory",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사라진 도시의 자리를 다시 세운다. 이제 없는 것을 향한 비가로.",
+  "model": "claude-opus-5",
+  "source_sha256": "de03f33be844364c1b27e70645bca33c48e40f040b2eab6adf4d3594001b6591"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vanished-dynasty-filmed-in-borrowed-lands",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무협의 중국은 남의 땅에서 조립된다. 그 풍경은 이미 어디에도 없으니까.",
+  "model": "claude-opus-5",
+  "source_sha256": "b73cba4cff3cfb0206c7b23d090183b5e5a653b44a5754110d4ba9d9006a2a01"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vanished-mitteleuropa-of-roth-and-zweig",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽어버린 오스트리아-헝가리 세계에 바치는 애가로 읽는 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "e641e6f60d3bd552301b64d0ceb17159dab6b8b7d6f8dabc8866fd7e86cb10e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vanishing-class-hidden-in-its-token",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "특권의 질서가 남긴 것은 흠집 하나, 혹은 사라진 표식 하나뿐.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b64935e20272e29f6c57e825d9b3796d23d8dd42b16007d59c8d2d7e4beb4a5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vanishing-that-is-the-answer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실종은 영화의 수수께끼가 아니다. 그 해답이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "79a39a752163554b0ababc9ac9c91e6ef4ba4534f4b540d973b460b30c0f664f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vault-as-the-sealed-unconscious",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "잠긴 방이 억압을 무대에 올린다. 증상은 땀으로 흘러나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "194876df580b36726221574fe1dee069ffcbd5bbfba4f99ff5d77b27ae8e3915"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vehicle-that-cannot-stop-moving",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "앞으로 나아가는 일이 아무도 취소할 수 없는 치명적 강박이 될 때.",
+  "model": "claude-opus-5",
+  "source_sha256": "82d023cd2c8c5990b4e7596f4528c2c103877cc3053ba5fd7174d88e4aee1829"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vehicle-that-dies-with-its-purpose",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자동차를 부순다. 하나의 자아를, 혹은 한 시대를 죽이기 위해.",
+  "model": "claude-opus-5",
+  "source_sha256": "3aeccf525868d7661fceffe46d27eab386f8624bd47925470cd8dfae9418042a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-verdict-audiences-hand-the-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화를 둘러싼 말들, 비평은 그것을 영화의 진짜 주제로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "54b8418e2db017d9d62cdc5784f097126b4e480c60996fb6316bb460769b89b0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-verdict-mistakes-its-true-defendant",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화를 재판으로 읽되, 피고석에 앉은 자가 틀렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "93727e01d21e9fd7a961d02bd976835367a74c5308d00fca05a23ee7b700d340"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-verdict-of-aloneness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "혼자라는 것, 끝내 어긋난 만남. 근대성의 진단서로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "feb76f673e91f696bfc8576ba28981a4207ef63d1397a5d95bd8978097abdf5b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-verdict-on-the-prior-era-s-tone",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "모든 영화는 앞선 영화의 정조를 바로잡는 판결문으로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5ee7677afb63c56dd1294bca603536b348ebadf403266220c7f2247b20a62f09"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-verdict-pronounced-before-the-crime",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "계급 진단으로서의 심판. 이미 정해져 있고, 그래서 응보가 무너진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a0adaab7545e37bcaf862c6a597ae01267243d966c676f4b16e56f359dbf3ee2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-verdict-that-confessed-the-critic",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "수용이 붙인 딱지는 그 말을 뱉은 관객의 자화상이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a030fa91eda91a3b206aa18916a55912ba1a84670bff84e7eb2b2cee604237f5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-verdict-the-conscience-passes-on-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "법정은 안쪽에 있다. 자아가 자아에게 선고한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6234b306dbd1723886c71004716efd3679338c9ad6022ed89b088c4499967a14"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-verdict-the-enforcer-will-not-own",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "판결을 내린 적 없다면서 집행하는 자.",
+  "model": "claude-opus-5",
+  "source_sha256": "ef721805788ac82f2db6ec294b1fb00d9338bd64d6a21ecac3a06e6a88b2daf5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vermeer-threshold-in-iranian-asian-light",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "멎은 몸짓, 등불 든 실내. 페르메이르의 멈춘 시선으로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6f0e94158a37ca331c484c4fa5ba5af9af5bc27ed7d04fea5c81e638f1ec9ca9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vertical-city-mapping-semi-colonial-capital",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아래로 내려가고 안에 갇히는 공간이 식민 자본의 질서를 그려낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "96f3b435f5655bf0676e89c1115dd6b62d79dc4b94e980289d70872fb45a80c6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vessel-that-carries-more-than-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "표면의 사물 하나. 욕망을 말할 수 있는 유일한 형식이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9aab926e4fe9bde1d5ed563b958e09971702ae8e30cb7a36ef9f616679e03fc3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-victim-recast-as-co-author",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "상처 입은 이가 제 상처를 다시 연기할 때, 감독은 지워진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b269bc5e40b6b78a1c940672343ce60302f5a44dd3bc5ceba69a994c96757a63"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-victory-that-refuses-the-sword",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "거두어들인 결투가 힘을 증명한다. 행동은 정동(情動)으로 바뀐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "008ce88e2a32197587c761a281ca200ceceaf0d0921100bbd1890a0a44182fdb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-video-store-clerk-s-archive-as-film-form",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "타란티노가 시네필로서 빌려온 것들, 그게 곧 영화의 구성 원리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "048d8b9f12f2dba7eae37b2f5263dba1115ebb721cff79f7b787f97b86cd1d2a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-viewer-s-recoil-is-the-verdict",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "관객의 불편함은 비판이 아니라 고백이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc22177935513cbbac0040603a25d1fb5c9d66d53e8a4d466cad568110e78aea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-viewer-who-authors-the-genre",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "팬덤이 굳어 저자가 된다. 화면의 규칙을 관객이 받아쓰게 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "99974d9775bbfe01bf91efe3aa55d972d27f3ca7f3ece6e64dc5ee9724e7ae0d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vigil-for-an-arrival-that-never-comes",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한복판에 놓인 구조적 부재, 베케트의 고도.",
+  "model": "claude-opus-5",
+  "source_sha256": "da5b0f1862a7dd70704bb8313bc3aecb187259b1ffb9ce12accdec498957f06b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-villa-as-cinema-s-sealed-stage",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "닫힌 집은 매체 그 자체의 은유다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bff52dd052a826a7b023520ccfbf8c7ed33d678ae6312ef357391b16e575ba2b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-village-that-is-not-where-it-stands",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "찍힌 마을은 전부 허구다. 상상된 것이거나, 있을 수 없는 것이거나, 눈앞에서 봉인된 것이거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "7897c04e7ecbc563f649754075ecc55c43e6de01e13b6bcf60277fdf9f68d4b1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-villain-is-the-bond-m-already-disowned",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "적수는 요원의 거울이자, 가족이 내친 아들이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c2ae20b18fad628573de46ca2acd821cb9f9a82cce2c9ee1a8125185e6b1603"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-villain-who-did-the-math",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "셈은 맞다. 그 공리주의 산술이 오히려 뒤에 선 영혼을 단죄한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9fa6ad158f8d6d135c15b8b673aa6029b59f5ac8cb215c2d8eb38228065a39e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-villain-who-hijacked-the-script",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "영화의 진짜 중심은 주인공이 아니라 적대자였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "da995ad8498a02f4a1ebb0bdf8cd1d385a808fcd348597174e801013fa1c3c75"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-villain-who-manipulates-from-behind",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진짜 적은 더 눈에 띄는 얼굴 뒤에 숨어 대리인으로 움직인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "86f261c66d69a51cac8a66625f3444300e8274efcf006ede7f4dbf3036a72732"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-villain-who-refuses-his-origin-story",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "왜 그렇게 됐는지 끝내 말하지 않는 것. 비평가를 향한 영화의 진짜 도발.",
+  "model": "claude-opus-5",
+  "source_sha256": "81699a22a55729cc2b92f5e7dd0c3c73855dc7248b3da1d46ab9e0bc82f2c043"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-viral-feed-made-flesh",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "온라인의 볼거리가 살과 촉감을 얻어 공포로 되돌아온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b7dc093b2bcb4796467b9f22df8e94ce295f6e9cae9f55f51a20ac6fe52ad7b1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-virtue-that-refuses-its-own-reward",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "선함은 무엇을 주장하느냐가 아니라 무엇을 사양하느냐로 정해진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "949c9a2faf7e1e2a80333c7578c210dadf206d5a9f0be1f6458a591dd177fa73"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-virtuoso-who-maims-what-she-mentors",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "숙달은 잔혹으로 전수된다. 상처가 곧 가르침이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6b0981a5056f94485908dfb124ee8527c520a9db606c3be9db826fd16aa8d9b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-virtuoso-who-refuses-the-applause",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 승리를 연주하지 않음으로써 증명되는 기량.",
+  "model": "claude-opus-5",
+  "source_sha256": "af7f6783a2da06bce881091f8bafcd16f90180e358382b08a8dd8b05a040b554"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-visible-artifice-the-director-refused-to-hide",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그린 하늘, 가짜 배, 종이 병풍. 이음매를 그대로 보여준다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d480626d962581c37599a1ef62c81ae955fbf35d34c9ca143d393f898da2ba00"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-visible-lie-of-the-clean-kill",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "과잉을 보이게 하는 순간, 환상이 감춰둔 폭력이 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "76c869654d441c8c2d13dbfef03fd4cb64276dea80b2ce6a42a343eb966eff5f"
+ }
+]

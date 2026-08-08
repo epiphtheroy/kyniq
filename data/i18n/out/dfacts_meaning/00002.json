@@ -1,0 +1,272 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "fran-ois-ozon",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "프랑수아는 후기 라틴어 Franciscus의 프랑스어 형태다. 뜻은 '프랑스 사람' 또는 '자유인'. 오종은 프랑스 여러 코뮌의 이름에서 온 지명 성씨다. 라틴어 인명 Auso에서 왔거나, 경작지를 가리키던 갈리아어 낱말에서 갈라져 나왔으리라고 본다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8448dc4bc450d3c59cfb1a9db7f217891a1449a168f700942e0b8d0c03c5e22"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francis-ford-coppola",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "프랜시스는 후기 라틴어 Franciscus에서 왔다. '프랑스 사람', 또는 '자유인'이라는 뜻이다. 가운데 이름 포드는 그가 태어난 헨리 포드 병원을 기려 붙인 것. 코폴라는 나폴리 말 coppola에서 온 성으로, 남부 이탈리아 사람들이 쓰던 납작한 전통 모자를 가리킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6cc273ae439fe0bd6483a5c9c44d0d8dea81d2055fca83822e5a39d474cf8d5f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-ozon",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "이름 프랑수아는 라틴어 Franciscus의 프랑스어형이며, '프랑크인' 혹은 '자유인'을 뜻한다. 성 오종은 Ozon이라는 이름을 가진 여러 마을에서 비롯한 거주지 성씨다. 그 뿌리는 물이나 개울을 가리키던 켈트어 이전의 어근에 닿아 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6259fdb50126e251899c61f9454d9a9eb542a7dff24bc9b8f8258ebc8a2430ac"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-truffaut",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "프랑수아는 라틴어 Franciscus의 프랑스어형으로, '프랑스 사람' 또는 '자유인'이라는 뜻이다. 트뤼포라는 성은 고대 프랑스어에서 왔다. 사기꾼이나 남을 놀리는 자를 가리키던 truffand에서 갈라졌거나, 송로버섯을 뜻하는 truffe에서 나와 그 버섯을 캐고 파는 사람을 일렀을 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "098573706a0d66a431d4d983c9778fb832987496ae4b681c454ff8b1cf1db91c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "frank-capra",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "프란체스코는 라틴어 Franciscus의 이탈리아어형이다. '프랑스 사람', 또는 '자유인'. 로사리오는 가톨릭의 묵주 기도를 가리키는 이름이고, 카프라는 이탈리아어로 염소다. 라틴어 capra가 그 뿌리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c169ff32793e774d06e7c153339af7ea03bfcb10619076f30c248a86c157d42f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "fritz-lang",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "프리츠는 프리드리히를 줄여 부르는 독일식 애칭이다. 고대 고지 독일어에서 평화를 뜻하는 fridu와 지배자, 권력을 뜻하는 rîhhi가 붙어 만들어졌다. 랑은 '길다', '키가 크다'는 뜻의 흔한 독일 성씨. 본래는 키 큰 사람을 부르던 별명이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0bb46149892a745178ca1c9a49c38193adc9d745535d83922da03e6ab1fa97a7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "gaspar-noe",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "가스파르는 페르시아어 Kansbar에서 왔다. 재무관, 보물을 지키는 자라는 뜻이며, 성서에 나오는 동방박사 가운데 한 사람의 이름으로 굳어졌다. 노에는 노아의 스페인어·프랑스어 형태다. 히브리어 이름 노아흐(נוֹחַ)가 출처이고, 쉼이나 위안을 뜻한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ec14c10e5bda2123cbde227d9524d516bc0992f04fbc48f1174759c77f44750"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "조지라는 이름은 그리스어 게오르기오스(Γεώργιος)에서 왔다. 농부, 땅을 일구는 사람이라는 뜻이다. 루카스는 라틴어 Lucas, 곧 '루카니아에서 온 사람'. 루카니아는 남부 이탈리아의 옛 지역 이름이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "79938afd349df57d6cc463e36343ad7184c3a5658bee279261ada57b6c5f12ec"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-miller",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "밀러는 곡식을 빻던 방앗간 일에서 온 영어 성씨다. 다만 조지 밀러의 경우는 사정이 다르다. 그리스계 아버지의 성 밀리오티스(Μηλιώτης)를 영어식으로 고쳐 쓴 것이기 때문이다. 그리스어에서 밀리오티스는 사과를 뜻하는 milo에서 갈라진 지명 성씨로, 사과나무가 많은 고장 출신을 가리킨다. 이름 조지는 그리스어 게오르기오스에서 왔고, 농부 또는 땅을 일구는 사람이라는 뜻이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e2d1239720884b93072e61801b953a9f9283baf66e8e9c1ee1d9ef7e311e40b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "greta-gerwig",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "\"그레타\"는 마르가레테를 줄인 이름이다. 진주를 뜻하는 그리스어 \"margarites\"에서 왔다. \"게르비히\"는 창을 뜻하는 ger와 전투를 뜻하는 wig가 붙은 고대 고지 독일어 계통의 독일 성씨. 두 이름을 나란히 놓고 글자 그대로 읽으면 \"창의 전투에서 난 진주\"가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "be7e75bd06250f0f7817750916e289fb7f4d498846a4f23082e54a394c73fb9d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "guillermo-del-toro",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "스페인어 이름 기예르모는 윌리엄에 해당한다. 게르만어에서 의지나 욕망을 뜻하는 wil과 투구, 보호를 뜻하는 helm이 합쳐졌다. 델 토로는 글자 그대로 옮기면 스페인어로 '황소의'다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eae272c39568a6d7f08173b47bf2fd6ddaab5c51e9f18adc700cd2bd9c8f9f7e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "gus-van-sant",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'거스'는 아우구스투스를 줄인 이름이다. 라틴어 augustus는 위엄 있다, 존귀하다는 뜻. '반 산트'는 네덜란드 지명 성씨 'van Zandt' 또는 'van de Zande'를 미국식으로 고쳐 쓴 것이다. 뜻은 '모래에서 온'이고, 본래 모래땅에 살던 사람을 가리켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e30b3c40a672405591b08268b77e8f95a8e8d649270c1311b2cba5d14bfa2dfb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hayao-miyazaki",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "미야자키(宮崎)라는 성은 두 글자가 만난 말이다. 宮은 신사나 궁궐을, 崎는 곶이나 반도를 가리킨다. 이름 하야오는 한자 한 글자, 駿으로 쓴다. 준마, 뛰어난 말이라는 뜻이니 속도와 생기가 그 안에 들어 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "997eb1621901058af2b896c91de17798812fed3f4da710811010886dc8b8a0bb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hirokazu-kore-eda",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "고레에다(是枝)라는 성은 是와 枝가 붙은 말이다. 是는 '옳다', 枝는 '가지'를 뜻한다. 이름 히로카즈는 裕和로 쓴다. 裕는 넉넉함과 풍요, 和는 조화와 평화, 그리고 일본 그 자체를 가리킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0fe94e6b1302d4fbb07770147f60776b70d446cb896527533d12f0b170bac653"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hong-sang-soo",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "한글로는 홍상수, 한자로는 洪常秀다. 성 洪은 큰물이자 넓음을 뜻한다. 이름의 常은 '늘', '한결같이'이고, 秀는 '빼어나다', '수려하다'다. 둘을 합치면 늘 빼어난 사람이 되라는 바람이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "95117b495e95b945340e741c98a144d5eb10aee6e79ebd35469d5c5597604030"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hou-hsiao-hsien",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "번체자로 쓴 그의 이름은 侯孝賢이다. 성 侯는 본래 제후, 귀족을 가리키던 글자. 이름은 효도를 뜻하는 孝와 어질고 뛰어남을 뜻하는 賢이 만난 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c68047e4f89960d35a04b440ec01ea6005b503320057549be9907e25a2be0d7a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "howard-hawks",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "영어 이름 하워드는 게르만어에서 왔다. 마음이나 정신을 뜻하는 hug와 용감함, 굳셈을 뜻하는 hard가 붙은 형태다. 앵글로스칸디나비아어 Haward, 곧 '높은 수호자'에서 나왔다는 설도 있다. 호크스는 고대 영어에 뿌리를 둔 성씨다. 매를 부리는 사람을 일컫던 직업 이름이거나, 사납고 공격적인 기질을 두고 붙인 별명이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "be2aa8834c74901a403b757f44692bae9fe0d4d958bf57512ce77308e9c4341a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ingmar-bergman",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "스웨덴 이름 잉마르는 고대 노르드어 Ingemar에서 왔다. 게르만 풍요의 신 잉비의 이름에 '유명하다'는 뜻의 mærr가 붙은 형태다. 베리만은 글자 그대로 '산 사람'. 산을 뜻하는 berg와 사람을 뜻하는 man이 만났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e5a45fddd3ac51f17a49f4aff0772ba4758de283ab0b8059ddc36509140c2454"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "isao-takahata",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "이사오는 한자로 勲이라 쓴다. 공훈, 공적, 훌륭한 일이라는 뜻이다. 다카하타(高畑)는 지형에서 온 성씨. 高는 높다, 畑은 밭이나 농지를 가리킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "43cd538b2bb0fc2372a68930d9ffa5bda4c862f755f773c1f178e79e0c8897ee"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "j-j-abrams",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "제프리는 게르만어 계통의 이름으로, '평화의 서약' 또는 '평화의 땅'을 뜻한다. 제이컵은 히브리어 이��이며 '밀어내는 자', '발뒤꿈치를 붙잡는 자'라는 의미다. 에이브럼스는 아브라함에서 갈라져 나온 영어 부칭 성씨. 히브리어로 뭇 백성의 아버지라는 뜻이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e537a014e0e8465815a3a3a565d2f15c9501a5f6a8079d294e801368643a968"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-audiard",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "자크는 제임스나 야곱에 해당하는 프랑스어 이름이다. 히브리어 야아코브(יַעֲקֹב)에서 왔고, '밀어내는 자' 또는 '신이 지켜주시기를'로 풀어 왔다. 오디아르는 게르만어 계통이다. 인명 Audhard에서 갈라진 성인데, 재물과 번영을 뜻하는 aud와 용감함이나 강인함을 뜻하는 hard가 붙은 말이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c2bcf14b2ca9d499b028a5f6692c2c0e676205ba70045b6c3eb0cf02aa4fd0af"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-tati",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "자크는 제임스나 야곱에 해당하는 프랑스어 이름으로, 히브리어 야아코브에서 왔다. '밀어내는 자'라는 뜻이다. 태어날 때 그가 쓴 성은 타티셰프(Татищев)였다. 뿌리는 도둑을 뜻하던 옛 러시아어 tat. 15세기의 한 조상에게 대공 이반 3세가 붙여준 별칭이 그대로 성이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "32dc4e8a0d7446886e6948d9e1f78c4aabc44fa86eefb55aa0dc6b12cbed59cf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jafar-panahi",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "자파르(جعفر)는 아랍어로 작은 시내, 개울을 뜻한다. 시아 이슬람에서는 여섯 번째 이맘 자파르 알사디크의 이름이어서 각별히 받든다. 파나히(پناهی)는 페르시아어 성씨다. panah에서 왔고, 피난처이자 도피처, 지켜주는 사람이라는 뜻이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "431a81951d534b9aabf9ba618b6b0044b9bd3ca5f24199f2af567452ecb0c325"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-cameron",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "제임스는 히브리어 이름 야아코브, 곧 야곱에서 갈라진 영어식 이름이다. \"밀어내는 자\" 또는 \"뒤따르는 자\"를 뜻한다. 캐머런은 스코틀랜드 게일어 \"cam shròn\"에서 왔다. 글자 그대로 옮기면 \"굽은 코\"다.",
+  "model": "claude-opus-5",
+  "source_sha256": "77e84151de8b6c98e0ac6d3c17375a7e285175a4e224511c75540fb69a65b4bf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gray",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "그레이라는 영어 성은 러시아계 유대인이던 집안의 본래 성 그레이저스타인을 짧게 줄여 영어식으로 고친 것이다. 이름 제임스는 히브리어 야아코브, 곧 야곱에서 왔고 '밀어내는 자' 혹은 '뒤따르는 자'를 뜻한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b5c77d9d830b7945af8d2d0d8397ca3c2d9c84e072d677a9bc3d73c6fb31a91"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gunn",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "제임스는 히브리어 이름 야아코브, 곧 야곱에서 온 이름이다. '밀어내는 자' 또는 '뒤따르는 자'라는 뜻. 건은 스코틀랜드와 고대 노르드어에 뿌리를 둔 성씨로, 전쟁과 싸움을 뜻하는 고대 노르드어 gunnr에서 왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "552ff1fc4baa04c7c930b2832b9b537bbf168236025c2a83874c71867d34d9ee"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-wan",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "제임스 완의 중국 이름은 温子仁이다. 성 温은 따뜻하고 온화하다는 뜻. 항렬자 子는 아이나 아들을 가리키고, 仁은 유가(儒家)에서 말하는 어짊이다. 이름을 붙여 읽으면 어질고 마음 너른 아들이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "47bb68fa41b2ec1a6a2859e2ddec510fa13ccbe882f61cfdc5f61ef0d4143512"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-luc-godard",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "\"장\"은 요한에 해당하는 프랑스어 이름으로, 히브리어 \"요하난\", 곧 야훼께서 은혜를 베푸신다는 말에서 왔다. \"뤽\"은 라틴어 \"Lucas\", 루카니아에서 온 사람이라는 뜻이다. 성 \"고다르\"는 게르만어 계통. 신을 뜻하는 \"god\"과 용감함, 굳셈을 뜻하는 \"hard\"가 붙었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ee8d05f7c4c867163ec6fa4b31a991823c91d20c0be8fcb1dd7c70303268b92d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-dardenne",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'장피에르'는 두 이름을 붙인 프랑스식 겹이름이다. 장은 히브리어 요하난에서 왔고 '신은 자비로우시다'라는 뜻, 피에르는 그리스어 페트로스에서 와 바위나 돌을 가리킨다. '다르덴'은 아르덴 출신임을 알리는 왈롱 지역의 거주지 성씨다. 아르덴이라는 지명 자체는 높다, 숲 우거진 고지라는 뜻의 켈트어 *Arduenna*에 닿아 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1695ffeb581f39ba2e78bb97d9580ef369de417b776c17cfc72726308dcd70bf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-melville",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "태어날 때 그가 쓴 성 그룸바흐는 독일계이자 아슈케나지 유대인 계통이다. 초록을 뜻하는 'grün'과 개울을 뜻하는 'bach'가 합쳐진 말이다. '멜빌'은 프랑스 레지스탕스 시절에 쓰던 가명이었다. 미국 소설가 허먼 멜빌을 기린 이름이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a8c4122acbce07ee6961423e91ede41cf6c902eeb65530d1dd0aa47edd7a3f1d"
+ }
+]

@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "wild-reeds-1994",
+  "field": "lead",
+  "film_id": "a501d73b-3121-4524-ae3c-745e7ad3f0dd",
+  "lang": "en",
+  "text": "A boy with a girlfriend discovers that what he wants is two of his classmates, and he has no vocabulary for it. The Algerian War is ending offscreen; at a boarding school in provincial France, four adolescents work it out among themselves: the boy, the girl, a country boy, a French-Algerian classmate who argues like someone already carrying a country on his back. André Téchiné hands the political calendar to the adults and stays with the ones who will live in its aftermath. Desire here is a logistics problem before it is a revelation, a matter of who sits where, who walks home with whom, what a silence costs. Nothing is announced. The film took the César for Best Film and the Los Angeles critics' foreign-language prize, and France sent it to the Academy Awards.",
+  "model": "claude-opus-5",
+  "source_sha256": "e209d60c83911dcc342e372900970c4bd828d9b14e3a1bf24ff491d9343fd80a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "seraphine-2008",
+  "field": "lead",
+  "film_id": "90bc90db-1855-4000-8775-9149fe292387",
+  "lang": "en",
+  "text": "Séraphine Louis cleaned other people's houses, and in the hours that belonged to her she painted. The pictures reached William Uhde, a collector and critic with enough standing to make an unschooled housekeeper visible in the years between the wars, and the distance between those two facts — who is permitted to be an artist, who simply is one — is where Martin Provost puts his 125 minutes. Very little of it is talk. The film keeps time with work instead: floors, laundry, errands, and then the board and the brush and a long evening nobody is paying for. Class is handled as a schedule rather than a theme. The lead performance, which took both the César and the European Film Award for Best Actress, carries whole stretches without explaining itself. Being seen at all, and by whom, is the story.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3ca77ca59cdefad6a54acdf260eeb96fa9f4583dba446c921c0a2f0007c2126"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-shout-1978",
+  "field": "lead",
+  "film_id": "587fd2ce-d744-441e-8de0-fdc52dab622c",
+  "lang": "en",
+  "text": "Eighty-six minutes, a house on a lonely stretch of Devon, and one person in it too many. A traveller named Crossley attaches himself to a musician and his wife, then lets it be known that what he learned elsewhere allows him to take another man's place. Jerzy Skolimowski never settles whether anything supernatural is occurring, and Cannes gave the result its Grand Prix, curious company for something that could pass as a ghost story. The refusal is what makes it work: magic and a marriage coming apart look identical from the outside, especially with a stranger in the room to watch. The stakes are domestic and total: a house, a bed, a name, the right to be where one is. Sound does the work a monster would do elsewhere, which is why the husband's trade matters and why the quiet stretches are the frightening ones.",
+  "model": "claude-opus-5",
+  "source_sha256": "c93e10a71cb9053c596ed6a45295fee1e73818571674e9703ef5b1607934680c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "my-new-partner-1984",
+  "field": "lead",
+  "film_id": "6ac69bca-95c6-4d0b-8a89-f9da4576a19a",
+  "lang": "en",
+  "text": "The kickbacks are small, regular, and understood by everyone on the beat: a cut from the pickpockets and fences in exchange for a policeman who does not look too hard. Then the academy sends a new partner, young and straight, and the arrangement acquires a witness. Claude Zidi builds the comedy out of instruction rather than conflict, since the older man's project is not to escape the younger one but to teach him, patiently, the local rate for everything. Underneath the gags is a working theory of a city, Paris as a set of debts settled in cash and favors with the law as one more participant. It sits on the César Best Film list, which is strange company for a comedy this unbothered. The joke it keeps coming back to is that the corrupt man is the better teacher.",
+  "model": "claude-opus-5",
+  "source_sha256": "11214862e021492e33be6ff1b6c2138601f48375ebd9c2c1814b39a49593cdba"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-old-gun-1975",
+  "field": "lead",
+  "film_id": "859bde66-05fc-431e-b718-c33b3a820093",
+  "lang": "en",
+  "text": "In 1944 a surgeon in Montauban sends his wife and daughter to the family place in the back country, where he judges they will be safer than in town. He stays to keep operating. A week later he drives out to join them for the weekend. Robert Enrico builds the film on that most ordinary of domestic calculations, the reasonable choice made with the information available, and on the fact that the man making it repairs bodies for a living. Césars followed for direction, for the lead performance, and for cinematography, which is a fair account of where the force sits: faces, weather, the light on a road anyone might drive. What stands to be lost is not a country or a cause but three people and a house. The film keeps to that scale.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d7bc3614785d95045ad325385d00a6ca9f9dc36756ae3f4bbb4635fc55bcea5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lady-chatterley-2006",
+  "field": "lead",
+  "film_id": "7110db42-257c-48bd-ba36-387571d08e1c",
+  "lang": "en",
+  "text": "One hundred and sixty-seven minutes is an unusual allowance for a story most films treat as a scandal to be got through. Pascale Ferran spends it on duration itself: a marriage held in place by injury and obligation, a wife given her husband's consent to look elsewhere, and then afternoons that accumulate at their own speed. The consent is the interesting part. It makes what follows a domestic arrangement rather than a transgression, and it moves the film's attention off shock and onto weather, work, the temperature of skin, the amount of walking involved. Shot in French for a Belgian production, it carries the Louis Delluc Prize and both the César and the Lumière for its lead actress. Patience is the form here, and also the subject.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd6b19132e0628be07f0d6961663646f3dbac323cc86a45bea85a883a2268305"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "same-old-song-1997",
+  "field": "lead",
+  "film_id": "002a0033-ee3f-417d-8bc9-14b970d67073",
+  "lang": "en",
+  "text": "Half the people in this film are looking at an apartment and the other half are looking at someone who is not looking back. Odile wants more rooms. Her younger sister Camille, a doctorate just behind her, walks tourists around Paris and is wanted by one of them while wanting somebody else; Nicolas is flat-hunting too, for a family that has not arrived yet. Alain Resnais lets these errands run into one another for two hours and finds the comedy in the gap between what people discuss and what they are doing, square meters standing in for feeling and feeling leaking out through square meters. Two of its actresses took Césars and its screenwriting took the European Film Award. Two hours pass and the only thing anyone commits to in plain words is a lease.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca07bd8508ff998cf0fbfa32fe36cfae6153885901fe85f0973736cde4ec48ca"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "venus-beauty-institute-1999",
+  "field": "lead",
+  "film_id": "921c4c99-7467-4e1f-9458-a66af5ed5345",
+  "lang": "en",
+  "text": "A beauty salon is a place where strangers are touched for money, and Angèle has worked in one long enough to be good at it and to expect nothing from it. Then a sculptor who watched her turn around a humiliation at a train station decides he is in love, breaks off his engagement, and starts turning up. Tonie Marshall keeps the institute in frame throughout, with the appointments and the small talk and a younger colleague conducting her own unlikely business with a much older widowed client, so the courtship has to compete with a working day. Its Césars went to Marshall for direction, to its lead, and to a newcomer. The film is exact about the arithmetic of age and desire, and it declines to treat Angèle's reluctance as a symptom in need of a cure.",
+  "model": "claude-opus-5",
+  "source_sha256": "667e83ab3f8207f6ebc4728ac23e4e03f93a7e17b3de88de20f9fcf9ef3703b0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "stars-at-noon-2022",
+  "field": "lead",
+  "film_id": "20aef9a8-578b-4bee-bc7a-a5287bc755cd",
+  "lang": "en",
+  "text": "A Cannes jury handed this the Grand Prix; the audience score sits at 5.5, and both numbers are reporting something true. Claire Denis drops a headstrong American journalist and an English businessman who explains himself as little as possible into present-day Nicaragua, gives them a room and 138 minutes, and lets the political machinery close in from the side of the frame. The plot is a labyrinth of lies. The film is not paced like one, it is paced like heat, like waiting, like the third drink of the afternoon. Whether these two are in love or are simply each other's best available exit stays unresolved on purpose. What is at stake is never the shape of the conspiracy; it is what a foreigner will trade to be allowed to leave, and how quickly the price moves.",
+  "model": "claude-opus-5",
+  "source_sha256": "d49022cda2553fff86228c96e3f181f17c5ba69b0d923aa9945d65f25268731b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "three-men-and-a-cradle-1985",
+  "field": "lead",
+  "film_id": "33aa2e2d-4a33-4260-aa44-126d572a22d2",
+  "lang": "en",
+  "text": "Two men in a Paris flat are expecting a package they should not be holding; what turns up at the door is a baby. The third flatmate, who agreed to take the delivery, is in Japan for a month, so the only person who could explain anything is unreachable. Coline Serreau lets the mistake run long enough that the farce becomes something else, an unhurried account of what three men with a good address and a full social calendar know about keeping an infant alive, which is nothing, and how fast nothing turns into competence. The physical comedy is precise; the flat gets steadily less elegant. What the film is really testing is whether men who arranged their lives around not being needed can be conscripted anyway. It was France's submission to the Academy Awards.",
+  "model": "claude-opus-5",
+  "source_sha256": "e6967e68841908aa58583b0ba4235182fdd7fd28c0ac7b3507f577839a9d14af"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "flanders-2006",
+  "field": "lead",
+  "film_id": "57d3c885-a9aa-4c1d-8c63-9737f9993ec6",
+  "lang": "en",
+  "text": "The seasons keep turning over the same fields while the same man, somewhere far off, learns what soldiers do to each other. Bruno Dumont gives Demester ninety-one minutes and very little self-explanation: he loves Barbe, takes the little she gives him, and leaves for a war. Barbe stays behind and wastes and waits, and the waiting is filmed as a condition rather than a plot device. The alternation is the argument: farm bodies and army bodies, the same flesh put to agricultural and then military use, with barbarity and camaraderie arriving the way weather does. The Grand Prix it took at Cannes sits oddly on a film so uninterested in being liked. Whatever connects the two halves is made in the cutting; the dialogue will not do it for anybody.",
+  "model": "claude-opus-5",
+  "source_sha256": "e1da792a275b6bea601a7f681c9ba84ab423dd42c3b8ffebf052fda91df2dc4a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "games-of-love-and-chance-2004",
+  "field": "lead",
+  "film_id": "a834b119-fa44-4f33-997e-e9c4dc4e82cf",
+  "lang": "en",
+  "text": "The hardest thing these teenagers do is say Marivaux out loud in front of one another. On a housing estate outside Paris a group is rehearsing a scene from a play whose French is nothing like theirs, and Krimo, who wants no part of it, takes the lead because Lydia has the other one. Abdellatif Kechiche films the rehearsals and the courtyard arguments at the same pitch, so the borrowed language and the spoken one keep testing each other and neither wins. It took the César for Best Film, for direction, and for its adaptation. What is at stake is small and enormous at once: whether a boy can say a sentence he did not write to a girl he cannot address in words of his own. Nothing here is louder than being watched by people his own age.",
+  "model": "claude-opus-5",
+  "source_sha256": "85e5ef90043648c5a5831e139894c53d714ab613a25b4e6d716b6b3e169c1596"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-mourning-forest-2007",
+  "field": "lead",
+  "film_id": "06827483-cc74-4673-8b71-afe4a1139309",
+  "lang": "en",
+  "text": "An outing was the plan: a care worker signs out an elderly resident for the afternoon and drives him into the countryside. What they end up in is a forest that does not organize itself for visitors, a long way from any road. Naomi Kawase lets the landscape take over by degrees, first as scenery, then as distance, then as a place with its own rules about time. It came out of Cannes with the Grand Prix. Ninety-eight minutes, and the plot asks for very little: a wandering off, a search, weather, the practical problems of two bodies without a car. The age gap is not a joke and not a lesson; it is a difference in what each of them has left to spend. Both are carrying something, and the film trusts walking to do the work that dialogue usually does.",
+  "model": "claude-opus-5",
+  "source_sha256": "68a75b36b743093ce3ea8ff12bda1d1b6373f96e1c00f57e7f89acfe91c35113"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "i-even-met-happy-gypsies-1967",
+  "field": "lead",
+  "film_id": "d9dff3ab-73d7-4831-a2d8-5c87e1bfd11a",
+  "lang": "en",
+  "text": "Bora is charming and he is not kind, and the film refuses to reconcile the two. He has an older wife who does not contradict him and a want for Tisa, whom her father is handing to another man; the pair get themselves into trouble and run. Aleksandar Petrović made it in Yugoslavia in 1967, and the interest is in how little the camera flinches: appetite, coercion, a marriage arranged over a young woman's head, and none of it framed for sympathy. What is at stake is possession, and the film is honest that the word applies to people as readily as to goods. The charm is the method too, keeping the camera close to a man whose conduct will not bear much examination. The Grand Prix at Cannes followed, and it went to the Academy Awards as Yugoslavia's entry.",
+  "model": "claude-opus-5",
+  "source_sha256": "9d39686ab7c93e00448b0fab969d4701b3cc43610a6a579e870a146b42bd131d"
+ }
+]

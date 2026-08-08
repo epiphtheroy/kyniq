@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sofia-coppola#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《마리 앙투아네트》가 2006년 칸영화제에서 처음 공개됐을 때 프랑스 평단은 큰 소리로 야유했다. 자국의 역사를 시대착오적인 포스트펑크 감각으로 그려낸 것에 깊이 모욕감을 느꼈던 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7664a4640cdd1292581c8e63de099a6fe52f713af48e628f4cfb1e2607c428fc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sofia-coppola#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2010년 《Somewhere》로 베네치아영화제 황금사자상을 거머쥐었을 때, 심사위원장은 그의 옛 연인 쿠엔틴 타란티노였다. 편애 아니냐는 말이 널리 돌았고, 양쪽 모두 단호히 부인했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2eccc87c2e58b889b70ce6281eca093543b7cbc1d365a5314155e2e357b7cd19"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sofia-coppola#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《블링 링》 촬영 중 그는 패리스 힐튼을 설득해 비벌리힐스 저택 내부를 실제로 찍었다. 힐튼은 십대 절도단의 실제 피해자 중 한 명이었다. 저택에는 자기 얼굴이 박힌 맞춤 쿠션까지 그대로 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d56f8ebd853e3c2e9533c9ca2e4058595012b286e6848abe17abdf77eaa5d4d7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sofia-coppola#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "원래 그는 유니버설 픽처스에서 《인어공주》 실사판 연출을 맡기로 되어 있었다. 무명이던 마야 호크를 주연으로 쓰겠다는 요구를 스튜디오 경영진이 거부했고, 충돌 끝에 2015년 갑작스레 프로젝트를 떠났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd97f88d03704b235b382883019d95437d94e93841579d8f801354b6af1ccc4d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sofia-coppola#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2016년에는 로마 오페라 극장에서 베르디의 《라 트라비아타》를 올리며 무대 연출에 처음 나섰다. 의상은 패션계 스승이었던 발렌티노 가라바니가 맡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dee834a66dfdc5dbd1d6938aa51340324b3f9178518cf4f73c0d1fbdb37faf3e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sofia-coppola#23",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2017년 《매혹당한 사람들》로 칸영화제 감독상을 받았다. 70년 역사에서 이 상을 받은 여성은 그가 겨우 두 번째였다. 정작 시상식에는 참석하지 않고 영상 메시지를 보냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "83896a3055526281465b2f7e2fffb9f38676923f858b02cdd084ca777a68a99e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sofia-coppola#24",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《대부》 3부작 전편에 얼굴을 비춘 극소수 중 하나다. 1편에서는 세례받는 아기, 2편에서는 엘리스섬의 이민자 아이, 3편에서는 메리 콜레오네였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eebca9c2b414bd6b7872548a610415a2adcdce3c963c0144b4029c2372260019"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "본명은 애덤 슈피겔. 슈피겔 통신판매 재벌을 세운 집안의 후손이다. 다만 어린 시절 부모가 이혼했고, 메릴랜드주 베세즈다 교외에서 주로 어머니 손에 자랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1f741c4fc6ea490d721b24b08ace5df0b58b518d4eba601379447701e15afc0f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화 카메라를 잡기 전 그는 《Freestylin'》 잡지의 이름난 BMX 사진가였다. 십대에 불과한 나이로 프로 라이더들과 전국을 돌았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "19df05d60858123d1a415dcdfd7027101ea7fc51bf785e855c29e12f238ad539"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1991년 블라인드 스케이트보드를 위해 만든 《Video Days》는 장르의 판을 바꿨다. 훗날 배우가 되는 제이슨 리가 등장하고, 기술이 아니라 스케이터 개개인의 인격과 영화적인 트래킹 숏에 초점을 맞췄다.",
+  "model": "claude-opus-5",
+  "source_sha256": "63697aac98207480bbc6689add966e70248423bd210b83857ebae2e4fb8ed1b6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1990년대 초 앤디 젠킨스, 마크 루먼과 함께 잡지 《Dirt》를 창간했다. 십대 소녀들의 아이콘이던 《Sassy》의 거친 남동생 격으로, 십대 소년을 겨냥한 매체였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1526caea2f275a035fca158e959289d2ef0c8eb7643cd1d15ea1b594b28d517e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "팻보이 슬림의 1998년 뮤직비디오 'Praise You'를 위해 존즈는 '리처드 쿠페이'라는 가짜 자아를 만들어냈다. 진지하기 짝이 없는 아마추어 안무가로, '토런스 커뮤니티 댄스 그룹'을 이끌고 웨스트우드의 한 극장 앞에서 기습 플래시몹을 벌인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1572e71650e6573a838311388e51801ada7bc72fd62438230e00e1fdd5e34cc5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "농담을 끝까지 밀어붙인 그는 1999년 MTV 비디오 뮤직 어워드에 리처드 쿠페이로 완전히 분장하고 나타나 'Praise You'의 최우수 연출상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fcf77c3a4d68b329b3ba5b3b9dbc04f02ac2af0b95addf8c06c8a08c60349ec2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1993년 프로 스케이터 릭 하워드, 마이크 캐럴과 함께 스케이트보드 회사 걸 스케이트보드를 세웠다. 여자 화장실 픽토그램을 딴 그 유명한 로고 디자인에도 손을 보탰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2dbedfc4003f841ec2e0c3aa88c4f723ff6c8aa8c3a302697ef0b51c130c6082"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "찰리 카우프먼이 쓴 《존 말코비치 되기》 각본은 영화화가 불가능하다는 평이 지배적이었고 여러 스튜디오에서 퇴짜를 맞았다. 프로파간다 필름스에 흘러들어간 뒤에야 상황이 바뀐다. 당시 오직 뮤직비디오 감독으로만 알려져 있던 존즈가 이 작품으로 장편 데뷔하겠다고 고집을 부린 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "70a5bf9e2e2feeb438dbfdb064f28235ee5ecd679edcbfe49b08cc734d468d58"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "본격적인 연기 데뷔작은 데이비드 O. 러셀의 1999년 걸프전 강탈극 《쓰리 킹즈》. 남부 사투리가 걸쭉한 아둔한 이등병 콘래드 빅 역이었다. 정식 연기 경험이 전무했는데도 러셀은 그를 염두에 두고 이 배역을 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e3c1092bff97865337bc8153d0f20ccaa1d240d7c052343157d7d79fc5bf88d1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1995년 뷔욕의 'It's Oh So Quiet' 뮤직비디오에서 그는 샌퍼낸도밸리의 평범한 정비소를 자크 드미풍의 화사한 할리우드 뮤지컬로 바꿔놓았다. 탭댄스를 추는 정비공들까지 갖춰서.",
+  "model": "claude-opus-5",
+  "source_sha256": "a0f418cb290cc87e8e0959395a8d8bcbf69272bf0e6d66e155930fcfd98dbab5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "조니 녹스빌, 제프 트레메인과 함께 MTV 스턴트 쇼 《잭애스》를 만들었다. 본인도 두꺼운 특수분장을 뒤집어쓰고 노인 캐릭터 '글로리아'로 자주 화면에 나왔다. 도무지 봐줄 수 없는 짓만 골라 하는 노파였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "50f44e5b474f58b839619217da7166cf6dbb41d40ce7e01c36c8be500a9fc77f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1999년 감독 소피아 코폴라와 결혼했으나 2003년 이혼했다. 코폴라의 《사랑도 통역이 되나요?》에서 조반니 리비시가 연기한, 일에만 빠져 아내를 방치하는 사진가 남편은 존즈를 얇게 가린 초상으로 널리 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d5d7d614b7af94628e2ad5119567b62359cba4798647c114c3fa526705be6594"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "코폴라와 헤어지고 십 년 뒤, 존즈는 《그녀》(2013)를 쓰고 연출했다. 도시의 외로움과 결혼의 해체를 들여다본 이 영화를 두고 많은 비평가와 팬은 《사랑도 통역이 되나요?》에 보내는 우울한 영화적 반론으로 봤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7832159db181cef01d005ce27ed26262e4f960b267cea4eb115b6025bb3072b4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《그녀》로 아카데미 각본상을 받았다. 공동 각본가 없이 장편을 혼자 쓴 것은 그때가 처음이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cce2488d9faa9bc4e1b6fc180746fc1ddf4653e292e30dffa88778ba202f195a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "극도로 사생활을 감추기로 유명한 작가 모리스 샌닥에게서 《괴물들이 사는 나라》 영화 판권을 얻어낸 일화는 유명하다. 코네티컷 자택으로 찾아가 유년의 우울을 공유한 사이가 되면서 마음을 열게 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3dcff88d228ed0764117340787ab37714679d0e7b97eb05ea0632c53bc5a2cce"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "샌닥은 어둡고 불안으로 가득한 존즈의 《괴물들이 사는 나라》를 맹렬히 옹호했다. 아이가 보기엔 너무 무섭다고 불평하는 부모들에게 그는 '지옥에나 가라'고 쏘아붙였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca5c0dc4e6cf8cf40e08e22c25ed41e5f57beb5773f0914a6a9cbb80a174200f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "방대하고 초현실적인 2008년 드라마 《시네도키, 뉴욕》의 연출자로 처음 낙점된 사람은 그였다. 하지만 《괴물��이 사는 나라》 마무리에 집중하려고 오랜 협업자 찰리 카우프먼에게 연출봉을 넘겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "45c8fcc34e22b49b85a5f5deb17ed8d878cd6b2f6d8e8e4540da385ef9c15ef9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "예예예스의 보컬 캐런 O와 연인 사이였다. 그는 훗날 존즈의 장편 《괴물들이 사는 나라》에 어쿠스틱하고 쓸쓸한 사운드트랙을 붙였고, 《그녀》의 'The Moon Song'으로 오스카 후보에 올랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b0a3846a535295d85888fec5617b6efa5d4bb80f400241e270b36148803467d7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "텔레비전 채널 바이스랜드의 공동 대표라는 직함을 갖고 있다. 2016년 개국 때부터 다큐멘터리와 라이프스타일 프로그램 제작을 총괄했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b179c6f6b4b295ec3cc299fae8ad617bf62b39153c2adc55166f50e63603a88"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "비스티 보이즈의 1994년 뮤직비디오 'Sabotage'에서 존즈는 세 래퍼에게 가짜 콧수염과 항공 선글라스를 씌웠다. 1970년대 텔레비전 형사물을 한 치 어긋남 없이 흉내 낸, 미친 듯이 몰아치는 패러디였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7b2dddee6ce77975c3940b500c1103668cc3b250fbca0a46a476e2ddb3d3ab3e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1994년 위저의 'Buddy Holly' 뮤직비디오에서 그는 밴드를 1970년대 시트콤 《해피 데이즈》의 실제 화면 안에 감쪽같이 합성해 넣었다. 이 기술적 성취를 위해 배우 앨 몰리나로가 밴드를 소개하는 새 카메오 장면을 다시 찍어야 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "82ab03a97d0bf1bdefcaf0a259f0f3aaa3b8a35da9f8e67ee83898877f0e6997"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2015년 칸예 웨스트의 'Only One' 뮤직비디오는 즉흥으로, 예산 없이 찍었다. 안개 낀 들판을 딸 노스와 함께 걷는 래퍼를 핸드헬드 카메라 한 대와 자연광만으로 담았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b51fb01c4814d1e02e555260f74f3f93f6d30c88e9a89c3ebd621d3a2a4cbee8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze#23",
+  "field": "fact",
+  "lang": "ko",
+  "text": "다른 감독의 영화에 크레딧 없이 얼굴을 내미는 버릇이 있다. 배리 소넨필드의 《맨 인 블랙 2》에서는 째지는 외계어를 쓰는 외계인이었고, 마틴 스코세이지의 《더 울프 오브 월 스트리트》에서는 조던 벨포트를 가르치는 상가 뒷골목 페니스톡 브로커였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "84a824bbd2a2c175e113cc59b0668b168438db0463fdb0877707e23c8c5517ea"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze#24",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2018년 애플 홈팟 광고 'Welcome Home'을 연출하며 CGI 대신 실제로 팽창하는 거대 세트를 지었다. 가수 FKA 트위그스가 자기 아파트 벽을 늘려버리는 듯한 환영은 그렇게 만들어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b0d734b71bf0a405d6c25d08b37f95f7377a01be32c4f3c1ddee6ac7ffec9fdd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze#25",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2002년작 《어댑테이션》의 메타픽션 농담을 끝까지 지키자고 존즈가 우긴 덕에, 완전히 지어낸 인물 '도널드 카우프먼'이 공동 각본가로 정식 크레딧에 올랐다. 아카데미상 후보에 오른 최초의 가공 인물이 탄생한 순간이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc7f96d06f93bcc0735418081b7a9e9b0f8d8815966d4a5e39d6d4228e7eda64"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-lee#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아버지는 재즈 베이시스트 빌 리다. 스파이크의 장편 네 편의 음악을 잇달아 맡았지만 협업은 1990년대 초 갑자기 끝났다. 헤로인 소지 혐의로 아버지가 체포된 일, 그리고 일렉트릭 베이스를 잡기를 거부한 일이 겹치며 사이가 험하게 틀어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f8ae4bf045e65e83c5fbbf2ecc0398f38161efd99de29f186da4583728fd79a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-lee#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "뉴욕대 티시 예술대학 시절 그는 퇴학 직전까지 갔다. 1학년 단편 《The Answer》 때문이었는데, D. W. 그리피스의 지독하게 인종주의적인 기념비 《국가의 탄생》을 정면으로 공격한 작품이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "90f6f9f9cf139204c1a2e93ebf1cdcab55bdfe29027605fbc59c961782d48c5b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-lee#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "뉴욕대 석사 졸업작품 《Joe's Bed-Stuy Barbershop: We Cut Heads》는 1983년 링컨 센터의 뉴 디렉터스/뉴 필름스 영화제에 초청됐다. 학생 작품이 이 자리에 오른 것은 처음이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "df7bbccf25f5b0b0870d6c914cd9699c03001107b3d2c50ed32f4032a144455a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-lee#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "세상에 이름을 알리기 전, 그의 진짜 첫 장편 시도는 1984년의 성장담 《The Messenger》였다. 배우조합과의 분쟁으로 프리프로덕션 단계에서 완전히 무너졌고, 그는 큰 빚과 함께 무너져 내렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "95628a0d888d59bb6ff5fcdcf1b9ef9b987dbaeea5c39a0748fb5982bfb0b734"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-lee#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《She's Gotta Have It》에서 운동화에 미친 마스 블랙먼을 직접 연기한 것이 곧바로 나이키 에어 조던 광고 시리즈로 이어졌다. 마이클 조던과 함께 출연한 이 광고들은 돈도 벌어줬고 문화의 흐름도 바꿔놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "002064dfed4bc29621ac1a4bb70ba51f803ee8f551cb17b02eae3245a0dbd812"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-lee#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《똑바로 살아라》가 1990년 아카데미 작품상 후보에서 빠지자 시상자 킴 베이싱어는 생방송 도중 대본을 내던졌다. 그리고 그날 밤의 최고상은 리의 영화가 받아야 했다고 못 박아 말했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "68bb2bf41bcdc55b94d6a6f41478d203f3aef5cf8d0f6c56c3bdeaeade6ed889"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-lee#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1990년 재즈 드라마 《모 베터 블루스》는 반명예훼손연맹의 거센 반발을 샀다. 탐욕스러운 유대인 나이트클럽 주인 모와 조시 플랫부시 형제를 그린 방식이 반유대주의적 상투형을 퍼뜨린다는 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e49b7ec080249c95faa0586b4564f044e019790cc8f0fd20df16db985600d8af"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-lee#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1992년 예산 초과를 이유로 워너 브라더스가 《말콤 X》의 후반작업을 돌연 중단시켰다. 리는 흑인 유명인들에게 직접 현금 후원을 청해 영화를 살렸다. 오프라 윈프리, 매직 존슨, 마이클 조던, 재닛 잭슨이 손을 보탰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b6dfd9ce03d0fad73d593360ab5d56f597d80ab1d14f45a2c66d1fbea8b2a8c7"
+ }
+]

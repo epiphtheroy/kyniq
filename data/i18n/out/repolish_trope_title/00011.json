@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-artist-who-works-without-a-net",
+  "field": "title",
+  "lang": "ko",
+  "text": "안전망 없이 뛰어드는 예술가",
+  "model": "claude-opus-5",
+  "source_sha256": "e1e91334885e32e421f7bea6f21ff54f0b90ea360c408d7da7d9f8e5ff828048"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-artwork-censored-by-its-own-state",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 나라에 검열당한 작품",
+  "model": "claude-opus-5",
+  "source_sha256": "87d1c83eb7bce313eb64d90d4098b7931bdc9eba790b20b5ec0de2a5ddddc85d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-asian-genre-film-forged-by-economic-shock",
+  "field": "title",
+  "lang": "ko",
+  "text": "경제 충격이 벼려낸 아시아 장르영화",
+  "model": "claude-opus-5",
+  "source_sha256": "0b5094f84a12f00256c291c7fad64163246568e4a5a97be5ae60a61049f6ae2e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aspect-ratio-as-confinement-and-release",
+  "field": "title",
+  "lang": "ko",
+  "text": "가두고 풀어주는 화면비",
+  "model": "claude-opus-5",
+  "source_sha256": "33e70b2b917ee622d87606fd6af8d3aff791b446ebaaf1a2da05deb783d43cde"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aspect-ratio-as-streaming-era-argument",
+  "field": "title",
+  "lang": "ko",
+  "text": "스트리밍 시대의 주장이 된 화면비",
+  "model": "claude-opus-5",
+  "source_sha256": "38885ad36f7ff831dd6bb43e7b152aff0d666efae858738fbd919c2ee5b77848"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-assassin-s-hotel-as-visible-social-contract",
+  "field": "title",
+  "lang": "ko",
+  "text": "암살자의 호텔, 눈에 보이는 사회계약",
+  "model": "claude-opus-5",
+  "source_sha256": "5ede23eff34b712c027966ac20a09cf89bcc6d75ece9b4a880637eeda6544393"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-assimilated-voice-as-colonial-mask",
+  "field": "title",
+  "lang": "ko",
+  "text": "동화된 목소리라는 식민의 가면",
+  "model": "claude-opus-5",
+  "source_sha256": "65644de49eb25e5677b20b07bc75b2b11a1fa33ee4421dd7615f548d7f1afba9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-asthmatic-recluse-who-corresponds-with-the-dead",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽은 자와 편지를 주고받는 천식의 은둔자",
+  "model": "claude-opus-5",
+  "source_sha256": "dfded68043a77382cdfa15d3a1473037fb0152ac6dbafbe5f08f274e17755db7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-asylum-as-mind-externalized",
+  "field": "title",
+  "lang": "ko",
+  "text": "바깥으로 꺼낸 정신, 정신병원",
+  "model": "claude-opus-5",
+  "source_sha256": "1065a8fa88c86b3223a7dfeb945c84345046133649150f927f291f99edeef4e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-asymptote-that-never-closes",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 닿지 않는 점근선",
+  "model": "claude-opus-5",
+  "source_sha256": "c01191f29e57b272ca00df293444818c17a354a8cd63bdceafbf149645d8897a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-athlete-as-discarded-state-machine",
+  "field": "title",
+  "lang": "ko",
+  "text": "버려진 국가의 기계가 된 운동선수",
+  "model": "claude-opus-5",
+  "source_sha256": "94e1f269b3cf42b9fb05bf48f1071ac3371fbe08af1e77dfeca692a89f4355db"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-atrocity-bought-fortune-beneath-respectability",
+  "field": "title",
+  "lang": "ko",
+  "text": "품위 아래 감춘, 잔혹으로 산 재산",
+  "model": "claude-opus-5",
+  "source_sha256": "cb34add6e06f664bdf274b741b00291477deb1a05b3fc170b4636334b919ca7f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-atrocity-survived-only-by-reenacting-it",
+  "field": "title",
+  "lang": "ko",
+  "text": "다시 연기해야만 살아남는 참극",
+  "model": "claude-opus-5",
+  "source_sha256": "29641d963b0daba733c12ab971a56a381bf7c31c2faf915e1022881eb6e8963c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-atrocity-that-effaces-its-own-authorship",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 손을 지우는 잔학",
+  "model": "claude-opus-5",
+  "source_sha256": "22fe6c5de7c918614180e8f4cbc663eec1142bf0e5fb0b1f96c96f24e5ed3f50"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-atrocity-the-camera-refuses-to-show",
+  "field": "title",
+  "lang": "ko",
+  "text": "카메라가 끝내 보여주지 않는 참극",
+  "model": "claude-opus-5",
+  "source_sha256": "a0dfbd09b45c0a4ba5b816919023a27014d61a67aa274b2e56600f84d0a27e41"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-atrocity-withheld-from-the-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "프레임이 내주지 않는 잔혹",
+  "model": "claude-opus-5",
+  "source_sha256": "caa353ab59b2b0526c24a0d30c915bfd28af236590fb291975306f6e9861d897"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-atrocity-withheld-from-the-frame-2",
+  "field": "title",
+  "lang": "ko",
+  "text": "화면 밖에 남겨둔 참상",
+  "model": "claude-opus-5",
+  "source_sha256": "caa353ab59b2b0526c24a0d30c915bfd28af236590fb291975306f6e9861d897"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-audience-as-the-film-s-truest-critic",
+  "field": "title",
+  "lang": "ko",
+  "text": "가장 정직한 비평가는 관객이었다",
+  "model": "claude-opus-5",
+  "source_sha256": "afd9996bc0f2e7f111f4504af06a1af82cc9b4af255fce334e27b82320e23c60"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-audience-collapse-as-promotional-myth",
+  "field": "title",
+  "lang": "ko",
+  "text": "관객이 쓰러졌다는 홍보 신화",
+  "model": "claude-opus-5",
+  "source_sha256": "6074561c4c6e80c0113c352c04dba0b1c1ae01efbe79e383f9ae82c19294afa4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-audience-crowns-the-monster-it-should-indict",
+  "field": "title",
+  "lang": "ko",
+  "text": "고발해야 할 괴물에게 관객이 씌운 왕관",
+  "model": "claude-opus-5",
+  "source_sha256": "308ca6388262ce9f6207820b0fbc9148859bd6a76d036878335485f22c6a4c20"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-audience-hatred-as-intended-effect",
+  "field": "title",
+  "lang": "ko",
+  "text": "관객의 미움까지 계산에 넣은 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "19c8066fd27e5e48be6537f3d86f44480fbb15e1a1b551ea03d21dd841c8866d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-audience-recoiled-from-its-own-reflection",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 얼굴을 보고 물러선 관객",
+  "model": "claude-opus-5",
+  "source_sha256": "7d0cf55ab9206f4b3e276df7cbd5ab1066638763276f2ccf8bfb71a57bdc9c87"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-audience-s-outrage-as-self-indictment",
+  "field": "title",
+  "lang": "ko",
+  "text": "관객의 분노가 곧 자기 고발",
+  "model": "claude-opus-5",
+  "source_sha256": "ab6b2bf696a808068efd7e909fb32ad184e12461daab96f93cb1aa8fc24e77f3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-audience-s-reception-as-religious-verdict",
+  "field": "title",
+  "lang": "ko",
+  "text": "관객의 반응이 내린 종교적 판결",
+  "model": "claude-opus-5",
+  "source_sha256": "93fa3c15a3b654a2263e671be686c06c2106854339b07a98d0dc18ebd1e26eff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-audience-that-adored-its-villain",
+  "field": "title",
+  "lang": "ko",
+  "text": "악당을 사랑해버린 관객",
+  "model": "claude-opus-5",
+  "source_sha256": "faff8d74a87ef76ac8e432a66838b3ebf8bc1b89733a6724c8a7d14e2b15f915"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-audience-that-cannot-bear-ambiguity",
+  "field": "title",
+  "lang": "ko",
+  "text": "모호함을 못 견디는 관객",
+  "model": "claude-opus-5",
+  "source_sha256": "83a1d5f207cf6d73420a3dcb51e1b5f30b71e9b03b4cb8b889737321f77b5094"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-audience-that-refused-to-be-implicated",
+  "field": "title",
+  "lang": "ko",
+  "text": "연루되기를 거부한 관객",
+  "model": "claude-opus-5",
+  "source_sha256": "199f2fef64a02244603a714b20ccd14caede97d1e21edcdcb5e44496fecfe04f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-audience-that-watched-itself-indicted",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 기소당하는 걸 지켜본 관객",
+  "model": "claude-opus-5",
+  "source_sha256": "5f933a4bca88b611d8ab1e8b9b3a33ecda1e1d749f53d4199649545565e5e911"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-audit-that-replaces-the-conscience",
+  "field": "title",
+  "lang": "ko",
+  "text": "양심 자리에 들어앉은 회계 감사",
+  "model": "claude-opus-5",
+  "source_sha256": "7213404e579a8fc3796b87dfab19e38ffa3554b431363486b3198ff7e70b53d5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-auditor-as-secular-ascetic",
+  "field": "title",
+  "lang": "ko",
+  "text": "세속의 금욕가가 된 회계사",
+  "model": "claude-opus-5",
+  "source_sha256": "25fd0669065a4ed6ecf2d0ffe6dab0217c9e97746bb5cd3999425499b03aae2d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aunt-who-is-the-forbidden-mother",
+  "field": "title",
+  "lang": "ko",
+  "text": "금지된 어머니였던 이모",
+  "model": "claude-opus-5",
+  "source_sha256": "da4bd84fd8c81f7d77adf486a7dbf93abadf259a7e46f254c3975d5c13207576"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-australian-suburb-as-crypt",
+  "field": "title",
+  "lang": "ko",
+  "text": "납골당이 된 호주의 교외",
+  "model": "claude-opus-5",
+  "source_sha256": "d50b4e2fb6ea5fa3fcd6bd714bd8472db52a87ffc897f901d0ff258c01f3159f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-auteur-exiled-into-a-foreign-tongue",
+  "field": "title",
+  "lang": "ko",
+  "text": "낯선 언어로 추방된 작가",
+  "model": "claude-opus-5",
+  "source_sha256": "fc9539b5b6112f82509c5c4b7619c596a3e96fd0787a27449f99289b5c8cfa54"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-auteur-s-studio-as-patriarchal-crown",
+  "field": "title",
+  "lang": "ko",
+  "text": "작가의 스튜디오, 가부장의 왕관",
+  "model": "claude-opus-5",
+  "source_sha256": "f323564f71aaba41b953a7bfaf14b08e918dab1e61858aaf714164539fa777fc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-authentic-one-who-refuses-bad-faith",
+  "field": "title",
+  "lang": "ko",
+  "text": "자기기만을 거부하는 자",
+  "model": "claude-opus-5",
+  "source_sha256": "1cba3afffa470680daa619e88d807dc2c55ccf1bea6b28e05bcd477f8854281f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-authentic-place-staging-a-fiction",
+  "field": "title",
+  "lang": "ko",
+  "text": "허구를 올리는 진짜 장소",
+  "model": "claude-opus-5",
+  "source_sha256": "721950c0060ddf53abac2130367937cc7b69237425466fbf54b2ca735204d377"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-author-bleeding-into-his-own-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 화면 안으로 번져 들어가는 작가",
+  "model": "claude-opus-5",
+  "source_sha256": "504fb846570a3b38f1e18b7c6693d7a59916fcb4672bf9de79b7727377ef3fa8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-author-directs-himself-into-existence",
+  "field": "title",
+  "lang": "ko",
+  "text": "스스로를 연출해 존재가 되는 작가",
+  "model": "claude-opus-5",
+  "source_sha256": "c3a9c3fdb0ae9032df08e2b1e3a5ba7388973a49c7be34bb258ca2a30dd16857"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-author-imprisoned-by-his-own-masterpiece",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 걸작에 갇힌 작가",
+  "model": "claude-opus-5",
+  "source_sha256": "00920352e900c6177276fd75281e953bfbf88e66b7f50bd55f2724ab7a0bd7f7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-author-invented-after-the-fact",
+  "field": "title",
+  "lang": "ko",
+  "text": "뒤늦게 발명된 작가",
+  "model": "claude-opus-5",
+  "source_sha256": "04a0c59b2cb266bd9a430740f29398a9bb2830b3a27dfdd3b819292fb543cb14"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-author-returns-to-la-mancha-to-be-rewritten",
+  "field": "title",
+  "lang": "ko",
+  "text": "다시 쓰이려 라만차로 돌아간 작가",
+  "model": "claude-opus-5",
+  "source_sha256": "093fa3387d87b6ac106e23c07f920ec336549e2961c3e5ea239177d35b0c57e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-author-who-must-vanish-to-be-sold",
+  "field": "title",
+  "lang": "ko",
+  "text": "팔리려면 사라져야 하는 저자",
+  "model": "claude-opus-5",
+  "source_sha256": "8a8591a93b40e110b9ccf996ce9864e22e052454b7009f34570ffc6144b26ba7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-author-who-outlives-his-own-sight",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 시력보다 오래 남은 작가",
+  "model": "claude-opus-5",
+  "source_sha256": "416bec3db42a3c7c0d324f8228c75db8dbe05899b41c51f9ab3fd5feeedca427"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-author-who-refused-the-forgetting",
+  "field": "title",
+  "lang": "ko",
+  "text": "망각을 거부한 저자",
+  "model": "claude-opus-5",
+  "source_sha256": "6ba3d6d1bda385594d608fee5bd6e922eb3e4b72b2776447bbc85ec60165c8e7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-authorless-order-that-binds-absolutely",
+  "field": "title",
+  "lang": "ko",
+  "text": "저자 없이 절대적으로 옭아매는 질서",
+  "model": "claude-opus-5",
+  "source_sha256": "b7be4eaf9d229c5b703e64c0cff075829218c55b08bd1d9aed6c31acb2b4ef5d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-authorship-disavowed-at-the-source",
+  "field": "title",
+  "lang": "ko",
+  "text": "근원에서 부인된 저작",
+  "model": "claude-opus-5",
+  "source_sha256": "2a201bca3dc8333286c5a93ad9a8bd1f387a96058bf6b2fb2ddeab606d9640fd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-automaton-that-dreamed-of-soul",
+  "field": "title",
+  "lang": "ko",
+  "text": "영혼을 꿈꾼 자동기계",
+  "model": "claude-opus-5",
+  "source_sha256": "9ad4331ee8894d264d608fd53bac1a196e9f39cc4c940256d81ff4fa896252b8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-automobile-anatomized-as-modernity-s-comedy",
+  "field": "title",
+  "lang": "ko",
+  "text": "근대의 희극으로 해부된 자동차",
+  "model": "claude-opus-5",
+  "source_sha256": "6850c1021bac97d1d1a9ebbc3e76e546ce37c6a6d38ea390dfc55bd0a5c80a70"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-avenger-discovers-he-mourns-himself",
+  "field": "title",
+  "lang": "ko",
+  "text": "애도하는 대상이 자신임을 깨닫는 복수자",
+  "model": "claude-opus-5",
+  "source_sha256": "6caf67cee23736d4853bdb1f947ec833bf54952a0f21e971e885938606640040"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-aviator-as-the-soul-that-cannot-land",
+  "field": "title",
+  "lang": "ko",
+  "text": "착륙하지 못하는 영혼, 비행사",
+  "model": "claude-opus-5",
+  "source_sha256": "2e0ad72c3d0f32ce708d2bcf211c78547e75ab82792eb08d973bf6056f8de09b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-award-as-genre-s-permission-slip",
+  "field": "title",
+  "lang": "ko",
+  "text": "장르에 내준 허가증, 그 상",
+  "model": "claude-opus-5",
+  "source_sha256": "59ab0e3ab5b6cdd446f44b641d06b4b9228ceeaf7de94f6962e60242fc22f5ae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-award-as-national-self-medication",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가의 자가 처방이 된 수상",
+  "model": "claude-opus-5",
+  "source_sha256": "faa1bceac6fd33e74f6c58cb9d24206d9e11fce909b3ae5d7e7e02ca80f265df"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-award-as-society-s-absolution-ritual",
+  "field": "title",
+  "lang": "ko",
+  "text": "사회가 면죄받는 의례로서의 상",
+  "model": "claude-opus-5",
+  "source_sha256": "1709a051d6223dd094654b02822531f784e821693a056f4e90875cdcc0e1d535"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-award-category-that-reenacted-the-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "상처를 되풀이한 시상 부문",
+  "model": "claude-opus-5",
+  "source_sha256": "4105de28e749c0a60ab6b6fd41c9811b2c92feb2d257a67b4f4b324ec0088661"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-award-ceremony-as-critical-verdict",
+  "field": "title",
+  "lang": "ko",
+  "text": "시상식이 내린 비평의 평결",
+  "model": "claude-opus-5",
+  "source_sha256": "f700e9a77bbf411b7b164006cb8e01803aa470acafdf2073c29533886a12f645"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-award-verdict-as-industry-diagnosis",
+  "field": "title",
+  "lang": "ko",
+  "text": "수상 결과가 곧 업계 진단서",
+  "model": "claude-opus-5",
+  "source_sha256": "cabda6c6b61e33edf57a724d10199f4f573425165cdcbe58e656124cabfe4261"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-back-that-faces-the-work",
+  "field": "title",
+  "lang": "ko",
+  "text": "작품을 향해 돌아선 등",
+  "model": "claude-opus-5",
+  "source_sha256": "46013a8ad8a1b69f9698f8c1fb5d77492bbedd617f2d8345ad084a9bd16b0902"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-backlash-as-national-self-audit",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가가 스스로를 감사한 반발",
+  "model": "claude-opus-5",
+  "source_sha256": "ed7d08f0a868976f9f8467760a569c454f5d7cf4b06f57efa50077b4c513958a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-backlash-read-as-cultural-panic",
+  "field": "title",
+  "lang": "ko",
+  "text": "문화적 공황으로 읽히는 반발",
+  "model": "claude-opus-5",
+  "source_sha256": "e2ba744bb42ec5b79ce90e81070beeca9b198530d3ff55b6d4e5ba4bef840edd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-backlash-that-birthed-fan-ownership",
+  "field": "title",
+  "lang": "ko",
+  "text": "팬의 소유권을 낳은 반발",
+  "model": "claude-opus-5",
+  "source_sha256": "a029de28ca9745013d94221612451871bcf60fd910b1b2fa6e79ff265b4bec6a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-backlash-that-confirmed-the-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화가 옳았음을 증명한 반발",
+  "model": "claude-opus-5",
+  "source_sha256": "7a7403b09746e6a9e5a9769eacdbcfe65ea3452c1852dea049618a37322cd8c3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-backlot-devours-the-pilgrimage",
+  "field": "title",
+  "lang": "ko",
+  "text": "순례를 삼켜버린 세트장",
+  "model": "claude-opus-5",
+  "source_sha256": "e88ee2d419113a14556fa1b912edfb06d586a4dfef27f04d00fe664a390ddb31"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-backlot-masquerading-as-the-world",
+  "field": "title",
+  "lang": "ko",
+  "text": "세계인 척하는 세트장",
+  "model": "claude-opus-5",
+  "source_sha256": "da65fa66ccafebff31070be4c0677aafe0d281ccce6fba9da79bedc95c1d5e0b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-badge-as-license-to-reassign-reality",
+  "field": "title",
+  "lang": "ko",
+  "text": "현실을 다시 배정하는 면허, 그 배지",
+  "model": "claude-opus-5",
+  "source_sha256": "50c2e84bc765ce855f20e7f2b3ceb2b85f0d529ad43fd8c33069ddd172346b42"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-badge-as-sovereignty-in-question",
+  "field": "title",
+  "lang": "ko",
+  "text": "주권을 의심케 하는 배지",
+  "model": "claude-opus-5",
+  "source_sha256": "743e2b5305896fae047e5e2fcd6b6028348ded1308578c1621b60481e59240e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-badge-as-tested-conscience",
+  "field": "title",
+  "lang": "ko",
+  "text": "��험대에 오른 양심으로서의 배지",
+  "model": "claude-opus-5",
+  "source_sha256": "3866ba72339535da05d383858827485cb354960168001ab85d19806316ced319"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-baked-good-as-the-maker-s-imperiled-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "만든 이의 위태로운 자아가 된 빵",
+  "model": "claude-opus-5",
+  "source_sha256": "4d02536b6a19ce5d36cb6d0588dc429dec8d651dc9278cfe50850f3da8633c57"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-balcony-as-confessional-threshold",
+  "field": "title",
+  "lang": "ko",
+  "text": "고백이 시작되는 문턱, 발코니",
+  "model": "claude-opus-5",
+  "source_sha256": "58519e155b0fccdde4bedf0de4f981ae845667988653e169895bb7d42600ecd6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ban-that-completes-the-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화를 완성시킨 금지",
+  "model": "claude-opus-5",
+  "source_sha256": "3da756dcb0206db62cc0a071c7948385fdbba7f90df22ed0941e5718cf9cb4e4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ban-that-shaped-the-image",
+  "field": "title",
+  "lang": "ko",
+  "text": "이미지를 빚어낸 금지",
+  "model": "claude-opus-5",
+  "source_sha256": "0a06dc2d459cd4d00e555f8e4fea35388f1ff36ceb1c7d005840b9bf6d1645c2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-banality-of-evil-administered",
+  "field": "title",
+  "lang": "ko",
+  "text": "행정으로 처리된 악의 평범성",
+  "model": "claude-opus-5",
+  "source_sha256": "2906e3996a4c30800b2ea8f4cffd4f218f3c4c05e6787712f06b94c340699cac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-banality-of-evil-outsourced",
+  "field": "title",
+  "lang": "ko",
+  "text": "외주로 넘긴 악의 평범성",
+  "model": "claude-opus-5",
+  "source_sha256": "86c0f5f781a0415487d7759f6c252d612479097050ea9e440f4bef6833f4a3ce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bandaged-face-as-wounded-conscience",
+  "field": "title",
+  "lang": "ko",
+  "text": "붕대 감은 얼굴, 상처 입은 양심",
+  "model": "claude-opus-5",
+  "source_sha256": "d6d3b34e455d939de53d469be3611396bee0886c800ee84f52ca18371804a9b0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-banquet-as-hidden-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "고백을 숨긴 연회",
+  "model": "claude-opus-5",
+  "source_sha256": "c4671c214304b2053c562592c339cd51fa78d7ac601d01abe89c50e566c541af"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-baptism-that-reverses-original-sin",
+  "field": "title",
+  "lang": "ko",
+  "text": "원죄를 되감는 세례",
+  "model": "claude-opus-5",
+  "source_sha256": "86eb5477431dfbef4eb384c81171d7000cb2adf80e8feed1a6159838da7387bf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-basement-as-externalized-psyche",
+  "field": "title",
+  "lang": "ko",
+  "text": "바깥으로 꺼낸 마음, 지하실",
+  "model": "claude-opus-5",
+  "source_sha256": "11202b947ff4de99045b6b811ff4f7b4ea523138619d5b502127b3205574a583"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-battered-face-becomes-the-film-s-method",
+  "field": "title",
+  "lang": "ko",
+  "text": "짓이겨진 얼굴이 곧 영화의 방법",
+  "model": "claude-opus-5",
+  "source_sha256": "0c4769ee375c863a74bc7317adf74d34bff767d8b437f3162f08a34ecfceabd0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-battle-over-the-victim-s-image",
+  "field": "title",
+  "lang": "ko",
+  "text": "피해자의 이미지를 둘러싼 전투",
+  "model": "claude-opus-5",
+  "source_sha256": "8e3f60a94264b1ac39574e90c8b0bacae68044cc81414362bd98c0b1cc22de6e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-battlefield-rendered-as-expressionist-canvas",
+  "field": "title",
+  "lang": "ko",
+  "text": "표현주의 화폭으로 그려낸 전장",
+  "model": "claude-opus-5",
+  "source_sha256": "68a6bce50944d709ed87e0df352ce44c067cf54c39258d6ac7f6ea23981981c3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bay-area-as-hospitable-stage",
+  "field": "title",
+  "lang": "ko",
+  "text": "기꺼이 무대가 되어준 베이 에어리어",
+  "model": "claude-opus-5",
+  "source_sha256": "6449039ce57570f39c9fadd254641f5fdd2651366355dbac292e9b89dc53a4d9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beach-where-history-was-filmed",
+  "field": "title",
+  "lang": "ko",
+  "text": "역사가 찍힌 바닷가",
+  "model": "claude-opus-5",
+  "source_sha256": "73145112bb160abb82d4f4137afac4db3331e812fbcf7a375d7c9df93b087f10"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beam-that-names-castration-by-aiming-low",
+  "field": "title",
+  "lang": "ko",
+  "text": "낮게 겨눠 거세를 이름 붙이는 광선",
+  "model": "claude-opus-5",
+  "source_sha256": "2a2971013ab5aaf4ea739aff1ce2f661a19abc782646e920207480e50bca50ab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beast-as-crowd-made-flesh",
+  "field": "title",
+  "lang": "ko",
+  "text": "군중이 살을 얻은 짐승",
+  "model": "claude-opus-5",
+  "source_sha256": "c6d56062df1f51d14f227dcf7d12d13d745b5e5d34b22a3373df216093ae7595"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beast-as-erotic-threshold",
+  "field": "title",
+  "lang": "ko",
+  "text": "에로스의 문턱에 선 야수",
+  "model": "claude-opus-5",
+  "source_sha256": "e8b56088c8fb594c02b1abbc7a6402cc852962574c58cf1bab725297fa5c7d0b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beast-as-the-truth-of-labor",
+  "field": "title",
+  "lang": "ko",
+  "text": "노동의 진실을 드러내는 짐승",
+  "model": "claude-opus-5",
+  "source_sha256": "0679c3b89158086ae3f54f76c162b50e4bccaaf7e05e535a71eea025963fbaf7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beast-concealed-inside-the-tame",
+  "field": "title",
+  "lang": "ko",
+  "text": "길든 것 속에 숨은 야수",
+  "model": "claude-opus-5",
+  "source_sha256": "d47a4e48f1432903bc23c3a97c95eac7e47a901a20028e646370131da5b1f056"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beast-in-the-title-is-the-argument",
+  "field": "title",
+  "lang": "ko",
+  "text": "제목의 짐승이 곧 논지다",
+  "model": "claude-opus-5",
+  "source_sha256": "be4f9d0fe2781850665ed7cf573c6b1142b3a0b7cc4fdfbab98708d2c093f8eb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beast-knows-what-men-deny",
+  "field": "title",
+  "lang": "ko",
+  "text": "인간이 부인하는 것을 짐승은 안다",
+  "model": "claude-opus-5",
+  "source_sha256": "fc0acebf19711c5055abc8638002eca77131bb90abd595ad418c055011602cd3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beast-sensed-whole-by-no-one",
+  "field": "title",
+  "lang": "ko",
+  "text": "누구도 전모를 알지 못하는 짐승",
+  "model": "claude-opus-5",
+  "source_sha256": "5bbe700f5ea4dcddaabfbdf3e632a8a84db4abe9f21a70e47a3c6fc7875cf3a0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beaten-sacrificial-domestic",
+  "field": "title",
+  "lang": "ko",
+  "text": "매 맞으며 제물이 된 가사노동자",
+  "model": "claude-opus-5",
+  "source_sha256": "8819a041936a742fb19eafd7ae9482922f5c14df48ad9fbf7e354246e46fb10d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beating-as-the-limit-he-seeks",
+  "field": "title",
+  "lang": "ko",
+  "text": "그가 찾아 헤매는 한계, 매질",
+  "model": "claude-opus-5",
+  "source_sha256": "d90d6cf0a97b13e9c0a2d478497518f3aa9df04d7936713e82eeac3a57d91b78"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beautiful-machine-that-demands-immolation",
+  "field": "title",
+  "lang": "ko",
+  "text": "제물을 요구하는 아름다운 기계",
+  "model": "claude-opus-5",
+  "source_sha256": "ee65ead967e4f24d2e5faba4eebb959f19f0c2fadbb8c56f8018d7c574bd5d91"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beautiful-name-for-rot",
+  "field": "title",
+  "lang": "ko",
+  "text": "부패에 붙인 아름다운 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "42cfafaf25053a2d19ad8c15f4b0af18b6fddfc90641bd5986fe0819d59cb18d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beautiful-score-that-mourns-what-we-praise",
+  "field": "title",
+  "lang": "ko",
+  "text": "우리가 찬미하는 것을 애도하는 아름다운 선율",
+  "model": "claude-opus-5",
+  "source_sha256": "1ecb0073fffb9a08dc54354ea28c99b758bbe7f04dabc231d8ab8e474a9ffe35"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beautiful-southern-ground-that-refuses-its-crime",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 죄를 인정하지 않는 아름다운 남부의 땅",
+  "model": "claude-opus-5",
+  "source_sha256": "dbd60a3c3a62c60a666f233f8e428ad8d6d1209d41046c37a937d072672df1da"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beautiful-surface-is-the-lie",
+  "field": "title",
+  "lang": "ko",
+  "text": "아름다운 표면이 곧 거짓말",
+  "model": "claude-opus-5",
+  "source_sha256": "478123f290ce849ada30b1087f38198e4ae1cfed3894b4ff4a59e4078889048d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beckettian-endurance-without-exit",
+  "field": "title",
+  "lang": "ko",
+  "text": "출구 없이 견디는 베케트적 시간",
+  "model": "claude-opus-5",
+  "source_sha256": "e9137f539597ab214d799e37a294bdbe9aab6444ab15319d5295c1b8459a8d09"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bed-as-stage-of-the-buried-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "묻어둔 자아가 오르는 무대, 침대",
+  "model": "claude-opus-5",
+  "source_sha256": "054b259420706482e95c5fa4a025595107af31882c54534eda97c4c04a68c011"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-beekeeper-who-tends-mankind-s-hive",
+  "field": "title",
+  "lang": "ko",
+  "text": "인류라는 벌통을 돌보는 양봉가",
+  "model": "claude-opus-5",
+  "source_sha256": "aed6937d258135a9a24d19a6939dda4ac9b3e92a0015953e96118e6d2eca77a7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-believer-who-was-engineered-to-obey",
+  "field": "title",
+  "lang": "ko",
+  "text": "복종하도록 설계된 신자",
+  "model": "claude-opus-5",
+  "source_sha256": "624639136a91807afc465167cc0f65050a2c47f069a3f7b2f876023238e10e9d"
+ }
+]

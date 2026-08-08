@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-warlords-2007",
+  "field": "lead",
+  "film_id": "31c41ef0-fe30-4557-a389-0dc5dc5201c1",
+  "lang": "en",
+  "text": "Three men swear a blood oath in the wreckage of a civil war, and one of them has already lost everything the war had to take. A young woman and two others pull the wounded General Pang out of the field; the vow that follows is where the picture actually begins, not the battles around it. What Peter Chan Ho-Sun tracks across 126 minutes is the exchange rate between a private promise and a public war: how many men a brotherhood can absorb before loyalty starts behaving like strategy, and strategy like arithmetic. Historical action out of China in 2007 usually runs on dynastic scale; this one keeps shrinking back to three faces. It took the best-film prize at the Golden Horse Awards and at the Hong Kong Film Awards, two juries in different film cultures reaching the same verdict.",
+  "model": "claude-opus-5",
+  "source_sha256": "3077f2d32ea6f9237eb6bbe15bab499b94ba3fa725eb083a4c57a69a63b78fdd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "after-this-our-exile-2006",
+  "field": "lead",
+  "film_id": "809792c2-2d83-4d5a-850f-52b8ebe5795e",
+  "lang": "en",
+  "text": "The mother leaves first, and the film stays behind with the two people she could not take with her. A boy begins stealing to keep a household going, and the man he steals for is his father, who gambles and who hits. What holds them together is not love exactly; it is that neither has anywhere else to be. Patrick Tam Kar-Ming takes 160 minutes over this, and the length is the argument: what happens in a home like that is not an event but a schedule, and a shorter film would let it pass for a crisis rather than a routine. The cruelty is administrative as much as physical, since it runs on money, and money is what the boy goes out to get. Three juries named it best film: the Golden Bauhinia Awards, the Golden Horse Awards and the Hong Kong Film Awards, which is a lot of industry agreement about a picture this unforgiving.",
+  "model": "claude-opus-5",
+  "source_sha256": "5dc144bce60b281748b575e3de7db6913fadf4ef2dd31df2a74a33a632cfd621"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ordinary-heroes-1999",
+  "field": "lead",
+  "film_id": "4838b1a7-ab76-4370-bfa3-d9c4a55203b1",
+  "lang": "en",
+  "text": "An advocate, a woman selling sex, a social worker and a priest: an odd census for one film, and none of them invented. Ann Hui assembled Ordinary Heroes out of things that actually happened on Hong Kong streets during the social movements of the 1970s and 1980s, then released it in 1999, two decades downstream from them. Films about activism usually choose one organiser and follow a cause to its verdict; this one spreads 128 minutes across four working lives - legal, clerical, sexual, social - that overlap only at street level, where the movements happened anyway, and where the film keeps its camera. It went out as an international submission to the Academy Awards, and took best-film prizes at the Golden Horse Awards and the Hong Kong Film Awards, industry verdicts on a film with no single hero to sell.",
+  "model": "claude-opus-5",
+  "source_sha256": "b41ec879a50200393a381bf554b00a6ddab5c866ff1395cc2b7f2e4fba520e5c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "on-body-and-soul-2017",
+  "field": "lead",
+  "film_id": "2b8f2fc4-3aa1-4b0a-b9e6-93b46a111b6d",
+  "lang": "en",
+  "text": "Two people find out they have been meeting in the same dream, night after night, without either having arranged it. Neither is equipped for the discovery: they are people who keep to themselves, and the first reaction is not wonder but fright. What Ildikó Enyedi does with a premise like that is refuse to leave the world it was found in - the 116 minutes stay in ordinary Hungarian daylight, and the couple's project is the unpromising, faintly embarrassing business of reproducing while awake what sleep hands them for nothing. It is a fantasy conducted as a practical experiment, with the fantastical part treated as the least interesting thing available. It holds a Golden Bear, European Film Awards for its director and its lead actress, and a place on the BBC's list of a hundred greatest films directed by women.",
+  "model": "claude-opus-5",
+  "source_sha256": "909e3af0165f5388fa83f77e49920dde065250cfded232d9ecb525726c233bce"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "repentance-1987",
+  "field": "lead",
+  "film_id": "5f3ec8de-d113-4a59-8f3d-bb167303bffb",
+  "lang": "en",
+  "text": "A dead mayor will not stay in the ground: the morning after the funeral, Varlam Aravidze is back in his son's garden. He is reburied. He returns. The corpse sets the tempo. The town's problem is logistical before it is moral, which is the film's funniest and coldest idea. It is classified a comedy and that is no clerical error - the joke is procedural, a matter of burial and reburial, and it is being told in Georgian, inside the Soviet Union, in 1987, about a small-town ruler whose reign of terror emptied one woman's life of everyone in it. Tengiz Abuladze has 153 minutes and works both registers, the grotesque and the testimony, without letting either cancel the other. Cannes gave it the Grand Prix; the Nika Awards named it best picture at home.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d7bbee60f5ffe333a28b6e664089ac60c990ae84cbea96eab77a1187a2b546b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "scent-of-a-woman-1992",
+  "field": "lead",
+  "film_id": "d67b996f-a72a-4625-b5e1-5e358d24582c",
+  "lang": "en",
+  "text": "The job pays for a plane ticket to Oregon, and that is the only reason Charlie Simms takes it. He is a scholarship student at a preparatory school full of boys who never have to think about airfare, and the work is a Thanksgiving weekend spent minding Frank Slade, a cantankerous retired lieutenant colonel who lives in his niece's house. Martin Brest runs it 156 minutes, a long time for what is two people in rooms, and the length is what converts a paid errand into an obligation neither can put down. Class is in every exchange, unannounced: a poor student at a rich school, earning his way home by the hour. The performance at the centre took an Academy Award and the Golden Globes named the film best drama, but the engine is still the fare.",
+  "model": "claude-opus-5",
+  "source_sha256": "984212e616f5a8764c075c26334e57894b1ef44f45c85b6634b39dbf266c6948"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-goodbye-girl-1977",
+  "field": "lead",
+  "film_id": "9d599223-5b3a-45a9-bee7-4a9f8b7462f7",
+  "lang": "en",
+  "text": "One apartment, two adults who did not choose each other, and a ten-year-old who was not consulted. The dancer's live-in boyfriend walked out; the man she now has to share the place with is a struggling off-Broadway actor, and neither of them can afford the exit that would end the arrangement. Herbert Ross keeps to 111 minutes and mostly to interiors, which suits a comedy whose actual subject is rent. The humiliations are financial before they are romantic: an unemployed performer and a working one with nothing banked, pressed together by the same arithmetic. Between them is a child who has to live inside whatever the two of them negotiate. It took an Academy Award for its leading man and a Golden Globe for best musical or comedy.",
+  "model": "claude-opus-5",
+  "source_sha256": "75a84a821f16d6fe19161cf8e1ce8a2d98bd1bc0c5907c0c6f5f7f1937471df6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "fire-at-sea-2016",
+  "field": "lead",
+  "film_id": "60a73a5e-f8cc-4cd5-a955-c9b69b9cb5b5",
+  "lang": "en",
+  "text": "Lampedusa is a small Italian island where life goes on as island life does, and it is also where the European migrant crisis makes landfall. Gianfranco Rosi films both facts across 114 minutes and declines to braid them into a lesson: the island keeps its own rhythms, the crisis keeps arriving, and the distance between the two is left exactly as wide as it is in fact. That refusal is the hardest thing in it: proximity without the pretence that proximity produces understanding. Our record files it as a French production spoken in Italian, which is its own quiet note on who pays for the looking. It holds a Golden Bear, its direction took a David di Donatello, and both the Guardian's hundred best films of this century and IndieWire's films of the decade keep it on the list.",
+  "model": "claude-opus-5",
+  "source_sha256": "a627d4657b243820990b380b5b332530bac25c3090c227aea4b7790098781dc8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-collector-1965",
+  "field": "lead",
+  "film_id": "2030a36f-baf6-40f4-8c9b-bae3d4c875fe",
+  "lang": "en",
+  "text": "There is nothing to negotiate: no ransom, no demand, no deadline, no one on the way. A man has taken a woman and keeps her for the pleasure of having her there, which strips a 119-minute thriller of almost everything the genre normally runs on. What remains is two people and the asymmetry between them - talk is the only instrument she has, and talk is also the only thing he wants, so every exchange is at once her tool and his payment. William Wyler made it in Britain in 1965, when a premise this bare had to survive on performance and rooms, and the film accepts that limit rather than escaping it. The horror is proprietary rather than violent: she has not been taken for what she can be traded for, but for what she becomes to him once she is his to keep.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b0c3261a72c6372ee687d5eabadbbd69d4b9b5d77f66ee4a49a0fe945fc90c4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hungry-hearts-2014",
+  "field": "lead",
+  "film_id": "f91ea101-275c-44b9-93e4-ce2c71dae064",
+  "lang": "en",
+  "text": "The production is Italian, the language is English, the city is New York. Saverio Costanzo opens his couple with a chance meeting, the most ordinary way a love story starts, then hands them a circumstance with life and death in it and lets the marriage carry the weight. Nothing in that setup promises difficulty: two strangers, a city, an accident of timing. The test is to the relationship rather than to anyone's survival skills; what breaks, if anything breaks, is agreement. Everything in the 109 minutes rests on two performances, which is what the Volpi Cups given to both leads acknowledge; Italy's David di Donatello went to the direction. A love story is a poor description for it. This is a film about two people who cannot both be right.",
+  "model": "claude-opus-5",
+  "source_sha256": "e39237644d0a11bb14d3b0bc7348edf7377342c23124169345c007ba1b84fe22"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "il-capitano-a-swedish-requiem-1991",
+  "field": "lead",
+  "film_id": "060da7a4-334e-4ca5-8791-343eebcf583f",
+  "lang": "en",
+  "text": "In 1988 a bicycle theft in Sweden ended with three members of one family dead, and the two people responsible were a young couple who had given each other military ranks. Jan Troell films the pair, not the crime: Jari, who called himself Il Capitano, and Minna, the more mature of the two, who accepted the rank he handed her and became his soldier. They are Finns in Sweden; the film is Swedish in speech and Finnish in origin, and that displacement is part of the material. The 110 minutes go to the pair rather than to procedure: how command became need, and need became something neither could step out of. The Silver Bear went to Troell for direction, the Guldbagge to the film, and an Amanda Award named it best foreign feature.",
+  "model": "claude-opus-5",
+  "source_sha256": "a8b3f73e991c807f2784ec281ade83865ebeb2f78c06448e5510a1e06ec6a02a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "light-of-my-eyes-2001",
+  "field": "lead",
+  "film_id": "f130d8df-aaba-45a6-8307-f5e93b292eda",
+  "lang": "en",
+  "text": "The novels Antonio grew up with were about men alone in space, and he still measures the people in front of him against them. He drives other people's cars for a living, which suits someone with nowhere in particular to be. Maria has the opposite condition: a daughter and a business she is trying not to lose, each demanding her presence by the hour. Giuseppe Piccioni brings them together by chance and then declines to hurry - 123 minutes for a story whose events would fit in four lines, because the interest is in the gap between a man with no attachments and a woman with too many. Both leads took Volpi Cups. Whether a hope like Antonio's survives contact with someone else's obligations is the whole of the drama, and the film treats that as enough.",
+  "model": "claude-opus-5",
+  "source_sha256": "b4935f651e1299f763fcf9c58e68dde18d6969575245cea962e42a1c30a3cfac"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-leap-in-the-dark-1980",
+  "field": "lead",
+  "film_id": "a102fffc-ebfb-43d5-b94a-b27867df9d37",
+  "lang": "en",
+  "text": "Marta raised her younger brother; now he is a judge, and she is the one being decided for. Mauro's remedy for her illness is an introduction: Giovanni, an actor who works close to the edge of the law, and who brings Marta back toward something like life. That is exactly the trouble. Her recovery now belongs to a man Mauro can neither supervise nor sentence, and the jealousy that follows is unconscious, which is the accurate word and the unflattering one. Marco Bellocchio spends 114 minutes inside that arrangement, where the oldest habits of a family keep running underneath the newest crisis, and where care and control turn out to be the same gesture performed twice. A judge is someone paid to know why he decides as he does; this is about the hours when that stops being true.",
+  "model": "claude-opus-5",
+  "source_sha256": "e6856d7f2945f149f02ad07fc3cdb62aa4d89ba1d507c4cae56d91c91daa6659"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "distant-voices-still-lives-1988",
+  "field": "lead",
+  "film_id": "6e6c8441-fa4e-4106-9d35-82dabc57b3f8",
+  "lang": "en",
+  "text": "Eighty-four minutes, and most of them are memories interrupting a wedding. Maisie, Tony and their mother gather for Eileen's marriage, and the film keeps sliding off the occasion into the house they all came out of, where a father's violence set the terms and the children learned what to expect of being loved. Terence Davies refuses chronology; the order is emotional, which is the only order that matches the way a family actually remembers itself. It is filed as a drama and as a music film, and the European Film Awards cited both its direction and its music - a fair clue to what joins the fragments. The BFI keeps it among the hundred best British films, They Shoot Pictures, Don't They? counts it among the thousand greatest, and it holds a Golden Leopard.",
+  "model": "claude-opus-5",
+  "source_sha256": "0db573fe26f80ff851a38aae8dafdbaaa9febe10bf9df7883177ff06632a597d"
+ }
+]

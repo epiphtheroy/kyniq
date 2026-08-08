@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "confidence-1980",
+  "field": "lead",
+  "film_id": "36b2c553-074f-42aa-a61a-f9c5f7574305",
+  "lang": "en",
+  "text": "Two strangers are handed one room, one story, and a marriage neither of them agreed to. István Szabó's Bizalom puts Janos and Kata under a false name during the war, hiding from the Nazis, and then declines to make the arrangement romantic. Forced closeness turns up class, politics, and old assumptions about what kind of person the other is, examined at a range of a few inches over 105 minutes. Hungary sent it to the Academy Awards. Nothing about the arrangement is voluntary, including the intimacy. What stays is the arithmetic underneath it: trust here is not a feeling but a daily calculation, made by two people who have no way to verify each other and no one else left to ask. The war is mostly a pressure on the door. The interrogation is domestic.",
+  "model": "claude-opus-5",
+  "source_sha256": "ba4d4361b5fbd5410e3b5109a6e4187864ce88c9ed492c3e032a2627fccf24a5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "one-hundred-days-after-childhood-1975",
+  "field": "lead",
+  "film_id": "74ad6d5a-fcab-4c61-8a34-d3d12193c20e",
+  "lang": "en",
+  "text": "An old mansion, taken over for the summer as a Pioneer camp, and inside it a group of children rehearsing Lermontov's Masquerade. Sergey Solovyov hands them a play about jealousy and lets the rehearsal do the rest: Lopukhin cannot see past Ergolina, Sonya cannot get Lopukhin to look at her once, and the lines they are learning keep landing too near the mark. Their camp leader, a sculptor, spends the season experimenting with a new plastic material while the children work the harder stuff. Ninety-four minutes, pitched at the register where an insult is permanent and a glance counts as evidence. The accuracy is the achievement here: nothing that happens over the summer matters, everything in it does, and Solovyov declines to correct either impression.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a62e4de94ffda789eea2d99d54dff44016f23fc35ad7a067efe72e484e6101e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "paper-soldier-2008",
+  "field": "lead",
+  "film_id": "efcf1532-aa11-4085-9783-cad3b19a89b8",
+  "lang": "en",
+  "text": "Someone had to certify that the future cosmonauts were fit to fly, and in 1961 that someone is a Soviet medical officer who has stopped being sure what he is doing. Aleksei German Jr. builds the film around that hesitation rather than around the launch: the doctor, the men whose fitness he is required to attest, the enormous public confidence and the private arithmetic underneath it. Its cinematographer took a European Film Award, which matters more here than it usually would, because a story whose central event is a man's doubt has to be carried by weather and faces and distance. 116 minutes, in Russian, unhurried to the point of discomfort. Space, in this arrangement, is where other people go. The pressure is professional before it is political: he is the one who signs off, and no signature covers what is being asked.",
+  "model": "claude-opus-5",
+  "source_sha256": "abf729c8c3c9047430793f9d465c28af35b2f19271e67ddd0b0b59da5a638fa0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ultra-1991",
+  "field": "lead",
+  "film_id": "da7e92c9-57d2-4dd1-aa3f-1bf16875d1dd",
+  "lang": "en",
+  "text": "The Brigatte Veneno organize their week, their friendships and their grudges around the next AS Roma fixture, and the next one is Juventus. Ricky Tognazzi stays down inside the group rather than up in the stands: Principe is days out of prison and finds that Red has taken over the leadership and the girlfriend both, and their argument runs through a crowd already looking for a reason. Ninety-five minutes, and the stakes are social — who speaks for the group, who is owed loyalty, what a few hundred young men in motion will agree to. It took Italian and European prizes for direction, for acting and for editing, and that last one is worth noting: a film about a mass of bodies stands or falls on where the cuts land.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc157dc7cadf046d50c8b93bb5d6e8ca5527f4625a7baff644ab96da75d6e6af"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "young-aphrodites-1963",
+  "field": "lead",
+  "film_id": "f542e840-f624-4b86-8611-d3c3077bcb2a",
+  "lang": "en",
+  "text": "200 BC, and the weather is the plot: a drought long enough that hunger and desire stop behaving like separate appetites. Nikos Koundouros filmed Μικρές Αφροδίτες in Greece in 1963, and the gap between those two dates is where the interest sits. Antiquity is reached not through architecture and armies but through people with no surplus of anything, in 88 minutes. It took the main prize at the Thessaloniki festival. Everyone in it is negotiating from a position of shortage. The frankness that earned that attention is also what makes it uneasy viewing now: appetite works here like a second climate, arriving on its own schedule and no more negotiable than the drought. A film about scarcity has to be built out of scarcity, and the short running time looks like a consequence rather than a choice.",
+  "model": "claude-opus-5",
+  "source_sha256": "d77363ef076ede483e333db61d1950ddcb596acba01b49e7475147d8d0d54487"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sleeping-sickness-2011",
+  "field": "lead",
+  "film_id": "632d7dc2-4942-4ad8-8b2f-4b45dc9a6729",
+  "lang": "en",
+  "text": "Ebbo Velten has run a sleeping sickness programme for the better part of twenty years, and the prospect of leaving frightens him more than staying does. Ulrich Köhler splits the film in two. First a German couple in Yaounde: absorbing work for him, an ex-pat life his wife cannot bear, a fourteen-year-old daughter at boarding school on another continent. Then a jump of years, and a young French doctor of Congolese origin arriving to evaluate a development project, meeting a man who keeps slipping out of his report. Berlin gave Köhler its directing prize for the manoeuvre, and it earns it: the second half looks back at the first through a stranger's eyes, and the aid economy becomes visible mainly in what it has done to the people administering it. Ninety-one minutes.",
+  "model": "claude-opus-5",
+  "source_sha256": "a9d91fbbd006ad8f6fe7bc96c0a385fa623f4b575e2441536ce889e8cd7451bb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "seventeen-years-1999",
+  "field": "lead",
+  "film_id": "74670e50-184a-4d12-802c-f42b17d6f606",
+  "lang": "en",
+  "text": "Seventeen years sit between the accusation and the front door. Zhang Yuan begins with money taken from a father and a daughter blamed for taking it, then skips the entire sentence: Tao Lan comes out escorted by a prison guard, finds the family home long demolished, and travels on to an address she has never seen. The guard stays for the reunion. That is the method: an official witness standing in the room while two ageing parents work out what can be said to a daughter who left the house seventeen years ago. Ninety minutes, and nothing in them is hurried. Release turns out to be the start of the difficult part rather than the end of it, and the film is patient enough to let that take as long as it takes.",
+  "model": "claude-opus-5",
+  "source_sha256": "c986473fd894b818efdab360739c7262e0262eabe7a330d1e865583e22409625"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-old-maid-1972",
+  "field": "lead",
+  "film_id": "e577b92d-b0d8-4f9c-9c23-6641e8cbd4de",
+  "lang": "en",
+  "text": "A seaside hotel dining room, and exactly one table with a chair still free at it. Gabriel's car has broken down and he is here until it is repaired; the free chair belongs to Muriel, who has spent years perfecting a brisk manner that keeps people at the distance she claims to want. Jean-Pierre Blanc's 1972 comedy is built almost entirely out of that seating plan: 85 minutes of a man who cannot stop himself charming women and a woman with no practice at being charmed, negotiating politeness at close range. The comedy is in the mismatch of tempos. He is passing through; she is not. Very little is at stake, which is the wager: the film bets that whether two people go on talking after dinner is enough to hold a picture together.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ffd0f2d8ce26560982521cfe84d58075c9a23ccc5e4c3c24bd59e2041f13d30"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "betelnut-beauty-2001",
+  "field": "lead",
+  "film_id": "1391c476-0d1e-484c-a0d8-9501c5c1b9b0",
+  "lang": "en",
+  "text": "Leaving her mother's house is the whole of the plan, and it is not much of one. From there Lin Cheng-sheng follows a student and a pastry chef whose acquaintances are considerably worse than his trade, and lets the drift do the work: two people in Taiwan in 2001 with no money, no protection and a great deal of certainty about each other. The discipline is in what the film declines to enlarge. The criminal end of things stays a matter of favours owed rather than a plot to be executed, and the romance is spared any lesson. 105 minutes. The pull is in the speed at which ordinary decisions harden: a room taken, an errand accepted, and a life that was meant to be temporary turns out to have been chosen.",
+  "model": "claude-opus-5",
+  "source_sha256": "9a9f1d56d0f98261573f2d0c4d7abb2c4b0fb71b6b3dc12eee35757a3fbae98a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-rats-woke-up-1967",
+  "field": "lead",
+  "film_id": "c7b3d3db-2f7d-42b9-b4b3-f1e47ee09212",
+  "lang": "en",
+  "text": "A job, some money, and the girl next door — the list of what this man wants is short, and he has decided the items are one problem with one solution. Živojin Pavlović made Буђење пацова in Yugoslavia in 1967 and held it to 79 minutes. The brevity is not a limitation. It is the size of the life under examination, and Pavlović treats that size as a fact rather than a judgment. Nothing in the plan is unreasonable, which is where the trouble starts: hope, here, is a practical instrument rather than a mood, and the film is careful about how much weight it puts on one. What stays uncomfortable is the plausibility of it all, the ease with which a person can stand one break away from another existence and finish the day exactly where it started.",
+  "model": "claude-opus-5",
+  "source_sha256": "24070c600df71b39360a2f9cc22af224b7d6acab37777ea1629f2ac194635d8c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "fathers-and-sons-1957",
+  "field": "lead",
+  "film_id": "e3cd0c18-8cfe-4d16-907d-248b888eea76",
+  "lang": "en",
+  "text": "One father has no objection at all; the other, a doctor of standing, has every objection there is. Between them are two high-school students who have committed the offence of being serious about each other. Mario Monicelli made the film in Italy in 1957, when a comedy could still be constructed entirely out of that impasse, and the joke cuts both ways: the young pair's feeling is real, and so is the absurdity of adults doing arithmetic about position and prospects on their behalf. It is the doctor's certainty about the future that supplies most of the trouble. Ninety-nine minutes, brisk, with the tone of a household that knows how much of family life is negotiation. What has not dated is the question under the manners: whose child is permitted to marry whose, and which parent gets the deciding vote.",
+  "model": "claude-opus-5",
+  "source_sha256": "4bd2a6de8d372420cfb675a6b7f494a0462ecf0044c026a3e51a5bea341500a3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-plough-2023",
+  "field": "lead",
+  "film_id": "9b60342b-6c57-4bf1-a6db-f1929058d332",
+  "lang": "en",
+  "text": "A family of puppeteers, and accounts that have never once balanced. The father keeps the enterprise upright by conviction; the three grown children inherited the work without ever quite choosing it; the grandmother sits behind the stage, sewing and remembering what the rest of them are too busy to. Philippe Garrel treats the trade as a job before he treats it as anything else. Shows to mount, costumes to mend, an audience to find. The 95 minutes are largely a study of how a craft stays alive because particular people carry it rather than because anyone is asking for it. Berlin gave him the Silver Bear for direction. The pressure the film keeps in view is plain and hard: what happens to a thing that survives only while someone believes in it enough to go on.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ebf4c696901258279be6d6f053dec274f71c01b80dcc26e908d477af3b05d99"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "living-the-land-2025",
+  "field": "lead",
+  "film_id": "46d166c5-576f-4c55-b323-7c0338f47984",
+  "lang": "en",
+  "text": "Chuang is ten, both his parents are working somewhere far away, and he is raised by whichever aunts, uncles and grandparents are at hand. The village keeps a calendar it has kept for a very long time; the country outside it is in the early 1990s and moving fast. Huo Meng gives this 132 minutes, and the length is the argument — long enough for a planting and a harvest, for the obligations owed to relatives and the small comedies of a household with too many opinions in it, and long enough that the change registers as weather rather than as news. Nobody in the film announces that a world is ending. It is a year in a place where the year still has a shape, taken at the height of a ten-year-old.",
+  "model": "claude-opus-5",
+  "source_sha256": "62e5bf46167a53ea489376aedb0bc0ac1da35ea94aa7221593f97f101d749857"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "advantage-1978",
+  "field": "lead",
+  "film_id": "785dcedc-b2a0-4c59-a65f-940288e65a67",
+  "lang": "en",
+  "text": "The man they call the Cock is the king of Bulgaria's pickpockets, and the police are the smaller half of his problem. Georgi Djulgerov hands him the narration and lets him account for two decades of work, prison and love affairs, while the society around him keeps requesting the one thing he has never produced, which is obedience. He is doing the telling, which means every account in the film is his own. 133 minutes, made in 1978 about the socialist present, and the portrait is of an artist whose art happens to be theft: the timing, the nerve, the pleasure of a job done cleanly. The friction is not moral. It runs between a man who needs a game with risk in it and an order that has no use for games, and the film is in no hurry to award the argument to either.",
+  "model": "claude-opus-5",
+  "source_sha256": "0c9fed79b684d25cb4407e9541968ecb8f893b40d5f165df564e3a796c5f2fcb"
+ }
+]

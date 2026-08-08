@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "captain-phillips-2013",
+  "field": "lead",
+  "film_id": "f0cbe601-6767-443e-baca-42a4f5def1b9",
+  "lang": "en",
+  "text": "A container ship is a slow, enormous thing, and almost nothing aboard one is built to keep a smaller boat from coming alongside. Paul Greengrass works inside that imbalance: a US-flagged freighter in 2009, a working crew, Somali pirates who get up the side. What a merchant crew has instead of weapons is the ship itself — doors that lock, engines that can be stopped, corridors nobody who has just come aboard can read — and the film runs on that unglamorous resistance. Both sides answer to men who are not in the room. Both are negotiating in a second language, with equipment meant for other purposes. No American cargo ship had been taken in two hundred years, so nobody in the story has a manual for it, and the pressure comes from competent people doing an unfamiliar job quickly and badly, at sea, with the radio open.",
+  "model": "claude-opus-5",
+  "source_sha256": "f3f91b41a7a55c492fa98568425ede5f1a7841a36fcc7c49b554ffbbae1d9020"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "coraline-2009",
+  "field": "lead",
+  "film_id": "0c29fd65-8438-471f-8ad3-ab7fdb0e0bed",
+  "lang": "en",
+  "text": "Coraline is eleven, newly moved to a town she has no use for, and left to explore a rambling old house because the adults in it are busy. The door she finds is small and set low in the wall, and behind it is not another world so much as a corrected one: her life with the dull parts fixed and the attention turned up. Henry Selick keeps the two houses close enough that the improvements are the only way to tell them apart, and the hospitality on the other side keeps getting better, which is exactly what makes it frightening. The offer has terms. Made for children and unusually willing to unsettle them, it treats a girl's judgement as something to be tested rather than protected, and it is patient with the dull house first, so the second has something to be better than.",
+  "model": "claude-opus-5",
+  "source_sha256": "f745eb09ce01157b0e1228307e27751c467603b9285483fe60c56e84ead45325"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "like-stars-on-earth-2007",
+  "field": "lead",
+  "film_id": "192a8eff-34f6-4338-a48c-61b901858f52",
+  "lang": "en",
+  "text": "Two hours and forty-two minutes, most of it held at the eye level of an eight-year-old who gets everything in class wrong. Ishaan Awasthi cares about colours, fish, dogs and kites; the adults have marks and neatness to think about, and Aamir Khan is careful not to make monsters of them — they are people with a timetable. Kites and fish are not metaphors here; they are what a distracted child looks at while the day goes on around him. The film stays with the boy rather than with the adults' account of him, which is rarer than it sounds. Then he is sent away to boarding school, and everything narrows: fewer colours, more corridors, a routine that runs on being counted and compared. The subject underneath is a household in which a child's daily humiliation has become ordinary enough that nobody in it hears the sound.",
+  "model": "claude-opus-5",
+  "source_sha256": "e06dcf2c5fa03b9fa680e862696453ef06254f52e625d94d3c7cab1a503333e0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "shershaah-2021",
+  "field": "lead",
+  "film_id": "c4306b49-c92f-4f02-9b53-695be13bac00",
+  "lang": "en",
+  "text": "In 1999 India fought a war at Kargil, and the officer at the centre of this film was twenty-four years old. Vishnu Varadhan builds his first hour out of everything that is not combat: a boy inside a family, a young man in training, a courtship that has to get past two sets of parents. The choice is deliberate. A war picture made twenty-two years afterwards, about a soldier the country already knows by name, has no suspense to trade on, so the freedom left to it is in how ordinary the beginning is allowed to be. Varadhan takes it. By the time the units move up, enough of the film has gone to family and courtship that the men giving and taking orders read as somebody's classmates — the hardest thing for a patriotic picture to hold, and the thing this one holds.",
+  "model": "claude-opus-5",
+  "source_sha256": "2734b992fab8fb8ccc886d4e7a721e295fe735c6d604d76d740895a3357393c1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "rang-de-basanti-2006",
+  "field": "lead",
+  "film_id": "b47cec08-7445-4ec2-8046-b17cf909cc41",
+  "lang": "en",
+  "text": "Graduation is behind them and the campus is still where they spend their days, because none of them has anywhere in particular to be. Then a British filmmaker casts them as freedom fighters for a picture about the years under British rule, and Rakeysh Omprakash Mehra starts cutting between the two: period costume and present-tense Delhi, the same faces in both. It plays as a joke at first. Men who have never had a cause put on the clothes of men who had nothing else, and the mismatch is allowed to stay funny for a long while. The friendships carry it — overlapping talk, the same campus corners, arguments that go nowhere and are had again the next night. An hour and more goes to people who mean nothing to history, and that patience is what the rest of the film spends.",
+  "model": "claude-opus-5",
+  "source_sha256": "d3f6ca61ce24f4b407a9b971a2dbc164e2b1cd0c505b56f2e085573ec0ca6e7a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "beginners-2011",
+  "field": "lead",
+  "film_id": "53e685bd-7434-437b-996e-49aa4a6c0694",
+  "lang": "en",
+  "text": "At seventy-five, after a marriage of forty-four years, Hal Fields tells his son he is gay and sets about acquiring the life he postponed. New friends, a younger boyfriend, a calendar suddenly full. Mike Mills runs two clocks. One is that late, crowded stretch of a father's life; the other is a son a few months on, drifting into something with a woman who will not be pinned down. The comedy is a matter of precision rather than jokes, assembled in small units and cut so that a gesture in one timeline answers a gesture in the other. Underneath is a strange sort of inheritance — a man near forty studying how his father finally managed it, and finding the example arrived too late to be instructive and just in time to be hard to live with.",
+  "model": "claude-opus-5",
+  "source_sha256": "acbc98a75a5da9a4d72c9ee5484b254f11b3c226119c0e9543851ea194f1d2a7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "zindagi-na-milegi-dobara-2011",
+  "field": "lead",
+  "film_id": "dbbf43c7-9853-437a-a248-0b049210f80b",
+  "lang": "en",
+  "text": "The trip has a deadline: one of the three is getting married at the end of it, which is the only structure the film requires. Zoya Akhtar puts three men who were inseparable as children into a car in Spain for three weeks, and the road gives them no exit from each other's company. The talk is the film. Friends of that standing have had decades to accumulate the things they never said, and a bachelor holiday is one of the few socially approved reasons for grown men to sit close enough for long enough that some of it comes out. Three weeks is long enough for the politeness between old friends to run out. Akhtar never hurries any of it. The adventures are set up as dares and paid off as confessions, and the songs land where another film would have put an argument.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c018d1efafaabd86ccfd1e0600e40bd052382534ea3ca554de5944025e50d82"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "barfi-2012",
+  "field": "lead",
+  "film_id": "389fe733-77e4-4819-9d50-0f79c38291af",
+  "lang": "en",
+  "text": "Darjeeling in the 1970s, and a leading man who never says a word. Barfi! hands its story to a young man who is deaf and mute, so almost everything has to be built from bodies and timing — a movement begun in one shot and paid off three shots later, a joke that depends on who in the room can hear. Anurag Basu is working in a popular cinema where dialogue and song usually carry the load, and the constraint sharpens him. Two women, wholly unalike, are drawn to the same person, and the film stays more curious about the difference between them than about any choice. The period does work too: messages travel by hand, waiting is an event, and a man who cannot use a telephone is less cut off than he would be now.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc62ed0389154b46eccc93c24b2c0b978cee66dbefaa80ce44bd859f45a77ab3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dilwale-dulhania-le-jayenge-1995",
+  "field": "lead",
+  "film_id": "52905649-be4e-4a42-a9dc-f0c411c7af41",
+  "lang": "en",
+  "text": "Raj's plan is not to run off with the girl; it is to be invited in by the family that promised her to somebody else years ago. Aditya Chopra's romance belongs to Indians living abroad, and to a father, Chaudhary Baldev Singh, who left the country without loosening one of its rules — which makes the obstacle procedural rather than romantic. Simran is going to India to be married. Raj follows, and then spends most of three hours making himself useful in a house where he has no standing and no business being. The first movement is loose and unsupervised; the second runs on a wedding household's timetable, where every hour is accounted for and privacy is hard to come by. A hundred and ninety minutes, and nearly all of the suspense is about permission.",
+  "model": "claude-opus-5",
+  "source_sha256": "db3cf6329b33fba7a67b9986af68868561a73a7c79f4035406f44f0c9ff3dd94"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bhaag-milkha-bhaag-2013",
+  "field": "lead",
+  "film_id": "33c03bfd-46c8-4e48-a155-58f4666e5bdc",
+  "lang": "en",
+  "text": "Before it was a sport, running was how a boy got out of a place. Bhaag Milkha Bhaag takes just over three hours on Milkha Singh and needs them, because the track is the smaller half: a childhood taken apart during Partition, years with no address, and only then the coaching, the times, the Olympic entry. Sport arrives late in this life and late in the film. Rakeysh Omprakash Mehra keeps returning to the border years while the adult is being timed, so the races are never only races. The nickname stuck — the Flying Sikh — to a man the same border had left with nowhere to live. The training is where the picture is most exact: repetition, injury, the dull arithmetic of shaving fractions off a time, an athlete's day made of hours nobody watches.",
+  "model": "claude-opus-5",
+  "source_sha256": "b6a93400f0bccbe8fa5050da63600fde0996741e23716f0441e2b95b99f72807"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "james-and-the-giant-peach-1996",
+  "field": "lead",
+  "film_id": "6b12ca4d-0f87-45c3-9a68-226d97a0d513",
+  "lang": "en",
+  "text": "A bag of crocodile tongues, spilled by accident, is the whole of the magic on offer, and nothing about it is explained. Seventy-nine minutes is short even for a children's picture, and Henry Selick treats the brevity as a rule: James is an orphan before the film has settled, the peach is enormous shortly after, and the fruit is airborne while a more careful production would still be making introductions. Strange lands stay strange. Nothing gets translated back into sense for the comfort of a nervous adult, and the danger is allowed to be danger. Under the adventure sits a fact the film declines to cure early — its hero is a small boy with nobody — so that being carried off by a piece of fruit is never confused with being taken home.",
+  "model": "claude-opus-5",
+  "source_sha256": "7a1ed357a6a0714022ad5e82b78f09b19ae8727295e1124b879a4180dc04259d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "queen-2014",
+  "field": "lead",
+  "film_id": "adf5376f-b5ec-4a40-adbc-3c08967e9a3c",
+  "lang": "en",
+  "text": "The wedding is called off, the honeymoon is already booked, and Rani gets on the plane by herself. Vikas Bahl assembles a comedy out of very small firsts: the ordinary transactions of a woman who has never had to make one without a family standing behind her. Europe is not really the subject, and the film does not shop for landmarks. The cities matter mainly as places where nobody knows the rules she grew up inside, and the friendships she picks up there are casual in the way friendships made away from home are casual, and then turn out to weigh more. She is twenty-four. Almost everything she does from the airport onward she is doing for the first time without asking, and the hundred and forty-six minutes belong to her rather than to the man who cancelled.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7f60490fcf544f69cf634706213f79c76b114a5a016fa9f165a0d5e5aa99abb"
+ }
+]

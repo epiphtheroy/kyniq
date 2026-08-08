@@ -1,0 +1,274 @@
+[
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kaouther-ben-hania#four-daughters-2023",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《Four Daughters》는 다큐멘터리와 재연을 한 몸으로 붙인다. 사라진 두 자매 자리에 배우를 세우고, 진짜 어머니가 그 앞에서 과거를 다시 산다. 기억과 급진화, 대물림된 상처를 형식의 모험으로 파고든 작품이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kaouther-ben-hania#beauty-and-the-dogs-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《Beauty and the Dogs》는 아홉 개의 긴 롱테이크 장(章)으로 흘러간다. 성폭행을 당한 젊은 여자가 관료제의 악몽을 통과하는 동안 카메라는 끊기지 않는다. 벤 하니아의 구조적 엄격함을 날것으로 보여준 초기작.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kaouther-ben-hania#the-voice-of-hind-rajab-2025",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가자에 갇힌 아이의 실제 녹음 음성. 《The Voice of Hind Rajab》은 그 소리를 중심에 놓고 쌓아 올린다. 다큐와 픽션을 섞는 벤 하니아의 방식이 가장 절박하고 가장 물러서지 않는 형태에 이르렀다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kathryn-bigelow#point-break-1991",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《폭풍 속으로》(1991)로 시작하라. 서퍼와 은행강도, 잠입수사가 집착으로 번지는 이야기다. 도보 추격과 스카이다이빙 시퀀스가 몸으로 밀어붙이는 액션, 비글로의 재능이 여기서 선언된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kathryn-bigelow#the-hurt-locker-2008",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《허트 로커》(2008)는 이라크의 폭발물 처리반을 따라간다. 흔들리는 핸드헬드가 신경을 갉아먹고, 폭탄을 해체하는 절차 하나하나에 시선을 붙든다. 비글로가 가장 정확하고 가장 몰입시키는 순간이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kathryn-bigelow#zero-dark-thirty-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "차갑고 까다로운 대신 값이 큰 쪽. 《제로 다크 서티》(2012)는 십 년에 걸친 추적을 정보기관의 세밀한 절차로 풀어낸다. 그 중심을 한 분석관의 집요한 집착이 붙들고 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kelly-reichardt#first-cow-2020",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《퍼스트 카우》는 라이카트의 인내와 다정함을 한 방울로 졸인다. 우유 한 통과 구운 과자를 사이에 두고 맺어지는 변경(邊境)의 우정. 느린 리듬이 여기서는 따뜻하고, 처음 보는 사람에게도 문이 열려 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kelly-reichardt#wendy-and-lucy-2008",
+  "field": "reason",
+  "lang": "ko",
+  "text": "여자 하나, 개 한 마리, 고장 난 자동차. 《웬디와 루시》는 그것만 남기고 다 덜어낸다. 라이카트가 어떻게 경제적 벼랑을 조용하고 참혹한 드라마로 바꾸는지 보인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kelly-reichardt#meek-s-cutoff-2011",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《밀 크릭》은 길을 잃은 개척민 여자들의 눈으로 서부극을 다시 짠다. 네모난 화면비와 줄어드는 물. 풍경과 불확실함만으로 공포를 만들어낸다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kelly-reichardt#certain-women-2016",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《서튼 위민》은 몬태나의 세 인생을 낮은 채도로 엮어 서로 맞물리게 한다. 목장 일꾼과 변호사의 이야기 한 줄이 특히 그렇다. 말해지지 않는 그리움, 작게 부서지는 마음을 다루는 라이카트의 손재주가 거기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kelly-reichardt#old-joy-2006",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《올드 조이》는 멀어진 두 친구의 오리건 캠핑 여행을 따라간다. 남자들의 우정과 표류를 낮은 목소리로 관찰한 초기작. 라이카트의 감각 전부가 이미 여기 펼쳐져 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kelly-reichardt#showing-up-2023",
+  "field": "reason",
+  "lang": "ko",
+  "text": "마감과 다친 비둘기와 사소한 짜증 사이에서 허둥대는 조각가. 《쇼잉 업》은 그 하루하루를 지켜본다. 예술을 만드는 일의 볼품없는 노동을 능청스럽게, 아주 잘게 들여다본 영화.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kelly-reichardt#the-mastermind-2025",
+  "field": "reason",
+  "lang": "ko",
+  "text": "라이카트의 최신작 《The Mastermind》. 절제된 엄격함을 낯선 영역에 옮겨 쓴다. 그의 스타일이 어떻게 계속 변해왔는지 좇아온 사람에게 돌아오는 보상이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ken-loach#i-daniel-blake-2016",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《나, 다니엘 블레이크》에는 로치의 방법이 통째로 졸여져 있다. 복지 관료제에 짓눌리는 평범한 남자, 꾸밈없는 촬영, 자연스러운 연기. 그의 사회적 리얼리즘으로 들어가는 가장 선명하고 가장 마음을 흔드는 입구다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ken-loach#kes-1970",
+  "field": "reason",
+  "lang": "ko",
+  "text": "로치가 왜 중요한지는 《케스》가 말해준다. 요크셔의 소년과 황조롱이 한 마리. 노동계급의 어린 시절을 다정하게 담으면서, 그 아이를 저버린 체제를 향해서는 감상 없이 분노한다. 그를 규정하는 영화.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ken-loach#the-wind-that-shakes-the-barley-2006",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《보리밭을 흔드는 바람》에서 로치는 역사 서사시로 넘어간다. 아일랜드 독립전쟁을 통과하는 두 형제. 그의 정치가 시대극의 큰 규모로 확장되면서도 친밀함을 잃지 않는다는 증거다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ken-loach#sorry-we-missed-you-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《미안해요, 리키》는 그 분노를 긱 이코노미로 옮겨 온다. 택배 기사 가족이 제로아워 계약의 불안정 속에 갇힌다. 《나, 다니엘 블레이크》의 성난 연민과 짝을 이루는 현대판.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ken-loach#the-old-oak-2023",
+  "field": "reason",
+  "lang": "ko",
+  "text": "로치의 마지막 작품으로 알려진 《The Old Oak》. 사그라드는 탄광 마을의 펍과 갓 도착한 시리아 난민들을 마주 세운다. 연대에 관한 조용한 고별사, 이미 그에게 붙들린 관객을 위한 것이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kenji-mizoguchi#ugetsu-1953",
+  "field": "reason",
+  "lang": "ko",
+  "text": "미조구치 겐지로 들어서는 가장 수월한 문은 《우게츠 이야기》다. 전란의 시대, 탐욕과 야심이 유령과 마주치는 우화. 물 위를 떠다니듯 움직이는 카메라의 롱테이크가 그의 스타일을 규정한다. 처음 오는 이에게 더없이 알맞은 환대.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kenji-mizoguchi#sansho-the-bailiff-1954",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《산쇼다유》는 잔혹과 이별, 견뎌내는 도덕이라는 미조구치의 주제를 참담한 화면 구성 안에 응축한다. 고통과 은총이 천천히 쌓여가는 그 방식이, 그가 왜 중요한 감독인지 그대로 말해준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kenji-mizoguchi#the-life-of-oharu-1952",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《오하루의 일생》은 한 여자가 사회의 계단을 끝없이 내려가는 과정을 삽화식 장(章)으로 기록한다. 가부장제가 여자를 어떻게 갈아 없애는지에 관한 그의 가장 매서운 연구. 그 눈 하나 깜빡이지 않는 연민에 이제 귀가 트인 관객이 받아 갈 몫이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kim-jee-woon#a-bittersweet-life-2005",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 매끈한 입구는 《달콤한 인생》이다. 조직의 해결사가 품은 충성이 복수로 상해간다. 김지운 특유의 유리알 같은 누아르, 흠 없이 다듬은 폭력, 그리고 이병헌의 서늘한 우울. 분위기와 추진력만으로 밀고 간다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kim-jee-woon#i-saw-the-devil-2010",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《악마를 보았다》는 복수 스릴러를 부러지기 직전까지 밀어붙인다. ��내를 잃은 요원과 연쇄살인마가 잔혹한 쫓고 쫓기는 고리에 갇힌다. 가장 사납고, 도덕적으로 한 치도 봐주지 않는 김지운.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kim-jee-woon#a-tale-of-two-sisters-2003",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《장화, 홍련》은 피 대신 불안을 택한다. 귀신 들린 집, 두 자매, 계모. 색과 침묵과 께름칙함으로 쌓아 올린 영화다. 속도를 늦추고 실타래를 풀 준비가 된 관객에게 돌아오는 보상.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kim-ki-duk#spring-summer-fall-winter-and-spring-2003",
+  "field": "reason",
+  "lang": "ko",
+  "text": "김기덕으로 가는 가장 순한 길은 《봄 여름 가을 겨울 그리고 봄》이다. 물 위에 뜬 암자를 무대로 삼은 고요한 불교 우화. 대사를 거의 걷어낸 채 생의 순환이 숨 막히게 잔잔하게 펼쳐진다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kim-ki-duk#3-iron-2004",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《빈집》은 그의 세계를 가장 순수한 형태로 졸여낸다. 빈집을 떠도는 남자와 매맞는 아내, 말이 거의 없는 사랑. 침묵과 부재가 그대로 깊은 친밀함이 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kim-ki-duk#pieta-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "베니스 황금사자상을 받은 《피에타》. 사채 수금과 모성의 죄책감이 뒤엉킨 잔혹한 서울로 뛰어든다. 충격적인 폭력과 영적 결산을 한데 붙여놓는 김기덕의 방식이 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kim-ki-duk#the-isle-2000",
+  "field": "reason",
+  "lang": "ko",
+  "text": "이미 붙들린 관객을 위한 악명 높은 초기작 《섬》. 호숫가 낚시터를 무대로 집착을 최면처럼, 그리고 몸이 움찔할 만큼 극단적으로 그려낸다. 김기덕의 위반 본능이 여기서 처음 선언됐다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kiyoshi-kurosawa#cure-1997",
+  "field": "reason",
+  "lang": "ko",
+  "text": "구로사와 기요시는 《큐어》로 시작한다. 형사가 최면술사 살인범을 쫓는데, \"당신은 누구입니까\"라는 그 잔잔한 질문 하나에 사람들이 풀려 무너진다. 그의 불길함, 텅 빈 공간, 스멀스멀 번지는 불안이 여기 다 소개된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kiyoshi-kurosawa#pulse-2001",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《회로》는 인터넷 속 유령이라는 소재를 고립과 소멸에 관한 순수한 실존적 공포로 바꿔놓는다. 어둑하게 삭아가는 도쿄, 느리게 움직이는 망령들. 분위기를 다루는 솜씨가 절정에 이른 작품.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kiyoshi-kurosawa#tokyo-sonata-2008",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《도쿄 소나타》에서는 초자연의 공포가 사라진다. 대신 실직을 숨긴 아버지 탓에 조용히 풀려버리는 가족이 있다. 똑같은 불길함이 평범한 가정에 들러붙는다. 그의 분위기에 이미 걸려든 관객이 받아 갈 몫.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kon-ichikawa#the-burmese-harp-1956",
+  "field": "reason",
+  "lang": "ko",
+  "text": "이치카와 곤으로 들어가는 가장 편한 문은 《버마의 하프》다. 죽은 이들을 묻으려 버마에 남는 일본 병사의 이야기, 인간을 향한 반전(反戰) 우화다. 서정과 도덕적 무게가 균형을 이뤄 누구에게든 열려 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kon-ichikawa#fires-on-the-plain-1959",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《들불》은 감상을 남김없이 벗겨낸다. 굶주리고 폐병에 걸린 병사가 필리핀을 헤맨다. 헐벗은 이미지와 생존을 향한 물러섬 없는 시선이, 왜 그가 영화사의 위대한 반전 감독으로 꼽히는지 말해준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kon-ichikawa#an-actor-s-revenge-1963",
+  "field": "reason",
+  "lang": "ko",
+  "text": "스타일 면에서는 《설국의 복수》가 돌연변이다. 가부키 여형(女形) 배우의 복수극을 야한 색채의 와이드스크린과 연극적 무대로 찍었다. 전쟁영화 너머에 있던 이치카와의 눈부신 형식 감각이 여기서 드러난다.",
+  "model": "claude-opus-5"
+ }
+]

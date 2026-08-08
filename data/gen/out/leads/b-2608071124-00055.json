@@ -1,0 +1,132 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-overlanders-1947",
+  "field": "lead",
+  "film_id": "4a0db03d-1ed5-4e2e-bd03-70fb191e21b1",
+  "lang": "en",
+  "text": "The standing order was to destroy anything an invader could use, cattle included; a group of drovers decided instead to walk the herd across a continent. Harry Watt filmed that in 1947, close enough to the events that the country in the frame is still the country that had been written off. The route supplies the drama: Wyndham in Western Australia, then the Northern Territory outback, then pasture somewhere north of Brisbane, with ninety-one minutes to cover the distance. What holds it together is arithmetic rather than heroism - water, daily mileage, the pace a beast can keep, the number of hands available to turn a mob at a river crossing. The genre label says Western and the shape fits, except that the adversary here is a schedule. The National Board of Review put it among its ten films of the year.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c0f4f9b58a200b9d7621b221175a4bdf2d06f6c9f22c3e40ff4a122f3cb68b7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-corbett-fitzsimmons-fight-1897",
+  "field": "lead",
+  "film_id": "a509d281-721f-48de-9c6b-53f1d30fa58c",
+  "lang": "en",
+  "text": "Three cameras in a row, film sixty-three millimetres wide, and a prizefight on 17 March 1897 that nobody intended to shorten. What Enoch J. Rector got from that arrangement ran past ninety minutes, which is how a boxing match became the first feature-length film anyone knows of - not by design of a story but because the bout took as long as it took. The frame is wide, close to 1.75:1, decades before width was sold as a novelty. The audience sat through the fight at the fight's own length, from a single vantage, the rounds arriving in the order and at the pace they arrived at ringside. About a quarter of the footage survives. That quarter is enough to show what the apparatus was for: hold position, keep the ring inside the frame, and let duration do the work that cutting was invented to avoid.",
+  "model": "claude-opus-5",
+  "source_sha256": "71ac82d92d04cf0169da85054482c0bc0709e0c03cd7ee20f6f8c88d39e48efc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "word-is-out-stories-of-some-of-our-lives-1977",
+  "field": "lead",
+  "film_id": "642ff5e2-516c-4c24-bb86-64e41921cb67",
+  "lang": "en",
+  "text": "More than two dozen people sat in front of a camera in the mid-1970s and said, with their faces visible, that they were gay or lesbian. That is the whole method, and in 1977 it was not a small thing to agree to. The film gives each of them time - 132 minutes across many voices, ordered less as an argument than as a life: childhood, the years of fitting in, marriages entered for cover, the decision to speak, and after. Nobody narrates over them. Ages, races, regions and temperaments differ enough that what accumulates is not one story with many illustrations but a set of accounts that decline to agree about what happened to them or what ought to happen next. The plainness of the setup is what holds: a chair, a question, a person answering while the tape runs.",
+  "model": "claude-opus-5",
+  "source_sha256": "e97df4cf283320d1866b59f9d1950c688a1b996e17313bf2a3170736f0a33b0e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "something-good-negro-kiss-1898",
+  "field": "lead",
+  "film_id": "27f11953-4ef8-44dd-a7c4-c74d095adbe2",
+  "lang": "en",
+  "text": "Two Black performers kiss for the camera in 1898, and the whole thing is over in a minute. The catalogue line is a single sentence - the earliest known example of African American intimacy on screen - and it carries more than most features manage in two hours. There is no story to follow here, and there was never room for one. There is a gesture, framed and lit and held for the length of a reel that could hold nothing else, made when the medium was young and cheap. William Nicholas Selig had it produced. The National Film Registry keeps it now, an odd destination for something built to be shown a few times and discarded, and a minute turns out to be short enough that nothing can be developed and long enough that nothing can be concealed.",
+  "model": "claude-opus-5",
+  "source_sha256": "5bf7751407c950fafdfab3e0f2822a9d332cebc7a56f61ec4af0a04db57cca1e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "point-of-order-1964",
+  "field": "lead",
+  "film_id": "80f5c6d1-08ea-437e-8502-8066e5c9ef56",
+  "lang": "en",
+  "text": "The whole film was shot by somebody else, for television, in 1954. Emile de Antonio's contribution is selection and order, which turns out to be enough: the Army-McCarthy hearings cut to ninety-seven minutes, with no narration laid over them and nobody on hand to tell a viewer what to conclude. The dispute is petty on its face - whether a senator leaned on the Army for the comfort of a former staffer named David Schine, whether the Army held Schine to keep the senator off its back. What the footage records is a man conducting himself in a room where the cameras never stop and the rules of procedure belong to someone else. By 1964 the outcome was a decade old, so suspense is not the draw; the interest is in watching a method come apart at a table, under lights. It is on the National Film Registry.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc043bffc42ce1eaedf343cf16f54ff6c6b382691b9a17543fa24a0a4fd58892"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "illusions-1982",
+  "field": "lead",
+  "film_id": "aa46dd71-da38-4269-9b55-e3737cf36e9a",
+  "lang": "en",
+  "text": "The setting is a room where images get fixed after the fact: a dubbing stage in wartime Hollywood, where a voice is matched to a face that did not produce it. Julie Dash built thirty-four minutes on that arrangement in 1982, and the woman doing the matching is Black, employed inside the industry and taken for white. The parallel is not laboured. Passing and dubbing run on one principle, and only one of them pays a salary. Kept on the National Film Registry, the film sets itself in the 1940s and makes its subject the industry's arithmetic of who got to appear and who got to be heard. What makes the half hour hold is the ordinariness around her: a job to do, a picture to finish, and a position that depends entirely on a fact nobody has thought to ask about.",
+  "model": "claude-opus-5",
+  "source_sha256": "f315b1c5dcdb56dd2167d1cdb5cb86eb3d7ccc86f170c4e952364f7a65a87438"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-petal-1996",
+  "field": "lead",
+  "film_id": "0489eb14-e33c-4da1-bd81-5d530beed255",
+  "lang": "en",
+  "text": "She was fifteen in Gwangju during the massacre, and the film attends to the years afterwards rather than to those days. Jang Sun-woo made it in 1996, at a distance long enough for the killings to have become a matter of public argument and short enough that the people who lived through them were still young. The structural problem is visible from the premise: how to film a memory its owner cannot narrate. What comes in place of testimony is a girl in the present, out of step with everyone she meets, and a country going about its business around her. Nothing in the design suggests she can be understood by anyone who was not there. The Korean Film Archive counts it among a hundred Korean films worth keeping, which is a plain way of saying the country has not managed to set this one down.",
+  "model": "claude-opus-5",
+  "source_sha256": "67fb94b8da91d9c52e64ea75b24f8e0415b7e71f2229ef066cd208f0c4306e8a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-moon-is-down-1943",
+  "field": "lead",
+  "film_id": "4b504d53-b1cf-4ca3-a808-024e9a87af84",
+  "lang": "en",
+  "text": "A film about a military occupation released while occupation was current news rather than history. The town is Norwegian, small, and taken quickly; the ninety minutes belong to the period after that, when the question stops being whether to fight an army and becomes how a few hundred people conduct themselves around one that has moved in. Steinbeck supplied the novel. Irving Pichel, directing in 1943, works in a domestic register - houses, streets, a mayor, the daily business of courtesy under pressure - and the National Board of Review found room for it in its ten for the year. A story like this puts pressure on the occupiers as much as the occupied, since a garrison in a town that size has to live among the people it is there to control, and the arrangement gives everyone too much information about everyone else.",
+  "model": "claude-opus-5",
+  "source_sha256": "483cedccf8b84b02fb975cceafae33d22b69727e74fc72d8c53eb372276219df"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ieoh-island-1977",
+  "field": "lead",
+  "film_id": "9b99b4c5-e2e2-41ee-900f-80bd2efe6386",
+  "lang": "en",
+  "text": "A property company wants to build a spa hotel and name it after an island that exists mainly in stories about drowned men. The film never quite lets go of that: development money, a site inspection, a myth being repurposed as a brand. Then a journalist on the trip disappears, and a contractor goes looking, which takes him to the island beside the legend - a place whose population is largely the widows of sailors who did not come back. Kim Ki-young shot this in Korea in 1977, 112 minutes, and he needs little equipment to make it frightening; the imbalance is already there in who lives on the rock and who is remembered there. The mystery format is a way in rather than the point. The inquiry turns out to be less about the missing man than about the terms the sea is thought to set.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b547c5779764fa540c67ee8e93d540a66cb8ea8f6a3c56cf8e46b86106d2bd0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "allures-1961",
+  "field": "lead",
+  "film_id": "7033900f-f71c-4dd1-8c7f-93c2f4026a53",
+  "lang": "en",
+  "text": "Eight minutes of moving points and figures, and nothing in the frame that could be called a subject. Jordan Belson made it in 1961. There are no characters and no place; there is a field that expands, turns and re-forms while the eye keeps trying to find a centre to hold. Descriptions of the film reach for the cosmic, and the images invite that, since anything suggesting scale without providing a measure will read as vast. The effect is physical first. Pulses of colour arriving at a rate the eye follows rather than reads, depth appearing and dissolving on a surface that is only ever flat, a duration short enough that watching never becomes a discipline. What sits on the National Film Registry is not a document of anything; it is a set of instructions for looking, and they take eight minutes to carry out.",
+  "model": "claude-opus-5",
+  "source_sha256": "6b6906aaaf42578a2d9a77c3b3d94735b53b109cb948c41ab5ff7955439fc344"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "koko-s-earth-control-1928",
+  "field": "lead",
+  "film_id": "70b6d125-aa3c-46fa-9b39-1eb25d5f34ae",
+  "lang": "en",
+  "text": "Somewhere in the world there is a building where levers control the working parts of the Earth, and nobody has thought to lock the door. Ko-Ko the Clown walks in with his dog Fitz. Fitz pulls one. What follows is eight minutes of 1928 animation doing what a camera pointed at anything real could not: taking the whole arrangement out of true and then following it, at a speed with no patience for an audience trying to keep up. The pleasure is that the wreckage costs nothing and means nothing - no malice anywhere in it, just a dog's curiosity applied to a control panel, and a clown who has to live in the results. Prints carry a warning for strobe flashing, and the warning is accurate. Dave Fleischer directed, and the planet is handled throughout as a prop.",
+  "model": "claude-opus-5",
+  "source_sha256": "d4d20556b134476de78eaf98dc63d30f13b988a5429de204d6e9f5c2d0a6da58"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-daughter-of-dawn-1920",
+  "field": "lead",
+  "film_id": "fd3fbd9a-12d2-4a1b-8772-5f27aa55a1a5",
+  "lang": "en",
+  "text": "Five reels of a 1920 Western surfaced in 2005, eighty-five years after the film they came from was shown a few times and written off as lost. The cast is entirely Native American, which almost nothing else from the silent era can claim: Kiowa and Comanche performers in a story of courtship, a rival's jealousy, and raiding parties. The plot is melodrama, arranged for effect, with feats of bravery placed where feats of bravery go. The interest lies to one side of it. Horses, camp, clothing and bearing are being handled by the people they belong to, in front of a camera that mostly stands back and lets a scene run its length. The Oklahoma Historical Society finished the restoration in 2012, which is when eighty-three minutes of 1920 became available to argue about for the first time.",
+  "model": "claude-opus-5",
+  "source_sha256": "dfd61714d4cb895600dc323c1a227ef2ec7d9e89a04bf0b34e629feef0a73638"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-bronx-morning-1931",
+  "field": "lead",
+  "film_id": "effcf13d-71c5-48c7-a086-9f0e9806eca9",
+  "lang": "en",
+  "text": "The film comes into the Bronx the way a visitor does, on the elevated train, looking down at the streets before standing in them. Then thirteen minutes of a weekday morning, assembled by montage: shopfronts, sidewalks, deliveries, children, the ordinary traffic of a neighbourhood that has no idea it is being filmed and would behave no differently if it did. Jay Leyda shot it in 1931. The method is nearer to a survey than a story - one thing set against the next, rhythm doing the work a narrator would otherwise be hired for - and nobody is followed long enough to become a character. That restraint is the appeal. A borough at eye level, early, photographed before the day has settled into what it will be, and kept since on the National Film Registry.",
+  "model": "claude-opus-5",
+  "source_sha256": "5f865f3d230ee69dee439ecb67c245f74dfe7542f9304a45bc42b1065755be4a"
+ }
+]

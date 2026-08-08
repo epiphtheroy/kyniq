@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tattoo-2013",
+  "field": "lead",
+  "film_id": "71981241-1ce9-48ea-8986-49c01279d69f",
+  "lang": "en",
+  "text": "A theater company that works in feathers and obscenity shares a city with an army barracks, and one young soldier keeps crossing between them. Hilton Lacerda puts the troupe in the foreground: rehearsals, quarrels over a number, the labor of people who earn a living by being looked at. The dictatorship enters as weather rather than plot. Paulete is the star, Fininha is the brother-in-law in uniform, and whatever grows between them has to be conducted under a government that takes an interest in what gets performed. Tatuagem is most alert offstage, where the costumes come off and the arithmetic of keeping a company fed begins. Made in 2013 about the years of the generals, it is less concerned with accusing that period than with the nightly cost of continuing to work inside it.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c5a9e848fda1808dc046c45112416e28cf62181f2c8e22b5b191c20b1023b8c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "love-for-sale-2006",
+  "field": "lead",
+  "film_id": "36585a1a-d250-4415-a637-0f3db25dff8c",
+  "lang": "en",
+  "text": "The prize is a night with the woman selling the tickets, and she has set the price herself. Hermila is waiting in the north of Brazil for a husband who is not coming back, and the raffle is what she arrives at once waiting has stopped working as a plan. Karim Aïnouz gives most of the ninety minutes to the waiting rather than the scheme: errands, roads, the flat afternoons of a place people leave. So when she decides, it reads as arithmetic and not as scandal. Pity is the single thing the film withholds. Hermila is watched rather than diagnosed, and the town's verdict on her registers as an obstacle with a timetable attached, no heavier than the weather. O Céu de Suely runs ninety minutes and spends none of them apologizing for her.",
+  "model": "claude-opus-5",
+  "source_sha256": "85cdf4471316ddc63233727d131b1df6cf690697ef3955c17bd053f71ea34023"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "to-the-left-of-the-father-2001",
+  "field": "lead",
+  "film_id": "20079f69-112e-4817-945a-fe1a23abd3dd",
+  "lang": "en",
+  "text": "The father speaks in parables, and everyone in the house has to live inside them. In 1940s São Paulo, Pedro is sent to bring his brother André home, and the errand is simple next to the reason behind it: a patriarch who governs by sermon, a mother whose tenderness works as its own kind of pressure, a sister nobody in the family will discuss, and a jealousy Pedro has never had to name. Luiz Fernando Carvalho takes a hundred and seventy-one minutes and uses them the way a family argument uses an evening, circling, repeating, mutating slightly with each pass. Very little gets explained. Everything is registered at close range, in heat and volume rather than exposition. Lavoura Arcaica asks for a whole night and returns the sensation of having stayed too long at someone else's table.",
+  "model": "claude-opus-5",
+  "source_sha256": "0c0ef446869cbcf4fcdc05f8f305cbaefe19e6df5b5113b86b0a3d9ea6211524"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bye-bye-brazil-1979",
+  "field": "lead",
+  "film_id": "b65d223d-4f30-40e3-af6a-94ca81eddc05",
+  "lang": "en",
+  "text": "Magic tricks, Salomé's dance, and a strongman who does not speak: that is the whole act, and it has to fill a tent in whatever town they stop in next. The Caravana Rolidei is a business before it is a spectacle, run by the man who calls himself the Gypsy Lord, and when a young accordion player begs his way in he brings his pregnant wife, Dasdô, into the arrangement. Carlos Diegues follows them across the interior in 1979, setting up, taking down, moving on, and he keeps the ledger visible: who eats, who is owed, who could be replaced more cheaply. The performers are never handled as folklore. They are people with a trade, watching each town decide whether it still wants what they are selling, and how much it will pay for it.",
+  "model": "claude-opus-5",
+  "source_sha256": "3655871858a1d2ac76b4679054a068cc13852a5977c7cf417c600e6dc36b8607"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "foreign-land-1996",
+  "field": "lead",
+  "film_id": "acd1e5f5-43f8-4f1f-8aab-a078b4cc2212",
+  "lang": "en",
+  "text": "Two people who would never have met at home meet abroad, each of them shaken loose by the same upheaval in Brazil. Walter Salles builds the film out of that condition rather than around it: the wrong papers, the borrowed room, work offered precisely because nobody intends to ask questions. Thriller machinery is present and functioning. A consignment of gems is moving, and people who move gems are careless with whoever carries them. But the pressure Salles cares about is quieter, and it is the speed at which two strangers have to decide how far to trust each other, once trusting nobody has become impractical and going home is no longer on offer. A hundred and ten minutes kept at a low temperature, and the low temperature is the argument.",
+  "model": "claude-opus-5",
+  "source_sha256": "661ba2fac0bc3b1f125a341a18689327589c070bd941fff49bd44cf0f4222bd5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-trespasser-2002",
+  "field": "lead",
+  "film_id": "4ccdfb0d-c6f4-4588-af7f-8ffeec34949a",
+  "lang": "en",
+  "text": "The arrangement takes almost no time to make: two partners in a firm decide the third is a problem, and pay a man to solve it. What they fail to weigh is that the man they paid now knows them. Beto Brant runs it out in ninety-seven minutes and keeps the dread procedural rather than bloody. The hired man issues no threats. He simply keeps turning up where he has no business being, taking a seat as though a seat were owed him, conducting himself as if the firm had always included him. O Invasor took the Sundance jury prize for Latin American cinema, and its coldest observation is about class rather than crime: two men who thought they were buying a service find they have opened a door in their own house and cannot explain to anyone why it stands open.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e2b73816ae8eccd0fb23350961bbe0a47880511d787ab9f5b61fd6cd3144905"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "they-don-t-wear-black-tie-1981",
+  "field": "lead",
+  "film_id": "98e19114-2a92-4f88-b51d-ee3650a96cdf",
+  "lang": "en",
+  "text": "The strike is decided at the factory and then argued about at the kitchen table, and the kitchen table is where Leon Hirszman keeps the camera. Otavio has organized workers long enough to believe a stoppage is worth what it costs. His son Tião works the same floor, counts the same risk differently, and does not intend to lose the job. Romana, wife to one and mother to the other, keeps the household running while the two of them turn it into a referendum. Hirszman refuses to write this as a lesson with a correct answer: Tião's caution has a wage behind it, and the film understands exactly what a wage is. It took the Grand Jury Prize at Venice. What holds it now is Romana, standing between two men who have each concluded the other is being naive.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd82cca9e9f834f935f4e056f28f7401a5004acbcd4f823ae9d69fb96a7c36db"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-red-light-bandit-1968",
+  "field": "lead",
+  "film_id": "f95ea5c9-0c52-4f30-aeee-a9dd872c9fdd",
+  "lang": "en",
+  "text": "The nickname was the newspapers' idea, and before long so is most of the man. Jorge robs the wealthy houses of São Paulo with a red flashlight, speaks to the people he is robbing in a tone none of them expect, and spends what he takes as fast as he takes it. Rogério Sganzerla shot this in 1968 and built it out of the coverage as much as out of the crime, so the figure at the center keeps vanishing into the account other people are giving of him. Ninety-two minutes, no tidiness, no apology for the mess. Its world is Boca do Lixo, and it adopts that district's opinion of respectable São Paulo, which is that the houses are worth entering and the newspapers are worth laughing at.",
+  "model": "claude-opus-5",
+  "source_sha256": "10424488b0169e323693e8eb169eaec467336efab499ea2e348f006e396b4f01"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "master-a-building-in-copacabana-2002",
+  "field": "lead",
+  "film_id": "4601c746-aa20-4e5a-b463-ab18a9c1d914",
+  "lang": "en",
+  "text": "Thirty-seven households, twelve floors, one building in Copacabana, each door knocked on in turn. Eduardo Coutinho's method is to sit down and let people talk, and the architecture does the structuring for him: lives stacked on lives, sorted by nothing but elevation. What accumulates across a hundred and ten minutes is less a portrait of Rio than a survey of what people choose to say about themselves once a camera is in the room. The anecdote already polished by retelling. The admission that arrives sideways. The solitude described as a preference. Nobody is presented as representative, and the discipline of the film is that it never cuts away to build an argument out of what it has heard. It stays in the doorway and lets the next apartment be the next scene.",
+  "model": "claude-opus-5",
+  "source_sha256": "cea797d3c5671a13254405370eb4b4cc769c8ebfd2bcd3c05d6639db2e7af972"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "silvia-prieto-1999",
+  "field": "lead",
+  "film_id": "27470dd7-40c5-4eae-97a0-93d7f51c9991",
+  "lang": "en",
+  "text": "Twenty-seven is not an age anyone treats as a threshold, which may be exactly why Silvia Prieto picks it. She resolves to change her life with the gravity most people bring to changing a haircut, and the film follows the clerical consequences: small rearrangements, acquaintances drifting through, and eventually a second woman carrying the same name, which turns a private decision into a filing problem. Martín Rejtman's comedy is structural rather than delivered. The flatness sits in the behavior, in how little anyone reacts, in dialogue that keeps declining the feeling it has just been handed. Ninety-three minutes, Argentina at the end of the nineties, nobody raising a voice. The jokes do not announce themselves. They accumulate, and the accumulation is what the film is.",
+  "model": "claude-opus-5",
+  "source_sha256": "da6a6184f4ec8c3849c2b7fa1adaa758360739b623e784120c610a9c934e18fb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "camila-1984",
+  "field": "lead",
+  "film_id": "8454b335-004f-4ca9-a59f-bd7abfb40bbe",
+  "lang": "en",
+  "text": "Two institutions had a say in whom a woman of her rank could love, and the film treats them as one mechanism. In 1847 Buenos Aires a young noblewoman and a young Jesuit fall in love; the family objects, the Church objects, and neither objection has to raise its voice to be enforced. María Luisa Bemberg is interested in permission, in who issues it and who withholds it, and in how much of a life is settled by a father and a confessor before the person living it is old enough to argue back. The period is not decoration. The household is the apparatus, and every courtesy performed inside it is also a record being kept. Camila keeps the romance small and the machinery around it enormous, which is why something so small comes to feel dangerous.",
+  "model": "claude-opus-5",
+  "source_sha256": "b505309bb6f51cd86dc4e290b6f67e7d15e13485a1dfd890143a9fcc62e269f1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "jogo-de-cena-2007",
+  "field": "lead",
+  "film_id": "aea98a8d-0c40-4ccb-9067-adedaf8be5e3",
+  "lang": "en",
+  "text": "An advertisement went into a newspaper asking women to come and tell their stories, and women came. Then actresses were brought in to tell those same stories back to the camera, seated in the same place, and Eduardo Coutinho declines to say which telling is which. The withholding is the subject. A viewer starts grading tears, listening for the seam, ruling that a story is too well-shaped to have been lived, and the ruling keeps turning out to be a guess made on very little. A chair, a stage, a hundred and five minutes of talk, and none of it static, because every second telling revises what the first one seemed to mean. Coutinho is not running a trick about documentary. He is noticing that anyone who has told the story of her life twice has already rehearsed it.",
+  "model": "claude-opus-5",
+  "source_sha256": "838b2fdb5e4deab810231e5ffb46a806076d981f92f142c04a91791166b1034f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "extraordinary-stories-2008",
+  "field": "lead",
+  "film_id": "c292166f-ebca-48bf-8a33-2bb31413eadd",
+  "lang": "en",
+  "text": "Three men, known only as X, Z and H, and three separate errands that one film insists on following at once. X walks into a small town and witnesses a violent act. Z takes over the job of a dead manager and finds a coded notebook and a map. H is hired to go down a river and investigate monoliths somebody built along the shore. Mariano Llinás runs the three in parallel for four hours and two minutes and lets narration carry most of the weight, so the thing moves at the speed of telling rather than the speed of scenes, closer to hearing three books read aloud at once than to being shown a plot. The pleasure is combinatorial. A detail dropped into one strand changes the weather in another, and the country the three cross separately is the one thing they hold in common.",
+  "model": "claude-opus-5",
+  "source_sha256": "b40454e39169c9a7d5f07e52e4482777272a00c393b76da19b313b4433af263e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "goin-down-the-road-1970",
+  "field": "lead",
+  "film_id": "381dd2c2-60f7-41ef-b1a6-4243843f738a",
+  "lang": "en",
+  "text": "Two men leave Nova Scotia for Toronto because that is where the work is supposed to be. Donald Shebib gives them eighty-eight minutes, which is roughly the natural lifespan of that assumption. Nothing collapses dramatically. The plan is simply revised downward at each retelling until it stops being a plan and becomes a description of the current week. The film pays close attention to money, to what a room costs and what a shift pays and what is left afterward, and it declines the easy comedy of provincials adrift in a big city. The two friends are not fools. Their error was believing a piece of information everybody around them believed too. Every TIFF list of the ten best Canadian films has included it, and the reason is in the talk, which sounds overheard rather than written.",
+  "model": "claude-opus-5",
+  "source_sha256": "692311bdf69e36f22041a6b55f933e0f74848098b635848a11f88d02573a2d91"
+ }
+]

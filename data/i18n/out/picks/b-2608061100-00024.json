@@ -1,0 +1,322 @@
+[
+ {
+  "entity_type": "director_pick",
+  "entity_key": "todd-phillips#joker-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《조커》는 필립스가 방향을 튼 지점이다. 저질 농담을 버리고 후줄근한 인물 연구를 택했고, 그 토대는 호아킨 피닉스의 몸과 1970년대 뉴 할리우드의 문법이었다. 그가 코미디 바깥에서도 눈길을 붙드는 이유가 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "todd-phillips#joker-folie-a-deux-2024",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《조커: 폴리 아 되》는 논쟁을 부른 뮤지컬 속편이다. 필립스는 장르를 무기 삼아 자기가 만든 흥행작과 관객의 기대를 겨눈다. 한 감독이 자신의 최대 성공을 어떻게 심문하는지 궁금하다면 이 편이 답이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "tsai-ming-liang#what-time-is-it-there-2001",
+  "field": "reason",
+  "lang": "ko",
+  "text": "차이밍량으로 들어가는 가장 수월한 문은 《What Time Is It There?》다. 타이베이의 시계 노점상과 파리로 떠나는 여자가 서로 다른 시간대를 떠돈다. 고독과 접속을 무표정하게, 그러나 다정하게 들여다보는 영화다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "tsai-ming-liang#vive-l-amour-1995",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《애정만세》에서 도시적 고립의 문법이 세워진다. 세 사람이 서로를 모른 채 빈 아파트를 공유하고, 영화는 마지막 한 숏을 향해 쌓여간다. 침묵을 견디는 그의 인내가 무엇인지 거기서 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "tsai-ming-liang#goodbye-dragon-inn-2003",
+  "field": "reason",
+  "lang": "ko",
+  "text": "정점은 《안녕, 용문객잔》이다. 문 닫기 전날 밤의 텅 빈 극장, 숨죽인 공기와 비. 영화 상영이라는 행위 자체가 함께 보던 시절을 향한 유령 같은 애가로 바뀐다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "tsai-ming-liang#stray-dogs-2014",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《떠돌이 개》는 대가를 치른 만큼 돌려주는 영화다. 롱테이크가 갈 데까지 가고, 집 없는 아버지가 타이베이의 가장자리를 떠돈다. 지속과 질감과 버팀. 이미 넘어온 사람에게만 권한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "victor-erice#the-spirit-of-the-beehive-1973",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《벌집의 정령》은 전후 스페인을 프랑켄슈타인에 홀린 아이의 눈으로 담아낸다. 에리세 특유의 나직하고 투명한 시선, 그리고 줄거리보다 침묵을 믿는 태도가 여기서 시작된다. 그의 감수성으로 가는 가장 부드러운 입구다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "victor-erice#el-sur-1983",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《남쪽》은 그의 예술을 딸 하나로 응축한다. 아버지를 숭배하고, 또 오독하는 딸. 북쪽의 빛과 말해지지 않은 그리움이 화면을 채운다. 미완으로 끝났다는 사실이 오히려 통증을 깊게 한다. 에리세가 없어서는 안 될 이유다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "victor-erice#close-your-eyes-2023",
+  "field": "reason",
+  "lang": "ko",
+  "text": "수십 년 만에 돌아온 《클로즈 유어 아이즈》는 영화와 기억, 사라진 배우를 되짚는다. 에리세의 느림에, 그리고 오래 들러붙는 이미지를 향한 집착에 이미 귀가 트인 관객이라면 이 사색적인 후일담이 값진 보상이 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "vincente-minnelli#meet-me-in-st-louis-1944",
+  "field": "reason",
+  "lang": "ko",
+  "text": "미넬리에게 다가가는 가장 온화한 통로는 《세인트루이스에서 만나요》다. 한 집안의 사계절로 짜인 구조 안에서 색채와 살림살이의 디테일을 보는 눈, 주디 갈런드의 내밀한 노래가 어우러진다. 뮤지컬이 구경거리 대신 살아본 시간처럼 느껴지는 것은 그래서다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "vincente-minnelli#an-american-in-paris-1951",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《파리의 아메리카인》은 17분짜리 거슈윈 발레로 끝난다. 뒤피와 툴루즈로트레크를 불러내는 회화적 세트 위에서 펼쳐지는 장면. 미넬리가 미술과 춤과 카메라의 운동을 어떻게 순수한 영화로 녹여냈는지 여기서 확인된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "vincente-minnelli#the-band-wagon-1953",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《밴드 웨건》은 늙어가는 스타가 자신을 다시 만드는 이야기, 그것도 무대 뒤를 훤히 아는 자의 손으로 만든 이야기다. 누아르 색이 도는 '걸 헌트 발레'와 스스로를 아는 재치는 그의 솜씨에 이미 사로잡힌 관객에게 값을 한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "werner-herzog#grizzly-man-2005",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《그리즐리 맨》은 곰에 미쳤던 티머시 트레드웰의 촬영분을 끌어와 헤어초크의 내레이션과 세계관, 곧 자연의 무심한 혼돈을 소개한다. 접근하기 쉬운 다큐멘터리라는 점에서 그의 사유로 가는 가장 순한 문이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "werner-herzog#aguirre-the-wrath-of-god-1972",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《아기레, 신의 분노》는 클라우스 킨스키가 연기한 미치광이 정복자를 아마존 강을 내려가는 뗏목 위에 가둔다. 집착과 정글의 섬망이라는 헤어초크의 비전이 최면 같은 환각의 이미지로 졸아든다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "werner-herzog#fitzcarraldo-1982",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《피츠카랄도》는 불가능한 야심을 한 번 더 밀어붙인다. 오페라하우스를 짓겠다며 킨스키가 증기선을 산 너머로 끌어올린다. 제작 과정 자체가 이야기만큼이나 전설적으로 미쳐 있었다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "werner-herzog#stroszek-1977",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《슈트로첵》은 베를린의 부적응자가 아메리칸드림을 좇아 위스콘신 시골로 흘러드는 여정이다. 정글 대신 트레일러 주차장, 그리고 마지막엔 춤추는 닭들. 헤어초크가 만든 가장 기이하고 가장 슬픈 코미디다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "werner-herzog#nosferatu-the-vampyre-1979",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《노스페라투》는 무르나우의 흡혈귀를 역병을 몰고 오는 비탄의 존재로 다시 상상한다. 분장에 파묻힌 킨스키, 두려움과 아름다움이 함께 밴 느린 애가로서의 호러.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "werner-herzog#the-enigma-of-kaspar-hauser-1974",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《카스파 하우저의 신비》는 완전한 고립 속에 자란 남자가 느닷없이 사회와 마주하는 이야기다. 실제 아웃사이더를 주연으로 세웠다. 순진함과 뻣뻣한 이성을 맞세운 헤어초크의 다정한 관찰기.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "werner-herzog#lessons-of-darkness-1992",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《어둠의 교훈》은 불타는 쿠웨이트 유전을 외계의 종말처럼 찍는다. 서사를 버리고 오직 도취적인 이미지만 남긴다. 헤어초크의 다큐멘터리 미학이 가장 오페라적이고 가장 추상적으로 치닫는 지점.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "werner-herzog#heart-of-glass-1976",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《유리의 심장》은 배우들을 카메라 앞에서 최면에 걸린 상태로 연기시켰다. 루비 유리의 비법을 잃어버린 마을 이야기가 몽롱한 트랜스처럼 흘러간다. 가장 실험적인 헤어초크.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "werner-herzog#even-dwarfs-started-small-1971",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《난쟁이도 작게 시작했다》는 왜소증 배우만으로 시설의 반란을 무대에 올린다. 혼돈과 인간의 극단을 향한 그의 취향이 일찌감치 드러난 무정부적 도발.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "wes-anderson#the-grand-budapest-hotel-2014",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《그랜드 부다페스트 호텔》은 앤더슨의 연장통을 통째로 졸여낸다. 액자 속 액자, 사탕 빛깔의 좌우 대칭, 무표정한 소동��. 그러면서 그의 영화 중 이야기가 가장 빠르게 굴러가고, 랠프 파인스의 수다스러운 컨시어지가 중심을 잡는다. 가장 친절한 입구다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "wes-anderson#moonrise-kingdom-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《문라이즈 킹덤》에서 그 양식은 다정함 쪽으로 기운다. 뉴잉글랜드의 섬을 가로질러 달아나는 두 아이. 스카우트 캠프를 디오라마처럼 짜놓은 화면과 진지하기 짝이 없는 첫사랑이, 앤더슨의 온기를 반어 없이 보여준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "wes-anderson#the-royal-tenenbaums-2001",
+  "field": "reason",
+  "lang": "ko",
+  "text": "예술적 정점은 《로얄 테넌바움》이다. 몰락한 천재 남매 가족을 동화책처럼 펼쳐놓는데, 그 정밀한 프레이밍이 진짜 슬픔을 실어 나른다. 앤더슨이 중요한 감독인 이유가 바로 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "wes-anderson#fantastic-mr-fox-2009",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《판타스틱 Mr. 폭스》는 스톱모션이야말로 앤더슨의 모국어임을 증명한다. 털 한 올까지 손으로 빚은 생명으로 떨리고, 조지 클루니의 여우 같은 매력이 실사보다 더 날렵한 강도극을 끌고 간다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "wes-anderson#bottle-rocket-1996",
+  "field": "reason",
+  "lang": "ko",
+  "text": "인형의 집 같은 정밀함이 들어서기 전, 헐겁고 햇볕에 바랜 데뷔작이 《바틀 로켓》이다. 오언과 루크 윌슨이 연기하는 아마추어 도둑들에게서 훗날의 모든 대칭 밑에 깔린 인간적인 우수가 보인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "wes-anderson#the-life-aquatic-with-steve-zissou-2004",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《스티브 지소와의 해저 생활》은 호오가 갈리는 별종이다. 단면을 잘라 보여주는 탐사선, 포르투갈어로 부르는 보위, 한물간 해양학자 빌 머리. 기발함 아래 묻어둔 우울이라는 주파수에 이미 맞춰진 관객에게만 값을 한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "wes-anderson#asteroid-city-2023",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《애스터로이드 시티》는 사막의 UFO 이야기를, 그 이야기가 만들어지는 과정을 중계하는 연극 안에 접어 넣는다. 슬픔과 연기(演技)에 대한, 형식적으로 가장 대담한 사유. 완전히 넘어온 사람을 위한 것이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "wim-wenders#paris-texas-1984",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 접근하기 쉬운 입구는 《파리, 텍사스》다. 사막에서 걸어 나온 남자가 부서진 가족 앞에 선다. 로비 뮐러가 잡아낸 네온과 하늘의 색, 라이 쿠더의 슬라이드 기타. 벤더스의 떠도는 영혼이 가장 선명하게 졸아든 한 편이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "wim-wenders#wings-of-desire-1987",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《베를린 천사의 시》는 분단된 베를린을 엿듣는 천사들을 따라간다. 흑백의 관찰에서 컬러의 갈망으로 미끄러지는 영화. 시와 공중그네 곡예사와 육체를 향한 동경이 뒤섞인 이 지점이 벤더스가 가장 멀리 팔을 뻗은 순간이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "wim-wenders#perfect-days-2023",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《퍼펙트 데이즈》는 도쿄 화장실 청소부의 조용한 하루 의식을 따라간다. 카세트테이프, 나뭇잎 사이로 떨어지는 빛. 벤더스의 관조하는 시선이 여전히 반복 속에서 은총을 찾아낸다는 증거이자, 그에게 다가가는 온순한 현대적 통로다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "wim-wenders#alice-in-the-cities-1974",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《도시의 앨리스》는 글이 막힌 작가를 미국 곳곳으로, 다시 독일로 보낸다. 길 잃은 소녀를 데리고서. 이후의 모든 작품이 다듬어갈 로드무비의 원형이 여기 있다. 내밀하고 즉흥적이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "wim-wenders#kings-of-the-road-1976",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《시간의 흐름 속으로》는 수리차를 타고 동서독 국경을 따라가는 두 남자의 세 시간이다. 대사는 거의 없다. 벤더스의 길 위 방랑이 가장 순수하고 가장 참을성 있게 표현된 형태.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "wim-wenders#the-american-friend-1977",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《미국인 친구》는 퍼트리샤 하이스미스의 리플리를 음울한 스릴러로 비튼다. 데니스 호퍼와 브루노 간츠가 마주 선다. 장르를 휘어잡는 손과 미국 영화를 향한 매혹이 신경질적이고 사적인 무언가로 바뀌는 걸 볼 수 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "wim-wenders#until-the-end-of-the-world-1991",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《이 세상 끝까지》는 꿈을 기록하는 장치를 둘러싼, 지구를 종횡하는 방대한 로드 서사시다. 야심 차고 결함투성이이며 예언적이다. 벤더스에게 완전히 홀린 관객을 위한 깊은 곳의 한 편.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "wong-kar-wai#chungking-express-1994",
+  "field": "reason",
+  "lang": "ko",
+  "text": "왕가위로 들어가는 가장 경쾌한 문은 《중경삼림》이다. 네온과 팝송, 사랑에 목마른 경찰 둘로 짜인 산뜻한 두 개의 삽화. 우울의 무게 없이 그의 스타일만 맛볼 수 있다. 처음이라면 이것부터.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "wong-kar-wai#in-the-mood-for-love-2000",
+  "field": "reason",
+  "lang": "ko",
+  "text": "정점은 《화양연화》다. 치파오 한 벌, 슬로모션의 복도, 냇 킹 콜의 노래. 그리움이 순수한 형식으로 졸아든다. 그가 왜 중요한지를 대신 말해주는 영화.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "wong-kar-wai#happy-together-1997",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《해피 투게더》는 부에노스아이레스에 발이 묶인 격정적인 연인을 따라간다. 절제 대신 날것의 열기와 포화된 색. 그의 낭만이 아릴 뿐 아니라 태울 줄도 안다는 걸 보여준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "wong-kar-wai#days-of-being-wild-1990",
+  "field": "reason",
+  "lang": "ko",
+  "text": "성숙한 스타일이 결정(結晶)된 자리가 《아비정전》이다. 표류하는 1960년대 홍콩, 시계와 거절, 안절부절못하는 한 바람둥이. 이후의 모든 것이 여기서 씨앗으로 놓인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "wong-kar-wai#2046-2004",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《2046》은 《화양연화》를 옛 연인들이 유령처럼 머무는 호텔로, 또 그 안의 SF 소설로 연장한다. 앞 영화가 남긴 상처를 알고 볼수록 더 풍부해진다.",
+  "model": "claude-opus-5"
+ }
+]

@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ang-lone-1970",
+  "field": "lead",
+  "film_id": "c2d49d2e-e86a-4232-9bf2-5fe445609f81",
+  "lang": "en",
+  "text": "A sixteen-year-old walks out of a girls' home in Jutland and turns up at her foster parents' door, where the quarrel starts almost immediately. Franz Ernst then follows Lone south to Copenhagen, through a run of rooms she cannot stay in: working-class kitchens, more comfortable middle-class ones, the long-haired underground where the rules are supposedly suspended. The friction is at least half hers. She arrives already wronged and conducts herself in a way that guarantees she will be wronged again, and the film neither excuses that nor sides with the adults who find her impossible. What it watches instead is a system of homes and placements doing its patient work on one girl who keeps walking back out of it, at an age when walking out is the only decision entirely hers.",
+  "model": "claude-opus-5",
+  "source_sha256": "41e886db925f500149db5d9ba08015f359f7670e269418f15e18b16f9793652d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "farlig-ungdom-1953",
+  "field": "lead",
+  "film_id": "e29cfc4e-cc43-49ef-9495-c08fd101e26d",
+  "lang": "en",
+  "text": "A bar fight settles the shape of Egon's next few years, and it happens in the same weeks he is falling in love. He has come from Jutland to lodge with relatives in Copenhagen, met a level-headed girl named Ruth, and kept up with a gang whose evenings end in ways his own do not have to. Lau Lauritzen Jr., whose film took the Bodil for the year's best Danish picture, gives the story 104 minutes, which is long for a delinquency plot and suggests the interest lies past the arrest. What a juvenile home does to a boy from the provinces; what relatives say across a table once the police have called; whether a sensible girl waits, and what the waiting costs her. The crime takes an evening. Everything the crime rearranges takes the rest of the film.",
+  "model": "claude-opus-5",
+  "source_sha256": "e4b7901e931400132b621028a4f061ebee05cc3d253f3ab1625e4ff36f0cabb9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "weekend-1962",
+  "field": "lead",
+  "film_id": "528d5735-c9f5-4f3f-ae1b-08bf09a09ed3",
+  "lang": "en",
+  "text": "Knud and Beth bicker the way some couples breathe, and their guests have come out for a weekend of pretending not to hear it. Jan and Ilse, Kjeld and Tove: two married pairs who understand the situation and stay out of its way, which is a form of participation whatever they tell themselves. Lars, the one man there without a wife, has no such reason for tact. He is at his best in a room he can unsettle. Palle Kjærulff-Schmidt takes 84 minutes over this and builds no plot to speak of, because the weekend is the event: the drinks, the arrangements about who sleeps where, the pause after a remark that was not quite a joke. Comfortable Danish people in 1962, penned together for two days with nothing left to discover and no decent way to leave early.",
+  "model": "claude-opus-5",
+  "source_sha256": "984b62fced5943fef53f98f8f8c419deb4817f362dd06714ead09f2235df8dc5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "be-dear-to-me-1957",
+  "field": "lead",
+  "film_id": "1f005972-e94e-4123-ad07-b3821588cb7a",
+  "lang": "en",
+  "text": "Annelise Hovmand had one asset and she knew it: an eight-year-old named Eva Cohn, on whom the entire picture is built. The child is not mistreated, which is exactly the difficulty. Her father has a business to run, her mother a career on the stage, and between them they have arranged a household in which nobody is unkind and nobody is available. So she goes looking for happiness outside it, and it is her absence rather than her presence that finally registers with them. The story was already old in 1957, and Berlin audiences took to the film that year all the same. Hovmand appears to have known it too, spending her care on scale instead: how a busy, well-appointed house looks from the height of someone who was never consulted about any of it.",
+  "model": "claude-opus-5",
+  "source_sha256": "f580765f0b692a5ed0aa8a675e76e6b7921856c3966c9ab62e7e6f4eddbfcc7d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "land-of-plenty-1983",
+  "field": "lead",
+  "film_id": "bea33535-609c-4b87-a08b-a6ab5e459165",
+  "lang": "en",
+  "text": "Knud has the ideas and the drive that farming is supposed to reward, and not the money it actually requires, and Morten Arnfred spends 106 minutes inside that gap. His wife is meant to be in it with him; the farm is a shared undertaking by description, and the film keeps circling the question of whether she agreed to this particular version of it. Agriculture is a trade where the outlay comes first and the harvest rules afterwards on whether the outlay was justified, so a man with plans and a thin margin is not reckless, exactly. He is early, and being early accrues interest. Arnfred takes his time, and the time goes where the pressure lands: on what two people can bring themselves to say about a debt at their own kitchen table, and on what they leave out.",
+  "model": "claude-opus-5",
+  "source_sha256": "b59007cb3d38a1333eca3fec847a15841a24625b9a55d6c5de9f4f314aab894b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "roger-dodger-2002",
+  "field": "lead",
+  "film_id": "d53fbb46-c10a-4354-95f2-d781b25faa1f",
+  "lang": "en",
+  "text": "A man who sells for a living has decided he can also sell himself, and his proof is a night of bar-crawling with his teenage nephew watching. Roger talks. That is the engine and very nearly the whole method: Dylan Kidd's screenplay, which took the Independent Spirit award that year, runs on a man who cannot stop narrating his own competence. The edge comes from having the theory tested in front of actual strangers instead of recited in anecdote, and from the boy absorbing it at the age when a method sounds like knowledge. The comedy sits in the distance between the claim and the result. The unease sits elsewhere: the claim is not stupid, it works often enough to keep being repeated, and its costs land somewhere the man reciting it has never had to look.",
+  "model": "claude-opus-5",
+  "source_sha256": "1f4b6336728ea1ce70ef5bfad38491e723d4117b4310a0d47dc324326f8c235e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "12-2007",
+  "field": "lead",
+  "film_id": "16f3a0ef-6c56-49c6-be02-35a409531845",
+  "lang": "en",
+  "text": "Twelve men are shut in a school gymnasium to decide whether a Chechen teenager killed his stepfather, a Russian army officer, and the room says as much as the case does. Nikita Mikhalkov takes the frame of 12 Angry Men and fills it with contemporary Moscow: the jurors speak one at a time, and what comes out is less argument than autobiography, the deliberation commandeered again and again by whoever has the floor. At 159 minutes there is room for that, and the length reads as deliberate. Flashbacks to the war arrive from outside the gymnasium and give the accused a life nobody in the room asks after. Underneath sits a question about whether law is a procedure or a temperament, and the film is not settled about which is being practised here.",
+  "model": "claude-opus-5",
+  "source_sha256": "d1101cf5a6b6a1eb3c76ca8060166591c1cfa40c7f5a5fd8a4df483fdb07af3d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "elena-2011",
+  "field": "lead",
+  "film_id": "362cedcf-c0f6-4d27-afb0-070ffd0db4d5",
+  "lang": "en",
+  "text": "A heart attack concentrates a rich man's thinking, and what he concludes is that his estate should go mostly to the daughter he barely speaks to. Andrey Zvyagintsev keeps all of it at household pace: meals, medication, a television in the next room, two people who married late and never merged their accounts. The thriller label is accurate and misleading at once, since nothing is chased and nothing accelerates, and yet from the moment the will is discussed aloud there is a mechanism turning under the routine. The performance at the centre took the European Film Award for Best Actress, and it is assembled almost entirely out of errands and patience, out of a woman competent at every practical thing who keeps her reasoning strictly to herself.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b5441baa3ffdeccdeeb5fc3c7d705bee2b6cc37d95efc85fdae9a7283488354"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "in-the-company-of-men-1997",
+  "field": "lead",
+  "film_id": "4e5456df-c84c-4245-af12-2e3283b8a668",
+  "lang": "en",
+  "text": "The plan is stated in an office, in the tone colleagues use for scheduling: find a woman who has done nothing to anyone, make her believe both of them, and leave. One of the two men means it as policy, the other as repair after being wounded by someone else. Neil LaBute lets the dialogue carry the violence, and the worst of it passes between the men themselves, in the flat vocabulary of people who spend their days sounding reasonable to each other. It took the Filmmaker Trophy at Sundance, the kind of prize a first feature earns by refusing to soften anything. The difficulty is not the scheme. It is the register: cruelty conducted in workplace English by men whose bad faith is a professional competence.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca77498925f0631abffb5544117d69aed7c12045a930ad554c253efd58fd2081"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "salyut-7-2017",
+  "field": "lead",
+  "film_id": "0ce2daeb-221f-4730-8bee-16e6c8233901",
+  "lang": "en",
+  "text": "A space station goes quiet in orbit and stays exactly where it was, dead, freezing, and still the property of the country that put it there. June 1985, and contact with Salyut 7 is gone. Vladimir Dzhanibekov and Viktor Savinykh are sent up to catch it, dock with a craft incapable of helping them do so, and start it breathing again from the inside. Klim Shipenko hangs an adventure on a repair job: the antagonists are cold, ice, a power supply and time. Because the events happened, the questions stay practical, and they are questions of procedure. How two men match speed with a tumbling mass. What frost inside a cabin does to equipment, and to the hands working it. How long anyone stays useful in a machine with nothing running.",
+  "model": "claude-opus-5",
+  "source_sha256": "1fd4dde57915ff4d060d9035cc04ad2de6b2d5857fba2683de6eb06425c2c28a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "george-washington-2000",
+  "field": "lead",
+  "film_id": "778b6e30-9935-4c9a-b99c-dea7c147b617",
+  "lang": "en",
+  "text": "The narrator is one of the children, and the odd formality of that voice is the first sign the film means to take them entirely seriously. Something goes wrong during a game in an abandoned amusement park, and afterwards a group of kids holds an agreement between them that none of them is equipped to keep. David Gordon Green gives it ninety minutes and almost no plot: long afternoons, a park nobody runs any more, the ordinary business of who likes whom and who intends to become what, all of it now conducted around a subject nobody will name. The ambitions get full weight rather than indulgence, and so does the distress, which arrives without the vocabulary an adult would supply for it. A child carrying more than he can hold gets formal, and busy, and makes plans.",
+  "model": "claude-opus-5",
+  "source_sha256": "f8ad8f0ed93321da6fdfe405a9a1d1f55a0037cffad42e401883a155a96c1cbb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "camera-buff-1979",
+  "field": "lead",
+  "film_id": "be3385b7-d9de-4e65-ad4e-29e9ac1e14c2",
+  "lang": "en",
+  "text": "The camera is 8mm, bought to film a newborn, and because it is the only one in town the local Party boss quickly finds a use for it. From there Krzysztof Kieślowski follows the education of an amateur. Filip learns that pointing a lens at his own workplace has consequences for other people, that a prize at a regional festival changes how neighbours speak to him, and that footage, once it exists, can be requested by anyone entitled to request it. Poland in 1979 keeps every one of those lessons concrete. Alongside runs the domestic bill: a wife who married a man and now lives with a hobbyist under obligation, and the child who was the reason for the camera and has become its subject. Nobody enjoying himself this much notices the hour when a pastime becomes a position.",
+  "model": "claude-opus-5",
+  "source_sha256": "634a54e0930ffc3b9b560850d80bbef7700480ccce9a21a40ba9c003eead1272"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "silver-skates-2020",
+  "field": "lead",
+  "film_id": "3bc3afc1-dcb0-411a-8066-7aaa8ca3ec99",
+  "lang": "en",
+  "text": "Every winter the canals of the Russian capital froze solid, and for weeks at a time the fastest way across the city was to put on skates and use them. Christmas 1899 in St. Petersburg: Matvey, whose father lights the street lamps and whose one possession of value is a pair of silver-plated skates, and Alice, whose father holds rank and who wants to spend her life on science, a wish that at the close of that century required a great many people's permission. Michael Lockshin gives the ice 136 minutes and treats it as infrastructure rather than decoration, a public surface lit for the season and open to anyone who can stay upright. On the frozen canals the two of them travel at the same speed, and both know the thaw is coming.",
+  "model": "claude-opus-5",
+  "source_sha256": "e5e2ddd2d4cf5a449b4f78c62f9fba08f134043d8138361f84c495dca5f22cad"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "warsaw-44-2003",
+  "field": "lead",
+  "film_id": "65e57836-203e-4457-bd00-7c7a72c839ae",
+  "lang": "en",
+  "text": "On the first of August 1944, after five years of occupation, the youngest people in Warsaw came into the streets to take the city back one building at a time. Jan Komasa is interested in their age at least as much as their cause. Teenagers were handed rifles and a district to hold, and the opening of a rising carries an elation that later accounts tend to edit out: a plan working, a flag up, a neighbourhood briefly theirs. The Soviet front is approaching from the east throughout, near enough to figure in every decision made in the city. Komasa keeps the geography tight: courtyards, staircases, a street that is not a location but a distance somebody has to cross under fire. 127 minutes with people who have not finished school.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d70e0f03d084ba74b6d70d4082dfd60406d1abbcc078babfc33ee1f9b8bf9d3"
+ }
+]

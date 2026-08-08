@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michelangelo-antonioni#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1960년 칸 영화제, 걸작 《정사》의 첫 상영은 야유와 조롱 섞인 웃음에 파묻혔다. 안토니오니와 주연 모니카 비티는 눈물을 흘리며 극장을 빠져나갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0fc445938b4e9c3207057e16cb249bef0dd45e02351b9dede814179c595f349c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michelangelo-antonioni#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《정사》 상영이 참사로 끝난 뒤, 로베르토 로셀리니를 비롯한 저명한 감독과 비평가들이 이 영화의 천재성을 옹호하는 연서 성명을 작성했다. 결국 작품은 그해 칸의 심사위원상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd2c7a67041475158b2d595bbbdd2f8bb44e6c79c64f0177ac06f992caf20d2a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michelangelo-antonioni#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "배우 모니카 비티와의 연인이자 창작 동반자 관계에서 이른바 '소외 3부작'이 나왔다. 《정사》, 《밤》, 《태양은 외로워》. 길게 머무는 숏과 감정적 거리두기라는 그의 서명이 여기서 확립된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "32b4bf19155f9cbc3f708e94dc74705f12c52654815cc6af8f0a803a53096ad9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michelangelo-antonioni#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "첫 컬러 영화 《붉은 사막》(1964)에서 안토니오니는 풍경 자체에 물감을 칠했다. 나무는 흰색으로, 풀은 노란색으로 분무해 주인공의 심리적 고통을 화면에 옮겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "24aaa521456739a38a0157bf2f4977e8a7c6eb16f5c228c287e44558bb1ca11b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michelangelo-antonioni#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "색을 조작하려는 집착은 《욕망》(1966)의 런던 촬영에서 정점에 이른다. 그는 메리언 파크의 거리와 잔디를 더 밝은 초록으로 칠하게 했다. 초현실에 가까운 화면을 얻기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "130ca1585cee13c7c6a8a14a7831fd8440921b9ba5e39e335bee6512a5c7a9e5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michelangelo-antonioni#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《욕망》은 아무도 예상 못 한 흥행 대성공을 거뒀다. 감독상과 각본상 오스카 후보에 올랐고, MGM과 세 편짜리 고액 계약까지 따냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9777b891974f9a0a5dc7b1972b141b6667062e2a0dce241cd19bf5c327cecc9b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michelangelo-antonioni#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미국에서 《자브리스키 포인트》(1970)를 찍는 동안 그는 FBI의 상시 감시를 받았다. 이 제작이 반미 폭동과 체제 전복 활동을 부추긴다는 의심 때문이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8cc2cd1d03d4e508c8cd2810e414e1774e7036b78621d9ac4fc41261cede246a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michelangelo-antonioni#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《자브리스키 포인트》에는 체포된 학생 역으로 젊은 해리슨 포드가 나온다. 다만 안토니오니가 그의 장면을 거의 전부 잘라내는 바람에, 포드는 배경에 잠깐 스치는 존재로 남았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c38f0e64e4320775db245c74034fbd4de2911c016081c41000924e70b018de06"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michelangelo-antonioni#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1972년 마오쩌둥 시대의 중국 정부가 그에게 다큐멘터리 촬영을 제안했다. 그러나 완성된 《중국》을 본 당국은 대규모 국제 선전 공세를 펴며 그를 '반중국 광대'로 몰아붙였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c35a6d7d980945a02d66a4e8232d447af68efdf33392a8a1bbfe3a3213bbe2d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michelangelo-antonioni#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1980년작 《오베르발트의 비밀》에서 그는 초창기 비디오 기술을 앞장서 실험했다. 텔레비전용 비디오 카메라로 찍은 뒤 35mm 필름으로 옮긴 것인데, 색을 전자적으로 주무르기 위한 선택이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cfeb482e8930b7df7e708cce159bf7a5fccc2c28fe7ba1e9244861292cf7db7c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michelangelo-antonioni#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화적 소외의 대가가 1984년 뜻밖의 일을 했다. 이탈리아 록 스타 잔나 난니니의 히트곡 'Fotoromanza' 뮤직비디오를 연출한 것이다. 반응은 폭발적이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e50f98ade20d693d59d49c3d0a78a3ea6137d36a3bbaa90f5213d024ec2a9092"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michelangelo-antonioni#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "완성보증사가 몸이 불편한 감독에게 《구름 저편에》의 보험을 들어주기를 거부했다. 그래서 독일 감독 빔 벤더스가 예비 연출자로 고용되어 영화의 프롤로그와 에필로그를 찍었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1be7efcf054ef910e1b340b75e1bcc502b1bb15215f8e9db1214f4017d4a3f9f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michelangelo-antonioni#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1996년 할리우드는 말을 잃고 휠체어에 앉은 이 감독에게 아카데미 공로상을 안겼다. 트로피를 건넨 사람은 1975년작 《여행자》의 주연 잭 니콜슨이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "991698034a172552a80ee53d94cfeb372795f8ac4f708c64e740dfac6d470665"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michelangelo-antonioni#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《여행자》에는 영화사에서 가장 유명한 롱테이크 중 하나가 있다. 7분 동안 끊기지 않고, 카메라가 창문의 쇠창살을 통과해 나가는 시퀀스. 자이로스코프 케이블에 매다는 특수 카메라를 직접 설계해 만들어냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d61c89db360db87a6c2aa9cb5c2c2ba7009dcfd0b15e86e4eb9515551c12cff9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michelangelo-antonioni#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그림에도 능했던 그는 말년에 유럽 여러 화랑에서 수채와 아크릴 추상화를 전시했다. 색이 강렬한 그 연작의 제목은 Le Montagne Incantate(마법에 걸린 산들)였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8cea03fd7dbd12abd5aee5ac030d73d3888a0a1d9e1b42dfc992c10a2d1a0530"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michelangelo-antonioni#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1982년 칸에서 《어느 여인의 결정》은 35주년 기념상을 받았다. 반면 미국 비평은 혹평 일색이었고, 이후 수십 년이 지나서야 제대로 된 극장 개봉이 이뤄졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ea930c1a3de0598b90c1e271f3553ca2877d93508058d31e90d721bbe6e97639"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michelangelo-antonioni#23",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2007년 7월 30일, 안토니오니는 로마 자택에서 94세로 눈을 감았다. 놀랍게도 유럽 예술영화의 또 다른 거인 잉마르 베리만이 세상을 떠난 바로 그날이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b81b3bb7082c9d1d38b5e41d28b5a6ea67f6b0067474063c775eb557d67940a6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "miguel-gomes#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "작가 영화를 만나기 전, 리스본에서 보낸 젊은 날의 고메스는 스포츠 기자나 만화가가 되는 꿈을 꿨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d2dd09963519015bfd96400e08c1db16b5e7561abcc471fd8c5e08c477ba3ff6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "miguel-gomes#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "출발점은 연출이 아니었다. 1996년부터 2000년까지 그는 포르투갈 일간지 Público에서 영화 비평을 썼고, 날카롭고 시네필다운 글로 이름을 알렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e14f7d7baa87429017e7c83c1a421a9959b6e6482943b47f69895ea440c4aa5f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "miguel-gomes#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "리스본의 국립연극영화학교에서 공부했다. 그의 영화관을 결정적으로 흔든 것은 포르투갈의 거장 주앙 세자르 몬테이루, 규칙을 깨뜨리는 그 괴짜 영화들이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "72b6402adb767b046d3d918eaf7db4b379c52452ed8edd80db0faf64ee38d705"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "miguel-gomes#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2008년 그를 알린 《8월의 나날들》을 찍기 직전 기존 투자가 무너졌다. 고메스는 제작을 접지 않았다. 대신 할 일 없이 대기하던 스태프와 시골 주민들에게 카메라를 돌렸고, 다큐와 픽션이 뒤섞인 그만의 방식이 그렇게 우연히 태어났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "176391928bbd6f6e61efa9cf1882e973971f05bdd9cf0f7bf71dbafb4b7bc880"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "miguel-gomes#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 제4의 벽을 수시로 허물며 감독으로서 자기 권위를 스스로 조롱한다. 《8월의 나날들》에서 자기 영화를 어떻게 찍어야 할지 몰라 마비된 무능한 연출자로 직접 출연한 것이 대표적이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "04bc19167f214fadc277a5ea4724c9f3c5f76f844df58e737cb8361edf1336b2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "miguel-gomes#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "6시간짜리 3부작 《천일야화》(2015)를 지으면서 고메스는 직업 기자들로 이뤄진 '중앙위원회'를 꾸렸다. 유럽 부채 위기의 긴축 정책이 낳은 기이한 실화들을 포르투갈 전역에서 긁어모으는 일이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c5127e775121a49981295daf5635be49187cfdcf170c88cf755ea941499fa0b4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "miguel-gomes#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《천일야화》의 제작은 걷잡을 수 없이 뻗어나갔고, 현실에 그때그때 반응했다. 완성된 각본 없이 꼬박 1년을 찍었고, 기자들이 물어온 이야기를 매주 초현실적인 삽화로 바꿔 나갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b1459d2f28abe12577d71067e14d736dda42fef6943e33fed0ce7975bf0fa586"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "miguel-gomes#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "호평받은 2012년작 《타부》는 16mm와 35mm 흑백으로 촬영됐다. 후반부에는 대사가 한마디도 나오지 않는데, 같은 제목을 단 무르나우의 1931년 무성영화에 바치는 구조적 헌사다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7e8b9c0723309f32589217b77c7c39f4c44b4220e9a5e8f147e9ed04fddacded"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "miguel-gomes#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "딱딱한 인간의 질서 속에 동물을 밀어 넣는 초현실적 취향이 있다. 《타부》의 우울한 악어, 《천일야화》의 텔레파시를 쓰는 개, 너무 일찍 울었다는 이유로 재판정에 서는 수탉.",
+  "model": "claude-opus-5",
+  "source_sha256": "19e9f3ed1c144c6009c57cae25b83890371407535ea95505797116e3a8200f8b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "miguel-gomes#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "프랑스 감독인 아내 모린 파장데이루와 자주 함께 일한다. 두 사람이 공동 연출한 《추구아 다이어리》(2021)가 가장 널리 알려진 결과물이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b36351fcb687fad29b9b110dd5664d6f19d852d6c2ed3625f834e1d9eec6b05f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "miguel-gomes#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《추구아 다이어리》는 2020년 포르투갈의 강력한 코로나19 봉쇄 기간에 구상되고 촬영됐다. 배우와 스태프가 신트라의 시골 저택 한 채에 함께 격리된 채로.",
+  "model": "claude-opus-5",
+  "source_sha256": "931d1a8b5743d701638f9bba71c1a5bdbeb21ba056c2b17f9905e3e05da9db75"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "miguel-gomes#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "봉쇄가 안긴 방향 감각의 상실을 반영해, 《추구아 다이어리》는 처음부터 끝까지 시간을 거슬러 전개되도록 짜였다. 포르투갈어 원제 Diários de Otsoga의 'Otsoga'도 8월을 뜻하는 'Agosto'를 거꾸로 쓴 말이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "25032fda11df79053ba221e3e4ad94aafdebc588bd5f69d7b8770044ba0664fb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "miguel-gomes#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "원격으로 연출을 이어간 《그랜드 투어》의 이 기묘한 제작 과정은 결국 2024년 칸 영화제 감독상으로 보답받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f34abec542331906ba409001e92d3eae67f8622adb4c0d17fe651dfee9edb19b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "miguel-gomes#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "촬영지에서 만난 비전문 배우를 그대로 기용하는 버릇이 있다. 아르가닐 산간에서 만난 동네 라디오 DJ를 《8월의 나날들》의 주요 배역에 앉힌 것처럼.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ab3e900acf74dfad0aa765b5eec206e81a32470577d006ddf18a93430a4e39b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "miguel-gomes#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "데뷔작 《당신이 마땅히 받아야 할 얼굴》(2004) 이래 고메스는 O Som e a Fúria와 긴밀히 작업해왔다. 리스본의 이 독립 제작사는 오늘날 포르투갈 예술영화의 심장이 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c77d2edf69ea06dc2d9b4f50f943910e14ee16c1a7dae0b5bc51dfe9e2fd1fb4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "miguel-gomes#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "전통적인 시나리오 작법은 적극적으로 거부한다. 촬영과 나란히 각본을 써야 현장의 기분, 사고, 날씨까지 이야기 안으로 들어온다는 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "be8b2dea58e8bb80c1ab52db2191d45ae1f12a6dd96ad45a94d44711b5e9d951"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "miguel-gomes#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "데뷔작 《당신이 마땅히 받아야 할 얼굴》은 두 토막으로 갈라지는 기묘한 동화다. 사실적인 뮤지컬 코미디로 가다가 돌연 폐소공포적 환상으로 넘어가는데, 거기서는 다 큰 남자들이 보이스카우트 복장을 하고 터무니없이 엄격한 규칙 아래 산다.",
+  "model": "claude-opus-5",
+  "source_sha256": "468938c391b1fff84c4142f4a37ba00bbf70dd1bb935518c48871b19c2c3c905"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "miguel-gomes#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "편집자 텔모 추후와 오래 호흡을 맞춘다. 이 뛰어난 편집자는 고메스의 영화를 자를 뿐 아니라 각본을 함께 쓰고, 때로 배우로 출연하기도 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7908c54033933443688baf4f7ad9b20f0cb551ac6674e85a3b794c2c2a5bf590"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "miguel-gomes#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그의 영화에는 소설을 읽는 듯한 문학적 내레이션이 짙게 깔린다. 화면에 놓인 사소한 이미지와 이야기의 서사시적 규모 사이에, 의도된 아이러니의 거리를 벌리려는 장치다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1838c103a7f9211441cc4e2167236be133a4db4fd9bfec71df0e0cf1fccb3674"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "miguel-gomes#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "고답적인 유럽 영화제의 총아라는 평판에도, 고메스는 자기 목표가 대중적이고 재미있는 영화라고 못 박는다. 포르투갈 노동계급의 일상적 기쁨과 어이없음을 담아내는 영화 말이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e7082c235c75c73d6b49133f18026c976dffd3ac82787a4efdacb2c0ec078a09"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "na-hong-jin#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2005년 단편 《완벽한 도미요리》는 기묘하다. 요리사가 도미를 정성껏 손질하는 동안 정작 피 흐르는 제 상처는 거들떠보지도 않는다. 이 작품이 미장센단편영화제 최고상을 받으며 그의 경력이 시작됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d368779abaff849e8f1ce1670bb0d1dec035ded444c802ebd80c3ca7b1d24c5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "na-hong-jin#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《추격자》의 악인은 실존 연쇄살인범 유영철에게서 왔다. 다만 그는 도입 몇 분 만에 범인의 정체를 밝혀버리며 형사물의 공식을 뒤집었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "df610b49167492a510a51b38028b250b4bb926815f67ae716ba0a05958731ba3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "na-hong-jin#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《추격자》가 미국 극장에 걸리기도 전에 워너브러더스가 100만 달러를 주고 영어 리메이크 판권을 사들였다. 레오나르도 디캐프리오 주연을 염두에 둔 기획이었지만, 끝내 개발 단계를 벗어나지 못했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "728bd409ba0f0c9d22a57665ae83208c24cc43a0a15b2eb0b05abea17b776a45"
+ }
+]

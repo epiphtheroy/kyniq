@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-greatest-show-on-earth-1952",
+  "field": "lead",
+  "film_id": "2ef78111-4d0f-4b6b-a211-27df6cac440a",
+  "lang": "en",
+  "text": "A trapeze act is also a labor dispute, and this one gets settled in midair while a paying crowd watches. The manager's arithmetic is simple: a profitable season requires a star, a star requires the center ring, and the woman who fought her way to that ring is expected to step down for him. Her answer is to compete, and the courtship that follows is conducted as escalation, each raising the risk to shame the other. The 152 minutes are the point. Cecil B. DeMille spends them on machinery, canvas going up, the trains, the payroll, the crowd being handled, so that the rivalry plays out inside a working economy rather than a private drama. Academy Awards for editing, for direction, and for color costume design describe the picture fairly: it is an operation, filmed with an operator's respect.",
+  "model": "claude-opus-5",
+  "source_sha256": "e334c075b3b84f6977dbe78cff124ca865e15f7ba0f360c05de27f34894d4075"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "elmer-gantry-1960",
+  "field": "lead",
+  "film_id": "a84f975f-3f43-4700-aa41-ab66fe7738dd",
+  "lang": "en",
+  "text": "The pitch comes first, and whether belief follows is the salesman's problem rather than the buyer's. Elmer Gantry sells religion, and himself along with it, to 1920s America, tents going up outside town. Richard Brooks adapts Sinclair Lewis and builds the thing as a merger: a roadside evangelist has a following and no showmanship, a charlatan has showmanship and no following, and what they agree to is commercial before it is anything else. It does not stay commercial. Brooks films the collection plate, the counted house, the timing of a testimony, until the question stops being whether the man believes and becomes whether belief was ever the product. The lead performance took an Academy Award, the adaptation was honored as well, and the National Board of Review put the picture among its ten for the year.",
+  "model": "claude-opus-5",
+  "source_sha256": "4902a9050e393a60f438d519cb81bd9ebac1f597755ceb2269a34dd757de157b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "cul-de-sac-1966",
+  "field": "lead",
+  "film_id": "c887182b-ac88-4fb3-a3df-410db17b548a",
+  "lang": "en",
+  "text": "Two wounded gangsters arrive at a remote castle expecting to hide, and find a household stranger than they are. A gun works only when the people at the other end of it behave predictably; the frail man and his wife do not. Roman Polanski shot this in Britain in 1966 and let the genre come apart on purpose. The siege keeps stalling into farce and then hardening into something colder, because the hostages prove more unsettling than the men holding them, and the intruders have nowhere else to be. Comedy and menace are not alternating here. They sit in the same shot, often on the same face. What is at stake is small, absurd, and entirely real: whose house this is. It took the Golden Bear. 112 minutes in a house where the balance of power resets about every ten.",
+  "model": "claude-opus-5",
+  "source_sha256": "c819a13f4d12fba0ee36d606b5bc473554a0443677d09c63995b647a5a14958d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "seems-like-old-times-1981",
+  "field": "lead",
+  "film_id": "a2fea0ee-0d22-4f54-95b0-f5b93fbed1f3",
+  "lang": "en",
+  "text": "A house full of law-enforcement guests, a lawyer hostess, and somewhere out of sight the ex-husband she has agreed to hide. He is wanted for a bank robbery he did not commit, and his instinct on being accused was to go to the one person legally equipped to help him and personally guaranteed to be furious about it. The machinery from there is doors, timing, and a man moved from room to room while dinner proceeds on schedule. Jay Sandrich keeps the pace domestic rather than frantic across 102 minutes, and the comedy comes from a household with rules absorbing someone who can follow none of them. The Golden Raspberry it collected for supporting work is a strange souvenir for a picture built this tidily.",
+  "model": "claude-opus-5",
+  "source_sha256": "4242b14be8d6b209ddc9b5dce7b61c622b93621564b5cc037bec3fcfa92e02ef"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hobson-s-choice-1954",
+  "field": "lead",
+  "film_id": "764ffca0-f4de-45d2-9dfb-23058a7d69c4",
+  "lang": "en",
+  "text": "A widower has done the arithmetic on his three daughters and decided that marriage is an expense he can decline to pay. The settlements are the objection; affection does not enter the ledger. David Lean made this in 1954 in a comic register, and the situation is a plain asymmetry: a man with money and authority against three women with neither, who therefore have to be cleverer than he is. Outsmarting a father is not the same as defying him. It takes patience, and the film is interested in the patience. Lean shoots the household as an economy, who holds the purse, who can be made to sign what, how quickly an arrangement reorganizes once the old man has been proved wrong about something. It took the Golden Bear. 108 minutes, and the comedy is dry enough to pass for observation.",
+  "model": "claude-opus-5",
+  "source_sha256": "51c7c4110abb6b52a296b43fcd9caa0aefdbcae9f5990054e9c56efbf7318fd2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "music-box-1989",
+  "field": "lead",
+  "film_id": "fbd91ad9-560f-40a9-927c-f1ef9413bc10",
+  "lang": "en",
+  "text": "The client is her father and the charge is war crimes, and she takes the case anyway, which is the decision the rest of the film follows from. A defense lawyer is trained to doubt the prosecution's account; this one also has to measure how much doubt she can afford to spend on her own side of the table. Costa-Gavras made it in the United States in 1989 and treats the courtroom as a records problem: documents, translations, witnesses whose memories are old and whose credibility is the entire argument. The thriller machinery is real, but the pressure is applied off the record, between sessions, in the ordinary hours a family spends together. It took the Golden Bear, and the lead performance took an Academy Award. 124 minutes of a professional refusing to look away from her own case file.",
+  "model": "claude-opus-5",
+  "source_sha256": "579c81009afb702b0e404bbd7c71c086ca2bc719587c6a8eea816dbed5f0647f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-canterbury-tales-1972",
+  "field": "lead",
+  "film_id": "33d827ac-e77e-40e0-9c33-f5732baf699c",
+  "lang": "en",
+  "text": "Chaucer turns up inside his own book, pen in hand, glimpsed between the tales as though someone had to be held responsible for them. Pier Paolo Pasolini films the rest as bodies first: markets, taverns, weather, faces cast for what they look like rather than what they can do. The medieval material is not handled as heritage. It is handled as gossip that happens to be centuries old, bawdy and cruel and funny in whatever order the tales fall. The credits are a mismatch nobody tries to reconcile, English stories and Italian dialogue and a French production, released in 1972 as I racconti di Canterbury. It took the Golden Bear. 111 minutes of medieval England spoken in the wrong language, which turns out to suit it.",
+  "model": "claude-opus-5",
+  "source_sha256": "3de0b34777148338be7840a92c9a88544621ae7edb7d17548e94e2623735420a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-broadway-melody-1929",
+  "field": "lead",
+  "film_id": "d9169e56-6e7d-4a20-a771-c2f88ac33ca4",
+  "lang": "en",
+  "text": "In 1929 the equipment for recording sound was new enough that a film about a stage act was also a demonstration of the machinery. Two sisters bring a vaudeville routine to Broadway, where a friend needs them for a number in a producer's show, and the romantic arithmetic is complicated by a suitor with money and society behind him. The plot was not new even then. What holds attention is the seam: performers trained to reach the back of a live house learning to work at the scale a microphone wants, numbers staged as though a crowd were present and recorded as though none were. Harry Beaumont directed, and the Academy's record for the picture covers direction, the lead actress, and Best Picture. 101 minutes made while the form was still being worked out in public.",
+  "model": "claude-opus-5",
+  "source_sha256": "c4d0ec8ea431e9bea85bc263e42592250e59b8979ae2bd9be33f534c981a7265"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-milk-of-sorrow-2009",
+  "field": "lead",
+  "film_id": "6af26575-870f-4270-8a4c-866b47ec109d",
+  "lang": "en",
+  "text": "Fausta believes she carries her mother's fear in her body, passed to her through milk, and the film takes the belief entirely seriously. The illness has a name and an etiology: it comes to the children of women raped during or soon after pregnancy, and it is understood as an inheritance rather than a symptom. Then the mother dies. Claudia Llosa keeps the register domestic, households and errands and work done in other people's houses, so the terror stays where Fausta keeps it, internal and mostly unspoken, while ordinary obligations continue regardless. Released in 2009 as La teta asustada, it took the Golden Bear, an Academy Award for international feature, and the APRECI prize for the year's best Peruvian film. 94 minutes, and the fear never has to be explained to be legible.",
+  "model": "claude-opus-5",
+  "source_sha256": "39ec378dadb562c30c11d109f0e3c4da2a029a2b85a950861187b23690417878"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dry-summer-1963",
+  "field": "lead",
+  "film_id": "b9decb08-ab22-413a-a3c2-95476d6bad46",
+  "lang": "en",
+  "text": "A tobacco farmer diverts the water that feeds his neighbors' fields onto his own land, and that is the whole of the plot. Everything after it is consequence. Metin Erksan shot this in Turkey in 1963 and gave himself ninety minutes, barely enough for a grudge to ripen and exactly enough for the landscape to argue the case: parched ground, a spring, the visible evidence of who is taking what. What the man does is at first entirely legal, a right he technically holds, and the film is patient about the distance between a legal act and a criminal one. The neighbors have no answer that does not cost them something. Susuz Yaz took the Golden Bear and went forward as Turkey's submission to the Academy.",
+  "model": "claude-opus-5",
+  "source_sha256": "3bed7e6e8fb3b65e0f55d20f8c1315815290897d1346135dfea42570ee687df6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "buffalo-bill-and-the-indians-or-sitting-bull-s-history-lesson-1976",
+  "field": "lead",
+  "film_id": "b6197dbc-6703-4877-8b2b-2dc2e7ae814e",
+  "lang": "en",
+  "text": "Sitting Bull agrees to appear in a Wild West show and perform his own history nightly for ticket buyers. He arrives with intentions of his own, involving the President and General Custer, and the show's proprietor, a man who has built a business out of being himself, finds that a hired legend is harder to direct than an employee. Robert Altman staged this in 1976 as a backstage operation: rehearsals, billing, payroll, an encampment of people manufacturing the frontier a few yards from where the audience will sit down. The talk overlaps, and the important lines are often the half-heard ones. It took the Golden Bear. 123 minutes in which the West is entirely a production, which is the joke and also the accusation.",
+  "model": "claude-opus-5",
+  "source_sha256": "28e729f11c46b6b1236c846739db7da84a71c681e8fc37898febea74b4e17e74"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "first-name-carmen-1983",
+  "field": "lead",
+  "film_id": "1a3622e6-6532-4e25-ada6-4ec8cb021b3a",
+  "lang": "en",
+  "text": "Eighty-five minutes hold a bank, a robbery in preparation, a woman inside a terrorist cell, and the policeman posted to guard the money she wants. The attraction between those two is the problem the film sets itself and then declines to solve the way a thriller would. Jean-Luc Godard is not making a heist picture. He is filming what happens to a heist when the obligations of the genre, suspense and a plan and a schedule, are treated as material to interrupt rather than deliver. Sound slips out of alignment with sense. Scenes end before they finish. The romance is real and simultaneously a remark about romance, which sounds unbearable and mostly is not. Prénom Carmen took the Golden Lion in 1983, short and fast and openly uninterested in making the crime add up.",
+  "model": "claude-opus-5",
+  "source_sha256": "6313f0eca8f0648cae34d2af950daf8dee930ef45b21625246bdf0f8a0540488"
+ }
+]

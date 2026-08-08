@@ -1,0 +1,82 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mud-2013",
+  "field": "lead",
+  "film_id": "6937a72e-732e-4c89-9bbb-35a7bddadfbb",
+  "lang": "en",
+  "text": "Two boys row out to an island in the Mississippi and find it already occupied. What follows, for a long stretch, is errands: messages carried across the water, food smuggled out of kitchens, a secret kept from parents who have troubles of their own with love and property. Jeff Nichols takes 130 minutes over a premise a thriller would spend forty on, and the extra time goes into belief — how completely a teenager will act on a stranger's account of himself, and how long that account can bear weight. An armed family is coming; the film keeps them at the rim of the frame and lets the river town fill the middle. The pleasure is in watching boys do adult work badly and seriously, in boats, in daylight, with school somewhere in the background.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6da24018376bb968397b182a3a8a88fc449d0f88589c1f28dc031299fda0ce8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "jukdo-surfing-diary-2020",
+  "field": "lead",
+  "film_id": "69ffb3ce-c6c4-4f0a-8322-8485662778f7",
+  "lang": "en",
+  "text": "Jukdo Beach became a place people go to surf, and the season that made it popular is also the season that wears it out. Soo-jeong is camping there. Jeong-yong left a long time ago and has come back, and the water is small enough that the two of them will meet in it. Around them the heat builds, the crowds arrive, and Bi-joo, a surfer, reaches the point where leaving is settled before anyone has finished asking why. Lee Hyun-seung spends 106 minutes on people who arrive and depart at a shoreline that stays where it is. Little is announced. Talk happens while boards are being carried, while a set is awaited, while someone dries off. A holiday town looks different from the inside, and the film stays inside.",
+  "model": "claude-opus-5",
+  "source_sha256": "00ff01cda936cc84675650dd8a543ead1eb4311f0144df3688a1249fb0bfd8d7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-guernsey-literary-potato-peel-pie-society-2018",
+  "field": "lead",
+  "film_id": "6abd7381-1e53-4b3b-93b5-2b81e5efc50e",
+  "lang": "en",
+  "text": "A writer comes to Guernsey for material and finds a reading group that formed while the island was under German occupation. Mike Newell runs two things at once: the courtship comedy of a Londoner among islanders who have decided in advance what she is, and the slower business of what people did to and for each other during years no visitor witnessed. 124 minutes, much of the middle given to talk in kitchens and at meetings, which suits it. Juliet's difficulty is professional before it is personal — she wants an article, and the people she wants it from have reasons not to supply an ending. The film is fond of its eccentrics without pretending the occupation was a charming inconvenience that gave everyone something to read.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae404b578e64b12271fb1c5c47b041ab69ea155bcbe77f92e1dd9739b1c772d5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "meet-me-in-venice-2015",
+  "field": "lead",
+  "film_id": "6e6d2474-145c-4f4f-8f04-8ce8f7c8fece",
+  "lang": "en",
+  "text": "Mauro last saw his daughter when she was three; she is grown now, Dutch, and has come to Venice to meet him. He is a musician who spent the intervening decades elsewhere, and his notion of hospitality is not a few days of sightseeing but a route — the old Orient Express line, east, as far as Istanbul. Ninety minutes for a reunion and a journey is tight, and the compression shows: there is no time to work anything through properly, only to keep moving and see what surfaces between stations. Eddy Terstall lets music handle introductions that conversation cannot. What Liza wants from the trip stays unsettled far longer than the itinerary does, and the film cares more about the awkwardness of a stranger who is also a parent than about the cities going past.",
+  "model": "claude-opus-5",
+  "source_sha256": "78ac42e3a4666f82a3182262b7f0d3464e1e3f01e0404446a361c1707418f578"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "django-2017",
+  "field": "lead",
+  "film_id": "70472352-5653-488a-9c8e-9052d3d33e86",
+  "lang": "en",
+  "text": "1943, and a famous name in Paris music is still playing to a city that belongs to someone else. Étienne Comar treats Django Reinhardt's situation as an occupational one before it is a historical one: engagements, a band whose living depends on them, an instrument that has to travel wherever its owner goes. Then the leaving. The film gives 117 minutes to a subject whose entire argument is made in performance, and it lets the playing run at length rather than in polite samples under dialogue. The flight out of the city is filmed in practical terms — the logistics of moving a man people recognise. What made him valuable inside Paris is precisely what makes him difficult to hide outside it.",
+  "model": "claude-opus-5",
+  "source_sha256": "66900b70440e44183d26a283ca4e4eb646083d6d4270e2f04a29d77b2c2720e6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "matt-and-mara-2024",
+  "field": "lead",
+  "film_id": "7068aed3-8b6c-4c7c-b12b-be126f6a1b5d",
+  "lang": "en",
+  "text": "Eighty minutes, and most of them go to conversations that are also negotiations neither party will name. Mara teaches creative writing; her husband makes experimental music; Matt, a writer she knew before, wanders onto her campus one afternoon with no particular business there. Kazik Radwanski keeps the camera close and the situations plain — an office, a seminar room, a corridor, then a highway, once a promised lift to a conference falls to the wrong man. Nothing is declared. The interest lies in how much can be conducted through professional courtesy: the flattery available to two people who talk about books for a living, the exact length of a pause before an answer. The film would rather sit inside an unresolved silence than hand either of them a decision.",
+  "model": "claude-opus-5",
+  "source_sha256": "ab47f6a7c39390a63f1922b24f9fb9a2efbafb5414daacc0a3747d604bd9b8de"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sleep-tight-2011",
+  "field": "lead",
+  "film_id": "70969a5a-4751-4c80-844d-0e250540627e",
+  "lang": "en",
+  "text": "A concierge holds the keys to every flat in the building and knows the hour each tenant leaves for work. César is unhappy in the manner of a man who has concluded that other people are hoarding something, and an upper-class Barcelona block gives him a great deal of access with which to check. Jaume Balagueró tells it from behind the desk rather than from the apartments above, which removes the usual pleasure of not knowing and substitutes the harder one of knowing early. 101 minutes of post, lifts, bins and good mornings, arranged so that ordinary courtesy reads as method. The building is the whole world here, and its residents keep cheerfully surrendering the small details that make a stranger's day easier.",
+  "model": "claude-opus-5",
+  "source_sha256": "891f3b5a0e91a9bedcaa8bbf0194c41203dbd38c4db4444d98e97858a7c140f3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "jeong-sun-2024",
+  "field": "lead",
+  "film_id": "7310ad91-0587-4bfa-a165-4c2f1f57f7dc",
+  "lang": "en",
+  "text": "Jeong-sun keeps her life uncluttered and gives the food factory nothing to talk about, until a colleague starts paying attention. Young-soo is friendly, and the courtship fits into the margins of a working day, in whatever gaps a production line allows. Jeong Ji-hye keeps the labour in view — the repeated task, the shift that pauses for nobody — so that a private happiness registers as the one thing on the premises belonging to a single person. Then a phone is held up in a bedroom, and the film lets that sit. 105 minutes, unhurried, and the weight falls on a woman whose quietness was her standing among people who see her every working day. Nothing in the arrangement is unusual, which is what makes it hard to watch.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca9abac179e47c29945591a385bf48a7585b444078596338db1b7b5bf28c4a82"
+ }
+]

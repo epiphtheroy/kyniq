@@ -1,0 +1,322 @@
+[
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jean-pierre-melville#le-doulos-1962",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《르 도둘로스》는 멜빌이 만든 밀고자 스릴러다. 배신에 배신이 겹치고, 심문이 이어지고, 중절모와 레인코트 아래서 충성이 계속 뒤바뀐다. 훗날 알랭 들롱과 함께 완성할 갱스터 원형의 첫 설계도.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jean-pierre-melville#leon-morin-priest-1961",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《레옹 모랭 신부》는 예외적인 작품이다. 전시의 밀실극. 미망인과 젊은 신부가 신앙과 욕망을 두고 겨룬다. 군더더기 없고 은밀하며, 멜빌의 절제가 범죄물 밖에서도 통한다는 것을 보여준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jean-renoir#grand-illusion-1937",
+  "field": "reason",
+  "lang": "ko",
+  "text": "르누아르에게 가장 쉽게 들어가는 문은 《위대한 환상》이다. 1차 대전 포로수용소를 배경으로 계급의 연대가 국경을 넘는 이야기. 무성영화나 초기 유성영화에 적응할 필요 없이, 따뜻함과 인간애가 바로 전해진다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jean-renoir#the-rules-of-the-game-1939",
+  "field": "reason",
+  "lang": "ko",
+  "text": "르누아르의 정점은 《게임의 규칙》이다. 시골 별장에서 벌어지는 소극(笑劇)에 딥 포커스 연출이 층층이 쌓이고, 주인과 하인이 서로를 비춘다. 도덕적 너그러움과 형식적 장악력을 한꺼번에 드러내는 영화.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jean-renoir#boudu-saved-from-drowning-1932",
+  "field": "reason",
+  "lang": "ko",
+  "text": "장난기 많고 무정부적인 르누아르를 보려면 《익사에서 구조된 부뒤》다. 물에서 건져낸 부랑자 하나가 부르주아 가정을 쑥대밭으로 만든다. 초기 유성 코미디이면서, 사회적 위계를 뒤집어 보는 그의 눈이 이미 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jean-renoir#la-bete-humaine-1938",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《인간 야수》의 르누아르는 어둡다. 졸라를 각색해 질투와 숙명을 기관차와 조차장 사이에 풀어놓는다. 코미디에서 침울한 시적 리얼리즘까지, 그의 폭이 여기서 증명된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jean-renoir#french-cancan-1955",
+  "field": "reason",
+  "lang": "ko",
+  "text": "이미 빠져든 관객에게 주는 보상이 《프렌치 캉캉》이다. 물랑루즈에, 그리고 스펙터클 자체에 바치는 르누아르의 화려한 테크니컬러 연서. 흑백의 거장이 말년에 터뜨린 색채다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jeremy-saulnier#blue-ruin-2014",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《블루 루인》에는 솔니에의 기획 전체가 응축돼 있다. 평범하고 아무 준비도 없는 남자가 피투성이 결과 속으로 비틀거리며 걸어 들어간다. 군살 없는 복수극과 꾀죄죄한 리얼리즘, 그의 도덕 세계로 들어가는 가장 깨끗한 입구다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jeremy-saulnier#green-room-2016",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《그린 룸》은 솔니에가 전력을 다한 작품이다. 펑크 밴드가 네오나치들에게 갇힌다. 잠긴 공연장 하나. 숨 막히는 긴장이 잔혹하게 고조되고, 갑작스럽고 추한 폭력이라는 그의 서명이 찍힌다. 기량의 정점.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jeremy-saulnier#rebel-ridge-2024",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《레벨 리지》는 밀실의 폐소공포를 버리고 지방 도시의 부패와 벌이는 느린 대치로 옮겨간다. 같은 규율을 훨씬 절차적이고 통제된 액션의 음역에 적용한 결과다. 이제 그의 리듬에 귀가 트인 관객을 위한 보상.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jia-zhangke#ash-is-purest-white-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《강호아녀》는 한 조직 두목의 여자가 남자를 기다리는 17년을 따라간다. 범죄와 로맨스, 그리고 시간이 압축된 사회 변화가 한데 녹아 지아장커의 서사시 가운데 가장 접근하기 쉬운 영화가 됐다. 입문자에게 명확한 출발점.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jia-zhangke#a-touch-of-sin-2013",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《천주정》은 실제로 벌어진 폭력 사건 넷을 무협의 결로 엮어 불평등의 초상을 그린다. 가장 분노에 차 있고 가장 역동적인 음역, 그리고 피를 볼 각오가 된 지아장커.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jia-zhangke#still-life-2006",
+  "field": "reason",
+  "lang": "ko",
+  "text": "싼샤댐 철거 현장에서 두 사람이 각자 잃어버린 배우자를 찾는다. 물에 잠길 도시가 유령 들린 명상으로 천천히 타들어가는 영화, 《스틸 라이프》. 황금사자상을 안긴 지아장커의 정점이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jia-zhangke#platform-2001",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《플랫폼》은 지방 극단 하나를 1980년대 개혁기 내내 따라간다. 세 시간에 걸친 방대한 세대 연대기이자, 이후 평생 다듬게 될 주제들이 전부 펼쳐진 자리.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jia-zhangke#the-world-2004",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《세계》는 세계 명소를 축소해 놓은 베이징 테마파크 안에 이주 노동자들을 세운다. 농촌 리얼리즘에서 세계화의 아이러니로, 그리고 디지털 실험으로 넘어간 전환점.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jia-zhangke#mountains-may-depart-2015",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《산하고인》은 1999년 중국에서 2025년 호주의 미래로 건너뛰며 화면비까지 바꾼다. 사랑과 자본, 그리고 감정의 표류를 두고 건 대담한 톤의 승부수.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jia-zhangke#unknown-pleasures-2002",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《임소요》는 쇠락한 공업도시에서 갈 곳 없는 소도시 청춘을 붙잡는다. 초기 디지털로 빠르게 찍었다. 밀레니엄 무렵 중국의 권태와 갈망을 담은, 거칠고 덜 알려진 스냅숏.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jia-zhangke#24-city-2008",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《24시티》는 실제 공장 노동자 인터뷰와 배우가 연기하는 각본 독백을 뒤섞는다. 다큐멘터리와 픽션의 경계를 흐리며 철거된 청두의 한 공장을 기린다. 형식적으로 가장 과감한 지아장커.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jia-zhangke#caught-by-the-tides-2025",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《풍류일대》는 20년 동안 쓰지 않고 남겨둔 자기 푸티지를 모아 경력 전체를 가로지르는 사랑 이야기로 조립한다. 얼굴과 장소가 눈에 들어오기 시작했을 때 보는 마지막 한 편으로 이상적이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jim-jarmusch#stranger-than-paradise-1984",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《천국보다 낯선》은 자무시의 감각 전부를 고정된 롱테이크와 무표정한 침묵으로 압축한다. 두 건달과 헝가리에서 온 사촌이 텅 빈 미국을 가로지른다. 그의 리듬으로 들어가는 가장 값싸고 가장 선명한 입구.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jim-jarmusch#down-by-law-1986",
+  "field": "reason",
+  "lang": "ko",
+  "text": "같은 공식에 온기와 웃음을 더한 것이 《다운 바이 로》다. 톰 웨이츠와 존 루리에 로베르토 베니니를 붙여 루이지애나의 감옥과 늪지로 보낸다. 근사한 흑백과 힘 빼고 부리는 매력이 처음 온 관객을 붙든다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jim-jarmusch#dead-man-1995",
+  "field": "reason",
+  "lang": "ko",
+  "text": "자무시의 정점은 《데드 맨》이다. 환각 같은 흑백 서부극. 조니 뎁이 잔혹한 변경을 표류하고, 닐 영의 기타가 모든 프레임에 얹힌다. 그의 비전이 가장 낯설고 가장 강한 상태로 드러나는 영화.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jim-jarmusch#paterson-2016",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《패터슨》은 버스를 모는 시인의 평범한 일주일을 지켜본다. 애덤 드라이버가 연기한다. 반복과 사소한 다정함에서 시가 나온다. 별것 아닌 것이 전부라는 자무시의 믿음을 가장 부드럽게 증류한 결과다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jim-jarmusch#night-on-earth-1991",
+  "field": "reason",
+  "lang": "ko",
+  "text": "다섯 도시에서 다섯 번의 택시 승차가 동시에 흘러간다. 위노나 라이더의 로스앤젤레스부터 베니니의 로마 고해까지. 《지상의 밤》은 옴니버스를 향한 자무시의 본능과 밤의 낯선 사람들을 향한 애정을 그대로 증명한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jim-jarmusch#mystery-train-1989",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《미스터리 트레인》은 엘비스의 유령과 낡은 호텔을 축으로 멤피스의 세 이야기를 맞물린다. 프런트에는 스크리민 제이 호킨스가 앉아 있다. 우연을 음악에 젖은 아메리카나로 꿰어내는 솜씨를 보라.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jim-jarmusch#only-lovers-left-alive-2013",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《오직 사랑하는 이들만이 살아남는다》는 뱀파이어를 지친 탐미주의자로 다시 그린다. 틸다 스윈튼과 톰 히들스턴이 탕헤르와 폐허가 된 디트로이트를 배회한다. 레코드 수집가의 취향으로 걸러낸 장르물.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jim-jarmusch#broken-flowers-2005",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《브로큰 플라워》는 무표정한 빌 머레이를 옛 연인들을 찾아가는 여행길에 올린다. 존재하는지도 모를 아들을 좇으며. 나이 듦에 관한 우울하고 덜 알려진 연구, 자무시의 정적에 이제 익숙해진 사람에게 돌아오는 몫이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jim-jarmusch#ghost-dog-the-way-of-the-samurai-1999",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《고스트 독》은 사무라이의 규율과 마피아의 청부, RZA의 힙합을 포레스트 휘터커라는 고독한 도시 무사에게 녹여낸다. 이 필모그래피에서 가장 대담한 문화 충돌. 그가 옆길로 새는 것을 따라갈 준비가 된 관객용이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "joachim-trier#oslo-august-31st-2011",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《오슬로, 8월 31일》은 트리에의 핵심 집착을 하나로 모은다. 기억, 후회, 단 하루의 결. 조용히 무너뜨리는 초상이며, 그의 감각으로 들어가는 가장 깨끗한 입구다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "joachim-trier#sentimental-value-2025",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《센티멘털 밸류》는 트리에의 가장 원숙한 작품이다. 가족과 예술적 유산, 그리고 영화 속 영화를 겹쳐 감정의 건축을 세운다. 왜 그가 중요한 감독인지 여기서 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "joachim-trier#reprise-2006",
+  "field": "reason",
+  "lang": "ko",
+  "text": "데뷔작 《리프라이즈》의 트리에는 잠시도 가만있지 않는다. 젊은 작가들 사이에서 시간과 야심을 잘게 부순다. 구조를 가지고 노는 본능과 목소리가 가장 날것으로, 가장 빠르게 움직이는 상태.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "joachim-trier#thelma-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《텔마》에서 트리에는 초자연 스릴러 쪽으로 몸을 튼다. 신앙심 깊은 집안의 억압과 욕망, 그리고 공포. 그의 내면 드라마가 오싹한 장르적 긴장으로도 번역된다는 증거다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "joachim-trier#louder-than-bombs-2015",
+  "field": "reason",
+  "lang": "ko",
+  "text": "영어로 만든 가족 드라마 《라우더 댄 밤즈》는 죽은 종군 사진가가 남긴 남자들의 이야기이자, 덜 알려진 보상이다. 슬픔이 시점과 이미지, 그리고 끝내 말해지지 않은 것을 거쳐 굴절된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "joel-coen#fargo-1996",
+  "field": "reason",
+  "lang": "ko",
+  "text": "입구로는 《파고》가 완벽하다. 눈에 갇힌 마을에서 유괴가 어긋나고, 프랜시스 맥도맨드가 연기하는 임신한 경찰서장이 중심을 잡는다. 무표정한 중서부식 코미디에 느닷없는 폭력이 섞인다. 코엔의 세계관이 접근 가능한 한 덩어리로 압축돼 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "joel-coen#the-big-lebowski-1998",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《위대한 레보스키》는 파고의 냉기를 볕에 익은 로스앤젤레스의 부조리로 바꿔 놓는다. 듀드가 엉망이 된 몸값 사건에 휘말린다. 형제의 능청스러운 코미디, 괴짜 앙상블, 입에 붙는 리듬이 여기 다 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "joel-coen#no-country-for-old-men-2007",
+  "field": "reason",
+  "lang": "ko",
+  "text": "예술적 정점은 《노인을 위한 나라는 없다》다. 음악이 거의 없는 텍사스 스릴러. 하비에르 바르뎀의 냉혹한 살인자가 있고, 악보 대신 기술과 긴장, 운명에 관한 사유가 자리를 채운다. 코엔이 왜 중요한지는 이 영화가 답한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "joel-coen#inside-llewyn-davis-2013",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《인사이드 르윈 데이비스》는 장르 놀이를 접고 우울로 향한다. 1961년, 풀리지 않는 포크 가수 하나가 겨울의 그리니치 빌리지를 맴돈다. 코엔 형제의 여리고 애도에 가까운 음역, 그리고 시대와 음악을 다루는 솜씨가 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "joel-coen#miller-s-crossing-1990",
+  "field": "reason",
+  "lang": "ko",
+  "text": "덜 알려진 보상은 《밀러스 크로싱》이다. 금주법 시대 갱스터 이야기. 충성은 계속 자리를 바꾸고 은어는 빽빽하며 화면 구성은 흠잡을 데 없다. 감정을 좀처럼 열어 보이지 않는 태도와 형식의 우아함, 형제가 가장 통제된 순간이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "joel-coen#barton-fink-1991",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《바톤 핑크》는 글이 막힌 극작가를 지옥 같은 할리우드 호텔로 데려간다. 불안과 풍자, 초현실적 공포가 뒤섞인다. 창작과 양심을 둘러싼 코엔 형제의 불안으로 들어가는 가장 기이한 문.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "joel-coen#the-man-who-wasn-t-there-2001",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《그 남자는 거기 없었다》는 흑백 누아르다. 말수 없는 이발사가 협박과 살인에 끌려 들어간다. 빌리 밥 손튼의 정적과 로저 디킨스의 촬영이 이 영화를 조용한 숙명론의 보석으로 만든다.",
+  "model": "claude-opus-5"
+ }
+]

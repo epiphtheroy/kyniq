@@ -814,7 +814,7 @@
   "entity_key": "warsaw-44-2003",
   "field": "rationale",
   "lang": "ko",
-  "text": "Gdynia Golden Lions for Best Film에 오른 작품, 일반 관객에게는 거의 알려지지 않은 · 국가 정전: PL · 작가 Jan Komasa의 계보를 통해 다시 값이 매겨진. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "text": "Gdynia Golden Lions for Best Film에 오른 작품, 일반 관객에게는 거의 알려지지 않은 · 국가 정전: PL · 얀 코마사 감독의 작가 계보를 통해 다시 평가된다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
   "model": "claude-opus-5",
   "source_sha256": "fa90f7fe0e3f746389aff32d9b172b9b15a0101f95f4df9caaf5d14d02ad11d7"
  },
@@ -1462,7 +1462,7 @@
   "entity_key": "where-do-we-go-now-2011",
   "field": "rationale",
   "lang": "ko",
-  "text": "관객상이 알아본 작품, 어느 정도 알려져 있다 · 국가 정전: EG · 작가 Nadine Labaki의 계보를 통해 다시 값이 매겨진. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "text": "관객상이 알아본 작품, 어느 정도 알려져 있다 · 국가 정전: EG · 나딘 라바키 감독의 작가 계보를 통해 값이 다시 매겨진다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
   "model": "claude-opus-5",
   "source_sha256": "459923356c043abf1c25be9121582626036eceabdeceb0cf7fa87c85baff60ba"
  },
@@ -2749,7 +2749,7 @@
   "entity_key": "young-beautiful-2013",
   "field": "rationale",
   "lang": "ko",
-  "text": "작가 François Ozon의 정전화된 작업 세계가 떠받치는 작품, 어느 정도 알려진 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "text": "프랑수아 오종 감독의 정전에 오른 작업이 떠받치는 작품이고, 어느 정도 알려져 있다 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
   "model": "claude-opus-5",
   "source_sha256": "88aae99782c4fb510b1a5256b8c0a2e294812039558f52c82f930e9f2186c599"
  },

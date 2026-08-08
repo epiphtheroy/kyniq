@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "her-story-2024",
+  "field": "lead",
+  "film_id": "2f4c20ef-fa25-47bf-8994-967e95c42569",
+  "lang": "en",
+  "text": "Wang Tiemei loses her job and moves house, and the film treats both as weather rather than catastrophe. What Shao Yihui builds from there is a household with no man at its centre: a single mother, her daughter, and the neighbour across the hall, Xiaoye, who is good company in public and privately unwell. Two hours is long for a story this small, and the length is the method. The friendship gets built rather than announced, in shared meals, borrowed hours, the small negotiations of a corridor. An ex-husband keeps arriving to be difficult, and his difficulty is funny in the way that men convinced of their own reasonableness are funny. The comedy still costs something. Tiemei's days are accounted for before he shows up, and every hour he takes is an hour she had already given to work, or to the child, or to sleep.",
+  "model": "claude-opus-5",
+  "source_sha256": "736b7942a42c5e9d96fba74951a8d74af1ce9a5f98ef5cd84063d8b91a8de5f4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "postmen-in-the-mountains-1999",
+  "field": "lead",
+  "film_id": "112d7572-349e-4e24-bf3e-884f35e101bc",
+  "lang": "en",
+  "text": "The route runs three days on foot through the hills of Hunan, and it is about to change hands. An old postman is retiring; his son will carry the bag. Huo Jianqi gives the handover ninety-three minutes and almost no incident, one walk taken together at the pace an older man's knees allow. Everything the two of them have not said in twenty years has to fit inside that walk, which means most of it stays unsaid and is carried by weight instead: the bag, the river crossings, the households along the way who know the father's face and not the son's. A job is being transferred, and with it a sense of obligation that nobody in the film calls obligation. The mountains are worked ground here rather than scenery, and the distance between two houses is measured in hours.",
+  "model": "claude-opus-5",
+  "source_sha256": "c4579d16a13ca1ca2e8e6f52c63fbc17d7f5c6b485cd3586bb62af8bbf10d431"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "forever-enthralled-2008",
+  "field": "lead",
+  "film_id": "6beea999-4b1f-4d99-9657-65e9442ca1be",
+  "lang": "en",
+  "text": "An opera singer becomes the most celebrated performer in China while the country still holds his profession to be beneath respectability. That contradiction runs the length of Chen Kaige's account of Mei Lanfang, all 146 minutes of it, and never quite resolves. The prejudice is not a villain to be beaten in a scene; it is the air of the 1930s, audible in how a wealthy patron addresses an artist he has paid to admire. Chen shoots the stage as labour: preparation, discipline, the strict order of who stands where backstage. Offstage is the more exposed place. The long middle holds on one unresolved gap, between what an audience wants Mei Lanfang to be for them and what he is prepared to give, and on fame arriving as a set of obligations rather than a reward.",
+  "model": "claude-opus-5",
+  "source_sha256": "7943f4de67639f6ceb7f3f3ce1e96617f9680172bcde742a4dfc5cd8be5d2d79"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "leap-2020",
+  "field": "lead",
+  "film_id": "62918e0c-d2c6-4a16-a950-475f683bead6",
+  "lang": "en",
+  "text": "Three decades of one national team squeezed into 135 minutes means the volleyball itself has to be rationed. Peter Chan Ho-Sun follows the Chinese women's team from the hard training halls of an earlier era to an Olympic final reached after a twelve-year gap, and the notable choice is how much screen time goes to coaching rather than playing: arguments about method, about what a body can be asked to absorb, about whom a team belongs to. Sports films usually run on one match. This one runs on institutional memory, harder to film and stranger to watch, since every point played in the present is answered by a point played decades earlier by women now sitting on a bench or in an office. China submitted it to the Academy Awards, which marks the kind of national story it was taken to be.",
+  "model": "claude-opus-5",
+  "source_sha256": "9ce42de3e6fe8b5db97892cf98cab754456651439bda774f8475816c85d268f3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "article-20-2024",
+  "field": "lead",
+  "film_id": "8eac6670-b751-40a3-b9b5-06359eed933d",
+  "lang": "en",
+  "text": "A prosecutor has to decide whether a wound was a crime or a defence, and the classification he writes down will govern a life. Zhang Yimou spends 141 minutes inside that decision and, unexpectedly, plays a good deal of it as comedy. Han Ming's office is a place of interruptions: colleagues, superiors, family, the ordinary humiliations of a middling career. The case keeps returning to a distinction the law cannot draw cleanly and the people involved cannot afford to leave undrawn. Comedy and drama occupy the same scenes instead of alternating, so a laugh often lands in the middle of something that has stopped being funny. The scale is a desk, a corridor, a family kitchen, and the film is most exact where legal procedure and household argument use the same tone of voice.",
+  "model": "claude-opus-5",
+  "source_sha256": "425aa157d908a2b93ff3757ab7ee70190d86063cb5ca85405fb2c751e239a965"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "little-dorrit-1988",
+  "field": "lead",
+  "film_id": "571c9193-3fb1-4f83-af56-2906f9a345d1",
+  "lang": "en",
+  "text": "Five hours and fifty-seven minutes, adapted from a novel, and nearly all of it within walking distance of a debtors' prison. Amy Dorrit earns the money that keeps her father comfortable inside the Marshalsea, where he has been an inmate long enough to have acquired the manners of a host. That arrangement is the real subject: a family organised around one man's dignity and funded by a daughter's needle. Christine Edzard has the running time to let the arithmetic show, what a day's work pays, what the prison costs, who is owed. Arthur Clennam comes back from overseas with a family matter of his own to untangle. The length is method, not indulgence. At this pace a small sum of money regains the weight it actually had, and London stops being a backdrop and becomes an economy.",
+  "model": "claude-opus-5",
+  "source_sha256": "c4d6b73dfeeb064ae6f027b58c58b246a6fa82448302e9756135ac95e17205f0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "red-cherry-1995",
+  "field": "lead",
+  "film_id": "c963df4c-2731-4ab1-8bc3-1c081134dbbc",
+  "lang": "en",
+  "text": "Two children, orphaned before the film begins, are the ones left to survive the war. Daying Ye works from a documented case and declines to turn the horror into spectacle: the friends are small, the adults around them belong to armies and institutions, and nobody explains to a child what is being decided. The two hours do not hurry. Much of the film is waiting, in dormitories, under supervision, in rooms where the grown-ups switch to a language the children were never taught. Its difficulty is that harm arrives at people who cannot read the signs of its approach, and Daying Ye refuses the consolation of making them precocious about it. What the friends have is each other, which the war handles as an administrative detail. The Golden Rooster named it the year's best picture.",
+  "model": "claude-opus-5",
+  "source_sha256": "97a32fbff48e631d51c8e4e4b75e3568182868a987b7f7b4db67663973f7640b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-opium-war-1997",
+  "field": "lead",
+  "film_id": "33faad8f-98dc-4cf7-8493-5ee79baa36b5",
+  "lang": "en",
+  "text": "A film made in 1997 about how Britain came to hold Hong Kong in the first place. Xie Jin gives 153 minutes to the 1830s and splits the account between two men who share no picture of the world: Lin Zexu, whose loyalty to a failing Qing court is total, and Charles Elliot, a naval diplomat who reads the China coast as a set of openings. Keeping both lines running is what lifts it above grievance retold. The court scenes carry the most charge, since the film is sharpest when officials are calculating what the emperor can safely be told. Opium is a trade problem before it is a moral one, and the ledgers stay visible: who ships, who profits, who is expected to absorb the loss. Nationalism is the subject here and also, openly, part of the method.",
+  "model": "claude-opus-5",
+  "source_sha256": "5a4451ce075ec0b0cd5663b903861854197ff035a3ae5b8212600cbe29b5184e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-knot-2006",
+  "field": "lead",
+  "film_id": "82fabaa0-920c-4ab0-87a0-57c00cedce73",
+  "lang": "en",
+  "text": "An engagement ring changes hands in a hurry, and the two people exchanging it expect the separation to be short. He is twenty, she is eighteen, and the 228 Massacre puts him on a boat away from Taiwan, after which their promise becomes a fact of geography rather than a plan. Yin Li assembles the film out of distances that were then unbridgeable: an island, a mainland, a war in Korea where Chen Qiushui serves as an army doctor, a posting in Tibet, an apartment in New York. Nothing about the parting is dramatic at the moment it occurs, which is the most accurate thing in the picture. Decades later a niece with a camera and an internet connection is the device that lets one side look toward the other. Melodrama, certainly, with a specific political cause underneath it.",
+  "model": "claude-opus-5",
+  "source_sha256": "43613834de36ed26f6bc41e016e7248ffb7720948b146a4074c68735159af956"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "nuan-2003",
+  "field": "lead",
+  "film_id": "e32e4907-4979-4f48-b3dd-a6d0f532d9f9",
+  "lang": "en",
+  "text": "Lin Jinghe has been gone ten years, long enough for the village to have settled on its own account of what became of him. He comes back, and there is Nuan. Huo Jianqi made this after Postmen in the Mountains, and the countryside is again somewhere people work and stay rather than a memory to be visited, except that this time the visitor holds the camera's sympathy and still loses the argument. A hundred and nine minutes, most of it daylight, most of it talk that circles what neither party will say outright. What comes back is not feeling but obligation: a promise made by a younger man who then left, and a woman who arranged a life around his absence. The film is unsentimental about what ten years buys, and about which of the two ever had a choice.",
+  "model": "claude-opus-5",
+  "source_sha256": "fbf3598315b5116f97d3a3ed1f00e797f25f8739c5b679129c76e1ec0871a014"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "rickshaw-boy-1982",
+  "field": "lead",
+  "film_id": "972fab42-a285-4f35-a932-ff4842ea1a3a",
+  "lang": "en",
+  "text": "A rickshaw is rented by the day until the man pulling it can afford to buy one, and that gap is the whole of Xiang Zi's ambition. Ling Zifeng keeps old Beijing working rather than picturesque: fares, weather, the physical price of a long run taken at speed. Xiang Zi is strong, proud, and convinced that effort converts into freedom. The patience of the film lies in counting the transactions standing between him and that conversion, a marriage, a debt, a bad season, the interests of people who own things rather than pull them. Two hours of a man running errands for a city that prices him by the trip. What makes it hold is the specificity of the accounting, and the fact that Xiang Zi's virtues are the qualities his situation is arranged to consume.",
+  "model": "claude-opus-5",
+  "source_sha256": "c169e88470a0684f92f952aeb1eb7c2105dc1da573b7bb69bac7b51fa254eb7d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "decisive-engagement-the-liaoxi-shenyang-campaign-1991",
+  "field": "lead",
+  "film_id": "9555639d-c049-4e85-9de7-de62cfa0ee92",
+  "lang": "en",
+  "text": "Two hundred and twenty-two minutes for a single campaign, and it is only the first film of three. The Liaoxi-Shenyang operation gets the treatment usually reserved for entire wars: command tables, maps, troop movements at a scale no unit on the ground can perceive, and a directing credit shared out among several people, Li Jun and Pingfen Li among them. Pictures built this way belong to their logistics. The interest is not a hero's arc but the double description of an army from above and from within, and past that, what a state believes a battle looks like when it commissions the account itself. The Golden Rooster named it best picture. Three and a half hours in, what stays with a viewer is the sheer quantity of materiel that had to be assembled to film it.",
+  "model": "claude-opus-5",
+  "source_sha256": "3a5d58820648877c2a3d3f8f5219ec5b7ebbf5bcf14b825d2dc6002bd286a69b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "roaring-across-the-horizon-1999",
+  "field": "lead",
+  "film_id": "49f0d139-dbb5-47d6-8e8b-7319b65dc85c",
+  "lang": "en",
+  "text": "An army marches into the Gobi under orders that explain nothing. Chen Guoxing's film concerns a project assembled from two populations with little reason to trust one another: soldiers under General Feng Shi, lately out of Korea, and scientists like Lu Guangda, who has come home from the United States and said goodbye to his wife in order to do it. The desert supplies the obstacles, thin supply lines, equipment a generation out of date, weather that undoes a week of work in an afternoon. Across 111 minutes the friction of method is what holds attention. Men who solve problems by ordering them solved work beside men who solve them by calculation, and the film is honest that the second group depends on the first for water, trucks and hands. Secrecy is the climate rather than the plot.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e872d8877b6c42cdcf1adc8f901933234b364b6613544d7e394116e15f6bd02"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "legend-of-tianyun-mountain-1980",
+  "field": "lead",
+  "film_id": "1dc476c2-c1bc-4ffd-82ae-e8c2ea640f1c",
+  "lang": "en",
+  "text": "A man is denounced as a rightist by a colleague, sentenced to ten years of hard labour, and the colleague then marries his fiancee. Xie Jin filmed that in 1980, and treats it not as a twist but as the ordinary shape of a career built out of other people's files. Song Wei's marriage is the difficult centre. She made a choice that was also not a choice, has lived inside its comfort, and now, the political weather having turned again, wants her husband to sign the paper undoing what he did. He will not. The film is sharp because Wu Yao is granted reasons: rehabilitating Luo Qun would be an admission, and admissions cost more than the newly virtuous like to price. The crises are administrative, a signature, a file, a classification that has governed a life.",
+  "model": "claude-opus-5",
+  "source_sha256": "341074c588673d6b85305ff1a2b33f64edf66eeca1bc805644fe6c1bca4c0aae"
+ }
+]

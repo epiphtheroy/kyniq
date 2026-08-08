@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-hughes#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "“Brat Pack”이라는 말을 그는 지독하게 싫어했다. 1985년 뉴욕 매거진의 한 기자가 그의 젊은 앙상블 배우들을 묶어 붙인 이름이다. 촬영장에서 그가 지키려 했던 진지하고 서로 존중하는 공기를 그 한마디가 싸구려로 만든다고 여겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d7a7e8d80f300347edf80007d1bbeb5b8f1aa13384c982b973c530cdbbe18be"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-hughes#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그가 남긴 자국이 얼마나 깊었는지는 2001년 패러디 영화 《Not Another Teen Movie》가 보여준다. 이 영화는 아예 배경을 “존 휴즈 고등학교”로 못 박았다. 그의 이름이 십대 영화 장르 전체를 가리키는 말이 된 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "be511050fe07ec169b3e6b05ba4d66bc0c24dacf08ae0bfa00c450653eacac1b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-hughes#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Ferris Bueller's Day Off》의 그 유명한 출석 호명, 단조롭기 짝이 없는 “뷸러… 뷸러…”는 벤 스타인이 그 자리에서 지어낸 즉흥이었다. 리처드 닉슨의 연설문 작성자 출신인 그를 휴즈가 부른 이유는 오직 하나, 유별나게 밋밋한 목소리였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e7b31d2cc3979ca1719830d16dcd66763378f24ee17023ca26863ef4c765d035"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-hughes#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "휴즈가 자기 카메라 앞에 선 몇 안 되는 순간. 《Ferris Bueller's Day Off》의 시카고 장면에서 그는 “택시 사이로 뛰는 남자”로 크레딧 없이 스쳐 지나간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d6cd7948ddefd6e0ba0287bb96e9de46c58438b68496df5591e0ff5111544af"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-hughes#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "할리우드 사운드스테이지에서 찍는 일을 그는 웬만하면 피했다. 대신 일리노이주 디플레인스의 폐교 메인 노스 고등학교를 통째로 빌렸고, 《The Breakfast Club》과 《Ferris Bueller's Day Off》의 실내 장면을 모두 여기서 해결했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0db5c3800e87c0c060698e68f0198d3106c744529d474dd8d38b72a803bcd89f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-huston#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "열두 살에 심장 비대와 신장병 진단을 받고 캘리포니아의 요양원에 맡겨졌다. 다들 그가 거기서 죽을 줄 알았다. 그는 밤마다 몰래 빠져나가 얼음장 같은 폭포에서 헤엄치며 몸을 만들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e5a1fffde444292c041fd1be2ac07cae12eae94e392ed7f7628be719c5548b2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-huston#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화계에 들어서기 전 그는 만만찮은 실력의 아마추어 복서였다. 캘리포니아 아마추어 라이트급 챔피언까지 땄다. 1972년작 복싱 영화 《Fat City》의 거칠고 냄새나는 실감은 여기서 왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2bc16c52835bee586a8d0cff118657203def8074c8e1fb9d977e8b7d5b7a4afe"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-huston#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "젊은 시절 멕시코로 건너간 그는 멕시코 기병대의 명예 중위가 되었다. 말을 타고 검술을 익히며 보낸 나날.",
+  "model": "claude-opus-5",
+  "source_sha256": "904d9929f9eccd0567bb15da2ddcf9ce779dcd96d1014de13479c4168ad8ceaf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-huston#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1933년 할리우드에서 그가 몰던 차가 브라질 무용수 토스카 룰리엔을 치어 숨지게 했다. 배우로 힘깨나 쓰던 아버지 월터 휴스턴이 여기저기 손을 써서 아들을 감옥 대신 유럽으로 실어 보냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d3bc8d730b7f98bfb2c55b769f2975f9e4b81ea2902b595151b5a15ff49b43f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-huston#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "감독 데뷔작 《말타의 매》를 찍을 때 그는 스튜디오 시간을 단 1분도 흘리지 않으려고 모든 숏을 미리 종이에 그려두었다. 그토록 빈틈없던 습관을 훗날 완전히 버리고 즉흥에 몸을 맡긴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "880f8060ccb01aa3c7118a6d7671b8bf970698a7292296f159c6a17ec389c0cb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-huston#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《시에라 마드레의 황금》 현장에서 그는 아버지 월터 휴스턴에게 틀니를 빼고 연기하라고 밀어붙였다. 산전수전 다 겪은 탐광꾼 하워드는 그래야 나온다는 것이었다. 월터는 그 연기로 아카데미상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a366bbb1141a14ab742545402ba7bcb369287748f3caf57ca12c27372856758"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-huston#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1945년 데이비드 O. 셀즈닉이 연 할리우드 파티에서 그는 배우 에롤 플린과 한 시간 넘게 맨주먹으로 붙었다. 올리비아 드 하빌랜드를 모욕했다고 여긴 것이 발단이었다. 둘 다 갈비뼈가 부러지고 뇌진탕을 입은 채 병원으로 실려 갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0815d2d1ddec666eddb4d54b27d97abee41e842f6fa4afdc3f45541c6e9d2a2a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-huston#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2차대전 중 그는 전쟁 트라우마에 무너진 참전 군인들을 담은 다큐멘터리 《Let There Be Light》를 만들었다. 미 전쟁부는 정신적 부상을 그대로 드러낸 화면을 견디지 못했고, 35년 동안 일반 공개를 막았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "187776c8376c9304a0b41fdc007561dfb30e30966b8c3c896f3f5ba6861eacb7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-huston#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이탈리아에서 실탄이 오가는 한복판에 서서 전투 다큐멘터리 《The Battle of San Pietro》를 찍던 중, 박격포탄이 몇 걸음 앞에서 터졌다. 잔해에 파묻힌 그는 평생 가시지 않는 청력 손상을 안고 남은 생을 살았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4478811b071b2be829cb4daad4bba336b6a63fd023e94c00e1d0693e4e972d27"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-huston#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "하원 반미활동조사위원회에 넌더리가 난 그는 윌리엄 와일러, 필립 던과 함께 수정헌법 제1조 위원회를 만들었다. 비행기를 전세 내 험프리 보가트와 로런 바콜을 비롯한 스타들을 워싱턴 D.C.로 실어 나른 항의 행동이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "881b10ae617b6af65fde9016439e7d50d6247e3fa9fb3a88525e0208150af7ef"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-huston#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《아프리카의 여왕》의 콩고 촬영은 그 자체로 험난했는데, 정작 그는 야생 코끼리 사냥에 위험할 만큼 빠져들었다. 배우와 스태프를 정글에 버려둔 채 코끼리를 쫓아 나가기 일쑤였다. 이 소동은 피터 비어텔의 실화소설(roman à clef) 《White Hunter Black Heart》에 그대로 남았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8169e6eb5bef49beb49bc5a4bfc1f264a5abd666c667211e6e0bf4cc07b7b0c5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-huston#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "실존주의 철학자 장폴 사르트르에게 《Freud: The Secret Passion》의 각본을 맡긴 것도 그였다. 사르트르가 내놓은 원고는 800쪽, 그대로 찍었다면 상영 시간이 열 시간에 육박했을 물건이다. 협업은 고성이 오가는 싸움으로 끝났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d4493442e49b84b9310d35cc1f2c973b9fc370dac70517e1e951cf9750bed8ac"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-huston#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 젊은 레이 브래드버리를 아일랜드로 불러 《모비 딕》 각색을 맡겼다. 그러곤 작가를 심리적으로 몰아붙였다. 훗날 브래드버리가 쓴 단편 〈The Banshee〉에는 폭군 같은 감독이 나오는데, 그 인물이 휴스턴을 꼭 닮았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0a05221f5c4899db6f6c2567d2d1b87c761c05d0ecc9d7bc47de314fccf3720e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-huston#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미국 정치와 할리우드 스튜디오의 간섭에 깊이 환멸을 느낀 끝에, 그는 골웨이주의 조지 왕조풍 저택 세인트 클레런스를 고쳐 그리로 들어갔다. 1964년에는 미국 시민권을 정식으로 버리고 아일랜드 국적을 얻는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a1d69953a07a46a9e66992bd6994fb63e6445b9289895ca0143963c62b8ca6a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-huston#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아일랜드에서 그는 말에 미쳤다. 갤웨이 블레이저스의 공동 마스터를 맡아 전통 여우 사냥에 나섰고, 크게 떨어져 뼈가 부러진 뒤에도 무모하게 말을 몰았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "71e57a614752a45ffc9e7af5ac2245ea97bf763e429d9f1815ac2ff9d0c56b8f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-huston#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마릴린 먼로의 첫 주요 대사 배역인 《아스팔트 정글》도, 그녀가 끝까지 찍어낸 마지막 영화 《The Misfits》도 그의 연출이었다. 뒤쪽 현장에서 그는 리노의 카지노에서 밤을 새우고 와 감독 의자에 앉은 채 자주 졸았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e2e6b2f3cd3fe46ec35253f0492301dc85a59e0fa79ec5f072e221a8911f4bbe"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-huston#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Freud》를 찍는 내내 그가 몽고메리 클리프트를 다룬 방식은 잔인하기로 악명 높았다. 성정체성을 감춘 채 약물에 기대던 ��� 연약한 배우를 끊임없이 몰아세웠고, 몸을 갈아 넣는 테이크를 요구했다. 클리프트의 알코올중독과 나빠지던 시력은 그렇게 더 망가졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "283300c3edc66271075a93fdfc291f7ec8f7fbd28475831f8559c5e8931fe034"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-huston#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《The Night of the Iguana》의 촬영지로 그가 고른 곳은 외지고 닿기조차 어려운 멕시코 어촌 푸에르토바야르타였다. 잠들어 있던 그 마을은 이후 국제적인 관광 도시로 부풀어 올랐다. 본인이 노린 결과는 아니었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "10bf57751a7919dd6823ab3a642c30784ce88946f048e9595fe02bd059b4ac49"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-huston#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1969년 별거 중이던 네 번째 아내 엔리카 소마가 교통사고로 세상을 떠나자, 그는 곧바로 그녀의 친딸 알레그라를 입양해 길렀다. 아이의 생부는 혼외 관계로 얽혔던 영국 역사가 존 줄리어스 노리치였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e7b4ed39be406a757c81f2d91e33f87031e1c40ba2de9fa1fb6744857bf446b8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-huston#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "딸 앤젤리카 휴스턴을 연출해 아카데미상까지 올려놓은 작품이 《Prizzi's Honor》다. 이로써 휴스턴 집안은 3대 연속으로 오스카를 받은 할리우드 최초의 가문이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "07a5bff3e402ad9b39d40743ef612a0cd7820d3fb7447f1519ecad141994f852"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-huston#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "울림 좋은 귀족풍 바리톤 덕에 만년의 그에게는 목소리 일이 끊이지 않았다. 그중 가장 널리 알려진 것이 1977년 애니메이션 TV 영화 《The Hobbit》의 마법사 간달프다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb5c3541f11e666f352366cc83cabfaccfe75f92e9299c076f9594b38bffd129"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-huston#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "일흔을 넘겨서는 멕시코 라스칼레타스의 외진 해안 정글 후미를 빌려 거처를 지었다. 전력망 밖, 배로만 닿을 수 있는 곳이었다. 오실롯 한 마리가 그와 함께 살았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b75292ad663742643f020de82c8f25da55557699b6e603f1e01718e516dc2be0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-huston#23",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마지막 걸작인 제임스 조이스 원작 《The Dead》는 휠체어에 앉은 채 완성했다. 중증 폐기종으로 산소통을 달고, 옆방의 비디오 모니터로 배우들을 지켜보면서.",
+  "model": "claude-opus-5",
+  "source_sha256": "95899f2b0300b48de9e459bb2885e0a584e7487125ef3ba0a60c29c388ae70df"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-mctiernan#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "올버니에서 변호사 아버지와 지독하게 지적인 오페라 가수 어머니 사이에 태어난 맥티어넌은 클래식과 연극에 파묻혀 자랐다. 그다음 진학한 곳이 명문 필립스 엑서터 아카데미. 그곳에서 그는 철저히 겉도는 이방인이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f4f49aa32c558bd4639f387a88c67f055f9ffa61a236dbf7653d83d06742982f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-mctiernan#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "처음에는 줄리아드에 들어가 연기와 연출을 배웠으나 중퇴했다. 돌고 돌아 닿은 곳이 AFI 컨서버토리, 거기서 체코슬로바키아 뉴웨이브의 감독 얀 카다르를 스승으로 만난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "03c434f142b0d1eee5ac0f394561d630455c37d532604d1a26c62a9560f6c206"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-mctiernan#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "공간을 어떻게 파악하게 할 것인가. 이 문제에서 카다르가 맥티어넌에게 남긴 것은 결정적이었다. 정적인 설정 숏(establishing shot)에 기대지 말 것. 쉼 없이 움직이는 카메라로 관객이 방의 지리를 저도 모르게 그리도록 만들 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "032b54dd42f5cca9eb18fac8b21336518cbac391728cfaa921e4f0ae907833ef"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-mctiernan#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편 데뷔작은 음산한 공기의 호러 《Nomads》(1986). 프랑스 투자자들을 위해 각본을 먼저 썼고, 긴장을 다루는 솜씨에 감탄한 그들이 연출까지 넘기면서 기회가 왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a13cd3d2a77db5333210c304b9aba52c10ecd1fda3cf36d29e347ccb394fc804"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-mctiernan#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "멕시코 정글에서 《프레데터》를 찍는 동안 그의 몸무게는 25파운드가 빠졌다. 이질이 무서워 현지 급식을 입에 대지 않은 탓이다. 손목이 부러진 뒤로는 팔에 깁스를 한 채 촬영 대부분을 지휘했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8bd7b2d48eafa9391d9da4b74d0ec28faa2781508ea8b770c0edbe2717947b71"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-mctiernan#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《13번째 전사》의 난항 속에서 원작자 마이클 크라이튼과의 관계는 파국으로 치달았다. 크라이튼은 맥티어넌을 잘라냈고, 대규모 재촬영을 직접 지휘했으며, 영화 전체를 다시 편집했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "58dffd3146eb94e6b2957517c861eff32bee1b7726f627f7812b044664b10462"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-mctiernan#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "몰락의 방아쇠는 2002년의 참담한 《롤러볼》 리메이크였다. 영화의 톤, 예산, 시사 점수를 두고 그는 제작자 찰스 로븐과 번번이 부딪쳤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "86ead78ddd8501dcb18ecf88bc0569cf503d367c34bc13d6a734bcc6021d4876"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-mctiernan#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《롤러볼》로 다투는 동안 로븐이 스튜디오 임원들에게 자기 얘기를 뭐라고 하는지 알아야겠다는 강박에 사로잡힌 그는, 할리우드의 악명 높은 사설탐정 앤서니 펠리카노를 고용해 제작자의 전화를 불법 도청했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ec61c2e6214b96032be15a4b6cc986cac68f75965e159e5212d7394a6198eacf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-mctiernan#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2006년 FBI 요원이 불쑥 전화를 걸어 로븐을 도청하려고 펠리카노를 쓴 적이 있느냐고 물었다. 맥티어넌은 대수롭지 않게 아니라고 답했다. 그 몇 초의 거짓말이 결국 그의 삶을 통째로 무너뜨린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7afcc5f1dc187acf539ec86b5db208c63a0cba31473826c60a094872b1ddeeb1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-mctiernan#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "형사 재판을 버티는 데 들어간 변호 비용이 한때 할리우드에서 가장 비싼 감독이던 그를 파산으로 몰았다. 챕터 11 파산보호를 신청하며 밝힌 부채만 1,300만 달러가 넘었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f61dbdea8a24b3d0a4f64af85aa75281775099b95c5e2e29e7b8f631fe759380"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-mctiernan#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "파산의 직접적인 대가로 그는 와이오밍 중부 구릉지대의 3,200에이커짜리 목장을 내놓아야 했다. 수백만 달러를 들여 한 뼘씩 가꿔온, 그가 가장 아끼던 땅이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1068e9e7be59f4cda0c4a6f6c8aeef6d92e8f13434cf223731d95f32ed5d6d47"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-mctiernan#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2013년 4월, 맥티어넌은 연방 당국에 자진 출두해 사우스다코타주 양크턴의 연방교도소 캠프에서 328일의 복역을 시작했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "87756f9cd0dd9321ac63bbddbbbfe6fa4140f54573f1c0d77d16f35bc850824f"
+ }
+]

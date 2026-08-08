@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "legend-no-17-2013",
+  "field": "lead",
+  "film_id": "e97b6035-8d80-49e2-8f82-f5c2ce99896a",
+  "lang": "en",
+  "text": "A sports biography that begins in early childhood has already decided what it thinks made the man. Legend No. 17 follows Valeri Kharlamov from a boy's first winters on ice to the top of Soviet hockey, and it gives 134 minutes to a career whose decisive moments lasted seconds. That is the problem Nikolay Lebedev sets himself: how to film speed so that a viewer who has never held a stick can read it, and how to fill the hours between the bursts. He fills them with selection — coaches deciding, committees deciding, a body assessed by men whose approval is the only route back onto the ice. Russia's Golden Eagle named it the best picture of its year, which says plainly who it was built for. The friction underneath is what holds a stranger: a state sport, a private talent, a career belonging fully to neither.",
+  "model": "claude-opus-5",
+  "source_sha256": "8cfd3eaa83ab9d1fd6249fae2735e627f0d4e06e863d7180cf565a5404388c3c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-last-family-2016",
+  "field": "lead",
+  "film_id": "b1722420-2cc3-46f5-8df3-fb07c9e48a27",
+  "lang": "en",
+  "text": "A painter of dystopian nightmares who cannot be in a room with a spider — the household starts from that contradiction and never resolves it. Beksiński works to classical music, records his days on a camcorder, and wants nothing more complicated than the best for his wife Zofia and their son Tomasz. Jan P. Matuszyński covers 28 years in 124 minutes, so the film moves by ellipsis: the music on the radio changes, the mothers age, the same rooms are shot again with different furniture. Most of the weight falls on Zofia, holding a Catholic household in order while Tomasz's rages arrive without warning and his parents learn to listen for them through a wall. What the film is actually tracking is a family that lives, for decades, inside the frame of one of its own members' camera.",
+  "model": "claude-opus-5",
+  "source_sha256": "a71a87181ab491afd33751a9c38784e2df6611c11dbe5ccdad7442baef1c1385"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "white-tiger-2012",
+  "field": "lead",
+  "film_id": "7d006d3d-b22d-4802-aa64-a452eebaba57",
+  "lang": "en",
+  "text": "A war film about the spring of 1945 that files itself under fantasy, and means both. Red Army sergeant Ivan Naydenov has come out of a burning battlefield alive and cannot let go of what nearly killed him — a German Tiger, painted white, that turns up where no tank should be and is gone before anyone can fix its position. Russia sent it to the Academy Awards as its submission, a curious choice of national face: Karen Shakhnazarov shoots the hunt as procedure, a crew assembled, armour compared, written orders issued for a target the staff would rather call a rumour. The last months of that war are usually filmed as an arrival. Here they are unfinished business, men still being sent out after something that keeps not being there, and 105 minutes is long enough to make the search feel like work.",
+  "model": "claude-opus-5",
+  "source_sha256": "eca32c68cfb4aea0ef09d274c935ff61b31ee5c4a1bb24b3b9a6bd3b1b0106f2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "how-to-survive-a-plague-2012",
+  "field": "lead",
+  "film_id": "3d32f204-8044-4d52-ac53-58c352ea4350",
+  "lang": "en",
+  "text": "People with no scientific training taught themselves to read clinical trial data, and then argued about it with the people who produced it. The two coalitions here are ACT UP and the Treatment Action Group, working through the years when an AIDS diagnosis was a sentence and the machinery that might change that moved at its own pace. David France is interested in method rather than martyrdom: who got into which meeting, which compound was worth pushing, how a demonstration is timed so that it lands on a decision instead of a news cycle. Expertise is not granted to these people; they take it, and the taking costs them hours, allies, arguments that have to be won twice. The New York Film Critics Circle called it the year's best first film, and what earned that is structural — 109 minutes built like a campaign.",
+  "model": "claude-opus-5",
+  "source_sha256": "e8481937ebe6bea182ef9570a2d58dbaf19a5532e0f3b6d5d4d874a2299ef585"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "love-and-death-on-long-island-1997",
+  "field": "lead",
+  "film_id": "66a56133-b115-419d-955c-203b581ec349",
+  "lang": "en",
+  "text": "A widowed author buys a ticket to the wrong screening and does not walk out. Giles De'Ath meant to see an E.M. Forster adaptation; what comes up on the screen is a teen sex comedy, and in it a young actor named Ronnie Bostock. The next 93 minutes belong to a man who has spent a lifetime declining modern popular culture and now urgently needs a way into it, with no vocabulary for the want and nobody to ask. Everything rests on tone. An inch broader and the premise is a farce about an old man and a poster; an inch heavier and it is a case study. Richard Kwietniowski plays it so straight that the joke and the ache land in the same sentence, and the fastidiousness that made Giles absurd becomes the instrument he turns on himself.",
+  "model": "claude-opus-5",
+  "source_sha256": "c61844dfda6b5326c0af48b448b42d38183bbc2fd85e578943113d1a8bb9bbd8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "text-2019",
+  "field": "lead",
+  "film_id": "b5f0ccc3-011f-4c84-8eda-a71928f15c15",
+  "lang": "en",
+  "text": "Seven years in a cell for something he did not do, and then a gate opens onto a city that has closed over the gap. Ilya Goryunov comes back to find that the life he counted on resuming has not been kept for him — not the work, not the people, not the room. Klim Shipenko spends the first long stretch of 132 minutes on the ordinary business of a man trying to reoccupy his own name, which is where the pressure sits; the thriller starts only after every legitimate door has been tried. A Golden Eagle went to the lead performance, and the design of the part explains it: nearly everything Ilya wants has to be played first as restraint and then as the failure of restraint. Revenge here is not a plan. It is what is left when the plan is gone.",
+  "model": "claude-opus-5",
+  "source_sha256": "271d1eb7187c977fb8513b517fa6b1a1c4cf6449c7872053022dc3e513f77110"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-deluge-1974",
+  "field": "lead",
+  "film_id": "a9a00eaf-d3c4-4d3a-a605-aef047c29a74",
+  "lang": "en",
+  "text": "A soldier his own countrymen have written off as a traitor is given nearly five hours to argue otherwise. Andrzej Kmicic rides through the Swedish invasion of the 1650s at the scale the event actually had — armies, sieges, whole provinces changing hands in a season — and Jerzy Hoffman's method is accumulation: horses, mud, formations, the labour of moving men across a country. At 287 minutes the romance stops being an interlude and starts working as a clock, the one thread that measures how much of a life the war is eating. Poland sent it to the Academy Awards. What holds the thing together over that length is the term Kmicic is handed at the start: a reputation, once lost, is repaired only in public, in front of the same people, and slowly.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd0297383bf022b3e59ade8189aa044b5a505922476db3a4d27af68cf75ec579"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-silent-twins-2022",
+  "field": "lead",
+  "film_id": "bbc78163-e616-4cbc-8c76-5d415f66cfd9",
+  "lang": "en",
+  "text": "In a small Welsh town in the 1970s, two girls decided that the only person worth speaking to was each other. June and Jennifer Gibbons were twins in the only Black family for miles, and the silence they kept was a policy rather than an affliction, held against teachers, neighbours, parents, everyone outside the pair. Agnieszka Smoczyńska takes them at their word and films what they made instead of conversation: the writing, the rehearsed desires, the private economy of two people who are each other's entire audience. A British subject filmed by a Polish director, and the outsider's eye shows in how little the town is made to explain itself. What the record filed as delinquency is treated here as a life with rules of its own, and the film stays inside those rules long after a social-problem picture would have stepped out to comment.",
+  "model": "claude-opus-5",
+  "source_sha256": "d751272deb57aa49aa9fea5e9aea943ad177d6f62f499a2c1a43a7948c931aed"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tricks-2007",
+  "field": "lead",
+  "film_id": "c2771590-e1fb-44c5-ab29-f4b7e594494f",
+  "lang": "en",
+  "text": "Six years old, and already keeping accounts with fate, in small sums. Stefek has a system — sacrifices offered in the right order will bend events toward the father who left — and his older sister, who knows better, helps him run it. Andrzej Jakimowski gives this 95 minutes and almost no machinery: a chain of deliberate small acts, each one set going to see what it might knock over, then a lot of patient watching to find out. The comedy comes from the distance between the boy's engineering and the world's indifference to it. The ache comes from the sister, old enough to see exactly what he is doing and not old enough to stop wanting it to work. Gdynia's Golden Lions went to it, and the proportion is why: a Polish film about a broken family that never once raises its voice.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c12c8128389f830cb7706aff4580479d4579e387d3eb7e89bdd474c3cdfff51"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "eephus-2024",
+  "field": "lead",
+  "film_id": "430b7ef5-ea72-46e3-8316-9d79ef829b0b",
+  "lang": "en",
+  "text": "The field is going to be built over; the game gets played anyway. Two New England rec-league teams take it for the last time, and Eephus stays out there with them — 99 minutes for an afternoon that nobody outside the two benches is waiting on. The scale is the whole point. These are men with jobs and knees, playing a sport they are not good at, in front of almost no one, and the film gives their innings the attention another movie would spend on a pennant race. Tempers rise over calls that are not being scored. Jokes get made that have obviously been made before. Carson Lund's first feature, marked by the New York Film Critics Circle as the best of its year, understands that what is being taken is not the ground but the standing weekly appointment the ground was an excuse for.",
+  "model": "claude-opus-5",
+  "source_sha256": "ccb5fc34edbaf19d82b3743161b899303668224a1e668278f144b326a40d295b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "camouflage-1977",
+  "field": "lead",
+  "film_id": "7ba30f0a-91e4-4a69-9e97-b9dfe312d97c",
+  "lang": "en",
+  "text": "A summer linguistics camp, students being assessed, and two teachers who cannot agree on what the place is for. That is nearly all the material Krzysztof Zanussi allows himself: a young assistant who believes the rules mean what they say, an older associate professor who has watched them mean whatever was convenient, and 96 minutes of argument that never has to leave the grounds. The comedy is real, and it is cold. The senior man is by far the better talker, which is the trap — he is entertaining, he is frequently right about how things actually work, and agreeing with him costs something the younger one has not yet learned to price. Poland put it forward for the Academy Awards. The cruelty is that the argument is never settled by events. It is settled by who holds the post.",
+  "model": "claude-opus-5",
+  "source_sha256": "78fb968a230071a855ac1f8199a5aaf21a8123ccf71968bf966a964751a32aa5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "72-meters-2004",
+  "field": "lead",
+  "film_id": "c5f15477-bc7e-4cc3-9280-c6a30a1ab431",
+  "lang": "en",
+  "text": "A navy can outlast the country that commissioned it, and the men aboard discover what that means one posting at a time. The first part of 72 Meters sits at the Black Sea base in Sevastopol in the 1980s, where Orlov and Muravyev are close friends until Nelly picks one of them, after which the friendship carries on with a hole in it and Orlov starts drinking where nobody can see. Then 1991 arrives, the flag changes, and both are sent north to the Northern Fleet. Vladimir Khotinenko is patient with all of it, and the patience pays: by the time a mine left over from an older war finds the hull, every bunk in the boat has a name attached. Service as a habit is the real subject — men still reporting for duty under an authority that has been dissolved out from under them.",
+  "model": "claude-opus-5",
+  "source_sha256": "ce91241bcd67468cac3b15639a72301bf85ab03558f163bb725f6fe2d5c3a20e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "little-rose-2010",
+  "field": "lead",
+  "film_id": "cfe4a630-0b5a-48c1-8031-ba8acc799b75",
+  "lang": "en",
+  "text": "The instruction comes down from above: the writer Warczewski is to be discredited as a camouflaged Zionist, and Colonel Rozek of the security services is to arrange it. He has no gift for literature, so he sends his girlfriend. Kamila is not political — unschooled, eager to please a domineering man — and her reports go in under a code name. The film runs on the difference between two rooms: Rozek's, where pleasure is blunt and quick, and Warczewski's, where she is spoken to as though her opinions might be worth hearing. Jan Kidawa-Błoński stages a state operation from the vantage of its least powerful instrument, which is the harder angle and the more compromising one. Nobody in it is asked to believe in communism, only to be useful to it.",
+  "model": "claude-opus-5",
+  "source_sha256": "63224b93c747595b40ea9e36bdbd2274a70b57dc599556691a71f891bbcc742a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-welts-2004",
+  "field": "lead",
+  "film_id": "a93c085e-609d-4737-a620-7c8c8c204505",
+  "lang": "en",
+  "text": "The grown man spends his free time alone underground, in caves, out of anyone's reach. Before that he was a twelve-year-old in 1980s Poland whose mother had died and whose father, out of patience with everything, reached for a belt; apart from a friend called Bartek, nobody did anything. Magdalena Piekorz cuts between the two and refuses the consoling arithmetic. The childhood is not offered as an explanation that settles the man, only as what he carries into a job, a temper, and a fellow caver named Tania who is drawn to him for reasons the film is honest enough to leave untidy. Ninety-one minutes, none of them wasted. The subject is inheritance in its least dramatic form: a manner of speaking handed down with everything else, and a man who can hear it happening.",
+  "model": "claude-opus-5",
+  "source_sha256": "35edbf90cba0f094aef76422c120cc6327341f7c6552586e6e60f455c7e8e0fc"
+ }
+]

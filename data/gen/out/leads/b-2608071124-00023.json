@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "house-of-usher-1960",
+  "field": "lead",
+  "film_id": "adc993cf-6dab-4f2b-8617-5611450a23bd",
+  "lang": "en",
+  "text": "A man decides his family should end with him, and sets about enforcing that on his sister. Roderick Usher believes the blood is tainted, and when Philip Winthrop arrives at the estate to marry Madeline, the belief stops being private and becomes a plan. Seventy-nine minutes leaves no room for a slow build, and the film does not attempt one. The house is the entire world of the picture — corridors, closed doors, plaster nobody repairs — and the people inside circle one another like parties to an argument that has already been settled. Roderick complains that light and sound wound him, and the film takes him seriously enough that every raised voice registers as damage. What lingers is less the horror than the household cruelty under it: a brother certain he is protecting his sister by ruining her life.",
+  "model": "claude-opus-5",
+  "source_sha256": "b7aa5988943f8c9e4e4a29d67af3cc8988da19285fc363188e96c373ef1ad6e9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sunshine-1999",
+  "field": "lead",
+  "film_id": "6dc9aaa2-a5e7-41b7-9dc6-4cfb285dc4e0",
+  "lang": "en",
+  "text": "Three hours, one family, and a century that keeps rewriting the terms of their citizenship. István Szabó tracks a Hungarian Jewish household across the twentieth century, which in that corner of Europe means a succession of regimes, each demanding a different proof of loyalty from the same people. The film accepts every risk of the family chronicle — repetition, resemblance, children re-fighting arguments their grandparents lost — and then makes those risks its subject. Ambition here is inherited like furniture. Made in Austria and spoken in English, it holds Hungary at a slight remove, which suits a story about people forever explaining themselves to an authority that has just changed its name. Three hours is not indulgence; it is the minimum span in which a bargain can be struck, honoured, and then demanded again.",
+  "model": "claude-opus-5",
+  "source_sha256": "8da09e28ca1fe4b9ed24e99d3fab68434b47060b817e91b52175ff0ca0fe3c42"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "luxo-jr-1986",
+  "field": "lead",
+  "film_id": "d37255e0-82d5-4010-9a80-de20befa8020",
+  "lang": "en",
+  "text": "Two desk lamps, a rubber ball, and not a face between them. Luxo Jr. runs two minutes and builds its comedy out of hardware: a hinge, a spring, a shade that tilts. The small lamp chases the ball; the big one watches with the patience of an adult who knows how this goes and has decided to allow it. Age, size and temperament arrive entirely through movement — hop speed, the angle of a beam, how long a head stays turned away. The joke is ancient, a child wearing out a parent, but the vessel is odd, since an object designed to sit still on a desk has to be given weight and a spine before it can be funny at all. Two minutes allows one idea and its consequence. The surprise is not that the lamps move; it is how fast a viewer starts assigning them ages.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f144bbae844833ec2ed43f3b26e15440d570266b507d720ef8bf72e2e9e7143"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bob-roberts-1992",
+  "field": "lead",
+  "film_id": "8e065f45-66c7-434b-be4e-d98e23d0ed11",
+  "lang": "en",
+  "text": "The candidate plays acoustic guitar, the songs come out of the folk tradition, and the lyrics are aimed at the poor. Bob Roberts is a millionaire running at a sitting senator, Brickley Paiste, and his campaign's central instrument is a borrowed style: protest music turned around and pointed the other way. The crowds sing along. Tim Robbins builds the film on performance rather than policy, which is the harder and truer choice, since what gets sold at a rally was never an argument in the first place. Comedy of this kind lives in a gap — how a rally feels from the stage against how it looks from six feet back — and the film simply keeps standing in the gap, patient, letting each song finish. Nothing here is heightened. That is the discomfort.",
+  "model": "claude-opus-5",
+  "source_sha256": "6471f7f8d3f1d9731f89320d0d72a7b798e550bf4e94abec245e4e4726192475"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "michael-jackson-s-thriller-1983",
+  "field": "lead",
+  "film_id": "b19b0395-38ea-4469-97cd-8dbcd9552744",
+  "lang": "en",
+  "text": "A horror short with a plot, a prologue and a dance number, made to advertise a record. Michael Jackson's Thriller runs fourteen minutes, several times what the form asked for, and John Landis spends the excess on staging rather than spectacle: a couple at the movies, then the same couple somewhere with far less light. The zombies are played straight, with the stiffness of bodies that used to be people, so the choreography arrives as an interruption of a horror picture rather than a number in a musical. It was the first of its kind taken into the National Film Registry. What stays odd is the ratio — feature-scale craft and patience spent on something built to run between advertisements.",
+  "model": "claude-opus-5",
+  "source_sha256": "ccf8a68d9ee995eb73c5b9ec16e528e7f8900ede3e3c22325ff8a9d8d24497fe"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-women-1939",
+  "field": "lead",
+  "film_id": "b5e20122-a757-4b75-98dd-f5eac87df964",
+  "lang": "en",
+  "text": "A wife is talked out of her own marriage by her closest friends. The husband has strayed, but the picture spends its two hours and thirteen minutes on the circle around her instead: women who arrive carrying sympathy and leave carrying material, gossip moving faster than any of the people in it, advice that costs the giver nothing. George Cukor directs it as a comedy of talk, which means the cruelty has to be timed like a joke, and mostly it is. The premise could hold ninety minutes of farce; at this length it cools into something else, a study of how a marriage can be dismantled by good company. Nobody is quite lying. Everyone is arranging the facts so as to come out ahead, and the woman at the centre keeps mistaking the arrangement for friendship.",
+  "model": "claude-opus-5",
+  "source_sha256": "668cdd802bc30d97fe3b9089c2d9d858cbcbade664af208c6173af3c2430f5e1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-7th-voyage-of-sinbad-1958",
+  "field": "lead",
+  "film_id": "28738373-f29a-42dc-a448-d8e958082f30",
+  "lang": "en",
+  "text": "A princess shrunk to the size of a hand is not a metaphor here; it is a logistics problem. Everything after the wizard's spell is practical — the cure lies on an island of monsters, an island requires a ship, a ship requires a crew willing to sail toward the things that live there. Eighty-eight minutes, spent like a quest: a fixed list of obstacles, no detours. Fantasy of this vintage stands or falls on whether the creatures seem to occupy the same floor as the actors, and the film's attention goes there rather than to the war it is nominally preventing, which stays distant and largely rhetorical. The island is the opposite of distant. What keeps the whole thing from being an errand is the shrinking itself, a cruelty aimed at one person while everyone else negotiates on her behalf.",
+  "model": "claude-opus-5",
+  "source_sha256": "e954240ac47cd4bc31d32a5491d332d41fc7a9ba33899b370baaf389100ae3d2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "one-false-move-1992",
+  "field": "lead",
+  "film_id": "07bb3d44-15db-4629-a5e2-f9ccfe509d67",
+  "lang": "en",
+  "text": "Much of this crime picture is a car crossing Texas with three people inside who are not equally sorry about what they have done. Fantasia, Ray Malcolm and Pluto leave Los Angeles behind a string of drug deals and killings, heading for a small Arkansas town they take to be nothing at all. Two LAPD detectives phone ahead to the local sheriff, Dale Dixon, and treat the call as a courtesy; Dixon treats it as the event of his career. Carl Franklin lets the drive run long, because the film is built out of who talks to whom and what that costs later. The condescension in that phone call is not a joke waiting for a payoff. It is the machinery: everyone here is busy misjudging somebody, and the sheriff understands more about the people coming toward him than the men who called him do.",
+  "model": "claude-opus-5",
+  "source_sha256": "59e23ccda9cf55fd7e779962e3cb1936f1e3e791b49dc72e6300583156142305"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "oklahoma-1955",
+  "field": "lead",
+  "film_id": "b6a67588-08c9-4474-8c92-735e6f7443fd",
+  "lang": "en",
+  "text": "There is a violent man at the edge of this musical, and the picture keeps making room for him. Around that, the Oklahoma territory at the turn of the century supplies everything a courtship needs: two cowboys, a travelling peddler, two women with preferences of their own, and songs that stop the story where it stands. Fred Zinnemann's direction shows less in the singing than in the space between numbers — the territory is photographed as country people actually have to cross, and the cinematography award went to that decision. A hundred and forty-five minutes is a long courtship. The length goes to the community around the couples, so that when the ranch hand comes into a room the arithmetic changes for everyone in it.",
+  "model": "claude-opus-5",
+  "source_sha256": "7183e4a3c41c5d35abd8b7acc1dd1a9d68e34422798bea0c9753d578710aee96"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-black-stallion-1979",
+  "field": "lead",
+  "film_id": "65e386ab-f272-482f-a59d-447803157afc",
+  "lang": "en",
+  "text": "A boy and a horse are stranded on an island where neither has anyone to talk to. The Black Stallion gives an early stretch over to that arrangement, and the arrangement dictates the filmmaking: with speech unavailable, the story has to be carried by weather, distance, hunger and the slow business of two animals of different species deciding whether to trust each other. What comes before — a ship, a father, an Arabian stallion penned below decks — is set-up shot with unusual patience. Afterwards the film becomes a training picture, with a trainer named Henry Dailey whose best years are behind him and a racetrack somewhere ahead, and the surprise is how little the tone shifts: the same watchfulness, the same willingness to hold on an animal doing nothing in particular. The editing award is the tell. A film this quiet is assembled rather than written.",
+  "model": "claude-opus-5",
+  "source_sha256": "e5f5260177c7f52dcf163355a85e0296bea5c6b1202d0316d074ed23c9ab258c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "cry-freedom-1987",
+  "field": "lead",
+  "film_id": "d17d90e2-284e-4e3b-aadd-3d8af7e79fa9",
+  "lang": "en",
+  "text": "A white journalist in 1970s South Africa can report on the system every day and still be startled by it. Cry Freedom starts in that gap, with Donald Woods moving closer to Stephen Biko, a man speaking plainly in a country where plain speech is an offence, and the early passages amount to an argument conducted first at a distance and then, awkwardly, face to face. Richard Attenborough films it at the scale of a public event: crowds, roads, the geography of segregation made legible without a line of dialogue. The structural question is present from the first reel. A story about apartheid told through the education of a white editor puts a friendship where a biography might be, and the film's answer is to let Biko carry the arguments while Woods supplies the reactions.",
+  "model": "claude-opus-5",
+  "source_sha256": "b514bb084bb3c0f6a4495f6fe5c636737efa25922ebe7851411b7ea6874d6a0e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "little-caesar-1931",
+  "field": "lead",
+  "film_id": "d7efdceb-395c-404d-9d2a-dad395ba6641",
+  "lang": "en",
+  "text": "Nobody in this picture sits down for long; the climb is the whole event. A small-time hood works his way up through an organisation run, in every particular, like a business with bad manners — territory, percentages, meetings, promotions that require a funeral. It was made in 1931, when speech itself was still a draw at the movies, and a story about a man whose main asset is his own name gets considerable mileage out of that. Seventy-eight minutes, no subplot to speak of. The money stops mattering fairly early; what the shooting buys is standing, the sound of the name said aloud by people who used to give the orders. The film watches that appetite the way it would watch a fever.",
+  "model": "claude-opus-5",
+  "source_sha256": "f03e60be15d0781f2bdae7a4e0ca126c71f135551804d8f4e16044fc01f77551"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lost-horizon-1937",
+  "field": "lead",
+  "film_id": "9e939a7e-c603-4927-907c-f1957ea421eb",
+  "lang": "en",
+  "text": "A 1937 adventure that speaks of a war not yet declared, and then offers a valley to hide in. Robert Conway, a British diplomat, comes down in the Himalayas with a small group of survivors and is taken in by people who have arranged their home to be unreachable. Frank Capra spends the early reels on the crash and the cold, then turns to temptation, which is where the picture becomes strange: Shangri-La is tested not by guards or monsters but by whether anybody would genuinely want to stay. The design carries that argument. A place built to look like the end of striving has to convince as architecture before it can convince as an idea, and the production design award went to precisely that work. What sits underneath is less flattering: the valley's pull depends on how tired its visitors already were.",
+  "model": "claude-opus-5",
+  "source_sha256": "09e53f776b09ac9347d5cd672c060086873fea7338d54c4a2fdb428a13dc49e2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ball-of-fire-1941",
+  "field": "lead",
+  "film_id": "7b3fdd19-9568-48a3-8db6-455f0cc41ad3",
+  "lang": "en",
+  "text": "A scholar discovers that his entry on slang is hopelessly out of date, which turns out to be reason enough to leave the house. The house matters: a group of academics have sealed themselves inside it for years to finish an encyclopedia, and the comedy comes from what happens when that closed system acquires a lodger, the nightclub singer Sugarpuss O'Shea, who has her own reasons for wanting a room. Howard Hawks runs it fast. The joke is never that the professors are fools — they are competent men with a gap in their data — but that language keeps moving while scholarship arrives late and takes notes. Everything the film finds funny it also finds accurate: how quickly a household of fixed habits rearranges itself around a guest, how quickly a man with a research question forgets to ask it.",
+  "model": "claude-opus-5",
+  "source_sha256": "d10b48c4e66a2f4743b85a2fdef1073988c894974f8d37497c1527202b97bedf"
+ }
+]

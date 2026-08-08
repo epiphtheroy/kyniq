@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pete-docter#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《업》의 첫머리, 마음을 무너뜨리는 \"Married Life\" 몽타주는 상당 부분 도크터가 직접 스토리보드를 그렸다. 대사 한 줄 없이 한 사람의 일생을 감정으로 완결하는 이 방식은 그가 사랑해 온 무성영화에서 곧장 빌려온 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "27d3fe292790a381d7ad8d89b9cb98215db422d59bbcdc4149c83360bedae6c1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pete-docter#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "어릴 적 품었던 건축의 꿈을 어른이 되어 이뤘다. 캘리포니아 라파예트 자택 뒷마당에 층이 여럿인 복잡한 트리하우스를 손수 지은 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2198ee65bc1f120666fa11bfcdbffa6ff10f6efeff0225e8c677a16cacaeea91"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pete-docter#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《소울》의 주인공 조 가드너는 처음엔 배우 혹은 과학자였다. 재즈 연주자가 실수를 음악으로 바꾸는 법을 이야기하는 허비 행콕의 영상을 보고 나서, 도크터는 그를 재즈 피아니스트로 바꿨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e61e7faf9189aa6d4cda4fb27829565e73eadc7a96305e8023b23c6733f5808"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pete-docter#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《소울》의 \"태어나기 전 세상\"은 도크터 자신의 오랜 물음에서 나왔다. 사람의 성격은 태어날 때부터 정해져 있는가. 아이들이 태어난 뒤로 그는 이 질문을 놓지 못했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b81dac6ccaca342bc9e80fb8c3923ee3213c329154dbbee1c899bb2792f7f3ae"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pete-docter#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "직장 내 부적절 행위 의혹 속에 존 라세터가 2018년 떠난 뒤, 도크터가 픽사의 최고창작책임자 자리에 올랐다. 하루의 무게중심이 한 편을 연출하는 일에서 스튜디오 전체의 창작 라인업을 건사하는 일로 옮겨갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "908da26b6c7553b0e65ef3a1b0be7ed23ab73e60a8bc127053dbf161e5138343"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pete-docter#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "머펫을 만든 짐 헨슨의 스케치가 액자에 담겨 그의 사무실에 걸려 있다. 체제를 비트는 유머와 깊은 진심을 한데 섞어낸 헨슨이야말로 자신의 궁극적인 북극성이라고 그는 말한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c5fa58427e9110c1968df8ee78dba205501885b931f9182b0cc29ee1ed2ab2a8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pete-docter#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아카데미 장편애니메이션상을 세 번 받은 최초의 인물. 《업》, 《인사이드 아웃》, 《소울》이 그 세 개의 트로피다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c5e1dccfda5a4b608c52446d430d423ca2108ae28ec68644c90c1b9c47b6a63c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "peter-jackson#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1961년 핼러윈에 태어났다. 부모 아서와 조앤 잭슨은 뉴질랜드의 작은 해안 마을 푸케루아베이에 정착한 영국 이민자였고, 외아들로 자란 그는 스톱모션 애니메이션에 빠져 살았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9aa6c2eb380dec4a06dcc734b0938e417b6e11389dc06c0a00884c59dcd737e5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "peter-jackson#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "열여섯에 카피티 칼리지를 그만두면서 영화 교육은 한 번도 받지 못했다. 웰링턴의 신문사 《이브닝 포스트》에서 사진제판공으로 7년을 일했고, 부모 집에 얹혀살며 번 돈을 카메라 장비에 쏟아부었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "efe703e15e4b3968ffe140cb329b62551fa6b74a1cc7f1f2eea023f21addc65f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "peter-jackson#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "데뷔작인 스플래터 코미디 《고무인간의 최후》는 친구들과 4년에 걸쳐 일요일마다 찍었다. 스테디캠은 알루미늄과 캔버스 천 15달러어치로 직접 만들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c049932b6cb3c270c095463383e4f8bf63934e1c2120a6d7f30b4c690d2b6dd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "peter-jackson#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1992년 좀비 코미디 《브레인데드》(북미 개봉명 《Dead Alive》)의 클라이맥스에서 주인공은 잔디깎이 기계로 언데드 무리를 갈아버린다. 이 장면을 찍느라 잭슨의 스태프는 분당 300리터의 가짜 피를 뿜어댔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f4008b8dd961d34f0b59013a55d6e3f1243a0e0e4a466d7d5c209f3c8373d1e3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "peter-jackson#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "현지에 후반작업 시설이 없다는 데 진력이 난 잭슨은 1993년 리처드 테일러, 제이미 셀커크와 함께 웨타 디지털과 웨타 워크숍을 세웠다. 《천상의 피조물들》의 디지털 효과는 웰링턴의 작은 뒷방에서 만들어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4590b68b95f28016c932094251d5b93816574ee9188988c758efe8957b0045fc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "peter-jackson#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미라맥스의 하비 와인스틴은 《반지의 제왕》을 한 편으로 압축하지 않으면 잭슨을 자르고 쿠엔틴 타란티노를 앉히겠다고 협박했다. 잭슨은 각본을 뉴라인 시네마의 밥 셰이에게 흘렸고, 셰이는 이렇게 되물었다. \"책이 세 권인데 왜 영화를 두 편만 만듭니까?\"",
+  "model": "claude-opus-5",
+  "source_sha256": "0c9948d75a2380caece844adc8b247a48fcd33f2a37bc53450ab48bb468fb0d1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "peter-jackson#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "앨프리드 히치콕처럼 잭슨도 자기 영화에 얼굴을 내민다. 가장 유명한 것은 《반지 원정대》에서 비에 젖은 브리 마을을 배경으로 당근을 씹으며 트림하던 농부다.",
+  "model": "claude-opus-5",
+  "source_sha256": "94988bb46285e6715080f3da45a749cfb4ba43f9edcdec4cf230f0c8f35f1331"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "peter-jackson#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "20년 넘게 잭슨은 웰링턴 교외 미라마의 상업·주거용 부동산을 조용히 사들였다. 한적한 노동자 동네였던 그곳은 수천만 달러 규모의 할리우드급 스튜디오 단지로 변했고, 현지에서는 \"웰리우드\"라 불린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c019b5c986557505a1758964786e02f732bf60f2115d088e3ef859999c2cc63d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "peter-jackson#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2007년 잭슨은 《반지 원정대》의 상품화 로열티가 지급되지 않았다며 뉴라인 시네마를 고소했다. 이 험악한 법정 싸움 탓에 그는 한때 《호빗》 연출에서 밀려났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e415a727f725856d4b232b75c72a43c7b328516086021a926b07b37eb981730b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "peter-jackson#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1차 세계대전 항공기광이기도 하다. 매스터턴의 후드 비행장에 자리한 그의 회사 The Vintage Aviator Ltd는 20세기 초 전투기를 실제로 날 수 있게 정밀 복원해 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "77f658574d7cb885fa836f5d54babbdd3b994fdaef13eda189d7f81d375fce43"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "peter-jackson#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1968년 뮤지컬 《치티치티 뱅뱅》에 실제로 쓰인 자동차 소품을 경매에서 80만 5천 달러에 사들였다. 가끔 그 차를 몰고 웰링턴 시내를 돌아다닌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "43bc6a38857b481902298c4eddba4c209f401529321b075bf4f118b779f233e7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "peter-jackson#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2011년 초 《호빗: 뜻밖의 여정》 촬영이 돌연 멈춰 섰다. 위궤양 천공으로 잭슨이 웰링턴 병원에 실려가 응급수술을 받았기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc470462ed62688cf069ce657f1f45b49c4946a86087bb9038ef316c5e889ceb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "peter-jackson#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2018년 1차 세계대전 다큐멘터리 《데이 쉘 낫 그로우 올드》를 만들며 잭슨은 법의학 독순술 전문가를 불러 100년 전 무성 필름 속 병사들이 무슨 말을 했는지 읽어냈다. 그런 다음 영국 각 지역 출신 성우를 고용해 그 대사를 그대로 입혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "36b527c1330adc3b5214e6777e8d0922b8818143b4f66042a1d1b91a4d9d85bd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "peter-jackson#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "비틀스 다큐멘터리 《겟 백》을 만들면서 잭슨의 윙넛 필름스 팀은 \"MAL\"이라는 기계학습 음향 소프트웨어를 개발했다. 이름은 비틀스의 로디 맬 에번스에서 따왔다. 스튜디오에서 겹겹이 뒤엉킨 잡담 속에서 존, 폴, 조지, 링고의 목소리를 하나씩 떼어내는 물건이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e0ad03092010d45a74c038dc608eeb98275055c1754dfa06daf8e2f136a81967"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "peter-jackson#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "웨스트 멤피스 3인의 석방에는 잭슨과 월시의 몫이 컸다. 두 사람은 사설탐정과 DNA 검사 비용을 조용히 댔고, 그 결과 2011년 데미언 에콜스, 제이슨 볼드윈, 제시 미스켈리가 풀려났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "07d511638c3a59b87762a795f627c62928b7305ec84d6b470784e96581dac56b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "peter-jackson#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2010년 아난드 사티아난드 총독으로부터 정식으로 기사 작위를 받았다. 버킹엄 궁으로 가는 대신 웰링턴에서 받기로 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b6304296e937af8bcee870fca5440145d50b67a421820a2ee1bdc91203d5fec"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아버지 카를로 알베르토는 엄격한 파시스트 보병 중위였고, 파솔리니는 그를 깊이 미워했다. 반대로 농민 출신 어머니 수산나 콜루시에게는 평생 격렬한 오이디푸스적 애착을 품었다. 훗날 그는 어머니를 《마태복음》의 늙은 성모 마리아로 세운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "35b9157a83b486830260e52ae19d30dc4b6ed9271f02643a8e94c6badb3a85c2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "동생 귀도는 반파시스트 오소포 파르티잔에 들어갔다가 1945년 포르추스 학살에서 처형당했다. 죽인 쪽은 유고슬라비아에 선 경쟁 공산주의 여단이었다. 이 상처는 파솔리니와 정통 마르크스주의 사이를 끝내 복잡하게 만들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d26df8723f70b6292f54b66c4cc27037af262fbd9b008e8c333656f96368df56"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1949년, 라무셸로의 마을 축제에서 10대 소년 셋과 성관계를 가진 일로 미성년자 유인과 공연음란 혐의를 받았다. 그는 이탈리아 공산당에서 제명되고 프리울리의 중학교 교사직에서도 쫓겨났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "57c65721783b77184cf2c01f9408b38892b8377c0dcf5b599dbf2d59f6076843"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스캔들을 피해 어머니와 로마로 옮겨간 그는 보르가테라 불리는 빈민가에서 극빈하게 살았다. 그곳의 폭력적이고 펄떡이는 하위프롤레타리아 거리 문화가 이후 그의 문학과 영화 전체를 결정한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "91a889e134ba039002215a258670ac9135e420750710e500d1ee46beadef36c1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생 마르크스주의자였으면서도 1968년 발레 줄리아 충돌 때는 시 「청년들에게 보내는 이탈리아 공산당」을 써 논란을 자초했다. 그는 진압 경찰 편에 섰다. 저들이야말로 진짜 \"가난한 자의 아들\"이며, 시위하는 대학생들은 버릇없는 부르주아 자식들일 뿐이라는 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ca3d24de4e7fefc3d901832bb8d9241ffab2f374042a9566b75b0ca823ebda0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "공공연한 무신론자였던 그가 대표작 《마태복음》을 얼마 전 세상을 떠난 교황 요한 23세에게 바쳤다. 이 영화로 국제가톨릭영화사무국의 그랑프리를 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e224ab1bffd64489c12c20a56c29dbd60e2c9b6ad0d4bdaa8616a32e1398c7e8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "비직업 배우를 고집한 것으로 유명하다. 단골 주연 프랑코 치티는 로마 길거리에서 찾아냈고, 예수 역에는 열아홉 살 스페인 경제학도 엔리케 이라소키를 앉혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fed2b4e702cbe9d5cf6a0bbe68bbe54f1b7f677e7068205e1535b323fc438478"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "파솔리니의 위대한 뮤즈이자 오랜 연인은 니네토 다볼리였다. 잘 웃고 곱슬머리인 목수 견습생을 감독은 로마 빈민가에서 발견했고, 여러 편에서 희극적 상대역으로 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d15200a9895018b5a371db52fd5fd065528574b7c2e60d03415a7e64470e9ba9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1963년 단편 《라 리코타》에는 오손 웰스가 십자가 처형 영화를 찍는 냉소적인 감독으로 나온다. 이 작품으로 파솔리니는 \"국교 모독\" 혐의를 받아 징역 4개월 집행유예를 선고받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c8b2b18b5be8728c81012f52ed3fc447935725a3e12e2ddb8610f750ea33af6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "페데리코 펠리니의 제작사 페데리츠가 파솔리니의 연출 데뷔작 《아카토네》를 처음엔 지원했다. 그러나 다듬어지지 않은 테스트 촬영분을 보고 펠리니가 손을 떼면서, 두 이탈리아 거장 사이에 험한 균열이 생겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d6cda3bf7d1fb468d52ab4d7161b09659bddf726ed7e929dd3b67ccac9f6129f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "왼쪽 윙어로 뛴 축구광이었다. 촬영 중에도 배우와 스태프를 모아 진지한 시합을 자주 벌였는데, 파르마에서 《살로 소돔의 120일》 팀과 베르나르도 베르톨루치의 《1900년》 팀이 붙은 대규모 경기가 특히 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "715fb22cb416a3db727189bc90f3f4800aef15d176c81a83cb57b292de90ee25"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《아카토네》의 조감독으로 그는 아직 시집 한 권 내지 못한 젊은 베르나르도 베르톨루치를 썼다. 친구인 시인 아틸리오 베르톨루치의 아들이었다. 베르톨루치의 전설적인 이력이 여기서 시작된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "956e254466668ecc093cf8ea41a2e9149103f73a46431f614dac623fdd820ed4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "게이 해방 운동이 소비주의에 흡수되는 꼴을 그는 혐오했다. 현대 소비자본주의야말로 더 교활한 형태의 파시즘이며, 이탈리아 각 지역의 진짜 농민 문화를 파괴하고 있다는 것이 그의 주장이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "63dcf8ea0e61ba7683077a7d50c4a89019f37e850ba9b5f52b13649e4a2aa459"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "\"생명의 삼부작\"(《데카메론》, 《캔터베리 이야기》, 《아라비안 나이트》)을 찍으며 그는 예멘과 네팔, 이란 같은 곳을 두루 다녔다. 서구식 세계화가 아직 닿지 않은 전(前)산업적 풍경을 찾아서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "60eefdd065826b156645962209a857807a24f74aae2feb15f52b6b9f4777baa4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《캔터베리 이야기》에서는 카메라 앞으로 나와 제프리 초서를 직접 연기했다. 《데카메론》에서는 조토의 수제자로 등장해 영화 내내 프레스코를 그린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f285998c683eafb9cafcce02ee96430b90316f422eaf0f9329acc644f72632d9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1975년 신문 기고에서 그는 자기 손으로 만든 저 환희에 찬 \"생명의 삼부작\"을 공개적으로 부인했다. 현대의 성 해방은 소비주의에 가로채였고, 인간의 몸은 상품이 되어버렸다는 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "774c267f831a3f5d11577724316550271d68f663ee02bc0f2ed42b97408bab16"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "악명 높을 만큼 잔혹한 유작 《살로 소돔의 120일》은 사드 후작의 고문 서사를 1944년 파시스트 살로 공화국으로 옮겨놓는다. 극단적인 성폭력이 자본주의 아래 인간이 완전히 상품화되는 사태의 은유로 쓰인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "15afccca3709e84088b86d0bc03a3658e2fa58e0ef608908fa698aa460913038"
+ }
+]

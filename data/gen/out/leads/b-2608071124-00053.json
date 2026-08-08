@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "from-the-manger-to-the-cross-1912",
+  "field": "lead",
+  "film_id": "4766c5d1-c2ce-4586-8f84-8c79e8baa7a0",
+  "lang": "en",
+  "text": "In 1912 an American company carried its cameras to the Holy Land and staged the life of Jesus on the ground the story names. Seventy-one minutes, arranged as tableaux: each episode composed as a picture and held, rather than broken into shots and reassembled. That is less a limitation of the period than a decision about what an audience came for, which was recognition. Viewers who knew the episodes already from pulpit and print did not need continuity; they needed the framing to agree with the image in their heads. Sidney Olcott keeps his figures small against real hills, real walls, real doorways, so the landscape carries much of the performance. It now sits in the National Film Registry. What comes through most plainly is the daylight: dust, glare, weather, pressing on scenes usually delivered as paint.",
+  "model": "claude-opus-5",
+  "source_sha256": "efc872809fdd7f73d87234d81d49e1736605806b63b08a0b52b24892b6e36a8a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-fighting-lady-1945",
+  "field": "lead",
+  "film_id": "c96169b8-34b9-49fc-965c-c33bd04a252b",
+  "lang": "en",
+  "text": "The ship has no name in this film, only a title: THE FIGHTING LADY, standing for every carrier laid down after Pearl Harbor. Its own studio called it a newsdrama, which is honest about the seam: Navy cameramen shot the material in combat zones in 1943, and it was shaped afterward into a story whose protagonist is a vessel. The rhythm belongs to the flight deck: arming, launching, waiting, counting the aircraft back. Lieut. Robert Taylor of the USNR narrates as a man aboard rather than a man explaining. It took the Academy Award for documentary feature. Sixty-one minutes is short for a war and long for one raid, and most of it goes to the interval between the two. When the strike on the Japanese base at Marcus Island comes, it comes as work: procedure carried out by very young men doing it for the first time, with the sea underneath and no cutaway to a map.",
+  "model": "claude-opus-5",
+  "source_sha256": "7047469a2fcc5aa30c35f9f0cf9f324d08f85001232ce41aa95f727090fb375f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tulips-shall-grow-1942",
+  "field": "lead",
+  "film_id": "f93a3712-6ab6-4b58-b7bb-90402a4130a2",
+  "lang": "en",
+  "text": "The invading army here is machinery, and the film was made by hand, a frame at a time. George Pal's puppets had to be set into each new pose individually, so the unfeeling mechanical column grinding across a Dutch countryside was itself the product of months of patient handwork, a joke that goes cold the moment it registers. Seven minutes. The couple at the centre have a mill and a canal, a landscape assembled from the picture-book Holland an American audience in 1942 already carried in its head, and when the machines come through, the charm is not withdrawn so much as flattened by something with no face. The National Film Registry took the film in 1997. What earns it that place is the arithmetic: a technique made of thousands of small deliberate adjustments, aimed at things that do not deliberate at all.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c1ed042155b8abf3833269a86dc2d071e94b2ebdda6cf07068e3fdbecb703c3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "daughter-of-shanghai-1937",
+  "field": "lead",
+  "film_id": "fef9c08d-6b97-425e-afd2-f5415347a124",
+  "lang": "en",
+  "text": "A Chinese-American woman decides to break open a ring smuggling people into the country, and does the investigating herself. Sixty-two minutes leaves no room for hesitation, and this one spends none. Robert Florey shoots it as a programmer, brisk and unornamented, and the plot runs on the standard equipment of 1937 crime pictures: a trail that leads upward, men who are not what they claim. What is not standard is who holds the centre. The premise gives her the work a picture of this kind would ordinarily hand to a detective from outside, and nothing in the film stops to remark on the substitution; she simply goes. The National Film Registry keeps it, and the reason is that arrangement rather than any polish. It makes the argument without once stating it.",
+  "model": "claude-opus-5",
+  "source_sha256": "33235c1a52e70d09f8057df538b32fa8a050dcd814015ef6879c48b2f2aaf596"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "black-and-tan-1929",
+  "field": "lead",
+  "film_id": "d9c8c113-c604-4971-ae21-44bc63a300a2",
+  "lang": "en",
+  "text": "Nineteen minutes exist because the microphone had arrived: a 1929 short built so Duke Ellington's band could be heard playing rather than mimed over a pit piano. The story around the music is deliberately thin. Ellington is out of work and needs the booking; the dancer Fredi Washington can get him one, and her heart will not take the effort the job demands. What the film does with that is put two kinds of labour side by side, playing and dancing, and shoot each as performance rather than illustration. Dudley Murphy stays close to instruments and to faces. Washington has the harder assignment, since she must act a decision as well as execute a routine. The National Film Registry holds it, and nineteen minutes turns out to be exactly the length at which the playing can be the subject and the plot only its occasion.",
+  "model": "claude-opus-5",
+  "source_sha256": "6ff24d2bcd483ed7dc72c5d7f7c477d423cf023ea41793a55a3f6924e1aea4b6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "outward-bound-1930",
+  "field": "lead",
+  "film_id": "0374f040-af76-4356-ba54-5304447d0e67",
+  "lang": "en",
+  "text": "A ship with no crew, fog on every side, and passengers who cannot say where they came aboard. The staging is theatrical by choice: a saloon, a corridor, a few doors, and Robert Milton's interest is conversational pressure, small talk, then the failure of small talk, then people questioning each other about how they got here. Eighty-three minutes of that needs actors who can hold a room, and the 1930 picture is built for them rather than for movement. The National Board of Review put it among the year's ten best, and Hollywood returned to the same setup in 1944 as Between Two Worlds. What holds now is the manners. Each passenger has a version of himself prepared for strangers, and the crossing keeps outlasting it, so the film's real event is the slow arrival of candour among people with nothing left to trade on.",
+  "model": "claude-opus-5",
+  "source_sha256": "a18f13fa69bf399b28e90954dc436a7b24bad7e283dd36218d46345d3080d2cf"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "one-day-in-the-life-of-ivan-denisovich-1971",
+  "field": "lead",
+  "film_id": "a531a450-ad5f-4e78-8d34-48dad0bf1bb9",
+  "lang": "en",
+  "text": "The camp had to be cold, so it was built in northern Norway. A Norwegian production spoken in English, adapted from Solzhenitsyn's day in the life of a prisoner in Stalin's Gulag, and it keeps the book's hardest constraint: one day has no arc. Wake-up, count, march, a shift of work, a search, food. Casper Wrede films it from a distance that declines to weep, and the camera mostly watches a man calculate: warmth, bread, tools, the pace at which it is safe to work well. Competence becomes the entire content of a life. A hundred and five minutes, most of them given to procedure, which is the point, since in a place designed to make one day the same as ten years, whatever small advantage a man wins for himself registers at its true size.",
+  "model": "claude-opus-5",
+  "source_sha256": "b2a34019ce683b270d6bf5421ff2de8292fe1a2077e3a8563eb48024dd100afc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "castro-street-1966",
+  "field": "lead",
+  "film_id": "4c0ed5eb-535c-4d9a-87df-247afb73cea5",
+  "lang": "en",
+  "text": "Not the Castro in San Francisco: a Castro Street in Richmond, California, running the length of a Standard Oil refinery. Bruce Baillie made ten minutes there, taking from Erik Satie a permission to repeat, material returning with slight alteration instead of developing toward anything. A film in the form of a street, the record calls it, and that sets the terms. Nobody is introduced and nobody speaks for the place; the refinery yard supplies whatever passes through it, rail and pipe and tank and light. The eye is put to work the way it works from a moving window, taking a stretch of ground in layers rather than in facts. The National Film Registry holds the film. The curiosity is that a person comes away able to name almost nothing in it except the street, while the rhythm stays, and a second run through makes it audible.",
+  "model": "claude-opus-5",
+  "source_sha256": "d085f998794209174202c3362a24ea71ae0c8dbbc4631d5e6ee80b7a353bcc98"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "eskimo-1933",
+  "field": "lead",
+  "film_id": "29d8a97d-6c6c-440d-b078-a426900a3136",
+  "lang": "en",
+  "text": "An adventure picture from an American studio in 1933 that puts the white man in the wrong. The trader is unscrupulous from the start, and the hunter whose life he unsettles keeps the point of view, which is not the arrangement the genre labels predict. Nearly two hours. The Academy Award it won was for editing, which is worth pausing on: the prize goes to whoever decided how long a viewer stays with a hunt, a crossing, a face, before the story resumes its business. The title is the vocabulary of its period, and so is the frame the film puts around its subject; what survives inside that frame is attention paid to work and weather rather than to incident. W.S. Van Dyke handles the melodrama plainly and lets the intervals between its turns run long.",
+  "model": "claude-opus-5",
+  "source_sha256": "d7fc20f0a4c7237ffb70c39424cd1ee1f961bdeb5db61483b63cea968584c2de"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-devil-is-a-sissy-1936",
+  "field": "lead",
+  "film_id": "82a2a853-5761-4269-9544-8b8cc1b0e608",
+  "lang": "en",
+  "text": "The entire plot is one boy trying to be let into a group of other boys. He is English and carefully raised; they are from lower Manhattan and keep their own standards, most of which concern nerve. Ninety-two minutes on that, filed in 1936 as comedy and drama and meaning both: the laughs come from etiquette misread in both directions, the trouble from what a child will do when someone else sets the price of company. The lesson could easily have been handed to an adult to deliver. Instead the tribunal is other boys his own age, which is harsher and more accurate. W.S. Van Dyke directs without condescending to any of them, and the National Board of Review counted the result among the year's ten best. It takes a schoolyard hierarchy exactly as seriously as the children inside it do.",
+  "model": "claude-opus-5",
+  "source_sha256": "6104c22df8823c8ab547e3be9dbe243a55cdb5c59dbfb835b55a8ab71a177d03"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-hole-1962",
+  "field": "lead",
+  "film_id": "e8ebcb46-150c-4b3c-8916-5ccd04ac158c",
+  "lang": "en",
+  "text": "Two men talk, and the subject is accidents: how a thing goes wrong with nobody intending it. From there it slides, the way conversation slides, to the bomb. Fifteen minutes, drawn, and the drawing keeps company with the talk rather than illustrating it: the engine is digression, interruption, a subject arrived at sideways. In 1962 the subject was not hypothetical, and John Hubley's tactic is to leave it where two working men would leave it, at the level of speculation on a break, with no narrator arriving from above to spell out the consequences. It won the Academy Award for animated short. The comedy is real comedy, loose and off-topic, and that is what lets the other matter land: nobody here is debating policy, only whether an accident is the sort of thing that can happen.",
+  "model": "claude-opus-5",
+  "source_sha256": "dab63baffecc8e38f65883e754c7d8a595b2292e43f203fef76101c83bc7b3d1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-young-doctors-1961",
+  "field": "lead",
+  "film_id": "43dfa41e-1b05-417f-b69c-a019fb405c8b",
+  "lang": "en",
+  "text": "A hospital is one of the few workplaces where an older man's failing judgement gets measured in other people's bodies. That is the pressure here: a senior doctor, an assistant young enough to be right, and a professional courtesy that keeps either of them from saying so aloud. The National Board of Review named it one of the ten best of 1961, and what it rewards is construction rather than crisis: rounds, results, a chain of authority that cracks only in private rooms. A hundred minutes, and most of them belong to the older man, because he is the one with something to defend. Phil Karlson keeps the melodrama on a short leash, which matters in a story where an error of this kind would be indefensible rather than merely sad. What the film watches, patiently, is a man protecting his standing inside an institution not built to confront him.",
+  "model": "claude-opus-5",
+  "source_sha256": "86de1365a83039e19900a1b30c6ede1fb79d9c0600fc19d8499ffd78a57b647e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-african-lion-1955",
+  "field": "lead",
+  "film_id": "8a2cee53-10ee-4c5d-9f32-8b36e442f8d0",
+  "lang": "en",
+  "text": "Disney's True-Life Adventures unit came back from Africa with as much weather as animal. James Algar cut the material into the shape of a single year: rain, drought, grass rising and burning off, cubs learning what they can and cannot bring down. Seventy-five minutes, on the premise that watching is sufficient. The house habit is to give the animals parts and read behaviour as character, and that is the layer that has aged. Underneath it the footage is patient and frequently unglamorous: a stalk that fails, a kill divided in strict order, long stretches of heat. The National Board of Review placed the film in its ten best for 1955. It survives as a document of two things at once, a lion population observed at length, and a studio deciding what a family audience of the mid-fifties could be told about it.",
+  "model": "claude-opus-5",
+  "source_sha256": "f33b1edeb4b6b7f0a231fdf1fc7367fbe204e7ce760dfe4f0ea63ed42b8282ff"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "motion-painting-no-1-1947",
+  "field": "lead",
+  "film_id": "fb7fba80-a656-46c8-8079-b25c3fed3258",
+  "lang": "en",
+  "text": "Nine months of painting compressed into eleven minutes of film. Oskar Fischinger worked in oil on sheets of acrylic glass and exposed a frame after each brushstroke, so the painting that finally exists, layered until the first strokes are hidden, survives in the film only as everything that covered it. Bach's third Brandenburg Concerto runs underneath, and the relation is structural rather than decorative: forms enter as voices enter, hold the same lengths of time, and are painted over. What is on screen, strictly speaking, is a sequence of decisions, one per frame, with the hand nowhere in sight. The National Film Registry selected it in 1997. Knowing the method changes the object: without it, abstraction; with it, a record of work, one surface made and buried continuously for the length of a concerto movement.",
+  "model": "claude-opus-5",
+  "source_sha256": "605ea7e58d3465a715f5160f790505b1913c1b82b73c80fc753663f232df18f5"
+ }
+]

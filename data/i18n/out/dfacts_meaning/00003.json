@@ -1,0 +1,272 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "장(Jean)은 히브리어 이름 요하난의 프랑스식이다. 뜻은 '야훼는 자비롭다'. 성 르누아르는 고대 프랑스어 인명 르니에(Renier)에서 나왔고, 뿌리를 더 캐면 게르만어 요소 둘에 닿는다. 조언 또는 결정을 뜻하는 ragin, 그리고 군대를 뜻하는 hari.",
+  "model": "claude-opus-5",
+  "source_sha256": "054a10017742338d0e6b0a0839a08d668539988c633813bd7b47b9cb8f30d661"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jeremy-saulnier",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "제러미는 히브리어 이르미야후(יִרְמְיָהוּ)에서 왔다. '야훼가 들어 올리시리라' 혹은 '신이 풀어주시리라'라는 뜻이다. 솔니에는 프랑스의 직업 성씨다. 고대 프랑스어 saunier에서 왔고, 소금을 다루는 사람을 가리켰다. 염전에서 소금을 걷는 일꾼이거나 소금을 파는 상인이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e8926c381d9e4f80f1bbb16e34d6fd0e1a3957a16378b7d4544f08269ab99c6d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jia-zhangke",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "간체자로는 贾樟柯라 쓴다. 성 贾는 예부터 상인, 혹은 장사한다는 뜻이었다. 이름은 녹나무를 뜻하는 樟과 도끼자루 또는 가지를 뜻하는 柯를 붙인 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "810f92d9a2b36580d462548cc23d76a9d6967b802b104cf44eb8cc494c4807a4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jim-jarmusch",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "짐은 제임스의 애칭이다. 제임스는 히브리어 야아코브(Ya'aqov), 곧 야곱에서 왔고 '자리를 밀어내고 차지하는 자' 혹은 '신이 지켜주시기를'로 풀린다. 자무시는 체코나 보헤미아의 성씨 야르무시(Jarmuš)를 미국식으로 적은 것이다. 슬라브 인명 야로미르에서 나왔을 가능성이 크다. '사나운 평화'라는 뜻이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "84340697b0df0341080c6c79600a08fc367b00d337671f1d4659bb307237187d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joachim-trier",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "요아킴은 히브리어에서 온 이름이다. 예호야킴(יְהוֹיָקִים), '야훼가 길러낸' 또는 '신이 세운'이라는 뜻. 성 트리어는 독일의 지명 성씨로 고대 도시 트리어에서 왔고, 그 도시 이름은 다시 켈트족 트레베리에서 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2973bfc6599f187e7859f55c196d819931a4ebda74c1a13d4fc0ca23bdf7f837"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joel-coen",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "조엘은 히브리어 요엘에서 왔다. '야훼가 곧 신이다'라는 뜻이다. 성 코엔은 코헨(כֹּהֵן)의 다른 표기다. 히브리어로 제사장을 가리키며, 성서의 아론에게서 부계로 곧장 내려온 혈통을 뜻해왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0804e53bc0a7b11d14c96ee06028f0beda5679917619913a331c43d14164e51b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carney",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "존은 히브리어 요하난에서 온 영어 이름이다. '야훼는 너그럽다'는 뜻. 성 카니는 아일랜드어 오 케르나이(Ó Cearnaigh)를 영어식으로 옮긴 것이고, 어원인 cearnach는 '승리한', '이겨낸'을 뜻한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9403e412c2a03a5ecd74ab30ce4fe0cad7b3e0c53855be6cd16c08c56f28c5e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carpenter",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "직업이 그대로 성이 된 경우다. 카펜터는 고대 프랑스어 carpentier에서 왔고, 그 뿌리는 라틴어 carpentarius다. 나무를 다루는 사람, 수레를 짜는 장인을 가리키던 말이다. 이름 존의 유래는 히브리어 요하난, '신은 자비롭다'.",
+  "model": "claude-opus-5",
+  "source_sha256": "79dd54e28dead37af2770f6f603e79ad1929a20d9c67db7f02c0d83366befedc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-ford",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "본명은 존 마틴 피니. 존은 히브리어 요하난에서 왔으니 '신은 자비롭다'는 뜻이고, 마틴은 라틴어 마르티누스로 '마르스에게 바쳐진'이라는 뜻이다. 피니는 아일랜드어 오 피어나(Ó Fiannaidh), '전사의 후손'이다. 포드라는 성은 형 프랜시스에게서 가져왔다. 형은 그 이름을 자동차 상표에서 따왔다고 전한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "097dacf8712c58088f19eb47dc5d6ee5492655b0c5f25adbd42ef7cdff4b910e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-hughes",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "요하난(יוֹחָנָן)에서 온 존은 '야훼는 자비롭다'를 뜻한다. 휴스는 아버지 이름을 물려받는 방식의 성으로, 고대 프랑스어와 게르만어 이름 휴가 영어식으로 굳은 것이다. 더 거슬러 가면 원시 게르만어 hugiz에 닿는다. 심장, 마음, 정신을 뜻하는 말이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "541c6e483c317bbbdbb7ed6ba72a607f681eecbbead6f36a09af2568153025ce"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-huston",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "휴스턴은 스코틀랜드와 잉글랜드의 지명 성씨다. 스코틀랜드 렌프루셔의 한 마을에서 왔고 '휴의 마을'을 뜻한다. 인명 휴에 정착지를 가리키는 중세 영어 tune이 붙은 형태다. 이름 존은 히브리어 요하난(יוֹחָנָן)에서 왔다. '신은 은혜롭다'.",
+  "model": "claude-opus-5",
+  "source_sha256": "e97ece5d22a226bee449e950c7df4538f0f5baab7ad64835858695b8802c4947"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-mctiernan",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "존의 뿌리는 히브리어 요하난, 야훼는 자비롭다는 말이다. 맥티어넌은 아일랜드 게일어 막 티어르난(Mac Tighearnáin)을 영어식으로 옮긴 것으로, '티어르난의 아들'을 뜻한다. tighearna는 군주라는 말이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "15beaad7581335c323479f16333d43cb56855c2ce118231fc38dc2283d9c519b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-woo",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "본명은 우위썬(吳宇森)이다. 옛 중국의 나라 이름에서 온 흔한 성 吳에, 우주나 처마를 뜻하는 宇와 숲 또는 빽빽하고 무성함을 뜻하는 森이 붙었다. 시로 읽자면 '넉넉한 우주', 또는 '우주의 울창한 숲'이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c541689a95fe3692648c9904813ec4bb33ca351a1b95d665c12fa1a205be758f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jon-watts",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "존은 조너선의 축약형이다. 히브리어 예호나탄, '야훼가 주셨다'에서 왔다. 성 와츠는 영국에서 아버지 이름을 따 만든 성으로, 중세에 월터를 줄여 부르던 Watt에서 나왔다. 월터의 뿌리는 게르만어 Waldhar, 곧 '군대의 지배자'다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e6426015d017b19b9fec4f79dc03e73e426ae588145f5a27d98cc5c1968adb8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jordan-peele",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "조던은 히브리어 야르덴(יַרְדֵן)에서 온 이름이다. '흘러내리다', '내려가다'라는 뜻이며 본래는 요르단강을 가리켰다. 필은 지형에서 온 영국 성씨다. 고대 프랑스어 pel과 중세 영어 peel에서 왔고, 방책이나 요새 탑 가까이 살던 사람을 불렀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "992b9202d32a5b2dd81e120f05410c42ae894c51bab8e652ac7b0bd82b38026b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "justin-kurzel",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "저스틴은 라틴어 유스티누스에서 왔다. 올바르다, 공정하다, 의롭다는 뜻이다. 커젤은 게르만계와 폴란드계에 걸친 성으로, 중세 고지 독일어 kurz에서 나왔다. '짧다'는 말이니 처음에는 생김새를 두고 붙인 별명이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c30d11bb69cbec84abd607b95f889e9a92ff1934389a3190fa3efd7f6673184a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaneto-shindo",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "新藤 兼人이라 쓴다. 성 新藤은 글자 그대로 '새 등나무'다. 새롭다는 뜻의 신에, 일본 성씨에 흔히 들어가는 글자인 등나무 도가 붙었다. 이름 兼人은 겸하다·아우르다라는 뜻의 가네와 사람을 뜻하는 토의 조합이다. 여러 몫을 한꺼번에 감당하는 사람, 재주를 겹으로 지닌 사람이라는 울림이 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ab57d33cc1ddb5f966c27269d831a2163f713c14c06cd09d823fef4f683267e8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaouther-ben-hania",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "아랍어 이름 카우타르(كوثر)는 '알카우타르'를 가리킨다. 이슬람의 낙원에 흐르는 풍요의 성스러운 강이자, 쿠란 108번째 수라의 제목이다. 성 벤 하니아는 '행복한 자, 평온한 자의 후손'이라는 뜻으로, 기쁨과 고요를 뜻하는 아랍어 어근에서 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "56c54dd2b4036ae7586dd98f79448c1706f775725ab09fbc1071b59843837161"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kathryn-bigelow",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "캐스린은 그리스어 아이카테리네에서 왔고, 오래도록 '순수하다'는 뜻의 그리스어 katharos와 이어져 읽혔다. 비글로는 앵글로색슨계 지명 성씨다. 체셔의 배걸리에서 나온 것으로 보인다. 오소리 혹은 숫양을 뜻하는 고대 영어 bagga와 숲속 빈터를 뜻하는 leah가 합쳐진 ���이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d451ac8d208614a43c5e0537a5d55d46f6a3c2457cea67e485b3b94a78e8c1d9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kelly-reichardt",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "켈리는 본래 아일랜드 성씨 오 켈라이(Ó Ceallaigh)를 영어식으로 옮긴 이름이다. 뿌리인 Ceallach는 '빛나는 머리'로도, '다툼'으로도 풀이돼 왔다. 독일계 성 라이하르트는 힘과 지배를 뜻하는 고대 고지 독일어 rîhhi에 단단하고 용감하다는 뜻의 harti가 붙은 형태다. '용감한 지배자'.",
+  "model": "claude-opus-5",
+  "source_sha256": "e5f152639ade775d97cf3edb12b18f1f2251fd69cb498cccf3cc394e8b428d43"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ken-loach",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "케네스는 스코틀랜드 게일어 이름 둘을 영어식으로 옮긴 것이다. 코이녜흐는 '잘생긴', 키나드는 '불에서 난'이라는 뜻이다. 성 로치는 고대 프랑스어 loche에서 왔다. 민물에 사는 작은 물고기를 가리키는 말이니, 중세에 어부를 부르던 별명에서 굳었을 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "03525b288cecc3dfb5112c1101382dc5ec6d3f4aca035af53930ffd4a337ea48"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kenji-mizoguchi",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "성 미조구치(溝口)는 도랑이나 개천을 뜻하는 溝에 입구를 뜻하는 口가 붙은 이름이다. 이름 겐지(健二)는 튼튼하고 굳세다는 뜻의 健과 둘을 뜻하는 二를 짝지었다. 二는 둘째 아들에게 붙이던 전통적인 글자다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8023b1089a4e53ad382bc5bdfb7a0c300ee469455a7e15c286a4e842f07c5d83"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-jee-woon",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "김은 金, 금이나 쇠를 뜻한다. 지운의 한자는 좀처럼 공개된 적이 없다. 다만 전통적으로는 지혜를 뜻하는 智, 구름을 뜻하는 雲 같은 글자를 쓴다. 밝게 트인 생각을 담으라는 이름인 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ad661b572a5ab1edd209ebb66c187791ed6bfe5b8948f6ead3dc50a60edfd37"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-ki-duk",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "김은 金, 금이다. 기는 基, 바탕이나 토대다. 덕은 德, 덕성이자 윤리다. 세 글자를 이으면 金基德, '금 같은 덕의 토대'가 된다. 훗날 그가 한국에서 가장 추문에 휩싸이고 가장 금기를 건드린 감독으로 남은 것을 생각하면, 이보다 얄궂은 이름도 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b3217c7e3e56924e74f9542af361a2c77e9c0cad179c7a3ab5a4f6960b870fe2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kiyoshi-kurosawa",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "성 구로사와는 黒沢 혹은 黒澤로 쓰고, 글자 그대로 읽으면 '검은 늪'이다. 구로가 검다, 사와가 늪이나 습지다. 이름 기요시는 淸, 맑고 깨끗하다는 뜻이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3fdc06583c119875391bb24364a9359ca631981502fd389ec717fce530d45745"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kon-ichikawa",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "본명은 기이치(儀一)다. 의례와 올바름을 뜻하는 儀에 하나 또는 첫째를 뜻하는 一이 붙었다. 예명 곤은 崑, 중국 신화의 성스러운 산 곤륜을 가리킨다. 山 아래 昆을 받친 이 글자는 세로로 완벽하게 대칭이라 운을 부른다고, 숙부가 일러주었다 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b569893b6268946d996762fd765fce491f70a1a23d96e5dc36e108e585a6a63e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kie-lowski",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "크시슈토프는 그리스어 크리스토포로스의 폴란드식 이름이다. '그리스도를 지고 가는 자'라는 뜻. 성 키에실로프스키는 땅 이름에서 왔다. 키에실레 같은 마을이 유력하고, 그 지명은 다시 지갑이나 주머니를 뜻하는 kiesa로 거슬러 올라간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c97948a637e6bc200a7c82220b8bea0214b2a302a17c32a88dd1e21a301c1d7f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kieslowski",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "폴란드에서 크리스토퍼는 크시슈토프가 된다. 그리스어 크리스토포로스, 곧 '그리스도를 지고 가는 자'에서 나온 이름이다. 키에실로프스키 역시 땅 이름에서 온 성이다. 슬라브의 전통 음식인 발효 죽 혹은 과일 젤리 kisiel과 얽힌 어느 지명에서 왔을 것으로 보이며, 출신을 나타내는 접미사 -owski가 붙었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bb51da3ecb8bc63df268c5e95abf2824e6d092fdf50dcf24a6678b9bff44078d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lana-wachowski",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "바쇼프스키라는 성은 인명 바흐에서 나왔다. 바흐는 '더 큰 영광'을 뜻하는 바츨라프의 애칭이고, 여기에 후손이나 출신을 나타내는 접미사 -owski가 붙었다. 바후프 같은 마을 이름에서 왔을 수도 있다. 그가 스스로 고른 이름 라나의 유래는 여러 갈래다. 빛을 뜻하는 스베틀라나의 슬라브식 축약형이기도 하고, '작은 바위'를 뜻하는 켈트어 계열 말이기도 하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b82502574e73c6078cd4a9c7757f8eb5e96d2a765e0b2bf48b930f99e6b3f15"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lars-von-trier",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "스칸디나비아 이름 라르스는 로마 이름 라우렌티우스에서 왔다. '월계관을 쓴 자'라는 뜻이다. 성 트리어는 독일계다. 고대 도시 트리어 출신 집안을 가리키거나, 나무를 다루는 직업에서 온 이름으로 본다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3f844d3267f2696f031401e7b6fd2d64952e7317ab36d8d9f5bdd70efbcdeeb0"
+ }
+]

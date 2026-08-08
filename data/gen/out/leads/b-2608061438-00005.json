@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "better-days-2019",
+  "field": "lead",
+  "film_id": "0494ffe8-6bde-452a-8b41-95605a76606e",
+  "lang": "en",
+  "text": "The bullying and the national examination arrive on the same calendar, and only one of them has a fixed end date. Derek Tsang Kwok-Cheung spends 135 minutes inside that overlap: a girl hunted through the corridors of her own school during the months when every hour is supposed to belong to revision. Crime and romance are both on the label and neither behaves as advertised — the danger comes from classmates, and the protection, when it arrives, comes from a young man who belongs to none of the institutions meant to provide it. Two and a quarter hours is a long stretch for a story this narrow, and the length is the argument: pressure accumulates, it does not spike. It took Best Film at the Hong Kong Film Awards. What stays afterwards is smaller than the plot — the arithmetic a teenager runs before deciding whether telling anyone is worth what telling anyone costs.",
+  "model": "claude-opus-5",
+  "source_sha256": "aba08ad9cdfa45abe1a2ddd0bf1d83417adc7e7c1429f4cbd95642bc781f5f26"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-sapphires-2012",
+  "field": "lead",
+  "film_id": "c62e8d6e-8af9-4693-a7b1-4e35310ff488",
+  "lang": "en",
+  "text": "In 1968 four young Aboriginal women from Australia flew into Vietnam to sing soul music to American troops. Wayne Blair plays most of the 103 minutes as comedy, and the comedy is doing work: the joke and the war run on the same soundtrack, and no one in the film is asked to choose between them. The songs are performed straight and at length, in front of men who will be somewhere worse within the week. Between numbers it is about four performers deciding what to sing, and that smallness is deliberate — it keeps the surrounding war concrete instead of abstract. The Australian film academy named it Best Film. The pleasure is unfussy, and the geography does the arguing on its own: Australian singers, American music, an audience of soldiers, and a country that belongs to none of them.",
+  "model": "claude-opus-5",
+  "source_sha256": "cfcb46e437cc311b9772c4d23e4a26e0f63cdf39712e6ca952c35ee80c0349df"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-crime-of-padre-amaro-2002",
+  "field": "lead",
+  "film_id": "f2cab2fb-1c24-4b4c-9fb0-80e5e58a0d29",
+  "lang": "en",
+  "text": "The scandal does not begin with the young priest. It begins with the old one he was sent to look after, and with the mother of the girl the young one will not manage to stay away from. Carlos Carrera lays that symmetry out early and then refuses to treat either arrangement as an aberration, which is what makes the film harder to shrug off than its premise suggests. The choice it names — a holy life or a compromised one — is not offered once at a crisis but daily, in the ordinary business a parish conducts on behalf of the town around it. Mexico's Ariel for Best Picture went to it. At 118 minutes there is time for the part most films about clergy skip: the arranging, the reassuring, the small sums of borrowed credibility a man spends long before he has anything to confess.",
+  "model": "claude-opus-5",
+  "source_sha256": "1083b4da2427dc2dbb4b7f5a9597cb0878a7d4829c6705cc880bcb3f9cd734e4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "two-hands-1999",
+  "field": "lead",
+  "film_id": "9034402d-396d-41f9-85d1-cb3283e4f9a2",
+  "lang": "en",
+  "text": "Ten thousand dollars, owed to a Sydney crime lord by a nineteen-year-old who never got to spend a cent of it. Jimmy's job was to deliver a package; a couple of kids relieved him of it, and the debt is now his in the only currency the syndicate recognises. The red-light district is filmed as a place people work in rather than a backdrop of neon. Gregor Jordan runs long stretches as comedy, which in a crime film keeps the audience a step behind the danger rather than ahead of it — the men doing the threatening are funny right up to the point where they are not. The scheme Jimmy lands on, robbing a bank, is what arithmetic looks like when there is no arithmetic left. The Australian film academy named it Best Film. Everything here moves quickly except the debt, which does not move at all.",
+  "model": "claude-opus-5",
+  "source_sha256": "6584693c6c973922462f687c0e08ac8f1bce4deeee4206f3cd01cdaf0c98870d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "election-2005",
+  "field": "lead",
+  "film_id": "e4a65193-b0fa-4e51-86a8-3ec7062a5f12",
+  "lang": "en",
+  "text": "The vote is held, the result is announced, and the man who lost goes looking for the baton anyway. Johnnie To treats the Wo Lin Shing as an institution with a succession problem: a ballot, a loser, and a carved object that confers the chairmanship on whoever happens to be holding it. That last detail is the flaw in the design, since a symbol can be picked up by anyone strong enough to reach it, and the rules bind only while the losing side agrees to be bound. At 101 minutes there is no room for underworld glamour and no appetite for it; the tension comes from the distance between what the society says it is and what one man will do to settle a question the ballot could not. Best Film at the Hong Kong Film Awards. Elections exist to prevent exactly this.",
+  "model": "claude-opus-5",
+  "source_sha256": "8def9cda894c4d75dba2f2161573497ff5aa208c882cd2fa40136bd1109f1f1d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "twilight-of-the-warriors-walled-in-2024",
+  "field": "lead",
+  "film_id": "9cec1324-5c20-466a-a37d-3364fd8a7da9",
+  "lang": "en",
+  "text": "Kowloon Walled City in the 1980s is where a man goes when the rest of Hong Kong has run out of places to put him. Chan Lok-kwun came from the mainland with nothing to sell but his willingness to take punishment in underground fights, and when the boss he pays for a forged identity card turns on him, he steals from that boss and crosses into the one district the city treats as sealed. Inside, authority belongs to Cyclone, a crime lord who is generous and absolute at once — about the only combination that could hold such a place together. Soi Cheang gives it 126 minutes and the frame of a martial arts picture, and the setting supplies the rest. For all the fighting, the plot turns on paperwork: a document that would let a man exist legally, and his inability to buy one.",
+  "model": "claude-opus-5",
+  "source_sha256": "afeeaa10a30a066b21a42f8eca3925fe9f9f40c3c261616ac2ed42d0317d0677"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-scent-of-green-papaya-1993",
+  "field": "lead",
+  "film_id": "d6570725-c887-42f2-b811-58ce758deb5a",
+  "lang": "en",
+  "text": "Domestic work, filmed as if it were the event rather than the background: a ten-year-old leaves her village for a servant's place in a well-off Saigon household in the 1950s. Trần Anh Hùng gives Mui's chores the attention normally reserved for plot — food prepared, a floor crossed, a household's trouble overheard through a wall — and lets years pass inside 104 minutes without announcing that they have. The family is unhappy in ways she is not permitted to ask about, and that restriction is itself a form of information. Later the film moves her to another house, where the charge comes from being looked at rather than looked past. It won the Caméra d'Or. A French production speaking Vietnamese, which puts a distance in every frame: this Saigon is a remembered one, and the film never pretends otherwise.",
+  "model": "claude-opus-5",
+  "source_sha256": "021787ef64171125fd6f01bd38e764e64e2120bb104cd476ac5ea8bf980f8a4d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-black-balloon-2008",
+  "field": "lead",
+  "film_id": "dd07586a-249d-457c-a4fe-5d978ead41a9",
+  "lang": "en",
+  "text": "Thomas turns sixteen in a town his family has only just moved to, with his father posted away in the army and his mother's pregnancy coming to term. The first thing anyone in New South Wales learns about him is his older brother. Charlie is autistic and adolescent at once, and Elissa Down declines to separate those two facts for anybody's comfort; the embarrassment Thomas feels is filmed as embarrassment rather than as a lesson he is failing to pass. The events are deliberately small — a girl from swim class comes by the house, the family sits down to a birthday dinner — and 97 minutes is exactly enough for one household to run out of room. The Australian film academy named it Best Film. What it is actually about is the portion of adolescence a brother is allowed to keep for himself.",
+  "model": "claude-opus-5",
+  "source_sha256": "820c10209e806c221c09d93cf668a9f6e196a15d7cbf7b75276663eb9f75a791"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-interview-1998",
+  "field": "lead",
+  "film_id": "87126709-22f3-4f3a-ac8f-d9caffec67f0",
+  "lang": "en",
+  "text": "Two men, one table, a recording running, and a detective under more pressure than the man he is questioning. Craig Monahan keeps the whole of 104 minutes inside that arrangement, and the advantage moves back and forth across the table: the police need a result, which is a motive like any other, and the suspect understands that need better than they would like him to. It is a crime film that stays where crime films usually only pause, and it holds because a room is not neutral — what the light does, who sits and who stands, how long a silence is permitted to run. The cinematography was honoured at home, earned in the least showy way available: by making an interview room legible. Which of the two is being taken apart stays undecided for a long time.",
+  "model": "claude-opus-5",
+  "source_sha256": "41c2145cade611b641a185711ddb5fffe674a49297937e082106c8cc761f0e95"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bodyguards-and-assassins-2009",
+  "field": "lead",
+  "film_id": "9b192064-e9a1-4aad-895a-c3560b711b15",
+  "lang": "en",
+  "text": "Keeping one man alive on the street for a few hours is the entire plan, and the people who take it on have no training for anything of the kind. Sun Yat-sen comes to Hong Kong in 1905 to meet his comrades, the Qing government sends men to kill him, and ordinary residents from every trade in the city block the streets and put themselves in the way. Teddy Chan gives much of his 139 minutes to those residents rather than to the famous name they are guarding, which is a structural gamble: the person the history books remember is barely the subject. The result works more like a siege than a biography — a route, a schedule, a city measured in intersections. It sits on the Hong Kong Film Awards' Best Film list. History has already filed its report on 1905; the suspense has to be built out of people it never named.",
+  "model": "claude-opus-5",
+  "source_sha256": "241c1af160c9ca1bf3584ad5db7927a22116d9e78b177b440025a2e13d7aa784"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "somersault-2004",
+  "field": "lead",
+  "film_id": "6955f65e-beff-4229-aa5a-b15db59c6bb4",
+  "lang": "en",
+  "text": "Caught with her mother's boyfriend, Heidi leaves home that night and gets off in Jindabyne, a tourist town where everyone else has come to enjoy themselves. Cate Shortland declines the rescue such a setup usually promises. A job, a room, a man named Joe: each is acquired in the hope that it will add up to something a person could call an ordinary life, and the film is honest about how partial each one is. What interests it most is a teenager who has learned to trade on attention meeting someone who wants a different currency, and how badly the two of them manage the exchange. Australian, 105 minutes, and the intimacy in it is awkward on purpose. The film academy there named it Best Film. Nothing is arranged to make Heidi easy to approve of, which is the courtesy the film pays her.",
+  "model": "claude-opus-5",
+  "source_sha256": "cabdde637d2c8761612088a0439af84e108c9ee78eb44f0296b10f228e6dc96c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "reconstruction-2003",
+  "field": "lead",
+  "film_id": "dbaa5ff1-6eca-4021-b1e2-036f2b92f33d",
+  "lang": "en",
+  "text": "Ninety-two minutes, and not one of them can be trusted to stay where it was put. Alex leaves Simone in the middle of an evening to follow Aimee, and afterwards places stop holding still and the woman he walked out on no longer knows who he is. Christoffer Boe takes that literally rather than psychologically: the film does not describe a man losing his footing, it removes the footing. Simone is left holding a version of the evening that has stopped being true for everyone but her. The length is right — long enough to lay down rules, short enough that the device never hardens into a puzzle waiting to be solved. It took the Caméra d'Or. The romance is genuine enough; what stays unresolved is whether it is being remembered, invented, or narrated by someone with an interest in how it comes out.",
+  "model": "claude-opus-5",
+  "source_sha256": "997e0c4d716cbfe845b9f72653784f066faf5595599531cec3a280baaa7f1bdc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "herod-s-law-1999",
+  "field": "lead",
+  "film_id": "b953a60c-8eb7-48ca-8aae-2fd9e7e3ea4d",
+  "lang": "en",
+  "text": "A janitor is handed the mayor's office of a small Mexican town in the 1940s, and the reason the post is vacant is that the last three mayors were assassinated. He takes it sincerely, with plans to modernise the place and keep the peace. Luis Estrada then lets the machinery run, and it runs the way machinery does: the plans need money, the money needs arrangements, and the arrangements are already understood by everyone he has to work with. Corruption here is not a failing that strikes a man; it is a job description he grows into, one favour at a time, until he is fluent in it. It took the Ariel for Best Picture, which for a film about how power actually gets handed around is a joke with its own punchline. The comedy is the recognition kind, and 123 minutes is time enough to show the slope rather than only the fall.",
+  "model": "claude-opus-5",
+  "source_sha256": "7e7de4edf394411fc2891094c6185c8c8065a1d7e32f27dcfb46a8efeac577a2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "proof-1991",
+  "field": "lead",
+  "film_id": "7e3bb821-7b70-49c9-9fa8-fcdc46c74978",
+  "lang": "en",
+  "text": "A blind man takes photographs, which means every image he owns depends on somebody else's word for what is in it. Martin has built a life on that dependency and on the suspicion that comes with it, and Jocelyn Moorhouse understands that whoever agrees to describe the pictures holds a power no friendship survives unexamined. Andy works in a restaurant and becomes the person Martin trusts; Celia, whose love is exclusive and jealous of everything, cannot let that stand. Ninety minutes, three people, and cruelty that operates at domestic scale: a small lie about a photograph costs nothing to tell and settles everything. The academy at home named it Best Film. The film is filed as romance and behaves like a study of what evidence is worth when it cannot be checked.",
+  "model": "claude-opus-5",
+  "source_sha256": "71fbb211df0a3547b7740d8664f6fe8c3fd87821d183ce5a4c729b103ce8a124"
+ }
+]

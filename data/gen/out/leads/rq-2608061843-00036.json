@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "johnny-larsen-1979",
+  "field": "lead",
+  "film_id": "fa446faf-ff6d-43a7-8c6f-09012d6eda60",
+  "lang": "en",
+  "text": "Copenhagen in the 1950s, and a boy with about as much say in his own growing up as in the weather. Morten Arnfred adapted a working-class novel and kept its arithmetic: the job, the rent, the dance hall, the older men who already know how the week ends. Johnny is hapless one week and happy the next, and the film declines to decide whether that is temperament or circumstance. What holds the hundred minutes together is the crowd around him, where solidarity is a set of habits rather than a slogan: who lends money, who covers for whom, who says nothing. The decade is close enough here to be argued with rather than decorated. Allan Olsen took a Bodil for the part and earns it by understatement, playing a young man who has not yet found the sentences for what he wants.",
+  "model": "claude-opus-5",
+  "source_sha256": "2dd89b9916aa3dac18942ce50275ec11d1670a8feb502f6b0f0291d8e1de5f55"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "forever-2022",
+  "field": "lead",
+  "film_id": "2a21c119-8558-437d-a837-ca52b1216e13",
+  "lang": "en",
+  "text": "Three people go on living in a house built for four, and none of them grieves at the same speed. René Frelle Petersen gives Egon and Maren a son who is gone and a daughter, Lily, who is still at the table, then refuses to arrange the three of them into a single mood. The son was an adult, which changes what is missing: not a childhood but a man with a life of his own, and a household with no practice at carrying that. Petersen keeps to the ordinary week — meals, chores, the pauses between sentences getting a little longer each time — and lets the drifting apart happen the way it happens in families, by nobody's decision. What the film waits for is a moment when the three of them can be in one room without managing each other.",
+  "model": "claude-opus-5",
+  "source_sha256": "027a0bd60294ea9a25ea16db854f8f4654028a715f41c1c5d1c1ff5bfc098dfd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "jenny-and-the-soldier-1947",
+  "field": "lead",
+  "film_id": "6ba9d639-cf6c-4aeb-98b5-790677435a42",
+  "lang": "en",
+  "text": "A right hand that settles arguments, attached to a man with no particular appetite for using it. Johan Jacobsen puts that soldier next to a woman whose past is the first thing anyone in the film knows about her, and usually the only thing. The romance is simple; the obstacle is everyone else. Ninety-two minutes built mostly indoors, where a few rooms have to carry a whole town and a reputation travels faster than either of them can walk. Jacobsen is interested in the distance between what these two are and what they are taken to be, and he lets the soldier's decency look, for long stretches, like a liability. The fists are a promise the film can keep or break: a man known for what he can do to other men, trying to be known for something else.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d484f81f3a0cdb0e25e47596740a34957b3c196ee370a8d5d147dff89be7d6f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "makarov-1993",
+  "field": "lead",
+  "film_id": "27ba53e2-d0de-4b0e-8873-af4487d07c19",
+  "lang": "en",
+  "text": "The pistol arrives first, and the man begins rearranging himself around it. Vladimir Khotinenko made this in 1993, in a post-totalitarian country still working out what a private citizen is entitled to be afraid of, and Makarov is at once the man's name and, in street usage, the object now in his coat. The film is a thriller by temperament rather than by machinery, and its violence is mostly potential. Its ninety-nine minutes follow a slow conversion: a person growing more efficient, more mechanical, less inhabited, while the thing he bought does its work on him. Carrying a gun alters the shape of a day — where a man stands in a room, who he looks at, what he decides counts as an insult — and Khotinenko films those adjustments as symptoms.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e39b36375c8e94fe92477ed7cdd528c7f785f0ca10a7cf7dea9fd8fb2f1020a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lars-ole-5c-1973",
+  "field": "lead",
+  "film_id": "3dfdf00e-0398-47b5-b03a-1506d24f1777",
+  "lang": "en",
+  "text": "A school class runs on rank, and Nils Malmros films the ranking. Lars Ole, 5c. stays inside one upper-grade classroom and the corridors attached to it, where the business of the day is who is sitting with whom, who has been dropped since yesterday, and how much a person can be made to admit. The manner is near-documentary: patient, close in, willing to let a scene go slack the way real afternoons do, so that nothing is performed at the audience. Nobody in the film is old enough to have an explanation for their own behaviour. The children are chasing after adult pleasures they cannot yet name, which is the comedy and also the unkindness. Eighty-seven minutes, and the pressure comes from a simple fact of the institution: everyone in the room will be back in it tomorrow.",
+  "model": "claude-opus-5",
+  "source_sha256": "f074f0eea8461ae2fea733982228a8cdfa31801f2af86e334cd2675173e8368e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "cafe-paradis-1950",
+  "field": "lead",
+  "film_id": "dd93b0cc-f977-4a97-8aab-a65aa14dd82b",
+  "lang": "en",
+  "text": "Slush, a hard wind, two women cycling to work, and a man on a park bench who is not asleep. Bodil Ipsen opens Café Paradis on an ordinary Tuesday morning in a Denmark she insists is the current one — the sort of thing that might have run in that week's paper. What follows is a drama and not a mystery, so the question it takes seriously is not who is responsible but how a life arrives at a bench in the cold. Ipsen stays with the discovery rather than the corpse, which keeps the film on the side of the living and their working week. Ninety-seven minutes, and the weather stays in the frame the whole way: wet coats, low light, people with somewhere to be. The two cyclists are never turned into detectives. They are late for work, and the morning goes on around them.",
+  "model": "claude-opus-5",
+  "source_sha256": "dffd6cee3a6b962c3bafb8bc843e567a0b5fe48a89d6da3190ed6033347a1b0c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "my-good-hans-2015",
+  "field": "lead",
+  "film_id": "2918484a-7b97-4556-8bd2-64051c20d0f5",
+  "lang": "en",
+  "text": "A furnace fails at a Soviet plant, and two men are left holding each other's lives. Hans is a German engineer who came to the USSR on a business trip before the war; Pyotr is the Soviet worker who was standing where he had no business standing. Either can finish the other with a sentence. Aleksandr Mindadze, working in Russian for a German production, keeps them inside that grip long enough for something like fondness to grow in it, and his attention stays on the shop floor rather than on the history behind it: heat, noise, shift work, technical vocabulary passed between men who need the furnace to behave. They have children the same age. They look alike. For a hundred and eleven minutes the question is how long two people can be useful to each other before that turns into something they would miss.",
+  "model": "claude-opus-5",
+  "source_sha256": "fa0a56357de7e803e9f27a38ed58cb53898dfbe521340ad3f9605013ba84b4c3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "vi-er-allesammen-tossede-1959",
+  "field": "lead",
+  "film_id": "b84bfcad-166c-4526-9f45-5b15e726d913",
+  "lang": "en",
+  "text": "A man tells the police he has collided with an elephant that belongs to a circus. He is telling the truth, and it gets him committed. Sven Methling begins the morning at the tax office, sends Alex Alexander into the countryside to calm down, and by the time the asylum doors close the joke has turned into an argument about who is licensed to certify sanity — an institution paid for, as it happens, by the taxes he was quarrelling over. The doctor is reasonable and wrong. Knudsen, a fellow patient with enormous energy and several theories, is unreasonable and useful. Eighty-three minutes at farce speed, with a target that is administrative rather than romantic: forms, offices, professional certainty. The elephant, meanwhile, remains a fact, and that is the part none of the staff can do anything with.",
+  "model": "claude-opus-5",
+  "source_sha256": "db4242b3a6dc97ffecc0c8319afff28c101de3d6c5351ab773d35eda24741568"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "main-tulsi-tere-aangan-ki-1978",
+  "field": "lead",
+  "film_id": "cca4a4e6-0105-4672-9010-7d008e619f90",
+  "lang": "en",
+  "text": "A wife raises her husband's son by another woman alongside her own and refuses to make any difference between them. That decision holds for years. Raj Khosla spends 151 minutes on what it costs to keep holding it, and the hinge is property: once the household's future has to be signed over to somebody, evenhandedness stops being a private virtue and becomes a document with a loser named on it. Her own son does not intend to be that loser. The hostility he brings home is aimed at a woman whose offence is having kept her word, and the long running time suits that kind of grievance, which needs years and rooms and repetition to ripen. Khosla keeps coming back to the mother, holding a position that her own son has begun to read as theft.",
+  "model": "claude-opus-5",
+  "source_sha256": "e524a057b6d3d58423ac3ae409433049b6f7bd6012a45dcd513f9f31df3811de"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "jaagrti-1955",
+  "field": "lead",
+  "film_id": "ac1a8d16-edb6-47f2-bd43-7e6da36b2a25",
+  "lang": "en",
+  "text": "Sent away to a hostel as a punishment, a boy sets about organising the other boys. Jaagrti runs on the mechanics of institutional life: bells, roll call, dormitory bargains, punishments to be evaded or absorbed. The hostel is the whole world here, and it comes with a timetable. The comedy is in the evasions. Underneath sits something harder — a family has handed a child to an institution because it has run out of ideas about him, and the institution now has to work out what it is for. Satyen Bose takes 137 minutes, which is room enough to stop being funny without announcing it, and the film keeps circling the same practical matter: who is entitled to discipline a child, whether it takes, and what he does afterwards with the version he was handed.",
+  "model": "claude-opus-5",
+  "source_sha256": "f5fb8b5f755607e767bda41a892330b4a8f1b6b1363ff39b24188f96437578f8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "in-my-life-1978",
+  "field": "lead",
+  "film_id": "208f8b5a-e3af-40b7-b05e-e59d9d1714da",
+  "lang": "en",
+  "text": "It is filed as a comedy, and then depression moves into the marriage. Bille August's Honning Måne follows a young man who finds love and does the expected things with it — a wife, a home, a life settled early — and then discovers the arrangement is not enough for the person living inside it with him. The two acting Bodils it won went to women, which is a fair guide to where the film is looking: not at the husband's bewilderment but at what is happening to her, and to the woman standing nearest her. Ninety-five minutes, domestic in scale, with no crisis staged for effect. August keeps a comic rhythm running under an illness that neither of them has a name for, which is what makes the small scenes — a meal, a visit, an evening — land the way they do.",
+  "model": "claude-opus-5",
+  "source_sha256": "c259525ef97def469bd2e9396d4150823cbdf1075cba9ac20ddf23f6f5402658"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "anuraag-1973",
+  "field": "lead",
+  "film_id": "b0f7cc70-b732-4976-a5ba-1e0426b9a2e7",
+  "lang": "en",
+  "text": "Consent, in this house, comes with a medical condition attached. Rajesh meets Shivani on a Bombay beach and wants to marry her; his mother agrees, his father — a businessman for whom nothing is too small to be counted — does not, and the compromise a family friend proposes makes a young woman's eyesight the price of a wedding. Shakti Samanta leaves that bargain in the open, where everyone in the room can see what it is and nobody says so. Around it he assembles the ordinary furniture of a family drama: the father who calculates, the mother who bends first, the friend who arranges matters and is thanked for it. What the 125 minutes are really watching is money's habit of presenting itself as prudence. Shivani works out the arithmetic before anyone thinks to explain it to her.",
+  "model": "claude-opus-5",
+  "source_sha256": "ed78e15edc5696490bf7efc1178d02d62d1bd6ea0bda98445e47d3a9a105b699"
+ }
+]

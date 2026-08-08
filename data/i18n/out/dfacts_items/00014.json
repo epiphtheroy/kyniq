@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "clint-eastwood#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1955년 유니버설은 그의 첫 연기 계약을 해지했다. 목젖이 너무 튀어나왔고 대사를 지나치게 느리게 읊는다는 것이 스튜디오 간부들이 댄 이유였다고 전해진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1cb1dac7d2392007450d7d5c7fd7845a99fe15280e403b77ba93ecbdbf70a864"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "clint-eastwood#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《황야의 무법자》의 이름 없는 사나이 역은 원래 그의 몫이 아니었다. 이미 이름값이 있던 리처드 해리슨, 제임스 코번, 찰스 브론슨이 차례로 1만 5천 달러짜리 배역을 거절한 뒤에야 세르지오 레오네는 그를 불렀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "26871355a0969a694f414edb6082ab096cd168193774971fc56e68c107e02eda"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "clint-eastwood#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "서부극 촬영장에서 큰 소리가 말들을 놀라게 하는 것을 지독히도 싫어하게 된 탓에, 감독이 된 그는 \"액션!\"도 \"컷!\"도 외치지 않는다. 대신 나직이 말할 뿐이다. \"가시죠.\" 그리고 \"그만하면 됐어요.\"",
+  "model": "claude-opus-5",
+  "source_sha256": "42316a3b0bb691079719e3d23779127b8ddd6cff9016187fd0bf00306c116408"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "clint-eastwood#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "할리우드에서 그는 예산을 남기고 촬영을 끝내는 무자비하게 효율적인 감독으로 통한다. 한 세팅에 테이크는 한두 번이 고작이다. 세르지오 레오네처럼 사람을 말려 죽이는 완벽주의에 대한 완강한 반항인 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "27f5a4ea47679565c323f4087ae41f535939b543ce13a0872ff3fbb44e164dc0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "clint-eastwood#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《무법자 조시 웨일즈》 촬영장에서 그가 감독 필립 카우프만을 해고하고 직접 연출대를 넘겨받자 논란이 일었다. 미국감독조합은 이 사건 이후 \"이스트우드 규칙\"을 만들었다. 배우나 제작자가 감독을 해고하고 그 자리를 대신하는 일을 영구히 금지하는 조항이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb7d911be6fd6329611f4c96dec5aa715f771cd08996cba102d2161309dd547a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "clint-eastwood#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "사무용 건물을 짓지 못하게 막는 지역 조례에 진력이 난 그는 1986년 캘리포니아 카멜바이더시의 시장직에 출마해 압도적으로 당선됐다. 그리고 아이스크림콘 판매를 금지한 그 유명한 황당 조례를 기어이 뒤집었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "414cc65fdba129a6963964976b4cb79290d5b1314482a90a8720d53980ff535a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "clint-eastwood#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "예순을 넘긴 그에게 로리 머리라는 여자가 연락해 왔다. 1953년 시애틀에서 그와 잠시 관계를 가졌던 여자가 입양 보낸 딸이었다. 그는 그녀를 받아들였고, 이후 그녀는 가족 모임과 영화 시사회에 늘 함께하는 사람이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4e9f0d4e44f9a59ab162b3ffb95f64460b167d44b11f391474ca4bc0fd21171c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "clint-eastwood#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "예순넷의 아버지가 심장마비로 갑자기 세상을 떠난 일은 그에게 깊은 상처로 남았다. 그때부터 그는 매일의 운동과 초월명상, 채식 위주의 식단을 혹독하리만치 엄격하게 지켜 왔다. 1970년대부터 지금까지.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c3f1968f21cd9991285810049b7f84afcb0e850e849868c0ea69a54dccf62b4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "clint-eastwood#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "배우 손드라 로크와의 14년은 지독하게 끝났다. 위자료 소송이 벌어졌고, 그는 벨에어 집의 자물쇠를 바꾸고 그녀의 짐을 상자에 담아 내놓은 것으로 악명을 얻었다. 합의금 대신 그가 마련해 준 것은 워너브러더스와의 연출 계약이었는데, 결국 단 한 편도 만들어지지 않은 허울뿐인 계약이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7bb6c15ab6006ce470e7e162a8389444f6a0d1e72440379574bdef2c0f6f1a8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "clint-eastwood#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생 재즈에 빠져 살았고 원래는 음악가가 되고 싶었다. 우상은 찰리 파커. 《미스틱 리버》, 《밀리언 달러 베이비》, 《체인질링》을 비롯한 자기 영화 여러 편의 피아노 중심 오케스트라 음악을 그가 직접 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "662b165f3d0cd309bef22d22cb53c641d952b59eb81c37d47fd5e7acdeeeaeb9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "clint-eastwood#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "숀 코너리가 시리즈에서 하차한 뒤 제작자 앨버트 R. 브로콜리와 해리 살츠먼은 제임스 본드 역을 그에게 제안했다. 그는 단호히 거절했다. 영국 스파이는 영국 배우가 연기해야 한다는 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a25da3a838aa97c08476c93f765e3e45dca2028db52c0b3363202d7b1832e2b1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "clint-eastwood#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《용서받지 못한 자》의 각본은 1980년대 초 작가 데이비드 웹 피플스에게서 사 두었다. 그러고는 꼬박 10년을 묵혔다. 지치고 한물간 총잡이 윌리엄 머니를 그럴듯하게 연기할 만큼 자기 얼굴이 늙기를 기다린 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ea8fafb568ad25c851f1ea92c6d811a324a779ea785822a8c8bb3d680a8fba8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "clint-eastwood#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2012년 탬파에서 열린 공화당 전당대회에서 그는 거의 즉흥으로 연설했고, 두고두고 조롱거리가 됐다. 12분 동안 그가 상대한 것은 버락 오바마 대통령을 대신하는 빈 의자였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "867040b1158e82ea4bfc36547fc93c04bcb8f71b34d2d1c5f22986fda94eb125"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "clint-eastwood#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "여든셋에 그는 사람을 살렸다. AT&T 페블비치 내셔널 프로암 대회장에서 대회 디렉터 스티브 존이 치즈 조각에 목이 막힌 것을 알아채고는 하임리히법을 시행해 성공한 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "faf0e997ab461daacc458346a74ab7f42491de626882f58fd7bf8c63168ed53f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "clint-eastwood#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "감독 데뷔작은 1971년 심리 스릴러 《어둠 속에 벨이 울릴 때》였다. 촬영은 전부 그가 아끼는 마을 카멜에서 이루어졌고, 예정보다 나흘 앞당겨 끝났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a170bd58a35a5fba75e40426e3b57eeef9d435286176e83256cde538a1b0306d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "damien-chazelle#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "로드아일랜드주 프로비던스에서 태어났다. 아버지 베르나르 샤젤은 프린스턴대학의 이름난 컴퓨터과학 교수로 프랑스 태생이고, 어머니 실리아 마틴은 미국인 중세사 교수다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3f5054aee31dfa950e3059835f4aa3a91b20e2c6ff89692510ad358920bd5d48"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "damien-chazelle#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "가톨릭 집안에서 자랐지만 어린 샤젤은 유대교 히브리 학교를 4년간 다녔다. 동네 가톨릭 주일학교의 교육 수준에 부모가 크게 실망한 탓이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e7070d7a5733eed019e9aa5d2ed7082a842fd32740fa9135c2ca145f2210d75"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "damien-chazelle#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "어린 시절 여름은 파리에서 보냈다. 프랑스어가 모국어처럼 트였고, 《쉘부르의 우산》 같은 자크 드미의 화사하고도 쓸쓸한 뮤지컬에 일찌감치 깊이 빠져들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d9e2afe2f0038bb4c14cc3861eae30b197a937d6956da94d8649211dd401aa75"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "damien-chazelle#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "프린스턴 고등학교 시절 그는 재즈 드럼에 매달렸다. 하루 여덟 시간까지 손에 물집이 잡히도록 연습했는데, 학교 밴드의 무섭기로 소문난 지휘자 앤서니 비앙코시노에게 인정받고 싶다는 절박함 때문이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc2cdcd4e409bc5814a52668d7e2827157498232b738eec47e0b51d8662cdd7a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "damien-chazelle#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "전설적인 재즈 드러머가 되기에는 타고난 리듬 감각이 모자란다는 것을 깨달았다. 하버드에 입학하면서 그는 야망의 방향을 영화 쪽으로 완전히 틀었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "735480da6a7bc74cd558d84ef690b8edb8ff53e9f15d30ddffb4d35198a76a45"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "damien-chazelle#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "하버드 1학년 때 룸메이트 저스틴 허위츠, 동급생 D.A. 월랙과 인디팝 밴드 체스터 프렌치를 결성했다. 하지만 영화에 집중하려고 그룹을 나왔다. 밴드가 퍼렐 윌리엄스의 스타 트랙 레이블과 계약하기 직전이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac6f1f6b7d8fc8db296f822e153ddbbd7431d308ba29e1ddef06a5f11017d04d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "damien-chazelle#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "하버드 졸업 논문 대신 그가 내놓은 것은 16mm 흑백 필름으로 찍은 창작 재즈 뮤지컬이었다. 이 작품은 훗날 트라이베카 영화제에서 공개되며 2009년 장편 데뷔작 《공원 벤치 위�� 가이와 매들린》이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "951f92bf7422e29ab119696f6c2d1740c2bce30156d7debcc903fa801ec8dcc2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "damien-chazelle#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "로스앤젤레스로 옮긴 뒤 월세에 쫓기던 그는 장르영화 대본을 받아쓰는 일을 했다. 일라이저 우드 주연 스릴러 《그랜드 피아노》의 각본을 썼고, 《클로버필드 10번지》에는 크레딧 없이 각색으로 참여했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f7d76fe1032458b1e9c06f00573189d21eec8e676d395bac99e75dfc2adbe987"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "damien-chazelle#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "공포영화 속편 《라스트 엑소시즘 2》의 각본은 극심한 생활고 속에서 썼다. 훗날 그는 순전히 로스앤젤레스 아파트에서 쫓겨나지 않으려고 그 일을 맡았다고 털어놨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4bb370fd65f36528e0361ecd1b90826e1cb9f84d6c2de1f3a031e6783e365764"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "damien-chazelle#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "재즈 드러머 이야기라는 이유로 투자자들이 물러서면서 《위플래시》의 330만 달러 예산은 좀처럼 모이지 않았다. 샤젤은 각본에서 15쪽을 떼어내 J.K. 시먼스를 세워 단편으로 찍었다. 2013년 선댄스 단편 심사위원상. 장편 자금은 그 즉시 풀렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e5b31d5768bfbfcfa17ccdba842f214f3633653ad31c13e247505d9a147c6308"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "damien-chazelle#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《라라랜드》의 구상은 2010년 허위츠와 함께 시작됐다. 그러나 포커스 피처스가 씁쓸한 결말을 바꾸고 남자 주인공을 재즈 순혈주의자 대신 록 뮤지션으로 만들라고 요구하면서, 기획은 몇 년이나 서랍 속에 들어갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4cd990cc9bbac57e40477f65d862f66d769fdf466dc848e4cc9e82e18e8de7d3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "damien-chazelle#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《라라랜드》의 미아는 본래 엠마 왓슨을 염두에 두고 쓴 인물이다. 왓슨이 디즈니 실사판 《미녀와 야수》에 출연하려 빠지면서 그 자리는 공교롭게도 엠마 스톤에게 열렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb124e4b112e2b33aa3bc3a302cd3f41c0136608223726c0f3a244c74524eb05"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "damien-chazelle#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "제89회 아카데미 시상식에서 서른둘의 샤젤은 《라라랜드》로 감독상을 받았다. 이 부문 역대 최연소 수상이자, 1931년부터 노먼 터로그가 지키고 있던 기록을 깬 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b6063993322287339fe807e1834b54feaeb1ea964490dd0edd99cf40f01924b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "damien-chazelle#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "첫 아내는 프로듀서 재스민 맥글레이드였다. 하버드에서 만났고 그의 장편 데뷔작 제작에도 힘을 보탰다. 2014년에 이혼했지만 《라라랜드》에는 그녀의 이름이 총괄 프로듀서로 남아 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "478e8232d3c4d74aa34f8fcd2ef74b015c6cf130f3bf3e01bfa9f11e0fef9cbf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "damien-chazelle#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이후 그는 올리비아 해밀턴과 결혼했다. 매킨지 컨설턴트로 일하다 연기로 방향을 튼 사람이다. 《라라랜드》에서는 짜증 난 글루텐프리 카페 손님으로, 《바빌론》에서는 까다로운 영화감독 루스 애들러로 등장한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "da6640b897e3f5164fe98a876c4660d1af0b1df407f27f9b917fc88537d216a2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "damien-chazelle#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1920년대 할리우드를 다룬 《바빌론》을 준비하며 그는 영화 전체를 두 시간짜리 리허설 판본으로 미리 찍었다. 장소는 자기 집 뒷마당, 카메라는 스마트폰. 모든 배역은 해밀턴과 배우 디에고 칼바 둘이 나눠 맡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "90f754721a2bad219f6f92d1ca025aeb1fb55cfdb6bd56559bf218dbb686f1f0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "damien-chazelle#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "재즈라고는 한 소절도 없는 《퍼스트 맨》에서도 그는 대학 시절 룸메이트 저스틴 허위츠에게 음악을 맡겼다. 허위츠는 샤젤의 장편 전작에 예외 없이 음악을 붙여 왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6405aec26baa901e389c7d6311994ed9b75e9e2e59157d4a1349efb5ec77da8d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "damien-chazelle#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2020년 애플 광고 《스턴트 더블》을 연출했다. 9분에 걸친 영화사 강의 같은 작품인데, 아이폰 11 프로만으로, 그것도 전부 세로 화면으로 찍었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "517477a65b09ef44cdb5906e720c105ea591b15927ac5dd3c1294e7136978f91"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "damien-chazelle#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2023년 제80회 베네치아 국제영화제 심사위원장을 맡았다. 《라라랜드》와 《퍼스트 맨》을 세계적 찬사로 밀어 올린 바로 그 영화제다.",
+  "model": "claude-opus-5",
+  "source_sha256": "25578d43fc89fffba153d3315ffecaea75020180e00eeb3f27a8b2b0290e2dd8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "damien-chazelle#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《바빌론》은 평단을 갈라놓았고 흥행에서는 참패했다. 2024년 샤젤은 공개적으로 인정했다. 그 막대한 손실 탓에 할리우드에서 다시는 그만한 규모의 블록버스터 예산을 따내지 못할 것이라고.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc6dbdd834f515c8e38c8e48da757bb8dd12dde0a55c1a1f9003eda6bc945050"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "danny-boyle#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "랭커셔주 래드클리프에서 엄격한 아일랜드 가톨릭 집안에 태어났다. 어머니는 그가 사제가 되기를 강하게 원했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6009f67ac314f02083f2e2f773da52937d71d5e52bd3d2edcd289c8da144e0e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "danny-boyle#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "열네 살, 위건 인근 신학교로 옮기기 직전까지 갔다. 그때 동네 신부 콘웨이 신부가 뜻밖에 끼어들었다. 자네는 성직자가 될 기질이 아니라는 말과 함께.",
+  "model": "claude-opus-5",
+  "source_sha256": "bd8f4a0f5a6006627ab73f985ddf69e5c2facba70a731dfc8ea323986f8d8ca4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "danny-boyle#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "경력의 첫 10년은 연극에 바쳤고 로열 코트 극장의 부감독까지 올랐다. 정작 본인은 훗날 자신이 '형편없는' 연출가였다고 말했다. 배우의 연기보다 조명이 만들어내는 그림에 더 마음이 갔다는 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9f630c76abd98ebaf3865d3f28fe092e046f78e5e174a339b68066e75032fd92"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "danny-boyle#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "BBC 북아일랜드에서 방송 일을 하던 초기, 보일은 앨런 클라크의 1989년 문제작 《Elephant》를 제작했다. 대사 하나 없이 극단적인 폭력으로 북아일랜드 분쟁을 그린 작품이었고, 그의 역동적인 연출 스타일에 깊은 자국을 남겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b56a6d3653b402b6b317d0dfa8df528a130a0b30be54a7b47e933c0391ea5bb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "danny-boyle#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이완 맥그리거와의 그 유명한 결별은 1999년에 시작됐다. 20세기 폭스가 《비치》에 세계적으로 흥행이 되는 스타를 쓰라고 압박했고, 보일은 맥그리거를 돌연 레오나르도 디카프리오로 갈아치웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e7f50a460c0d53669223c736a609c413c9b240e49652a1a51ba0a50a683cba07"
+ }
+]

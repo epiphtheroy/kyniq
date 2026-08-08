@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-eggers#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "F.W. 무르나우의 1922년 무성 공포영화 《노스페라투》에 그는 어린 시절부터 사로잡혀 있었다. 팀버레인 리저널 고등학교 졸업반이 되던 해, 에거스는 끝내 그 뱀파이어 고전을 직접 무대에 올린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6096d3fcd79870315c7af6b73e7eabf8a308a8b756efa1edad215366162d8032"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-eggers#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화로 넘어오기 전 에거스는 뉴욕에서 오프브로드웨이 연출가이자 무대 디자이너로 몇 년을 버텼다. 손으로 만들고 매만지던 그 시절이 역사 고증에 대한 그의 병적인 집착을 벼려냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5ca8b647a32d0a3da9fbffdddb23795f636ae81b1152e10fc6cb818b62f1ac6e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-eggers#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편 데뷔작 《더 위치》의 투자를 따내는 데 4년이 걸렸다. 배우들에게 17세기 초기 근대 영어(Early Modern English)를 그대로 말하게 하겠다는 고집 앞에서 투자자들은 하나같이 등을 돌렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8449103cde02cccca683d10d28d8041ee18e0269580ad0baee32b936fa56670"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-eggers#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《더 위치》의 건축 고증을 위해 에거스는 플리모스 패턱싯(Plimoth Patuxet) 박물관의 역사학자들과 오래 머리를 맞댔다. 청교도 농가 세트는 손으로 깎는 전통 목공 연장만 써서 짓게 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "39b32fc2bcca6dddb24b9713691783c6b5084a8c76dc9c5a2a475afe590782fd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-eggers#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "안야 테일러조이를 발견한 것도 《더 위치》의 혹독한 캐스팅 과정에서였다. 이 세상 것 같지 않은 존재감을 그는 첫눈에 알아봤고, 그 배역이 그녀를 할리우드의 주연급으로 밀어 올렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "be2f529a693576b7104bc1c1605f370c3beffacf2b47aa9db37384bae88fbf47"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-eggers#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "17세기 청교도의 고된 삶을 제대로 담으려고 그는 배우들에게 염소 젖 짜기, 장작 패기, 먹을거리 채집을 실제로 익히게 했다. 1630년 뉴잉글랜드 정착민이 하던 방식 그대로.",
+  "model": "claude-opus-5",
+  "source_sha256": "491aa9dd52fa74d2a4880a9c32e901fdd8407b00c9368c8e7672148f484c9dc8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-eggers#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "동물 배우라면 질색한다는 그의 악명은 여기서 시작됐다. '블랙 필립'을 맡은 210파운드짜리 숫염소 찰리는 촬영장에서 말썽을 거듭했고, 급기야 배우 랠프 아이네슨의 갈비뼈를 뿔로 들이받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f261b3b6fd8f02290e2cd04cc67c8b46993b34dd9ba91ffeb9733b0098d7ebc8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-eggers#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《라이트하우스》의 각본은 동생 맥스가 에드거 앨런 포의 미완성 단편을 현대물로 옮겨보려던 시도에서 출발했다. 로버트가 그 원고를 가져가 1890년대를 배경으로 한 환각적인 시대극으로 바꿔놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d1dc02cee8dfefac79ca234a7086e0c118c80a3b22767a95a7e67cfb30b276c7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-eggers#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "허먼 멜빌과 세라 온 주잇의 글, 19세기 메인주 등대지기들이 실제로 남긴 일지까지 그는 남김없이 파고들었다. 그 시대 바닷사람들의 말씨를 대사에 고스란히 옮겨 담기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d969cb62ac1547a7666a1d0ec191605c6edf9422c8daf408d5f25f1cacfdfdf4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-eggers#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "촬영은 오소크로매틱 흑백 35mm 필름에, 그것도 1930년대 빈티지 발타 렌즈로 하겠다고 그는 고집했다. 노출 하나 얻자고 촬영장에 눈이 부실 만큼 밝은 할로겐 조명을 세워야 하는, 지독히 품이 드는 방식이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f2f92220ecf761507c7542bb2aec4913c3efe2d856f85e3040d0b58b0d1d0fb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-eggers#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "디지털에 기대는 대신 그는 노바스코샤 케이프 포추의 험한 화산암 위에 실제로 불이 들어오는 70피트 높이 등대를 세웠다. 촬영 내내 그 등대는 사람을 후려치는 진짜 강풍을 견뎌야 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e01595449641ef590037ad48c171e9e57c6f8b1a4a32487cf0922b1e3a199b4f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-eggers#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "난폭한 바이킹 서사시 《노스맨》을 준비하며 에거스는 고대 노르드어 전문가와 고고학자, 민속학자를 불러 모아 만만찮은 자문단을 꾸렸다. 각본을 함께 쓴 아이슬란드의 시인이자 소설가 시온(Sjón)도 그 안에 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eafbab682e383e46f7440ff6b73d532d930913bfde93ed1e5ccecb2c30dbe0b0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-eggers#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《노스맨》에서 그의 디테일 강박은 제작진에게 북아일랜드에 바이킹 마을을 통째로 짓게 만들었다. 역사 고증을 거친 가축 품종과 새로 건조한 롱십까지 갖췄다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f3fffefa4c7f8b7ba15d172340d0ce268542fa0c434dbc960c2cc644979aee0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-eggers#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "끔찍하고 음산한 악몽을 빚는 사람이라는 평판과 달리, 브루클린에서 그의 생활은 비교적 조용하고 평범하다. 아내는 임상심리학자 알렉산드라 셰이커 박사다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e28d47e3e86732fa46761197d655821d54f6eb93d605b84430c278bb07fb7569"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-eggers#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "몸으로 가능한 한 CGI를 쓰지 않는 것으로 유명하다. 카메라 안에서 해결하는 실사 특수효과, 비바람에 닳은 진짜 공간. 초자연적 공포를 거칠고 만져지는 현실에 붙들어 매는 그만의 방법이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b7348fcd633d1497361f3c5df446030bca34461f26af0aa4e713049da0d22e0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-eggers#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생 품어온 《노스페라투》 리메이크의 꿈은 마침내 실현됐다. 상징적인 뱀파이어 오를로크 백작 역에 빌 스카스가드를 앉히고, 이 고딕 호러를 체코에서 찍었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6eae8c8dae702959fe448124d8ff978204186f2a90bd0ea4144eac8a00e2c43b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-zemeckis#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "시카고 로즈랜드의 노동계급 가톨릭 집안. 제메키스는 그 집에 \"예술도, 책도, 음악도 없었다\"고 회고한다. 창작이라는 세계로 통하는 창은 텔레비전 방송뿐이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f166dd3dc19747ee92df671245543d8ce353274f762a7e8e99c34ca3e837a94"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-zemeckis#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "USC에서 밥 게일과 평생의 짝이 된 이유는 단순하다. 동기들이 온통 프랑스 누벨바그에 매달릴 때, 클린트 이스트우드와 제임스 본드 같은 주류 할리우드 영화를 좋아한다고 드러내놓고 말한 학생이 둘밖에 없었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f8281f70f01bb68c7aba4f853fe52730489e25e52bfe7e0e54b268f814099a95"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-zemeckis#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "단편 《A Field of Honor》로 학생 아카데미상을 받았고, 이 작품이 스티븐 스필버그의 눈에 들었다. 스필버그는 초기의 멘토가 되어 그의 장편 두 편을 제작 총괄했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f5b38fa8f22d0dbe75ee3830f2465d199ae317eb0ae2f7021ee22e774df76709"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-zemeckis#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스필버그가 그렇게 밀어줬는데도 장편 두 편, 《I Wanna Hold Your Hand》와 《Used Cars》는 흥행에서 참패했다. 각본은 잘 쓰지만 연출을 맡기면 극장이 텅 비는 사람. 제메키스에게 붙은 업계의 낙인이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e0ddc5e2b314c67307cef7c7424559598f27eca530399db25c1c6efc900e3a6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-zemeckis#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1980년대 초 그의 경력은 완전히 멈춰 섰고, 그 와중에 매달려 쓴 각본이 《백 투 더 퓨처》였다. 마흔 곳이 넘는 스튜디오가 이를 물렸다. 디즈니는 시간여행이 얽힌 모자(母子) 로맨스가 근친상간처럼 읽혀 불편하다는 이유를 댔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "defbc57c24d0b478cb67eeaaf79cc1681dd2828674f5125f51d16fecfd719082"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-zemeckis#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "20세기 폭스 임원들은 그가 찍고 있던 《로맨싱 스톤》이 대참사로 끝나리라 확신했다. 결과가 나오기도 전에 SF 영화 《코쿤》의 연출에서 그를 잘랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "db52ed01909e36ddbb4033b4204057eeb7755309cac6ff82f2757faf7d550449"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-zemeckis#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《로맨싱 스톤》은 아무도 예상 못 한 대박을 쳤다. 경력은 단숨에 되살아났고, 그렇게 얻은 힘으로 그는 유니버설에서 《백 투 더 퓨처》를 통과시켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e0e24c28a41c441e621723fc71ead58c6bddfbf738d48529f036bca2b154ffe5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-zemeckis#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "촬영 5주 차에 《백 투 더 퓨처》의 주연 에릭 스톨츠를 내���낸 일은 할리우드 역사상 가장 괴로운 결정으로 꼽힌다. 스톨츠의 지독히 진지한 메소드 연기가 코미디를 망가뜨리고 있었고, 제메키스는 300만 달러 손실을 감수하라고 유니버설을 설득해 마이클 J. 폭스를 앉혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "87d17d5a7988f3648f4ee971aea8a0d5a2ef330dffe8b2eea5387511b4004ef7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-zemeckis#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《누가 로저 래빗을 모함했나》에 워너브러더스와 디즈니 캐릭터를 함께 세우는 전례 없는 권리를 얻으려면 조건이 있었다. 벅스 버니와 미키 마우스, 경쟁사의 두 간판에게 화면에 나오는 시간과 대사량을 정확히 똑같이 주겠다는 약속이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "24271f1105ec657e4840e72609e45f1010cc3b744744b53985677b33b328eff6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-zemeckis#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "첫 아내 메리 엘런 트레이너를 조연으로 자주 썼다. 《로맨싱 스톤》에서 납치되는 자매 역, 《죽어야 사는 여자》의 베벌리힐스 의사 역이 대표적이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6a0ae99f7e453280ed2d4209cdff383fcf62e041dbd87c357bcef0eeb667049"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-zemeckis#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《포레스트 검프》에서 톰 행크스를 존 F. 케네디, 리처드 닉슨 같은 실존 인물 곁의 기록 영상 속에 정교하게 끼워 넣은 솜씨. 제메키스는 그 작업으로 아카데미 감독상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ed107c4a6d88881402c5d6cc4f3a62da3a421b192aed3a1a4e61de5d1b6b8885"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-zemeckis#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《콘택트》를 만들며 그는 실제 CNN 앵커들을 출연시키고 빌 클린턴 대통령의 진짜 영상을 손봐 SF 설정에 현실의 무게를 실었다. 백악관 대변인은 공식 항의 서한을 보내왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "296a6214292a29fd2bdde62f2a1ac4c55e60adcd58de16afb875b9f3bf577784"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-zemeckis#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1999년 조엘 실버와 함께 제작사 다크 캐슬 엔터테인먼트를 세웠다. 목적은 분명했다. 윌리엄 캐슬이 1950년대에 만든 B급 공포영화들을 다시 찍는 것. 그 출발이 《House on Haunted Hill》이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f8457dc5156d160fbe6ead32069f4bbf623ccc4125ed1175212eca68c8d3352c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-zemeckis#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "톰 행크스가 50파운드를 빼고 수염을 기르도록 《캐스트 어웨이》의 촬영을 통째로 1년간 멈췄다. 전례 없는 판단이었다. 제메키스는 그 공백에 똑같은 스태프를 데리고 해리슨 포드 주연의 스릴러 《왓 라이즈 비니스》를 찍었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "94737cdcbc8b32c43f77b21e1b9e420d7348df557cb6eb5c329e1831e5eebcb9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-zemeckis#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "10년 가까이 퍼포먼스 캡처 기술에 빠져 《폴라 익스프레스》, 《베오울프》, 《크리스마스 캐롤》 세 편을 내놓았다. 지나치게 사실적인 디지털 얼굴이 '불쾌한 골짜기(uncanny valley)'에 갇혀 버렸다며 평단은 둘로 갈렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f09a9543786e14c749ddeab772a29e64531f05c7ad745c1067a461c3d6e1e7f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-zemeckis#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《폴라 익스프레스》는 영화사 최초로 전편을 모션 캡처로 찍은 장편이라는 기록으로 기네스 세계기록에 올랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "37c7c83e9c3fb576b5865fd9cf796601aa36c1574fd6bbeecbce00cf8fbf9013"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-zemeckis#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "함께 일한 사람을 놓지 않는 그의 의리는 유명하다. 1984년 《로맨싱 스톤》 이후 제메키스의 장편 음악은 예외 없이 작곡가 앨런 실베스트리의 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a8687af05b5538099a667e83056e0d18b1965fe436cd2edeff428c2fd0a6c632"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-zemeckis#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《하늘을 걷는 남자》에서 1974년 필리프 프티의 외줄타기를 되살리려고, 제메키스와 시각효과 팀은 1970년대 원본 설계도를 놓고 월드트레이드센터 쌍둥이 빌딩을 몇 달에 걸쳐 디지털로 다시 지었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1136426fefb2f2bcbb2d95b748043ff0233a6e578d8056947b1ec1d37cb6661e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-zemeckis#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2001년 모교 USC에 500만 달러를 기부해 로버트 제메키스 디지털 아츠 센터를 세웠다. 영화 제작 기술을 밀고 나가는 데 쓰이는 3만 5천 제곱피트 규모의 시설이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "28bb85a5a213e1d5c497450b8cfd7793915e8c3b8edec4129b09982091ec0f26"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roman-polanski#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "파리에서 태어났지만, 폴란드계 유대인 아버지 리샤르트가 1937년 가족을 크라쿠프로 다시 옮겼다. 시기가 비극이었다. 2차 대전이 터지기 직전, 가족은 폴란드에 갇혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f90a2761f7f2eb9953987bd474853d9c0cd32ecf5389a960abb615b47e111aca"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roman-polanski#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "크라쿠프 게토가 청산되던 날 어린 폴란스키는 철조망 틈으로 몸을 빼내 달아났다. 이후 홀로코스트가 끝날 때까지 가난한 농가들의 보호를 받으며 가톨릭 소년 행세로 살아남았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6efd0cc87dcf90e765b011c6c85f8145d6f89d27174254155f11cad44d463cf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roman-polanski#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "게토에서 끌려간 어머니 불라는 당시 임신 4개월이었고, 아우슈비츠 가스실에서 목숨을 잃었다. 아버지는 마우트하우젠 수용소에서 기적처럼 살아 돌아온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b77cdbe40de8ca79284cd83b7f0272fb7ea7cb1ce96617e4f737a3ec158b59b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roman-polanski#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "키가 작고 건방지다는 이유로 이름난 연기학교들은 그를 받지 않았다. 대신 그가 들어간 곳이 우치 국립영화학교 연출과였고, 거기서 안제이 바이다의 지도를 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9413ae48d84eb60d9e8312871b3cb99db9be1a68ce185abd005243d4b0d7f8cd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roman-polanski#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "네오누아르의 걸작 《차이나타운》(1974)에는 그 자신이 잠깐 얼굴을 내민다. 잭 니컬슨이 연기한 사설탐정 J.J. 기티스의 콧구멍을 잭나이프로 째는, 체구 작은 건달 역이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ca53e3d8ee708bfde2b60c57efc45c7913def0f0a905b8aeb03471e3bddd425"
+ }
+]

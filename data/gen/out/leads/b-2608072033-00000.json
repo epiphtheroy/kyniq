@@ -1,0 +1,32 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tarzan-and-his-mate-1934",
+  "field": "lead",
+  "film_id": "56cf2463-78d7-49ec-9a9a-901b643bc88d",
+  "lang": "en",
+  "text": "Everything here starts with a shipping problem: a large ivory expedition, and the local knowledge needed to move it. Harry Holt returns to Africa with his friend Martin Arlington to head the venture up, so an adventure picture opens as a business proposition — crates, porters, a route that somebody else already knows how to cross. The title promises a partnership, but the plan belongs to the men with capital, and what they need is cooperation from two people who have no use for tusks. Cedric Gibbons is the credited director, and the Africa on screen is the one a studio could build at home in 1934, designed rather than found. It sits on the National Film Registry, which is an odd afterlife for programme entertainment. A hundred and four minutes, and the film's sympathies are never with the crates.",
+  "model": "claude-opus-5",
+  "source_sha256": "9f856f2984edc1c1639859b2f474738d0e6c77b0855e1d36fc4fa87ec2d5ecd9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "salome-1923",
+  "field": "lead",
+  "film_id": "c7219b7d-f73b-4928-a629-d25c346d9a1d",
+  "lang": "en",
+  "text": "A dance is offered here, and the price named for it is not money. Charles Bryant's 1923 Salomé takes Oscar Wilde's play rather than scripture as its source, which is why the catalogue files it under fantasy and horror as much as drama: Wilde's Judea runs on appetite and on looking, and this version has to render both without a spoken word. Seventy-four silent minutes, then, carrying speeches written for the ear. The weight shifts onto faces, gesture, costume, and whatever the title cards can salvage of the cadence. Herod wants to watch. Salomé has worked out what being watched is worth, and she names her fee. The National Film Registry holds the film, which is one way an American adaptation of Wilde from 1923 stays in the record at all.",
+  "model": "claude-opus-5",
+  "source_sha256": "e46ac7afe2d8cd52db1bfc998fe25c09ede29b25a1b5870288ff92fb630c99b7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "decasia-the-state-of-decay-2002",
+  "field": "lead",
+  "film_id": "af2e3a0f-d3ed-41f3-bb8f-29ffac205d5d",
+  "lang": "en",
+  "text": "The material was already dying when it was gathered up. Bill Morrison assembled Decasia from archival footage in advanced decay, so every image arrives twice: once as whatever a camera recorded decades ago, and again as the chemistry that has been feeding on that record ever since. Emulsion blisters. A frame goes soft along one edge while the other holds. The stated subject is the human wish to be free of the body, which sets a private joke running in the projector, because nothing on the programme is more physical than the film itself — warp, bloom, rot. An original symphonic score carries the seventy minutes and decides what follows what, there being no story to do the job. This is less a lament for lost cinema than a close study of a substance keeping its own schedule.",
+  "model": "claude-opus-5",
+  "source_sha256": "27180cbd0597ab29af062c98033c19c3feaaebf41c61cada15c813b7ecbff110"
+ }
+]

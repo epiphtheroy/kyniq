@@ -1,0 +1,322 @@
+[
+ {
+  "entity_type": "director_pick",
+  "entity_key": "abbas-kiarostami#the-wind-will-carry-us-1999",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《바람이 우리를 데려다 주리라》는 도시에서 온 기술자를 쿠르드족 마을에 붙잡아 둔다. 한 노파가 죽기를 기다리며. 생략으로 건너뛰고 중요한 일은 화면 밖에서 벌이는 이 화법은, 키아로스타미가 무엇을 감추는지 이미 몸에 익힌 관객에게만 보답한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "abbas-kiarostami#through-the-olive-trees-1994",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《올리브 나무 사이로》는 자신이 앞서 찍은 영화의 촬영 현장을 다시 무대에 올린다. 한 청년이 촬영 틈틈이 상대 배우에게 구애하는 동안 배우와 배역의 경계가 흐려진다. 허구와 현실 사이에 그어진 선을 키아로스타미가 손수 걷어내는 자리.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "abbas-kiarostami#ten-2002",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《텐》은 대시보드에 붙인 카메라가 담은 대화로만 이루어진다. 테헤란의 이혼한 여자와 그 차에 오르는 사람들이 나누는 말. 극단적으로 덜어낸 이 디지털 실험에 후기의 급진적 미니멀리즘과 여성의 삶을 향한 날카로운 시선이 함께 들어 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "abbas-kiarostami#like-someone-in-love-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "도쿄가 무대다. 《사랑에 빠진 것처럼》은 에스코트 일을 하는 여학생과 노교수를 모호한 하룻밤 안에 묶어 둔다. 그의 마지막 장편이자, 뒤바뀐 역할을 향한 오랜 매혹을 이국의 도시로 옮겨 놓은 작품.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "adam-mckay#anchorman-the-legend-of-ron-burgundy-2004",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《앵커맨》은 맥케이의 가장 순수한 희극 형식이다. 즉흥으로 굴러가는 황당함, 두고두고 인용되는 엉뚱한 대사, 그리고 허영으로 가득한 윌 페럴의 뉴스 앵커. 허풍을 권위로 착각하는 바보들을 향한 그의 애정이 여기서 시작된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "adam-mckay#the-big-short-2015",
+  "field": "reason",
+  "lang": "ko",
+  "text": "2008년의 붕괴가 앞으로 밀고 나가는 영화가 된다. 《빅쇼트》는 네 번째 벽을 깨는 방백과 유명인의 카메오를 동원해 금융을 설명한다. 코미디와 격앙된 해설이 맞붙는 지점, 그의 서명이 온전히 완성된 자리다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "adam-mckay#step-brothers-2008",
+  "field": "reason",
+  "lang": "ko",
+  "text": "페럴과 함께한 작업 중 끝까지 밀어붙인 편이 《스텝 브라더스》다. 자라기를 멈춘 두 어른아이를 다룬 야생의 코미디. 그의 무정부적인 면에 걸려들었다면 여과 없는 보상이 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "adam-mckay#vice-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《빅쇼트》의 수법을 그대로 가져와 딕 체니가 조용히 권력을 쌓아 올린 과정에 얹는다. 크리스천 베일은 아예 다른 사람이 되어 있다. 정치적 분노를 전기(傳記)로 벼려 내는 맥케이를 《바이스》에서 보게 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "adam-mckay#don-t-look-up-2021",
+  "field": "reason",
+  "lang": "ko",
+  "text": "소행성 우화를 빌려 풍자의 방향을 기후 부정론과 미디어 스펙터클 쪽으로 튼다. 코미디에서 격정적인 규탄으로 옮겨 간 진화의 끝점. 《돈 룩 업》은 무디고, 다급하다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "agnes-varda#cleo-from-5-to-7-1962",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《5시부터 7시까지의 클레오》는 거의 실시간으로 흐른다. 검사 결과를 기다리는 한 가수가 파리를 떠돈다. 장난기와 사람을 보는 눈길, 그 아래로 흐르는 페미니즘의 기운. 바르다에게 다가서기 가장 좋은 얼굴이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "agnes-varda#vagabond-1985",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《Vagabond》는 한 젊은 부랑자의 마지막 겨울을 목격자들의 조각난 증언으로 되짚는다. 다큐멘터리의 질감과 허구가 한 몸으로 붙는다. 자유와 거절을 다룬 바르다의 초상 가운데 가장 황량하고 가장 엄격한 편.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "agnes-varda#the-gleaners-and-i-2000",
+  "field": "reason",
+  "lang": "ko",
+  "text": "노년의 바르다가 손에 든 디지털 카메라를 받아들인 자리가 《이삭 줍는 사람들과 나》다. 프랑스를 돌며 남은 것을 주워 사는 사람들을 찍고, 늙어 가는 자기 손을 함께 들여다본다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "agnes-varda#faces-places-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《바르다가 사랑한 얼굴들》에서 그는 벽화 작가 JR과 길을 나선다. 마을 사람들의 거대한 사진을 벽에 붙이며 다니는 여정. 기억과 우정, 그리고 본다는 일에 관한 따뜻하고 우스운 사색이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "agnes-varda#le-bonheur-1965",
+  "field": "reason",
+  "lang": "ko",
+  "text": "만족스러운 남편의 외도를 사탕처럼 밝은 색과 모차르트에 흠뻑 담근다. 《Le Bonheur》는 표면이 꿈결 같을수록 그 밑에 깔린 도덕적 한기가 더 불편해지는 영화다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "akira-kurosawa#yojimbo-1961",
+  "field": "reason",
+  "lang": "ko",
+  "text": "주인 없는 사무라이 하나가 두 패거리를 서로 붙여 놓고 논다. 《요짐보》는 그저 즐겁다. 냉소적이고 군더더기 없으며 이후 수없이 베껴졌다. 미후네 도시로는 가장 꾀죄죄하고 가장 매력적이다. 이보다 친절한 문은 없다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "akira-kurosawa#seven-samurai-1954",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《7인의 사무라이》는 팀을 꾸리는 구조를 발명했고, 현대 액션 영화를 발명했다. 마을의 정치와 저마다 다른 무사들의 성격, 빗속의 전투가 고르게 놓인다. 세 시간 내내 한 번도 처지지 않는다. 그의 기예가 닿은 정상.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "akira-kurosawa#rashomon-1950",
+  "field": "reason",
+  "lang": "ko",
+  "text": "하나의 범죄를 네 증인이 서로 어긋나게 진술한다. 《라쇼몽》에서 쪼개지는 것은 진실 자체다. 베네치아를 거머쥐고 일본 영화를 세계로 열어젖힌 작품이며, 형식은 지금도 급진적이고 지금도 서늘하다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "akira-kurosawa#ikiru-1952",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《이키루》는 칼을 내려놓는다. 죽어 가는 관리 하나가 남은 몇 달 동안 의미를 찾아 나선다. 시무라 다카시의 조용한 연기에 구로사와의 다정함이, 스펙터클보다 도덕적 물음을 앞세우는 재능이 함께 담겼다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "akira-kurosawa#high-and-low-1963",
+  "field": "reason",
+  "lang": "ko",
+  "text": "유괴 스릴러다. 《천국과 지옥》은 한쪽에 결단을 앞둔 재벌의 고통을, 다른 쪽에 요코하마 밑바닥을 훑는 집요한 수사를 나란히 놓는다. 구로사와가 현대 범죄물까지 장악했다는 증거.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "akira-kurosawa#ran-1985",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《리어 왕》을 봉건 일본으로 옮겨 타오르는 색으로 찍었다. 《란》에서 군대는 붉고 노랗고 푸른 색면이 되어 움직인다. 만년의 웅대하고 절망적인 결산.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "akira-kurosawa#throne-of-blood-1957",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《맥베스》를 노(能) 연극과 안개 낀 불안으로 다시 상상한 것이 《거미집의 성》이다. 절정에는 영화사에서 가장 놀라운 마지막 장면 하나가 기다린다. 양식화되어 있고 기괴하며, 사무라이 대작들에 가려 부당하게 덜 알려졌다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "akira-kurosawa#dersu-uzala-1975",
+  "field": "reason",
+  "lang": "ko",
+  "text": "소련 시베리아에서 찍은 《데르수 우잘라》는 측량 기사와 숲의 사냥꾼�� 맺는 우정을 따라간다. 참을성 있고, 인간적이고, 생태적이다. 일본 바깥으로 나갈 준비가 된 관객이 받아 갈 몫.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "akira-kurosawa#stray-dog-1949",
+  "field": "reason",
+  "lang": "ko",
+  "text": "신참 형사가 도둑맞은 권총을 쫓아 무더운 전후 도쿄를 헤맨다. 초기 누아르지만 《들개》에는 도덕적 무게를 재는 눈과 거리 높이의 리얼리즘이 벌써 나와 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "alain-resnais#hiroshima-mon-amour-1959",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《히로시마 내 사랑》은 사랑과 재앙의 기억을 한 덩어리로 녹인다. 지금의 친밀함과 전쟁의 상흔이 같은 호흡 안에서 엮인다. 기억에 붙들린 레네의 영화 중 감정으로 들어가기 가장 쉬운 문이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "alain-resnais#last-year-at-marienbad-1961",
+  "field": "reason",
+  "lang": "ko",
+  "text": "미로 같은 바로크풍 호텔에서 시간이 통째로 녹아내린다. 한 남자가 지난 사랑을 우기고, 여자는 그것을 기억하지 못할지도 모른다. 《지난해 마리앙바드에서》는 불확실한 기억의 영화가 다다른 가장 순수한 증류다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "alain-resnais#night-and-fog-1956",
+  "field": "reason",
+  "lang": "ko",
+  "text": "32분짜리 다큐멘터리 《밤과 안개》는 풀이 무성하게 자란 수용소 폐허와 기록 필름 속 참상을 나란히 놓는다. 조용히 무너뜨리는 기억의 명상이자, 이후 레네가 장편에서 파고드는 모든 것의 씨앗.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "alejandro-gonzalez-inarritu#birdman-or-the-unexpected-virtue-of-ignorance-2014",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 들어가기 쉬운 입구는 《버드맨》이다. 한 컷도 끊기지 않은 듯한 착시와 맥동하는 드럼이 관객을 한물간 배우의 무대 뒤 공황 속으로 미끄러뜨린다. 이냐리투의 기술적 배포가 순수한 형태로 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "alejandro-gonzalez-inarritu#amores-perros-2000",
+  "field": "reason",
+  "lang": "ko",
+  "text": "멕시코시티의 세 인생이 한 번의 자동차 사고에서 충돌한다. 그의 경력을 열어젖힌 《아모레스 페로스》이자, 초기작을 규정하는 조각난 맞물림 구조가 처음 나타난 자리.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "alejandro-gonzalez-inarritu#the-revenant-2015",
+  "field": "reason",
+  "lang": "ko",
+  "text": "자연광과 숨소리, 언 황야를 기어가는 몸뚱이만 남기고 전부 걷어냈다. 《레버넌트: 죽음에서 돌아온 자》는 생존 하나만으로도 압도적인 영화를 지을 수 있음을 증명한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "alejandro-gonzalez-inarritu#babel-2006",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《바벨》은 《아모레스 페로스》의 모자이크를 네 나라와 네 언어로 펼친다. 소총 한 자루가 지나간 경로를 엮어, 말이 통하지 않는다는 것과 그 파장이 지구를 도는 방식을 사색한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "alejandro-gonzalez-inarritu#biutiful-2010",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 조용하고 가장 어두운 영화. 죽어 가는 바르셀로나의 뒷골목 장사꾼을 연기하는 하비에르 바르뎀이 《비우티풀》의 중심을 잡는다. 여러 가닥의 구조 대신 한 사람의 짐만 남겼다. 이미 빠져든 관객이라면 여기까지 와야 한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "alex-garland#ex-machina-2014",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《엑스 마키나》는 갈랜드의 가장 조밀한 진입점이다. 유리집 안 세 사람. 튜링 테스트가 조작과 젠더와 기계 의식을 둘러싼 밀실 스릴러로 굳어 간다. 결정처럼 투명하고, 첫 장면부터 붙든다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "alex-garland#annihilation-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "시각으로도 주제로도 가장 대담한 편이 《서던 리치: 소멸의 땅》이다. 생물학자들을 변이하는 '쉬머' 안으로 들여보내 슬픔과 자기 파괴를 환각적인 신체 공포로 굴절시킨다. 곰이 나오는 대목과 마지막 장면에 그의 야심이 전부 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "alex-garland#civil-war-2024",
+  "field": "reason",
+  "lang": "ko",
+  "text": "SF를 떠나 갈라진 미국을 가로지르는 종군 사진가들의 로드무비로 방향을 튼다. 《시빌 워: 분열의 시대》가 앞세우는 것은 본다는 행위의 윤리다. 갈랜드가 실제 세계의 생생한 공포 쪽으로 옮겨 갔음을 보여 준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "alex-garland#warfare-2025",
+  "field": "reason",
+  "lang": "ko",
+  "text": "덜어낼 만큼 덜어낸 영화가 《Warfare》다. 이라크의 교전을 거의 실시간으로 재현하고, 대사는 최소한이며, 남는 것은 절차뿐이다. 레이 멘도자와 공동 연출했다. 갈랜드의 가장 무뚝뚝하고 체험에 가까운 연출까지 보고 싶은 사람을 위한 편.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "alfonso-cuaron#gravity-2013",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 쉽게 올라탈 수 있는 스릴은 《그래비티》다. 궤도 위 생존기 안에서 그의 서명인 롱테이크와 몰입형 사운드 디자인이 펼쳐진다. 앞서 알아야 할 것은 없다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "alfonso-cuaron#children-of-men-2006",
+  "field": "reason",
+  "lang": "ko",
+  "text": "같은 원테이크 기교를 때 묻은 디스토피아로 밀어 넣는다. 《칠드런 오브 맨》에서 쿠아론이 숨 막히는 긴 호흡으로 통과하는 곳은 무중력의 우주가 아니라 전장과 아수라장이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "alfonso-cuaron#roma-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《로마》는 쿠아론의 자전적 정상이다. 1970년대 멕시코시티를 흑백의 기억으로 불러내며 촬영과 각본과 편집을 직접 했다. 가정부의 조용한 하루가 광대한 영화가 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "alfonso-cuaron#y-tu-mam-tambi-n-2001",
+  "field": "reason",
+  "lang": "ko",
+  "text": "쿠아론을 세상에 알린 거칠고 이른 로드무비. 《이 투 마마》에는 십대의 성과 정치적 저류가 뒤섞이고, 멕시코의 풍경 위로 그 되풀이되는 내레이터의 목소리가 얹힌다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "alfonso-cuaron#harry-potter-and-the-prisoner-of-azkaban-2004",
+  "field": "reason",
+  "lang": "ko",
+  "text": "프랜차이즈를 다시 빚는 감독을 보고 싶다면 《해리 포터와 아즈카반의 죄수》다. 호그와트에 가을빛 어둠을 입히고 카메라를 풀어놓는다. 블록버스터 기계 안에서도 그의 비전이 살아남는다는 증거.",
+  "model": "claude-opus-5"
+ }
+]

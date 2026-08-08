@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mourning-2011",
+  "field": "lead",
+  "film_id": "5689d10c-1036-4955-9a17-1b47ad90cde0",
+  "lang": "en",
+  "text": "The argument begins at midnight; the car leaves before either of them has cooled down. A couple drives from a relative's house in the north of Iran toward Tehran, and their son stays behind. Morteza Farshbaf works inside eighty-five minutes, most of them in a vehicle in the dark, where the seating arrangement decides the conversation: who can be looked at, who can be heard, who has to be spoken around. A road at that hour supplies no distractions and no witnesses, so the pressure falls on what two people are willing to say aloud while the headlights find the next stretch. Soog is a film in which a boy left behind in the north keeps entering a conversation he is not part of, and neither adult in the front seat can say his name without it costing something.",
+  "model": "claude-opus-5",
+  "source_sha256": "d1915b83effe63c89d5bd91e4d153330474c4c06d072442b018ceb021b66cdc3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "motel-cactus-1997",
+  "field": "lead",
+  "film_id": "1c2d6c82-34bd-4477-8f99-fdb83625a259",
+  "lang": "en",
+  "text": "Room 407 stays the same; the people who rent it by the hour do not. Park Ki-yong builds four episodes out of a single address, a love hotel in Seoul, and never steps outside it, which turns the furniture into an instrument: same bed, same door, same window, played by different hands. Ninety-one minutes across four occupancies leaves each pair about twenty, barely time to arrive somewhere and be interrupted. What the room is for is understood by everyone who walks in, so nobody has to explain the arrival, and the film can spend its attention on the negotiations that begin once the door shuts. Who sits down first. Who keeps a coat on. Who is pretending the hour is longer than it is. Comedy and misery share the rented space, and the film declines to sort them into separate rooms.",
+  "model": "claude-opus-5",
+  "source_sha256": "cf3c2b532442b203081b9354a3fe0263585c6ac6ce5a12acc34d21eb55292882"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "flower-island-2001",
+  "field": "lead",
+  "film_id": "2b8f24ed-c79e-45fb-b634-0c7a42f41c6f",
+  "lang": "en",
+  "text": "An island off the coast is said to heal people, and the film takes the rumor seriously enough to build its second half around the trip. Song Il-gon divides a hundred and fifteen minutes into three parts, and the arithmetic matters: the first keeps three women apart, each carrying an injury the others know nothing about, and only then does the structure let them collide. What follows is less a journey than an accumulation. Strangers, detours, the indifference of the road to anyone's schedule. The last stretch puts them on a boat, a confined space moving slowly, where the choice is between talking and looking at water. Somewhere in that crossing, whether the island cures anything gives way to the plainer matter of what condition three people are in after travelling together.",
+  "model": "claude-opus-5",
+  "source_sha256": "424282ea7d741940c16d7e7dc2697ebbf434ccf4f695ad296093aaa3751d68d0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "september-1923-2023",
+  "field": "lead",
+  "film_id": "821475ab-ea92-4fcb-be13-b37c81bdcc07",
+  "lang": "en",
+  "text": "In the aftermath of the Great Kanto earthquake, nine street peddlers were killed by people who had decided what they were. Tatsuya Mori takes a hundred and thirty-seven minutes over that record, a long time for an event usually handled in a paragraph, and the length is the argument: a rumor needs hours to cross a village, to be repeated by someone respectable, to harden into what everyone already knew. Peddlers are outsiders by trade. They arrive, they sell, they move on, and in a frightened place that itinerancy is enough to make a man legible as something else. The disaster is natural and the killing is not, and Mori occupies the interval between them, which belongs entirely to ordinary people acting on ordinary fear.",
+  "model": "claude-opus-5",
+  "source_sha256": "906f8220e08ab8054adfd2a84d80ecb1cb4d68cef6c745b4b853212c7c427b98"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "kick-off-2009",
+  "field": "lead",
+  "film_id": "07e73d61-f965-44f3-b786-f09bc7d775d9",
+  "lang": "en",
+  "text": "The stands of a wrecked stadium in Kirkuk are occupied, though not by spectators: families who fled the government live in concrete that was poured for crowds. Shawkat Amin Korki starts from that arrangement and adds one idea, a football match on the pitch below, organized by a young man named Asu, who shares his room with a younger brother whose legs were taken by a landmine. Kurdish, Arab and Turkish families hold the building in common and little else, and a team sheet is a blunt instrument for sorting people. Eighty-one minutes in Kurdish, made in Iraq in 2009, and the scale stays domestic throughout. The film keeps to practical matters: who plays, who referees, where the ball goes when it leaves the ground, and what the fixture costs the people arranging it.",
+  "model": "claude-opus-5",
+  "source_sha256": "8fd2f7ff183fdeb93b0b4039158a0fba1791ae0a6e02672a46e89cc4130fd59b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "haifa-street-2019",
+  "field": "lead",
+  "film_id": "6b343639-6c9f-42f4-94ad-9b8c2b1d54fa",
+  "lang": "en",
+  "text": "Two men share a hundred metres of Baghdad in 2006: one walking to a house to ask a family for their daughter, the other on a roof with a rifle. Mohanad Hayal keeps to seventy-nine minutes and one address, then fills it with people running errands, because a marriage proposal is an errand. It needs a suit, a route, an hour that suits the family. Salam, up on the rooftop, works as a tenant of that position rather than as a suspense device, following a logic that makes sense from where he sits. Sectarian violence here is closer to a traffic condition than a backdrop; it governs whether Ahmed reaches Suad's door on the day he has picked. At this compression nobody is granted the long scene in which they might account for themselves.",
+  "model": "claude-opus-5",
+  "source_sha256": "1f8a081dd739f30c829063444cc66850dd12edeb6056161b06c4a93f808c7275"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "knife-in-the-clear-water-2016",
+  "field": "lead",
+  "film_id": "b3ded0bf-d0eb-4ac6-9af1-80de88fa3f25",
+  "lang": "en",
+  "text": "A bull that has pulled a plow for years is also, on the day of a funeral, an asset with a use. The man who owns this one has lost his wife, the rites call for the animal, and he cannot bring himself to consent. Xuebo Wang takes ninety-three minutes over the standoff and stages it as weather rather than debate: the days proceed, relatives arrive, preparations advance at their own pace. On a farm a bull is the difference between a harvest and none, so the refusal is grief and arithmetic and stubbornness at once, with no clean seam between them. Much of the film is the man finding work that requires the animal alive tomorrow. A field that needs turning. A load that needs moving. One more errand that cannot be done any other way.",
+  "model": "claude-opus-5",
+  "source_sha256": "ad656df39af5a9bfeff15a203ed219a3e0aa3e5e63ebc468cb8527be0305ac4a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "immortal-2015",
+  "field": "lead",
+  "film_id": "5f92b25e-22d9-4ee6-b2a5-b4d1e282f4db",
+  "lang": "en",
+  "text": "Ayaz was at the wheel of the bus coming home from a wedding when it went into the ravine, and the years since have been spent inside that one fact. He lives now with his grandson Ebrahim, in a household of two where an old man's remorse is the weather, and the boy has arrived at his own account of it: he believes his grandfather is possessed. Hadi Mohaghegh holds to ninety-four minutes and to a rural Persian-speaking place whose terms supply the rest, distances measured in walking, chores that recur, a day's speech that would fit on half a page. What the film follows is the labor of looking after someone. A child does adult work for a man paying a debt no court would have charged him with, and the payment has become the shape of his remaining life.",
+  "model": "claude-opus-5",
+  "source_sha256": "f47f45235101354c153c44d8a2dfb060f9af1ffa7020c363ed225934bf930e4a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "grain-in-ear-2005",
+  "field": "lead",
+  "film_id": "299ae348-ecf2-4ff8-a18e-059314a0f24a",
+  "lang": "en",
+  "text": "The whole business is a cart on the shoulder of an industrial road, and the product is kimchi, sold to men coming off shift. Cui is Chinese-Korean, her husband is in prison, her son is small, and nothing about her position would survive an official taking a close interest in it. Zhang Lu keeps to the outskirts, where the road is the only landmark and everyone is from somewhere else, and he holds still long enough for the arithmetic of a day to become visible: how many jars, how many hours standing, how much of the roadside counts as hers. A love affair enters, as affairs do for people with no margin for one. What stays in the frame is the cart, the boy, the distance to the next customer, the entire inventory she has to work with.",
+  "model": "claude-opus-5",
+  "source_sha256": "639bb1a9a91a0aa1fe44ee67887c5edf37fca3c7403ecba83fa0a51ac39238b6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "clean-up-2018",
+  "field": "lead",
+  "film_id": "a5e1cf78-a558-4223-bd51-a7e298c7a599",
+  "lang": "en",
+  "text": "A man comes out of prison and turns up in front of a woman who has spent twelve years arranging her days so as not to think about him. Jeong-ju drinks, and the film treats that as a fact about her mornings rather than a puzzle set for the audience. Kwon Man-ki uses a hundred and four minutes, which lets the encounter become a series of encounters, each adjusting the terms by a little, instead of one reckoning delivered in a single room. Min-gu has served his sentence and the sentence is over; whatever Jeong-ju is carrying was never measured or filed by anyone. Guilt here behaves less like a revelation than like a chore. Recurring, done badly, taken up again in the morning, twelve years after the events that generated it.",
+  "model": "claude-opus-5",
+  "source_sha256": "15c864887568fc15709b4317ae1fd95ce4a7c4dc15a202b3b1779d94026ae3de"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "remote-control-2013",
+  "field": "lead",
+  "film_id": "9a76ba85-a56e-4f04-88df-76e4a47f7e08",
+  "lang": "en",
+  "text": "The stolen object is a television remote, and its range covers exactly one apartment across a gap of open air. Tsog sells a neighbor's milk to keep his family fed, quarrels with them about it, and draws: hours of the same young monk, on whatever paper is at hand. After one fight too many he leaves the slums outside Ulan Bator for the city and installs himself on a roof, from which the distance to a penthouse is a few dozen metres and everything else. Ninety minutes, Mongolian-language, financed out of Germany. The premise is mechanical enough to state in a sentence, and stranger the longer it runs: a boy who can change the channel for a woman who does not know he exists has invented a way to be present in a room he will never be let into.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d37f99c940b9bea214d24d2fd75ada570eb4e2bcbd8bb7bab8423ba804834ca"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-apartment-with-two-women-2021",
+  "field": "lead",
+  "film_id": "5c4a4b8d-2644-4ef1-a452-8835f205c06a",
+  "lang": "en",
+  "text": "A hundred and thirty-nine minutes is a long stretch for two people and one apartment, and Kim Se-in spends nearly all of it indoors. Su-kyung and Yi-jung are mother and daughter and disagree about most things, including the day the car moved while Yi-jung was in front of it. One of them says accident. The other has concluded otherwise. The matter goes to court, which produces the odd spectacle of a domestic argument conducted in the vocabulary of evidence and intent, by strangers, on the record. A hot temper on one side and a slow, passive manner on the other are not equal instruments, and the film is patient about showing how the second applies pressure of its own. A court date also does not dissolve a lease; the address stays the same throughout.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c003eda4683137a79d126cb61e4ea1be2d803c365220e2260c2f44c78833057"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "land-of-scarecrows-2008",
+  "field": "lead",
+  "film_id": "eec3fde5-03a4-49ce-8f47-ef7d7cdb682c",
+  "lang": "en",
+  "text": "Jiyoung Jang is forty, an artist, and trans; Rain is young, Filipina, and has a precise idea of what Korea is going to provide. Between them is Loi Tan, a Filipino boy adopted into a life he did not pick, and Roh Gyeong-tae lets the three intersect by accident, which is the only plausible way these particular lives would meet at all. Eighty minutes, spoken in Korean, produced out of France. The film holds two kinds of contamination in one frame, what people do to the ground they stand on and what the arrangement then does to them, and gives neither priority. It runs closer to a sequence of images with people inside them than to a story with a middle, and the migration, the adoption and the transition are given as conditions rather than introduced as subjects.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9ec001838fc1579ef9bc901ce53459151abfb16d78a9a9ee9d05573e8f16664"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-wild-roomer-2022",
+  "field": "lead",
+  "film_id": "8e01eda0-91df-4210-be2b-b0299980a491",
+  "lang": "en",
+  "text": "The jobs are small, a door that sticks, a shelf, an afternoon of interior carpentry, and they are how Gi-hong meets everyone here. Two hours and sixteen minutes is a lot of running time for a premise that light: he takes work, he spends more and more of it with the young couple who own the building, the days pile up. Then things begin to be slightly off, in ways too minor to report and too persistent to set aside. Lee Jeong-hong appears to want the routine kept intact, because the effect depends on it. Strangeness that arrives on cue is a plot device; strangeness that turns up in the middle of a working afternoon has nowhere to be filed. All that is asked of the carpenter is that he keep showing up with his tools.",
+  "model": "claude-opus-5",
+  "source_sha256": "11defd2f0cc82f34a1a1af190e87f1c358ba6fb3a552ebeeb8ad667c639ad3e7"
+ }
+]

@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "burnt-by-the-sun-1994",
+  "field": "lead",
+  "film_id": "38eb2a76-36ef-4218-933e-21656282d099",
+  "lang": "en",
+  "text": "The dacha is crowded with family and friends, and the summer of 1936 has the slack shape of a holiday that could last forever. Then a cousin arrives unannounced from Moscow, charming the women and dazzling six-year-old Nadia at the piano. Nikita Mikhalkov spends most of his 135 minutes on games, meals and piano-playing, and that is the point: the terror of those years worked by appointment, and the hours before an appointment look like any other hours. Kotov, a colonel the revolution made a hero, knows what a social call is not. The tension sits in what the adults decline to say in front of the child. It took the Grand Prix at Cannes and the Academy Award for international feature, an odd fate for a film that keeps its violence offstage and holds its dread at the level of lunch.",
+  "model": "claude-opus-5",
+  "source_sha256": "03e8c868133cb13225cae1f47a80c2bb0b621240b6d684a0d265e48749639300"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-marquise-of-o-1976",
+  "field": "lead",
+  "film_id": "625575a9-4748-418b-b1eb-7e19c73d2bf5",
+  "lang": "en",
+  "text": "A French production performed entirely in German, which suggests the story mattered more than the market. The premise is one plain fact and one impossibility: a marquise is pregnant, and she cannot say how. Éric Rohmer softens neither. What follows has to be a social ordeal rather than a mystery — a household deciding what it is willing to believe, a Russian count whose infatuation arrives at precisely the wrong hour, a woman obliged to defend a truth she does not possess. Costume pictures usually flatter their heroines with hindsight; the pressure here is applied in the present tense, by people who love her. Cannes gave it the Grand Prix. What holds after 102 minutes is the arithmetic of the situation: everyone in that house is both wrong and entirely reasonable.",
+  "model": "claude-opus-5",
+  "source_sha256": "ba17b21bf7e9b95c38119bdc5d930c8642238b521aadbd79cb67d7000fd3ee93"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "monster-2003",
+  "field": "lead",
+  "film_id": "1335c2f2-727b-4780-9c68-47e0d6bac565",
+  "lang": "en",
+  "text": "A crime story that spends most of its energy on the problem of finding work. In 1989 Aileen Wuornos wants out of prostitution and finds that a life with no schooling behind it offers her the corner and very little else; Selby, the young woman she falls for, gives her a reason to want more and no means of getting it. Patty Jenkins declines both of the verdicts the case had long since hardened into, monster and victim, and that refusal is what the central performance has to carry — it took the Academy Award for best actress and a Silver Bear, and the film holds a place on the BBC's hundred greatest films directed by women. What is hard to shake is not the violence. It is the size of the wishes underneath it: a wage, a room, someone waiting.",
+  "model": "claude-opus-5",
+  "source_sha256": "32ee0c1e368833dab40d81fffb47eab7edcf15d98428148bdc9dc2b635686e6d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-ascent-1977",
+  "field": "lead",
+  "film_id": "f69c4f41-0ed3-457f-80ec-0fa1086ed951",
+  "lang": "en",
+  "text": "Two men walk out into the snow to find food, and that is the whole of the errand. Larisa Shepitko builds 110 minutes from it — open white ground with no cover, an occupying army somewhere in it, and a hunger that predates the mission. The cold is not atmosphere here; it is the antagonist with the most screen time. It took the Golden Bear, and it has kept a place on the Sight & Sound directors' poll ever since, which for a Soviet partisan picture from 1977 is not the usual afterlife. War films generally promise movement. This one narrows, until the only ground left is what each man will consent to become while cold and frightened, and the distance between the two of them stops being a question of courage and turns into something harder to name.",
+  "model": "claude-opus-5",
+  "source_sha256": "f7871adb89623847e4bac2d768f261554a8ea81e730be5e44cb78eade069d47b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "watch-on-the-rhine-1943",
+  "field": "lead",
+  "film_id": "c551eef3-42e9-45a2-b5bb-6b6b4c4a3935",
+  "lang": "en",
+  "text": "The war arrives at a comfortable house outside Washington in the shape of a houseguest. Kurt Müller has spent years working against the Nazis in Europe; his wife Sara is American, their three children have grown up abroad, and the visit to her wealthy mother's home on the eve of the war looks at first like a family reunion. A Romanian count staying under the same roof works out what Kurt does and calculates what his silence might be worth. Released in 1943, the film argues where its audience actually lived — a drawing room rather than a front — and turns resistance into a domestic question: what a household owes a man who has already chosen. It took the Academy Award for best actor and the New York Film Critics Circle prize for best film. The menace moves at the speed of manners.",
+  "model": "claude-opus-5",
+  "source_sha256": "08e88224b1818882120cb56ec5be207d1f8f3df55ab6a5f526f8a74e853a3d2c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bad-girl-1931",
+  "field": "lead",
+  "film_id": "64e36083-661f-4ab4-b01d-f029d83ec212",
+  "lang": "en",
+  "text": "Neither of them believes in romance, and they get married anyway. Frank Borzage spends ninety minutes on the consequence: two people who each assume the other will eventually prove them right. It is a 1931 picture, made close to the start of talking pictures, and the drama has nowhere to go but conversation — misunderstandings a single sentence would clear up, left uncleared, because saying the sentence would mean admitting to hope. The Academy gave it the awards for directing and for adapted screenplay, an unusual pair of prizes for a story with no plot to speak of beyond a marriage trying to hold. What lasts is the pattern rather than the incidents: distrust practiced daily by two people who are, in every other respect, trying to be kind.",
+  "model": "claude-opus-5",
+  "source_sha256": "1879d8fc45a24506d4e42646a9a799af7064c861fc268527f9a5e653f2cd411c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "you-were-never-really-here-2018",
+  "field": "lead",
+  "film_id": "9473728b-bc16-466e-8f48-83bed2a52cf5",
+  "lang": "en",
+  "text": "Eighty-nine minutes is short for a thriller, and this one uses the length to subtract. A man retrieves missing girls for clients who pay in cash, and the work suits him because he comes to it already ruined; when a job goes wrong, what gives way is less the plan than his hold on where and when he is. Crime pictures usually organize themselves around the next blow. Lynne Ramsay keeps drifting into the minutes after it. The job is Joe's; the film belongs to whatever is left of him. Honored for its screenplay and its lead performance, and listed among the BBC's hundred greatest films directed by women, it still scores lower with audiences than its standing would predict — it withholds the satisfactions the genre normally sells, and the withholding is a decision rather than an oversight.",
+  "model": "claude-opus-5",
+  "source_sha256": "98e3738ccff2fb01255441108534772b1c9825abd891ee1e0968e29eae0c2164"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-beginning-and-the-end-1993",
+  "field": "lead",
+  "film_id": "7f46fe22-ca9d-4d65-9e28-90c97e736f19",
+  "lang": "en",
+  "text": "A mother looks at her four children and decides which one will be saved. The father is dead, the Boteros have slipped out of the middle class, and Ignacia's calculation is that Gabriel, the youngest, can be pushed up and out and will one day carry the rest back with him; the other three are the currency she pays with. Arturo Ripstein takes 187 minutes over this, and the length is the argument — a sacrifice of that kind is not a scene but a long series of small deductions, agreed to one at a time. The source is a novel by Naguib Mahfouz. Mexico sent the film to the Academy Awards, and the Ariel jury gave it best picture. The difficulty it leaves behind is not that Ignacia is cruel. It is that her arithmetic works.",
+  "model": "claude-opus-5",
+  "source_sha256": "dbdd5f7093ceafdd9794a3586d1f2543e19993636965ff6d9dff7e50eee21af5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "walk-the-line-2005",
+  "field": "lead",
+  "film_id": "f5db4811-44b6-4a53-be82-913eb5eec29f",
+  "lang": "en",
+  "text": "Cotton fields first, then a Memphis studio where Elvis Presley, Jerry Lee Lewis and Carl Perkins were recording for the same label. The outline of a rise like that is familiar enough that a film has to earn its attention somewhere else, and this one earns it by being, underneath the discography, a long and public courtship between two performers who share a stage. Pictures built on music live or die on whether the playing looks like labor. The record bears out where the weight sits: the Academy Award for best actress, a Golden Globe for musical or comedy, a place on the National Board of Review's ten. Its fame is also its difficulty — the songs reach the film already carrying more history than any scene can add to them.",
+  "model": "claude-opus-5",
+  "source_sha256": "29bffa2468b93d3142975074507ebe90869b7524a58ed6451e6cb9b66d115e31"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-king-and-i-1956",
+  "field": "lead",
+  "film_id": "922bd1c4-8db4-4701-8e09-958a52807929",
+  "lang": "en",
+  "text": "A widow from Wales is hired to teach English manners to the children of the King of Siam, and the whole picture turns on that word, manners. Its engine is a party: European diplomats are coming, they hold opinions about the King, and the court must be arranged so that those opinions change. That is a 1956 Hollywood proposition about who is entitled to judge whom, and the charm and the awkwardness come from the same source — a monarch written as stubborn and teachable, a governess written as reasonable. Walter Lang has 133 minutes and a palace, and the palace does real work; the Academy's recognition ran to it as much as to the acting. The tutoring runs in both directions, and the sharper lessons are the ones Anna is given.",
+  "model": "claude-opus-5",
+  "source_sha256": "3f070b4f5fac6c4f512a6bddd221d8e413a9f42a6c32c30d6524399ccb231efa"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-song-of-bernadette-1943",
+  "field": "lead",
+  "film_id": "e42f36cc-bea9-4e9b-b6e2-51cefc203a73",
+  "lang": "en",
+  "text": "The church wants nothing to do with her, which is the first surprise. Bernadette, a peasant girl in Lourdes in 1858, says she has seen a beautiful lady at the Massabielle grotto; the town's officials would much prefer that she were insane, and the clergy who might be expected to welcome the report keep well clear of it. Henry King takes 156 minutes and treats the vision as a fact of her experience rather than a claim to be adjudicated, which is why it works as drama for a viewer with no stake in the question. Everyone with authority has reasons to want her to stop. It won the Academy Awards for best actress, black-and-white cinematography and art direction, and a Golden Globe for drama. What it returns to is the ordinary municipal cost of being believed.",
+  "model": "claude-opus-5",
+  "source_sha256": "abd1d81c09de1d401ef9c6e837447314eb73594d091d73de49d6a5c722cce370"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "johnny-belinda-1948",
+  "field": "lead",
+  "film_id": "407ad1d7-d675-4f17-a637-3ca5bc9c8477",
+  "lang": "en",
+  "text": "The performance at the center of this film does not have a single line of dialogue in it. Belinda is a deaf and mute farm girl, and the small-town doctor who takes an interest sets out to give her a language — which forces a 1948 studio drama, an intensely verbal form, to relocate itself into gesture, attention, and the faces of people watching. Everything has to be shown. The Academy Award for best actress went to it, along with art direction and a Golden Globe for drama, and the National Board of Review put it in the year's ten. What lasts is smaller than the prizes: the patience a single lesson requires, and the particular insult of being discussed in a room by people who assume she cannot follow.",
+  "model": "claude-opus-5",
+  "source_sha256": "e725cebccf0db7fbb18a191c24989d8b8648045d37616f953c23477dd179203e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "long-day-s-journey-into-night-1962",
+  "field": "lead",
+  "film_id": "3f870fa1-085d-465b-a397-abe4113ee500",
+  "lang": "en",
+  "text": "One house, one foggy day in August 1912, and 170 minutes in which to sit there. The father guards money he has no intention of spending, the mother has her morphine, one son is sunk in dissipation and the other is gravely ill, and none of it is news to any of them; the family has been having this argument for years and knows every move in it. Sidney Lumet's difficulty is the reverse of most directors' — he has to hold a camera on a room where nothing new can occur. What accumulates instead is repetition, and the way an accusation sharpens each time it is rehearsed. The recognition it drew was almost entirely for acting, which is the right reading. The film is four people, a house, and the fog outside it.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd2718b16de642d88739d7ee97076671779864c94d7729a11893627e0b922fe9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "terribly-happy-2008",
+  "field": "lead",
+  "film_id": "de93ca21-672f-44f2-8083-d20bc3909cd3",
+  "lang": "en",
+  "text": "The town has its own way of settling things, and the policeman sent down from Copenhagen is not part of it. Robert Hansen is thirty-four, the transfer to Skarrild in Southern Jutland is a punishment wearing the clothes of a second chance, and whether he ever works in the capital again depends on how he conducts himself out here. His job title there is substitute marshal, and the place is spoken of as a frontier. Danish flatland played as a western is a good joke, and Henrik Ruben Genz gets ninety tight minutes from it, the newcomer's authority worth exactly what the locals decide it is worth. The Bodil juries gave it lead actor, lead actress and supporting actor, and both national awards named it the best Danish film of its year. Most of the threat, though, is in what the town considers none of an outsider's business.",
+  "model": "claude-opus-5",
+  "source_sha256": "307ac135077a91fc4d0fd5acd5972cc9bcfff23e491621bda363e53c17406fd2"
+ }
+]

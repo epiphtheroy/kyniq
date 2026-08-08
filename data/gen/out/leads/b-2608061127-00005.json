@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ballad-of-a-soldier-1961",
+  "field": "lead",
+  "film_id": "89203c92-21e6-4346-8e37-17c749aae1b5",
+  "lang": "en",
+  "text": "A soldier earns a short leave from the front and spends most of it on other people's trouble. Grigoriy Chukhray builds the film out of that arithmetic: eighty-nine minutes, a boy named Alyosha, a train route toward his mother, and a wrecked country that keeps setting someone in his path who needs help more urgently than he needs to arrive. Delay is the engine. Every kindness costs hours he does not have, and the warmth of the encounters along the way, a girl named Shura met in transit among them, is inseparable from the clock emptying behind him. Made in the Soviet Union and honored by the Academy for its original screenplay, it puts a war picture's weight on the civilian roads, where the fighting registers as damage to houses, timetables and families rather than as spectacle.",
+  "model": "claude-opus-5",
+  "source_sha256": "17b0c9f05e10af8ab552f4360ec79a1715f9e5a5e7d1e49179998a9999854081"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-road-to-guantanamo-2006",
+  "field": "lead",
+  "film_id": "56fb499c-5681-4a8b-b52f-ec62636f500e",
+  "lang": "en",
+  "text": "Two years in custody, then release without charge: that is the official record of the three young Britons the film follows. Mat Whitecross reconstructs the interval in ninety-five minutes that refuse to settle as either drama or documentary, cutting between staged scenes and the men from Tipton giving their own account. The hybrid is not decoration. Where the archive is sealed and testimony is the only evidence available, a form has to carry the account and the uncertainty around it at the same time, and the switching keeps the difference visible instead of smoothing it away. Both the film and its direction were named at the European Film Awards. Ninety-five minutes, and not one of them asks to stand for anything larger than what these three men say happened.",
+  "model": "claude-opus-5",
+  "source_sha256": "31bdcebe74c168ec5b88b5258c228f37d846cae3eab3ebbfd6f7ca65c7861cb1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "redacted-2007",
+  "field": "lead",
+  "film_id": "0d5ebac5-9da6-4b33-b740-0f37c95c9aba",
+  "lang": "en",
+  "text": "Every image arrives as somebody's recording: a soldier's camera, a news crew's, Iraqis speaking about the unit stationed near them. Brian De Palma made Redacted as a documentary that is entirely fabricated, ninety minutes of interviews and handheld testimony assembled so that nothing reaches the screen unmediated, every frame carrying the fingerprints of whoever is supposed to have shot it. The gamble is severe. A fiction imitating the exact formats through which the war was being watched at home still asks to be weighed as evidence, and De Palma is untroubled by the contradiction. The Silver Lion for direction followed. Its argument is less about the invasion than about pictures of it: who holds the camera, what is cut before transmission, and how quickly an image acquires a frame that tells its audience how to read it.",
+  "model": "claude-opus-5",
+  "source_sha256": "eea8d7fed53eb362735ed3a6935b43fd013da44498ab92775bbbd1f05b7d8f4f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lacombe-lucien-1974",
+  "field": "lead",
+  "film_id": "994cdc5c-6ce8-407e-b5d6-efd7bdd801a9",
+  "lang": "en",
+  "text": "The Resistance rejects the boy for being too young, and soon enough he is armed and working for the occupation. Louis Malle spends two hours and eighteen minutes on that swerve and refuses at every point to make it legible in the way an audience wants: no conversion, no doctrine, only a farm adolescent discovering that a uniform makes the grown men of his own district defer to him. Then he falls for France Horn, whose family the job he now holds exists to hunt. Malle keeps the camera level and the tempo domestic, and that is the provocation — collaboration filmed as a run of ordinary afternoons rather than as a crime with a motive. The Academy's foreign-language award came to it. The discomfort is built into the method, not added on top.",
+  "model": "claude-opus-5",
+  "source_sha256": "127f1aa998a764fdf1571a8edadbe9e459a55e8011ebe4d190ef0e31d3346c7c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "about-endlessness-2019",
+  "field": "lead",
+  "film_id": "04a15921-30c1-4e2b-aa46-a9be6319b3f0",
+  "lang": "en",
+  "text": "Seventy-six minutes is a short span for a film that proposes to take in everything human. Roy Andersson works by accumulation rather than plot: a narrator in the manner of Scheherazade presents one scene and then another, and the arrangement insists that a small unremarkable moment and a catastrophe out of the history books deserve the same interval of attention. Om det oändliga is filed as drama, fantasy and comedy at once, which is accurate, since the mourning and the laughter are not sorted into separate passages but held inside one image, often one gesture. Its European award was for visual effects, an odd credit for a work of quiet scenes; whatever got built was built to pass as ordinary. A Silver Lion for direction sits beside it. Neither prize accounts for the patience the film asks.",
+  "model": "claude-opus-5",
+  "source_sha256": "60a9b3835693ab0ad379b59dadc60d7966118b6081f9b51029b42fae56b43b3a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-untamed-2016",
+  "field": "lead",
+  "film_id": "3e14e1bb-6309-4494-a930-c4f32eed7872",
+  "lang": "en",
+  "text": "A meteorite comes down near a house where the marriage inside has already gone bad, and the thing it leaves behind has appetites. Amat Escalante gives La región salvaje ninety-eight minutes and four genres to hold at once: science fiction, horror, thriller, and a domestic drama that would function with no creature in it whatever. That is the design. The alien is not an invasion plot but a pressure applied to one Mexican household, and what goes under test is how much of the couple's arrangement was ever chosen. Escalante keeps the register flat, provincial, unhurried, so the monstrous enters an ordinary world instead of replacing it. The Silver Lion it carries out of 2016 was for direction, and direction is where the whole difficulty sits: someone had to decide how much to show, and when.",
+  "model": "claude-opus-5",
+  "source_sha256": "4e57bc6f2ae4d72fb7619d6a447fd1e5be62ad6dfdeb588af34b4614e0cb8a1c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "living-is-easy-with-eyes-closed-2012",
+  "field": "lead",
+  "film_id": "ee6018b6-226e-4c02-b867-4330069eb08d",
+  "lang": "en",
+  "text": "In 1966 a teacher of English hears that John Lennon is making a film in Almería, and sets off across Spain to find him. The passengers he picks up are the picture: a sixteen-year-old who has left home, and a young woman with her own reasons for being on the road, both travelling away from something while he travels toward someone. David Trueba plays it light and lets the period carry the weight — a hundred and eight minutes in a country where two of the three people in the car are running out of places to go. The teacher's errand is faintly absurd and completely sincere, and the film never mocks him for it. It went forward as Spain's submission to the Academy and took the Goya for best film, which for a road comedy this modest is a fair surprise.",
+  "model": "claude-opus-5",
+  "source_sha256": "c2f46464e5dbd29c6ec02c112dc845da812fcc03d344d7269f9b40466f96ddb6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "la-ronde-1951",
+  "field": "lead",
+  "film_id": "dc62126d-f8ff-4f44-b5f6-1e3f8d0372af",
+  "lang": "en",
+  "text": "The master of ceremonies steps into view, admits he is arranging what follows, and sets the first couple in motion. From there La Ronde proceeds by handoff: each affair in Vienna, 1900 shares one partner with the next, so the structure is a chain rather than a plot, and no pair holds the screen long enough to become the subject. Max Ophüls filmed it in France in 1951, and the design pays out in the joins — the camera has to keep moving, the sets have to keep receiving it, which is presumably why the Academy's prizes went to the art direction as much as to the adaptation. Ninety-five minutes of seduction treated as a mechanism. The comedy is in watching the mechanism run, and in how completely the film declines to moralize about the appetite it keeps passing along.",
+  "model": "claude-opus-5",
+  "source_sha256": "e9592b66db871a0032c78b03d559923ceb63472c561695ae99112b59c8af7c8f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "beasts-clawing-at-straws-2021",
+  "field": "lead",
+  "film_id": "7567e831-9857-41f7-b344-8c1595fd7320",
+  "lang": "en",
+  "text": "Cash in a sauna locker, unattended, and several people who need money badly enough to stop being careful. Kim Yong-hoon divides the film among them — a man whose restaurant is failing while he nurses his mother, a customs officer whose girlfriend has gone off with a loan shark's money — and lets the strands cross where the debts do. The structure is the pleasure. Nothing here is a caper; everyone is scrambling at the bottom of a household budget, and the crime is only the shape their arithmetic takes once it stops working. A hundred and eight minutes out of South Korea in which the pressure comes from obligation rather than greed: a sick parent, a borrowed sum, a debt that can be neither set down nor paid.",
+  "model": "claude-opus-5",
+  "source_sha256": "840cc343aa4d873db8021e860e2b9b63d757aa26cf5782f545863a8e7e7cfe27"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-cement-garden-1993",
+  "field": "lead",
+  "film_id": "70b33c9e-1cbc-4712-9287-9d506d3075b6",
+  "lang": "en",
+  "text": "Four children, one house, and no adult left in it by the time the story properly begins. The Cement Garden opens with a bank account set up in the children's names so that nobody can take them into care, and what follows obeys that instruction with a terrible literalness: to keep the family, the fact of its collapse has to be kept from everyone outside. Andrew Birkin barely leaves the property across a hundred and one minutes, while the older two, Julie and Jack, improvise a household order no adult would permit. What holds the film together is its refusal of shock tactics. Each thing the children do follows reasonably from the last thing they did, which is the most unsettling way to arrange it, and the Silver Bear for direction reads as recognition of precisely that restraint.",
+  "model": "claude-opus-5",
+  "source_sha256": "935ee7111982229cad1f6f04900f5f8301114734ae900073a0a4e45eb1e62b86"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "no-rest-for-the-wicked-2010",
+  "field": "lead",
+  "film_id": "10dc04dc-b438-4885-b057-4fe4bbdad88b",
+  "lang": "en",
+  "text": "The detective and the killer are the same man, and the film says so at the start rather than saving it. From there No habrá paz para los malvados runs on two tracks: Santos Trinidad, drunk and methodical, hunting the one witness who got out of the room, and a judge named Chacón working the same evidence from the other end without yet knowing whose trail it is. Enrique Urbizu takes a hundred and fourteen minutes and spends them on procedure — doors, paperwork, the slow narrowing of a city. Madrid is shot as a place with too many rooms in it. The tension comes not from whether the truth surfaces but from which of the two arrives first, and the Goya for best film went to a thriller wearing almost no thriller ornament.",
+  "model": "claude-opus-5",
+  "source_sha256": "84590160749ad94497d397f1b028ae9e0d0816b3a79df911e07ab641f3d9a181"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "richard-iii-1955",
+  "field": "lead",
+  "film_id": "c80c00fa-1423-4917-9fe3-9b14d9a3c638",
+  "lang": "en",
+  "text": "An actor cast himself as a man whose entire method is being underestimated, then directed the result at two and a half hours. Laurence Olivier's Richard III is about a technique more than a reign: the Duke of Gloucester talks his way through a court, promising one thing to a brother and another to the woman he means to marry, and the film gives the performance room to be enjoyed before it is judged. Britain, 1955, and the staging stays frankly theatrical, which is sound reasoning, since the language is the weapon and cutting for pace would blunt it. The honors bear that out: an Academy Award for the lead, BAFTAs for best film and best British film. What lingers is the court — a room of people being persuaded of things they have every reason to doubt.",
+  "model": "claude-opus-5",
+  "source_sha256": "21ae35a102fa53baf3289ea5ae484a2b4827a765253e35879cfb49062eac3023"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "black-bread-2009",
+  "field": "lead",
+  "film_id": "98c785ed-9437-4283-b0c1-8dce602bdd43",
+  "lang": "en",
+  "text": "Pa Negre is spoken in Catalan, which is not a decorative choice: the losing side of a war rarely gets to describe it in the official language. Agustí Villaronga sets the story in the countryside after the fighting, where a boy named Andreu comes across two bodies in a forest and then watches the authorities decide, conveniently, that his father put them there. What follows works less as detection than as an education. Andreu puts questions to adults who have all learned to answer carefully, and the price of each answer accumulates in him. Most of the prizes went to the acting, which suits a hundred and eight minutes that live on faces holding something back: a child measuring what the grown world requires of him, and starting to sense what agreeing to it would cost.",
+  "model": "claude-opus-5",
+  "source_sha256": "794058821f25a586ade11ffacb82ff210d8b7e2f5fae4bec935953e794dce13a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "beaufort-2007",
+  "field": "lead",
+  "film_id": "0cc8f74d-333d-45a5-b206-d9f3d683edf0",
+  "lang": "en",
+  "text": "No enemy appears on screen; the ordnance simply arrives from somewhere overhead. Beaufort keeps to a hilltop fortress in the final months before Israel's withdrawal from Lebanon, where the outpost commander, Liraz Liberti, is twenty-two and responsible for men who all know the place is to be given up. Joseph Cedar builds two hours and eleven minutes out of waiting: orders that make less sense as the date approaches, the routines of a bunker, the arithmetic of holding ground already conceded. A Polish study reads the film as the retreat of heroes and the death of the Masada myth, which measures fairly what it costs a country to film its own soldiers leaving. It went forward as Israel's submission to the Academy. The subject is the last stretch of an assignment no one can any longer explain.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d0532ebe951dfe2d77c7a97e33b8e4ed0aaed62fdefd83e88ae62830e477550"
+ }
+]

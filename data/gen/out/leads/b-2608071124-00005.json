@@ -1,0 +1,132 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-palm-beach-story-1942",
+  "field": "lead",
+  "film_id": "80429103-6664-4cad-a1d0-545b9bebcf74",
+  "lang": "en",
+  "text": "A wife decides the fastest way to finance her husband's invention is to stop being his wife. Gerry Jeffers heads for Florida to look for a rich second marriage; Tom, the inventor, follows her down. Preston Sturges spends the eighty-eight minutes on the arithmetic of a marriage rather than its feelings - who has the rent, who signs the cheque, what a train ticket costs when there is nothing in the account - and lets the dialogue run at a clip that assumes nobody needs help keeping up. The millionaire waiting at the other end, J. D. Hackensacker III, is eccentric in the way only the very rich are permitted to be. The joke is not that money and love are opposites. It is that both get negotiated in the same room, by the same people, in the same sentences, and everyone involved stays perfectly cheerful about it.",
+  "model": "claude-opus-5",
+  "source_sha256": "115b006ff2aad1e9bdf6205d48ef9e14df6a2cc0887ce4331b574418355a906f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "by-the-bluest-of-seas-1936",
+  "field": "lead",
+  "film_id": "0f2a29cc-c60d-49c4-9b3d-ffc1c8e1d745",
+  "lang": "en",
+  "text": "Two men wash up alive on a Caspian island and spend the rest of the film competing for the woman who leads the fishermen who rescued them. Her collective farm takes them on; they work its boats, and the courtship has to fit around the catch. Boris Barnet needs only sixty-nine minutes, and he spends them on foolishness rather than heat - the rivalry is comic, neither rival is much of a prospect, and the woman keeps having a job to do while the two of them perform. A Soviet feature of 1936 arrived with obligations about labour and collective virtue. This one meets them by making the labour the agreeable part and the romance the mess, which leaves the water, the light and the boats carrying more of the picture than the plot does.",
+  "model": "claude-opus-5",
+  "source_sha256": "5652b31b3571b05e5b9841afe8b97b90649e56828b0f5d3917fd0427b3ee99a3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "la-region-centrale-1971",
+  "field": "lead",
+  "film_id": "103c227b-45cd-4e9e-988b-9ba9178823cb",
+  "lang": "en",
+  "text": "A camera on a robotic arm, alone on a mountain in Canada for twenty-four hours, with no operator standing beside it. Michael Snow set the movements and then let the machine keep its own appointment: a hundred and ninety-three minutes of rock, scrub, cloud and light as the mount pans, tilts and rolls through the terrain. Landscape filming generally means picking a vantage and holding it. This one will not sit still, and the horizon soon stops behaving like a line at all. It is filed as documentary, which is fair - the subject is a piece of ground, and the only witness on site is a device with no opinion about how a view should be composed. The length is not an obstacle placed in front of the film. It is the film; the eye needs most of that time to give up the habits it arrived with.",
+  "model": "claude-opus-5",
+  "source_sha256": "de076129fb284d07934f93847dce9b63be043690449cd4db9f1099ddce498aad"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "after-life-1998",
+  "field": "lead",
+  "film_id": "5fc87f9d-5960-4bdc-b7ce-646f5912fa55",
+  "lang": "en",
+  "text": "The dead arrive on a Monday morning, and by the end of the week each of them has to have chosen one memory to keep. Kore-eda gives the afterlife an intake procedure: an old building, staff clocking in, forms, a chair on either side of a desk. The counselors take names and dates, then start the harder work of getting a stranger to say which afternoon of an entire life outweighed the rest. Put that way, the question sounds answerable. It is not, and the film's patience with people failing to answer it is the whole of its method. A hundred and eighteen minutes, largely interviews in plain rooms, with Saturday coming whether or not the work is finished. Eternity here has a caseload and office hours, and the staff have seen this week before.",
+  "model": "claude-opus-5",
+  "source_sha256": "5ba3deef94344e631aff029e6f3721421b18e0feec4a255c3d6d3caafacfcd72"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "blow-out-1981",
+  "field": "lead",
+  "film_id": "5e032c50-d3b7-4074-b2f1-47b52b293647",
+  "lang": "en",
+  "text": "A man out at night with a shotgun microphone, recording wind and water for a cheap slasher picture, catches a bang he was not sent for. Jack Terry gets a woman out of the sunken car; the passenger who does not come out was a governor with a presidential run ahead of him. From there De Palma builds long stretches around a technician alone with his tapes - winding, cutting, replaying half a second until it stops being sound and starts being testimony - while the official account of the accident sets around him like concrete. The romance with Sally proceeds on the same terms as everything else: partial information, delivered late. This is 1981, and the film assumes without arguing the point that a recording is the only witness worth believing and the last thing anyone in authority will let stand.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1665e1dc81ede2f22271b869dc4011cf985b0c45ff3f07249e893fa85b49492"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "to-have-and-have-not-1944",
+  "field": "lead",
+  "film_id": "61acd761-37a8-46c0-b285-d11b1f587d5a",
+  "lang": "en",
+  "text": "Martinique in wartime: a man who hires out his boat by the day is asked to carry passengers whose names he would rather not learn. He refuses for as long as the picture can afford it. Howard Hawks keeps the war offscreen and the pressure indoors - a hotel, a bar, a negotiation between people who are also sizing each other up - and lets the errand itself stay small. The resistance needs a boat. The authorities are watching. The skipper wants to be paid and would prefer to hold no opinion at all, which in a film released into the war it is set in is not a position anyone will let him keep. A hundred minutes, most of them talk timed like a card game in which nobody shows a hand they can avoid showing.",
+  "model": "claude-opus-5",
+  "source_sha256": "5f680d16852d6c6d877523d83d1798c4f743b5a39e58b49a04bc6ccf00491b99"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "life-and-nothing-more-1992",
+  "field": "lead",
+  "film_id": "fdbbd9e8-2452-469d-bc46-43560250d880",
+  "lang": "en",
+  "text": "An earthquake has flattened the Guilan district, and a director drives in with his son to find out whether the people he filmed there a few years earlier are alive. Most of the ninety-five minutes happen in the car. Roads are broken, detours are improvised, the search keeps stalling, and every stall turns into a conversation with someone standing beside what is left of a house. Kiarostami restages a real catastrophe as a fiction and leaves the awkwardness of that inside the frame: a man in a vehicle, asking survivors how they are managing, then driving on. The answers are not consoling in the way the question invites. People are occupied. What they say they need is practical and immediate, and the film takes that as the whole of the argument, watched through a windscreen on a mountain road.",
+  "model": "claude-opus-5",
+  "source_sha256": "161a6f34b94912580edfceacf59dffd9f0f900526a3fb839c00e4d33b96dc6fa"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "team-america-world-police-2004",
+  "field": "lead",
+  "film_id": "c84bc731-b08e-45c0-a6ea-1c284fff037a",
+  "lang": "en",
+  "text": "A Broadway actor is recruited into a counter-terrorism unit because the mission needs somebody who can perform. From there Trey Parker keeps two targets in front of him: Kim Jong-il's global plot and the heavily armed squad dispatched to stop it, and then the Film Actors Guild, an assembly of Hollywood liberals who object to the policing of the world and are handled no more gently than the police. The film borrows the entire grammar of the action blockbuster - the briefing, the training montage, the power ballad - and plays it at full volume with the sense taken out. Nothing is argued. Everything is amplified until it buckles. Made in 2004 and now sitting on the Guardian's hundred best films of the century, it is a comedy whose method is indistinguishable from the thing it mocks.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb77748b136803f348c7fd956188be2a9ff3ae1a922a71c61784ade0991386d8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "alexander-nevsky-1938",
+  "field": "lead",
+  "film_id": "ae6b30d3-d94f-4de6-9d71-79a262f796be",
+  "lang": "en",
+  "text": "German armies cross into Russian land and are met on a frozen lake, in a film made in the Soviet Union in 1938, when nobody required the parallel to be spelled out. Teutonic knights hold an eastern city; Prince Alexander Nevsky raises Novgorod and walks an outnumbered force onto the ice of Lake Chudskoe. Eisenstein arranges all of it in blocks - helmeted ranks against white, faces taken from below, crowds moved the way weather moves. Two soldiers, Vasili and Gavrilo, run a private contest over which of them is braver and which will marry the same local woman, and that supplies the human measure the mass scenes withhold on purpose. A hundred and nine minutes, no doubt anywhere in them, and the interest lies in timing: when the wedge advances and how long the line is made to wait.",
+  "model": "claude-opus-5",
+  "source_sha256": "f20bdaae4777d063b518298b6ad6071bb632a0ac889053cbf8d1ef1ef0d93e5d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-damned-1969",
+  "field": "lead",
+  "film_id": "2aa7712d-33d3-48fa-a5f3-24f8596974c1",
+  "lang": "en",
+  "text": "The regime never has to force the door; the family opens it, and then sets about deciding which of its own it can spare. Visconti keeps almost everything indoors - dinners, drawing rooms, the choreography of who is seated where - and lets the early Nazi state arrive as a change in standing at the table. A noble house with money and position has to work out how it can be useful to a dictatorship, and the answer turns out to be an internal matter of succession, marriage and leverage rather than an external matter of politics. Two hours and thirty-eight minutes, and the violence is largely conducted in conversation, which makes the Academy Award for its original screenplay an accurate description of where the labour went. Everything ruinous in it begins as somebody's opportunity.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc5a600ea6a12ec869816e0a666d9c6425b5d5e3c942c707723d2ebb4638b9cd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "blue-1993",
+  "field": "lead",
+  "film_id": "ad767034-6393-425f-b451-423a9a4ca77e",
+  "lang": "en",
+  "text": "Seventy-nine minutes of a single unchanging blue rectangle, and everything else takes place in the ear. Derek Jarman assembled a soundtrack of voices, music and effects that keep describing rooms, encounters and conditions the screen declines to show, so the film happens somewhere between a flat field of colour and whatever the listener supplies. It is about living with AIDS and it is about blue - pigment, sea, sky, one word doing several jobs - and neither subject is permitted to illustrate the other. With no cut available, time gets measured in sentences and breaths. The eye, given nothing to scan, stops trying after a while and hands the work over. Britain in 1993, and the plainest image available turns out to be the one that can hold a life's worth of talk.",
+  "model": "claude-opus-5",
+  "source_sha256": "fbc693852364f5df4d5c2799cc1c986fd5b16b0af75dbafe67e85d7f4234afd8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "picnic-at-hanging-rock-1975",
+  "field": "lead",
+  "film_id": "42d4e431-39c9-4688-8a8d-389b30c852b9",
+  "lang": "en",
+  "text": "Valentine's Day, 1900: a girls' boarding school is let out for a picnic at a volcanic outcrop, on conditions. The headmistress is strict, the day is hot, and Miranda and several others go further up the rock than the rules permit. Only when the party counts heads to leave does anyone grasp what has happened. Peter Weir does the unnerving work in full daylight - the AACTA went to the cinematography, and it was earned in glare rather than shadow. What holds the hundred and seven minutes together is not the search but the institution: the etiquette, the timetable, a school with no procedure for this that keeps applying the procedures it has. The rock is older than the school and indifferent to it, and Weir is careful never to let it speak.",
+  "model": "claude-opus-5",
+  "source_sha256": "04f5d2559ba1a21e4c88e4acf343e04df65a89bfa7091074cb83df717578b69a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bright-star-2009",
+  "field": "lead",
+  "film_id": "ca7cea1d-7c45-441b-8ab0-92f3308c41f3",
+  "lang": "en",
+  "text": "Two households share a wall in 1818, and the poet on the other side of it cannot afford to marry. Fanny Brawne notices John Keats first as an irritation, aloof and unforthcoming, and then reads the poems, which alters the terms considerably. He agrees to teach her how verse works. That is as far as the arrangement can legitimately go, since he has no income and both of them understand precisely what that means. Jane Campion films the courtship as domestic fact - rooms, needlework, letters carried a few yards, family friends and younger siblings always somewhere in the frame - and gives Fanny the point of view throughout. Her lead performance took the AACTA, and the structure earns it: the poems belong to him, the film belongs to her, and the distance between the two houses is measured in shillings.",
+  "model": "claude-opus-5",
+  "source_sha256": "1aece06ed08d048e6d01b6bb716efdb1abbce1a1c54bd2eacc13f34b13de57f5"
+ }
+]

@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-repressed-sacred-returns-to-claim-flesh",
+  "field": "title",
+  "lang": "ko",
+  "text": "억압된 성스러움, 육체를 받으러 돌아오다",
+  "model": "claude-opus-5",
+  "source_sha256": "8523d0873288e91c6f12cc38e789ecd1fe8498caff52c7a9e9ef0068383a2e9c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-repression-that-returns-to-punish",
+  "field": "title",
+  "lang": "ko",
+  "text": "벌하러 돌아오는 억압",
+  "model": "claude-opus-5",
+  "source_sha256": "e6989d907825a1d29097cc7ce75f231c32a689131602e41e5310614d6704d9bf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reproduced-image-kills-the-aura",
+  "field": "title",
+  "lang": "ko",
+  "text": "복제된 이미지가 아우라를 죽인다",
+  "model": "claude-opus-5",
+  "source_sha256": "f7978a493b8f1ebaa7c349ecba438ec7a4a8eba918168d4bf64142c617de118d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reproductive-body-as-state-frontier",
+  "field": "title",
+  "lang": "ko",
+  "text": "국경이 된 임신하는 몸",
+  "model": "claude-opus-5",
+  "source_sha256": "d06fefd821926267d4137eee6dccf58fcf21bae1376bbf6d60bbf32f6dc5ecb8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-republic-of-women-built-by-subtraction",
+  "field": "title",
+  "lang": "ko",
+  "text": "덜어내며 세운 여자들의 공화국",
+  "model": "claude-opus-5",
+  "source_sha256": "3b2838b1390d70de36672be05cf1b79be43955e218e45ef1029ec526cc919673"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-republic-s-body-read-as-occupied-territory",
+  "field": "title",
+  "lang": "ko",
+  "text": "공화국의 몸, 점령지로 읽다",
+  "model": "claude-opus-5",
+  "source_sha256": "59bff562dbae7c25c0989382f40c4a07fb7a4c5f54dc535d947243b7712ebb25"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-republic-that-voted-its-own-death",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 죽음에 표를 던진 공화국",
+  "model": "claude-opus-5",
+  "source_sha256": "c376f85598a377d40d63a29644ddcb18b2033def68407f1e2f6d3eec7aa543b6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rescue-that-stands-in-for-justice",
+  "field": "title",
+  "lang": "ko",
+  "text": "정의 자리를 대신 채운 구출",
+  "model": "claude-opus-5",
+  "source_sha256": "31e59f7200f141ca7d1b628d703eb7bf449b569efb8b2e795e25eb06eff786a9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-restaging-that-heals-by-wounding",
+  "field": "title",
+  "lang": "ko",
+  "text": "상처를 내야 낫는 재연",
+  "model": "claude-opus-5",
+  "source_sha256": "afdf430eb808f46d90fc138f58a889d4a59d61399b9e384dc7f1344d90a93134"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-restored-object-that-withholds-mourning",
+  "field": "title",
+  "lang": "ko",
+  "text": "복원된 사물이 애도를 막는다",
+  "model": "claude-opus-5",
+  "source_sha256": "f88653abf1f503aa5337d0ab22f27dedffb21e1614e167d6446265045ad57ba4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-restraint-as-the-vow-of-desire",
+  "field": "title",
+  "lang": "ko",
+  "text": "결박, 욕망의 서약",
+  "model": "claude-opus-5",
+  "source_sha256": "5c5d92473a1a98de335ebe54ddd5926acfb08a0fda873f9129fb97aa2d74ec80"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-retail-floor-as-class-conscription",
+  "field": "title",
+  "lang": "ko",
+  "text": "매장 바닥이라는 계급 징집",
+  "model": "claude-opus-5",
+  "source_sha256": "b7cabdd35c71bf8325b8bb69e1f274031945f73f0e7cfac92189c1a95e5a81f8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-return-of-the-repressed-10",
+  "field": "title",
+  "lang": "ko",
+  "text": "억압된 것의 귀환",
+  "model": "claude-opus-5",
+  "source_sha256": "41b8973d966ab65c2b21994790fc96b973a641da6ce058c834f03e44f26a7cdf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-return-of-the-repressed-as-cinematic-gesture",
+  "field": "title",
+  "lang": "ko",
+  "text": "억압된 것의 귀환, 하나의 영화적 몸짓",
+  "model": "claude-opus-5",
+  "source_sha256": "bffb872a1884ed818da82a0d951b82e7b37c59704a88bd3bc8d259f51cbe7acc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-return-of-the-repressed-as-symptom",
+  "field": "title",
+  "lang": "ko",
+  "text": "증상으로 돌아온 억압된 것",
+  "model": "claude-opus-5",
+  "source_sha256": "f15406d56638a33acbbe4c568c86f4148617a059b7917f4fcb37de443577caad"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-return-of-the-repressed-made-literal",
+  "field": "title",
+  "lang": "ko",
+  "text": "문자 그대로 돌아온 억압된 것",
+  "model": "claude-opus-5",
+  "source_sha256": "4bc62ec021e85790be0cc78baeb1b3f0488abc926050476281e0616abd9f39fa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-return-of-the-repressed-wears-a-mask",
+  "field": "title",
+  "lang": "ko",
+  "text": "억압된 것은 가면을 쓰고 돌아온다",
+  "model": "claude-opus-5",
+  "source_sha256": "d0044b5314e83ec20739b0ae017fa0fe8c30dcaf38f6907f37a3665c36f28cbc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-return-of-what-coupledom-forecloses",
+  "field": "title",
+  "lang": "ko",
+  "text": "부부라는 형식이 막아둔 것의 귀환",
+  "model": "claude-opus-5",
+  "source_sha256": "90cf99675cfb2a934e305de3490d0ce20b1f8c16c9dd669f2b740a413ed84336"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-return-of-what-was-swallowed",
+  "field": "title",
+  "lang": "ko",
+  "text": "삼킨 것이 되돌아온다",
+  "model": "claude-opus-5",
+  "source_sha256": "01a4a953a5e2bc8095fdd434726fb28e80fe317fa6f559a6028556a0f1accfd8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-return-that-names-an-absence",
+  "field": "title",
+  "lang": "ko",
+  "text": "부재에 이름을 붙이는 귀환",
+  "model": "claude-opus-5",
+  "source_sha256": "422e36d14867edc2f934476a74bbad2a708fd283b27555547b6dc176270fb2a7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-returned-daughter-as-repressed-desire",
+  "field": "title",
+  "lang": "ko",
+  "text": "돌아온 딸, 억눌린 욕망",
+  "model": "claude-opus-5",
+  "source_sha256": "f501840fe91b3a4761dc6fa2511066984bb1e7aa72bcd7a8b78742f89c294ce7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reversibility-of-drowning-and-baptism",
+  "field": "title",
+  "lang": "ko",
+  "text": "익사와 세례는 뒤집힌다",
+  "model": "claude-opus-5",
+  "source_sha256": "6521472e8063f2edf853cec5e53874451198b5f89f0d08bc342eb4ad39a0b408"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-review-that-eulogized-cinema-at-its-triumph",
+  "field": "title",
+  "lang": "ko",
+  "text": "승리의 순간에 영화를 추도한 비평",
+  "model": "claude-opus-5",
+  "source_sha256": "5e972a05c1d089e10d890b6271a743e00f75e101b6542fbd92863d21f0cfdc21"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-reviews-that-mistook-the-real-center",
+  "field": "title",
+  "lang": "ko",
+  "text": "중심을 잘못 짚은 평문들",
+  "model": "claude-opus-5",
+  "source_sha256": "c65e8d3725c2f7bfd85bd57679f0dc4984ed910a9672a3865aba1233dc763e19"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-revolt-that-completes-capital-s-logic",
+  "field": "title",
+  "lang": "ko",
+  "text": "자본의 논리를 완성해버린 반란",
+  "model": "claude-opus-5",
+  "source_sha256": "29d31971ac2434952fc1492476c7798140374abc5d894e7dc099b433b01e1e7c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-riefenstahl-body-in-sunlit-disguise",
+  "field": "title",
+  "lang": "ko",
+  "text": "햇빛으로 위장한 리펜슈탈의 육체",
+  "model": "claude-opus-5",
+  "source_sha256": "e5781b71fba311b07032ffc02abbc681148c3c93490e721871a8ac1fcc76e5cd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-right-not-to-be-known",
+  "field": "title",
+  "lang": "ko",
+  "text": "알려지지 않을 권리",
+  "model": "claude-opus-5",
+  "source_sha256": "2158b0fc9af4dc7f64468acafe75abe2170a0bbb8e4e411ce58d7392ba12d6bf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-right-to-be-believed-and-who-withholds-it",
+  "field": "title",
+  "lang": "ko",
+  "text": "믿어질 권리, 그리고 그 권리를 쥔 자",
+  "model": "claude-opus-5",
+  "source_sha256": "1827f23681ab4ca1f920843c40033aa4274e1f980e2f452d1f9f60bfc4d00fd9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-right-to-be-repaired",
+  "field": "title",
+  "lang": "ko",
+  "text": "고쳐질 권리",
+  "model": "claude-opus-5",
+  "source_sha256": "43478df4d2f9b434b5dbaaaa98d1ef457ad3af84e6540a87371e56d2d10e92a3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-right-to-disobey-the-command",
+  "field": "title",
+  "lang": "ko",
+  "text": "명령을 거스를 권리",
+  "model": "claude-opus-5",
+  "source_sha256": "a332349779d7b72016d191ccd7cb991cc0f960580d94b1b34d0b70e31960a136"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-right-to-dwell-as-contested-property",
+  "field": "title",
+  "lang": "ko",
+  "text": "거주할 권리, 다투는 재산",
+  "model": "claude-opus-5",
+  "source_sha256": "71fcffab80777b7bac798c9a91d6160d950a465d50a6ba409854faf938795c7c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-right-to-mourn-seized-as-sovereign-power",
+  "field": "title",
+  "lang": "ko",
+  "text": "주권이 빼앗아간 애도의 권리",
+  "model": "claude-opus-5",
+  "source_sha256": "fa251741b1969733a590e3a8dc6cf02bd0105ff568e77e56f0ecca3c10541fe3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-right-to-refuse-the-social-contract",
+  "field": "title",
+  "lang": "ko",
+  "text": "사회계약을 거부할 권리",
+  "model": "claude-opus-5",
+  "source_sha256": "dcf94f7b59c2ba950c1b439c4f17517b473b960598c9455ac0a0c3f6cf0f791a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ring-as-agent-not-object",
+  "field": "title",
+  "lang": "ko",
+  "text": "반지는 사물이 아니라 행위자다",
+  "model": "claude-opus-5",
+  "source_sha256": "d8308c9bced12e27b40e3e82d77a536e6f73ab016b23af77f29103b35e71fa8f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ringing-that-summons-the-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "진실을 불러내는 울림",
+  "model": "claude-opus-5",
+  "source_sha256": "ef0cc3444c6d06f3fe52866e70ee278370ed7c83c372dc61d41e6840040c1315"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ringing-that-unmakes-the-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "자아를 허무는 이명",
+  "model": "claude-opus-5",
+  "source_sha256": "12f68bb3a87e2c9617fac8d2a9a3cf154aa8ddab4344b85e407f836cf039ec7c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rite-that-names-its-agent",
+  "field": "title",
+  "lang": "ko",
+  "text": "집행자에게 이름을 주는 의례",
+  "model": "claude-opus-5",
+  "source_sha256": "ed063eb89f450d69876dc90b22f1cd1cf99e945a9a14ad8cd49b481e597dc5a8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rite-that-wears-the-wrong-face",
+  "field": "title",
+  "lang": "ko",
+  "text": "엉뚱한 얼굴을 쓴 의례",
+  "model": "claude-opus-5",
+  "source_sha256": "863e747bd970c4814e49a9567cf92f5701ab4067bd0ec00f0c08240bc69e310d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ritual-act-as-defense-against-the-void",
+  "field": "title",
+  "lang": "ko",
+  "text": "공허를 막는 방벽, 의례 행위",
+  "model": "claude-opus-5",
+  "source_sha256": "72f67e5f0695d94fd925684fa6da47e71f16bb3d5f7859b0a5f43f1318899751"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ritual-that-outlives-its-object",
+  "field": "title",
+  "lang": "ko",
+  "text": "대상보다 오래 남은 의례",
+  "model": "claude-opus-5",
+  "source_sha256": "90bc8b19ccb8d4478943ad093cd2371b69fef673fb6f258a7d3088c0fa820080"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ritual-wearing-a-genre-s-clothes",
+  "field": "title",
+  "lang": "ko",
+  "text": "장르의 옷을 걸친 의례",
+  "model": "claude-opus-5",
+  "source_sha256": "e393ae70198770750153daef2922c22c9d49bc64b3a728de0a0ed0383bf8be87"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rival-as-mirror-stage-double",
+  "field": "title",
+  "lang": "ko",
+  "text": "경쟁자라는 거울단계의 분신",
+  "model": "claude-opus-5",
+  "source_sha256": "65a934259349cb2e1995d4b1a2039d42278bcf26c87bd3547a4f0276c308cee5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-river-as-engine-of-dissolution",
+  "field": "title",
+  "lang": "ko",
+  "text": "강, 해체를 돌리는 엔진",
+  "model": "claude-opus-5",
+  "source_sha256": "660475b8e2ad7c81977cf0577a9c6ee08a5e2340936c05b7ceab5960a60618ef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-river-as-indifferent-moral-tribunal",
+  "field": "title",
+  "lang": "ko",
+  "text": "무심한 도덕 법정으로서의 강",
+  "model": "claude-opus-5",
+  "source_sha256": "92d14dae458f6a6e7f841b49fa600192f171becb8ce2a4ba1e816decc7228144"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-riviera-as-painted-unreality",
+  "field": "title",
+  "lang": "ko",
+  "text": "그림으로 칠한 비현실, 리비에라",
+  "model": "claude-opus-5",
+  "source_sha256": "87e4ee78dc6455bd3fc9b4225f831fe926d272ae90917c4dcd9c6d784b938e75"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-road-mapped-only-by-improvising-it",
+  "field": "title",
+  "lang": "ko",
+  "text": "즉흥으로만 그려지는 길",
+  "model": "claude-opus-5",
+  "source_sha256": "bccd38576864b2c0ce40f6011698186e7eae6c1b14eec5470cba2df374dc58c8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-robber-who-holds-a-kantian-maxim",
+  "field": "title",
+  "lang": "ko",
+  "text": "칸트적 준칙을 품은 강도",
+  "model": "claude-opus-5",
+  "source_sha256": "3625acaf97ee4810212cc1d1516e599caa21cef31f3467db103202d5feb744a5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-robe-hides-a-liturgy-of-capture",
+  "field": "title",
+  "lang": "ko",
+  "text": "법의가 감춘 포획의 전례",
+  "model": "claude-opus-5",
+  "source_sha256": "2c47cbe97637da8d672bbc996b396090e0bfd1a35a4fc4cd903b7416ef762835"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rocket-that-climbs-only-to-fall",
+  "field": "title",
+  "lang": "ko",
+  "text": "떨어지려고 오르는 로켓",
+  "model": "claude-opus-5",
+  "source_sha256": "455cc01db567211d431329ce9e6f857c3e572225b93fce8993961019c1d7746d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-role-devours-the-actor",
+  "field": "title",
+  "lang": "ko",
+  "text": "배역이 배우를 삼킨다",
+  "model": "claude-opus-5",
+  "source_sha256": "ad86f86700ee29b7a5da58e4a201acdb855ef33ac58f815dabbdc5cf00b41847"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-roles-were-always-interchangeable",
+  "field": "title",
+  "lang": "ko",
+  "text": "역할은 처음부터 서로 바꿔 낄 수 있었다",
+  "model": "claude-opus-5",
+  "source_sha256": "56598cda6124adfa360499dbfefbe01ed2f38492f2a81183136b492e86f15429"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-romance-authored-backward-from-its-ending",
+  "field": "title",
+  "lang": "ko",
+  "text": "결말에서 거꾸로 쓴 로맨스",
+  "model": "claude-opus-5",
+  "source_sha256": "a5d1a583e9747a0084011087f61bc176320f2e9f49d274a12f2913375d2d4fa5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-romance-clocked-against-its-deadline",
+  "field": "title",
+  "lang": "ko",
+  "text": "마감 시계에 맞춰 재는 로맨스",
+  "model": "claude-opus-5",
+  "source_sha256": "a38300eeadf5d95586bdd7e852adb4d7869fd85ec8e270a3a04b42a98b7aa734"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-romance-misread-that-reveals-the-critic",
+  "field": "title",
+  "lang": "ko",
+  "text": "오독된 로맨스가 비평가를 드러낸다",
+  "model": "claude-opus-5",
+  "source_sha256": "50e3f9e44ae3812e6365aa7a6edb3471052ff8b2701f30b199d830d16c2b0610"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-romance-that-cannot-name-its-class",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 계급을 입에 올리지 못하는 로맨스",
+  "model": "claude-opus-5",
+  "source_sha256": "944ba6cddb049eb5bffc8cf5f50ba7d58f64ed5fe358da064cf968194b2b8bdc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-romance-that-launders-empire",
+  "field": "title",
+  "lang": "ko",
+  "text": "제국을 세탁하는 로맨스",
+  "model": "claude-opus-5",
+  "source_sha256": "a1521e3fcd328b3c34e735b26b20c679961e3e46822ab0c810ce4248e7a119f3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-romanian-city-as-moral-indictment",
+  "field": "title",
+  "lang": "ko",
+  "text": "고발장이 된 루마니아의 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "049069820ffed1afdf9a143814a3f4ab16e4a2ce683acdee131e1fe5bd379016"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-room-as-the-handover-clock",
+  "field": "title",
+  "lang": "ko",
+  "text": "방이 곧 반환의 시계",
+  "model": "claude-opus-5",
+  "source_sha256": "188ef72cdef2f32de77c908a20fe195f5962f9437bfc6424d479210229577757"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-room-that-becomes-a-polity",
+  "field": "title",
+  "lang": "ko",
+  "text": "하나의 정치체가 되는 방",
+  "model": "claude-opus-5",
+  "source_sha256": "2453533ff3157a536cc0c6efc200222263e90ab1c35492759e0e9bb7e4e57445"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rotted-face-the-mask-solves",
+  "field": "title",
+  "lang": "ko",
+  "text": "가면이 해결하는 썩은 얼굴",
+  "model": "claude-opus-5",
+  "source_sha256": "9674367d24d061a843b4f69cbe14be484f5b00b727f3d21fd6c0a81dc445a446"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rotting-flesh-as-abject-eruption",
+  "field": "title",
+  "lang": "ko",
+  "text": "썩어가는 살, 비체(abject)의 분출",
+  "model": "claude-opus-5",
+  "source_sha256": "6f64c2f0d96550299f35e55396eca90e6bf6303a04fdde1716f8efdfdc133190"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ruin-that-erased-its-own-ruin",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 폐허마저 지워버린 폐허",
+  "model": "claude-opus-5",
+  "source_sha256": "c55b0a5b0fbf8340d853b3986362823133d1284163bbe706c2b63b8a7d81194f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ruined-motor-city-shot-for-real",
+  "field": "title",
+  "lang": "ko",
+  "text": "진짜로 찍은 폐허의 자동차 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "d46586e147476e4ac47177763c2576eb42f8a3070479f6deffdcab98d6667f82"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ruinous-gift-spectacle-as-sovereign-expenditure",
+  "field": "title",
+  "lang": "ko",
+  "text": "파멸의 선물, 주권적 탕진으로서의 스펙터클",
+  "model": "claude-opus-5",
+  "source_sha256": "06de0ee4ce482b0aec06abd02ef5d829994e61d76f9f27c8ec60f05c577d7250"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-runtime-worn-as-cinephile-badge",
+  "field": "title",
+  "lang": "ko",
+  "text": "훈장처럼 걸치는 상영시간",
+  "model": "claude-opus-5",
+  "source_sha256": "d8d3b7c4ecdd18e2b738bc9d3eca081da0c0a6afa49b7b8f656c39d6f324ab9c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-rural-idyll-as-staged-artifice",
+  "field": "title",
+  "lang": "ko",
+  "text": "전원 목가는 세트다",
+  "model": "claude-opus-5",
+  "source_sha256": "aaf75b42b1355a6e1153c1061b2071e627beea1db6d1b3f3c2f71b939d661688"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sabotage-that-wounds-first-to-verify-the-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "상처를 확인하려 먼저 상처 내는 자기파괴",
+  "model": "claude-opus-5",
+  "source_sha256": "429b0481eea9a2b069dca3efc44ae7223c8b2023ab23cd5a829749dc24691f3f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sacred-animacy-of-the-engine",
+  "field": "title",
+  "lang": "ko",
+  "text": "엔진에 깃든 신성한 ��명",
+  "model": "claude-opus-5",
+  "source_sha256": "062a5e921c01be4128e3e1a46cfa5c8ab6cd5cef60a29cba4aa99151ce292552"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sacred-as-pure-negativity",
+  "field": "title",
+  "lang": "ko",
+  "text": "순수한 부정성으로서의 성스러움",
+  "model": "claude-opus-5",
+  "source_sha256": "bfc70f612a40f81faee3d606513b0794dc2ffd453d402b83d26f7d25fc05f21a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sacred-disguise-that-misleads-the-faithful",
+  "field": "title",
+  "lang": "ko",
+  "text": "신도를 홀리는 거룩한 위장",
+  "model": "claude-opus-5",
+  "source_sha256": "c50bb2165759023e6c6d39a0736f4050eb846c81867fca8d944c55ef3d73f9c0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sacred-fire-as-closed-economy",
+  "field": "title",
+  "lang": "ko",
+  "text": "닫힌 경제로서의 성화(聖火)",
+  "model": "claude-opus-5",
+  "source_sha256": "4acd235bdb555a38408af5a9a95c73e28415f2a3dcfe61736f32e17b0c31dc74"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sacred-migrates-into-the-record",
+  "field": "title",
+  "lang": "ko",
+  "text": "성스러움이 기록으로 옮겨 앉다",
+  "model": "claude-opus-5",
+  "source_sha256": "0363f9c80079dcacccb2de6953a07f28d6270d8d39c167cb8681b0d21222034f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sacred-score-for-an-absent-god",
+  "field": "title",
+  "lang": "ko",
+  "text": "없는 신을 위한 성가",
+  "model": "claude-opus-5",
+  "source_sha256": "4427a262212ad88e46537bca28f4de66b266a11b9dc21902223097bb6f7e0d5a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sacred-text-inscribed-as-score",
+  "field": "title",
+  "lang": "ko",
+  "text": "악보로 새긴 경전",
+  "model": "claude-opus-5",
+  "source_sha256": "ee0f043bd598cf36a022634ddb6d95ec03829b5644299555c554ebb44976441c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sacred-was-always-a-fiction-he-needed",
+  "field": "title",
+  "lang": "ko",
+  "text": "성스러움은 그가 필요로 한 허구였을 뿐",
+  "model": "claude-opus-5",
+  "source_sha256": "7e40c8420343483cb3a7e443a63a6d45c5e00a9fab02d70bbb011bf60cef1b06"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sacrifice-disguised-as-genre-ritual",
+  "field": "title",
+  "lang": "ko",
+  "text": "장르 의례로 위장한 희생제",
+  "model": "claude-opus-5",
+  "source_sha256": "3746e55a57e2e4f81810de7e143c2e01054e12739762a23481df6e2592b28bd8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sacrifice-that-breaks-the-trolley-calculus",
+  "field": "title",
+  "lang": "ko",
+  "text": "트롤리 계산을 깨는 희생",
+  "model": "claude-opus-5",
+  "source_sha256": "fd466754416d7dd83b9ea37c6037632a031fdc0b949842a994151841ac3df7fc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sacrifice-that-founds-nothing",
+  "field": "title",
+  "lang": "ko",
+  "text": "아무것도 세우지 못한 희생",
+  "model": "claude-opus-5",
+  "source_sha256": "0bcf1c549b5522b02ba7838f54325b27c1df7eece707a43747d29f9852947d9d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-saga-haunted-by-its-own-dead-past",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽은 과거에 붙들린 대하 서사",
+  "model": "claude-opus-5",
+  "source_sha256": "d27827a3a74eb06e602517a35939667a390543c491153666df313107ffbae362"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-saint-who-sanctified-affliction",
+  "field": "title",
+  "lang": "ko",
+  "text": "고난을 거룩하게 만든 성인",
+  "model": "claude-opus-5",
+  "source_sha256": "72b7ca0c0ee3df1fe22421049c6530848b1a2a48b16e696d653fa587a45ac8ba"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-saint-who-starves-at-being-s-banquet",
+  "field": "title",
+  "lang": "ko",
+  "text": "존재의 향연에서 굶는 성인",
+  "model": "claude-opus-5",
+  "source_sha256": "6b0169fb6e8eec961b4fc41e454489d0dea4852615f6d912ef573ce139e75743"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-saint-who-starves-to-author-her-flesh",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 살을 직접 쓰려고 굶는 성녀",
+  "model": "claude-opus-5",
+  "source_sha256": "ea57e6f59bba05604957d8b3e5d0cfb17ac3a379cd6536e36e378d8051efc342"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-saint-whose-virtue-cannot-save",
+  "field": "title",
+  "lang": "ko",
+  "text": "미덕으로는 아무도 구하지 못하는 성인",
+  "model": "claude-opus-5",
+  "source_sha256": "6a2de933605f347a8d47a20e1642bcaa5f89d9857710b1213d4955d556a721e1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-salaryman-read-as-bubble-allegory",
+  "field": "title",
+  "lang": "ko",
+  "text": "거품경제의 알레고리로 읽힌 샐러리맨",
+  "model": "claude-opus-5",
+  "source_sha256": "dd7c6d0bc67412f925ef3dd4b9af49e8964e935e2ef5d913228bdbf0cde4e59f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-salesman-as-damned-american-archetype",
+  "field": "title",
+  "lang": "ko",
+  "text": "세일즈맨, 저주받은 미국의 원형",
+  "model": "claude-opus-5",
+  "source_sha256": "89aa0ca28cf4d2c70ecb5be3260985542db8de1aa7e8cdbd8ca05e24de938cee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-salesman-who-believed-his-own-pitch",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 입담을 제가 믿어버린 세일즈맨",
+  "model": "claude-opus-5",
+  "source_sha256": "b6f6be6ea7456b918d4803aca7403e07fb9e8ac4c36eb916d2f07a9ac0cd8530"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-salvaged-body-driven-toward-home",
+  "field": "title",
+  "lang": "ko",
+  "text": "건져낸 몸을 집으로 몰고 간다",
+  "model": "claude-opus-5",
+  "source_sha256": "d16bd9e393c1640c757046edadd19e6f89636260e15c42dd2aa2b98deac489b5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-samurai-code-as-hollow-sign",
+  "field": "title",
+  "lang": "ko",
+  "text": "속이 빈 기호가 된 무사도",
+  "model": "claude-opus-5",
+  "source_sha256": "8348b9fac744c2d249552bff667828bde0a441e29a1cf16ff5a647847a641821"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-samurai-code-exposed-as-hollow-performance",
+  "field": "title",
+  "lang": "ko",
+  "text": "빈 연기로 들통난 무사도",
+  "model": "claude-opus-5",
+  "source_sha256": "95c0f94326abec6fedf161f5d1638b5d0a6b8f7014af12e858ffb2b3e0247992"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sanctuary-that-is-also-the-trap",
+  "field": "title",
+  "lang": "ko",
+  "text": "피난처이자 덫",
+  "model": "claude-opus-5",
+  "source_sha256": "64de1fe6cda0885329e67f302c4ad89bbb487b4bd1215f1d79d2074c79a65ff0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sanctuary-that-is-secretly-a-tomb",
+  "field": "title",
+  "lang": "ko",
+  "text": "실은 무덤이었던 성역",
+  "model": "claude-opus-5",
+  "source_sha256": "9d9b351cdc2e91e8dc7cc1791c828a7586eaa1ab1b765d1f0f977b1f1e998de3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sartrean-bad-faith-diagnosis",
+  "field": "title",
+  "lang": "ko",
+  "text": "사르트르식 자기기만 진단",
+  "model": "claude-opus-5",
+  "source_sha256": "64b822cad0a956760e74e6e0cc39c333fbecfda646fe5a8e1a17bddd8048a97e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-satanic-panic-as-reaganite-repression",
+  "field": "title",
+  "lang": "ko",
+  "text": "사탄 공황, 레이건 시대의 억압",
+  "model": "claude-opus-5",
+  "source_sha256": "4ac6cd44a54d41bd3bad1e2a85c56510bf9da59178e8e977c675069525844fb0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-satire-its-targets-adopt-as-anthem",
+  "field": "title",
+  "lang": "ko",
+  "text": "표적들이 찬가로 부르는 풍자",
+  "model": "claude-opus-5",
+  "source_sha256": "656bfac2f13def9250b057473b0959674f4bc9c70135e7522ba353ddace95c3a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-satire-reviewers-dismissed-to-escape-its-aim",
+  "field": "title",
+  "lang": "ko",
+  "text": "겨냥을 피하려 비평가들이 일축한 풍자",
+  "model": "claude-opus-5",
+  "source_sha256": "19f90a12656bc9e376a7a31558de61473cd356341fc94aeac55fd304332e96ed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-saturated-frame-as-debt-owed-the-poor",
+  "field": "title",
+  "lang": "ko",
+  "text": "가난한 자에게 진 빚, 포화된 화면",
+  "model": "claude-opus-5",
+  "source_sha256": "6b70b8bbb14dc395fb7cd0fb5da6af4ba614a6da75f4e1d87f08af4eac774170"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-savant-who-computes-his-own-exit",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 퇴장을 계산해내는 천재",
+  "model": "claude-opus-5",
+  "source_sha256": "70d2e97b6c361cda9d67aa3122e38a496d04fb8ebbff6e4adba59102bac59372"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-savior-as-engineered-counterinsurgency-asset",
+  "field": "title",
+  "lang": "ko",
+  "text": "설계된 대반란 자산으로서의 구원자",
+  "model": "claude-opus-5",
+  "source_sha256": "39a79dda319dc46903f2726e0a9d5a113e33642bbaf68e6794050f7247fe116f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-saxophone-as-the-soul-s-untappable-voice",
+  "field": "title",
+  "lang": "ko",
+  "text": "색소폰, 도청할 수 없는 영혼의 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "3d96d524bc0b472c60e2a941299a486a4fe3df4826afe199e12f11399a10a54d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-scandal-is-the-real-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "진짜 주제는 스캔들이다",
+  "model": "claude-opus-5",
+  "source_sha256": "db3c2e94bed62a69b9e9239fdd82a836a6b7b46a6273971617a6a22aa3df294a"
+ }
+]

@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-writer-who-writes-from-the-dead-he-loved",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애가(哀歌)로서의 글쓰기. 남겨진 자가 잃어버린 사랑을 문장으로 바꾼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "08552c79906c87751016a30091d851ce8e87cc194270720a3a058a26a52966cd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-writer-whose-subject-is-his-own-failure-to-write",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쓰기가 무너져 제 불가능을 상연하는 자리로 남는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "46bc76d344a4d1813bca59d4e82cfae46b8590b05730b4914cd47ef800ef4268"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-written-page-that-authors-the-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "일기와 노트. 쓰는 자를 벼리고, 쪼개고, 신화로 만드는 연장.",
+  "model": "claude-opus-5",
+  "source_sha256": "2916e630db7f9a6452677f93e003b9079992b1f3bc6e6ecdeb0b15ebd439d0c9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-yakuza-as-liquidation-of-postwar-selfhood",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "조직의 기계가 굴러가는 자리에서 패전 일본의 주체는 죽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8fe923b6b73d7e772acd25745eab91babc892dcbb54577c541b2b28ac89656b9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-year-of-release-as-loaded-timestamp-in-the-frame",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "개봉 연도 자체가 묻혀 있는 정치적 뇌관이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1255cda21618094c76a7681b191ad5338ed9df9f239b456d7255b5b7469380dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-years-of-failure-are-the-real-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진짜 주제는 승리가 아니라 오래 이어진 실패다.",
+  "model": "claude-opus-5",
+  "source_sha256": "47580d2ec339b189bd63c64cbfcaee0a657bb46ab9147a2c089b30ee400bbfca"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-zigzag-hill-path-as-kiarostami-s-signature",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대지에 새겨진 굽이길, 작가가 되풀이해 쓰는 상형문자.",
+  "model": "claude-opus-5",
+  "source_sha256": "34f85d14bb622c504522e4d54cdcae6ff46c6fed286226ec6ba13a7624a8ea10"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-zone-as-mutated-interior-code",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'존'이 제 영화 바깥으로 번져 이미지가 되고 국가가 되고 몸이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ec83423fc856fc0a55a4445f1c4763c4be0d121453fafdc3fee8b0971ef7b14"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-zoom-that-betrays-the-looking-eye",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "홍상수의 어색한 줌. 시간을 무너뜨리거나 들추는 의식의 이름.",
+  "model": "claude-opus-5",
+  "source_sha256": "629568380b99a2d23d630f9df5a5ba2799e7225642864bcd90191a420514d8de"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "theft-as-claim-against-property-s-law",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "빼앗는 일이 권리가 되고 저항이 되고 생존이 된다. 결코 단순한 범죄가 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "871689b96812c1b36529433b902b1b685dcfaea6cf486d95e668121196bc9077"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "theft-as-speech-and-sacred-act",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "뜻을 품고, 기도가 되고, 해석이 되는 훔침.",
+  "model": "claude-opus-5",
+  "source_sha256": "ec7c959f995818a0847abda577902e3e83ea05c491484cddd33ee2a970bc7488"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "theft-as-the-logic-of-capital-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "훔침은 체제를 어기는 짓이 아니다. 체제 자신의 강박이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3cd26182692ac7907d421a5810b19b4a4f92b6fb80d0c6f780d5011fdde5c788"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "theme-and-variation-as-the-only-structure",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "차이를 품은 반복이 줄거리를 대신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9144ceb9ef6d615b3cbf19c48dfca1ab04408037de775f166ffe0d5301f72db0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "therapeutic-capital-privatizes-the-cure-for-pain",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자기계발과 웰니스가 고통을 시장으로 만들고, 그 시장이 고통을 관리한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e88f20315bb41726b135cf374103e83654c9a7f9ed8c4f2e0ed1c2517c89ac6e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "there-is-no-couple-only-mirrors",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "둘은 겹침이거나, 하나이거나, 마주 놓인 두 개의 반영.",
+  "model": "claude-opus-5",
+  "source_sha256": "206497ae2e0ad6b633406d1d9c7041a2ad936c0052cdb680626d9d8ef9adf402"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "there-is-no-self-behind-the-broadcast",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "텔레비전 신호가 내면을 삼킨다. 남는 건 송출뿐.",
+  "model": "claude-opus-5",
+  "source_sha256": "6bea83244a4e23e17326b1caf147e7a94c7f349ea8fbcc3a182aaf8e93947e9e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "there-is-no-self-without-the-other",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "의식도 정체성도 두 번째 사람이 있어야 비로소 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "92099db80214bfd63d86c7c83f44e4b6ac41b0beb5afd8fef3d82a2409da1887"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "this-place-standing-in-for-that-frontier",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "한 지형이 다른 신화의 서부를 대신 연기한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8844d5f20b38f2497cf0476e4313390fd5ace3dc91b31dbd6d11149da1f659b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "this-place-stands-in-for-eden",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 장소를, 그것이 아닌 낙원으로 찍는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "787863c9cf06f3f08060b0263791b9d8dabc2188e1b2dbd190505c6e3b204b3f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "time-itself-as-the-antagonist",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "맞서 싸울 상대는 인물이 아니라 시간이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a89f574bafe4d1a0c20e7b96751a9ea7a80c9e52e5f0dd33e412fce82242dc43"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "time-sculpted-in-the-patient-drift",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "느리게 흐르는 카메라. 지속으로 빚은 명상의 템포.",
+  "model": "claude-opus-5",
+  "source_sha256": "f5763561d110721bbf8b65060a2253fe3b0921c25b148ea9eb793cfa3c0d756d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "to-be-a-killer-rather-than-a-dier",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽음을 남의 몸에 떠넘기고, 미루고, 투사한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4840b6fb2954fccfce81ec5f150c93b2488b93081791725a7fd8485a9879f83f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "to-be-watched-is-to-be-made-a-thing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보는 눈이 대상을 사물로 만든다. 영화는 제가 보인다는 걸 안다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de75cf0f62ebe6bc4d89de7b3cb793976818f3ff0ea9ba6f102eded54e3ecca7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "to-choose-the-death-already-scripted",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자유란 운명이 미리 써둔 죽음에 동의하는 일.",
+  "model": "claude-opus-5",
+  "source_sha256": "f7c2c7118fb0bdb9c0cf0fc54fb7f65b3088d8fb230893e863cc718456157c87"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "to-comprehend-evil-is-to-consent",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "악을 끝까지 이해한다는 건 악을 원한다는 뜻이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "567f7f3cf8b5c3a4635214eca49dc069b7f401c0c4f726f04026a2d338c990dd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "to-flee-is-to-be-pure-verb",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "도망자에게 과거형은 없다. 오직 움직임.",
+  "model": "claude-opus-5",
+  "source_sha256": "271888b9d63af1f929d6b6f11717fb017938204d9abd9a77f0882e966f34d05e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "to-kill-so-that-killing-will-not-happen",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "더 큰 폭력을 막겠다는 이유 하나로 감행하는 폭력.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c6790edefd42ed16670f9f9877ada3447b91b90fb5e52838a7d87d457f68577"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "to-name-her-is-to-take-her",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목을 붙이는 그 행위가 곧 소유이거나 배신이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f730d11e061e310ae4f205fbcd07e4246fe12b6360a8bd03109857e26efc7a2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "to-relinquish-is-the-highest-care",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "놓아주기, 살아남기, 짊어지기. 돌봄은 조용한 노동이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3fbd58f224c00f42873f020efeb1352fe15e52bf1bf43050afa1f6fbe62106e8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "to-watch-the-replay-is-to-stand-trial",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "미뤄둔 이미지가 돌아와 보는 이를 고발한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1879c32939e9e15d0a1a72c384829c492ee948551e1eab312092f08f4d3de7fb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "tokyo-as-fabricated-hyperreal-city",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "수도는 지어낸 환영으로만 있다. 실재보다 더 참된 환영으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "f5614e5b346652bea7a5ee124a888bf7905ed92b3920abce74955e7d08d2fcac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "tokyo-s-real-topography-smuggled-into-fiction",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "실재하는 대도시의 장소가 정체를 감춘 채 상상의 세계, 사라진 세계를 대신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7aafd7fb24c6e277e40fe3117ea66564420cf6407753a3752d4664a802ee28c3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "toledo-as-spain-s-embalmed-wounded-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "엘 그레코의 도시, 훼손된 채 방부된 가톨릭의 육신.",
+  "model": "claude-opus-5",
+  "source_sha256": "a52403ea787a90c35f9b741c1cc6e06926665960045170f07d32674797cb2a20"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "tonal-cold-as-aesthetic-strategy",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "차갑게 거리를 둔 톤이 만행과 범죄를 절제로 빚는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9af98a5927318e8d72a671fe2eccc10173c09abd04005da93641862b3aabd813"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "tonal-whiplash-as-deliberate-authorial-weapon",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "느닷없이 터지는 톤의 전환은 연출의 실패가 아니라 설계된 서명이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e0ac9c4b8825586410827e8a4459ef2b1c8d64a1beb6764fd5d6e956e70b545"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "toronto-cast-as-anonymous-elsewhere",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "촬영을 품은 도시를, 아무 데도 아닌 곳으로 지워버리듯 찍는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e777a9193ff87775ac101c4c9bc0d31834c3344c0a563b01b3eaca52a5832fb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "torture-as-america-s-disavowed-self-portrait",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "9·11 이후의 영화가, 나라가 드러내놓고 하기를 거부한 고문 논쟁을 대신 무대에 올린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3f60da18811597a53c3024504d28d56fdf374a60234f26579085315166819850"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "torture-as-the-ticking-bomb-alibi",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "심문 장면은 미국이 부인한 잔혹을 스스로 결산하는 장부다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e077a7137c07361e313acf5bb71612448ed3c5b40848a7c902bbb27404401eec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "total-control-drawn-over-a-void",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무(無)에서 움직이는 이미지, 설계된 지배.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6699fa49affabd38975531c9075897a8e0f80604649ac5fdc045c47536997a1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "touch-and-wounding-as-one-act",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쓰다듬는 손과 베는 손은 같은 존재론 위에 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e2f1b27e7ad4db692ae32188f13d7ed0e97e32f6cf6c637ab3e1038b1d366c0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "tragedy-authored-by-an-internalized-sentence",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "파멸은 운명이 아니라 스스로 받아들인 선고에서 온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "113d795201327c257b3e7a526b3352f2af1bda0a97190f8c2f1c018d5ca7dcbc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "translation-withheld-as-restitution-of-power",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "언어의 벽. 주권을 빼앗고 벗겨내는 일이 벌어지는 현장.",
+  "model": "claude-opus-5",
+  "source_sha256": "00ec366cb11505e9e89dcf228882f7522a7c2a8e053397713ba99c1cc47a1a57"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "trauma-bequeathed-as-genetic-curse",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "상처가 정해진 유산처럼 핏줄을 타고 내려온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "59e4cbe1e451781e3f9d537b75388ee962dfa11998d44fe3fda5073de6bdecee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "trauma-compelled-to-restage-its-own-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살아남은 자는 첫 상처를 되풀이하고, 다스리고, 물려주는 일에 붙들린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8272d11f05d8c88cf8065736019b2384c41c74e88da340933c24d801db57f9f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "trauma-returns-as-sound-not-speech",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "말이 되지 못한 것이 사운드트랙을 타고 새어 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "695ff63fcf6f0d8edd25483b7237a7732f7b2334820dcdd0a21e17d25e3232cc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "treating-persons-as-ends-not-means",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "타인을 수단으로 쓰지 않겠다는 출구.",
+  "model": "claude-opus-5",
+  "source_sha256": "b6252d409829908103e967aa1c7463077a3b8f5c0a160bf809e765084f2feffb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "triage-as-class-verdict",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "누가 구조되는가. 그것이 곧 체제가 누구를 값있게 치는가다.",
+  "model": "claude-opus-5",
+  "source_sha256": "56ab1ed5982eca08c65929cf6636dac6a871da18662091cea3ebc03abc249407"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "tried-in-the-court-of-anita-hill",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그 시절의 젠더 법정에 놓고 읽는 1991년 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "92c685c0db3506f6a702a65696ffae086f351e23d166ac3762661fa132cdc1a4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "truth-as-a-class-privilege",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "누구의 말이 진실로 받아들여지는가는 계급이 정한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2385412ce6e56ac306cf7fb9c241c6e5a9760306b3e7ccb178b222cc08e4997a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "truth-betrays-those-we-are-bound-to-love",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진실을 택하려면 사랑해야 할 사람을 배반해야 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b6387911b34de5a2afdce24e29c1b55db2f8fe7c753c399e0ec51916631d7d9b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "truth-is-authored-by-whoever-holds-the-camera",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진실은 발견되지 않는다. 지어지고 연출된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "21b4190095c8988b50a6331e1cc4d1bec4be1722a96f3928584308c11d334ab8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "truth-is-whatever-the-collective-will-bear",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "절차를 밟고 다투고 합의해 내려진 판결, 그것이 진실이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "30bb7077227de15141e5f9413aa83d37b3e76d0eff7ca8e8501f85fc4279c974"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "tunisia-doubles-for-the-mythic-elsewhere",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "북아프리카 사막이 은하가 되고 고대 이집트가 되고 태초의 대지가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b895b198d8b67e1b9d41fd0e97fc11e45ce7875377659912858e66313f13aff5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "two-geographies-as-rival-selves",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "짝지어진 두 도시. 서로 양립할 수 없는 정체성의 이론으로 무대에 오른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a176b7219f40e9c7bc864c4c9c5a4795d8750b0e63a8ae4af4b1e57eb795d976"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "two-gods-in-one-apparatus",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "식민화하는 신앙과 그 폭력은 하나의 기계다.",
+  "model": "claude-opus-5",
+  "source_sha256": "217e2752929b6bda6083a4baf0931ded8eac01549907cec38e1b686a08c16e1e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "two-real-cities-cut-into-one-impossible-geography",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "편집이 실재하는 장소들을 이어 붙여, 어디에도 없는 장소를 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "52469d03b77b58303724f38b07468e5225dc90934b3eacea5375dc614ed85aca"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "universal-as-quiet-erasure-of-queerness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보편성이라는 찬사가 게이적인 것을 안전한 추상 속에 녹여 없앤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c9b4ea374830b2fdb93b42dbaeaa6a4a1d1992b9e3eedf97a454d94cf837d837"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "upstate-new-york-as-secret-author",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "쇠락한 그 지역은 영화를 담는 그릇이 아니다. 영화의 의미를 써 내려가는 손이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bba69fe9cb232a3f81b3ced81e230b3ac847cd975865f5ff385a3dffb260f7ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "validation-through-the-western-mirror",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "인도 영화를 서구의 명성에 빗대어 상찬하는 말투, 그 안에 탈식민의 불안이 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b4e459fd656c547d55f573c28b0f42fc33000605cc2f98b079724bcef07656b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "value-as-circulation-not-substance",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가치는 흐름 속으로 녹는다. 선물도 미덕도 몸도 남김없이.",
+  "model": "claude-opus-5",
+  "source_sha256": "25e70cbdd81d867fa4e5239c5e56fb9f9e06e43c072bfc35d87ffd7743c517b4"
+ }
+]

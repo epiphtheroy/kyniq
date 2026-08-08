@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chad-stahelski#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《John Wick》 시리즈 특유의 네온에 흠뻑 젖은 화면은 스탈렐스키와 촬영감독 댄 라우스첸의 합작이다. 두 사람은 이탈리아 지알로(giallo) 영화와 다리오 아르젠토의 작업에서 끌어온 극단적인 색채를 밀어붙인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "225df79ce3936fbcd41adb300fc4f97dd6b990d1c7e115078ee93554157c7394"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chris-columbus#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "펜실베이니아주 스팽글러에서 태어나 오하이오주 챔피언에서 자랐다. 어머니는 공장 노동자였고, 아버지는 알루미늄 공장과 탄광을 오가며 일했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ccb5ef09753ac75aabdd8d4401e85524fec0c4ca7415dd3b81f995e434897fbf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chris-columbus#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "NYU 시절 그는 찰리 카우프먼과 동기였고, 바퀴벌레와 쥐가 들끓는 맨해튼의 허름한 로프트에 살았다. 어둠 속에서 뭔가 바스락거리며 기어다니는 소리. 그 소리가 《그렘린》 각본으로 곧장 이어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b909272441718af02f2345f3410ac145470f7571aa3b13c1e846ffa410173162"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chris-columbus#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《그렘린》의 원래 각본은 R등급 호러였다. 괴물들이 어머니의 목을 자르고 집에서 기르던 개를 잡아먹는 이야기. 스티븐 스필버그가 판권을 사들인 뒤 컬럼버스를 설득해 더 넓은 관객을 향해 톤을 누그러뜨리게 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dcf1a02683470769a2a0a2663b24abea56634b68143eae8cf0f6ae8fb411fbfc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chris-columbus#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스필버그의 후원은 젊은 작가에게 큰 돈벌이가 됐다. 그 인연으로 컬럼버스는 앰블린 엔터테인먼트를 위해 《구니스》와 《피라미드의 공포》 각본을 연달아 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3a927b56a84e696c3180e85c4fa3ec7824cac95b0fd2786b0c2dcc32917c44d2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chris-columbus#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오하이오의 스산한 철강 도시에서 겉돌던 십대 시절이 첫 영화화 각본의 재료가 됐다. 1984년 제임스 폴리 감독의 드라마 《Reckless》다.",
+  "model": "claude-opus-5",
+  "source_sha256": "db9fa5e1e0d20dedebdc2dd49bb1740776140870fcef35f3ec387b2705f4860a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chris-columbus#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《내셔널 램푼의 크리스마스 대소동》 연출을 맡았다가 스스로 물러났다. 주연 체비 체이스와의 회의 두 번이 재앙이었던 탓이다. 체이스는 젊은 감독을 대놓고 깔봤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8df4549fa0e3a61039f9a7789586dee7c7b58146ec281899927ec3fb5d234ba4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chris-columbus#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "매콜리 컬킨을 《나 홀로 집에》에 캐스팅한 근거는 존 휴스의 《엉클 버크》에서 본 연기였다. 그럼에도 컬럼버스는 혹시 잘못 고른 건 아닌지 확인하려고 다른 아이 수백 명을 따로 오디션했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "85a49bf0592b9c689766275b93847a922fd5b0d915658a981b7c3736eb43ed3a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chris-columbus#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《미세스 다웃파이어》 촬영장에서는 카메라를 최대 세 대까지 동시에 돌렸다. 로빈 윌리엄스가 쏟아내는 즉흥 연기를 놓치지 않기 위해서였다. 코미디 테이크를 같은 방식으로 두 번 하는 배우가 아니라는 걸 알았던 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb59f512ecbbc6f7c3284a5814df8fc9d2755e854db01f4bf4bf36a94090a21e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chris-columbus#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "윌리엄스와는 각별했다. 두 사람은 몇 해에 걸쳐 《미세스 다웃파이어》 속편을 준비했지만, 2014년 윌리엄스가 비극적으로 세상을 떠나자 컬럼버스는 기획을 영구히 접었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1016802deb710ed69ad505f5de38ba20c11006366c76fabccadd3bf7339280a5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chris-columbus#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《해리 포터》 1편과 2편을 320일 동안 쉬지 않고 찍으며 몸도 마음도 바닥났다. 결국 그는 《아즈카반의 죄수》 연출에서 손을 뗐다. 결혼 생활을 지키고 아이들과 시간을 보내기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a09bd1f99d85a8d9dd57898cc216914565634e92a040181a89264a405465d8c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chris-columbus#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자기 아이들을 카메오로 출연시키는 습관이 오래됐다. 가장 널리 알려진 예가 딸 엘리너다. 《해리 포터》 1편과 2편에서 후플푸프 학생 수전 본스를 연기했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "614b2e67740d82177cf79367ff30fa115f3338adb033bd234ce79e5bf26b6e13"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chris-columbus#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2005년 브로드웨이 뮤지컬 《렌트》의 영화판을 맡은 건 무대를 보고 깊이 흔들렸기 때문이다. 조너선 라슨이 그린 1980년대 뉴욕의 거칠고 가난한 동네, 바로 그곳에서 그도 살았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a96f991d59df01a731977f8b5dc6107951263dc51aabf84bed413472071c1b11"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chris-columbus#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "가족용 블록버스터 감독이라는 인상과는 딴판인 행보도 있다. 딸 엘리너와 함께 차린 제작사 Maiden Voyage Pictures가 그것이다. 이 회사는 로버트 에거스의 《더 위치》와 《라이트하우스》처럼 음울하고 작가색 짙은 호러를 밀어줬다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7709ea9aeb8ea18695a1745ad176aa719449bfd28ec008f1fa044dc65d18356c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chris-columbus#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "어릴 적부터 마블 만화를 모으던 골수팬이었다. 2002년 《스파이더맨》 연출 제안도 끈질기게 받았지만, 스튜디오는 결국 샘 레이미를 택했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "439d4d2a52b5b0eca0fc6e4f79d278c14428d0f569f9ad7f014dd70e3097e032"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chris-columbus#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2021년 디즈니+ 리부트 《나 홀로 집에》를 그는 강하게 비판했다. 고전을 다시 만드는 건 '시간 낭비'라고 공개적으로 말했고, 원작이 병에 담아낸 그 번개는 두 번 다시 재현할 수 없다고 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d604a0ecf8e10788e6f531a8ee41ea971d116a61af129f086433622618dcbd25"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christian-petzold#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "페촐트는 1960년 서독 힐덴에서 태어났다. 부모는 얼마 전 동독을 탈출해 온 사람들이었다. 어린 시절 여름마다 그는 동쪽에 남은 친척들을 찾아갔고, 국경과 유령 같은 정체성을 향한 평생의 집착이 거기서 심겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8a7dd4b7a67693d21968a778ec06bc7c1c91aeba4a99d0233c52c59a76c41017"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christian-petzold#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "병역을 거부하고 대체 복무를 하던 시절, 그는 YMCA 영화 모임을 운영했다. 미국 장르 영화와 유럽 예술영화를 두 편씩 붙여 강박적으로 틀었다. 시네필의 시작이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "90c0d0dbe97ba71723c44368000a0f7ec2629c163596ad9d30dcc1436aec108d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christian-petzold#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화를 만들기 전, 1981년 서베를린으로 옮겨 자유대학에서 독문학과 연극을 공부했다. 그때 마르크스주의 이론과 구조주의 사상가들에 파묻혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b21d662f5b5e1a58bf5f9feab00ebfa8802cf39a1bfa2fb83d1f88cadf47db7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christian-petzold#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "베를린 독일영화TV아카데미(DFFB) 시절 그는 실험 다큐멘터리 작가 하룬 파로키를 만났다. 엄격한 교수였던 파로키는 이후 스무 해 동안 가장 가까운 친구이자 공동 각본가가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6cc1a2e153937c743567797e8a509524b0bc3e23a974ddb8ec9ea5bdf72e6049"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christian-petzold#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "DFFB 동기 토마스 아르슬란, 앙겔라 샤넬렉과 더불어 페촐트는 '베를린 학파(Berliner Schule)'의 기둥이 됐다. 통일 이후 독일을 꾸밈없이 엄격하게 응시하는 흐름이었다. 정작 본인은 그 딱지를 몹시 싫어했지만.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d760d085cb6777d35a1d127aa8978c8b5e97da1069e7fde215ddc397ffd1a0a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christian-petzold#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1995년 졸업작 《Pilotinnen》 이래 거의 모든 작품을 촬영감독 한스 프롬과 함께 찍었다. 고정된 카메라, 한 치의 흐트러짐도 없는 프레이밍, 밝게 떨어지는 빛. 그의 서명 같은 화면이 이렇게 만들어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "05240f9fa95bda42ec057c26ee0ae8a92eec656c246bf42837b4bd62ef1fc764"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christian-petzold#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "배우 니나 호스는 그의 궁극적인 뮤즈였다. 《옐라》 《예리코》 《피닉스》를 포함해 여섯 편을 함께했고, 그녀는 대개 상처를 안은 채 갈라진 독일을 헤매는 수수께끼 같은 여자를 맡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "99d0a98b7a2ac79d15bef1438179ef97d95ebef70cbe939dd28c68e72102b055"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christian-petzold#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2008년작 《예리코》는 제임스 M. 케인의 하드보일드 범죄소설 《포스트맨은 벨을 두 번 울린다》를 그대로 옮겨온 작품이다. 원작 표기는 없다. 무대는 산업이 빠져나간 독일 북동부의 황량한 땅이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9dabe139d0833129698233a3fba07ac9c4f9fd54ae64d97574114ac276a80103"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christian-petzold#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2012년 베를린국제영화제에서 《바바라》로 은곰상 감독상을 받았다. 좌천당한 동독 의사를 그린 팽팽한 스릴러였고, 이 작품이 마침내 그의 이름을 국제적으로 널리 알렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1f346076457585e5de61ab6f90ea114c6d9e8d5e1648684932ff4f884ff6481e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christian-petzold#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "호평받은 2014년 전후 드라마 《피닉스》는 위베르 몽테이에의 소설 《잿더미에서 돌아오다》에서 크게 빚졌다. 홀로코스트 생존자를 끝내 마주 보지 못한 독일의 심리, 그 알레고리가 잔상처럼 남는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c43f08b16d2ff99aeb11425e9ba4c79e748fe96bb83754b4421ca6a74df3a8aa"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christian-petzold#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2014년 스승이자 공동 각본가였던 하룬 파로키가 갑자기 세상을 떠났다. 페촐트는 창작이 마비됐다. 마지막으로 함께 준비하던 기획을 포기했고, 영화 만드는 방식 자체를 처음부터 다시 생각해야 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e597179a70eb24029221ee3b69d566ab79bb3044b54d15aeca3a529f43322919"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christian-petzold#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "막힌 창작을 뚫으려고 그는 안나 제거스의 1944년 소설 《통과비자》를 각색했다. 선택은 과감하고 어지러웠다. 2차 대전 난민의 이야기를 오늘날 마르세유 거리에서 찍되, 대사는 그 시대 그대로 두는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "a496533a3c2b9487628686979d1fc433122153f674b30c032c7f9549b576a48e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christian-petzold#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "니나 호스와의 시대가 끝난 자리에 새 뮤즈가 왔다. 《트랜짓》 캐스팅 과정에서 만난 파울라 베어다. 그녀의 연기를 축으로 삼은 두 번째 국면이 여기서 시작된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8dd658fd11e0c0457c048878279ffe1d29045c1e8f1e669f6d47d95f846f87a2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christian-petzold#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "파로키가 떠난 뒤 그는 새로운 구조가 필요했다. 고전적 4원소와 독일 낭만주의 신화에서 출발한 3부작이 그 답이었다. 첫 원소는 물, 2020년의 현대 동화 《운디네》다.",
+  "model": "claude-opus-5",
+  "source_sha256": "45aa194c85c6f8c4c6b704409d3d37226e0dad4dd93de6dc7088dba3b48ad96c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christian-petzold#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2020년 3월 파리에 머물던 그는 코로나19 초기 환자로 심하게 앓았다. 고열 속에서 불타는 숲에 갇힌 꿈을 꿨고, 그 꿈이 불의 영화 《어파이어》 각본이 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "55cad472e8eaa0b2d9a5a86ed6b518d9c1fe7ca7e59db4d77a19da85136a4ec5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christian-petzold#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "바이닐 수집에 빠진 사람답게, 그는 《어파이어》의 감정적 정점을 오스트리아 팝 밴드 발너스의 우울한 노래 'in my mind'에 걸었다. 촬영장에서 그 곡을 실제로 틀어 배우들의 몸의 리듬을 정했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "982b00e639791534f2a89c48f3050f231fb2e12fb2eb172e33e4a2a3adb06008"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christian-petzold#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "비평가들은 2000년대 초 세 편 《내가 속한 국가》 《유령》 《옐라》를 묶어 '유령 3부작(Gespenster-Trilogie)'이라 부른다. 이미 죽은 사람처럼 현대 자본주의 독일을 떠도는 인물들, 그에 대한 그의 집착이 거기 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "09b89059f0c318cc477227825cf8ed21ca287380e8245c929fd839a87b955648"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christian-petzold#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "동시대 예술영화 작가들과 달리 페촐트는 텔레비전을 피한 적이 없다. 장편과 장편 사이에 연출 감각을 벼리려고 장수 독일 경찰 시리즈 《Polizeiruf 110》의 에피소드를 자주 맡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6700b15a456fe9ef62fd80d06ee0aa2385768d5f54245c221f23e3da3b56588f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christian-petzold#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미국 영화를 열렬히 좋아하는 그는 알프레드 히치콕에게서 자주 빌려온다. 가장 뚜렷한 예가 《피닉스》다. 《현기증》이 그린 심리적 집착을 깊숙이 뒤집어놓은 영화다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d4d75018c43d4175e2c5d59a86f98ec874c7a4adcbe52bab26d9bfbfb63b623e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-mcquarrie#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "뉴저지주 프린스턴정션에서 자랐다. 훗날 오랜 동료가 되는 브라이언 싱어를 만난 건 중학교 2학년 때였다. 둘 다 할리우드를 꿈꾸기 한참 전이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "edd43c45c5ceab58e94f28e260d2c7a38f062192a761a1d8711fcfae311d5790"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-mcquarrie#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "호주 퍼스의 크라이스트처치 그래머 스쿨에서 사감 보조로 잠깐 일하다 해고당했다. 그 뒤 히치하이킹으로 대륙을 가로지른 다음 미국으로 돌아왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d52b058ce6246765e730d599b4434cadfb3376b4c219a99c5556f8f304d2adc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-mcquarrie#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화화된 첫 각본은 싱어와 함께 쓴 1993년 스릴러 《퍼블릭 액세스》다. 선댄스영화제 심사위원대상을 받고도 극장 배급사를 구하지 못했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "41a6733dd86ef0f903499d3f7a936103b56fe9c768c093a0027866e646e4e165"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-mcquarrie#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1995년 그를 알린 각본 《유주얼 서스펙트》의 제목은 지어낸 말이 아니다. 탐정사무소에서 일하던 시절 읽던 잡지 《스파이》의 고정 칼럼 이름을 그대로 가져왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6aeba1fa35b9117ff2e0c9a75a4e62ea7efeec92279e56d389b8e4d55f6bba8e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-mcquarrie#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《유주얼 서스펙트》로 스물일곱에 아카데미 각본상을 받았다. 그 뒤에 온 것은 심한 가면 증후군과 슬럼프였고, 초기 경력은 거기서 한동안 멈췄다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8272f46ffe6a23a235936f5619177f1b663dad803a33089c282fa1c4457bee69"
+ }
+]

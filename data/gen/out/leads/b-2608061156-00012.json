@@ -1,0 +1,132 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dear-thomas-2021",
+  "field": "lead",
+  "film_id": "f1fbc24f-0428-4866-8305-aeb7c9cff0ac",
+  "lang": "en",
+  "text": "A German-Jewish family that had waited out the war in England moved east in the early 1950s, into a country that had not existed when they fled. Horst Brasch went to work building it. His son Thomas wrote poems. Andreas Kleinert gives the quarrel 150 minutes, long enough for it to stop being an argument about literature and become the weather inside one household. The first play is banned. The place at the film school goes. In 1968 there are Soviet tanks in Prague and a few students in Berlin trying to get the street to look up, and the street does not look up. Kleinert keeps returning to something smaller than politics: a young man who cannot stop putting words on paper, in a state that reads everything and has decided it has no use for him.",
+  "model": "claude-opus-5",
+  "source_sha256": "2368394939201768399ef20ef89e2f60a892a332868174feb16faa9eebaf6436"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "chemmeen-1964",
+  "field": "lead",
+  "film_id": "1eaa14a2-e628-4700-8e82-83b74684cbbe",
+  "lang": "en",
+  "text": "Her father catches the fish; the man she loves is the one who buys it. Karutthamma's family works the boats and he trades what the boats bring in, so the two of them are already tied by a transaction the whole shore watches happen every morning. Ramu Kariat filmed this in Malayalam in 1964, and the sea in it is an employer rather than a view: hours set by tides, households arranged around when the boats go out and what the catch is worth when they come back. Her father is Hindu, he is Muslim, and the objection to them never arrives as a speech. It arrives as neighbours, as who will still buy from whom, as a village working out in small daily increments how much it intends to tolerate at close range. 140 minutes, nearly all of them within sight of the water.",
+  "model": "claude-opus-5",
+  "source_sha256": "085c8a3abc6560ed13279d6c8978d472d4c680aeee3fd5a6b3d3f4c303c46567"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "kaspar-hauser-1993",
+  "field": "lead",
+  "film_id": "2d096f37-80e6-4560-938b-f457a9084081",
+  "lang": "en",
+  "text": "In May 1828 a boy of about sixteen turns up in Nuremberg with a few unclear words and no account of where he has been. Peter Sehr is unusually specific about the years before that: the room, the dark, the arrangement by which a child could be held from infancy without anyone raising the matter. From there the film climbs, into courts and titles and families with something to protect, and curiosity about a strange young man turns into a question about which great house has a gap in it. The 1993 telling treats the case as a crime with an address rather than a parable. 139 minutes, given over to procedure and etiquette rather than wonder. The boy acquires language slowly, and Sehr watches how quickly the people around him, who have had language all along, use theirs to manage him.",
+  "model": "claude-opus-5",
+  "source_sha256": "5c87044973773b4187d2d3043c6a39e2bc82d449142692d8b8c4158f7a60b0aa"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lost-boundaries-1949",
+  "field": "lead",
+  "film_id": "b0bb03eb-f0e7-4fb4-9140-7393058aced9",
+  "lang": "en",
+  "text": "The town is friendly, and its friendliness rests on a mistake it does not know it is making. A light-skinned Black family has settled in white New England and is read as white, and that reading has become the terms of everything: which neighbours drop by, which pew, which classroom, who gets told what and in what order. Alfred L. Werker films it without italics. Ninety-nine minutes of parlours and porches, where the pressure is maintenance rather than confrontation, a matter of what is said at dinner and what is not said at the door. Two things stay true in the same room at once: these people are liked, and being liked is a condition with a clause in it. The film is content to let that clause sit through an entire pleasant conversation.",
+  "model": "claude-opus-5",
+  "source_sha256": "709e32ed93bd59fdc2723851a5a4b43ef17cd81a5fd2174a78413fcf8f10974a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "stonewalling-2022",
+  "field": "lead",
+  "film_id": "55958b16-e1af-47ed-94b5-de72303e3f09",
+  "lang": "en",
+  "text": "The plan is English lessons, then flight-attendant school, then the attitude to match. Lynn is twenty and follows it the way a person follows a plan handed to her by everyone at once, until a pregnancy puts a clock on decisions she has had no practice making. She tells her boyfriend she has ended it. Then she goes home, to parents who are barely speaking and a clinic that is not making money. Ryuji Otsuka takes 148 minutes and hurries none of it, because the subject is the interval itself: the weeks in which nothing is settled and the body settles anyway, and every room she sits in has its own view about what a young woman's time is for. The lie is not a plot device. It is the thing keeping the plan alive.",
+  "model": "claude-opus-5",
+  "source_sha256": "f9178f5bccf236303fac732e1284fa4334f3a7a5dda3794a24e7ff8edbe66086"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "growing-up-1983",
+  "field": "lead",
+  "film_id": "9c97983e-8b1d-4c2f-93bd-cc14c2615244",
+  "lang": "en",
+  "text": "A boy who is sure of himself at the start is the least sure person in the film by its middle. Chen Kun-hou follows one life from a quick, watchful childhood through the years when that watchfulness curdles into self-doubt, and out the far side into something steadier. A hundred minutes for all of it, which means working by ellipsis: time passes between scenes and the changes arrive already made, the way they do in a face that has not been seen for a while. Taiwan, 1983. The household comes across in habits rather than statements, in who eats first, who is spoken to and how, what a boy in that house is permitted to want out loud. Nothing announces itself as a turning point, which is as close as the film comes to an argument about how people change.",
+  "model": "claude-opus-5",
+  "source_sha256": "621eb7f2c1305bf975b71bc88841a114894d01696ecf4e359f9f25e42c5d9ad5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-summer-is-gone-2016",
+  "field": "lead",
+  "film_id": "a05e0d9b-21ac-45af-b5a1-1f938334f3e4",
+  "lang": "en",
+  "text": "School lets out and the boy has exactly what he asked for: a summer with no homework in it, which turns out to be a long series of empty afternoons in a small town in western China. Zhang Dalei sets it in the early 1990s and keeps the camera at child height, on the courtyard, the corridor, the adults talking in the next room in a register Xiaolei can hear but not translate. Boredom is treated as information here, not as filler. Something among the grown-ups is going wrong, and he registers it as mood well before he could name it; the film is honest about that gap, letting whole scenes pass with the actual news happening slightly off to one side. 105 minutes of a holiday, and the holiday is the last thing on anyone's mind.",
+  "model": "claude-opus-5",
+  "source_sha256": "ad31fa00ff27b6f34d6b2ad49f103f77c280855b4c0f0c0e71cbf7d6ed651fa6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-best-of-times-2002",
+  "field": "lead",
+  "film_id": "79295988-154e-462d-b5cb-5cba91a9b011",
+  "lang": "en",
+  "text": "The promotion comes with a handgun, and that is how the job explains itself. Wei parks cars outside a nightclub until Brother Gu moves him up to collecting debts; he talks Jie into coming along, because they are nineteen and live next door to each other and have done everything else together. Two households in the Taipei suburbs, each with a widowed father and a sibling who is a problem, and nobody in either with time to notice what the boys have started doing for money. Chang Tso-chi is patient with the ordinary parts, the errands, the waiting, the swagger practised on the way over. Jie is the volatile one. Once there is a weapon in the room, everyone seems to understand the new arithmetic except the two holding it.",
+  "model": "claude-opus-5",
+  "source_sha256": "e957fd0c86932adb39a3c3dc47a2ac4f9102f01070ff274a69d94d1d724a764f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "first-love-1970",
+  "field": "lead",
+  "film_id": "8435cb2b-429c-4cdf-8ec2-e56b6fe2baee",
+  "lang": "en",
+  "text": "A boy's first love arrives in a house where his father also lives, and the arrangement is a triangle for some time before anyone in it uses the word. Maximilian Schell directs in 89 minutes, short enough that the film can only be about temperature: how a room changes when three people are in it and two have begun timing their movements around the third. Very little is stated aloud. The boy's attention is total and unpractised, which is what makes him easy to keep in the dark; the attention of the other two is neither. What Schell holds onto is the manners, the formality that lets an older man be charming without ever being caught at anything, and lets a young woman accept it without having to admit that she has.",
+  "model": "claude-opus-5",
+  "source_sha256": "53eb534760d7bdcf756ce90e808554199d0b01347a5a15e8ec22b0f62e0e2ea6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "full-moon-in-new-york-1989",
+  "field": "lead",
+  "film_id": "a989b966-9bfb-4225-a16c-4d2eb080a922",
+  "lang": "en",
+  "text": "Three women meet in New York because they are all Chinese there, which in that city is a large fact and not much of one at the same time. Their histories have almost nothing in common; the street flattens the difference in public and leaves it entirely intact in private. Stanley Kwan Kam-Pang keeps to 88 minutes and mostly to rooms, an apartment, a restaurant table, the late hours when none of them has anywhere to be. What accumulates is not a plot but an accounting: what each one left behind, how much of it she is willing to say, and how differently the same sentence lands on the other two. The friendship is real and it is also a convenience, and the film is unembarrassed about holding both at once.",
+  "model": "claude-opus-5",
+  "source_sha256": "102d638063286b03640cb49de8a9fde7b564004d4b5846f8b9b5de3e21217086"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "kabuliwala-1955",
+  "field": "lead",
+  "film_id": "a17a92c4-a26d-42c3-a7e5-ebf76a1589a5",
+  "lang": "en",
+  "text": "A fruit seller from Afghanistan works the lanes of Calcutta and finds that one small Bengali girl will talk to him. Selling door to door is how a foreigner in that city acquires a route, a set of regulars, and, in this case, a friend. Rahmat has a daughter at home whom Mini reminds him of, and the film is built almost wholly out of the two of them talking in a doorway while the household works out how it feels about that. Tapan Sinha is adapting Rabindranath Tagore and keeps the plainness of the source: nothing is underlined, no lesson is delivered, and the unease of the adults is handled rather than argued. 116 minutes, in Bengali, 1955. The real subject is the arithmetic of distance, a man doing sums about how much older a child gets while her father is away in another country earning money.",
+  "model": "claude-opus-5",
+  "source_sha256": "3270a15d70bd05838cc3d1db198bb7921e42187a96257cca50321dc018db501d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-killing-game-1967",
+  "field": "lead",
+  "film_id": "a4434002-b7c1-473f-99b3-5773def3c81b",
+  "lang": "en",
+  "text": "A rich man reads a comic strip and decides to be in it. Two cartoonists acquire a patron who does not want to own their work so much as inhabit it, and who pays well enough that the question of whether this is flattering can be put off for a while. Then comes the commission, and the new strip is about murder. Neither cartoonist is naive, which is precisely the trouble. Alain Jessua plays the escalation as comedy for as long as comedy will hold: France, 1967, ninety minutes in which the invented world and the paid-for one keep borrowing each other's furniture. What holds it together is the professional detail, two people at a drawing board, aware that whatever goes on the page next will be read as an instruction, working out what to draw anyway.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e4a8a3581fff47d6aae25e3c2526af9281a04ced429006f4be6e5555b261af3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "adi-shankaracharya-1982",
+  "field": "lead",
+  "film_id": "0a4a1b9f-b9ba-4677-8042-6f772dad3285",
+  "lang": "en",
+  "text": "The dialogue is in Sanskrit, and that decides nearly everything else about the film. G. V. Iyer takes the life of Shankara, who founded the non-dual school of Indian philosophy, and declines to render it in the rhythms of a 1982 Indian drama; scenes move at the speed of recitation, and the events are largely spoken ones. Argument is the action here. There is no attempt to make the philosophy sound easier than it is. A viewer is asked to sit with reasoning rather than illustration, which is an unusual demand for a camera to make, and the film makes it for 130 minutes without apology and without hurry. What it gets in exchange is a past that feels unborrowed, because the sound of the thing has nothing modern standing nearby to be measured against.",
+  "model": "claude-opus-5",
+  "source_sha256": "25ed5e6c8de31420a443313842ba2e9b3c6ca4341951d21f41d9683487a1721b"
+ }
+]

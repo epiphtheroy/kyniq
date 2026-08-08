@@ -1,0 +1,132 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dreams-1990",
+  "field": "lead",
+  "film_id": "2b6026df-ea46-40c1-840e-84854ba44755",
+  "lang": "en",
+  "text": "Eight dreams set end to end, with nothing joining them but the man who had them. A fox wedding seen at a distance, an orchard that is no longer there, a soldier answering to his own ghosts, a walk into Van Gogh's brushwork, a reactor coming apart. Assembling a 1990 feature this way costs Kurosawa the engine his other films run on: nothing here can be resolved, only left behind, and each part sets its own light and its own length. Some sections frighten the way a child is frightened, which is the accurate way. Others are nearly lectures, and the film does not apologise for the change of register. Across 119 minutes the surprise is the patience of it — a filmmaker with eight ideas and no obligation to make them agree, or to explain why one follows another.",
+  "model": "claude-opus-5",
+  "source_sha256": "d535fc563336cc4e2c83e29c98e83243c6d69dce8bf6e67d4c97c8f10ec36940"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-fountainhead-1949",
+  "field": "lead",
+  "film_id": "9b09346b-0316-4bd7-8755-31ab03d26cb4",
+  "lang": "en",
+  "text": "The hero's work is a line on paper, which obliges the film to make a drawing carry what another picture would hand to a gunfight. King Vidor's 1949 melodrama takes that dare seriously. Its architect will not soften an elevation for a client, a critic, a newspaper or a bank, and the romance is arranged as a contest between two people who each recognise in the other an unwillingness to bend. Vidor shoots buildings, models and blueprints as though they were faces, and the dialogue arrives at the pitch of a manifesto rather than of conversation, which is design and not lapse. Everything is stated. Nobody in it wants to be understood gradually. A hundred and twelve minutes conducted at the volume of an argument about who owns a design once it has been built.",
+  "model": "claude-opus-5",
+  "source_sha256": "a209957c5d9142cc3f59753ad512e7266f5936311a0ad8c8be2ae460399e9f24"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-two-seasons-of-life-1975",
+  "field": "lead",
+  "film_id": "a131c6c4-5344-41c1-a2cc-8b748f80547c",
+  "lang": "en",
+  "text": "Guss measures the week by his mother's visits. Everything else in the boy's life belongs to other people: a father who has remarried, a farm with its own schedule, a religious boarding school where a child's grievances have nowhere to go. Samy Pavel crosses most of a life in ninety minutes, so the cuts carry the weight — the boy on the Belgian farm and the young man in the city trying to make a living in music are joined by little more than a temper kept to himself. The film is calm about the workings of the household, and about the way a second family makes room for someone without making him welcome. It sits on TSPDT's list of a thousand greatest films; the tally of people who have publicly rated it runs to a dozen. Both facts describe the same picture.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca10b1541f55317817e9fc92489920f4cf5e3cf3c3cf43962781928c2c3bad0b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sholay-1975",
+  "field": "lead",
+  "film_id": "0a163b44-9bb0-445c-a842-20d7cf70c8e5",
+  "lang": "en",
+  "text": "Two hundred and eight minutes for a revenge story that could be told in ninety, and the extra hours are the substance rather than the padding. Ramesh Sippy's 1975 film subcontracts its vengeance: Thakur Baldev Singh, an inspector before the bandit Gabbar Singh destroyed his family, hires two small-time crooks, Jai and Veeru, and keeps his own reasons to himself. That arrangement moves the centre onto the hired men, who are given room for courtship, clowning and long idle afternoons in a village living within reach of Gabbar's next visit. Hindi cinema of the mid-seventies was built for exactly this width, holding comedy, romance and gunfire without changing its voice. What binds it is the deal itself: money offered for a man's capture, and two employees who never agreed to care.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d24e31e1d2fbd49403a05025653d33e2fc4da3196f735e2e62007f3d0193800"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "assault-on-precinct-13-1976",
+  "field": "lead",
+  "film_id": "5d567cdb-7d3e-4bdb-992d-1e408979adad",
+  "lang": "en",
+  "text": "The station is already closing for good when the shooting starts. John Carpenter's 1976 thriller builds its defence out of people with no reason to trust one another: a highway patrolman on a dull assignment, a secretary who works there, two criminals in transit. Rank collapses first. Once the building is surrounded, who gives orders and who can be handed a loaded weapon has to be settled across a cell door, and that negotiation, rather than the gang in the street, is where the film puts its attention. Everything else is stripped down — wide quiet streets, few words, gunfire that comes without warning or comment. Ninety-one minutes, one address, four people who would otherwise never have met. The attackers keep coming with the patience of weather, and the camera stays inside.",
+  "model": "claude-opus-5",
+  "source_sha256": "08ff88e002da609f1ffeba3a99e1cbb9bf2fcbaa78357c15bf7d7825997c99b0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "night-of-the-demon-1957",
+  "field": "lead",
+  "film_id": "00c56ec8-00b0-438e-b4a3-ee55fe4279d4",
+  "lang": "en",
+  "text": "John Holden lands in London for a conference on parapsychology and learns that the colleague he came to meet died the day before, in an accident freakish enough to explain itself. Jacques Tourneur's 1957 film keeps a professional sceptic at the centre and then makes scepticism expensive. Holden works through the dead man's papers, follows manuscripts from one address to the next, and finds a cult with a named proprietor, Dr. Julian Karswell, whom the picture will not let him simply dismiss. The horror is procedural. It arrives as documents, appointments and dates, and what presses on Holden is less fear than standing: a career staked on there being nothing here to find. Ninety-six minutes of English rooms and weather, where the sensible explanation is always available and never quite sufficient.",
+  "model": "claude-opus-5",
+  "source_sha256": "3b7d78172ffac8b4273a935876bf3584c38fdf0ee62ea3094c81752b849791e2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ted-2012",
+  "field": "lead",
+  "film_id": "44f7980b-d5b4-49f9-9073-33bbe1e396b5",
+  "lang": "en",
+  "text": "A childhood wish came true and then refused to leave. John Bennett asked for a teddy bear that could talk, got one, and years later the bear is still living with him: a voice, a set of habits, and firm views about the woman John shares an apartment with. Seth MacFarlane's 2012 comedy works the gap between a nursery premise and the vocabulary of two friends with a free weekday afternoon, and it keeps its rules strictly — the bear is a person, the world settled that question long ago, and nobody is asked to marvel. What follows is a domestic argument rather than an adventure. Lori would like the apartment to hold one adult. The Guardian later placed the film among a hundred from this century, which sits oddly beside the material until the fantasy is seen for what it is: an ultimatum made literal.",
+  "model": "claude-opus-5",
+  "source_sha256": "937cf894715e20070efcf99fa1353774ba62de8c16a9210f4338203d1370c5ff"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mary-and-the-witch-s-flower-2018",
+  "field": "lead",
+  "film_id": "2a33f86d-594e-4c34-991d-ef3e756789ba",
+  "lang": "en",
+  "text": "The cat walks into the trees and Mary follows, largely because there is nothing else to do. Before any of the magic, Hiromasa Yonebayashi's film spends its patience on a bored child in a countryside house — grass, hedges, a great-aunt's kitchen, an afternoon with no shape to it. That groundwork pays. When the flower turns out to be something other than a flower, and the old broom in the shed declines to behave like a broom, the strangeness has an ordinary world to push against. Hand-drawn animation of this kind gives a wet leaf or a stone step the same attention it gives a flight, and the 2018 film holds that discipline for 103 minutes. Mary acts before she asks permission, which is what the story needs from her long before it needs courage.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3a6ac2b153e1de48a6c49132928e14d40746077e2e48cf73074bf7d0d3b6094"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-end-of-summer-1961",
+  "field": "lead",
+  "film_id": "9e313a44-e428-46a6-98f3-029195b05072",
+  "lang": "en",
+  "text": "The old man has begun disappearing in the afternoons, and his family answers with arithmetic. The brewery's books are gone through; his health becomes a topic in rooms he is not in; the woman he knew in his youth, and visits again, is the fact nobody will name straight out, so it circulates as tone — a joke at one table, a silence at the next. Yasujirō Ozu's 1961 film lets a story that looks financial turn into something else: relatives discovering that the head of the household has a life in which they hold no vote. A hundred and three minutes, mostly seated conversation, and the comedy runs nearer the surface than a summary suggests. The sake business carries on regardless. Someone will have to speak to him, and much of the film watches each person decide it should be somebody else.",
+  "model": "claude-opus-5",
+  "source_sha256": "e21dbbe897e17856ca2a5ba096cfb4c4d3ca341b7069124862e923a7e877dbe3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ceddo-1977",
+  "field": "lead",
+  "film_id": "7f0e166b-d269-458e-b4b9-ac75165d7488",
+  "lang": "en",
+  "text": "A princess is taken from her father's household, and the abduction is meant as a statement rather than a ransom. King Demba War has gone over to the Muslims; the ceddo, who will not convert, hold Dior Yacine in order to force the question into the open. Ousmane Sembène made the film in Senegal in 1977, in Wolof, with three pressures bearing on one community at once — Islam, Christianity, and a slave trade that turns every internal quarrel into somebody else's opportunity. The result is less a rescue than a hearing. Positions are stated, precedents cited, silences held and counted. Nothing is staged as a visit to the past; the dispute is presented as current business, and the film is unsentimental about the costs paid inside its own camp. A hundred and seventeen minutes of people arguing over who may speak for everyone.",
+  "model": "claude-opus-5",
+  "source_sha256": "029e1831169662a1c892025e9fe620eb31dddd2d1b86c54d645d8cb08c3e43e3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "carlito-s-way-1993",
+  "field": "lead",
+  "film_id": "32c6c89a-a8d3-457e-8f6e-4e4411b69d02",
+  "lang": "en",
+  "text": "Carlito Brigante has decided to be a former criminal, which turns out to be a job with no employer. Out of prison, he wants a legal exit and a modest plan; New York, in Brian De Palma's 1993 film, keeps offering him work he used to be good at. The suspense runs in an unusual direction. Most crime pictures ask whether a man will get away with something; this one asks whether he can be left alone. Every scene tests a resolution that nobody around him believes in, and his old reputation behaves like a debt collected by people he has never met. De Palma films the trade as nightclubs, back rooms and long approaches, spending 144 minutes on the slow accounting of staying out. The danger is old friends — not because they betray him, necessarily, but because they still have use for him.",
+  "model": "claude-opus-5",
+  "source_sha256": "9fa17f90846fc6493bac1f18bfdfc5da9378a8e802304142b4a8dbffae69697f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mothlight-1963",
+  "field": "lead",
+  "film_id": "733995d5-51f3-4ca3-8ae9-7439b708a458",
+  "lang": "en",
+  "text": "Four minutes long, and nothing in it looks photographed. Moth wings and insect fragments cross the screen faster than an eye can hold them, most brown or sepia, some translucent enough to show the veining inside a wing the way light shows the structure of a leaf. Occasionally something green. Stan Brakhage's 1963 film gives each fragment a fraction of a second, so the experience is closer to being flickered at than to watching: pattern registers, detail does not, and what remains afterwards is texture rather than pictures. Held still, the compositions would resemble cut paper. Moving, they behave like weather. The effect is physical and faintly uncomfortable, a film that places the remains of small dead things between a lamp and the eye, and asks for four minutes of that.",
+  "model": "claude-opus-5",
+  "source_sha256": "daba687e1b95523779e1c954c9830c01449adad8e1954fee6d99cdb913e30f7a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "zorns-lemma-1970",
+  "field": "lead",
+  "film_id": "5cdcd64f-ee16-4673-9c30-47286a6a4617",
+  "lang": "en",
+  "text": "A voice reads from an early grammar textbook, and then, for most of an hour, the film stops speaking. Hollis Frampton's 1970 structuralist work builds a twenty-four part alphabet — i and j sharing a place, u and v the same — and runs through it repeatedly, each pass replacing and enlarging what the last one held. After a few cycles a viewer stops looking and starts predicting, which is when the thing becomes interesting: attention turns into a bet, settled and reopened over and over. The title comes from a proposition of set theory that Max Zorn formulated in 1935, and what Frampton takes from it is a procedure rather than a subject, a rule pursued until its consequences show themselves. Sixty minutes, almost no speech, and the tension arises from learning a system while it is still changing.",
+  "model": "claude-opus-5",
+  "source_sha256": "bca0558d02a886fe10345154334f19c84fbe710288b6a82f095ff2c6ce5a0007"
+ }
+]

@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kenji-mizoguchi#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "열일곱에 어머니를 잃었다. 그는 고베로 건너가 유카타(여름 기모노) 무늬를 그리는 도안 견습공으로 일했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aaa4ba4338316e01160170fc42eabeb3cc9cf754ff9e0077170d6f3b68896eef"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kenji-mizoguchi#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화계에 들어서기 전 1년 동안 고베 유신일보(神戸又新日報)에서 광고 삽화를 그렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ee1b4a8bec238533c0d7b4ccfcf29f9e41ac718619130c81a95cfe34f804cd6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kenji-mizoguchi#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1923년 간토 대지진이 닛카쓰의 무코지마 촬영소를 무너뜨렸다. 미조구치는 교토로 옮겨 갈 수밖에 없었고, 그때부터 그의 무게중심은 시대극(時代劇)으로 완전히 기울었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "168f7e3b1191bcadb0d8f5fd89c7c15404aaf9132caf4014272b79f113b67ed6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kenji-mizoguchi#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1925년의 추문 하나. 동거하던 콜걸 이치조 유리코가 질투 끝에 면도날로 그의 등을 깊게 그었다. 흉터는 평생 지워지지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e048996dfc326fae96f48acabc5c4d9e4a23b240a4c0e8a1719710e763deae7a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kenji-mizoguchi#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "패전 후 미조구치는 미군정의 민주 개혁을 열렬히 받아들였다. 1946년작 《여성의 승리》는 여성 해방과 새 헌법을 대놓고 옹호한 영화였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8421e46e85ffb20274155c3f236d357d14b5298a187fd951331f88d6507f61f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kenji-mizoguchi#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "최고의 뮤즈였던 배우 다나카 기누요가 그의 집요한 구애를 거절했다. 앙심을 품은 미조구치는 닛카쓰 임원들을 찾아다니며 그녀의 1953년 감독 데뷔작 《연문》을 막으려 했고, 두 사람의 우정은 그것으로 끝났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "819d997e6f361cf572b0ac208f0a3ed3b634d41f8d527dd43787f9be61e280ba"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kenji-mizoguchi#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "33년의 경력에서 90편 가까이 연출했지만 오늘날 남아 있는 것은 서른 편 남짓이다. 무성기 작품 대부분은 2차 대전의 소이탄과 스튜디오의 무관심 속에 영영 사라졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "238981067f7470e6bb217a116b22467348eaf5573bfdbac331cc7ce79b5a5d59"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kenji-mizoguchi#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "말년의 그는 니치렌 불교에 귀의해 몇 시간씩 경을 외웠다. 이 전향은 《우게쓰 이야기》의 유령 같고 초월적인 공기에 깊이 스며들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4698448ed95c2000c55e87219164c5c4bb99565a14d29698c71f95b136d450a5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-jee-woon#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1964년 서울에서 태어난 김지운은 이십 대 내내, 삼십 대 초반까지 거의 십 년을 백수로 지냈다. 생계는 연극배우로 이름난 누나 김지숙이 주는 용돈에 기댔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0f8b677207f597ef80b790e5bb067a1405893e74a404ebb29f31dbdbf0d65e4e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-jee-woon#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "젊은 시절 잠깐 무대에 섰다가 곧 배우를 접었다. 누나 같은 천부적 재능이 자신에겐 없다는 걸 알아차린 뒤였다. 창작의 자리를 무대 뒤로 옮긴 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3066c657f275700b3e386a6dbcbe80f56eedd7d1b8660bb4d66964ef220e3b11"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-jee-woon#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화 경력의 출발은 순전한 우연이었다. 서른셋, 일자리가 절박하던 그는 한 달 만에 시나리오 한 편을 써서 1997년 제1회 씨네21 시나리오 공모전에 냈고 대상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "24f3d0e9772fdb78164106e238b2a456de0caa29e7ed592aec502b7181925b6b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-jee-woon#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "현장 경험이 전무한 상태에서 그는 자기 당선작을 직접 연출하겠다고 우겼다. 그렇게 나온 1998년 데뷔작이 흥행에 성공한 블랙코미디 《조용한 가족》이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f422fae3ed09066c7550c994cdae683fe6afc7c7dc2ea0734a13688846de2742"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-jee-woon#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《조용한 가족》(1998)과 《반칙왕》(2000)에 당시만 해도 이름이 알려지지 않은 연극배우 송강호를 앉혔다. 그 두 편이 송강호를 대스타로 밀어 올렸고, 두 사람은 이후 세 편을 더 함께한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8edd31d6d487a1328fe7ba31e1b94700d2a972d5302b4803a22e07fae9dce515"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-jee-woon#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2000년, 그는 45분짜리 뱀파이어 영화 《커밍 아웃》으로 한국 디지털 배급의 물꼬를 텄다. 오직 온라인 스트리밍만을 위해 만들어진 국내 최초 프로젝트 중 하나였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4e6b1983632ec2f321b729256583a8d79fd0670a049be246001c62188e0c17c7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-jee-woon#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "극도로 스타일리시한 2005년 네오누아르 《달콤한 인생》은 애초에 한 통의 연서로 구상됐다. 수신인은 장피에르 멜빌의 《사무라이》, 그 과묵하고 파멸이 예정된 청부살인자들.",
+  "model": "claude-opus-5",
+  "source_sha256": "f778f4f0be322ef9e86e4328f9ecc272f0dfbcdb6337b31c16def72c0e631736"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-jee-woon#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2010년 연쇄살인 스릴러 《악마를 보았다》는 영상물등급위원회의 요구로 세 차례나 재편집됐다. 그로테스크한 폭력을 이유로 제한상영가 판정이 예고됐고, 그 등급을 받으면 일반 극장 개봉은 불가능했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "79aff36e63057da4829f224d1bed1352cbf8f8aea8748dd24e95db03080d3bc6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-jee-woon#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2012년 SF 옴니버스 《인류멸망보고서》를 공동 연출하며 그가 맡은 편은 〈천상의 피조물〉이다. 로봇 승려가 깨달음에 이른다는 기묘한 설정으로 판타지아 영화제 최고상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8e640526eaa4ddc12e7e9eae1c424bcee6a8a4a19d1e05ae4bb3df35a23054eb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-jee-woon#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《라스트 스탠드》의 주연으로 그가 처음 원한 배우는 리암 니슨이었다. 니슨이 고사하자 라이언스게이트가 슈워제네거를 데려왔고, 캘리포니아 주지사 임기를 마친 그의 복귀작이 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "77cfaa9fe3f0888e5f796fe2c1b0ff846e772a102571624572679c38dfb95275"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-jee-woon#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2016년 첩보 스릴러 《밀정》은 미국 스튜디오 워너브라더스가 전액 투자·제작한 최초의 한국어 영화로 기록됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f7486425eab978d2ed0024a742bcecd8c6dd1b94f8c1656e9d9f9a1cd06cf92e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-jee-woon#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "애플 TV+의 첫 한국어 시리즈, 2021년 SF 스릴러 《닥터 브레인》을 연출했다. 장편 텔레비전 제작에 발을 들인 첫 작업이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5fc0cc13c6b64342459dbeff3382380bc62e6a7e347901ae452d098115307501"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-jee-woon#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2023년작 《거미집》은 칸 영화제에서 처음 공개됐다. 서슬 퍼런 검열 속에서 걸작의 결말을 기어이 다시 찍으려는 1970년대 한국 감독의 이야기, 반쯤은 자전적인 블랙코미디다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e3ee8e37d0c7fef127aca6d8f19c4ed0e15a3e7f5770f787940f7bf6880e02b2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-ki-duk#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "봉화의 외딴 마을에서 태어난 김기덕은 한국 작가주의(auteurism) 감독으로는 이례적인 이력을 지녔다. 열다섯에 농업학교를 그만두고 서울의 공장을 전전하며 고된 노동을 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0a119e15da231500cb2a5106d3d8b49cabd97f7e8a2dbef4f58e953c9cb092f9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-ki-duk#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "해병대 부사관으로 보낸 5년이 그를 만들었다. 위계와 날것의 폭력을 향한 평생의 집착이 여기서 심어졌고, 훗날 그의 영화 전체에 배어들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "75420864213dd3fb5ae3c32b774fd8fdf359391f620162f59e2c5f2b46d04b96"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-ki-duk#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미술을 정식으로 배운 적은 없다. 돈을 모아 1990년 파리로 건너간 그는 몽펠리에와 몽마르트르 거리에서 관광객 초상화를 그리며 2년을 버텼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a4f554533875569df92b77f8a18b284a99b635785b683ef9cd090341cbd1a7f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-ki-duk#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "극영화를 처음 본 것이 서른 살, 파리에서였다. 조너선 드미의 〈양들의 침묵〉과 레오스 카락스의 〈퐁네프의 연인들〉이 그의 삶의 방향을 통째로 바꿔놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "475a9d0b91c2935d09edce048e68278045ab8f37d105ab0b88232dfae243f8fe"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-ki-duk#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1993년 귀국했을 때 업계에 아는 사람은 하나도 없었다. 시나리오를 독학한 그는 영화진흥위원회 공모전에 〈무단횡단〉을 내 대상을 받으며 업계에 진입했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a7dd930a06ddff718c913f24e0f8be006c24178a017295aec6f92737846bccd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-ki-duk#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1996년 데뷔작 〈악어〉의 주인공은 한강 다리 밑에 사는 부랑자다. 투신하려는 사람들을 건져낸 뒤 강간하고 학대하는 인물. 소외되고 그로테스크한 반영웅이라는 그의 인장이 여기서 찍혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "379143f96e12247652ed519ad9ea4a721708806b92fe593d8d347f05e6d507f8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-ki-duk#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "출세작 〈섬〉이 2000년 베네치아 영화제에서 처음 상영되던 날, 낚싯바늘로 성기를 훼손하는 장면을 보다 관객 두 명이 극장에서 실신했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "15767185aa6363a06519482fdfd960b2789447bfeca332dcd0c5c55a3494a41f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-ki-duk#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "동물권 활동가들은 오랫동안 그를 표적으로 삼았다. 〈섬〉을 찍으며 산 개구리의 껍질을 벗기고 물고기를 카메라 앞에서 고문하는 등, 연출이 아닌 실제 학대를 썼다고 그가 인정했기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "01a5070c2cf377781a8c7d3ee3847290ef50286f21bdee30b364570b3731e28a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-ki-duk#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "유럽 영화제에서 누린 인기와 달리 한국 주류 영화계는 그를 몹시 못마땅해했다. 다듬어지지 않은 스타일과 극단적인 소재가 나라 망신이라는 시선이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ef0fdc43a1fb577d839896946677265ef53566cd41cf6fd5d9d4cf93d2be2464"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-ki-duk#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "칸, 베네치아, 베를린. 유럽 3대 영화제 모두에서 주요 상을 받은 한국 감독은 지금도 그가 유일하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd548f5972ebe4f45ef49f5d09214e674b31cb745f2c1d1ace62e541ad2857a3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-ki-duk#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2008년 〈비몽〉의 자살 장면을 찍던 중 주연 배우 이나영이 실제로 목이 매여 죽을 뻔했다. 김기덕이 직접 줄을 끊어 내렸다. 그 사고는 감독에게 심각한 정신적 붕괴를 불러왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "99983efe63ed93b2e20f2d535cb22c7da56d52b622e19fa280f917d971517f5e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-ki-duk#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "3년간의 은둔기에 그는 자기 심문의 기록 〈아리랑〉(2011)을 찍었다. 카메라를 자신에게 돌려놓고 울고, 고철로 에스프레소 기계를 만들고, 취해서 거울 속 자신에게 욕설을 퍼부었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3639b4598f8d69af70e02163ec967b96c5f08e304b19354464e7cccbaa1bf176"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-ki-duk#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "극영화로 돌아온 〈피에타〉(2012)는 베네치아 황금사자상을 받았다. 이른바 '3대' 영화제 최고상을 거머쥔 최초의 한국 감독이 되는 순간이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb01950405d65b6b2fe1a68178a0b4efe20bec9a0c343f3ce0e3c61e8de8c931"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-ki-duk#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2017년 그의 경력은 무너져 내렸다. 한 익명의 배우가 〈뫼비우스〉 촬영 중 폭행을 당했고 대본에 없는 폭력적인 정사 장면을 강요받았다고 폭로한 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "489d231c31dd876422261415c91e883672e672e0d532f1e07d101ba40f213b86"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-ki-duk#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "첫 폭로 이후 탐사 프로그램 〈PD수첩〉이 여러 편에 걸쳐 증언을 내보냈다. 김기덕과 그의 단골 배우 조재현이 성폭행과 강간을 거듭했다고 고발한 여성이 여럿이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ba901f4ebd9996c1abed7773f4019913cde7e5ec1e0f56f938d402191bcd0c0e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-ki-duk#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "서울의 법원은 〈뫼비우스〉 촬영장에서 배우를 폭행한 혐의로 그에게 벌금 500만 원(약 4,600달러)을 선고했다. 성폭력 혐의는 물증이 없다는 이유로 불기소됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "855077f5dd188daa53f5a1ed171c2317a350b65992818bfda28e34be88ea30ea"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-ki-duk#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 끝내 사과하지 않았다. 대신 고발자들과 MBC를 상대로 명예훼손과 무고 소송을 공격적으로 걸었고, 전부 패소했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ed8e85ba7481bdb8bce8a7d8058f7d2a56220bbe1070ac5ff5e5970121c5bb1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-ki-duk#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미투 파문 이후 사실상 블랙리스트에 올라 한국 영화계에서 추방된 그는 구소련 지역으로 거처를 옮겼다. 마지막 영화들은 카자흐스탄과 키르기스스탄에서 찍혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1eb26f222db5fbad166964f011e876185cbb25226276ad4f3c1fa303020f3fd0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-ki-duk#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2020년 말 김기덕은 라트비아 리가로 향했다. 해안 휴양도시 유르말라에 집을 사고 이 발트 국가의 영주권을 신청할 작정이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b000fb0a967e012ce5e7fb8f119354ea9d6b95c493dff6817a8bce14a191e373"
+ }
+]

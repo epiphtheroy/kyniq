@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-charge-of-boring-as-the-critic-s-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "'지루하다'는 판정에 담긴 비평가의 자백",
+  "model": "claude-opus-5",
+  "source_sha256": "812a457b200e166d11defa6c9a4f4955ec7fb14ae630507790527a1762533edf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-charge-of-derivativeness-as-critical-failure",
+  "field": "title",
+  "lang": "ko",
+  "text": "아류라는 딱지가 드러내는 비평의 실패",
+  "model": "claude-opus-5",
+  "source_sha256": "bff1e8f009be9051d6342c39366a54dd6d030662acc55f6b2981c4a52671394d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-charge-of-emptiness-as-critical-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "텅 비었다는 힐난, 곧 비평의 고백",
+  "model": "claude-opus-5",
+  "source_sha256": "c196720f5dc094624e218349d5bbc9fea19b9126a5722da04359274bf7d42cd3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-charge-that-indicts-its-accuser",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 고발자를 되겨누는 혐의",
+  "model": "claude-opus-5",
+  "source_sha256": "2d9b92a2d8c32260efaf50c46e6de5a3988914a0a812f1eb772b95562071656e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-charming-predator-who-disarms-before-he-kills",
+  "field": "title",
+  "lang": "ko",
+  "text": "먼저 매혹하고 그다음 죽이는 포식자",
+  "model": "claude-opus-5",
+  "source_sha256": "144ed3e7e3f06c4a0117e9a7e312f4f9d2c203cbae7e560a25a945ba619a40b1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cheap-camera-that-made-the-film-possible",
+  "field": "title",
+  "lang": "ko",
+  "text": "이 영화를 가능하게 한 싸구려 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "83a15844b3332161237f1f1c929b56c9c5e81dc067375c60669fca980c1c471a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cheap-room-reborn-as-cosmos",
+  "field": "title",
+  "lang": "ko",
+  "text": "우주가 된 싸구려 방",
+  "model": "claude-opus-5",
+  "source_sha256": "40928966d72ed7b65bdcbc5e4b0ff9e164cfaa844af580aefa843eb574261b7f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-chef-estranged-from-his-own-gift",
+  "field": "title",
+  "lang": "ko",
+  "text": "자기 재능과 멀어진 요리사",
+  "model": "claude-opus-5",
+  "source_sha256": "73fc0a105d5211dba89bfe61a8b7434be882b8cc04a46ec6868626faa2761de0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-chemist-who-measured-the-human-limit",
+  "field": "title",
+  "lang": "ko",
+  "text": "인간의 한계를 계량한 화학자",
+  "model": "claude-opus-5",
+  "source_sha256": "7bf610b8f31adac0a38b3cbca96670ffdea226abcb2f7b02735c4b41c49e2a69"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-chicago-that-was-filmed-elsewhere",
+  "field": "title",
+  "lang": "ko",
+  "text": "딴 데서 찍은 시카고",
+  "model": "claude-opus-5",
+  "source_sha256": "9350625e93f289161a2e18104e53a7eb006b92ce9d0c9d4ecb6dd5ff98dfc7da"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-as-disavowed-conscience",
+  "field": "title",
+  "lang": "ko",
+  "text": "부인된 양심으로 남은 아이",
+  "model": "claude-opus-5",
+  "source_sha256": "89b6d1f46fc76170d034e98619a4b907f1b8574a6fad7bdb173dca24908d94b9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-as-hidden-observer-anthropologist",
+  "field": "title",
+  "lang": "ko",
+  "text": "숨은 관찰자이자 인류학자인 아이",
+  "model": "claude-opus-5",
+  "source_sha256": "fbdf9b8356ded74b98e23ed8a2bbb3c3159b49036d5d1405d26afcb8cd9d0ea5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-as-reborn-camera-eye",
+  "field": "title",
+  "lang": "ko",
+  "text": "아이로 다시 태어난 카메라의 눈",
+  "model": "claude-opus-5",
+  "source_sha256": "3fb45cd639ff237042cf97749ebce30c64b2a9935bf9aa3472d3b9887bd04fdf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-conscripted-by-the-spectacle-machine",
+  "field": "title",
+  "lang": "ko",
+  "text": "스펙터클 기계에 징발된 아이",
+  "model": "claude-opus-5",
+  "source_sha256": "3cd419044375f25bffbb478a29f0e21a355b4b74c60bc1d2eb8a2d7cae9aaf28"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-forced-to-carry-the-world",
+  "field": "title",
+  "lang": "ko",
+  "text": "세상을 떠메야 하는 아이",
+  "model": "claude-opus-5",
+  "source_sha256": "bcbd32c48d09657377905d368cdc92cfbd1e2bade11ad39ba34d0b029b666c9d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-s-imagination-as-director",
+  "field": "title",
+  "lang": "ko",
+  "text": "감독 자리에 앉은 아이의 상상력",
+  "model": "claude-opus-5",
+  "source_sha256": "8c351a93871d792c73bf7ba96b56f0439dc7985b4793a4d0e5571911e5c14d5c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-s-word-as-weapon",
+  "field": "title",
+  "lang": "ko",
+  "text": "무기가 된 아이의 말",
+  "model": "claude-opus-5",
+  "source_sha256": "5721ecc9db559c6538d5761d08bf921941a2a373726eb28462aac1a92fce6232"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-sees-what-adults-cannot",
+  "field": "title",
+  "lang": "ko",
+  "text": "어른은 못 보는 것을 보는 아이",
+  "model": "claude-opus-5",
+  "source_sha256": "7e64850ddc28737cefb612b9954b9d2b53acdb50ec25deb38edcdcd7d8427c4b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-treated-as-mere-means",
+  "field": "title",
+  "lang": "ko",
+  "text": "수단으로만 쓰이는 아이",
+  "model": "claude-opus-5",
+  "source_sha256": "6d7b2b105080324d3c1c50ef5267f3987f533a4d2a4f3dca3a7263e0eac3583a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-voices-what-adults-repress",
+  "field": "title",
+  "lang": "ko",
+  "text": "어른이 눌러둔 말을 내뱉는 아이",
+  "model": "claude-opus-5",
+  "source_sha256": "914949b6ac3625820ab69ccc9c420670bbd4c5d637a75ce35dd8cbed76ad2d8e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-who-aestheticizes-the-ruins",
+  "field": "title",
+  "lang": "ko",
+  "text": "폐허를 미학으로 바꾸는 아이",
+  "model": "claude-opus-5",
+  "source_sha256": "ebb630d99953085d6fa98b49ad6bef78ea2c577dc55fbb68206872a2bcf2fabc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-who-carries-the-ethics-adults-abandon",
+  "field": "title",
+  "lang": "ko",
+  "text": "어른이 버린 윤리를 대신 지는 아이",
+  "model": "claude-opus-5",
+  "source_sha256": "6b2fb49a3659d139f53c13170a17794bbbf68e527299122252678355075e4537"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-who-forces-the-maxim-open",
+  "field": "title",
+  "lang": "ko",
+  "text": "격률(maxim)을 비집어 여는 아이",
+  "model": "claude-opus-5",
+  "source_sha256": "55ff19837d292885bed0a996e0100228bfa26d90d547f14162dec0e8f1ee6a57"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-who-keeps-the-doomed-household",
+  "field": "title",
+  "lang": "ko",
+  "text": "무너질 집을 지키는 아이",
+  "model": "claude-opus-5",
+  "source_sha256": "739a183eae05a9e258312c253d21f627abe15886285089fb10ddc27f8ca15ffd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-who-watches-instead-of-acting",
+  "field": "title",
+  "lang": "ko",
+  "text": "나서지 않고 바라보는 아이",
+  "model": "claude-opus-5",
+  "source_sha256": "82dc2ff828b2962e24fe76dd13204a4d6bfeff8faa93714c6b4500cf98606f90"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-whose-real-life-bleeds-into-fiction",
+  "field": "title",
+  "lang": "ko",
+  "text": "실제 삶이 허구로 스며드는 아이",
+  "model": "claude-opus-5",
+  "source_sha256": "57a275360c74a1a86293ad5a4c4b0cf6ab2b98e2c242d6fb3b79fbf32ce674b0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-child-whose-refusal-decodes-the-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화를 해독하는 아이의 거부",
+  "model": "claude-opus-5",
+  "source_sha256": "cbf279644bd87a1c20619541b51cff90289bf1d51271b79d70b4040b833e3133"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-children-are-the-only-adults",
+  "field": "title",
+  "lang": "ko",
+  "text": "아이들만이 어른이다",
+  "model": "claude-opus-5",
+  "source_sha256": "f53f0271563a2835ccffe7a2bd503e885f1edc0dc13216c1829a21889e73d706"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-children-s-film-that-wounds-on-purpose",
+  "field": "title",
+  "lang": "ko",
+  "text": "일부러 아프게 하는 어린이 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "9ccf56a4c28e88259ec21628d4945fd4123100d480c9453e0ee6c3af087d08be"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-chinese-city-as-buried-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "묻어둔 상처가 된 중국 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "636bd18b6942868fa7e15ee5258513902910819daafc0392bbd6128e23f7ea94"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-choice-against-bad-faith",
+  "field": "title",
+  "lang": "ko",
+  "text": "자기기만(mauvaise foi)에 맞선 선택",
+  "model": "claude-opus-5",
+  "source_sha256": "4f11ff21e7aaa35e74d5e1ef588ab968fe727914c632de31b0738d892c84b12e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-choice-that-refused-to-collapse",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 무너지지 않은 선택",
+  "model": "claude-opus-5",
+  "source_sha256": "3adc3f2bef6a0aac1c25beccff82883ec064510fcc6f7b733b6930589ff54148"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-choreographer-s-eye-as-moral-camera",
+  "field": "title",
+  "lang": "ko",
+  "text": "안무가의 눈, 곧 도덕의 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "7d8e4e35113c134f243aa84a94776c3f8c21ff8a950aaef980210dee72b54e0f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-chronophotographic-gun-that-dissects-the-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸을 해부하는 크로노포토그래피 총",
+  "model": "claude-opus-5",
+  "source_sha256": "e26ebed0e3693776d21309a9c1b6f6f0be4a4da7cd97cacb9aa302605897371b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cigarette-as-disavowed-desire-made-oral",
+  "field": "title",
+  "lang": "ko",
+  "text": "입으로 옮겨온 부인된 욕망, 담배",
+  "model": "claude-opus-5",
+  "source_sha256": "f37a7036f7a4122bb7b55a5cc10f2c8a2b1faa702a5338a2c9f10a0ac576fcf5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cigarette-as-forbidden-sovereignty-of-the-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "담배, 몸에 대한 금지된 주권",
+  "model": "claude-opus-5",
+  "source_sha256": "5022518838bf7219c60d64a4c7ef4be1383f3be8c217b7bb26bbe3c54b8de646"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cinema-built-on-absence-and-the-gap",
+  "field": "title",
+  "lang": "ko",
+  "text": "부재와 틈으로 지은 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "335ad0f1fa22b10049c2a0b4e1c23454cbc2feb5fb73af7b82d7acea7b7313df"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cinematic-image-as-revenant",
+  "field": "title",
+  "lang": "ko",
+  "text": "망령으로 되돌아오는 영화 이미지",
+  "model": "claude-opus-5",
+  "source_sha256": "0b4bbec017132e3052122ad845a5a6dba95128a9886facc7214403370d22aebe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cinephile-s-anxiety-behind-the-crown",
+  "field": "title",
+  "lang": "ko",
+  "text": "왕관 뒤에 숨은 시네필의 불안",
+  "model": "claude-opus-5",
+  "source_sha256": "1b4f4c44faf2bcf9a9498e69d28639da61f32890ebc91207f05d5de19a7dfa27"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-circle-that-forbids-escape",
+  "field": "title",
+  "lang": "ko",
+  "text": "빠져나갈 수 없는 원",
+  "model": "claude-opus-5",
+  "source_sha256": "55c06ff189d5683f66cd6877f432cdbc073c54a39a4a02a0517bfcd6a5b0c7f6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-citizen-reduced-to-a-file",
+  "field": "title",
+  "lang": "ko",
+  "text": "서류 한 장으로 줄어든 시민",
+  "model": "claude-opus-5",
+  "source_sha256": "e24bae76282e1bf111b26733b40352af8ec71a725fb8c4916fa50b0442bac0e8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-citizen-s-casually-privatized-arsenal",
+  "field": "title",
+  "lang": "ko",
+  "text": "시민이 아무렇지 않게 사유화한 무기고",
+  "model": "claude-opus-5",
+  "source_sha256": "37531a89f3ed96943bc22d3e39e36fdec755063f81a194b597791a0c8283ac26"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-as-a-body-in-mourning",
+  "field": "title",
+  "lang": "ko",
+  "text": "애도하는 몸이 된 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "747a10ada2b08f7aeb1fc21636ca96a0b2bce8687035aca6eae89b6a642d0065"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-as-capital-s-reflecting-surface",
+  "field": "title",
+  "lang": "ko",
+  "text": "자본이 자기를 비춰 보는 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "88f729c6ba77a68f217acf6891335f2e3fe762773d59c65b7865ed7e6647d18d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-as-confected-wound-of-longing",
+  "field": "title",
+  "lang": "ko",
+  "text": "꾸며낸 그리움의 상처가 된 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "ed2cd9b7a9426026ae212fcaa212dd1034fcf91f5ecc1ed7b70dbe2018eb673b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-as-industrial-corpse",
+  "field": "title",
+  "lang": "ko",
+  "text": "산업의 주검이 된 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "b83f755d0c998615a9d45907d155991fecd6f79f08e2f80c6f5cd49d496ffce2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-assembled-from-elsewhere",
+  "field": "title",
+  "lang": "ko",
+  "text": "딴 곳들을 짜맞춘 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "ed46442ecd32fa356b80e217fa9a73aa298813c9447d1c06d54bbaeb8db8fec1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-built-as-a-theological-stage-set",
+  "field": "title",
+  "lang": "ko",
+  "text": "신학의 무대로 세운 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "d6c75c040d3fd7d58dddf4693950fb18cc9c9c6f5dcbac9959563fc6a077f3ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-built-as-emotional-stage",
+  "field": "title",
+  "lang": "ko",
+  "text": "감정을 상연하려 지은 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "82ac5fd4b662251f51cd4fb3ababb283b7ec1abbdd1bfa03e09a03502ba0e64c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-built-elsewhere-to-be-nowhere",
+  "field": "title",
+  "lang": "ko",
+  "text": "어디도 아니기 위해 딴 곳에 지은 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "efe649aa2c0847f1939a8b7797b9027cbd6388f0a043e0bb1e947519f0f21499"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-cast-as-another-city",
+  "field": "title",
+  "lang": "ko",
+  "text": "다른 도시 역에 캐스팅된 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "b005e854a3e19f6fd5b81da3602e63fd1592ebf249ce37f1bbb2c3d80339e8eb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-conjured-on-a-hollywood-stage",
+  "field": "title",
+  "lang": "ko",
+  "text": "할리우드 무대에서 불러낸 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "12ace62dcb9a330279dd8be7080a464df2611a32388b1dea07e91704f08b7e75"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-filmed-as-anyplace",
+  "field": "title",
+  "lang": "ko",
+  "text": "아무 곳으로나 찍힌 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "ba6701a2ae929809a2ada5da7905ee5ce0fde00b0cf11fa011a15b9443cebc26"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-filmed-as-its-disavowed-double",
+  "field": "title",
+  "lang": "ko",
+  "text": "부인해온 분신으로 찍힌 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "b4d2596b46874e22866069d98338d39b0164bd92dc0ded7cdebb0d38c7847e93"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-filmed-as-its-own-antagonist",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 적수로 찍힌 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "3b683f9fc3eaf14c8f97cb3560b77b1d06c04a38cb82b8d1446510116fd1fb81"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-filmed-before-its-demolition",
+  "field": "title",
+  "lang": "ko",
+  "text": "철거를 앞두고 찍힌 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "7c6238d30057e119508614badfc6ebe56380a46ea12fb5ad5c97617fdfa67718"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-filmed-in-a-stand-in-city",
+  "field": "title",
+  "lang": "ko",
+  "text": "대역 도시에서 찍은 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "688f376cb14800939a50026c10fb0d87942237b4e2a75ca3263a7a68b4e6967c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-filmed-in-disguise",
+  "field": "title",
+  "lang": "ko",
+  "text": "변장한 채 찍힌 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "6748f5efe21da7fffdf85d6cd0d5deff5ba72d06c8a9b66f086b86093cd80803"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-filmed-in-disguise-2",
+  "field": "title",
+  "lang": "ko",
+  "text": "분장을 하고 찍힌 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "6748f5efe21da7fffdf85d6cd0d5deff5ba72d06c8a9b66f086b86093cd80803"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-filmed-in-rome-s-disguise",
+  "field": "title",
+  "lang": "ko",
+  "text": "로마로 분장한 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "25bdc6527c5b51ed38c61e8e35d3ce5d46d6898f742c015928fecc972a90cb0f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-is-its-own-spin-machine",
+  "field": "title",
+  "lang": "ko",
+  "text": "도시가 곧 여론 조작 기계",
+  "model": "claude-opus-5",
+  "source_sha256": "43bba4bbdabc6ddc46cfa62cb42a67184d733bee83874f6da774b80e9465166a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-named-as-devouring-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "먹어치우는 몸으로 불리는 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "0278afc7ac88a3ee48d13a7306ad559b927ff90ca8e4d96f4f755f67691664f9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-named-for-its-sin-not-its-map",
+  "field": "title",
+  "lang": "ko",
+  "text": "지도가 아니라 죄로 불리는 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "eb1dff7888067b6d26da48b8eb058f959439cf60b7a2ff7d9f0148094d96a155"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-read-on-the-handover-s-eve",
+  "field": "title",
+  "lang": "ko",
+  "text": "반환 전야에 읽는 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "48985c111dd2c00357041d862eef1416c12c0027c428c1a85f463e7ffc76e31f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-rebuilt-on-a-soundstage",
+  "field": "title",
+  "lang": "ko",
+  "text": "사운드스테이지에 다시 세운 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "f2894d99e792c9a8c53be85ff8e0b70ffbc511b1901229b470818715319e1a9d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-rendered-as-vertical-geometry",
+  "field": "title",
+  "lang": "ko",
+  "text": "수직의 기하학으로 옮긴 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "fd00b2fc20f14a03e35f6fb5bf9942c29022f3bc0893173c587932fe4c515e51"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-reverts-to-wilderness",
+  "field": "title",
+  "lang": "ko",
+  "text": "다시 야생으로 돌아가는 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "fab9a5fd8642d93d7d4ee7da1b995f2e7f807d5371dba62576eaccf491ca40dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-s-color-drained-to-mark-its-vanishing",
+  "field": "title",
+  "lang": "ko",
+  "text": "사라짐을 새기려 색을 뺀 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "9aa07e06b9d121f7dcd7d4193602f49228836fb6c095735293b4a5a7b5138cf4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-still-healing-from-the-wave",
+  "field": "title",
+  "lang": "ko",
+  "text": "아직 파도의 상처가 아물지 않은 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "248cd939010fa9cc2e7c92716d8e21575d6d3af86dfa803a8413c50b72e2dfee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-studio-built-never-outdoors",
+  "field": "title",
+  "lang": "ko",
+  "text": "야외 한 번 없이 세트로만 지은 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "0242dff9fb9b51e097e419e53da2ef64ad1d0596a4ac4b018b137acb546eff05"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-that-cannot-play-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "자기 자신을 연기할 수 없는 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "d44f7331c4645f8b8b9623cd810db9020cd713cd89a6a880d0413d90610b58cc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-that-counts-souls-as-numbers",
+  "field": "title",
+  "lang": "ko",
+  "text": "사람 목숨을 숫자로 세는 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "b06419137e9ac3fd99a476074b64f8d465a5b5d88ab6dd01adb4b0b83afc9109"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-that-damns-its-own",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 식구를 저주하는 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "58014cbb63a0f20e39138376700151c02c3e7bb01a112105c579bbb416a1fbc2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-that-doubled-for-another-city",
+  "field": "title",
+  "lang": "ko",
+  "text": "다른 도시의 대역을 맡은 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "4e422e5bb5621f58a10941ed01eb574389833d802dc2a119d09b9e945e73cde4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-that-filmed-its-own-death",
+  "field": "title",
+  "lang": "ko",
+  "text": "자기 죽음을 찍어둔 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "cdafe2324f701c3874f4b9fa10df95b8f533f7dd972af33bdb20f26d4786209f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-that-names-and-indicts",
+  "field": "title",
+  "lang": "ko",
+  "text": "이름 부르며 고발하는 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "0965e2bb4d459ee695b0a7a5cdd92c38a7dda4496ef87f5b5084024cedc59205"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-that-never-lets-you-arrive",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 도착을 허락하지 않는 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "126bdc91d808f771571561c11c55e19d4707cf308fd5893f24ee1f5e227e2b2b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-that-plays-another-city",
+  "field": "title",
+  "lang": "ko",
+  "text": "다른 도시를 연기하는 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "1f0d047b7d639bd02d1129117f9e6e615e9aaa07f30209341a893472095ebec2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-that-refuses-its-own-map",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 지도를 거부하는 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "3e107d23974a4f9395418df5710729b3d978472303911af7e177e7ec04316b4e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-that-refuses-to-be-a-postcard",
+  "field": "title",
+  "lang": "ko",
+  "text": "엽서가 되기를 거부하는 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "fde3bfa167fe8ce398d9e4ea2ea92cca0a51ba454fde25ff59e886253497d7e5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-that-refuses-to-stage-its-past",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 과거를 무대에 올리지 않는 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "5c2eeee59b88d5b267a86278e55cb7cc9d37e4379844974c6b963f9fcc8da3d0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-that-sells-the-right-to-belong",
+  "field": "title",
+  "lang": "ko",
+  "text": "소속될 권리를 파는 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "0cebdaa9e8b6e4552aa73e2d60b995d649b4cecac5e24ec71a399d797ab4c8dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-worn-as-a-person",
+  "field": "title",
+  "lang": "ko",
+  "text": "사람처럼 걸쳐 입은 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "2cbc3595d33de0454b4411569bc777eba693b8b389f99d6b54e87e4f17adc811"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-city-worn-as-disguise",
+  "field": "title",
+  "lang": "ko",
+  "text": "위장처럼 둘러쓴 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "29ec75008c4045a398c989a644e824223f43365174d9e21ecdfa9e8bf9019955"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-civic-festival-hiding-a-sacrifice",
+  "field": "title",
+  "lang": "ko",
+  "text": "제물을 감춘 시민 축제",
+  "model": "claude-opus-5",
+  "source_sha256": "fc0ebfcca190aa8c8e0b40a6524a62c75b4abf6b968343ebe87ec12831ed6e6a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-civil-war-films-cannot-name",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화가 끝내 이름 부르지 못한 내전",
+  "model": "claude-opus-5",
+  "source_sha256": "6d2816ccf7c3eee8b1c0366c1826ffdfe8d499ea74e2f4d20aaf4adb8b97764c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-civilization-built-atop-a-buried-corpse",
+  "field": "title",
+  "lang": "ko",
+  "text": "묻힌 주검 위에 올라선 문명",
+  "model": "claude-opus-5",
+  "source_sha256": "a1d07e0b58f5ad774664fab4454091734c70b9499088675a745103fdf967a3fb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-clergy-who-indict-their-own-faith",
+  "field": "title",
+  "lang": "ko",
+  "text": "자기 신앙을 고발하는 성직자",
+  "model": "claude-opus-5",
+  "source_sha256": "a5bc379eee0700b86052ec2386674d3ef57ca7fa04994044bc474d4370c7d19f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-clerk-who-dreamed-past-the-ledger",
+  "field": "title",
+  "lang": "ko",
+  "text": "장부 너머를 꿈꾼 사무원",
+  "model": "claude-opus-5",
+  "source_sha256": "f1e034583453748a172915689bbb84545de9d8253032051dbd49d5e149264102"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-clerk-who-keeps-the-quiet-ledger",
+  "field": "title",
+  "lang": "ko",
+  "text": "말없이 장부를 지키는 서기",
+  "model": "claude-opus-5",
+  "source_sha256": "d75645d8ab26ac34a1f53e3a0c058ce1f2379a060ef308e2d2630758e76b647f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-clock-as-author-and-sovereign",
+  "field": "title",
+  "lang": "ko",
+  "text": "저자이며 주권자인 시계",
+  "model": "claude-opus-5",
+  "source_sha256": "3f798ac897b68cbfb42e1ef986e405623f3b328d09dd85252ba427a5b1b6f0e4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-clock-whose-hands-were-removed",
+  "field": "title",
+  "lang": "ko",
+  "text": "바늘을 떼어낸 시계",
+  "model": "claude-opus-5",
+  "source_sha256": "6e7ac78cbf4f4fbe14cf8a16d9928d5e5b4adf4681e4bf13b957b25ed4be7c04"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cloister-that-burns-with-forbidden-desire",
+  "field": "title",
+  "lang": "ko",
+  "text": "금지된 욕망으로 타오르는 수도원",
+  "model": "claude-opus-5",
+  "source_sha256": "0216721d77e7ac147e436034d5526b3bd9d50a0c08badc98a1f734614eddb430"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-close-up-as-moral-instrument",
+  "field": "title",
+  "lang": "ko",
+  "text": "도덕의 도구로 쓰인 클로즈업",
+  "model": "claude-opus-5",
+  "source_sha256": "fdf819ea604b0b8fee238694b9e24ff89abf001cc7f4f44fceda36ace350a2a0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-closed-circuit-with-no-exit",
+  "field": "title",
+  "lang": "ko",
+  "text": "출구 없는 닫힌 회로",
+  "model": "claude-opus-5",
+  "source_sha256": "5a590410726446773d06749933e0505f14f11c416206ccb1956daa7f4b84e9e4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-closed-institution-as-coming-atrocity",
+  "field": "title",
+  "lang": "ko",
+  "text": "다가올 잔학 그 자체인 폐쇄 시설",
+  "model": "claude-opus-5",
+  "source_sha256": "56274d4111a814fb9a82b57e4c01fc5672e09eee10bbf2bf0d246ad617ece980"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-closed-loop-with-no-engineered-exit",
+  "field": "title",
+  "lang": "ko",
+  "text": "출구를 설계해두지 않은 폐쇄 루프",
+  "model": "claude-opus-5",
+  "source_sha256": "0f7b581d7fa204c5538152f5ecc5caa9373a149110e3162b77000977287cf4aa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-closed-universe-that-cannot-prove-the-outside",
+  "field": "title",
+  "lang": "ko",
+  "text": "바깥을 증명하지 못하는 닫힌 우주",
+  "model": "claude-opus-5",
+  "source_sha256": "d3fe24b5328cd2094d74c958fba24c8fbcb0321713f901771487299a84468bd8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-closet-as-apparatus-of-passing",
+  "field": "title",
+  "lang": "ko",
+  "text": "패싱(passing)의 장치가 된 벽장",
+  "model": "claude-opus-5",
+  "source_sha256": "1f2dd56b55c0547744a7362b541664fc0db56d4d604bc8fe4ead1b2a36a379fd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-closet-as-architecture-of-unspeakable-desire",
+  "field": "title",
+  "lang": "ko",
+  "text": "말할 수 없는 욕망의 건축, 벽장",
+  "model": "claude-opus-5",
+  "source_sha256": "a61b91e18a427306825b800a4a4175ab2ddd81395915b8adccd15c55c252edcb"
+ }
+]

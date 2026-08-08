@@ -211,7 +211,7 @@
   "entity_key": "elite-squad-2007",
   "field": "rationale",
   "lang": "ko",
-  "text": "황금곰상과 Abraccine: 100 melhores filmes brasileiros에 오른 작품, 널리 알려진 · 국가 정전: BR. 출발점으로 좋다. 정전에 들면서도 다가가기 쉽다.",
+  "text": "황금곰상과 Abraccine: 100 melhores filmes brasileiros가 인정한 작품이고, 널리 알려져 있다 · 국가 정전: BR. 출발점으로 좋다. 정전에 들면서도 다가가기 쉽다.",
   "model": "claude-opus-5",
   "source_sha256": "478ede2ab8c7018671dc1c64151666b88758229299225836b5b0f528ab92d59e"
  },
@@ -1390,7 +1390,7 @@
   "entity_key": "fast-times-at-ridgemont-high-1982",
   "field": "rationale",
   "lang": "ko",
-  "text": "BBC: 100 Greatest Films Directed by Women과 National Film Registry에 이름을 올린, 널리 알려진 작품 · 국가 정전: US · 작가 Amy Heckerling의 계보를 통해 다시 값이 매겨진. 출발점으로 좋다. 정전에 들면서도 다가가기 쉽다.",
+  "text": "BBC: 100 Greatest Films Directed by Women과 National Film Registry에 이름을 올린, 널리 알려진 작품 · 국가 정전: US · 에이미 헤컬링 감독의 작가 계보를 통해 다시 평가된다. 출발점으로 좋다. 정전에 들면서도 다가가기 쉽다.",
   "model": "claude-opus-5",
   "source_sha256": "1ff2b9bbb8cc6cc825c60fd82d8cd160442af0507df3a49d6e7d519077879cf3"
  },
@@ -1930,7 +1930,7 @@
   "entity_key": "five-easy-pieces-1970",
   "field": "rationale",
   "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 New York Film Critics Circle Best Film에 올랐고, 어느 정도 알려진 · 국가 정전: US. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "text": "정전의 핵심에 놓인 작품으로, TSPDT 1,000 Greatest Films와 뉴욕비평가협회 작품상에 올랐고, 어느 정도 알려져 있다 · 국가 정전: US. 스스로를 시네필이라 부른다면 반드시 볼 것.",
   "model": "claude-opus-5",
   "source_sha256": "831889c9029047fb44ef2d70002689bc6d4b11dd4b6925d2fd4284d6508c9d0f"
  },
@@ -3892,7 +3892,7 @@
   "entity_key": "good-morning-1959",
   "field": "rationale",
   "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 Kinema Junpo All-Time Best Japanese Films에 올랐고, 어느 정도 알려진 · 국가 정전: JP · 사조: Japanese Golden Age · 감독 오즈 야스지로의 작가 계보로 다시 매겨진 값. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "text": "정전의 핵심에 놓인 작품으로, TSPDT 1,000 Greatest Films와 키네마준포 역대 일본영화 베스트에 올랐고, 어느 정도 알려져 있다 · 국가 정전: JP · 사조: Japanese Golden Age · 감독 오즈 야스지로의 작가 계보로 다시 매겨진 값. 스스로를 시네필이라 부른다면 반드시 볼 것.",
   "model": "claude-opus-5",
   "source_sha256": "8a6b8bc7c860d36d9ba9a6a51cb731b1a93d573a6881e06e84a2c23c2af80870"
  },
@@ -3937,7 +3937,7 @@
   "entity_key": "good-will-hunting-1997",
   "field": "rationale",
   "lang": "ko",
-  "text": "Best Original Screenplay와 National Board of Review Top Ten Films가 예우한 영화, 일반 관객에게 대단히 유명한 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "text": "각본상과 전미비평가위원회 올해의 10대 영화가 예우한 작품이고, 대중에게 대단히 유명하다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
   "model": "claude-opus-5",
   "source_sha256": "8479e8fa4b7a958fd479a357b802230778cf2c138b94e710d7ceb235566913b3"
  },

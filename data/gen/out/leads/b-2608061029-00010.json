@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-jester-1987",
+  "field": "lead",
+  "film_id": "d9266324-b5ed-4064-b875-cea25e707f0c",
+  "lang": "en",
+  "text": "A director sells guns to finance his play, and the film keeps both enterprises on the same ledger. Portugal, four years past the revolution and the loss of the empire in Africa, with everything still provisional: what a theater company can afford, what a country is now for, who is owed. José Álvaro Morais takes two hours over it. That length matters, because the film is less about the deal than about the weather around it, a rehearsal room where people who lived through an enormous change are trying to make something before the moment they are describing finishes passing. A Golden Leopard sits in the record. The stakes are not whether the play opens; they are what a person will underwrite when the old arrangements have collapsed and the new ones have not set.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b8535915c5bf92bea42719432d73245b77933f6ffd3ee63c5497c8c9199e909"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-longing-2002",
+  "field": "lead",
+  "film_id": "10b73dc3-81b0-463c-8782-c6a69941be61",
+  "lang": "en",
+  "text": "Nursing, the organ, the marriage bed: Lena's week is fully accounted for, and none of it belongs to her. Johannes leads the village's spiritual life and she serves it, faithfully, in a house in the Schwabian-Frankish Forest where the days are identical by design. Iain Dilthey spends ninety-four minutes establishing that design before he disturbs it. A girl in the village is killed. What the death does is loosen the household's grip on its own hours, and into that opening comes Paul, the mechanic, offering the ordinary tenderness Lena has done without. The record holds a Golden Leopard. The film is not really conducting an investigation; it is watching what a woman schooled by years of marriage in obedience does when something arrives that she wants to keep.",
+  "model": "claude-opus-5",
+  "source_sha256": "48e907ca47369f57fc6bdff9d2ec5b8093ee2c127a05a4d643771321b5c50ce6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "toxic-2024",
+  "field": "lead",
+  "film_id": "baf7e8d1-ea5d-4e9b-8a52-bdf166551412",
+  "lang": "en",
+  "text": "The only exit anyone here can name is a modeling school, and the tuition is paid out of the body. Saulė Bliuvaitė sets ninety-nine minutes in a bleak Lithuanian town where two teenagers meet inside that promise and form an attachment neither of them has words for. Escalation is the engine: each demand made of the girls slightly exceeds the last, and each is accepted, because refusing means staying where they started. What the premise puts at risk is not the dream of leaving, which was never going to survive anyway, but the friendship, the one thing here not being traded for a future. Lithuania, 2024. The film's attention stays on two girls who can see precisely what is being done to them and go on anyway, together.",
+  "model": "claude-opus-5",
+  "source_sha256": "6385c979bfdf9458eabb7335c4acfa0f4be4da6841b935e3fda6ab6596ddc9f7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-farm-of-seven-sins-1949",
+  "field": "lead",
+  "film_id": "2c47d318-f1c0-44e5-8fbe-b2295cff273f",
+  "lang": "en",
+  "text": "In 1825 a pamphleteer who had spent years attacking the French monarchy was found dead on the farm he had retired to. Paul-Louis Courier made his enemies in print, and the police now have to decide whether the killing finished an argument or was merely a crime. Jean Devaivre builds ninety minutes almost entirely out of the asking. Everyone who knew Courier is brought in, those who loved him and those who could not stand him, so that the dead man is assembled piece by piece from witnesses with private reasons to shade him. A witness is not a camera, and Devaivre knows it. France, 1949: a picture that prefers rooms and voices to pursuit, and takes its tension from the gap between a portrait and a verdict, which are not the same object.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ccdb34f67a20080c417b2e68f60136035f41bbae569e9af82d5d47d4b800e3d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "to-love-the-damned-1980",
+  "field": "lead",
+  "film_id": "5648e8ad-fc7a-4554-9a9d-1f5ebe25678b",
+  "lang": "en",
+  "text": "Five years in hiding, and the comrades Riccardo comes home to have taken jobs, or taken drugs, or quietly stopped believing. South America was where he waited it out; the country he returns to is not the one the fighting was for, and something looser and more alarming has arrived in its place. Marco Tullio Giordana made this in Italy in 1980, eighty-four minutes, close enough to the events that consolation was not really available. Its subject is the distance between a conviction and the movement that carried it, and what a man does when only the first survives. Loyalty curdles into embarrassment quickly, once the people who shared it would rather look elsewhere. This is the year after the belief, not the year of it.",
+  "model": "claude-opus-5",
+  "source_sha256": "48fe0c1ff46cd301c71e71b32956e471eb3da4f286f29157f98de575342290e2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "antonio-gramsci-the-days-of-prison-1977",
+  "field": "lead",
+  "film_id": "ab7bf9cd-02b5-4265-aa03-457fa8a01d01",
+  "lang": "en",
+  "text": "Twenty years, handed down by a fascist tribunal, and the film stays inside them. Lino Del Fra's two hours and seven minutes are bounded by what a man can still do while confined: remember, argue with himself, put a political career and a private life into an order that accounts for both. Italy, 1977. The structure carries an obvious hazard, since a prisoner reviewing his own past can go slack very quickly, and the whole difficulty here is keeping thought dramatic when the body has nowhere to go. The private half is the harder one. A Golden Leopard is in the record. What is at stake is not escape but whether a mind under sentence can still be said to be working, and whether the working counts when no one outside is permitted to read it.",
+  "model": "claude-opus-5",
+  "source_sha256": "e9c605a0ca1c461c920b74d52cd62343eb9d6a4cc0c19fd78f7cdd19fbf3bfe0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "accidental-waltz-1990",
+  "field": "lead",
+  "film_id": "338d2873-3b4b-4822-8bd7-cbace01b3343",
+  "lang": "en",
+  "text": "Tatyana Prokofievna carries herself like a diva, and nothing in her days gives her the occasion. So she takes in young men, offering a room and then a share in whatever trouble they arrived with, and the arrangement is legible to everyone but, possibly, her. Svetlana Proskurina directed it in 1990, in the Soviet Union, ninety-six minutes. One fact sits under every scene of hospitality: the former boyfriend has married a younger woman. Because she is the hostess, the loneliness has to stay off the table; it is the guest not permitted to arrive. What the film attends to is the labor of that, the way being needed can be arranged to resemble being wanted, and what it costs to keep the difference from showing.",
+  "model": "claude-opus-5",
+  "source_sha256": "66280956b36c93eb9910deeab92a096ad69da9545e23bf24307c8bd000e41ea3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-winner-1962",
+  "field": "lead",
+  "film_id": "77732c20-7337-4dc1-82ae-5c8f23a93873",
+  "lang": "en",
+  "text": "The film is a fiction shot like a documentary, so its young boxer is appraised twice over: once by Paris, once by the camera. He has come from Africa to make a career of fighting, which means submitting to an apparatus that decides, on evidence he does not control, whether he continues. François Reichenbach gives it a hundred and five minutes, in France, in 1962, and the observational method suits the material, since so much of a fighter's life is waiting and waiting is the first thing fiction usually cuts. The record holds a Golden Leopard and the Louis Delluc Prize. What stands to be lost is not a title. It is the right to go on being seen as a prospect rather than as a man who once tried and stopped.",
+  "model": "claude-opus-5",
+  "source_sha256": "c0bf8974697d42ce6000e818c02f40c8d66cb6451b4a283737858ba3b41b8491"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-big-night-1976",
+  "field": "lead",
+  "film_id": "0d094fc1-4b88-4d77-bd0f-2e3ec767fda0",
+  "lang": "en",
+  "text": "Léon falls in with a small Leninist group by accident; the police, who are confused about nothing, begin watching him along with the rest. Lausanne, 1976, ninety-eight minutes in French. Léa is the serious one, a dedicated activist and the group leader's mistress, two facts the cell holds side by side without examining. Francis Reusser's interest is in the asymmetry between the man who wandered in and the woman who chose, both now equally visible to a surveillance that does not grade for sincerity. The film won a Golden Leopard. Being watched does its own work: suspicion turns inward, the smallest inconsistency acquires weight, and a group can be brought apart without anyone outside it lifting a hand.",
+  "model": "claude-opus-5",
+  "source_sha256": "efc53b4556680aaad0164d9a28061b92577f281eb1b52060f4366b86e1e59684"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-place-on-the-tricorne-1993",
+  "field": "lead",
+  "film_id": "a17050b6-dca9-408c-ae16-345f35cf1cd0",
+  "lang": "en",
+  "text": "The kids who end up at the police station are the same ones who were reading poetry to each other an hour before. Yermek Shinarbayev gives them eighty-two minutes and Kazakhstan in 1993: a drift from lane to lane and apartment to apartment, fights, music that matters enormously, love meant sincerely and with nowhere in particular to put it. The poetry is not decoration here; it is the evidence of what these kids are equipped for. The question underneath is practical rather than philosophical, what to do with oneself, today, with a fine ear and no place that wants it. Not much is at risk by the standards of plot: a few years, a few friendships, the difference between having taste and having somewhere to spend it. That turns out to fill eighty-two minutes and then some.",
+  "model": "claude-opus-5",
+  "source_sha256": "8eb04ba71d5fd8f253cd721d2f3172b49845a86c11d87aef1906e831781a62e9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-visionaries-1968",
+  "field": "lead",
+  "film_id": "9dee8855-689b-4417-8899-61eedace2c6c",
+  "lang": "en",
+  "text": "An actress leaves the theater director for the actor, and the production they are all inside does not pause for it. Within days she is unsure about the man she chose, and the doubt starts moving back and forth between the stage and the corridor until it is hard to say which one is rehearsing the other. Maurizio Ponzi took his starting point from the writings of Robert Musil and his mechanism from the oldest arrangement in drama: three people, two of whom are always wrong. Ninety-five minutes, made in 1968. The interest is not really in who ends up with whom. It is in what a performer learns about a feeling by being required to play it, and how little that knowledge helps when the feeling is her own.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b361314e3a9c99b57e8e69874a66728dd74816b03bb1f35fd6aca983541182a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-son-of-amir-is-dead-1975",
+  "field": "lead",
+  "film_id": "f4d7d2b9-59a4-4a7e-893c-10fe6412b8df",
+  "lang": "en",
+  "text": "Every Sunday two pickpockets meet in an abandoned bus to divide the week's takings. One is Pierre, out of work in Brussels and keeping that from the woman he lives with; the other is a young Tunisian whose life outside the bus Pierre has never thought to ask about. The bus is the whole of their common ground, a standing weekly appointment with a partner who is also a stranger. Then Pierre finds him dead in their hiding place, and the not-asking becomes the fact he has to live with. Jean-Jacques Andrien tells it in seventy-nine minutes, in French, 1975. A Golden Leopard is listed among its honors. The trip to Tunisia that follows cannot produce restitution and does not pretend to; Pierre travels on a dead man's papers, which is either mourning or one last theft.",
+  "model": "claude-opus-5",
+  "source_sha256": "2eba74f38a1e711854e7a1f3689df58d2ca428a13a9f9b95d463558870b56448"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "noble-houses-of-lake-constance-1986",
+  "field": "lead",
+  "film_id": "5485ad62-b156-4265-855d-661ef499be82",
+  "lang": "en",
+  "text": "Four countries share the shoreline of one lake, and a surprising number of the houses along it are still occupied by the families who built them. Fifty-seven minutes, made in Austria in 1986, moving through the palaces, castles and fortresses of Austria, Germany, Switzerland and the Principality of Liechtenstein, where descendants of the Habsburgs, of knightly families, and of the last emperor of France are still in residence around the water they call the Swabian Sea. The subject is not the architecture, or not only. It is inheritance as a daily arrangement: what is involved in receiving a fortress and a name together, then answering questions about both. The histories are turbulent enough. The living tenants are the stranger material.",
+  "model": "claude-opus-5",
+  "source_sha256": "9cb73ddf4adc4c04a1136b84fa943df387edf770c2bd3b3f140ea085f8f64ace"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lion-2017",
+  "field": "lead",
+  "film_id": "de7ddc52-4339-4c48-bf11-026c179ca0fc",
+  "lang": "en",
+  "text": "A five-year-old is lost in Calcutta, thousands of kilometers from a home he is too small to describe to anyone. Twenty-five years on, raised by a couple in Australia, he begins looking for it. Garth Davis has to make one film out of two halves that share almost nothing: a child alone in a city with no reason to notice him, and an adult in a comfortable house doing work that is sedentary, clerical and almost entirely interior. The second is the harder assignment by some distance. AACTA gave it Best Film and three acting prizes, and Australian critics placed it among their twenty-five best of the century in 2018. Under the search sits a subtraction nobody chose: two mothers, one son, and no arrangement in which everyone keeps what they have.",
+  "model": "claude-opus-5",
+  "source_sha256": "394b0ff39f2d40f6939fa7f155fd9e37b94a8a68d03d463b9935221a82399456"
+ }
+]

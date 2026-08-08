@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stand-in-exposes-the-vacancy",
+  "field": "title",
+  "lang": "ko",
+  "text": "대역이 드러내는 빈자리",
+  "model": "claude-opus-5",
+  "source_sha256": "68de180a29ab983c6072c1e5c9ce9970f7aa4d7fc26bd895b2095568ffb57dda"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stand-in-soil-that-reenacts-the-war",
+  "field": "title",
+  "lang": "ko",
+  "text": "전쟁을 다시 치르는 대역의 땅",
+  "model": "claude-opus-5",
+  "source_sha256": "eb5068847d1cb3afd10d4ac8cc773ca0ca71a873bd46820e47d1dfc6cb149b1e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stand-in-village-for-an-unfilmable-region",
+  "field": "title",
+  "lang": "ko",
+  "text": "찍을 수 없는 땅을 대신하는 마을",
+  "model": "claude-opus-5",
+  "source_sha256": "eaf30c4e409aed8341b4377f3b75b1904aaabb728a7f4bdc100dab301c0f0788"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-star-cast-as-his-own-obsolescence",
+  "field": "title",
+  "lang": "ko",
+  "text": "한물간 자기 자신을 연기하는 스타",
+  "model": "claude-opus-5",
+  "source_sha256": "0b6aa7cbde1e7906a88c6ecb507a3c61ef99f8ac179c5e13d67f4a460c57a2db"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-star-consumed-by-her-own-audience",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 관객에게 먹히는 스타",
+  "model": "claude-opus-5",
+  "source_sha256": "961941341711a2e862b6762f63e3b8c5f886d44d7706b3d1201fd5076ad65171"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-star-mistaking-worship-for-love",
+  "field": "title",
+  "lang": "ko",
+  "text": "숭배를 사랑으로 착각한 스타",
+  "model": "claude-opus-5",
+  "source_sha256": "ff3dfc5f5ddf010e1bbc660c0a194bf6b4406d5df7ca2960bf239e8110ad1575"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-star-persona-turned-against-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "스스로를 겨누는 스타 페르소나",
+  "model": "claude-opus-5",
+  "source_sha256": "c3e4b801e5d0c771c8b8f7c5e5c84494bacf36e939a64c86e25d37ab92ae36fd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stare-into-the-lens-that-indicts-us",
+  "field": "title",
+  "lang": "ko",
+  "text": "렌즈를 똑바로 보며 우리를 고발하는 눈",
+  "model": "claude-opus-5",
+  "source_sha256": "844a028847714a4d2fde8572a6e81e8375089a7c71442fdd5a3daaf882b341a1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stare-of-the-already-dead",
+  "field": "title",
+  "lang": "ko",
+  "text": "이미 죽은 자의 눈길",
+  "model": "claude-opus-5",
+  "source_sha256": "17d91d3eef46691a270b3dc2d11c773f10ad50507248016144f292330c781a01"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-starving-wanderer-drifting-toward-ruin",
+  "field": "title",
+  "lang": "ko",
+  "text": "굶주린 채 파멸로 흘러가는 방랑자",
+  "model": "claude-opus-5",
+  "source_sha256": "8f3a9641227443dd45c570bd27211cc138f60f82f1b3253e1b4a597d86e7d348"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-and-underworld-share-one-file",
+  "field": "title",
+  "lang": "ko",
+  "text": "한 서류를 함께 쓰는 국가와 조직",
+  "model": "claude-opus-5",
+  "source_sha256": "42f2ce124c4b7f64bbdf96e4b0461219de19e36f81d591c28d54d50eeb9d6e98"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-as-secret-author-of-the-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "자아를 몰래 써 내려간 국가",
+  "model": "claude-opus-5",
+  "source_sha256": "8e2a471c89a055da29349c6c90c6a42d344287ea6373337d6abeb281ef8f4c6a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-cedes-judgment-to-another-sovereign",
+  "field": "title",
+  "lang": "ko",
+  "text": "심판권을 다른 주권에 넘긴 국가",
+  "model": "claude-opus-5",
+  "source_sha256": "273eb6a04b0e2829a6db8da46fd2aba43d0b0335a259665dddc89d8a5922229e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-conscripting-the-womb",
+  "field": "title",
+  "lang": "ko",
+  "text": "자궁을 징집하는 국가",
+  "model": "claude-opus-5",
+  "source_sha256": "d7aae62e1058843a7f1b4781d92954881ed10a8aed621c318d63b7d8f1a24f4f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-fails-so-citizens-take-up-arms",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가가 손을 놓자 시민이 총을 든다",
+  "model": "claude-opus-5",
+  "source_sha256": "1f54324502d6c052fc191d719a9f473d835f3c07c0f5348c2ea7e6c1ee4f59cc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-founded-on-a-sacrificial-corpse",
+  "field": "title",
+  "lang": "ko",
+  "text": "제물이 된 시신 위에 선 국가",
+  "model": "claude-opus-5",
+  "source_sha256": "9c637bd8804e0c3aa6fc4acc503d691c3f4916decadf1ad967601f7544901596"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-manufactured-into-being",
+  "field": "title",
+  "lang": "ko",
+  "text": "공장에서 만들어져 나온 국가",
+  "model": "claude-opus-5",
+  "source_sha256": "4e0070969d3ad1e8a616a31d0e61de6655ff22d062b1b0ddab48f349847a1abd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-must-manufacture-the-guilt-it-punishes",
+  "field": "title",
+  "lang": "ko",
+  "text": "처벌할 죄부터 만들어내는 국가",
+  "model": "claude-opus-5",
+  "source_sha256": "bb776d189b9713ed78214f34bf51fded3ba89da41d5bd2b60a870d1f8a5af78f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-of-nature-without-a-sovereign",
+  "field": "title",
+  "lang": "ko",
+  "text": "주권자가 없는 자연 상태",
+  "model": "claude-opus-5",
+  "source_sha256": "ac9a95fa30430fba7b4c8447b01e9d3711d0d95627db6362efccd208dee72f37"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-outsourced-to-one-beautiful-man",
+  "field": "title",
+  "lang": "ko",
+  "text": "아름다운 사내 하나에게 외주 준 국가",
+  "model": "claude-opus-5",
+  "source_sha256": "3261a8bb7beaf81c98b9739e5214ffc89e9fb654a629c8b8f5b3e04eed2d1b57"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-outsources-its-sovereign-violence",
+  "field": "title",
+  "lang": "ko",
+  "text": "주권의 폭력을 하청 주는 국가",
+  "model": "claude-opus-5",
+  "source_sha256": "cb2223a3947947cc9258bc6c888c1be0f9231eae0b838b9cd5c04cf87881c7fe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-s-disowned-debt-to-its-soldiers",
+  "field": "title",
+  "lang": "ko",
+  "text": "병사에게 진 빚을 모른 척하는 국가",
+  "model": "claude-opus-5",
+  "source_sha256": "efdbbc5b5ee9aec0bdb74a7d8fb52959ac1f8a514240ae3adf74915b26726930"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-s-errand-run-by-one-citizen",
+  "field": "title",
+  "lang": "ko",
+  "text": "시민 한 사람이 대신 뛰는 국가의 심부름",
+  "model": "claude-opus-5",
+  "source_sha256": "d8901d5028dcc1f041232422a1947cd352a2b1cf861f37650863d4277fc5a829"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-s-monopoly-on-violence-refused",
+  "field": "title",
+  "lang": "ko",
+  "text": "거절당한 국가의 폭력 독점",
+  "model": "claude-opus-5",
+  "source_sha256": "e077302fa9ac8786000937a8686dfe7dd0682e09d39f77ceda951ef532dd5a61"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-s-power-to-disappear-a-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "사람 하나를 지워버리는 국가의 힘",
+  "model": "claude-opus-5",
+  "source_sha256": "1eac750be25241b4289a86dadeeebc0c4b4e52dbde14d0831dfe342fc477a6bd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-sacrifices-the-soldier-s-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "병사의 몸을 제물로 내놓는 국가",
+  "model": "claude-opus-5",
+  "source_sha256": "3773dcb7786b458d1bed81b411a1989ac662ff817899620369c7dadba96d0925"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-spends-the-bodies-it-rules",
+  "field": "title",
+  "lang": "ko",
+  "text": "다스리는 육신을 써서 없애는 국가",
+  "model": "claude-opus-5",
+  "source_sha256": "11189ae8769be2add2da30f8ccb908c7174edcddc10d0ececaedca50dc4d4eac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-stages-a-killing-to-launder-its-power",
+  "field": "title",
+  "lang": "ko",
+  "text": "권력 세탁을 위해 연출된 살인",
+  "model": "claude-opus-5",
+  "source_sha256": "09ca98610fed7b2444a7e80439fd97bd6758ea26a1a337198bfa957e5fbf5409"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-surrenders-its-monopoly-on-violence",
+  "field": "title",
+  "lang": "ko",
+  "text": "폭력의 독점을 내려놓는 국가",
+  "model": "claude-opus-5",
+  "source_sha256": "d29aa4eaa35a2baf682ef650d73347b2d76db6193b2838928021344a954056cd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-that-abandons-its-children",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 아이를 버린 국가",
+  "model": "claude-opus-5",
+  "source_sha256": "0df81f3f3f3472c6a7050cbffead1f71de740bbc6c3e1329ccce42908e87e025"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-that-cannot-abide-its-artists",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 예술가를 견디지 못하는 국가",
+  "model": "claude-opus-5",
+  "source_sha256": "0ad8944c8ebcc7178776079c5823ac0e58f04698523c94823adb6a92f7dea98b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-that-colonized-the-womb",
+  "field": "title",
+  "lang": "ko",
+  "text": "자궁을 식민지로 삼은 국가",
+  "model": "claude-opus-5",
+  "source_sha256": "90553d4217e6629534d97ed449bda4ce1d1acca4b9c0da27298e49701468dae1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-that-disowns-its-own-agents",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 요원을 없는 사람 취급하는 국가",
+  "model": "claude-opus-5",
+  "source_sha256": "3f6716af322d07a2cd20e825ec007f687aadb9adf2adfecf8be4a1386d77cf91"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-that-manufactures-its-own-criminals",
+  "field": "title",
+  "lang": "ko",
+  "text": "범죄자를 직접 찍어내는 국가",
+  "model": "claude-opus-5",
+  "source_sha256": "6c2571f2ec81a6e69fc4dfa208189a9f63dd313ddbae306086e4cbd22354595e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-that-manufactures-its-own-reality",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 손으로 현실을 짓는 국가",
+  "model": "claude-opus-5",
+  "source_sha256": "618075786320473c95244b58ac1d3b3ea5ceadc1358514b26a93f257db6decbb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-that-manufactures-its-own-witnesses",
+  "field": "title",
+  "lang": "ko",
+  "text": "목격자를 만들어 세우는 국가",
+  "model": "claude-opus-5",
+  "source_sha256": "4b60a59d6d9e57357ee5df235c7003178b7fc81ddbc632e0c76ac6f696ab977f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-that-outsourced-its-sovereign-functions",
+  "field": "title",
+  "lang": "ko",
+  "text": "주권의 기능을 바깥에 넘긴 국가",
+  "model": "claude-opus-5",
+  "source_sha256": "7b0fe14d7523264a2a379365673930be96ed1e0d7a403bc5da22e739004efcc6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-that-pursues-its-people-past-its-borders",
+  "field": "title",
+  "lang": "ko",
+  "text": "국경 밖까지 제 국민을 쫓는 국가",
+  "model": "claude-opus-5",
+  "source_sha256": "2962bf55ac76b40cc57498d6bca614727498626ad0baf40d22adb0783da90360"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-state-that-watches-yet-cannot-see",
+  "field": "title",
+  "lang": "ko",
+  "text": "지켜보면서도 끝내 못 보는 국가",
+  "model": "claude-opus-5",
+  "source_sha256": "29f20f3ef986763c8c343bd06fe7ccd864935b1da665e263773249c6d382f609"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stateless-body-as-political-cartography",
+  "field": "title",
+  "lang": "ko",
+  "text": "정치 지도가 된 무국적의 몸",
+  "model": "claude-opus-5",
+  "source_sha256": "3555b80b142fdf77e152f751e9e34a079e786f75622174cfc4e29fa8c33ce2d1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stateless-cinema-funding-its-own-sovereignty",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 주권을 스스로 조달하는 무국적 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "46b256200c8b487df696ef6baee6c93515298368b790a00e44b00c4e3bcfbd7d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-steward-who-renounced-mastery",
+  "field": "title",
+  "lang": "ko",
+  "text": "지배를 스스로 내려놓은 관리인",
+  "model": "claude-opus-5",
+  "source_sha256": "5c2a9e11d8e9e53df4e421302a9a91f3b14fd1fd2a88d3df2975831123991c12"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-still-life-that-names-the-dead",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽은 이의 이름을 부르는 정물",
+  "model": "claude-opus-5",
+  "source_sha256": "cb37c7d4b31767c7d3e3441cf70b64ff37880e22175f97cf04526cd5d14068aa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stilled-face-holds-a-suppressed-history",
+  "field": "title",
+  "lang": "ko",
+  "text": "굳은 얼굴에 잠긴 지워진 역사",
+  "model": "claude-opus-5",
+  "source_sha256": "3795051e5cb89b87f0f9a762470eb187fa613eeb809c25d50aac0fcf49bd6002"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stillness-that-earns-its-mourning",
+  "field": "title",
+  "lang": "ko",
+  "text": "애도의 값을 치른 고요",
+  "model": "claude-opus-5",
+  "source_sha256": "2e70a74b2677af2b87708c0afa9a1679b33ada0f3e068c0a7975212398af9f74"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stock-as-manufactured-truth-claim",
+  "field": "title",
+  "lang": "ko",
+  "text": "진실을 자처하도록 만들어진 필름",
+  "model": "claude-opus-5",
+  "source_sha256": "667def56da39588673b65229a44bcdb30143a2368dbcb08742fb263398549a83"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stolen-name-that-devours-its-wearer",
+  "field": "title",
+  "lang": "ko",
+  "text": "이름을 훔친 자를 삼키는 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "892271d30c70f7e2cb85d8f9cd3445361ff7e4574930deb121fe2dd1161f003b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stolen-object-hides-a-stolen-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "훔친 물건 속에 숨은 훔친 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "a174ff495bea2a5b8065ecf3232753b3032fe5e6d44a803e4f3d9c254ce59056"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stone-as-hermeneutic-key",
+  "field": "title",
+  "lang": "ko",
+  "text": "해석의 열쇠가 된 돌",
+  "model": "claude-opus-5",
+  "source_sha256": "f5b4f0009e5858f41b2fdf49ebc3a72fa66cc3a6b832bc78bc96b0f3dad4ab4d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stone-that-punishes-the-wish-to-possess",
+  "field": "title",
+  "lang": "ko",
+  "text": "가지려는 마음을 벌하는 돌",
+  "model": "claude-opus-5",
+  "source_sha256": "7c442b4deca4e4043253eb7654a64925d6461c9eb627f986dd9213bad669fdea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stopwatch-that-measures-the-body-away",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸을 재다가 지워버리는 스톱워치",
+  "model": "claude-opus-5",
+  "source_sha256": "0942ea210e715a8483792998560c033c7d7bbd1acdf09c7de96e9560ab0a225f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-storm-as-the-return-of-the-repressed",
+  "field": "title",
+  "lang": "ko",
+  "text": "억압된 것이 돌아오는 폭풍",
+  "model": "claude-opus-5",
+  "source_sha256": "923ccadbb92763010582221d8102f6347a129a157206c0364ff5c13fcf026aa1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-story-already-set-in-purgatory",
+  "field": "title",
+  "lang": "ko",
+  "text": "처음부터 연옥에서 시작하는 이야기",
+  "model": "claude-opus-5",
+  "source_sha256": "74a409713cb7788a0438d41e7414c9bf1386e8ace3736a394ebdb11c18c9ec2b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-story-that-survives-by-replicating",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 몸을 복제하며 살아남는 이야기",
+  "model": "claude-opus-5",
+  "source_sha256": "621ef9e0d154463dc043cdd3958d60b43e08e4b3798a243b6ace4d40e442e0df"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-story-withheld-as-the-moral-act",
+  "field": "title",
+  "lang": "ko",
+  "text": "쓰지 않는 것이 곧 윤리인 기사",
+  "model": "claude-opus-5",
+  "source_sha256": "8ce46d35f31e5c51015564c5d5d458e87b20f936bbf1dee85959dd9e048a054e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stranger-names-the-self-s-estrangement",
+  "field": "title",
+  "lang": "ko",
+  "text": "이방인이 불러주는 내 안의 낯섦",
+  "model": "claude-opus-5",
+  "source_sha256": "f3256424bb065d288f7a4b3d100cb3ddb35b1f921d340a4fc0b5b22895dec582"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stranger-s-sun-camus-s-indifferent-killer",
+  "field": "title",
+  "lang": "ko",
+  "text": "이방인의 태양, 카뮈의 무심한 살인자",
+  "model": "claude-opus-5",
+  "source_sha256": "3d8cad29dc44f5dcf850c5e2f3d3736d0ff3e09c575e211cf82f640cabaa7542"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stranger-welcomed-as-ethical-test",
+  "field": "title",
+  "lang": "ko",
+  "text": "환대라는 윤리의 시험대에 선 이방인",
+  "model": "claude-opus-5",
+  "source_sha256": "ee01e161435d888eadf993df8e2069f7f450d629174d1829184e5b096c584c3d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stranger-who-is-the-self-from-time",
+  "field": "title",
+  "lang": "ko",
+  "text": "다른 시간에서 온 나, 그 낯선 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "16cd92370b870df00b0df86602fbe2eddca33106d4eae0f94f3f03fcd2f91a6d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-striptease-that-indicts-its-watchers",
+  "field": "title",
+  "lang": "ko",
+  "text": "보는 자를 고발하는 스트립쇼",
+  "model": "claude-opus-5",
+  "source_sha256": "440b13104f367253694780da69ff4b338e788cb1984587a7dcffccfa6cbd24b4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stubbornness-that-refuses-the-universal-equivalent",
+  "field": "title",
+  "lang": "ko",
+  "text": "보편적 등가물을 끝내 거부하는 고집",
+  "model": "claude-opus-5",
+  "source_sha256": "2f419731c36eacd0ecf35765934cf8b06ac9479f77356ea07b14054610717cda"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-studio-as-a-stylistic-manifesto",
+  "field": "title",
+  "lang": "ko",
+  "text": "양식의 선언이 된 스튜디오",
+  "model": "claude-opus-5",
+  "source_sha256": "be72b282dbad645500de5cc75ce9280091b2b21f4d1b5a5447277ca842bf50cb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-studio-as-resurrected-lost-france",
+  "field": "title",
+  "lang": "ko",
+  "text": "잃어버린 프랑스를 되살린 스튜디오",
+  "model": "claude-opus-5",
+  "source_sha256": "7d578ff145eb3be1ce7dbd49876533f043b12671665d212f92df79437a40a368"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-studio-backlot-wearing-a-city-s-mask",
+  "field": "title",
+  "lang": "ko",
+  "text": "도��의 가면을 쓴 세트장",
+  "model": "claude-opus-5",
+  "source_sha256": "de2b1c3f3839f90311691c3fdeeb8b4d23fcf508131967f9c3db78d6246ca83e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-studio-in-ruins-forced-the-real-street",
+  "field": "title",
+  "lang": "ko",
+  "text": "폐허가 된 촬영소가 거리로 내몬 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "5af14c601e64f2331313fea1123a57d2e9ea8d43bf43f6e239fd9455a25e7bcc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-studio-lot-posing-as-a-vanished-tokyo",
+  "field": "title",
+  "lang": "ko",
+  "text": "사라진 도쿄를 대신 연기하는 촬영소",
+  "model": "claude-opus-5",
+  "source_sha256": "770b6e2b51123cc70b4d730c12dd5008308759695b63b0b38be409076fb242dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-studio-made-eden-that-confesses-its-artifice",
+  "field": "title",
+  "lang": "ko",
+  "text": "가짜임을 실토하는 스튜디오제 에덴",
+  "model": "claude-opus-5",
+  "source_sha256": "f35a680d3adda0cab7655bc9915762e07490ce3e86a03fa92981c7e4bc637720"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-studio-recut-that-enacts-the-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화를 그대로 되풀이한 스튜디오의 재편집",
+  "model": "claude-opus-5",
+  "source_sha256": "96603c82e794eff03b4cc206e3c886eb0964edda10d947212333c69d7d946438"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-studio-snowfall-as-standing-soul",
+  "field": "title",
+  "lang": "ko",
+  "text": "영혼처럼 서 있는 스튜디오의 눈발",
+  "model": "claude-opus-5",
+  "source_sha256": "685638315d98995ff1c26f05c6418dc96a8a1418a8f7ad759a70931585badc8d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-studio-tank-posing-as-ocean",
+  "field": "title",
+  "lang": "ko",
+  "text": "바다 행세를 하는 촬영소 수조",
+  "model": "claude-opus-5",
+  "source_sha256": "e48c63ee6eba36353f1123514a1c451bd1eb99374ed5d2407775bb581165950c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-studio-that-bit-its-owner",
+  "field": "title",
+  "lang": "ko",
+  "text": "주인을 물어뜯은 스튜디오",
+  "model": "claude-opus-5",
+  "source_sha256": "5fb0ee72635c501047db1d69c27106da273eb5c249dea9153f6127b691150fe3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-studio-that-outlives-its-empire",
+  "field": "title",
+  "lang": "ko",
+  "text": "제국보다 오래 남은 스튜디오",
+  "model": "claude-opus-5",
+  "source_sha256": "1cea1e8937acf077ffe992e94620e03fb9bec28c44bd993fb86fd143e3b73399"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-studio-that-refused-the-computer",
+  "field": "title",
+  "lang": "ko",
+  "text": "컴퓨터를 끝내 들이지 않은 스튜디오",
+  "model": "claude-opus-5",
+  "source_sha256": "85268e41bf33c8887e0aba898b7fb89279a3b52cd7d89c4270f98db6fe24669f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stuntman-s-revolt-against-the-cut",
+  "field": "title",
+  "lang": "ko",
+  "text": "컷에 맞서는 스턴트맨의 반란",
+  "model": "claude-opus-5",
+  "source_sha256": "9bee3b19f5519e643726227ae5ff6d50b1b0a44173c34720086a6fc08f19d624"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stutter-as-reproduction-s-broken-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "복제가 앓는 몸, 그 더듬거림",
+  "model": "claude-opus-5",
+  "source_sha256": "81e567b235460b63641cd871308a3e4b7412b0c07344f070f7709d3a4d31d16e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-style-born-from-portable-gear",
+  "field": "title",
+  "lang": "ko",
+  "text": "들고 다니는 장비가 낳은 스타일",
+  "model": "claude-opus-5",
+  "source_sha256": "3517eeb89b3dee6d441beae460c38973e9c74c9b41f482e649de6e1e24327b40"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-style-forced-by-its-industrial-moment",
+  "field": "title",
+  "lang": "ko",
+  "text": "그 시대 산업의 조건이 어쩔 수 없이 빚어낸 양식",
+  "model": "claude-opus-5",
+  "source_sha256": "4b339b8e1347625d5bcf03b8b21cde8e1042cd2e3fee60ddc8849e3b4f3210ce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-style-over-substance-charge-as-critic-s-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "'내용 없는 형식'이라는 혐의, 실은 비평가의 고백",
+  "model": "claude-opus-5",
+  "source_sha256": "fa23b707619b32b86d3db83957fe361b05688a0ec0d7818f6b23f7d24191c579"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-subculture-s-code-cashed-out",
+  "field": "title",
+  "lang": "ko",
+  "text": "돈으로 환산된 하위문화의 규율",
+  "model": "claude-opus-5",
+  "source_sha256": "9dfbc4371bbb2670a7a63f3ad3922797d137ef3d6a9641cd5aa3123d9cfa180b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sublime-aestheticizing-of-atrocity",
+  "field": "title",
+  "lang": "ko",
+  "text": "잔혹을 아름다움으로 바꾸는 숭고",
+  "model": "claude-opus-5",
+  "source_sha256": "ae206ea6bbc2a175a637f0c2d25518228460addfcb17ce872654b3b6039090ae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sublime-at-the-edge-of-cognition",
+  "field": "title",
+  "lang": "ko",
+  "text": "인식의 끝자락에 선 숭고(崇高)",
+  "model": "claude-opus-5",
+  "source_sha256": "7952386da7390c6b566ecfb54a5186fae74e7ca26bcd3af9e00f59cf489424ee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sublime-made-visible-then-tamed",
+  "field": "title",
+  "lang": "ko",
+  "text": "눈앞에 드러났다가 길들여진 숭고",
+  "model": "claude-opus-5",
+  "source_sha256": "6b101784e01c79b83565dc9ab6e40e146fae7d7685c98d817f9649a7059a3446"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sublime-plain-as-indifferent-witness-to-empire",
+  "field": "title",
+  "lang": "ko",
+  "text": "제국을 무심히 지켜본 숭고한 벌판",
+  "model": "claude-opus-5",
+  "source_sha256": "ffd7116e28bf6dd744ffda114dd492dbc437f58d783198f439720567aa649f12"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sublime-smuggled-into-the-banal",
+  "field": "title",
+  "lang": "ko",
+  "text": "시시한 일상에 몰래 들여온 숭고",
+  "model": "claude-opus-5",
+  "source_sha256": "4112955f3ce8ae575b3f9fa2f08d79491c1886f252c6424cd2eb305745d0bcc8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-suburb-as-circuit-of-containment",
+  "field": "title",
+  "lang": "ko",
+  "text": "가둬 두기 위한 회로, 교외",
+  "model": "claude-opus-5",
+  "source_sha256": "6bb6edf1069252cc14c424d7c82d48071d9ca126b579b039f84163eda2f89c28"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-suburb-as-engine-of-its-own-dark",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 어둠을 스스로 돌리는 교외",
+  "model": "claude-opus-5",
+  "source_sha256": "c53992f1e33227a08f5f51c7f042010ccc26452b5588451cca40c147bf5f10e8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-suburb-as-purgatorial-anti-place",
+  "field": "title",
+  "lang": "ko",
+  "text": "연옥 같은 비(非)장소, 교외",
+  "model": "claude-opus-5",
+  "source_sha256": "ee5cfb30ab1414964c70d22fa697c64ce82b841e3c81b16c977158e986293933"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-suburb-as-surveillance-theater",
+  "field": "title",
+  "lang": "ko",
+  "text": "감시가 상연되는 무대, 교외",
+  "model": "claude-opus-5",
+  "source_sha256": "b4416dabd1c884418eaf73d6989d74cdf04c62348a3fdf377a530c3df7ef0c72"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-suburb-standing-in-for-america",
+  "field": "title",
+  "lang": "ko",
+  "text": "미국 전체를 대신 서는 교외",
+  "model": "claude-opus-5",
+  "source_sha256": "e40349ff9f4df3fa0270ba862d93495407dbf3f264a7bcb8159caeb2313b38a7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-suicide-as-sacred-gift",
+  "field": "title",
+  "lang": "ko",
+  "text": "신성한 선물이 된 자살",
+  "model": "claude-opus-5",
+  "source_sha256": "5e291cff58931c1bd7f96d625d5644eafae4d035e0b3a2d8ff5ef31537dc1455"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-suicide-as-the-film-s-hidden-sun",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화를 비추는 숨은 태양, 자살",
+  "model": "claude-opus-5",
+  "source_sha256": "178e1081b8dbec58197040f8ebf8bb34d50ecb638b8bae30491ce0d2d243e09e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-suicide-as-the-last-sovereign-act",
+  "field": "title",
+  "lang": "ko",
+  "text": "마지막 남은 주권의 행사, 자살",
+  "model": "claude-opus-5",
+  "source_sha256": "b958700705f2f0c8b69fe441c51f6a485b33f6d7fdb376c473ea89f3c1b76d52"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-suicide-that-accuses-the-living",
+  "field": "title",
+  "lang": "ko",
+  "text": "산 자를 고발하는 죽음",
+  "model": "claude-opus-5",
+  "source_sha256": "fbc525cfeb234ba4dcdf48abdd0388df22d878d4b71305860aef60ebf72c5728"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-suitor-as-patriarchy-s-enforcement-arm",
+  "field": "title",
+  "lang": "ko",
+  "text": "가부장제의 집행자로 나선 구애자",
+  "model": "claude-opus-5",
+  "source_sha256": "9b600b16b065be9c22182593b123d312e0ae3943051abef86ebc597a4cf84471"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sun-s-name-that-blinds-and-erases",
+  "field": "title",
+  "lang": "ko",
+  "text": "눈을 멀게 하고 지워버리는 태양의 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "25118379e6e7d1d63d31d3b11d0ee5500826e3bec3d4e9940cd94b5b7af4ebb0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sunless-world-as-manufactured-prison",
+  "field": "title",
+  "lang": "ko",
+  "text": "해가 뜨지 않는 세계, 만들어진 감옥",
+  "model": "claude-opus-5",
+  "source_sha256": "196c5cb8756bc8e63e001379d888481249067ea00f02b047341157f121c8152f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sunlit-place-that-hides-its-dark",
+  "field": "title",
+  "lang": "ko",
+  "text": "햇빛 아래 어둠을 감춘 곳",
+  "model": "claude-opus-5",
+  "source_sha256": "c843407b5995116b24f154f417be8a2e4f215b72a6659edf494db6aebc6f931a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sunny-surface-hiding-cold-war-rot",
+  "field": "title",
+  "lang": "ko",
+  "text": "화창한 겉면 아래 썩어가는 냉전",
+  "model": "claude-opus-5",
+  "source_sha256": "1ceaa0787b1ce50beba613a2b9fd5adeaa108d6577927f090870a88138b5ae67"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-surface-hiding-its-anxious-double",
+  "field": "title",
+  "lang": "ko",
+  "text": "불안한 분신을 감춘 표면",
+  "model": "claude-opus-5",
+  "source_sha256": "206a5be24aa4cbf200e2a657492ec77f9c238266610ed64861cc16fee9eb0996"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-surgeon-s-hand-as-the-maker-s-curse",
+  "field": "title",
+  "lang": "ko",
+  "text": "창조자의 저주가 된 외과의의 손",
+  "model": "claude-opus-5",
+  "source_sha256": "04d3710e1ec446f9906579fc61b7f8248917911c1a61a5475bf45e306b962334"
+ }
+]

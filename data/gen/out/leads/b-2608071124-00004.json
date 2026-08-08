@@ -1,0 +1,132 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "here-is-your-life-1966",
+  "field": "lead",
+  "film_id": "8a54bcef-24ed-41e3-a96d-3a48b5bfa53f",
+  "lang": "en",
+  "text": "Nearly three hours, and most of them go to watching a boy learn how to work. Jan Troell follows a working-class adolescent through a run of hired jobs in rural Sweden in the 1910s, and the method is to let each one last: a season of labour, a girl, a leaving, another season. Sweden put the film forward as its Academy submission, after which it stayed small, a title known mostly to people who go looking. The interest lies in the ratio between a landscape and one person inside it. Nothing historic happens to this boy — the country is at peace, the century merely turning — so what forms him is wages, distance and the pace of a rural year. Coming of age usually means a single decisive event. Here it means a decade of them, none decisive alone.",
+  "model": "claude-opus-5",
+  "source_sha256": "21a230cc0e40594ce2ce60d7e46fd856b555204b0b3a8c8d5dd612edd229b86a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "girl-with-hyacinths-1950",
+  "field": "lead",
+  "film_id": "ce9f6f0a-6f1d-4d27-a7b9-41a17c9e05b2",
+  "lang": "en",
+  "text": "A young woman dies and leaves everything she owns to the neighbour — close enough to inherit, too distant to know why. Hasse Ekman borrows the shape of a detective story to ask the question detective stories skip: not who, but what a life looked like from inside it. Eighty-nine minutes, brief for a film carrying this much past. The inquiry can only move through other people, their versions and their omissions and their reasons for preferring one account to another, so the portrait assembles crookedly and the man assembling it drifts into the frame himself. Sweden, 1950. The machinery is mystery — withheld information, testimony, a search with a shape — and Ekman runs it over material that will not resolve the way evidence does. What he is filming is the gap between a life and the account of it.",
+  "model": "claude-opus-5",
+  "source_sha256": "f94d8b79281ad9d747350c9f00bdfee7d882c4f8902ca0e28b213bd31ead00cc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-girls-1968",
+  "field": "lead",
+  "film_id": "1af542e3-5253-486e-8306-e9ad2162efc7",
+  "lang": "en",
+  "text": "The play is Aristophanes; the halls are provincial, and much of the audience does not follow it. Mai Zetterling sends three actresses touring Sweden with Lysistrata in 1968 and lets the text they speak every night leak into their marriages, until it is unclear which lines belong to the play and which to an argument had in a car that afternoon. Comedy and drama are both accurate and neither holds for long: performance, domestic scene and outright fantasy are cut together with no signal that the register has changed. A hundred minutes. The mirroring runs both ways — the play explains the marriages, and the marriages begin editing the play. What gives it an edge is the incomprehension: a very old text about women, delivered in rooms where the joke lands wrong or not at all, then packed up and done again the next evening.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d651d3453fd289ba8b00e420eab74e51a19ebd2c5f60e05571dea11ecc38c67"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "belleville-baby-2013",
+  "field": "lead",
+  "film_id": "5e07ba07-3d74-424e-b8d6-b6121828d27e",
+  "lang": "en",
+  "text": "The call comes from someone who left her life years ago, and the film is what she does with the hour afterwards. Mia Engberg assembles seventy-five minutes out of remembering: a spring in Paris, riots in the streets, a vespa, a cat named Baby. Documentary is the label, though the thing being documented is mostly the unreliability of the record — a voice on a telephone line, and images that have to stand in for a past nobody thought to film while it was happening. The distance between what is heard and what is shown does the work that interviews do elsewhere. It was made in Sweden in 2013, about a French city and a relationship in the past tense, and it declines to pretend either can be retrieved intact. Some of what went missing is simply gone.",
+  "model": "claude-opus-5",
+  "source_sha256": "923958d6cb6928a0ff22de76a89b5eb80815946df7e2729ee13d9f5d28b9d577"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "shadows-of-forgotten-ancestors-1965",
+  "field": "lead",
+  "film_id": "7fa6d5dd-dc57-42d1-bc7b-38ba54cf9ece",
+  "lang": "en",
+  "text": "Ivan is drawn to the daughter of the man who killed his father, and the village has older business than that grievance. Sergei Parajanov set this among the Hutsul people of the nineteenth-century Carpathians and shot it in Ukrainian — made in the Soviet Union, not in Russian, which is the first thing the film insists on, and one reason Ukrainian canons have claimed it since. Ritual carries the picture: courtship, feud, work, mourning, each arriving at the pace the community keeps rather than the pace a plot would prefer. Ninety-six minutes, and almost nothing is explained to an outsider. Colour and costume function as information — who a person is, what is owed, which household they belong to. The mountains are not scenery. They set the calendar everyone lives by.",
+  "model": "claude-opus-5",
+  "source_sha256": "c2d903327b8e394e102303c1c4835fb1d22c136bd7b7f87a813aaae454e3e029"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "listen-to-britain-1942",
+  "field": "lead",
+  "film_id": "eeb34543-c74d-472b-a651-c897694acc8e",
+  "lang": "en",
+  "text": "Twenty minutes long, and nobody explains anything. Humphrey Jennings made it in 1942, while the war it describes was still being fought, and dispensed with the narrator that wartime documentary normally leans on. Sound does the joining instead: one place carries into the next by ear rather than by argument, and the cut is where the thinking happens. It took an Academy Award for documentary. The stranger thing is how little of the war it shows — work, food, rest, the ordinary maintenance of a country that happens to be under attack. Twenty minutes is barely long enough to state a case, which may be why Jennings never states one. He collects, arranges, and trusts the arrangement to be understood by people living inside the same conditions.",
+  "model": "claude-opus-5",
+  "source_sha256": "9786ecc8f20d00c95499f803f4c2c62f875f1f5b602788c55b36f2efbcf59930"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ivan-s-childhood-1962",
+  "field": "lead",
+  "film_id": "3c6d2211-0c5b-49f1-aa1c-df61495d4e1e",
+  "lang": "en",
+  "text": "A twelve-year-old is useful to an army for a reason nobody says out loud: he is small, and no one is looking for him. Ivan Bondarev scouts behind the German lines and comes back to a camp where three Soviet officers have taken to him. Andrei Tarkovsky gives the soldier a childhood and then lets both occupy the same ninety-five minutes without reconciling them: the hours between missions are domestic, almost idle, and a boy with a job in a war is still a boy with nothing to do until the next one. It took a Golden Lion. Made in 1962, seventeen years after the war it draws on, the film has memory to account for rather than a campaign. The camp is warm. The errands are lethal. Nobody inside treats that as a contradiction worth naming.",
+  "model": "claude-opus-5",
+  "source_sha256": "f383b7d4597b3bad41fad754627aca0f666db2942a4d09c330d7d8bd4300946c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-lord-of-the-rings-2001",
+  "field": "lead",
+  "film_id": "379257d3-7a55-4864-8973-cc9124de09f3",
+  "lang": "en",
+  "text": "An animated Middle-earth is a different problem from a filmed one: nothing needs to be built, and everything has to be drawn. Ralph Bakshi sends Frodo Baggins out with a ring that has to be destroyed and a company of nine to get him there, and much of the 132 minutes goes to the walking rather than the fighting. Animation buys scale for free and charges for it elsewhere — every face, every crowd, every mile of road is a decision made by hand, frame by frame. TIME later put the film on a list of a hundred. What survives is the sense of distance actually being covered: the arithmetic of how far it is to the next safe place, and the weight of a company that has to agree on a direction before it can move at all.",
+  "model": "claude-opus-5",
+  "source_sha256": "06e89b427ac4425450dd02ffcb9f0c6cabf9cc1e7d45e2ecb7bacc7c3cf01772"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "nayakan-1987",
+  "field": "lead",
+  "film_id": "ecdae90c-4547-4e62-8fbf-8e63b2932f89",
+  "lang": "en",
+  "text": "The first killing belongs to the state, and everything the boy does afterwards is an answer to it. Velu Naicker leaves for Mumbai with a dead policeman behind him and becomes the man a neighbourhood goes to when the law is the problem rather than the remedy. Mani Ratnam takes 156 minutes, which is room for the slow parts: favours, debts, the gradual agreement by which people hand one person authority over their street. The film is in Tamil and set in Mumbai, and the displacement does real work — an immigrant quarter assembling its own order because the official one treats its presence as trespass. India entered it for the Academy Awards. Crime pictures usually begin with appetite. This one begins with a grievance, and the difference shows in how the man behaves once he has money.",
+  "model": "claude-opus-5",
+  "source_sha256": "c4d0ccffa6f671613a5029b794e7537c36da030483ed4e44c30f09073c7c4f47"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-singing-detective-1986",
+  "field": "lead",
+  "film_id": "40a2cb7b-76ac-4e30-bd6c-78c19cca2fed",
+  "lang": "en",
+  "text": "A man in a hospital bed cannot move, so the picture moves for him. He is a mystery writer, laid out by a disease with no interest in his deadlines, and the detective fiction he once wrote comes back to him in pieces — suspects, songs, a case that will not stay in one shape. Four genre labels are attached to this film and no single one holds, because crime, music and comedy are all happening inside one skull in one ward. Keith Gordon's first problem is staging: how to build a picture with musical numbers around a body that stays still. The answer is to make the registers adjacent — ward and nightclub, treatment and interrogation, cut as though they shared a wall. 109 minutes, and the illness is never a metaphor. It is a schedule, a nurse, an hour to get through.",
+  "model": "claude-opus-5",
+  "source_sha256": "68d00456aa66b8445782676239f818a924d09deb35e8f121ca791475982f7aae"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "kandahar-2001",
+  "field": "lead",
+  "film_id": "7e85083a-16e0-4438-b5e0-ca818851854c",
+  "lang": "en",
+  "text": "A letter arrives in Canada, and answering it means entering a country that does not admit visitors easily. Mohsen Makhmalbaf follows an Afghanistan-born woman back across Afghanistan toward the sister who wrote to her, and the trip proceeds by negotiation: guides to be paid, strangers to be trusted, distances that can only be crossed in someone else's company. Much of it is spoken in English, the language she has been living in, which puts a wall between her and nearly everyone she meets. Eighty-five minutes, made in 2001 by an Iranian director working on the far side of his own border, and the conditions were not built for the camera — the roads and the waiting were there already. The sister functions as a deadline. What the film surveys is everything standing between one woman and a name on a map.",
+  "model": "claude-opus-5",
+  "source_sha256": "7dd01373dad7dd69a35fff2be3ae28ff9c405e6fc8ca36d380d7efd6bc45881b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "wagon-master-1950",
+  "field": "lead",
+  "film_id": "1bde8d23-54f1-4631-b46b-a039607f790b",
+  "lang": "en",
+  "text": "Two horse traders hire on to guide a Mormon wagon train to the San Juan Valley, and most of the job turns out to be terrain. John Ford gives 86 minutes to the mechanics of moving families and animals across country: where the water is, how a wagon gets down a ledge, who rides ahead and how far. Pressure arrives as company — the Clegg gang, who attach themselves to the train; the Navajo, under no obligation to be hospitable and hospitable anyway; the settlers, whose code has to survive contact with the road. It sits on TSPDT's list of a thousand films, and the reason is not a grand set piece. The column takes the frame for long stretches and the question is whether it keeps moving. The frontier is not an idea here. It is a distance, counted in days.",
+  "model": "claude-opus-5",
+  "source_sha256": "0fae3f5bba0ef58e9e36371331eae627cab1f1566eb5dd05fe72cf607498ef26"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-ten-commandments-of-creativity-1989",
+  "field": "lead",
+  "film_id": "ab66f993-b342-4c50-a222-f7fd5b3d2160",
+  "lang": "en",
+  "text": "An advertising man who cannot crack his brief goes up to the roof, and Sir Peter Ustinov turns up with a list of ten rules. Dennis Hopper plays the executive, the list becomes a structure, and Hermann Vaske then spends 131 minutes putting it to people who make things for a living. Tarantino, Jeff Koons, Sean Penn, Malcolm McClaren: a guest list assembled for friction rather than consensus, since none of them means the same thing by the word. The subject is the advertising industry and the film is partly built in its grammar — quick, quotable, pleased with itself — which makes the fiction frame around the interviews something more than a gag. Two hours and eleven minutes is a long time to sustain a joke about a man on a ledge. Vaske keeps going back to him anyway.",
+  "model": "claude-opus-5",
+  "source_sha256": "2e6cabb85f8bd7fa75ae1f19e8bdb7d5c686fa43e25764ac9080a6d084f5a379"
+ }
+]

@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryan-coogler#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2004년 3월 세인트메리스가 미식축구팀을 갑자기 해체했다. 쿠글러는 새크라멘토 주립대로 편입해 와이드리시버로 뛰면서 들을 수 있는 영화 수업은 전부 들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3660ff474cdd87222b5c01ca33e6a86c7ab432c7150d28380b845978a2d55519"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryan-coogler#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "USC 시절 기숙사 당구대에서 우연히 만난 스웨덴 교환학생이 루드비히 예란손이었다. 그 만남 이후 쿠글러가 연출한 장편은 한 편도 빠짐없이 예란손이 음악을 맡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b2e4359374ea366dbcfa79ad82c4c5067e33b0d237b6bd0322008f8cb3a57856"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryan-coogler#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2009년 USC 재학 중 만든 단편 《Locks》는 트라이베카 영화제에서 처음 공개됐다. 동생이 드레드록을 기르기로 한 일, 그리고 흑인의 헤어스타일에 따라붙는 사회적 편견이 그대로 출발점이 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ab490bdfc281e32555926367595f62b6b89d920d2794e3993ca91b540feb57ec"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryan-coogler#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편 데뷔작 《오스카 그랜트의 어떤 하루》는 개인적인 인연에서 나왔다. 2009년 새해 첫날 교통경찰의 총에 살해된 비무장 흑인 오스카 그랜트가 자신과 나이가 같고 이스트베이의 같은 동네 출신이라는 사실을 알게 된 것이다. 그 사실이 쿠글러를 놓아주지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ab6f95f1017b93c24e41268fbeafe5ae74e4b2c8ef2fb8081367c1174bc21453"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryan-coogler#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《오스카 그랜트의 어떤 하루》 촬영을 마치고도 그는 샌프란시스코 소년원 상담사 일을 그만두지 않았다. 사표를 낸 것은 2013년 선댄스 영화제 심사위원대상을 받고 대형 배급 계약까지 확정된 뒤였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d91f0ceb5f7665c9da79173242ea292e9bd70c0d4a341f2fcb1611b64927672c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryan-coogler#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《크리드》 기획을 실베스터 스탤론에게 처음 들고 간 것은 《오스카 그랜트의 어떤 하루》가 극장에 걸리기도 전이었다. 스탤론은 스물다섯 살 감독을 단칼에 거절했다. 《록키》는 이미 끝난 이야기라고 믿었으니까.",
+  "model": "claude-opus-5",
+  "source_sha256": "d49c87589c72cf49fe7004fdcedead9130634b30bed13cf505c73aa32be2c3dc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryan-coogler#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "끝내 스탤론을 설득해 낸 쿠글러는 단골 배우 마이클 B. 조던을 데려왔다. 조던이 주연 아니면 주요 적수로 선 네 편 연속 장편 가운데 두 번째였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "59225403225b2da55cbe89341f48fa40f05ee9d761ba83998e240bc56bcfd133"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryan-coogler#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마블의 거대 블록버스터 《블랙 팬서》에도 그는 믿고 쓰던 독립영화 스태프를 그대로 데려가겠다고 고집했다. 그렇게 발탁된 프로덕션 디자이너 해나 비츨러는 뒤에 흑인 최초로 아카데미 미술상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b85d4fe6a22a1d56b1aa790c2c1517bec9f07d45cced2b18ec16dcbec8bb7ea"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryan-coogler#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "가상의 나라 와칸다를 실제 아프리카 문화 위에 세우기 위해 쿠글러는 남아프리카공화국과 케냐, 레소토를 직접 답사했다. 와칸다의 자바리 부족이 사는 산악의 인상은 대부분 레소토의 눈 덮인 봉우리에서 왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cfbc9cd67711f6ae494e244baf515c32e4ad25e93dd4165c79ff48d89329e727"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryan-coogler#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "진짜여야 한다는 고집은 배우들에게까지 미쳤다. 그는 《블랙 팬서》 출연진에게 와칸다 억양을 코사어에 정확히 근거해 만들라고 요구했다. 남아프리카공화국에서 모어 화자들과 시간을 보낸 뒤 내린 결정이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2772df86aa244ec256c9864b7f3e7e0501108fc868758edcd872e088643e13af"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryan-coogler#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마블의 악당 에릭 킬몽거의 출생 이야기를 그는 오클랜드에서 시작하도록 다시 썼다. 자기가 자란 내력을 그대로 겹쳐 놓은 것이다. 10억 달러짜리 블록버스터의 감정적 정점에 자신의 이스트베이 뿌리가 박혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "52428a4f550060aaded75700397c9712cbfaed68cf7e2b8d17ad9c7deb24f4e9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryan-coogler#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2022년 1월, 기괴하고도 섬뜩한 일이 있었다. 쿠글러는 자기 명의의 뱅크오브아메리카 계좌에서 의료 보조인에게 줄 1만 2천 달러를 찾으려다 애틀랜타 경찰에게 수갑이 채워진 채 붙잡혔다. 조용히 처리해 달라고 손으로 적어 건넨 쪽지를 창구 직원이 잘못 읽고 무음 강도 경보를 눌렀기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0a728baad890072b43c3129f8026f6f2ac8b7050a1429d70f999925975a5e930"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryan-coogler#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아내 진지 에번스와 가까운 동료들과 함께 멀티미디어 회사 Proximity Media를 세웠다. 이 이름으로 《유다 그리고 블랙 메시아》, 오클랜드를 담은 다큐멘터리 《Homeroom》 같은 사회적 문제의식이 뚜렷한 작품들을 만들어 호평을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "685079b5f8481d68866d4195aaac8f4098aaf789bc643d264d2a5992e6edf6da"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryan-coogler#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "기다림이 컸던 2025년 뱀파이어 영화 《Sinners》는 전편을 IMAX 카메라로 찍었다. 짐 크로 시대의 남부를 배경으로 한, 철저히 비밀에 부쳐진 애착 프로젝트. 여기서도 마이클 B. 조던과 다시 만났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3a2135b858a9341ac53f22554a69d6dcd5c8fa2e60350fc548dc65f270a9df8f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryusuke-hamaguchi#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "상업 방송 프로그램 조감독으로 잠깐 일했지만 채워지는 것이 없었다. 그는 갓 만들어진 도쿄예술대학 대학원 영상연구과에 들어갔고, 그곳에서 호러의 거장 구로사와 기요시에게 직접 배웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ed167434fac499b6066f689f6e95baeb981037f798736c596272cfabd085f417"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryusuke-hamaguchi#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2011년 도호쿠 대지진과 쓰나미가 할퀴고 간 뒤, 하마구치는 피해 지역으로 거처를 옮겨 사카이 고와 함께 사람들의 이야기를 담은 다큐멘터리 연작을 찍었다. 이 경험이 그의 연출 관심을 영영 바꿔 놓았다. 듣는 일, 그것도 적극적으로 공감하며 듣는 일이 지닌 힘 쪽으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ae4ec47843a90a360214fe8faab3f61d482c2069dd9f3377c2517761589fdba"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryusuke-hamaguchi#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "다큐멘터리에서 만난 사람들과 프랑스의 거장 장 르누아르의 방법에서 힌트를 얻어 그는 독특한 리허설 방식을 만들었다. 배우들은 감정을 완전히 지운 채 대본을 수십 번 소리 내어 읽는다. 목소리에 억양을 싣는 것은 실제 촬영 전까지 금지된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "61e8bc41c4ac77be11738c4d65d91f04ba77bc84ebe3fab5c0995322b31ca914"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryusuke-hamaguchi#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그를 국제적으로 알린 다섯 시간 십칠 분짜리 대작 《해피 아워》는 고베의 디자인·크리에이티브센터 KIITO에서 연 즉흥 연기 워크숍에서 통째로 나왔다. 참가자는 연기 경험이 전혀 없는 그 지역 여성들이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ab6b8d0b15f373a6fbeb86b0e6f6ce73f70489a241ceec437bb6b7cfc1b04634"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryusuke-hamaguchi#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2023년 베네치아 은사자상을 받은 《악은 존재하지 않는다》는 애초에 극영화로 기획된 것이 아니었다. 출발은 작곡가 이시바시 에이코의 의뢰였다. 라이브 공연에 쓸 무성 배경 영상을 찍어 달라는, 그 정도의 부탁.",
+  "model": "claude-opus-5",
+  "source_sha256": "279e4f5ded2348cecd96d6580218b6b7972e88c55ad5651ebb3c321c39c49e66"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryusuke-hamaguchi#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《우연과 상상》으로 베를린, 《드라이브 마이 카》로 칸, 《악은 존재하지 않는다》로 베네치아. 주요 심사위원상을 잇달아 거머쥐며 하마구치는 단 삼 년 만에 유럽 3대 영화제를 모두 정복한 드문 동시대 감독이 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d4e6a8aec7c026c51187b81ac3dc5418c3b5f7fa26361555ee7ce48cf9280ac2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryusuke-hamaguchi#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스승과 제자의 자리가 뒤바뀐 경우도 있다. 하마구치가 공동 각본을 쓴 2020년 시대극 스릴러 《스파이의 아내》는 도쿄예술대학 시절 그의 교수���던 구로사와 기요시에게 베네치아 감독상 은사자상을 안겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "28315e87aa14077a442e528e4919b1e6f91719dd0e83a699dce2b08c99465f49"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "s-s-rajamouli#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화 학교 문턱은 밟아 본 적이 없다. 엘루루의 C.R. 레디 칼리지를 중퇴하고 아버지를 따라 첸나이로 간 그는 오로지 촬영 현장을 지켜보며 영화를 배웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8365ecca5551142ae9272b3d47ec8ddd37daa383c92c7223a75f73354dc1ed76"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "s-s-rajamouli#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화로 넘어오기 전, 그는 에나두 텔레비전에서 텔루구어 연속극 《산티 니바삼》을 연출했다. 스승인 노장 K. 라가벤드라 라오의 엄한 감독 아래 극의 완급을 다듬은 시기다.",
+  "model": "claude-opus-5",
+  "source_sha256": "75b5ff9d0ea5f0d2e9a60427092cd1adea0a210a23e0546fea94bafc50db0950"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "s-s-rajamouli#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2001년 데뷔작 《스튜던트 넘버 원》은 원래 라가벤드라 라오가 연출할 작품이었다. 라오는 라자마울리에게 지휘봉을 넘길 작정을 속으로 굳혀 두고도, 제작자들이 동요하지 않도록 며칠간 현장을 지켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d7fa3a8c497064ae622f6efe4958df69f2bcfa9ebadbfca9cfe7c3b9d6ce3796"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "s-s-rajamouli#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그의 제작진은 사실상 가족 조합으로 굴러간다. 이야기의 뼈대는 아버지가 쓰고, 음악은 사촌 M. M. 키라바니가 맡고, 의상은 아내 라마가 만들고, 라인 프로듀서는 아들 S. S. 카르티케야다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d78c53d95cee8494915c8fcbc7fe88df07f6d5dcfd6e4d9490bc9661f316ba9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "s-s-rajamouli#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2001년 그는 사촌 키라바니의 처제이자 이혼 경력이 있던 라마와 결혼했다. 라마의 아들 카르티케야를 법적으로 입양했고, 뒤에 마유카라는 여자아이를 입양해 가족을 완성했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8431fefdb5ce0058eebb5dd182e50bac88d4965d4ba72d67764f798639aa8a93"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "s-s-rajamouli#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "작품 세계는 힌두 서사시에 흠뻑 젖어 있지만 정작 본인은 완고한 무신론자다. 아인 랜드의 《파운틴헤드》를 읽고 신앙을 버렸다. 그에게 종교란 대중에게 이야기를 전하는 데 쓰이는 탁월한 심리 도구일 뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6aecbf17e6846fb41aac539f680a4cce74362016bcabe739976ba54e5a1ccbf5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "s-s-rajamouli#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화적 우상으로는 멜 깁슨을 꼽는다. 《브레이브하트》와 《아포칼립토》의 날것 그대로인 남성적 폭력과 감정의 고조가 자기 액션 시퀀스의 설계도라고 그는 자주 말한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "589954e24923ac9739fc1f319a2347aadc5e22c7142c3478d1e994dee0f7dfc1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "s-s-rajamouli#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2023년 오스카 후보자 오찬. 평소 표정 하나 안 바꾸던 감독이 눈물을 터뜨렸다. 그가 우러르던 스티븐 스필버그가 다가와 《RRR》을 두 번 봤고 정말 좋았다고 말했기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e2f812855b1d068adf460a5cef344f6e789b9b37ea423b9e00b60f206c1b2a78"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "s-s-rajamouli#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "5년에 걸친 《바후발리》 2부작의 거대한 제작을 손끝까지 통제하려고 그는 하이데라바드의 라모지 필름시티에 사실상 눌러앉았다. 2천 에이커짜리 스튜디오 단지를 좀처럼 벗어나지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0bb6e986d4d894acba2dbc6c51527e15103b9b5e5e3810a32a2c6191ef035f6c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "s-s-rajamouli#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2022년, 그는 《RRR》로 뉴욕비평가협회 감독상을 받아 전 세계 시네필을 놀라게 했다. 할리우드의 거물들을 제친 결과였고, 유례를 찾기 어려운 크로스오버 파급력을 확인시킨 사건이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e6596fd8e2e34933fbef23b752741316cc8347630bad08407f833ae56a28219"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "s-s-rajamouli#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "인생의 최종 목표가 《마하바라타》를 여러 편으로 나눠 결정판으로 옮기는 것이라고 그는 거듭 말해 왔다. 다만 아직은 아니라고 한다. 그 서사시에 걸맞은 감독이 되려면 최소한 10년은 더 영화를 찍어 봐야 한다는 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "91032377292717a252c6d0d103330d2be4f00d26153fa442b1da0dc561fec386"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-mendes#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "샘 멘데스는 레딩에서 태어났다. 아버지 제임슨 피터 멘데스는 포르투갈계 크레올 혈통의 트리니다드 출신 대학 강사였고, 어머니 밸러리 바넷은 영국의 유대계 아동문학 작가였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2924566c00afe674ba922278e0adc232fce1177bba556a01c122ce8c63577716"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-mendes#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "친할아버지 앨프리드 휴버트 멘데스는 트리니다드의 이름난 소설가로, 1차 세계대전 때 제1소총여단에서 복무했다. 그가 직접 겪고 들려준 참호의 참혹한 이야기들이 2019년작 《1917》의 바탕이 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb02a7c75f933a308d50c95552dd661b02bd7380702c1d2b2bfd256baec48eef"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-mendes#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "피터하우스에서 영문학을 공부하던 시절, 멘데스는 학생 연극을 올리며 연출의 첫 근육을 길렀다. 무대에는 훗날 스타가 되는 동년배들, 톰 홀랜더와 레이철 와이즈가 섰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7046510792c5328a2c4796908ab80226c36807206fa7c6ef890989a70e19c3d0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-mendes#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1987년 졸업하자마자 그는 치체스터 페스티벌 시어터의 조연출 자리를 얻어 대형 무대의 작동 원리 속으로 곧장 뛰어들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "86cc53fd67155060f711bec5676536272ec561493d8cbd7b4177c75a0292bb28"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-mendes#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스물넷. 멘데스는 그 나이에 주디 덴치를 앞세워 안톤 체호프의 《벚꽃 동산》을 웨스트엔드 무대에 올렸다. 화제를 몰고 온 이 공연으로 그는 단숨에 연극계의 신동이 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "45d233b6e43024d2fae97a03f8885f2f3cf581f1c3dea40b90b1646608e32afd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-mendes#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1998년 멘데스가 돈마 웨어하우스에서 초연한 데이비드 헤어의 희곡 《블루 룸》은 니콜 키드먼이 주연을 맡았다. 평론가 찰스 스펜서가 \"순수한 연극적 비아그라\"라 평하면서 언론이 들끓었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2427406790ae89d84eb5945dfc87a0742e8282764def628388007da882cf9029"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-mendes#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《아메리칸 뷰티》 연출 제안은 스티븐 스필버그가 직접 건넸다. 뉴욕에서 멘데스가 되살린 뮤지컬 《카바레》, 거칠고 성적 긴장이 노골적이던 그 무대를 본 뒤였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0f09ca76792c3c4c5da93d03b0ceccae804ea35b41c7b15c2553bf4548caa9d3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-mendes#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편 데뷔작으로 아카데미 감독상을 받은 사람은 아카데미 역사를 통틀어 여섯 명뿐이다. 멘데스가 그중 하나다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ff05326d33106cbe48ae7a01810d21ee3d642658c5df26b1e7a349cbfda43d89"
+ }
+]

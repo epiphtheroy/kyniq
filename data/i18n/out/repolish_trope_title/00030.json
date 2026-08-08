@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mystery-that-voids-its-own-detection",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 수사를 무효로 만드는 미스터리",
+  "model": "claude-opus-5",
+  "source_sha256": "5dc119a094b3bd69d5bdb39189884ae7c7e76fc5836c15b5728564d9eb053817"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mystic-whose-body-counts-the-pain",
+  "field": "title",
+  "lang": "ko",
+  "text": "고통을 몸으로 헤아리는 신비가",
+  "model": "claude-opus-5",
+  "source_sha256": "40f8957f5b469f8a0aaaaee9077da197a90742f3ab4f4bd85bc730a523204b46"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mythic-rome-versus-its-stone-original",
+  "field": "title",
+  "lang": "ko",
+  "text": "신화의 로마와 돌의 로마",
+  "model": "claude-opus-5",
+  "source_sha256": "21fd9373dd18ef8e23818a06ee56676f523816dc9d702dddb50e7ed2ad4439c7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-name-as-last-unconquered-possession",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 빼앗기지 않은 마지막 재산, 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "1c44cfa5936df4ab271cd7514dd0dfa09442984060042cc70b1a70f1f977fc32"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-name-as-self-one-must-recover",
+  "field": "title",
+  "lang": "ko",
+  "text": "되찾아야 할 자기 자신, 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "98cb896a1afafd1950df32c921415e1c44391c7ae7fce5350e014eda06dc2093"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-name-as-symbolic-order-auditioning-its-subjects",
+  "field": "title",
+  "lang": "ko",
+  "text": "주체를 오디션하는 상징계(Symbolic)로서의 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "b2b7dde81cfa57d2fb5a21b1b7fe6363ca68d51a0279212691eaad189e4e4676"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-name-as-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "상처가 된 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "b547c33a03f301e0eb054f68ebb72f1cacd56f3706c5bd413ac66abe489d46e2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-name-inherited-versus-the-name-chosen",
+  "field": "title",
+  "lang": "ko",
+  "text": "물려받은 이름과 고른 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "ef39832c1ba1cc7f8721cd4cdc2753c1c21b9d86f5525bb0cd83dbc1472cd0d2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-name-is-the-plot-s-master-key",
+  "field": "title",
+  "lang": "ko",
+  "text": "플롯을 여는 만능열쇠, 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "6d9f01a7fdd58aa31889e583fe4998c06d0e5e5201c4cfae3ad523b0ebbe9ca9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-name-lolita-that-erases-its-girl",
+  "field": "title",
+  "lang": "ko",
+  "text": "소녀를 지워버린 이름 '롤리타'",
+  "model": "claude-opus-5",
+  "source_sha256": "da50e63034183039ba78450d45e0028bcda5d647a508e6dfdca693d29def6167"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-name-renounced-to-outrun-the-father",
+  "field": "title",
+  "lang": "ko",
+  "text": "아버지에게서 달아나려 버린 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "fd282d7329a1650198b593eb28ae6306c1bfdbde2f435cf21f22df2f7f54b268"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-name-that-conjures-the-thing-it-names",
+  "field": "title",
+  "lang": "ko",
+  "text": "부르면 정말 나타나는 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "7fad8c8601f880e44cdcb0d1709746d9d05316807c252c2faa51a01968e4dbef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-name-that-dissolves-the-person-into-a-thing",
+  "field": "title",
+  "lang": "ko",
+  "text": "사람을 물건으로 만들어버리는 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "f299564e6960cc5be1a2522125660e34f20e8a21c76662417a16dc6858519322"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-name-that-eats-its-own-meaning",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 뜻을 삼켜버리는 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "74cff8cb1af9c7d70f6433f1f42bac5e5987b7aadbe36d2d2701eb9261d5937c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-name-that-erases-the-man",
+  "field": "title",
+  "lang": "ko",
+  "text": "그 사람을 지워버린 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "b5b77295c4893584fe5cb3ca1f48ac3aac2cc04af0851553b596b75930987a49"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-name-that-names-a-forbidden-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "금지된 자아를 불러내는 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "a2dca8fbe3b8bc0a522c0670232905c57349b145f391c7b219614ab42f2ec501"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-naming-that-refuses-consumption",
+  "field": "title",
+  "lang": "ko",
+  "text": "소비되기를 거부하는 이름 붙이기",
+  "model": "claude-opus-5",
+  "source_sha256": "37222c745ea7a1619345715b53c1aa6bb6f8721f3254e6570ca4f9d5095095d3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-narrating-voice-as-self-exculpating-bad-faith",
+  "field": "title",
+  "lang": "ko",
+  "text": "자기를 변호하는 자기기만, 그 내레이션",
+  "model": "claude-opus-5",
+  "source_sha256": "2c9f661b1540721a6a9be2d978a2a5720908c76b27ee6f7e74acec4878ca48e7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-narrator-already-confessing-to-authority",
+  "field": "title",
+  "lang": "ko",
+  "text": "이미 권력 앞에 자백 중인 화자",
+  "model": "claude-opus-5",
+  "source_sha256": "24f07bb3de292dc15eaeb49ad1e24a5ba7174ac951faf0c38aa3b282b1fc146d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-narrator-as-hidden-hand-of-fate",
+  "field": "title",
+  "lang": "ko",
+  "text": "운명의 보이지 않는 손, 화자",
+  "model": "claude-opus-5",
+  "source_sha256": "910e9fadbeeffdf36a0de0a02af2b34d1f891a93e6c19677c1518a1d4718e75a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-narrator-speaking-from-beyond-death",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽음 저편에서 말을 거는 화자",
+  "model": "claude-opus-5",
+  "source_sha256": "d79701116801cbe664740fb45754df5bfb3ecf8201439017e9e9f492bc23f619"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-narrator-speaking-from-beyond-his-doom",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 파멸 저편에서 말하는 화자",
+  "model": "claude-opus-5",
+  "source_sha256": "9907640239b8706a8cd3eedd66faeb731be775d435fe1a8aefeec84e0dba4eb4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-narrator-speaks-for-the-verdict-rendering-collective",
+  "field": "title",
+  "lang": "ko",
+  "text": "판결을 내리는 공동체의 목소리, 화자",
+  "model": "claude-opus-5",
+  "source_sha256": "fce272096a1e32a44a45208f2b33a59ff704d2361b3e1e26f1a4695585fd5499"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-narrator-survives-because-he-must-tell",
+  "field": "title",
+  "lang": "ko",
+  "text": "말해야 하기에 살아남은 화자",
+  "model": "claude-opus-5",
+  "source_sha256": "d44dc3d4b88e97accfccb69a8a7fec7400ee6a0aa7ca73034f8c20e4ab46a614"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-narrator-who-is-secretly-the-author",
+  "field": "title",
+  "lang": "ko",
+  "text": "실은 작가였던 화자",
+  "model": "claude-opus-5",
+  "source_sha256": "27bb44947776b7c4bd4d873f8ae404c66f3a01bc12354a5c1ed825bb154cc9b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-narrator-who-reports-his-own-vanishing",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 사라지는 과정을 보고하는 화자",
+  "model": "claude-opus-5",
+  "source_sha256": "27486cf1cc855d74a01aeb3b88a99dc8a5e603ec299a15aedcfe76513bae072a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-narrator-who-sees-beyond-the-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸 너머까지 보는 화자",
+  "model": "claude-opus-5",
+  "source_sha256": "5994b2185d2b12e654f725d49a56fa5d7a8430d7190d2338b57a10112541e6ac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-narrator-whose-story-indicts-himself",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 이야기에 제가 고발당하는 화자",
+  "model": "claude-opus-5",
+  "source_sha256": "f6679ed21eabc21567aa937dffff051cf65a508439d8677d495c9efc9f0b7de9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-nation-allegorized-through-its-crisis",
+  "field": "title",
+  "lang": "ko",
+  "text": "위기로 읽히는 나라의 알레고리",
+  "model": "claude-opus-5",
+  "source_sha256": "3c631bcdc85af6f7196e17cfca526f629bdf740c5b756fd590e1b3a4faad1fa0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-nation-built-on-the-buried",
+  "field": "title",
+  "lang": "ko",
+  "text": "묻어버린 것들 위에 선 나라",
+  "model": "claude-opus-5",
+  "source_sha256": "21e761b558f5bb8bf59f02ec04fc2362606f2977d302eba70244bd76c03f4e3a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-nation-founded-on-a-forgotten-murder",
+  "field": "title",
+  "lang": "ko",
+  "text": "잊힌 살인 위에 세운 나라",
+  "model": "claude-opus-5",
+  "source_sha256": "18ae92bd08693f841790f82904b856f7afd0a8d8ad33fd7138eee871c2aad59f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-nation-hidden-in-the-filth-and-beast",
+  "field": "title",
+  "lang": "ko",
+  "text": "오물과 짐승 뒤에 숨은 나라",
+  "model": "claude-opus-5",
+  "source_sha256": "513ac1493c0486b931d4ffe9f35325b94254fd8a30d2acdb41677802cee30a67"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-nation-re-enacting-its-own-catastrophe",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 파국을 되풀이해 연기하는 나라",
+  "model": "claude-opus-5",
+  "source_sha256": "075dddf4778c692975b602340d5a3284ae0e5cf58c4f03f4497dbda4f2d7318f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-nation-s-defeat-worn-as-costume-or-setting",
+  "field": "title",
+  "lang": "ko",
+  "text": "의상이 되고 배경이 된 나라의 패배",
+  "model": "claude-opus-5",
+  "source_sha256": "559396f06f1797981dde337403cc12a4aa92a85a307a6c951cb2b318397dd15a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-nation-that-can-only-sing-its-loss",
+  "field": "title",
+  "lang": "ko",
+  "text": "잃은 것을 노래하는 수밖에 없는 나라",
+  "model": "claude-opus-5",
+  "source_sha256": "2d4598b3477c596741b46677c08477e860ba3a0593aeab2b09778bb0e7a57181"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-nation-wanted-a-less-ambivalent-war",
+  "field": "title",
+  "lang": "ko",
+  "text": "나라가 원한 건 더 선명한 전쟁이었다",
+  "model": "claude-opus-5",
+  "source_sha256": "755685355be251a454fc3e7518ffeb6aa5e2e40afb7a4aef46d26589dead9273"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-national-wound-misread-into-genre",
+  "field": "title",
+  "lang": "ko",
+  "text": "장르로 오독된 국가의 상처",
+  "model": "claude-opus-5",
+  "source_sha256": "addbc55ad554d853fb42e4547fefbfb53548442afcd42d1a76baef8c4f944728"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-naturalist-who-studies-life-from-outside",
+  "field": "title",
+  "lang": "ko",
+  "text": "바깥에 서서 삶을 관찰하는 박물학자",
+  "model": "claude-opus-5",
+  "source_sha256": "efbdaf6db793bd3fa3c618f8b057fa73b447c8f85e2184ea3d4942c564d0e0d7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-naturalist-whose-specimen-is-himself",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 자신이 표본인 박물학자",
+  "model": "claude-opus-5",
+  "source_sha256": "03517f324dc34fcc0365b9bddeb2cb6b211ccbd22a3577fe1ba852ef1acedb3e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-needle-as-instrument-of-addiction-s-economy",
+  "field": "title",
+  "lang": "ko",
+  "text": "중독의 경제를 굴리는 도구, 바늘",
+  "model": "claude-opus-5",
+  "source_sha256": "4ec322d6a40eb69ed5f8539960f6a1f5fe9006c09137b5299eb79a25e07a88c1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-needle-as-the-worker-s-last-means-of-production",
+  "field": "title",
+  "lang": "ko",
+  "text": "노동자에게 남은 마지막 생산수단, 바늘",
+  "model": "claude-opus-5",
+  "source_sha256": "07755b3413fe2a0d9a5cbad7198b524227ad7555bb539660018f03ed0d8a60e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-needle-that-sews-and-punctures",
+  "field": "title",
+  "lang": "ko",
+  "text": "꿰매면서 찌르는 바늘",
+  "model": "claude-opus-5",
+  "source_sha256": "617cc1de410f76ec0de1dcb738e984c19d73e12bd361cc15f3e311636e4c0fd5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-negation-that-affirms",
+  "field": "title",
+  "lang": "ko",
+  "text": "긍정이 되는 부정",
+  "model": "claude-opus-5",
+  "source_sha256": "1c6c7afe14a506db8bd503201ed5bb1c5cd1f515c98f26613f9413735c196a13"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-neighborhood-as-unbilled-character",
+  "field": "title",
+  "lang": "ko",
+  "text": "크레딧에 없는 배우, 동네",
+  "model": "claude-opus-5",
+  "source_sha256": "5cbb25455edb4bafb2c79a3cbe4598efdf6885e0c416394d5a204e45fd537026"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-network-replaces-the-couple-as-love-s-unit",
+  "field": "title",
+  "lang": "ko",
+  "text": "사랑의 단위가 연인에서 네트워크로",
+  "model": "claude-opus-5",
+  "source_sha256": "4b63a231d4b3c1b5135b5a0d398ad5a218094d2d9900baa0d89864e3f983a15d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-new-wave-as-doomed-economy",
+  "field": "title",
+  "lang": "ko",
+  "text": "망할 수밖에 없던 경제, 누벨바그",
+  "model": "claude-opus-5",
+  "source_sha256": "3601a49a607626e369b72a3c283834081fa798b858c6510b6cb10ce11c9682a4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-new-wave-watching-itself-age",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 늙어가는 걸 지켜보는 누벨바그",
+  "model": "claude-opus-5",
+  "source_sha256": "a349ee3925853f964cf9be171b8f2b418a736c9b7e20e0737e455a0dd8591aae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-noise-left-in-as-indexical-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "지워내지 않은 잡음, 지표(index)로서의 진실",
+  "model": "claude-opus-5",
+  "source_sha256": "bff91f44d84d5866b9945ed07ed9b49d25e0ebca78ebff8735333cd6966faa36"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-non-actor-carries-the-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "진실은 비배우가 짊어진다",
+  "model": "claude-opus-5",
+  "source_sha256": "6b0b5aba05c8f73843f85a26223bb68e716286ac71cc2a6a20a8e542e290da0d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-non-actor-whose-reality-outacts-acting",
+  "field": "title",
+  "lang": "ko",
+  "text": "연기를 이겨버린 비배우의 현실",
+  "model": "claude-opus-5",
+  "source_sha256": "462f8805a3eaf395182d3ad60cd15073d31b66245ffa79998f3487d6ae9715a0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-non-place-as-true-setting",
+  "field": "title",
+  "lang": "ko",
+  "text": "진짜 무대는 비장소다",
+  "model": "claude-opus-5",
+  "source_sha256": "2862030e9aec86e6f0854cc62969345f9f7a336a19220ab450a0e28e7d5c7e24"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-nordic-place-filmed-as-displacement",
+  "field": "title",
+  "lang": "ko",
+  "text": "실향으로 찍힌 북유럽의 땅",
+  "model": "claude-opus-5",
+  "source_sha256": "fab2352d8e9d7dfb70fe29cae997563d040b044644e310a2527f49088be3f1b3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-nose-as-displaced-castration",
+  "field": "title",
+  "lang": "ko",
+  "text": "자리를 옮긴 거세, 코",
+  "model": "claude-opus-5",
+  "source_sha256": "0c1f78f89852418d7a98a06448e83b0e1b93d62f0bf8d77acb8d139daa82fc93"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-number-title-as-hidden-deadline",
+  "field": "title",
+  "lang": "ko",
+  "text": "제목의 숫자는 숨은 마감이다",
+  "model": "claude-opus-5",
+  "source_sha256": "99a9e8ec580deb282f193ab0b1c78a0aed1c0c91bf28cb70ef40ce899f56c043"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-numeral-is-the-film-s-true-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화의 진짜 주인공은 그 숫자다",
+  "model": "claude-opus-5",
+  "source_sha256": "608a31773514ce834973125199803ca3f79a157922e50d5c58f516edc72fbe1c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-object-as-congealed-labour-turned-weapon",
+  "field": "title",
+  "lang": "ko",
+  "text": "굳어버린 노동이 무기가 될 때",
+  "model": "claude-opus-5",
+  "source_sha256": "0c285f820ac058cb15f00f2a418f176e0c843dd1ddd174833d1b4c7a67e91485"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-object-as-the-only-continuous-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝까지 남는 유일한 주체, 사물",
+  "model": "claude-opus-5",
+  "source_sha256": "50b2b7deb21105528c0bddf95ab8584bc72ac39e0fe4b30e5358601597320a1d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-object-earns-its-soul-by-being-wanted",
+  "field": "title",
+  "lang": "ko",
+  "text": "욕망받아야 영혼을 얻는 사물",
+  "model": "claude-opus-5",
+  "source_sha256": "2bd360aa80bba64703c320ed61cf10dc2170ac345030ce42539deb221464a45e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-object-set-loose-from-use",
+  "field": "title",
+  "lang": "ko",
+  "text": "쓸모에서 풀려난 사물",
+  "model": "claude-opus-5",
+  "source_sha256": "b1d7105816b94a914541957ec8de91fc1cb99c64825ae63c305e9b082a6ff490"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-object-that-carries-the-father-s-desire",
+  "field": "title",
+  "lang": "ko",
+  "text": "아버지의 욕망을 실어 나르는 물건",
+  "model": "claude-opus-5",
+  "source_sha256": "790fa5b62b3c8f30e7191cf872f3684b77676be16dc5d7d70442912e7a46b099"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-object-that-carries-the-marriage-s-grief",
+  "field": "title",
+  "lang": "ko",
+  "text": "결혼의 슬픔을 떠맡은 물건",
+  "model": "claude-opus-5",
+  "source_sha256": "99786178287f2ed94ed5f3a390dfdd3101dd40879d4f4db66c32aac81e3e96a7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-object-that-hoards-value-it-cannot-use",
+  "field": "title",
+  "lang": "ko",
+  "text": "쓰지도 못할 값을 쌓아두는 사물",
+  "model": "claude-opus-5",
+  "source_sha256": "401d4e6768a4f9d9c7a88e5a677124f0fe71d4c4ab9a96eb57b93978a59247f9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-object-that-keeps-time-s-verdict",
+  "field": "title",
+  "lang": "ko",
+  "text": "시간의 판결을 간직한 사물",
+  "model": "claude-opus-5",
+  "source_sha256": "7723ddccb0fa360dd5e455a008fda205930de2f4759b5ffdd671ba8e2fe62b55"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-object-that-will-not-be-mourned",
+  "field": "title",
+  "lang": "ko",
+  "text": "아무도 애도하지 않을 사물",
+  "model": "claude-opus-5",
+  "source_sha256": "88d0a8c5b1d0bf0b7db6d2255c6026efce63abd8553c4c818cf7322baa8a6172"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-object-with-an-address-that-locates-evil",
+  "field": "title",
+  "lang": "ko",
+  "text": "주소를 가진 사물, 악이 사는 곳",
+  "model": "claude-opus-5",
+  "source_sha256": "6fdb3eb6424b243241d1853c59aa1234175c354a111ac321c96fe3f7b2ef477f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-obscene-father-as-disavowed-underside",
+  "field": "title",
+  "lang": "ko",
+  "text": "부인된 이면, 외설적 아버지",
+  "model": "claude-opus-5",
+  "source_sha256": "b3f37ee28094b3ad12b6d050f0ec5bdb0f7ac89cfe694b4e59b476eaca5a5039"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-observer-who-speaks-through-composition",
+  "field": "title",
+  "lang": "ko",
+  "text": "구도로 말하는 관찰자",
+  "model": "claude-opus-5",
+  "source_sha256": "7e4f7bf0b456792bf924b0ebb67b1dcf1c0926f4d568b007c0cd85ac09c2845d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-obsolete-medium-as-object-against-loss",
+  "field": "title",
+  "lang": "ko",
+  "text": "상실을 막아서는 물건, 한물간 매체",
+  "model": "claude-opus-5",
+  "source_sha256": "4c1e03373acb00e785bffedb55d03c731be4e25bd73a350a5fbd7e4f0782caac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-occupation-filmed-in-its-own-tense",
+  "field": "title",
+  "lang": "ko",
+  "text": "점령을 점령의 시제로 찍다",
+  "model": "claude-opus-5",
+  "source_sha256": "3944a2f7d7214fbda6564fb3e4c18049cf7db049afe983b29c1580b191531055"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-occupation-memory-the-republic-suppressed",
+  "field": "title",
+  "lang": "ko",
+  "text": "공화국이 눌러둔 점령의 기억",
+  "model": "claude-opus-5",
+  "source_sha256": "5aede456e1c3698f149342cae16885488534671700d6519b3cd6c937eeaf70a3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-occupation-smuggled-into-the-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "화면 안으로 밀반입된 점령",
+  "model": "claude-opus-5",
+  "source_sha256": "4090d5f3237024a97a9ab602e1e5a2d85f54929f987deb435c7be1d42aaef8c8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-odessa-steps-cited-across-cinema",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화사가 거듭 인용하는 오데사 계단",
+  "model": "claude-opus-5",
+  "source_sha256": "04278f09f97fba6ca6de875025a8b9d20d8011837ac08dda1e1a8b11c03af895"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-odyssey-that-forfeits-its-ithaca",
+  "field": "title",
+  "lang": "ko",
+  "text": "이타카를 버린 오디세이아",
+  "model": "claude-opus-5",
+  "source_sha256": "217bdfb7124deda2e8edbf8c723db6017d225af031fc4235e4476eab31b14f34"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-oedipal-triangle-restaged-as-desire",
+  "field": "title",
+  "lang": "ko",
+  "text": "욕망으로 다시 무대에 오른 오이디푸스 삼각",
+  "model": "claude-opus-5",
+  "source_sha256": "b26595b80d4d6dcbddf51cba18e15d3b32147759258edd716dcd2d9985797124"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-officers-obsession-with-the-victim-s-dress",
+  "field": "title",
+  "lang": "ko",
+  "text": "피해자의 옷차림에 매달리는 경관들",
+  "model": "claude-opus-5",
+  "source_sha256": "931ac6acaec208e52e418808be503bcdc33d8d507dfa9d00cbd5dbfa6705665e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-old-form-devoured-from-within",
+  "field": "title",
+  "lang": "ko",
+  "text": "안에서부터 먹힌 옛 형식",
+  "model": "claude-opus-5",
+  "source_sha256": "a90f77b3a847c23b0c98489b8bd0e7418b1f3a4100cd69e92e6913f4d671ccd2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-old-self-watching-its-young-footage",
+  "field": "title",
+  "lang": "ko",
+  "text": "늙은 자아가 젊은 시절의 필름을 본다",
+  "model": "claude-opus-5",
+  "source_sha256": "48c198754020e87c0364abea8561bf60b70c370577cfee5ef01404ce4da557b9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-old-world-faked-on-american-soil",
+  "field": "title",
+  "lang": "ko",
+  "text": "미국 땅에 지어낸 구세계",
+  "model": "claude-opus-5",
+  "source_sha256": "0fac98488342c2f3dab00ba75b6341e66191be63e947c1b1a4124d1fb18e5773"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-at-his-post-who-refused",
+  "field": "title",
+  "lang": "ko",
+  "text": "제자리를 지키며 거부한 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "04f4b4b671f54857ffb0a02f1a2d27b07e55f262dcf26882faa7fe9802d1d729"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-behind-the-wheel-is-the-argument",
+  "field": "title",
+  "lang": "ko",
+  "text": "운전대를 누가 잡느냐가 곧 주장이다",
+  "model": "claude-opus-5",
+  "source_sha256": "a9f67a53797fd63badca7443f702f239b4eae1710820e2aa02cc794e81d3041c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-denied-the-right-to-mourn",
+  "field": "title",
+  "lang": "ko",
+  "text": "애도할 권리를 빼앗긴 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "71a4f8f2c20606b45df157474f541328a336be6ddca55e957dd2ab5366d97289"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-lost-the-other-made-to-fit",
+  "field": "title",
+  "lang": "ko",
+  "text": "하나는 잃고, 하나는 끼워 맞추고",
+  "model": "claude-opus-5",
+  "source_sha256": "9fe9cf40647114daba45ba1b0bfc9f39fcee0b0bac9892e782ee7294854269fe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-saved-by-refusing-to-calculate",
+  "field": "title",
+  "lang": "ko",
+  "text": "셈하지 않아 구원받은 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "2b337dc5523111abc4fd34baab99c19c01b361f78e3edb167d3e9f5fe8b40fb8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-aestheticized-his-own-dying",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 죽음마저 미학으로 다듬은 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "f0c557344e43b140e3ad7497fff3dcf6b29150c5e3c075b17234575b77183b90"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-authors-another-s-life",
+  "field": "title",
+  "lang": "ko",
+  "text": "남의 삶을 대신 써 내려가는 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "7d5513403e8a57b59a2927e8b0c82ec20bb20b92365804c1aad7fff6cedbdd90"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-bears-levi-s-numbered-witness",
+  "field": "title",
+  "lang": "ko",
+  "text": "레비의 번호가 새겨진 증언을 짊어진 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "8e78dae1a925a1781df098965f3c4bcf3f6ee03649d51ca66a4dca10fb68c284"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-cannot-decide-to-leave",
+  "field": "title",
+  "lang": "ko",
+  "text": "떠나기로 마음먹지 못하는 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "78f1199ffcb9f7f496eb9cdc490583d8bac70185f1065e97229ab3909fec68e2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-cannot-hear-is-the-master-key",
+  "field": "title",
+  "lang": "ko",
+  "text": "듣지 못하는 자가 만능열쇠다",
+  "model": "claude-opus-5",
+  "source_sha256": "f4f470382be899fa19a7b11293a697e097a0fa9c3802cd3f3b5995be598f2aec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-cannot-outlive-his-victory",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 승리보다 오래 살지 못하는 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "224e3dcc24b78bfed6ffccbdfe473fffe4c867e2b57ea448186145d019bf2e71"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-cannot-pull-the-trigger",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 방아쇠를 당기지 못하는 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "931b6f65b93b861c9237f5290e6c14d8cda6a1e8e4677056156b494831548f8c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-carries-another-s-burden",
+  "field": "title",
+  "lang": "ko",
+  "text": "남의 짐을 대신 진 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "fda26d92c07afcf428a510e396f1e2ee361572ef4aee71502d8c1459d23ffc7f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-chooses-the-examined-life",
+  "field": "title",
+  "lang": "ko",
+  "text": "캐묻는 삶을 택한 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "8da0d46127e4a08ed251b5014d3e5947bacb9c1a74f4a58dd6bc49de7e92454c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-chooses-their-own-terms-of-ending",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝의 조건을 스스로 정하는 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "5003857239fe691f12dc9ce9a41a8bead541de947510eba81f56243f7f9fc1d7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-chose-martyrdom-like-a-vocation",
+  "field": "title",
+  "lang": "ko",
+  "text": "순교를 직업처럼 택한 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "8fa2aa9a350a17d9673707746b038562d6ccb75fdc814088d24cebf5ff37bfca"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-could-not-stop-moving",
+  "field": "title",
+  "lang": "ko",
+  "text": "멈추지 못한 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "29a79019cd558d605a135d05d96e9d3eb8bdfe1968bc6e5cf8174686deb39ef8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-could-not-surrender",
+  "field": "title",
+  "lang": "ko",
+  "text": "항복할 줄 몰랐던 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "586af039f544ae706d2e06a3bcecf403f795b7a0b3fa49909929d06f6a7e8a0d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-counts-to-quiet-the-soul",
+  "field": "title",
+  "lang": "ko",
+  "text": "영혼을 잠재우려 수를 세는 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "e16980516c3447a28c9076d65e4219de6972fec5244a79f7d885d5d715b66609"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-crossed-and-could-not-return",
+  "field": "title",
+  "lang": "ko",
+  "text": "건너간 뒤 돌아오지 못한 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "4c1b2f43f9bfdbb6b3eb94b5f27ec253b7e101662594c8af976a353244110498"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-decoded-the-animal-tongue",
+  "field": "title",
+  "lang": "ko",
+  "text": "짐승의 말을 알아들은 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "cd5fe33594dbc385bea2a4ab0aaba4125020bdb0323d12a086aee00a57e47472"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-one-who-frees-by-abolishing-the-father",
+  "field": "title",
+  "lang": "ko",
+  "text": "아버지를 없애 해방하는 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "44c42d5b25b728c3b9d516672446a3f017470d403cf28fd1d95beac01775e115"
+ }
+]

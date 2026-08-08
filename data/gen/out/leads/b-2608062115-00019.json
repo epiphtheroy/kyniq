@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hail-the-conquering-hero-1944",
+  "field": "lead",
+  "film_id": "8fc887fc-79b0-4ec5-9c41-42bf58246c72",
+  "lang": "en",
+  "text": "A hay fever diagnosis kept Woodrow Lafayette Pershing Truesmith out of the Marines, and he has been carrying that name around ever since. Discharged before he saw any action, he stalls rather than go home a failure, until a group of Marines takes him up, invents a wound for him and delivers him to his mother's town as the thing he never was. What follows runs on volume: bands, speeches, committees, a whole population that has settled on who he is before he can get a word out. Sturges wrote it in 1944 with the fighting still on, and the screenplay took an Academy Award, which is a strange fate for a comedy this suspicious of ceremony. The joke never lands on the men who fought. It lands on the ones at home, who needed a hero badly enough to build one out of a man with allergies.",
+  "model": "claude-opus-5",
+  "source_sha256": "3165ea332497b7b3d5047aa29f362e49fdc2724baee0e2481cc32c39da23e9c8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sounder-1972",
+  "field": "lead",
+  "film_id": "ca58891f-e42c-4435-82f8-a8552c035ecc",
+  "lang": "en",
+  "text": "The crime is stealing food, and the household made to pay for it is the one that would have eaten it. With the father in custody, nothing about the work pauses: the crop is still owed to somebody else, the rows still have to be walked, and the oldest boy takes on a man's share of the day before anyone thinks to ask him. Martin Ritt made it in 1972, and the decision that keeps it alive is one of proportion, a Black sharecropping family held at the center of an American picture for a full hundred and five minutes, their affection filmed as plainly as their poverty and the Depression treated as weather rather than as a topic. Coming of age here is not a discovery about the world. It is a transfer of weight from one back to another, and everyone in the house can see it happening.",
+  "model": "claude-opus-5",
+  "source_sha256": "9aef52366b66b217794cb3c7be99623fcb86c6105d3692261badb6eb2b6b7393"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ruggles-of-red-gap-1935",
+  "field": "lead",
+  "film_id": "5a1b2960-fc39-422b-b40b-cd0ee3fc4e9a",
+  "lang": "en",
+  "text": "Marmaduke Ruggles, gentleman's gentleman to an Earl, is wagered at cards and lost. The man who wins him is a cattle baron, and the handover is conducted as ordinary business by everyone except Ruggles, whose entire career has been spent making himself indispensable to people who regard him as furniture. Leo McCarey, in 1935, keeps the joke pointed both ways across ninety minutes: American manners are coarse from the valet's side of the room, and English service is no less peculiar in a town with no use for a man whose trade is anticipating another man's wishes. Celebrity finds him by accident and love finds him sideways. What actually shifts is smaller and harder to arrange, Ruggles's own sense of whom he belongs to, which nobody in either country thinks to ask him about.",
+  "model": "claude-opus-5",
+  "source_sha256": "c70de26258af2fe9d77912a29f14eed69dcdd0fbdde5faee61d192076cbe1f1d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-walk-in-the-sun-1945",
+  "field": "lead",
+  "film_id": "f863e586-ef80-4f60-8696-14668a244c9e",
+  "lang": "en",
+  "text": "Six miles inland, one bridge to blow, one farmhouse to clear: the assignment fits in a sentence, and the picture takes almost two hours to walk it. The landings around Salerno are underway in 1943, and a platoon of the 36th Infantry sets off. Lewis Milestone filmed this in 1945, close enough to the event that the arithmetic of an infantry day mattered more to him than any single engagement: how long ground takes, how little of a war one platoon can see. The men are given no overview. They have the road, the ditch beside it, an order relayed from somebody they cannot see, and long stretches in which nothing at all is decided. Fighting arrives in short, disproportionate bursts. What sits between the bursts is the actual subject, and Milestone declines to hurry through it.",
+  "model": "claude-opus-5",
+  "source_sha256": "e7ec83142651cf894352837a064b5daf7e558842a36c4ced707fd7fe3de6cd69"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "story-of-g-i-joe-1945",
+  "field": "lead",
+  "film_id": "2f1855d3-c676-488d-b62e-d7d7679ced65",
+  "lang": "en",
+  "text": "Ernie Pyle's working method was to attach himself to one company and stay, and the film takes that method as its own. Company C of the 18th Infantry fights across North Africa; the correspondent is there because readers in the States want to know what it is like, and what he finds is human-sized, a matter of names and habits and the small economies of tired men. William A. Wellman holds to the reporter's altitude, so the campaign is only ever visible from wherever the company happens to be standing, and 108 minutes pass without the compensation of a larger design. It was made in 1945, when the fighting it describes was still recent news. The Academy Film Archive and The Film Foundation preserved it in 2000, which is a fair verdict on how well the restraint has held.",
+  "model": "claude-opus-5",
+  "source_sha256": "5ecf8b6d4a4d8654321d8fbad4060e63089139cd7a0fe9577120676a275cc9ce"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-front-page-1931",
+  "field": "lead",
+  "film_id": "67b73a7b-24c1-4341-a83d-fc040df10836",
+  "lang": "en",
+  "text": "An accused murderer gets loose, and the reporter who finds him first sees, before anything else, a byline. Hildy Johnson wants a bigger paycheck and a way out of the paper; his editor wants him to stay; the fugitive is the currency both men intend to spend. The complication is that the man may be innocent, which in this arithmetic registers as an extra detail rather than a reason to stop. Milestone filmed it in 1931, when a story built almost entirely out of talk was still a gamble on screen, and he lets the pressroom carry it, a room of men paid to wait whose every instinct is to hurry. The strongest attachment in the film is not to any person. It is to the next edition, and to the feeling of being the one who filled it.",
+  "model": "claude-opus-5",
+  "source_sha256": "d2c5e64b65dce7375f3e769ecf729ef3a74a0703e439a25e8c284fc610f4180a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "little-fugitive-1953",
+  "field": "lead",
+  "film_id": "45863213-eb94-44d9-a90d-a0513168f251",
+  "lang": "en",
+  "text": "Coney Island on a crowded day, and one of the children in it believes he is a fugitive. A prank has convinced Joey Norton that he killed his older brother, so he runs, and the beach turns out to be where a boy carrying that can pass unnoticed among people determined to enjoy themselves. Morris Engel gives him the whole day. His brother, meanwhile, works the same sand against a deadline that has nothing to do with the police: their mother comes home in the evening. Eighty minutes, and the scale throughout is a child's, the boardwalk enormous, adults reduced to legs and voices and transactions. Nobody is hunting him but his brother, which puts the entire tension inside a boy who is simply wrong about what he has done.",
+  "model": "claude-opus-5",
+  "source_sha256": "cae51c098cccca0e697cffa5afde7376fa232a9f62938d1d34df5fb0e4603e7c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "louisiana-story-1948",
+  "field": "lead",
+  "film_id": "2fd0e2a8-096c-4ec0-a3ec-c52ed9299880",
+  "lang": "en",
+  "text": "The bayou is quiet until a well goes in near a boy's home, and then the machinery brings its own noise and its own schedule. Robert Flaherty's 1948 film sets a young Cajun boy and his pet raccoon against that arrival and spends most of its seventy-eight minutes looking rather than explaining: water, roots, the slow assembly of a rig in a place where nothing was ever assembled before. It is catalogued as drama and adventure, and both labels sit oddly on something with so little plot to prosecute. The boy is not a witness to a controversy. He is a boy with a raccoon, and the derrick is a fact that turns up in his world without asking permission. Two rhythms end up sharing the same water, the swamp's and the drill's, and the film is in no hurry to say which one it belongs to.",
+  "model": "claude-opus-5",
+  "source_sha256": "59fc2d93f7d5e497ddc0a8ce6701aeb6cb8ad4843c021ac53dab4846d3c1edf8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "state-fair-1933",
+  "field": "lead",
+  "film_id": "7d5e6b9c-5bf8-49b3-a8c2-0648e010d1b4",
+  "lang": "en",
+  "text": "An Iowa farm family drives to the state fair, and the fair sets the clock: whatever is going to happen has to happen before the trip home. Henry King's 1933 picture takes that limit seriously. The young people court on a schedule nobody chose, in a place built for a few days of appetite and display, where everything else on the grounds is also being judged and awarded. Ninety-seven minutes is a generous allowance for so little incident, and the generosity is the point. What holds the film together is the texture of an American week off in 1933, when a fairground was a legitimate reason to spend money on nothing in particular. Love here is a holiday activity, undertaken with the same seriousness as every other attraction, and subject to the same closing hour.",
+  "model": "claude-opus-5",
+  "source_sha256": "a38315b303b0a5cdf725f984eb16e15ba2c4b2dc8ae0143a4a9b430f0300e049"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-unconquered-1954",
+  "field": "lead",
+  "film_id": "1331ef9b-654a-4306-940e-b5f6aa85a7e0",
+  "lang": "en",
+  "text": "A thousand feet of handrail runs around a yard so that one woman can take her morning walk without anyone holding her arm. The rail belongs to Helen Keller, and Nancy Hamilton's fifty-five minutes divide cleanly in two: twenty-four of newsreel, photographs and interview assembling the public life, then a single ordinary day inside it, circa 1955. Katharine Cornell narrates. Polly Thomson, who came after Anne Sullivan, is in most of the frames. The first half is the account the world already had, heads of state included, Eisenhower letting her read his face with her hands. The second half is the part that almost never gets filmed: the timetable, the domestic engineering, the exact length of rail it takes to make a yard crossable, built once and then simply used by somebody with somewhere to be.",
+  "model": "claude-opus-5",
+  "source_sha256": "2bef6ce0a1d6ed3fbe2524b7e5ab0c8c1118ca84601a5ad24f76c327ddf9650f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "salesman-1969",
+  "field": "lead",
+  "film_id": "d885e07f-78bf-40ca-b1c3-49cac437cf2d",
+  "lang": "en",
+  "text": "The product is a gold-leaf Bible and the customer is whoever answers the door. Albert and David Maysles rode along with four men from the Mid-American Bible Company, Brennan, McDevitt, Baker and Martos, known in the trade as the Badger, the Gipper, the Rabbit and the Bull, through small towns where the households are elderly or barely getting by and the price is steep by any measure that front room applies. Ninety minutes, and the camera keeps staying past the point where a pitch turns uncomfortable, because that is where the work actually is. Nobody is caught out and nobody is protected. What accumulates instead is the sound of the thing, the same phrases and the same warmth produced again at another door, until the sales talk takes on the cadence of the book being sold.",
+  "model": "claude-opus-5",
+  "source_sha256": "93bfd173b8e8d31f2252d81e5d99d2631833419fcfdebe639e236d48f1f1f891"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "rebel-without-a-cause-1955",
+  "field": "lead",
+  "film_id": "89ee7674-99f3-485f-a6c0-f78349fc17b0",
+  "lang": "en",
+  "text": "The move to a new town was supposed to fix him, and the clean slate holds about as long as it takes the local boys to work out who Jim Stark is. By then there is a girl who belongs, by local arithmetic, to somebody else, and a dare that cannot be refused for less than it would cost to accept. Nicholas Ray treats that exchange rate as worth taking seriously, and that is the whole method. The adults in the film have relocated a problem rather than examined one, and the boy understands this perfectly. Plato attaches himself to Jim with an urgency that nobody around them has the time or the equipment to answer. A hundred and eleven minutes held at teenage scale, where a challenge is binding and a parent's opinion of it is not admissible evidence.",
+  "model": "claude-opus-5",
+  "source_sha256": "1f73aacebf911a05e5d22a8de58e38d39a085802ed910813cf35ef301345f92e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-new-leaf-1971",
+  "field": "lead",
+  "film_id": "1cbf8399-c122-4a5d-ab99-ef93c33f1f00",
+  "lang": "en",
+  "text": "Marry the money, then arrange to be a widower: Henry Graham settles on the plan early, and the film has no interest in hiding it. He is broke, which he treats as a logistics problem, and the fortune he has identified belongs to Henrietta Lowell, a botanist whose attention is genuinely elsewhere while a man courts her with a schedule in mind. Elaine May directed it in 1971, and what she does with the setup is the unusual part: no suspense is built, nothing is done to make the scheme charming, and the two of them are left to spend a hundred and two minutes in each other's company with the intention sitting on the table like an appointment neither has cancelled. The comedy is patient and faintly appalling. It never pretends Henry has better reasons than he has.",
+  "model": "claude-opus-5",
+  "source_sha256": "18e819955572825f18fa7f4ce75257b287b27a851295ecd7273b06682c23b1b1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lola-1961",
+  "field": "lead",
+  "film_id": "a6abc5f4-7959-480f-8fd5-f13fc9b20f96",
+  "lang": "en",
+  "text": "She dances at a cabaret at night and raises a small boy the rest of the time. He is young, unoccupied and waiting for something to happen to him; they knew each other years ago, and the recognition costs him nothing while it puts at risk the arrangement she has managed to build. Jacques Demy made it in 1961 with the lightest possible touch on a situation that is not light at all: a mother alone, working a job that trades on being looked at, and a man who has confused remembering happiness with being owed it. Eighty-nine minutes of near misses, coincidences and kept and broken appointments, worked out with the precision of a dance number. Nothing in it insists on its own seriousness, which is why the sadness underneath keeps surfacing without ever being announced.",
+  "model": "claude-opus-5",
+  "source_sha256": "376c99e2a67c7a44dfb8d75174f32c0ea03ae9f25c18650500608546ec37bef2"
+ }
+]

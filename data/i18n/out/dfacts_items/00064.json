@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《살로, 소돔의 120일》을 편집하던 무렵 로마의 테크니컬러 현상소에서 필름 릴이 사라졌다. 파솔리니는 협박범들이 요구한 몸값을 내지 않았다. 뒤이은 살해의 도화선이 바로 그것이었을지도 모른다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b7592b9bdd7730a05b0c17d950fcbfd603499eb66c6355784722057ce888c2c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1975년 11월 1일 밤, 오스티아의 인적 없는 해변. 파솔리니는 각목에 무참히 얻어맞았고, 자기 차인 알파로메오 줄리아 GT에 몇 번이나 깔렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e817bf14bda687b0049ed38f5a1dbe0b7c7dd31d384962849d87ccc4806b365f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "파솔리니의 차를 몰던 열일곱 살 남창 피노 펠로시가 체포되어 살인을 자백했다. 감독이 성적으로 접근해오기에 거절했고, 정당방위로 죽였다는 것이 그의 진술이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c1d05c82e735964d402503d37facd3aeddd064964b100f9e6cc6a4fb2bed110"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2005년 펠로시는 전국 방송에 나와 자백을 공식 철회한다. 파솔리니를 때려죽인 것은 남부 이탈리아 억양을 쓰는 남자 셋이었고, 그들이 \"더러운 공산주의자!\"라고 소리쳤으며, 입을 열면 가족을 가만두지 않겠다고 협박했다는 이야기였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9ea65ad1a046838d191211a70721ab5b9c3ca1bdd39e409e89341affc6920239"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "절친한 벗 라우라 베티를 비롯해 많은 역사가와 지인들은 오랫동안 다른 그림을 의심해왔다. 우익 테러리스트나 마피아가 파솔리니를 암살했다는 것. 이유는 《페트롤리오》였다. 이탈리아 국영 석유회사 ENI 내부의 극심한 부패를 파헤치던, 방대하고 끝내 완성되지 못한 소설.",
+  "model": "claude-opus-5",
+  "source_sha256": "9dd3a2a6c13ffeeeeb3763a2462bc639d4f289d86677fc1014cbedd38653ead1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#23",
+  "field": "fact",
+  "lang": "ko",
+  "text": "로마 캄포 데 피오리에서 열린 장례식에서 소설가 알베르토 모라비아가 조사를 읽었다. 목소리는 격정적이었고 눈물이 섞였다. 이탈리아는 백 년에 한 번 나올 \"시민 시인\"을 잃었다고, 그는 말했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5e4869bca114411bd78f946a75cb161acde7a0eee79188ebdc72db78c9140333"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#24",
+  "field": "fact",
+  "lang": "ko",
+  "text": "초기 시의 대부분을 파솔리니는 표준 이탈리아어가 아니라 프리울리 방언으로 썼다. 계산된 정치적 선택이었다. 중앙집권 국가의 균질화 압력에 맞서, 어머니 쪽 조상들이 쓰던 변두리 시골 말을 끌어올리려 한 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "78ebb08aa02fe8f90bfa178e5f96abb0c05a2ee3aadb67ad4cadc6552295dae0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#25",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이탈리아 텔레비전에서 그는 파시스트 시인 에즈라 파운드를 인터뷰한 적이 있다. 파운드의 시를 그 앞에서 되읽어주는, 놀랄 만큼 부드럽고 정중한 자리였다. 늙은 우익 동조자를 물어뜯으리라 기대했던 좌파 비평가들은 할 말을 잃었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e483d7f3a22c4eed288a5d55384e226c3976c36625e23d7adebb81ce1466e0fd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#26",
+  "field": "fact",
+  "lang": "ko",
+  "text": "급진적 도발자라는 평판과 달리, 성스러운 것을 향한 그의 향수는 지독히 보수적이었다. 농민의 신앙이 사라진 것을 그는 애도했다. 텔레비전은 대놓고 경멸했고, \"대중 소외의 매체\"라 불렀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c1d7c197de98fe10dcc47fb9c4b2d86c5d7c3561890f8ff9071dfa7934698c48"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini#27",
+  "field": "fact",
+  "lang": "ko",
+  "text": "엔니오 모리코네와는 여러 차례 함께 일했다. 그러나 어떤 클래식 곡을 편곡해도 되는지는 파솔리니가 일일이 못 박았다. 대개 바흐 아니면 모차르트. 이 전설적 작곡가가 늘 누리던 창작의 여지는 거기서 크게 잘려나갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9cb9b0f44233ff7275a6955ee31c0b8c188cb478ccc1c440260dc717b76b4a88"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "quentin-tarantino#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "타란티노라는 이름은 퀸트 애스퍼에게서 왔다. CBS 서부극 시리즈 *Gunsmoke*에서 버트 레이놀즈가 연기한 거친 대장장이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "744721f7ebd111fe721f35fab999ec970fa48ca39259e3c4a0aa9e9d66f8cb99"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "quentin-tarantino#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "십 대 시절 그는 나이를 속이고 극장 안내원 자리를 얻었다. 캘리포니아 토런스의 성인 포르노 극장, 푸시캣 시어터였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "65921f96aced148148066a412255afd7e14b62ac95fbe0240f70a9842f269667"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "quentin-tarantino#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그 유명한 영화 수업은 맨해튼비치의 비디오 대여점 Video Archives에서 완성됐다. 점원으로 보낸 5년 동안 그와 훗날의 동료 로저 에이버리는 손님들에게 무명 익스플로이테이션과 외국영화를 들이밀다시피 권했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fa4f0aea6ce1faacad4fbe537b1862a07cca933e0ee82321b7c0909d4969a853"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "quentin-tarantino#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "초기 시나리오 작업을 버티게 해준 벌이는 유명인 대역이었다. 1988년 *The Golden Girls* 한 에피소드에 나온 엘비스 프레슬리 닮은꼴 역이 가장 널리 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b1f4aae3a899b1553f48746890ae451011b2ba1a2e501297a21ac4c6f527463"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "quentin-tarantino#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "첫 연출 시도는 16mm 아마추어 코미디 *My Best Friend's Birthday*(1987)였다. 완성된 필름의 절반은 현상소 화재로 타버렸다. 살아남은 각본 조각들은 훗날 *True Romance*로 되살아난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ed9a95784c1c5637285b308e1ef425d63339f021efb47323f5b249e525b659b2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "quentin-tarantino#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 *True Romance* 각본을 5만 달러에 팔았다. 그 돈으로 친구들을 모아 *Reservoir Dogs*를 16mm 흑백 필름으로 찍을 작정이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0c583c90edc6c6bd9c26ca24b461ef9fffe445a49125a3ccca12fa70b5fb6e27"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "quentin-tarantino#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "경력의 방향이 꺾인 건 각본 한 부가 손에서 손으로 건너가면서다. 프로듀서 로런스 벤더가 *Reservoir Dogs* 각본을 연기 선생 피터 플러드에게 주었고, 플러드의 아내 릴리 파커가 다시 하비 카이텔에게 건넸다. 카이텔은 흠뻑 빠져 공동 프로듀서로 이름을 올렸다. 150만 달러 예산이 그 자리에서 붙었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "608828e5e774fbbc3068efcfa36bbe6a42af2906b13af368ad0cb8b92d878099"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "quentin-tarantino#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "*The New Yorker*의 영화비평가 폴린 케일이 그에게 남긴 자국은 깊다. 십 대의 그는 무엇을 볼지 정하려고 케일의 리뷰를 강박적으로 읽었고, 훗날 그 글들이야말로 자신의 진짜 '영화학교'였다고 말했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b842920a2526ae782a43bcd1c9c27d631fd27258559436809044fed977d04c40"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "quentin-tarantino#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "*Kill Bill*의 최초 구상은 *Pulp Fiction*을 찍던 중 우마 서먼과 함께 나왔다. 술집 냅킨에 아이디어를 끄적여가며 둘이 '더 브라이드'라는 인물에 살을 붙였다는 일화는 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7907d9a2e9ff3bb2a11fe50f7d7733ed6b9150ea4d276a928d0a7f99d01e1bb5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "quentin-tarantino#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "서먼과의 사이는 크게 틀어졌다. *Kill Bill* 촬영장에서 안전하지 않게 개조된 카르만 기아를 몰라고 그가 밀어붙인 탓이다. 사고가 났고, 서먼의 목과 무릎에는 영구 손상이 남았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b77bf527a02740b4afe94576845eeeda3a95090e2075f64c5561c9e855b1fdbc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "quentin-tarantino#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1997년 웨스트할리우드의 레스토랑 아고에서 그는 *Natural Born Killers*의 프로듀서 돈 머피를 폭행했다. 벽에 밀어붙이고 주먹을 날렸다. 머피가 책에 써놓은 험담에 대한 앙갚음이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "59e6a02fc3fb755692dfacfd115a5663cd8644ce0674947ff01e2fc94c1d5ae9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "quentin-tarantino#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "올리버 스톤이 환각처럼 각색한 *Natural Born Killers*를 그는 공개적으로 부인했다. 감정 싸움은 오래갔고, 타란티노는 자기 원본 각본을 문고본으로 펴냈다. 스톤이 얼마나 뜯어고쳤는지 눈으로 보라는 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc5f1671a977dc9a58c0ce1ae29b0a643a9fc9d87e1a969369a81d31df54153d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "quentin-tarantino#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "감독 스파이크 리와의 공개적 ���화는 오래됐다. 타란티노가 각본에 인종 비하어를 자주 쓴다는 것이 발단이다. 리의 말은 이랬다. \"나는 그 단어에 반대하지 않는다… 다만 퀜틴은 그 단어에 홀려 있다.\"",
+  "model": "claude-opus-5",
+  "source_sha256": "bfa6ff53540a5d1521bece4498eb6633246fb9a4d07453a0d6a178f70b52e88a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "quentin-tarantino#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2014년 *The Hateful Eight*의 초고가 유출되자 그는 고커 미디어를 고소하고 성이 나서 기획을 접어버렸다. 그러다 화가 가라앉았다. 에이스 호텔에서 낭독회를 열었고, 결국 찍기로 마음을 돌렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "143bca922ac509f24eb5348737ebaebf6c590985c21528dbae22ecd00d4c3afc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "quentin-tarantino#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2007년 그는 로스앤젤레스의 유서 깊은 뉴 베벌리 시네마를 사들였다. 재개발에서 건져내기 위해서였다. 그리고 원칙 하나를 못 박았다. 이 극장은 오직 35mm나 16mm 필름 프린트로만 영화를 튼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "87842d0874f71cf6129a53e1eb1bfa8639a30af0c51f49ec6d4fb8356bf32424"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "quentin-tarantino#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자기 필모그래피를 두고 그는 미신에 가까울 만큼 예민하다. 말년의 추락을 막겠다며 열 번째 장편을 끝으로 은퇴하겠다고 거듭 공언해왔다. 그 숫자를 맞추려고 *Kill Bill* 1부와 2부는 공식적으로 한 편으로 친다.",
+  "model": "claude-opus-5",
+  "source_sha256": "01eb4fb8ef514c68c902b3ca88ce93f04f12f22c9c4e8a2c56ffedd5a8efb499"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "quentin-tarantino#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "발 페티시는 본인도 감추지 않는 취향이고, 작품 안에서는 아예 트레이드마크가 됐다. 거의 모든 장편에 여자의 맨발을 길게 붙드는 클로즈업이 일부러 들어간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "423176573ad03706512d02fa1679effd0c9e704d05368c370aa2f49b5f8751ef"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "quentin-tarantino#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "수십 년간 미라맥스의 기둥 노릇을 한 그는 2017년 깊은 후회를 공개적으로 털어놓았다. 하비 와인스틴을 둘러싼 성폭력 의혹을 알면서도 움직이지 않았다는 것. 옛 연인 미라 소르비노가 들려준 이야기를 비롯해 여러 건을 알고 있었다고 그는 인정했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b81b8dab4879c68c10e1165ba96fca6780a77338b9495e74f5e32da443c49ae1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "quentin-tarantino#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아내인 이스라엘 가수 다니엘라 픽과는 2009년 *Inglourious Basterds* 홍보차 이스라엘에 갔다가 만났다. 지금 부부는 로스앤젤레스와 텔아비브의 부촌 라마트 아비브 기멜을 오가며 지낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "083a0090acf65a86e90463a0843b9506ca3f7fcbe15ab8686663ae59174f9488"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "quentin-tarantino#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스턴트우먼 조 벨은 *Kill Bill*에서 우마 서먼을 대신해 위험을 떠안았다. 타란티노는 그 값을 배역으로 갚았다. 2007년 그라인드하우스 오마주 *Death Proof*에서 벨은 자기 자신을 각색한 인물로 주연을 맡는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9cffdd1e6af48f11a1f4f364463dcd538ff458e1e77b464b0465c9f11a20055b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "quentin-tarantino#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아카데미 각본상은 두 번 받았다. *Pulp Fiction*과 *Django Unchained*. 감독상은 세 번 후보에 올랐지만 한 번도 손에 넣지 못했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "78e5e501b719c3978f842bf6d025aec70ca9eed510c477415aef80096ba48648"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "quentin-tarantino#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2024년, 열 번째이자 마지막이 될 예정이던 *The Movie Critic*을 그는 돌연 접었다. 몇 달을 각본에 매달린 뒤였다. 마지막 노래로 삼기엔 자기 기준에 못 미친다는 판단이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ed8f62f79a7256807a5f234f18c346ee0d5956bab6338928eef05c1523c7a57"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rainer-werner-fassbinder#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "다섯 살에 부모가 갈라섰다. 결핵을 앓게 된 어머니는 아이를 자주 극장으로 보냈다. 하루 세 번인 날도 있었다. 이유는 단순했다. 뮌헨의 그 아파트에서 아이를 내보내는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "20abe905c8e5281fb55a02667a3dc80d3076fd45c88688b12919fcbb442c5c03"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rainer-werner-fassbinder#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "훗날 뉴 저먼 시네마의 전설이 되지만, 1965년의 그는 갓 문을 연 베를린 영화텔레비전학교(dffb) 입학시험에서 미끄러졌다. 그것도 두 번.",
+  "model": "claude-opus-5",
+  "source_sha256": "be312efeb2454eb4c786de99d77c69b367f3eb9fd66fddd87e994955963106ad"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rainer-werner-fassbinder#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1967년 뮌헨의 급진적 극단 악치온테아터에 배우로 들어갔다. 두 달 만에 극단의 주도권을 통째로 빼앗는다. 질투에 찬 경쟁자들이 극장 장비를 말 그대로 때려 부쉈고, 그는 자기 극단 '안티테아터(antiteater)'를 차릴 수밖에 없었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "17ff6605b37df848a0527f871ce2cde3dbae7a6ec43a457c167b521bfc7347ba"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rainer-werner-fassbinder#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "어머니 리젤로테 에더를 그는 자주 카메라 앞에 세웠다. '릴로 펨파이트'라는 가명으로 스무 편이 넘는 작품에 어머니가 나온다. 《불안은 영혼을 잠식한다》와 《마리아 브라운의 결혼》도 그 안에 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e5f1f5a7873f5ebeb121a7d8220eb31063bdb0f6bb3684dd6786a68fabf31484"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rainer-werner-fassbinder#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "주로 남자를 사랑했지만 1970년 그는 뮤즈 잉그리트 카펜과 호적사무소에서 결혼했다. 피로연 장소는 뮌헨의 게이 바였고, 남자 연인 귄터 카우프만도 그 자리에 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ef26deeb764f2b509fa7628c81ec544ed0e13830b5c507a9abb693863be2593b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rainer-werner-fassbinder#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "인생을 크게 꺾은 사건은 1971년 스위스 루가노에서 일어났다. 우상을 만나러 간 길이었다. 망명한 할리우드 멜로드라마 감독 더글러스 서크. 그 농밀한 미학이 파스빈더의 거칠던 초기 스타일을 통째로 바꿔놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1af8619ffb2ab4765423482a896f5d4b91491c4af3b344efe622690c09ee06cd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rainer-werner-fassbinder#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "모로코인 연인 엘 헤디 벤 살렘에게 그는 《불안은 영혼을 잠식한다》의 주연을 맡겼다. 관계의 끝은 폭력이었다. 살렘은 베를린의 한 술집에서 세 사람을 찔렀고 프랑스로 달아났다. 님의 감옥에서 그는 목을 맸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f2eeb87fc9fe78eb3da0a7f6476d38dc7a7f13951059eb9fd1bcc2f646ba2a8f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rainer-werner-fassbinder#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1978년 사생활에 또 한 번 비극이 닥친다. 정육점에서 일하던 옛 연인 아르민 마이어가 파스빈더의 뮌헨 아파트에서 수면제를 다량으로 삼켰다. 스스로 고른 죽음이었고, 그날은 감독의 서른세 번째 생일이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b4fa95d55c0558f2e70ad2687b2e250b28d0a70d2c476ca21739901e889f83bd"
+ }
+]

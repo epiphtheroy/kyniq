@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-pink-panther-1963",
+  "field": "lead",
+  "film_id": "222ff2db-082e-4bb6-8189-c460c4578316",
+  "lang": "en",
+  "text": "A glove left at the scene is both signature and taunt, and the man who has studied it for years is the last person equipped to read it. Blake Edwards takes the jewel-theft picture out of the shadows — the Lugashi stone, the aliases, a resort in the Tyrolean Alps — and stages it in bright snow and evening dress, then turns Inspector Clouseau loose in it for 115 minutes. The length matters. Farce this long has to be built like a building: doors, corridors, the wrong people in the right rooms at the wrong hour, all of it timed. The score won an Academy Award, which for a comedy is a clue about where the elegance has been put. Nearly everyone on screen is passing as someone else, and the expert on disguise cannot see through a single one of them.",
+  "model": "claude-opus-5",
+  "source_sha256": "16687a9ce6d3202b1ff3bc61067cd4891a052596b36d21a9b520de621d484482"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "white-christmas-1954",
+  "field": "lead",
+  "film_id": "2b8cc8c5-fc57-4e47-ba9a-76bba39ab47f",
+  "lang": "en",
+  "text": "The partnership comes first: two men out of uniform find that their act works, and only afterwards does anyone fall in love. Michael Curtiz gives that arrangement a full two hours, generous for a plot this slender, and the surplus goes where it should — numbers, costume changes, the visible machinery of an act being assembled, rehearsed and sold. The war sits just behind the opening, near enough that the ease between the two men reads as something carried over from it. Then the Haynes sisters arrive, and four people begin negotiating billing and affection in the same conversations. It is a 1954 studio picture about the business of entertaining, made by people entirely inside that business, and it never pretends that the sentiment and the booking calendar can be separated.",
+  "model": "claude-opus-5",
+  "source_sha256": "d2a62932bac60667cfe483ad00f3b23d93e2f4bf602ae8ba027d7400ccb7ef35"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "cat-on-a-hot-tin-roof-1958",
+  "field": "lead",
+  "film_id": "5c2accff-401f-4b7d-93e6-278a721f59ee",
+  "lang": "en",
+  "text": "Almost all of it happens indoors, in a house where the dying man's estate is the one subject nobody will name aloud. Richard Brooks keeps a glass within reach of his former athlete at all times and gives the film 108 minutes in rooms that are always a little too full of relatives. What 1958 allowed and what it forbade is legible in every evasion: the friend who died after an accident no one will describe, the feelings the son will not put into words, a wife's desperation confined to the language of the bedroom. Color cinematography took an Academy Award here, an odd honor for a picture with almost nowhere to go outdoors; the color is heat, whiskey, lamplight on wood. The father's illness sets a clock, and everyone in the house can hear it running.",
+  "model": "claude-opus-5",
+  "source_sha256": "c0544f690ff0d231b0f2bcf8d817cc27aaf386b9d9ca096060c299f6013f4636"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "forbidden-planet-1956",
+  "field": "lead",
+  "film_id": "2bbd07e6-7474-4369-8719-1fed55b162ce",
+  "lang": "en",
+  "text": "Twenty years is a long time to be missing, and the one man still alive on Altair 4 would prefer the rescue party turn around and go home. That refusal drives the first hour: a crew with orders, a host who did not invite them, and a planet that looks empty and is not. The Academy Award for special effects is visible in every frame of matte landscape and ship interior, but the stranger achievement is tonal. This is a 1956 adventure that spends much of its 98 minutes on conversation — a scientist explaining his work, at length, to people he wants gone by morning. Almost nothing is chased; a great deal is negotiated. The threat is announced before it is shown, and announced politely, and what the crew is waiting for takes its time deciding.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc136b0d4ecb1ae700dd0a78741f9491c408db69e831ac93aff2185f6df57d3d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hoosiers-1986",
+  "field": "lead",
+  "film_id": "a949844b-33f2-4efb-91f7-d2406b66193d",
+  "lang": "en",
+  "text": "A town small enough that the new coach can be discussed in public, at length, by people who have known one another for forty years. Norman Dale arrives in it with a failed college career behind him and no leverage at all: his best player has quit to concentrate on school, his chosen assistant is the man the county remembers as a drunk, and his temper is on the agenda at every gathering. David Anspaugh shoots Indiana in winter — gyms, gravel, one main street — and keeps the basketball itself small, mostly drills and footwork and boys made to pass the ball until they resent it. Shooter's difficulty is not only the drinking; it is that everyone here knew him before. Sentiment does arrive, in 1986 fashion, but it has to get past the townspeople first.",
+  "model": "claude-opus-5",
+  "source_sha256": "b2ccc7ab1ccfa1d99208e20fa5bc83a250a42e99423ecdec83e2cdf7bbbb0111"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "much-ado-about-nothing-1993",
+  "field": "lead",
+  "film_id": "39aa62b9-204e-4760-9cc6-4259a009a91f",
+  "lang": "en",
+  "text": "Soldiers with nothing to do: an officer, his men, a house that takes them in, and a week before a wedding with no duties in it. Kenneth Branagh treats that idleness as an occupation. Marrying off Benedick and Beatrice becomes a job the household assigns itself, carried out with staged conversations and planted gossip, and the two of them are so fluent in refusal that the only way to reach either is to let them overhear a lie. Branagh runs the verse at conversational speed, which asks the cast to think while speaking rather than after. Don John, who has no wit and no wish for any, works on the wedding from the other side. The comedy is in watching people who consider themselves too quick for love be outmaneuvered by their friends.",
+  "model": "claude-opus-5",
+  "source_sha256": "c894cfa0f327a67c656f728abe70a6b66bb044bbf1254a1c95d8301a2eb7f2b4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "kinsey-2004",
+  "field": "lead",
+  "film_id": "29f7d0d7-04ec-445a-8ee2-42eeba678ef8",
+  "lang": "en",
+  "text": "A researcher sits down opposite a stranger and asks him, in a level professional voice, what he has actually done. Bill Condon builds Alfred Kinsey's life out of that transaction, repeated: the flat tone, the refusal to flinch, everything written down, a method that works on the man holding the pencil as much as on the man answering. Biography arrives sideways through those sessions rather than through the usual chronology of a career. It is a German production about an American subject, and it is far more interested in the mechanics of asking than in any single answer — and then in what happens to a household when the head of it decides no question is out of bounds and brings the work home with him. A hundred and eighteen minutes, mostly people talking.",
+  "model": "claude-opus-5",
+  "source_sha256": "ddcad99bfd87f1164ed3183ba2b654b705d479835f7a772dac549f8964bbe5d4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mighty-aphrodite-1995",
+  "field": "lead",
+  "film_id": "c942000d-d146-4f1e-8ffb-ab04edaedf6c",
+  "lang": "en",
+  "text": "A chorus turns up, in the manner of Greek tragedy, to narrate a New York man's decision to find out who gave birth to his adopted son. The device could have been one gag; Woody Allen runs it the length of the film, so every shabby, deniable move Lenny makes is announced as though it were fate. What he locates is Linda Ash, cheerful, loud, and not remotely in need of rescue, and the comedy tightens as his charity turns out to be curiosity and then something less flattering. Ninety-five minutes, no slack. An Academy Award went to the screenplay, and the trick in the writing is the mismatch: ancient machinery promising consequence while the scenes stay the size of an apartment. The chorus keeps advising him to leave it alone. He is not built to listen.",
+  "model": "claude-opus-5",
+  "source_sha256": "eefc7e09d8f2a0a163c52ce6ac9e812e6ca3ad3e247dda8fd5da386d5a4c1fbc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "in-america-2003",
+  "field": "lead",
+  "film_id": "453ad862-6a3c-4c90-bcda-3d02587d1fc8",
+  "lang": "en",
+  "text": "Grief travels with the luggage and is unpacked in an apartment in Hell's Kitchen. Jim Sheridan follows an Irish family into a New York they have to afford before they can enjoy it, and the attention stays on the practical business of arrival: the work available, the rent, the rooms made livable, the effort of keeping a cheerful tone at the kitchen table. The child who died is not a flashback to be dispatched and moved past; the loss is audible in how carefully the parents speak to each other. An Academy Award went to the original screenplay, which earns it largely by refusal — nobody is handed a speech about beginning again. What the film watches is a household that has agreed to treat a very hard year as an adventure, and how long each of them can keep to the agreement.",
+  "model": "claude-opus-5",
+  "source_sha256": "e8b6684a39f5d4523b11f748e4e841bae3506481bd7b1cea417db57c6caa12e6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bullets-over-broadway-1994",
+  "field": "lead",
+  "film_id": "20695bf5-e5fd-44af-b4ca-8e10e3f981cd",
+  "lang": "en",
+  "text": "A gunman is assigned to sit through rehearsals, and rehearsals turn out to be exactly as long and as dull as he feared. Woody Allen sets his backstage comedy in a theatre world where Nick Valenti's money comes with casting attached, so David Shayne's first production is compromised before a line is read: a leading lady who cannot act, a leading man who eats his way through scenes, a grand dame quietly enlarging her part, an armed chaperone at the back of the house. The production design took an Academy Award and earns it by making the arrangement look ordinary — a criminal in the stalls is simply how a play gets financed. Ninety-eight minutes of people insisting that art comes first, in a room where the man with the gun is the only one not lying.",
+  "model": "claude-opus-5",
+  "source_sha256": "ee256555dd7afb9adce5aba4602f496a955c12872c11b90cfcc67d1d29a43935"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "up-in-smoke-1978",
+  "field": "lead",
+  "film_id": "14d59404-55d4-4589-b500-26855210bd5c",
+  "lang": "en",
+  "text": "Eighty-six minutes, and the plot is mostly two men getting from one place to another with no urgency about it. Anthony leaves strict parents behind and finds Pedro; an arrest for possession interrupts nothing for long, since a technicality returns them to the road before the inconvenience has registered. The comedy runs on delay — conversations that lose the thread, errands that consume an afternoon, a band contest waiting at the far end like an appointment nobody has confirmed. What holds it together is the pairing: one man talking, the other agreeing several seconds late. Up in Smoke later went into the National Film Registry, a curious fate for something so uninterested in being about anything. It records a particular California idleness without proposing that idleness is a problem or a virtue.",
+  "model": "claude-opus-5",
+  "source_sha256": "c535a33d1e16628a7741592bce40277731d6b9533dd5da657e7fc6e3fd7a5c0c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-invisible-man-1933",
+  "field": "lead",
+  "film_id": "63b8756a-c334-460e-ba25-f504e239bec6",
+  "lang": "en",
+  "text": "Under the bandages there is a voice and nothing else, and at seventy-one minutes the film cannot afford to be slow about it. James Whale takes a laboratory accident and turns it into a problem of conduct: the drug has removed Jack Griffin from sight and left him aggressive, and he needs shelter, warmth and quiet in which to find his way back, none of it obtainable without frightening somebody. Much of the horror is therefore practical, and much of the performance is vocal — a voice arriving from the corner of a room where no one is standing, which 1933 sound recording renders unnervingly plain. Whale keeps the tone unstable, consternation played for comedy in one scene and menace in the next, and the picture moves like something that knows how long its trick will hold.",
+  "model": "claude-opus-5",
+  "source_sha256": "81722fad4f0ce0d9659115e20e6c8dd016a46a2b0fbab158bfe7bb97d3ebd380"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "peggy-sue-got-married-1986",
+  "field": "lead",
+  "film_id": "2f4a9ad9-688f-4353-abcc-d621512303d4",
+  "lang": "en",
+  "text": "1960 arrives without a machine, a rule book, or anyone to explain the terms. Peggy Sue faints at her twenty-fifth reunion and comes round in her senior year, and Francis Ford Coppola declines to make a puzzle of it; the fantasy is only a way of walking a woman around inside her own adolescence, carrying twenty-five years of information she has no means of using. The cinematography took an Academy Award, and both periods are lit as one continuous evening, so the film never quite signals which decade it is standing in. The pressure it applies is domestic and hard to bear: the boy she will marry, her parents' house, friends whose futures she already knows. Comedy is available and Coppola takes it, but nobody in 1960 can be told anything, and she keeps trying.",
+  "model": "claude-opus-5",
+  "source_sha256": "0a22fccc687a58def0bbaa277e390682e7425e4232831144820ac3427c1c4d7f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-muppet-movie-1979",
+  "field": "lead",
+  "film_id": "55f34162-cf22-4faa-9867-a7a85c5accaf",
+  "lang": "en",
+  "text": "The film begins with its own cast filing into a screening room to watch the story of how they met. That frame sets the terms for everything after it: a road picture aware of being a picture, running from the swamp where a talent agent finds a frog to a long drive west with the owner of a frog-leg restaurant in pursuit. The technical demand is the interesting part — puppets set into wide daylight exteriors, in cars, on open ground, with no tabletop to hide behind and nowhere for the puppeteers to be. The song score took an Academy Award, and the songs carry the feeling the plot keeps deliberately light. Ninety-five minutes, roughly one guest star per stop, each appearing for a scene and gone — which is more or less how the friendships work too.",
+  "model": "claude-opus-5",
+  "source_sha256": "92703f4c71d33d99a92de328d94fd9b2c69ef7209066714afb20d33f12e55641"
+ }
+]

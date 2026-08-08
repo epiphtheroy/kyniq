@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "duck-soup-1933",
+  "field": "lead",
+  "film_id": "0faf04b6-71b6-4c69-9be8-c589d9e3ad4b",
+  "lang": "en",
+  "text": "Sixty-eight minutes is barely enough to found a country and more than enough to wreck one. Freedonia is broke, and the money that would save it arrives with a condition set by a wealthy widow: Rufus T. Firefly takes the presidency, and the dictatorship comes with it. Nothing in the setup treats this as unusual. The war with Sylvania is declared not over territory or trade but over Mrs. Teasdale, which is to say over vanity, and the film lets a head of state behave exactly as small as that motive implies. At this length there is no room for consequences to accumulate; every scene has to be funny and also has to advance a national emergency, and that double duty is the whole design. Freedonia's bankruptcy is real. Its government is a joke. Leo McCarey declines to rank them.",
+  "model": "claude-opus-5",
+  "source_sha256": "5dbf74d3e7205426d33718831a5930f17d4b221245acb60141d6d30de767bac4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-insider-1999",
+  "field": "lead",
+  "film_id": "a7127356-ab17-4a27-960e-23c8a977f4c3",
+  "lang": "en",
+  "text": "A research chemist agrees to say on camera what he knows, and the rest of his life reorganizes itself around that decision. The subject is tobacco, the venue is a 60 Minutes segment, and the attack that follows is professional before it is anything else - a title, a salary, a reference, an employability. Michael Mann builds it as a thriller and then withholds nearly everything a thriller supplies: no chase, no clock that can be outrun, 158 minutes of rooms in which people talk on telephones and calculate what a broadcast will cost them. The suspense is whether a piece of tape will air. That is an odd engine for a genre picture, and it holds, because the man who knows and the people who want him on the air are not finally serving the same interest, and none of them owns the network.",
+  "model": "claude-opus-5",
+  "source_sha256": "7de4eaa9faa2c064407066ebbc1dac71508d4117763a73a760aa5a92e4cf5d42"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "about-schmidt-2002",
+  "field": "lead",
+  "film_id": "1e9b46c9-671e-4dc1-a359-356c756558a0",
+  "lang": "en",
+  "text": "Estrangement is the word people reach for when nothing dramatic ever actually happened. Schmidt's daughter is marrying, and he has just retired, which means that for the first time there is nothing between him and the drive out to her. Alexander Payne treats this as a logistics problem before an emotional one - the hours a job used to absorb, a house arranged around a man's absence, a distance that was easy to keep while there was somewhere to be at eight. The humor is a matter of manners: the courtesies people extend to someone they have finished needing. It runs 125 minutes and lets a good deal of the trip go slack, which is the honest length for a journey the destination did not request. What he finds on the road is not information. It is arithmetic he had never had reason to do.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e63092e88cbac35cd532a47aede97376a8f2321c227d1518b269ca05c97d5c3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-river-wild-2003",
+  "field": "lead",
+  "film_id": "2c505534-2f81-48b4-8f4d-c23aba39f92d",
+  "lang": "en",
+  "text": "A river runs one way, which is most of the machinery this kind of thriller requires. The Hartmans book white-water in Montana for their son's tenth birthday, half holiday and half repair work on a marriage that is not going well, and the two men they take up with on the water turn the trip into something nobody can leave by walking. Curtis Hanson keeps the pressure practical rather than psychological: the raft holds a fixed number of people, the noise of the water eats conversation, the next stretch arrives whether or not anyone is ready. What makes it work is that the marriage does not pause for the emergency. Two people who were failing quietly at home have to cooperate at speed, in front of their child, with company they did not choose. What they have left to speak with is competence - who reads the water, who holds the line.",
+  "model": "claude-opus-5",
+  "source_sha256": "f39b577c94f5b8cfed879e5f73c896bbee56dc8ba36a9b8de64f90067601b7aa"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-wandering-earth-2019",
+  "field": "lead",
+  "film_id": "c963a68c-d272-495f-93e4-d477a60b84a0",
+  "lang": "en",
+  "text": "Told the Sun will take the Earth within a century, the people in this film decline to build ships. They build engines instead, thousands of them, pushing the whole planet out of its orbit toward a star four light years off, a crossing measured in millennia of which any film can show only a sliver. That is the constraint worth watching. A story whose stated timescale is thousands of years has to be assembled out of a few days' work by people who will not see the destination, and whose grandchildren will not see it either. Frant Gwo builds it as spectacle, and the images it wants are of hardware at planetary scale and a world reorganized around the machines. Underneath all that the premise stays stubbornly domestic. Nobody emigrates. The ground stays underfoot, the address does not change, and everything above it does.",
+  "model": "claude-opus-5",
+  "source_sha256": "3bc8028a1024fe0a496589a641e860b58464a1852a1ce5f38efe0ee7d635917e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "umberto-d-1952",
+  "field": "lead",
+  "film_id": "9a18d5e5-5fe3-43b2-8ae5-d05b3629d3c8",
+  "lang": "en",
+  "text": "A demonstration of pensioners asks for a raise; the film follows one of them home. Umberto Domenico Ferrari owes fifteen thousand lire by the end of the month, does not have it, and has a landlady who has said plainly what the alternative is. The arithmetic from there is merciless in its ordinariness - what can be sold, who can be asked, how far a pension stretches once the rent comes out of it. He also has a dog. That is the complication no arrangement quite solves, since the person nearest to hand is the maid, pregnant and abandoned and shorter of options than he is. Ninety-one minutes, and there is no villain in it: the landlady wants money she is owed, and everyone in the building is short. Cruelty is not required. The rent is due, and De Sica lets that be enough.",
+  "model": "claude-opus-5",
+  "source_sha256": "825253822ccebe3e0ad91833ebd2d0a02bc49d3e630292f3c278701a84fb8862"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-accidental-tourist-1988",
+  "field": "lead",
+  "film_id": "336098c9-479d-4a34-a225-926755b64780",
+  "lang": "en",
+  "text": "Travel writing requires being elsewhere on purpose, which is a hard condition for a man who has stopped wanting to be anywhere. Macon Leary's son is dead; the marriage has gone quiet in the specific way of two people grieving the same thing at different rates, and when it comes apart neither of them is really leaving. Lawrence Kasdan pitches it all at the level of routine - luggage, schedules, the small systems a person builds so the day can be got through without deciding anything - and lets the comedy in through someone briskly, inconveniently alive. The romance is not a rescue operation. The wife has not gone far and may want the marriage back, and the film spends two hours testing whether habit can be told apart from love, using one household and a stranger as its instruments.",
+  "model": "claude-opus-5",
+  "source_sha256": "95ebff3f726417dbfc55ea532dbbd9eee59146af1b560bbe4e2bb56009f89025"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "neighbors-1981",
+  "field": "lead",
+  "film_id": "fca99ba6-af10-4ccf-83ea-94ebab5e9589",
+  "lang": "en",
+  "text": "The house next door had been empty long enough to feel like part of the property. Then a couple moves in, and what follows is ninety-five minutes on the impossibility of refusing anything to people who live next door. The requests start small - food, money, an hour - each landing just short of the point where saying no would look reasonable, and each accommodation leaving the man of the house a little more like the unreasonable party. John G. Avildsen runs it as farce at the temperature of a siege, mostly after dark, mostly indoors. The joke is that nothing supernatural is needed: the suburban obligation to be a good neighbor does the work a monster does elsewhere. A man can be evicted from his own account of the evening by two people who simply will not leave.",
+  "model": "claude-opus-5",
+  "source_sha256": "a28ebddb598d34f964f996f15740eca22559de5d715272940b2a11d0ea2dee86"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "assembly-2007",
+  "field": "lead",
+  "film_id": "23600b30-1e1b-4f35-bb41-5ddaabedbd5f",
+  "lang": "en",
+  "text": "The men died in 1948, and the film is mostly about what happens to their names afterward. Feng Xiaogang gives the fighting its full weight - a turning point in the civil war between the communists and the nationalist forces of the Kuomintang - and then does the harder thing, which is to follow a survivor into offices. Recognition turns out to be a category with paperwork attached, and without the paperwork the dead are not officially anything. A soldier who came back finds that memory is not evidence, that his own account carries no weight by itself, and that the institution he served has a procedure for everything except his particular claim. At 123 minutes the battle ends early. What is left is one man carrying an assertion nobody has any obvious reason to process, into rooms built to slow him down.",
+  "model": "claude-opus-5",
+  "source_sha256": "a97dd632b31e521bed6c32e3fbc6497f91c40ce14b58f7224dab622d51168759"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "creation-of-the-gods-i-kingdom-of-storms-2023",
+  "field": "lead",
+  "film_id": "8cf34aef-7f81-493c-a422-65585c3f2848",
+  "lang": "en",
+  "text": "The source is a novel Chinese readers have known the shape of for centuries, which changes what an adaptation is for. Nobody is being told this story; they are being shown a version of it. Wuershan takes 148 minutes over the first part of a war among humans, immortals and monsters set more than three thousand years ago, and much of that length is construction cost - court, hierarchy, costume, the rules by which a mortal can be punished by something that is not mortal. Fantasy at this scale lives on specificity: whether the immortals have manners, whether the palace has a working politics, whether anyone eats. The Golden Rooster named it best picture, which is unusual for an opening chapter, where the job is largely to build the room the next two films will fight in.",
+  "model": "claude-opus-5",
+  "source_sha256": "ea0ab41d9a5be2049faf0246d38fd3772692e79da16a209d5a46aac27b17c74a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "wolf-totem-2015",
+  "field": "lead",
+  "film_id": "3c9dff6f-c413-4e26-be29-295ec9a94dbc",
+  "lang": "en",
+  "text": "A film in Chinese about Inner Mongolian herdsmen, directed by Jean-Jacques Annaud, is an odd object before the wolves arrive. In 1969 a Beijing student, Chen Zhen, is sent out to the grassland, which places him between two forces with no interest in his opinion: the herders' long enmity with the wolf packs to the north, and settlement pressing up from the south with its own ideas about what land is for. He has standing in neither argument. That is the useful part, since a protagonist who cannot intervene has to watch, and watching is what 116 minutes on open ground can do that a plot cannot. The wolves are neither symbols nor pets; they are competitors for the same meat. The material asks for patience with weather, distance and the noise a herd makes, and it courts the sentimentality that shadows any story about an outsider learning a way of life.",
+  "model": "claude-opus-5",
+  "source_sha256": "b64296fff26470a43ce832c3733c0419110eb76d2e5cd35fce1780b3d8e812f6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "operation-mekong-2016",
+  "field": "lead",
+  "film_id": "ea68fb6e-7ed1-4f87-bfdf-fd56ee5fe4d5",
+  "lang": "en",
+  "text": "Thirteen Chinese crew are found dead aboard two ships on the Mekong, a river that runs through several countries and answers to none of the people hunting for the killers. What the film is really about is a state deciding to act at a distance. Dante Lam Chiu-yin runs the response as a procedural with hardware - surveillance, informants, a cartel operating where enforcement is thin - and gives 124 minutes to the preparation as well as the pursuit, so the action arrives with the tedium that earned it. A Hong Kong action director working a mainland operation of state makes for an unusual mixture, and the mixture is the interesting part: the violence is staged at private scale, the mission is entirely official, and the two do not always agree about whose story this is.",
+  "model": "claude-opus-5",
+  "source_sha256": "c2e3adf2a39ddfa0c716e66c9f46976da65897863210704e5d3c7553e1725de1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-battle-at-lake-changjin-2021",
+  "field": "lead",
+  "film_id": "c1814467-d1d2-4700-af1e-d69eb7049331",
+  "lang": "en",
+  "text": "Winter 1950, a frozen lake basin in Korea, and the temperature is a third army in the field. Chen Kaige spends 178 minutes on a single engagement between American and Chinese elite units, and at that length a battle film stops being an episode and turns into a work schedule: marching, digging, waiting, supply, the long intervals in which nothing happens and everyone gets colder. Nearly three hours is not indulgence here; it is the only way to make a position feel like duration. Whatever a viewer makes of its politics, and they are not hidden, the physical account is what stays - what it costs to move men across open ground, what hot food is worth, how a war fought in that cold sets its terms before either side fires. The size goes on weather and distance rather than on surprise.",
+  "model": "claude-opus-5",
+  "source_sha256": "3795f31d7b9c852f3ac6b8d2b08e73f0ee2ab71037b92e2ec82043cfbbf593c1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "american-dreams-in-china-2013",
+  "field": "lead",
+  "film_id": "2bf3e1cf-ed6c-4c47-95de-d757f10f8b84",
+  "lang": "en",
+  "text": "The product is English, and the customers are teenagers who want out. Three friends turn that demand into a school, and what follows is a business picture in the full sense - capital, premises, enrollment, the years when the company is three men and whatever room they can get. Peter Chan Ho-Sun keeps the friendship and the balance sheet on a single track, so that every commercial decision doubles as a decision about which of the three is in charge. The pressure that interests him is not failure. Partnerships survive scarcity better than they survive money, and a school that works hands three men who were once broke together a problem they never had to solve before. At 112 minutes it covers years, and the compression helps: cracks show faster when the film keeps cutting to the next stage of growth.",
+  "model": "claude-opus-5",
+  "source_sha256": "b1cd4e8563b8a209b140928f08dbfce157db25ed0ea4fdf89b67de555aa9d11e"
+ }
+]

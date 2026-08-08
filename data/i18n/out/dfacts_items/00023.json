@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francis-ford-coppola#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《One from the Heart》의 처참한 흥행 실패는 그를 막대한 빚더미에 앉혔다. 완전한 파산을 면하려고 그는 이후 십오 년을 《잭》이나 《레인메이커》 같은 스튜디오 영화의 '고용된 감독'으로 버텨야 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "26262afea50911de4d9c069cd66f8c15d84448ef6b2a46d0f02b35a4582c3206"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francis-ford-coppola#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1986년 그는 견딜 수 없는 비극을 겪는다. 스물두 살 아들 지안카를로 코폴라가 메릴랜드에서 보트 사고로 목숨을 잃었다. 배를 몰던 그리핀 오닐의 난폭한 조종이 사고를 불렀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ae083dfdf2782e4b86546dd9139983b1848fed5d8a31e25e66223287a1fefbe"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francis-ford-coppola#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생 와인을 사랑한 그는 1975년 《대부》로 번 돈을 나파 밸리에 묻었다. 역사 깊은 잉글눅 이스테이트의 일부를 사들인 것이다. 그렇게 일으킨 와인 제국은 훗날 그의 연출 수입을 통째로 가려버릴 만큼 커졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "77fd6a7df1625e118b84aaf290f3448cd033cbc6edddcce3193048fa84de8b27"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francis-ford-coppola#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "천문학자 칼 세이건과는 지독한 법정 싸움을 벌였다. 1989년 그가 제기한 소송의 요지는 이랬다. 세이건의 베스트셀러 소설 《콘택트》가 1970년대 중반 두 사람이 은밀히 함께 구상한 SF 아이디어에서 나왔다는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "57adb275a485241a7bdc678e90db7d61bce581c34f25f57b028bdb8c9ae5cec2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francis-ford-coppola#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "무산된 실사판 《피노키오》를 두고 그는 워너브러더스와 대규모 법정 공방에 들어갔다. 스튜디오가 자신이 컬럼비아 픽처스에 기획을 제안하는 것을 악의적으로 막았다는 주장이었고, 1심에서 8천만 달러 배상 판결을 받아냈다. 판결은 나중에 뒤집혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c37592d1a629699f65c731b4a59b1963199b2458858a75b69746134ea22fc3cf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francis-ford-coppola#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1983년 《아웃사이더》를 각색하면서 그는 십대들의 계급 감각을, 그 호르몬 섞인 적대감까지 화면에 담고 싶어 했다. 방법은 단순했다. 부유한 'Socs' 역 배우들에게는 고급 호텔 객실을 내주고, 톰 크루즈와 패트릭 스웨이지가 속한 'Greasers' 쪽은 호텔 지하의 눅눅한 골방에서 재웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "92e7b732bd0b12a8f8f46eb37a0580dd5549cc35112a14552a7dd573239e90e9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francis-ford-coppola#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 할리우드에 넓게 뻗은 한 가문의 가장이다. 누이는 배우 탈리아 샤이어, 자식인 소피아와 로만 코폴라는 둘 다 감독이 됐고, 조카로는 니콜라스 케이지와 제이슨 슈워츠먼이 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aeac292d862502486752f0e9a5c4581648c7a4d2b5e3360033e6aa4c0cc54299"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francis-ford-coppola#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "문학을 각색할 때 그는 원작자의 이름을 제목 위에 남기자고 고집한다. 존중의 표시다. 그래서 공식 제목이 《마리오 푸조의 대부》, 《브램 스토커의 드라큘라》가 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a8a448d63d1c407abc8648e622a7b4d3f5a865a05c027ac70e076d942e9c1d5e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francis-ford-coppola#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2001년, 오래 품어온 꿈 하나가 이뤄진다. 잉글눅 부지의 남은 땅과 상표권까지 사들이면서 나파 밸리 포도밭의 역사적 내력을 온전히 되찾은 것이다. 수십 년 동안 기업 손을 거치며 쪼개졌던 땅이 그제야 하나로 합쳐졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "14ed62e1e23075988fdfc4270af09c06c0fb259a0e612e1ba8a8edebee05e95e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francis-ford-coppola#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "여든다섯의 나이에 그는 수십 년을 묵혀온 SF 서사시 《메갈로폴리스》를 2024년 칸영화제에서 처음 공개했다. 1억 2천만 달러의 제작비는 전부 자기 돈이었다. 아끼던 캘리포니아 와인 제국의 지분을 크게 덜어내 마련한 돈.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b244614376e2f7209fd2257fb073fe87006fd31978c8cf02a5fbaca9f12bb2e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francis-ford-coppola#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미국 영화 그 자체로 통하는 이름이지만, 그는 이탈리아 국적을 함께 지닌 이중국적자다. 1989년, 남부 바실리카타에 뿌리를 둔 집안 내력을 인정받아 이탈리아 여권을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6dcce1a793102d33a4eb0ee5a3325e1e7fe9b9e5106bbcadc00937b14efcbe02"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francis-ford-coppola#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "샌프란시스코에서 나오는 문예지 《Zoetrope: All-Story》의 발행인이기도 했다. 1997년 그가 직접 만든 잡지로, 단편소설을 키우고 영화로 옮길 만한 새 목소리를 찾자는 뜻이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ff0c655b890b875475c17d71728d81553f5ad1af271e7c14d987e41cfc88dba6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francis-ford-coppola#23",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《지옥의 묵시록》에서 윌러드 대위를 맡은 하비 카이텔을 그는 촬영 며칠 만에 잘라버렸다. 유명한 일화다. 대신 들어온 마틴 신은 훗날 찜통 같은 필리핀 정글에서 목숨을 잃을 뻔한 심장마비를 겪는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a386ee51ec7f5bbacc659147d7cc4ce3c71c21bbbc0b43b4643882e93e1d2b17"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-ozon#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "파리에서 태어났다. 아버지는 생물학 교수, 어머니는 교사였다. 오종이 자란 곳은 엄격한 중산층 가톨릭 가정이었고, 그는 훗날 평생에 걸쳐 그 세계를 가차 없이 조롱하게 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c8f83299e80d0ad9656e692aeb9014131f7f71808926de2293a0318eeae0d578"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-ozon#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스물한 살에 찍은 1988년 슈퍼8 단편에는 그의 부모와 형제, 자매가 그대로 출연한다. 가족끼리 신이 나서 서로를 죽이는 블랙코미디였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "382559b247eed5bab3726732d476c4bc5dfee10b9a75e2fbd3666b7c7729669e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-ozon#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "파리의 명문 라 페미스에서 그를 가르친 사람은 누벨바그의 거장 에릭 로메르였다. 로메르는 제자의 성실한 작업 태도를 높이 샀다. 다만 전복적이고 노골적인 성적 소재만큼은 끝내 이해하지 못했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "13841d09603b1f95c5705c231810909892c50cef14ae5ae5b193d7e1f9c57810"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-ozon#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오종은 독일의 작가 감독 라이너 베르너 파스빈더를 자기 영화의 '형제'로 여긴다. 파스빈더의 작품 두 편을 장편으로 옮기기도 했다. 《Water Drops on Burning Rocks》(2000)와 《Peter von Kant》(2022).",
+  "model": "claude-opus-5",
+  "source_sha256": "b642fd352710a2eabc6973b45570d6de216e1e7e9513a76ca98a1f37ae822241"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-ozon#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Peter von Kant》에서는 파스빈더의 전설적 뮤즈 한나 쉬굴라를 주인공의 어머니 역으로 데려왔다. 그 독일 감독을 향한 평생의 집착이 마침내 한 바퀴를 돌아 제자리로 돌아온 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "25dba9afb27a5fd21f84df6667390e24f05418f82e897e525ad0148ced89bcb0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-ozon#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영국 배우 샬럿 램플링의 경력을 되살린 공은 대체로 그에게 돌아간다. 오십 대에 접어들어 주연 자리를 찾지 못하던 램플링을 위해, 오종은 상실을 다룬 처연한 드라마 《Under the Sand》(2000)를 오직 그녀만 생각하며 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "324fd9fce6a32faef716a5d40b2e1d7fa03a2876074cc8893c821d12c3666915"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-ozon#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《8명의 여인들》이 2002년 베를린국제영화제 경쟁에 올랐을 때, 심사위원단은 그 앙상블 앞에서 할 말을 잃었다. 결국 감독을 건너뛰고 예술공헌 은곰상을 여덟 배우 전원에게 공동으로 안겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac858f95cf961fdbe580267b979a0d3abfa9cdcb03aeda80ecc0f31aa97504ef"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-ozon#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "해럴드 핀터의 희곡 《배신》과 제인 캠피온의 《Two Friends》에서 힌트를 얻어, 오종은 이혼을 다룬 혹독한 드라마 《5x2》(2004)를 시간 역순으로 짰다. 관객은 두 사람이 처음 만나 설레던 순간에서 영화와 헤어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cbaa3eb84cc0534efd06057bfafcbbc3e6e39ed0477a34373c3c19c1a0d0f34c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-ozon#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "소설가 에마뉘엘 베르넴과는 여러 편의 각본을 함께 썼다. 그녀가 세상을 떠나고 몇 해 뒤, 오종은 아버지의 안락사를 도운 그녀의 자���적 기록을 2021년 영화 《Everything Went Fine》으로 옮겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d53a05dbf9073d68c73f554ecd15d50cb6c13b8286d051197f63bf9b4fbbf806"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-ozon#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《By the Grace of God》의 프랑스 개봉을 몇 주 앞두고, 실존 인물인 필리프 바르바랭 추기경의 변호인단이 극장 상영을 법으로 막으려 들었다. 판사는 오종의 손을 들어줬고, 영화는 예정대로 관객을 만났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "204b3568269a8006132b7072e7a7227cbb7a0943cbcb715827301e697f05c797"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-ozon#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "열일곱 살의 오종은 에이단 체임버스의 소설 《Dance on My Grave》를 읽고 이걸로 장편 데뷔를 하겠다 마음먹었다. 판권을 손에 넣기까지 삼십오 년이 걸렸다. 그 꿈이 《Summer of 85》(2020)다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d092e97625c9e4f6d04d7a5d482e8f85a276f6c1409ae084e8fb47df89d6c19"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-ozon#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Ricky》(2009)는 비평가도, 오랜 팬도 어리둥절하게 만들었다. 늘 하던 세련된 풍자를 접고 마술적 사실주의로 건너간 영화. 노동계급 가정의 아기 등에 진짜로 퍼덕이는 새 날개가 돋는 이야기였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b283f2a9b972957915b711ceb959d1d6ed407f02ff091b77d1517b3947fdf73f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-ozon#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "바다를 지독히 사랑하는 사람답게, 그는 바다를 자주 경계선으로 쓴다. 위협하거나 뒤바꾸는 경계로. 《See the Sea》(1997), 《Under the Sand》(2000), 《Summer of 85》(2020)가 특히 그렇다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9eab454b2aaed7859b47bbb7884c03c4b459df20789a1145d3465583988e5e2c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-ozon#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편 데뷔작 《Sitcom》(1998)에서 그는 프랑스 부르주아 가족이라는 상투형을 신나게 부쉈다. 도구는 흰쥐 한 마리. 애완용으로 들인 그 쥐가 오자 멀쩡하던 집안이 까닭도 없이 근친상간과 사도마조히즘, 살인으로 굴러떨어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "57e5061fb59d4f3c47056ad19d119a0e6d1ac7039cb00e0a1c604b57503b1b52"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-truffaut#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "성은 롤랑 트뤼포에게서 왔다. 건축 제도사였던 그가 어머니와 결혼하며 아이를 정식으로 입양했다. 그러나 집 안에서 프랑수아는 대체로 반갑지 않은 골칫거리였고, 잠자리는 복도였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "04345eaa5ed66fe733157553965c39a76b645852d2a9d3ed9260fe60a09fa0fd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-truffaut#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "학교를 밥 먹듯 빠졌다. 1948년에는 아예 자기 영화 클럽 Cercle Cinémane을 차렸는데, 밑천은 아버지 사무실에서 훔쳐 나온 타자기였다. 그 돈으로 비공식 상영회를 열었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "35c357fc160c8eebfc6115829bbfa8a48375a9a688d09c11956dc4d8ec694c5b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-truffaut#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "격분한 양아버지는 아들을 절도와 부랑 혐의로 경찰에 넘겼다. 열여섯 살 소년이 갇힌 곳은 빌쥐프 관찰소, 소년 구금 시설이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d5e20ac5fa3afdd30e92477f7fdd1f6dfc3e64fc5046ca349149f95216e2d945"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-truffaut#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그를 그곳에서 꺼내준 사람은 영향력 있는 평론가 앙드레 바쟁이었다. 일자리를 주겠다고 보증해 석방을 받아냈고, 그 뒤로는 아버지 노릇까지 대신 떠맡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc1d97aa12f1e22c4594bef002e3232c0528ea6fd752edd4002f812fc9d4ee53"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-truffaut#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1950년 그는 홧김에 프랑스 육군에 입대했다. 그리고 제1차 인도차이나 전쟁 파병을 하루 앞두고 탈영했다. 붙잡혀 군 형무소에 갇힌 그를 이번에도 바쟁이 빼냈다. 제대 사유는 '성격 불안정'이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5a8462300a21dd49f3537bf79b85b9dfd96429a7dc7a10937e2253cdb9764a93"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-truffaut#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "바쟁의 그늘에서 《카이에 뒤 시네마》에 글을 쓰던 시절, 그에게는 '프랑스 영화의 무덤 파는 자'라는 별명이 붙었다. 기성 감독을 향한 비평이 잔인하고 한 치도 물러서지 않았던 탓이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f19b6486fdce97321f912ae3191ccfc04ee65276374b76aa0b55f69f0bfdb17"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-truffaut#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1954년의 전설적인 글 「프랑스 영화의 어떤 경향」은 이른바 '양질의 전통'을 정면으로 들이받았다. 각본가 장 오랑슈와 피에르 보스트가 표적이었다. 작가주의(auteurism)의 지적 토대가 여기서 놓였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f3a501062cd7191db8e3eca6c2302b82b0b34e30bd23558182561439fbcdaae"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-truffaut#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그의 독설을 프랑스 영화계는 오래도록 곱씹었다. 1958년 칸영화제 참석을 공식적으로 금지당한 평론가는 그 한 사람뿐이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6bfa9540a14e0f3d11e91f069bf79889cbb4d3e09ca6fe85725dd2d97e8afbed"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-truffaut#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "기자 신분으로 쫓겨난 지 꼭 일 년 만이었다. 트뤼포는 장편 데뷔작 《400번의 구타》를 들고 칸에 돌아왔고, 그해 감독상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4e3e7458eea6242ec6333f883243656884622e322c4acbf9053d65752262c1cf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-truffaut#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "초기 단편들과 제작사 레 필름 뒤 카로스를 굴린 돈은 결혼에서 나왔다. 1957년 그가 아내로 맞은 마들렌 모르겐슈테른은 프랑스 영화 배급계의 실력자 이냐스 모르겐슈테른의 딸이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "86c752f9a67ce8b7d262975014f1dccdcf5484dc2bc4627cf3992d43a93ab8ad"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-truffaut#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자신의 분신 앙투안 두아넬 역에 캐스팅한 열네 살 장피에르 레오를 트뤼포는 사실상 자식으로 거뒀다. 반항기로 가득한 소년을 파리 자기 아파트에 들여 살게 했고, 이십 년 동안 다섯 편을 함께하며 배우의 길을 이끌었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e65953e7fb008d17623043b7e4ce1784c1b76699518738c4dc98172ab9915438"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-truffaut#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1962년 그는 앨프리드 히치콕에게 편지를 보내 여드레, 오십 시간짜리 인터뷰를 제안했다. 장소는 유니버설 스튜디오. 그렇게 나온 1966년의 책 《히치콕/트뤼포》 한 권이 그 영국 감독을 흥행사에서 영화의 천재로 끌어올렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "36a6695af26fb877ae51510b3f71383af735f7b2a15fd6fe96a5b59f546d0a07"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-truffaut#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생 책을 끼고 산 사람이었다. 행복의 비결이 '하루에 영화 세 편, 일주일에 책 세 권'이라던 그의 말은 유명하다. 정작 영어는 거의 못 하면서도 레이 브래드버리의 《화씨 451》을 통째로 영국에서 만들어냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1c950183fa18bca3132c314b8c3d67f21e5dc6c34b8390a475c338003dff977"
+ }
+]

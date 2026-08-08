@@ -1,0 +1,11 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "abbas-kiarostami#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이란 영화에 전례 없는 국제적 명성을 안긴 사람이 키아로스타미다. 그런데 정작 그의 영화는 문화이슬람지도부가 자국 극장에서 번번이 상영을 막았다. 수백만 이란인은 불법 복제 DVD로 그의 작품을 봤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0fc81dcc3b4e3cc9175a34c2c7c31700f1cead013cad6c537829fe765503fa14"
+ }
+]

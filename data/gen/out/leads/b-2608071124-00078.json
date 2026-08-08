@@ -1,0 +1,112 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mikey-and-nicky-1976",
+  "field": "lead",
+  "film_id": "752f00db-f788-4fec-8dc0-a7a0cf928f91",
+  "lang": "en",
+  "text": "Nick has an ulcer, a hotel room paid for in cash, and the certainty that a boss wants him dead, so he calls the friend he has had since he was a boy. Elaine May gives the two of them one night and 106 minutes, and mostly lets them talk. The crime frame stays thin on purpose. What thickens is the friendship: affection and grievance arriving in the same breath, favours that double as debts, the particular cruelty available only to a man who has known him since childhood. Mikey does what a friend does, which here means doing what he has been asked to do. The scale stays small, rooms and hours, and the fear never becomes an idea: it is a stomach, a locked door, a phone that has to be answered. The genre supplies a deadline; May spends it on talk.",
+  "model": "claude-opus-5",
+  "source_sha256": "0ab5e5357639a0cc0c6f0ebe739d6143cd78a7d05206ce8d6149884a10a0b916"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-thief-of-bagdad-1940",
+  "field": "lead",
+  "film_id": "47abdfad-6846-4bc5-ba7e-ae286dee7f65",
+  "lang": "en",
+  "text": "A prince is blinded and thrown out of his own city, and the only person who can help him is a boy who owns nothing. The Thief of Bagdad was made in Britain in 1940, in colour, at a scale only a large studio could pay for, and the Academy Award its art direction took went to work meant to be noticed as work: skies, walls and chambers built as illustration rather than as places. The story runs on inversion. Ahmad has rank and loses it, Abu has nothing and is therefore the only one free to move, and Jaffar's advantage lies in removing the sense his rival most needs. Ludwig Berger keeps a child's logic in charge throughout, wanting a thing and going after it and being diverted en route, and the romance is one more object of desire in a picture full of them.",
+  "model": "claude-opus-5",
+  "source_sha256": "8cfb209420233a05ec00fad64d8f53f4a8fe05b508bc020d9ef4813d9e33fe29"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "song-of-love-1954",
+  "field": "lead",
+  "film_id": "0dd3242f-2bfa-49e2-b9bc-c37998245fa2",
+  "lang": "en",
+  "text": "Twenty-six minutes, two cells, and a brick wall that neither man is going to get through. Jean Genet made Un chant d'amour in 1954, and the obstruction does the job plot does elsewhere: anything the two prisoners manage has to be improvised through it, and nothing improvised through it can develop. So the film is short. It is also, by its own listing, a fantasy, which means the escapes it grants are imagined ones, and they are granted inside the confinement rather than in place of it. Genet explains nothing and argues nothing. There are bodies at close range, an attention that borders on inventory, and a tenderness that keeps having to invent a delivery system. The charge comes from proximity without contact: everything is near, and nothing quite arrives.",
+  "model": "claude-opus-5",
+  "source_sha256": "4758726bf88012a5373f035bf02dadf16d012937f959aec99458fbb2fd4fbcf1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "wings-1966",
+  "field": "lead",
+  "film_id": "b6a4ca7f-2927-489e-86f8-c03e2d2efcae",
+  "lang": "en",
+  "text": "Nadezhda Petrovna flew fighters; now she runs a provincial school, and nobody there needs the thing she is good at. Larisa Shepitko keeps all 85 minutes on the ground. The war is finished and long since converted into ceremony, and what remains in this woman is method: punctuality, obedience, the belief that a clear order is a form of care. It makes her difficult in a staff room and worse in a conversation. A Soviet film of 1966 could have built her a plinth; Wings instead follows her through a town that is bored by her, and allows her to be wrong in ways that cost other people something. Her authority is real and useless at once. Shepitko is neither sentimental about the discipline nor contemptuous of it, which leaves the schoolmistress unusually exposed.",
+  "model": "claude-opus-5",
+  "source_sha256": "22526b1ce5bff82346adf38784780fae130b99db30298d4a3a5e4e33b2f8a1f2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "she-wore-a-yellow-ribbon-1949",
+  "field": "lead",
+  "film_id": "517401e4-93ce-4104-8100-8a14e046440c",
+  "lang": "en",
+  "text": "Days from retirement, Captain Nathan Brittles is handed one more patrol, and a wagon of women he has to move out of harm's way first. John Ford filmed it in colour and the cinematography took an Academy Award, which reads less as a prize than as a description of priorities: dust, weather, the last hour of afternoon light, a column of cavalry made small by ground it does not own. The plot points toward an expected attack. The film keeps drifting to other business, to roll calls and chores and the awkwardness of men trying to say goodbye to someone who is still standing in front of them. Brittles spends the picture rehearsing his own irrelevance, since everything he knows expires on a fixed date. The enemy pressing hardest is the calendar.",
+  "model": "claude-opus-5",
+  "source_sha256": "4efb9b438ded57939aa9f612a5d9faf9cce6e29c3414ad47030055ec78921d1d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "faster-pussycat-kill-kill-1965",
+  "field": "lead",
+  "film_id": "5b462dd1-8da1-404e-9bf7-8b8a31cd5ddb",
+  "lang": "en",
+  "text": "Three go-go dancers in a fast car, a kidnapped girl in the back, and a rancher out in the desert with money nobody can find. Russ Meyer shot this in 1965 for drive-ins, and it has since turned up on the They Shoot Pictures Don't They? list of a thousand greatest films, which is less strange than it sounds. The picture is quick, cheap and completely controlled: 83 minutes, no scene outliving its purpose, every line delivered as though it were an accusation. The women drive and the men are prey. The violence is closer to slapstick than to crime reporting, and nothing in it is defended or apologised for, since the film has no lesson to reach. What has kept it in circulation is the pitch, held at that volume from the first minute without a wink.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e4afcfe71b1f4ab0ad3125bdca748b1cb312a9afa1ab2d2bcf2d138068155c5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "selma-2014",
+  "field": "lead",
+  "film_id": "258e145a-3918-4252-98c7-dbfedbdaf11e",
+  "lang": "en",
+  "text": "Everyone watching already knows the Voting Rights Act gets signed, so the film has to be interesting on other grounds. Ava DuVernay's answer is method: the weeks in Alabama before the signature, the arranging and arguing a march requires, the plain fact that pressure must be applied somewhere specific before a president will speak. Lyndon Johnson is not persuaded here so much as moved, the White House being a place with a calendar and a vote count rather than a conscience waiting to be reached. Most of the 128 minutes are held at conversational range, close to people who are tired. When the film reaches the violence, it is filmed as something done to named individuals on a particular road. It sits on the BBC's list of films directed by women, and the case for it is in the small scenes.",
+  "model": "claude-opus-5",
+  "source_sha256": "a3c1d7e948fa579754e839ab330ff9447d0a167e2a16c2cd749842ee97e41174"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "godard-s-passion-1982",
+  "field": "lead",
+  "film_id": "ffd950ab-bd3a-4b92-bd42-592c20e7d1a5",
+  "lang": "en",
+  "text": "Two workplaces, a film studio and a factory, and neither one is running properly. The crew cannot get the light to do what the director wants; a young woman, laid off because her boss disliked her union work, cannot get her job back. Jean-Luc Godard sets the two problems side by side for 87 minutes and declines to dissolve either into the other. The comedy, and this is listed as a comedy, comes from the mismatch: a director in trouble with his own production discovers a dispute in which something material is at stake, and his interest does not make him useful to anyone involved. Nothing gets smoothed over. Passion would rather place the two rooms next to each other and let the comparison stay awkward than say out loud what the comparison is for.",
+  "model": "claude-opus-5",
+  "source_sha256": "cde5a5dddf84a8de1310e652471d4c6ecec6fc3eb6856548cfb09278efbb8e62"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "my-little-loves-1974",
+  "field": "lead",
+  "film_id": "a77c96ab-2748-4ee9-9eb2-e8f452d67e0f",
+  "lang": "en",
+  "text": "A boy is moved out of his grandmother's house and into his mother's, and the second town has less in it. Jean Eustache gives Daniel 124 minutes and almost no plot: a year of standing around, of watching couples, of learning what a wage is and what it will buy, of being handled by adults preoccupied with troubles of their own. The south of France is not warm here in any of the senses the phrase usually carries. School ends and work begins, and the change registers as an alteration in what a day contains rather than as a catastrophe. Eustache declines to flatter adolescence: the boy is often dull, sometimes unkind, and the girls he studies have lives he cannot see into. The tenderness is in the accuracy of the waiting, and in how long a single afternoon is allowed to last.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f9aa29f6aa42a7d0c7ee5813d43cd8b1408d5346d888bd186510acd9d61466b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "abraham-s-valley-1993",
+  "field": "lead",
+  "film_id": "3d5eebaa-b83e-4f6f-9b2a-bd9292b38c08",
+  "lang": "en",
+  "text": "Drivers lose control of their cars when they catch sight of her, and the film reports this without ever accounting for it. That sets the terms for 204 minutes in which beauty operates as a circumstance, like weather or an inherited debt. Ema marries her father's friend, a doctor who loves her and who sleeps in a separate room so as not to wake her when he comes home late; the valley they move to carries a biblical name and holds very few people. Manoel de Oliveira takes three and a half hours over a life that could be told in three sentences, and that disproportion is the arrangement. The interest lies in duration, in meals and thresholds and the intervals between decisions, and in a woman working out at leisure what she consented to at an age when consent meant almost nothing.",
+  "model": "claude-opus-5",
+  "source_sha256": "f7a968aacf66ea552082dc6e16eda880e80f60a006e3cfeb5afa83459374b638"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "shutter-2004",
+  "field": "lead",
+  "film_id": "024c81d3-b1b4-432b-a969-e301df89f317",
+  "lang": "en",
+  "text": "A hit-and-run on a dark road, and then the photographs start coming back wrong. Shutter puts its ghost in the one thing a 2004 audience still half-trusted, the developed image: the accidental blur, the smear over a shoulder that a lab would file as a fault in the stock. Tun takes pictures for a living, so his trade becomes the trap, and Parkpoom Wongpoom builds the dread out of process. Expose, print, enlarge, look again, and each pass yields a little more than anyone wanted. The jolts are engineered and the film is not shy about it. What stays afterwards is quieter, the suggestion that the thing they drove away from keeps its own record and can produce it on demand. Ninety-six minutes, the accident out of the way early, the remainder spent on the bill.",
+  "model": "claude-opus-5",
+  "source_sha256": "2498802be9b2d404a3cf78f2985681f9970b9ab9a3b327cbd3c96fe92d650179"
+ }
+]

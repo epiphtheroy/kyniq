@@ -1,0 +1,82 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "gorillas-in-the-mist-1988",
+  "field": "lead",
+  "film_id": "f6c9cb60-6dbf-47a8-9fcf-e09f6adac41b",
+  "lang": "en",
+  "text": "Counting is the job at first: how many mountain gorillas remain, where they sleep, which ones will tolerate a person sitting still for hours. The film follows Dian Fossey from that ledger work into something much harder to fund — standing between an animal and the people who make money from it. Two hours is a long stretch for a picture built on waiting, and much of it goes to the arithmetic of proximity, earned in inches, the same slope climbed twice in the same rain. The Academy gave it Best Actress, and that is the right place to look: the change from visitor to resident to nuisance happens inside the performance rather than in a scene that announces it. Apted keeps the mountain unromantic — mud, altitude, long stretches of nothing. What begins as science does not stay science.",
+  "model": "claude-opus-5",
+  "source_sha256": "f07a10628b975a6b633119279a8744eeb5f00aaf64d6153417846552aad849da"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tucker-the-man-and-his-dream-1988",
+  "field": "lead",
+  "film_id": "f4fc6b13-fffb-401e-9a23-39951bdf9423",
+  "lang": "en",
+  "text": "Ypsilanti, Michigan, 1945: an engineer with a workshop and a sales pitch decides the American car should be rebuilt from the chassis up. Coppola films Preston Tucker's campaign roughly the way Tucker sold it, in showroom light and brochure color, which is why the production design award is doing more than decoration here — the story turns on the distance between a prototype and an advertisement. Detroit is the opposition, but so is the man's own arithmetic: he promises features he has not built to people he cannot afford to disappoint. The household scenes are comic in a specific way, a kitchen full of sons and neighbors being reorganized into a factory floor. It moves fast and stays bright. That brightness is the trap the film sets for anyone watching it as a success story.",
+  "model": "claude-opus-5",
+  "source_sha256": "576a35e24fde183fdbc640a9bf1ff014f785f5a03c5205ac36638665528b0775"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "house-of-wax-1953",
+  "field": "lead",
+  "film_id": "f2587bc7-5eeb-49ae-af35-6841b611fd39",
+  "lang": "en",
+  "text": "Wax is a material with a temperature, and the film keeps that fact in the room. A sculptor opens a museum of historical likenesses; his partner, who is paying for it, would rather the exhibits went in a direction that sells tickets, and the quarrel between craft and receipts drives everything that follows. André de Toth treats the studio as a workplace — pouring, cooling, the tinting of a cheek — so the horror arrives out of a business decision rather than out of the supernatural, which is why crime sits beside horror on the label. Eighty-eight minutes, and it is unhurried in the museum before it is unhurried anywhere else. There is a small joke in its preservation on the National Film Registry: a picture about the industry of keeping faces from changing.",
+  "model": "claude-opus-5",
+  "source_sha256": "4e8a0dcdc04967a77cc760b432052b3f71296be9a6acf52398e335e0db2e2ad3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "force-of-evil-1948",
+  "field": "lead",
+  "film_id": "97f5a4b6-2f92-4149-a630-b03c066ddcbf",
+  "lang": "en",
+  "text": "Seventy-nine minutes is barely enough time to ruin a family, and the film uses all of it. Joe Morse is a lawyer, which in the numbers business means the man who knows how a consolidation will be worded; his brother Leo runs a small bank of bettors and has no wish to be absorbed into anything larger. The argument between them is the picture. Polonsky writes dialogue that repeats and turns back on itself, closer to a man talking himself into a decision than to conversation, and the racket gets discussed in the vocabulary of mergers, counsel, paperwork, efficiency. Very little of the violence is out on the street. Most of the damage is done at a desk or over a meal, between two men who love each other and are not going to stop, each convinced the other is the naive one.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d56e118f0babc7a22568b46278ca3619db144b20f1c000613cad64d7ccdf957"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "anna-karenina-1935",
+  "field": "lead",
+  "film_id": "66a59d69-f787-439e-9cc2-ff0b5c8b00da",
+  "lang": "en",
+  "text": "A woman in this world may feel what she likes, provided no one can name the moment she decided. Anna is married to an official of Imperial Russia; the trip to Moscow that starts things is a family errand, and the cavalry officer she meets on the way is at first only a courtesy. Clarence Brown has ninety-five minutes for Tolstoy, which forces a choice: the film gives up the novel's arguments and keeps its rooms. Ballrooms, corridors, staircases, the arithmetic of who can see whom. Everything expensive on screen belongs to the husband, and that does more work than any line of dialogue. The real subject is visibility — the gap between a private feeling and a public fact, and the speed with which Petersburg converts the first into the second.",
+  "model": "claude-opus-5",
+  "source_sha256": "eda6b0be0dbb6bdef7b97cf5232d9131aa269514934bfda54a03e3cbf1d35b33"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-musketeers-of-pig-alley-1912",
+  "field": "lead",
+  "film_id": "c97d58ae-61d2-41a4-b272-090ccbd4ae09",
+  "lang": "en",
+  "text": "A man is robbed in a hallway and later, in a street busy with other business, he sees the face again. Seventeen minutes, 1912, and almost all of it is corridor and alley: two groups edging toward each other down a passage too narrow for both, a shoulder against brick, everyone waiting for someone else to commit. Griffith films the block as a neighborhood at work rather than as a stage — people cross the frame with errands of their own, indifferent to the plot. Brevity forces the causation to be visual; a look across a crowded room does what a page of explanation would do in a longer picture. The National Film Registry holds it, and a quarter of an hour is enough to see the reason: nothing in it is preparation for something else.",
+  "model": "claude-opus-5",
+  "source_sha256": "b3a4b0eefb3f58b15fd1775c3ffc5e7281e19bbad6fd95be33391e201736dc4c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "magical-maestro-1952",
+  "field": "lead",
+  "film_id": "1df03677-cc4b-4950-8418-a06cec77e921",
+  "lang": "en",
+  "text": "A magician asks for a place on the bill, is refused, and decides the concert will be his anyway. Six minutes, and the joke is structural rather than verbal: the Great Poochini tries to hold one aria together while a wand keeps altering what he wears, what he is, and what the orchestra has decided to play. Avery times it by interruption — each change lands a beat before the singer can recover, so the performance becomes a dispute between two men about what kind of film they are in, argued entirely in music. Nobody stops singing. That refusal is the whole of the character, and it carries a cartoon willing to treat its own materials as one more thing that can be tampered with. The National Film Registry has kept it.",
+  "model": "claude-opus-5",
+  "source_sha256": "afb0f356a46cddb3b39f9644a0dba89a273e1e5aac19a047f7162a3d3872fe88"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-man-called-peter-1955",
+  "field": "lead",
+  "film_id": "a5051a54-3e97-4880-87f0-5303d7c13479",
+  "lang": "en",
+  "text": "Peter Marshall wanted the sea and got a pulpit. The film treats a calling as a career, which is the unusual part: a Scottish boy crosses to America, takes small congregations, then a church in Washington, then the chaplaincy of the Senate, an arc of promotion inside an institution rather than of crisis and rescue. Henry Koster shoots in color, and the cinematography award is legible in the plan — the cool light on the Scottish side against the wood and glass of American interiors, rooms lit so that the person speaking is the point of the room. Two hours devoted to a job that consists almost entirely of talking. The picture's real problem is how to make persuasion watchable, and it spends itself solving that instead of inventing incident.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3a2efcac7592e615185a21a315edddf26a614330c7ac334facb44074e872f41"
+ }
+]

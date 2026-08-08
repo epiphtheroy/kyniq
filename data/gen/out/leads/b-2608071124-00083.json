@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "harmony-lessons-2013",
+  "field": "lead",
+  "film_id": "d7404425-6231-422b-9360-21b730913f48",
+  "lang": "en",
+  "text": "The humiliation happens in a school medical room, in front of the whole class, and the rest of the film belongs to what a boy does with it. Aslan is thirteen and lives with his grandmother in a Kazakh village. He answers the world by ordering it: washing, arranging, testing, keeping everything exact and under his hand. Meanwhile the school runs a second economy. Older boys collect protection money from the younger ones, and Bolat, one of the boys who has already marked Aslan out, is part of the collection. The cruelty here is procedural, a matter of collection and arithmetic, and so, in its own way, is the resistance to it. Over 115 minutes Emir Baigazin keeps two systems of control inside one small place, and neither leaves room for the other.",
+  "model": "claude-opus-5",
+  "source_sha256": "6898e4e8c7b93f096dbd59526d91e99394be9b4ff7ad184042d330cbb4f3e4b9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "frost-2017",
+  "field": "lead",
+  "film_id": "6b9ba614-1e4d-4d79-8868-e422a7545a49",
+  "lang": "en",
+  "text": "A van of donated goods heads east, and the two Lithuanians driving it have only a rough idea of what they are driving into. Rokas and Inga volunteered; that is the whole of their qualification. Šarūnas Bartas gives 115 minutes to the crossing — snow, roads, the flat immensity of the Donbass region — and the errand keeps stalling in the lives of people the war has already reached. The film's subject is the position of the visitor: young, unhurt, free to leave whenever they choose, sitting at a table with people who cannot. Delivery supplies a destination and very little else. Made with French money, spoken largely in Lithuanian, set in a war that was entirely current in 2017, it is less a report from the front than an account of what a stranger is able to see there, and how fast looking turns into being implicated.",
+  "model": "claude-opus-5",
+  "source_sha256": "dca57a45800f01dc43b06035bb9b018ad15157e1eeb92aff47b5d8f7c1db94c0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-earth-is-blue-as-an-orange-2020",
+  "field": "lead",
+  "film_id": "c0772ba3-c2a3-4464-8495-703015472422",
+  "lang": "en",
+  "text": "A family living inside the front line in Donbas decides that the sensible response is to make a film about living inside the front line. Anna has four children and a house she keeps lit and full of talk while the shelling continues outside it. All of them love cinema. So they cast themselves, set up shots in their own rooms and restage nights they have already survived, which means going through the worst hours a second time, deliberately, with a camera running. Iryna Tsilyk films that process, and the doubling is the design: what is staged, what is merely happening, and how thin the partition between them is. Seventy-four minutes, most of them at home. Sundance gave it the world cinema directing prize for documentary; the more telling measure is how ordinary these children manage to make an unliveable arrangement look.",
+  "model": "claude-opus-5",
+  "source_sha256": "fa9594d02c274ed70af542db6da37977554dae5c5393d07e1af13d4dd5f64f2f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "before-now-then-2022",
+  "field": "lead",
+  "film_id": "3234335b-f087-412d-81b6-862d52c4337d",
+  "lang": "en",
+  "text": "The upheaval is national; the film stays inside one house. Indonesia in the 1960s, the years after independence, and a woman whose life was overturned by politics she had no part in choosing now presides over a domestic order — meals, guests, a husband, the shape of an afternoon. Kamila Andini works in Sundanese and at the pace of that order, so history arrives as rumour and as consequence rather than as event. Very little is announced. What the picture attends to across 103 minutes is the labour of maintaining a surface: the care with which a woman keeps a household legible to everyone inside it while another life goes on being remembered behind her face. A Silver Bear went to one of the supporting performances, which suggests where the pressure falls — not on her alone, but on whoever else is in the room.",
+  "model": "claude-opus-5",
+  "source_sha256": "2fb365e15eaca78c9e1cce95ce6f58ffae9eca7a8fccef633c91a4ae09f99138"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "children-of-sarajevo-2012",
+  "field": "lead",
+  "film_id": "253fbcca-e089-4520-8511-d3eb1f6a07ce",
+  "lang": "en",
+  "text": "Sixteen years after the siege ended, the city has other business, and two of its orphans are still paying. Aida Begić keeps to ninety minutes and a small radius: work, a younger brother, the cost of things this week. As a matter of record the war is over. As a matter of household economy it is not, and the film is exact about the difference: the phrase transitional society means somebody transitions and somebody is left holding the bill. Begić made this after Snow, which took the Grand Prize at Cannes Critics' Week in 2008, and she films Sarajevo as a place where getting by has turned competitive rather than collective. The brother is a teenager, a full-time hazard in a town sorting itself into people with prospects and people without. His sister's refusal to let the arrangement fail is the engine.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a6d625354950f78580955808346bdb06c17f9cf50819d8b1b759491631d0ebb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "honor-thy-father-2015",
+  "field": "lead",
+  "film_id": "efda291f-c8a8-4760-8540-092e6f1aa063",
+  "lang": "en",
+  "text": "The scheme collapses, the money is gone, and the church that received a share of it declines to give any back. Edgar has a daughter, a wrecked household, and relatives whose line of work never depended on anybody's trust. When the daughter is taken, that connection is the only asset left. Erik Matti runs 115 minutes at the tempo of a foreclosure: the danger arrives from congregants, creditors and clergy well before anyone produces a weapon. What makes the film unusual for a crime picture is how carefully it watches the machinery of belief — how a bishop's endorsement converts into deposits, and what the endorsement is worth once the deposits have gone. The pulpit and the kidnappers are, structurally, in the same business.",
+  "model": "claude-opus-5",
+  "source_sha256": "02ec165be1886e5c0cda8d7df1092c11e0161f5d4121a458b576eea201379a9f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ghost-tropic-2019",
+  "field": "lead",
+  "film_id": "0f9e920a-7977-48f9-b13d-305af450d527",
+  "lang": "en",
+  "text": "She wakes at the end of the line, and the train that brought her there has finished for the night. Khadija is fifty-eight, tired from a long shift, and the way home now runs on foot across Brussels at an hour when the city belongs to night workers and to people with nowhere particular to be. Eighty-five minutes, much of it walking. Instead of plot there is a series of small transactions: she is asked for help, she asks for it, nothing resolves, everything costs something. Bas Devos treats the ordinary spaces of a European city after midnight as inhabited rather than emptied, and gives a middle-aged woman the sort of attention usually reserved for people in a hurry. A woman getting home. It turns out to be enough to hold a film upright for the distance.",
+  "model": "claude-opus-5",
+  "source_sha256": "41000ca48c037d2138cf43b0738c2ed93b98bc1174d6b86892f977f1c7939db4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-happiest-man-in-the-world-2022",
+  "field": "lead",
+  "film_id": "cc47a591-4c27-46bf-8fb8-18d68e177711",
+  "lang": "en",
+  "text": "A dating event in Sarajevo: strangers paired off for a few minutes each, and one man who has not come to meet a partner. Asja is forty-five. Zoran is a banker of roughly the same age, and what he wants from that room is not company but one particular person and a conversation about 1993, when he was shooting at the city from the other side. The film holds nearly everything inside the event, ninety-two minutes of organised small talk with a confession trying to get out of it. Teona Strugar Mitevska's decision to stage a country's unfinished business as a social exercise, with rules and rounds and a timekeeper, is crueller and funnier than any courtroom. Forgiveness here cannot happen in private; it has to be attempted with strangers listening and the schedule moving on.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e7cafa3e9078616b4baa90083f8691d6e5e9eea3170a71950da3886389d9e5e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mediterranean-fever-2022",
+  "field": "lead",
+  "film_id": "1f5ceb5f-6ac1-43cd-8f69-58d9b8225ed3",
+  "lang": "en",
+  "text": "Waleed is forty, lives in Haifa with his wife and children, means to write, and cannot get out from under a depression that has lasted years. His neighbour is a small-time crook. Waleed sets about befriending him with a use for him in mind, and it is not the use the neighbour would guess. Over 108 minutes Maha Haj lets the friendship turn genuine anyway — two men running errands, needling each other, one of them serious about something he never says aloud — and keeps the comedy dry enough that the dread underneath is never announced. It played at Cannes. Haifa is filmed at the scale of a kitchen table: apartments, errands, an Arabic-speaking household getting on with itself while one person inside it has quietly stopped.",
+  "model": "claude-opus-5",
+  "source_sha256": "131db91d9f5c19b7302c92c6ec638accb345e6cf6bde34b547791282d54a1e31"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "limbo-2010",
+  "field": "lead",
+  "film_id": "551f1614-e4fd-48b8-8d18-42f40b4e1b74",
+  "lang": "en",
+  "text": "The house is large, the staff come with it, and the days stop distinguishing themselves from one another. Sonia has flown to Trinidad with two children to join a husband employed as an oil engineer, and what she has actually joined is a circle of wives, a pool, and a holiday with no return date. Maria Sødahl is precise about the etiquette of that arrangement: the intimacy among women who cannot afford to be truthful with each other, and the odd imbalance in a marriage where one person's job is the only reason the other is on the island. Norwegian spoken under Caribbean light, 105 minutes. An Amanda went to the cinematography and it is easy to see why, but the harder achievement is tonal — comfort and dread poured into the same glass, hour after hour, with ice.",
+  "model": "claude-opus-5",
+  "source_sha256": "72a9a948d53ea405731102a3f30e4ca1e50be068fcc70cc64bfa2359d0c2121f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bulbul-can-sing-2018",
+  "field": "lead",
+  "film_id": "7a8dc317-85a7-4d6d-9b38-70fe05c3f20e",
+  "lang": "en",
+  "text": "Assam, and a girl at the age when everything felt is also everything observed. Rima Das films in Assamese, ninety-five minutes, at close range, in a village where privacy is scarce and news travels faster than anyone walking. The story is small on purpose: attachments formed, a loss taken on board, the gradual business of working out who she is while everyone around her keeps offering an answer. Das gives most of the running time to fields, footpaths and unsupervised hours, and trusts young performers to be unguarded rather than demonstrative. It took the National Film Award for best Assamese feature. What stays is not the incidents but the texture around them, a rural adolescence recorded at the speed it is actually lived, which is slow, and then suddenly not.",
+  "model": "claude-opus-5",
+  "source_sha256": "a81d564fc2b600c2cc314937c64d880626ca0e5ec0e1a9dbe629f4c8fa5cc143"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "those-who-are-fine-2017",
+  "field": "lead",
+  "film_id": "4c4ff36e-8511-40b6-960d-e10299541764",
+  "lang": "en",
+  "text": "The pitch never varies: a granddaughter, an emergency, a sum that has to be handed over today. Alice works a Zurich call centre selling internet packages and insurance, and she has noticed that defrauding an elderly stranger draws on precisely the skills of the day job. Cyril Schäublin gives the crime no more emphasis than anything else in the city; the film keeps drifting off to other people, other scripts, other conversations about rates and numbers, all of them somehow attached to what Alice is doing. Seventy-one minutes, cool as a spreadsheet, named European Discovery of the Year at the European Film Awards. What emerges is not the portrait of a criminal but of a place where speech has been standardised into offers and confirmations, and theft is one more transaction with a script.",
+  "model": "claude-opus-5",
+  "source_sha256": "3aecfac31a031893c435b53b446a5c775842bb7020dbb9b6c7c3f68961d6d64b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-seen-and-unseen-2017",
+  "field": "lead",
+  "film_id": "ddf053ad-53c5-4f4e-8203-14e07e039480",
+  "lang": "en",
+  "text": "The eggs are always divided the same way: he takes the yolks, she takes the whites. Tantri and Tantra are twins, and the day the yolk goes missing, so does he, into a hospital and an illness nobody is going to put into words for a ten-year-old. She dances instead. Kamila Andini builds long dream passages in which the girl crosses between sekala, the seen, and niskala, the unseen — costume, body paint, movement carrying what speech cannot — and eighty-six minutes go by without grief being named once. A mother washing paint from her daughter's face explains more than dialogue would. It took a Crystal Bear. The film treats a child's account of events as the accurate one and asks nothing further of anybody watching.",
+  "model": "claude-opus-5",
+  "source_sha256": "12d82eccea0b62bfac121db851408d4d424d4b52448fea50bb88563b6d709d1c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "until-the-birds-return-2017",
+  "field": "lead",
+  "film_id": "7d37b4cf-f5ce-4c8e-be70-2368f7c1283c",
+  "lang": "en",
+  "text": "A developer with new money, a young woman weighing a sensible attachment against a felt one, a neurologist whose wartime conduct catches up with him in the middle of his working day. Karim Moussaoui sets three Algerian lives beside one another and moves between them rather than tying them into a knot, so attention passes along the way it does in a car that keeps changing passengers. The present is prosperous for some; the war is unspoken by everyone, until it isn't. At 113 minutes there is room for detours, and the detours are where the film lives: journeys, waiting, the silences of people travelling together with something undiscussed. What the three share is postponement. Each knows what is owed and has arranged the days so that payment falls due later.",
+  "model": "claude-opus-5",
+  "source_sha256": "370aa93e1831227eac403c6b172c978a9730bd9cc3fc4fdab324293a67a69732"
+ }
+]

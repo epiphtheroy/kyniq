@@ -1,0 +1,132 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "emperor-jones-1933",
+  "field": "lead",
+  "film_id": "af761dfc-9d51-40e6-81dc-a98333f2ab43",
+  "lang": "en",
+  "text": "Seventy-three minutes is not much room to move a man from a prison break to a throne, and the film wastes none of it on apology. Brutus Jones kills a guard, runs, and talks his way into ruling a Caribbean island — an ascent assembled from nerve, timing, and a voice that declines to be interrupted. The catalogue lists it as drama and music, and the pairing is exact: command here is a performance, and song is one of its instruments. Dudley Murphy shot it in 1933, early enough in sound that a spoken line still arrives like a held note. It sits in the National Film Registry. The narrower reason to watch is the daily labour of the bluff — keeping it up in front of people who have begun to study the man for a seam.",
+  "model": "claude-opus-5",
+  "source_sha256": "a81bdb29bd35892ef586840df64f2d16162340db32019d102394626414fb2f01"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "two-seconds-1932",
+  "field": "lead",
+  "film_id": "19b9f834-138a-4ab8-b9b0-74e038d13081",
+  "lang": "en",
+  "text": "A title that is also a duration: two seconds, the span the picture claims to occupy, opened out to sixty-seven minutes. The frame is announced at the start and then more or less forgotten, because what fills it is ordinary and grinding — a riveter walking beams above a city, a dancehall running on small transactions, a marriage entered for the wrong reasons on both sides. Mervyn LeRoy made it in 1932, when a studio could still let a wage and a rent do the work of a villain. The high-steel material gives the film its nerve: noise, height, a job that punishes one moment of distraction. At street level the humiliation is slower and turns on who is paying for dinner, and on a wife who has learned exactly how to mention it. The National Board of Review put it among the year's ten best.",
+  "model": "claude-opus-5",
+  "source_sha256": "fe7c78ca98fd6facf258eaef77fbf07a3d5536044057b0bce0e25a951ae0c2a7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "it-happened-here-1966",
+  "field": "lead",
+  "film_id": "8a74b975-6452-464a-b82e-3e5de8418df4",
+  "lang": "en",
+  "text": "Nazi insignia on an English street, and the date underneath is 1940. The invasion did not happen; the film proceeds as though the paperwork went through anyway, and that is where the unease starts. Andrew Mollo builds occupation out of administration rather than atrocity — passes, postings, a job taken because the job is there, neighbours sorting themselves into those who sign and those who do not. The genre listing includes science fiction, which is accurate and completely misleading, since nothing here is speculative in texture; it looks like documentary footage someone has mislabelled. Britain, 1966, two decades after the war it rearranges, and named by the National Board of Review to its ten best. The discomfort is not that collaboration is imaginable. It is that it looks like clerical work.",
+  "model": "claude-opus-5",
+  "source_sha256": "55742504e80e73657c7b79c63782d7e3e9c45efee25b9663f024b7e7d4b18aac"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "reminiscences-of-a-journey-to-lithuania-1971",
+  "field": "lead",
+  "film_id": "7cfb35cf-eb98-4fbb-b00b-a36a9e3af303",
+  "lang": "en",
+  "text": "Semeniškiai is a village, not a figure of speech. Jonas Mekas left it and spent decades elsewhere; in 1971 he went back with a camera and came away with eighty-one minutes of diary — hand-held bursts, single frames, footage that will not settle into scenes, his own voice laid over afterwards. The interest is in what the form admits. A man returning to a birthplace after that long cannot hold a steady shot of it, and the film does not pretend otherwise: image and commentary run at different speeds, memory arriving early or late. Family appears, and the appearance is the event. The National Film Registry keeps it — a Lithuanian homecoming filmed by an exile who records his own looking at least as closely as the thing looked at.",
+  "model": "claude-opus-5",
+  "source_sha256": "36f62a2f00080b516658cdb0393f130b765261bdd5ff813dc0603854747336de"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "on-the-bowery-1957",
+  "field": "lead",
+  "film_id": "8c47e49e-4a2c-4e43-9c8c-2a454778d11b",
+  "lang": "en",
+  "text": "Men who drank on the Bowery play men who drink on the Bowery, and some of what they do was written for them beforehand. Lionel Rogosin took a camera into the bars and flophouses of New York's skid row in the mid-1950s, then ran a thin scripted line about a man named Ray through footage that was staged not at all. The seam shows, and the film is better for it: the written scenes borrow their patience from the unwritten ones, so arguments circle back, drinks are nursed, nothing is compressed. Sixty-five minutes, no case assembled, nobody explained. It took the Academy Award for documentary feature, an odd fit for a picture that keeps stepping over into fiction. What lasts is the talk — repetitive, courteous, sometimes very funny, the conversation of people with a whole day and nowhere to put it.",
+  "model": "claude-opus-5",
+  "source_sha256": "5e1564f5ceab32d39b3b83c4aa5a6d236b29f6cc0d291e85506abe2df13d7ce6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "grass-a-nation-s-battle-for-life-1925",
+  "field": "lead",
+  "film_id": "811813bb-d09d-4ecf-a884-875238eb0d73",
+  "lang": "en",
+  "text": "Grass grows where it grows, and the herds have to reach it; everything else follows from that. A branch of the Bakhtiari tribe of Persia drives its animals to seasonal pasture, and Ernest B. Schoedsack went along with a camera in 1925, when a documentary was still expected to be an expedition and the crew's own difficulty was part of the appeal. Seventy-one minutes, silent, with intertitles carrying the showmanship of the period; the National Film Registry keeps it. The footage needs no selling. What registers is arithmetic made visible: this many animals, this many people, this much distance between one pasture and the next, and no alternative route on offer to any of them. The march is the drama, and nobody inside it has the option of stopping.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d5b66cf8db93fbe0414415a31b0579539350101eb8e9de0b507f807651d1ea8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-thief-1952",
+  "field": "lead",
+  "film_id": "cf958628-8d09-410b-8e0a-860a8869bc01",
+  "lang": "en",
+  "text": "A physicist hands over documents, and then a small accident he neither planned nor could have prevented turns the FBI in his direction. Russell Rouse's 1952 thriller is built around a man who cannot explain himself to anyone: not to colleagues, not to the people he passes on the stairs, not to the agents patiently closing the distance. Its Academy Award was for the score, which is telling in a picture of this kind, where pressure has to be carried by something other than confession. Eighty-five minutes of rooms, corridors, telephones, waiting. Espionage here is clerical work: envelopes to be moved, meeting points to be reached, a schedule kept whatever else is happening in the man's head. The running, when it starts, is less about capture than about how long a person can go without speaking freely.",
+  "model": "claude-opus-5",
+  "source_sha256": "f2efcff1922e2f99f36a03c75da64505b4317ddc4f57450348493bd05e816ea6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "body-and-soul-1925",
+  "field": "lead",
+  "film_id": "d82f187b-d37d-4540-b9d6-5b7eb78bd127",
+  "lang": "en",
+  "text": "A pulpit makes an efficient hiding place, and the film is unsentimental about why. An escaped convict turns up in a Southern town, presents himself as a minister, and finds a congregation willing to supply money, trust and the benefit of every doubt; the swindle runs on their belief far more than on his invention. Oscar Micheaux made it in 1925 — silent, ninety-four minutes, now kept in the National Film Registry — and he declines to treat the townspeople as simple dupes. They are getting something from the arrangement too: a voice at the front of the room telling them what to feel. Everything therefore rests on performance, a man playing a part in front of people who want the part played. The young woman drawn in is where the comedy of the confidence trick stops being comic.",
+  "model": "claude-opus-5",
+  "source_sha256": "e12a6075ef66054eaaa3046f1950deb96c9fc63d545cb2a125122c15af358c76"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "before-stonewall-1984",
+  "field": "lead",
+  "film_id": "099a83a0-a639-4d92-8307-91e22f25d26c",
+  "lang": "en",
+  "text": "The riot named in the title happens after the film ends, which is the design. Greta Schiller's 1984 documentary takes the decades before June 1969 — the bars, the codes, the lives assembled quietly and at cost while the surrounding culture described them as something else entirely. The material is archival footage, clips from movies, and people sitting down to remember, and it is the remembering that carries: voices recalling, in ordinary conversational tones, arrangements that had to be invented from scratch because nobody had handed them down. Newsreel and Hollywood fragments run alongside as the official version, and the two accounts do not agree. Eighty-seven minutes, assembled fifteen years after the night most histories begin with. The claim underneath is that there was a before, populated, and that it can still be recorded.",
+  "model": "claude-opus-5",
+  "source_sha256": "9d48d2d8470feb7e5072d3d65b9921360fb5a985d90c3ba6b70628a40762f76f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tom-dick-and-harry-1941",
+  "field": "lead",
+  "film_id": "c0bfd09a-a39d-429d-a759-7a7b96a064b2",
+  "lang": "en",
+  "text": "Janie spends her working day connecting other people to each other and cannot connect herself to a decision. Three men are available: a car salesman, a Chicago millionaire, a mechanic. The better idea in this 1941 comedy is not the arithmetic of the triangle-plus-one but the daydreams — Janie halts the film to picture the marriage each choice would produce, furnished down to the household it would buy, and Garson Kanin lets every fantasy run just long enough to curdle. The Academy Award went to the original screenplay, and the reason is structural rather than a matter of wisecracks: indecision is treated as a real condition with real economics behind it, not a delay before the correct man arrives. A switchboard operator hears everyone's life pass through her hands all day. Choosing one of her own is the harder board.",
+  "model": "claude-opus-5",
+  "source_sha256": "02f33ba9ecb5ee5f18713da7e68db2b4ca1b0e80e7ce75dac6ff430c31ea8510"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-goddess-1958",
+  "field": "lead",
+  "film_id": "bda098ec-1397-4328-8834-2f92b380a56c",
+  "lang": "en",
+  "text": "A hundred and four minutes spent watching a woman fail to be at ease among people who love her. Being adored, it turns out, is a job with hours and no wages. John Cromwell made the film in 1958, and it treats a life as a series of rooms a person is moved between, each containing people who have already decided what she is for. Its Academy Award went to the original screenplay, and the writing is where the picture lives: exchanges in which two people talk past each other at length before either will name the subject. Adoration arrives from outside and stays outside; it cannot be spent. What the film keeps returning to is the difference between being wanted by a room and being known by one person standing in it.",
+  "model": "claude-opus-5",
+  "source_sha256": "dccdb4a52882db409552a3e37272bc9d90969cfdccc48489e3c451128a8a4277"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-pied-piper-1933",
+  "field": "lead",
+  "film_id": "94a7d216-ed10-4a52-8e52-8e5798641171",
+  "lang": "en",
+  "text": "A bag of gold is promised; when the job is done, the town counts out pocket change. Eight minutes of animation from 1933, and the plot is a contract dispute — rats cleared from Hamelin, the fee renegotiated downward by people who already have what they wanted. Wilfred Jackson stages the clearing as a musical number, the rats moving in strict time toward a mirage of cheese, everything in the frame keyed to the tune rather than to gravity. The National Board of Review listed it among the year's ten best films, an odd sight beside features and a fair measure of how the short was regarded then. The storybook trappings are decoration. The grievance underneath belongs to its moment: work performed, terms revised afterwards, someone deciding that a tune is not worth paying for.",
+  "model": "claude-opus-5",
+  "source_sha256": "84a3428fa5b89965b4f61ec558d2d444f6b66c04d9edb881096b4d5ad5f77585"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-rising-of-the-moon-1957",
+  "field": "lead",
+  "film_id": "93849c97-91d7-415b-8cd4-beb119627d85",
+  "lang": "en",
+  "text": "Three stories, eighty-one minutes, and not one of them in a hurry. A constable must arrest a man whom the whole parish, including the fellow he struck, would rather he left alone; a railway platform holds a train that ought to have departed; the last piece moves to 1921 and a prisoner under sentence. John Ford shot it in Ireland in 1957, working small — interiors, platforms, faces, and the local business of getting round a law everyone nominally supports. Comedy slides into something harder by the third part without any change of tone, which is what the anthology form is doing here. The National Board of Review named it to its ten best. Delay is the connective tissue: warrants unserved, timetables disregarded, a sentence pending while everybody finds something else to attend to.",
+  "model": "claude-opus-5",
+  "source_sha256": "de347f345e464aa4ad252797e314f1cdc2ddad966fa64e07385c55dbe90564f5"
+ }
+]

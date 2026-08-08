@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "머큐리 시어터 공동 창립자 존 하우스먼과의 불안한 동업은 《시민 케인》 각본 작업 중에 완전히 깨졌다. 격앙된 저녁 식사 자리에서 웰스가 불붙은 보온 접시를 하우스먼에게 집어던진 것이 마지막이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d08f30dd2d53868bb8f7ec9d11809790254a74b323c29a465b6cf753af16ee72"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《시민 케인》이 자신과 정부 매리언 데이비스를 얄팍하게 가려 그려냈다는 데 격노한 신문 재벌 윌리엄 랜돌프 허스트는 자기 거대 언론 제국에 이 영화를 일절 언급하지 말라는 금지령을 내렸다. 극장들에는 상영을 거부하라고 압박을 넣었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "032eb39c95a42370b39145ab576877732e6431803d6a914d4686bec6249be7bb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생 무대 마술에 빠져 살았던 웰스는 2차 대전 중 미군 장병을 위한 대형 쇼 '머큐리 원더 쇼'를 꾸렸다. 아내 리타 헤이워스를 톱으로 반 토막 내는 마술도 무대에 올렸는데, 그녀의 스튜디오 사장 해리 콘이 하차를 강요하면서 끝났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0678fad4d4e53d321ea112900114f538dda23ddd8041638a8b9e291a40947bcf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "기관지 천식과 안쪽으로 무너진 평발 탓에 군은 그에게 4-F 판정을 내렸다. 2차 대전 내내 웰스는 징집을 피했다는 비난에 시달렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "af89dad2cd97c7e217f538b7ea7fce30bd2d69acdd88715a9ab75e2a5210397a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1944년 프랭클린 D. 루스벨트의 재선 운동에 그는 맹렬히 뛰어들었다. 대통령의 연설문을 썼고, 위스콘신주 상원의원 출마도 잠시 저울질했다. 그 자리는 결국 조지프 매카시가 가져갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e3ab37a5566edfb3d9404a9c4c5a745a635fab2ceb6991dee6ab0f9b8d9485a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1947년 필름 누아르 《상하이에서 온 여인》을 찍으며 웰스는 아내이자 스튜디오 최고 스타였던 리타 헤이워스에게 그 상징 같던 긴 붉은 머리를 자르고 백금발로 탈색하라고 명령했다. 컬럼비아 픽처스도 대중도 충격에 빠졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8aec1b4e17eadaac9751c726066271c68b8d30082b16a9e4f821faccb3e7ce99"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1947년, 막대한 국세청 체납금이 쌓이고 할리우드는 그를 쓸 수 없는 인물로 여기기 시작했다. 웰스는 스스로 유럽으로 망명했다. 수십 년에 걸친 유랑의 시작이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aab9e4bbe9eb892281a8869b92f14ded3b65557c12ffd8013beef977ea42c52a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "철저히 독립적으로 만든 1952년작 《오셀로》의 제작비를 대려고 웰스는 《제3의 사나이》 같은 영화에 고액 출연료를 받고 얼굴을 내밀었다. 모로코의 하맘에서 살인 장면을 찍은 일화도 유명하다. 돈을 못 받은 이탈리아 재단사들이 의상을 압류해 갔기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "510728fbb1b468eab7e06f434044b13f2fb9ff6863c7670d4694bf6bc1b7b2a0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "유니버설 픽처스가 1958년 국경 스릴러 《악의 손길》을 그의 등 뒤에서 대폭 재편집하자, 웰스는 이 영화를 어떻게 편집해야 하는지 하나하나 짚은 58쪽짜리 메모를 타자기로 쳐 보냈다. 그 지시가 실제로 실행된 것은 1998년 복원판에서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "06336d8f1a99859bf7ff7c8a9977afdb950826d7de15070d5096b49dcebe9c6d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그가 평생을 걸었던 《돈키호테》는 멕시코와 스페인, 이탈리아를 오가며 수십 년간 촬영됐다. 제작비는 전액 자기 주머니에서 나왔다. 방대하게 쌓인 필름의 편집은 끝내 마치지 못한 채 세상을 떠났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3dd084657e0c54bd4c17bc94c8c97a0433fa081e64173023d4d870b739e7cbf2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "엄청난 식욕으로 이름났던 웰스는 로스앤젤레스의 마 메종 같은 식당에서 저녁 한 끼에 큼직한 스테이크 두 덩이와 스카치 한 파인트를 해치우곤 했다. 말년의 몸무게는 400파운드 가까이 불어났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7b344a71f951e09fb2719d5269e4c400321275a8dfa1e40b333361907f19c42e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화적 천재성과 무관하게, 젊은 세대에게 그는 무엇보다 광고 모델이었다. 1970년대 후반 폴 매슨 캘리포니아 와인 TV 광고를 찍으며 취한 채 대사를 더듬던 NG 필름이 두고두고 회자됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bd199cba3771d79d870feb5acdb84cf918fac493f5fd55f9a29e71d4de83a750"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1975년 그는 미국영화연구소 평생공로상을 받은 세 번째 감독이 되었다. 전국에 생중계된 수상 소감에서 웰스는 객석에 앉은 할리우드 경영진에게 다음 영화의 제작비를 대달라고 공개적으로 빌었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c886a08dc21f5346eff9abdce37c2a46bd061de1e0000bfe745ea0f83ba0ff2f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#23",
+  "field": "fact",
+  "lang": "ko",
+  "text": "세상을 떠나기 전 마지막으로 완성한 배역은 1986년 애니메이션 《트랜스포머 더 무비》의 행성을 삼키는 로봇 유니크론. 목소리는 무겁게 합성 처리되어 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c02428c1d00410ae055a2d7891b5ee0d79746584fa74e2a24e57555188373cb4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#24",
+  "field": "fact",
+  "lang": "ko",
+  "text": "일흔에 할리우드 자택에서 급성 심장마비로 숨졌다. 각본을 쓰다 타자기 위로 고꾸라진 채 발견됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b11ee5a754162edced68ac3235567895ff820404107986c68af27a57850d18bc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#25",
+  "field": "fact",
+  "lang": "ko",
+  "text": "유언에 따라 그의 유해는 스페인 론다로 옮겨졌다. 오랜 친구였던 전설의 투우사 안토니오 오르도녜스의 시골 영지, 마른 우물 안에 묻혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e144322b34a06d1da75b482b40298ac9870002ea171c7b5ed3fb0e251ff2be5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#26",
+  "field": "fact",
+  "lang": "ko",
+  "text": "뉴 할리우드를 겨눈 미완의 풍자극 《바람의 저편》은 법정 다툼에 발이 묶인 채 파리의 금고에서 40년을 보냈다. 넷플릭스가 완성 비용을 대면서 2018년에야 세상에 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "60ba2dbc140143932649033dae13eafdd2f08840eb396f1fc8f173ad0066b526"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles#27",
+  "field": "fact",
+  "lang": "ko",
+  "text": "솜씨 좋은 화가이자 일러스트레이터이기도 했던 그는 자기 영화의 스토리보드와 의상 디자인을 직접 그렸다. 십 대 시절 아일랜드를 떠돌던 여비도 자신이 그린 풍경화를 팔아 마련했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e1b51ee9d43736b02504d403950acc32bec9c2d7941b14cc6eee6b57101dfb05"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ousmane-sembene#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1936년 다카르의 식민지 중학교에서 그는 영구 퇴학당했다. 코르시카 노래를 억지로 부르게 한 데 앙갚음하려고 프랑스인 교장을 손찌검했기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fe6c29ca7dd4085383763aed95950473a01da3279f9f2a13324bda6db355b9e7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ousmane-sembene#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "카메라를 잡기 한참 전, 그는 세네갈 곳곳에서 고된 육체노동을 전전했다. 정비공, 벽돌공 견습, 카자망스 강의 어부.",
+  "model": "claude-opus-5",
+  "source_sha256": "f7a565eb2070541a0a291decf3607796c8a3fb402876134de65ffab8018e76f6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ousmane-sembene#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1944년 프랑스군 식민지 보병대인 세네갈 티라예르에 징집되어, 2차 대전 동안 자유프랑스군 운전병으로 복무했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1258198d65a449ccec8418a2534a0e1445f0669cce4667d736b2a776dea85679"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ousmane-sembene#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "먹고살 길을 찾아 셈벤은 1947년 프랑스행 배에 밀항했다. 정착한 곳은 마르세유, 붐비는 부두에서 하역 노동자로 일했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ee7ec17bd2452cb30d9368f7d1661f25b0570c7f85781d1a6d143b031321d3a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ousmane-sembene#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이주 노동자의 참혹한 처지를 겪으며 급진화된 그는 1950년 프랑스 공산당과 전투적 노조 CGT에 가입했다. 제1차 인도차이나 전쟁에 나갈 무기 선적을 막는 파업에도 적극 나섰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2677331753c81aed3007121cf997d9f8569cdb6a34eacaac3257d9bbcd213595"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ousmane-sembene#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "프랑스어는 순전히 독학이었다. 1956년 첫 소설 『검은 부두 노동자』를 펴내며 그는 마르세유에서 몸소 겪은 구조적 인종차별과 가혹한 노동 조건을 드러냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e640c5d4038fcb596ade3b265128acc470c5cac7b92bd899d3fcebbb369b5737"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ousmane-sembene#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1960년 철도 파업 서사시 ���신의 나뭇조각들』을 비롯한 그의 소설들은 호평을 받았지만, 정작 가닿아야 할 독자에게는 닿지 못했다. 서아프리카 사람 대다수가 글을 읽지 못했던 것이다. 셈벤은 그 사실을 깨달았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "72520aa974ac55ea252b6cb2db572504bae4ac5707765748f469909d3774ca68"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ousmane-sembene#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1963년 데뷔 단편 《Borom Sarret》은 프랑스인 친구들이 건넨 자투리 필름으로 찍었다. 흑인 아프리카인이 아프리카에서 연출한 최초의 영화로 널리 꼽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ba24d744c6f2d46b88fedbc7c61f62de8cd24f78236964e08f0e44fb3377ca7a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ousmane-sembene#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1968년작 《Mandabi》(우편환)로 셈벤은 서아프리카 언어(월로프어)만으로 만든 최초의 장편을 내놓으며 역사를 썼다. 프랑스어를 대놓고 물리친 이유는 하나, 동포들이 스크린에서 자기 목소리를 듣게 하려는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "2bd0940fb723f419ab455e63f8b3ab2b7ae9c0b896d963aea300066bc29d1028"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ousmane-sembene#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1977년 역사 서사극 《Ceddo》는 상고르 정부의 금지 처분을 받았다. 사유는 철자 하나를 둘러싼 옹졸한 시비였다. 대통령은 제목을 'd' 하나로 써야 한다고 우겼고, 고집스럽게 독립적이던 감독은 자신의 월로프어 표기를 끝내 바꾸지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7164a711e491bfa72eebffb734ed536129cec1c304f510f0577a70309bd6a7fb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ousmane-sembene#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1944년 프랑스군이 항명한 서아프리카 참전병들을 학살한 실화를 그린 1988년작 《Camp de Thiaroye》. 프랑스에서는 십 년 넘게 사실상 상영 금지 상태였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "38fc29e241eff70454656ee5fbe224cb1f2b03373c9c6b83565aa7810384f968"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ousmane-sembene#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이 사이에 문 파이프를 빼놓고는 그를 본 사람이 드물었다. 셈벤은 현장에서 위압적인 가장(家長)의 자리를 지켰고, 대부분 비전문 배우였던 출연진에게 한 치의 흐트러짐도 허락하지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9ece57f588d90b396346d173b27350c78d5237210b403fdaf5f5c8029bd41f2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ousmane-sembene#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1969년 범아프리카영화인연맹(FEPACI) 창립 회원으로 이름을 올린 그는, 서구의 독점을 우회하는 대륙 차원의 배급망을 세우는 데 지치지 않고 매달렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e55c361e6fb24225f8cbb577385594ab0129cd5f7804ce92b208e7d9d15dd3f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ousmane-sembene#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마지막 영화 《Moolaadé》(2004)에서 그는 여성 할례라는 금기를 정면으로 다뤘다. 부르키나파소 외딴 마을에서 촬영했고, 완성한 뒤에는 이동 영사대를 끌고 아프리카 농촌을 돌며 상영했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f9a01faa8e80912666f27fe26c1a7a078c3d8bcfdbdcaf3d6596b159d8322655"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ousmane-sembene#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "셈벤의 시나리오는 언제나 프랑스어로 먼저 쓰였다. 다만 리허설에 들어가면 배우들과 함께 대사를 월로프어나 디올라어, 밤바라어로 옮겼다. 거리에서 쓰는 말맛을 살리기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "116d51ff04893e74c22465f33721e505adc999279f630e8f5373893fd2599179"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pablo-larrain#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "라라인은 칠레 보수 특권층의 정점에서 태어났다. 아버지 에르난 라라인과 어머니 막달레나 마테는 둘 다 세바스티안 피녜라 우파 정부에서 장관을 지냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "97f3a6587374a1dd43a6d9922093301ebd2b97abebeb8339cc2307ae367eceb7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pablo-larrain#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "부모가 초보수 정당 독립민주연합(UDI)의 유력 인사였음에도, 라라인은 경력 초기를 신랄한 3부작에 쏟았다. 《토니 마네로》, 《포스트 모템》, 《노》. 그 세 편이 고발한 대상은 다름 아닌 피노체트 체제, 곧 그의 집안과 정치적으로 한편이었던 이들이 떠받친 정권이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0cd6a9874bd8d9ba5de7c0f9a50853e67d774ba4d60bd39e34fefc69f9e4d5a4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pablo-larrain#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "믿기 힘든 일정 곡예였다. 주중에는 파리에서 《재키》를 찍고, 주말에는 칠레로 건너가 반(反)전기영화 《네루다》를 편집했다. 두 편 모두 2016년에 공개되어 대단한 찬사를 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b75ed0c9e48bb45a21548bfb5eb124dc804a8fd8c82fd29934c26a85278c900d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pablo-larrain#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자신의 제작사 파불라를 통해 라라인은 세바스티안 렐리오의 《판타스틱 우먼》을 밀어붙이고 제작했다. 이 영화는 2018년 칠레 최초의 아카데미 외국어영화상을 안으며 역사가 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "675e3d4fdcf710bd98ab7fd22cd179fb9031c6fad4d31e905e5c9246e838eb4b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pablo-larrain#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "네온이 흥건한 2019년작 《에마》를 위해 그는 발파라이소의 언더그라운드 레게톤 문화에 일부러 몸을 담갔다. 전에는 아무것도 모르던 장르였다. 독재 이후 태어난 새 세대의 무정부적 에너지를 그 음악으로 파고들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0059e0272f076adce5cafb047407f4f077b87a753736031cffd3f99f7805cda6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pablo-larrain#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아우구스토 피노체트를 250살 먹은 뱀파이어로 그린 2023년 베네치아 수상작 《엘 콘데》. 이 풍자의 출발점은 라라인이 평생 삼키지 못한 역겨움이었다. 실제의 독재자는 심판대에 서는 대신 부유한 노인으로 죽었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "404b36506ef8484ee225d17560cc2d3ad2c42ec7d063c3192647eaf9ab2629d0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paolo-sorrentino#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "열여섯 살 때 부모를 한꺼번에 잃었다. 로카라소의 가족 스키 산장, 고장 난 난방기에서 새어 나온 일산화탄소 때문이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "224cd8aa73699ab64d2cca7b5122ab9599b99055c47f36de4abaeef48fa84369"
+ }
+]

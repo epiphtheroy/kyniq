@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "evil-2003",
+  "field": "lead",
+  "film_id": "8e1af767-f5ec-42d3-a737-a2d470f5293b",
+  "lang": "en",
+  "text": "A boy thrown out of one school arrives at the only one still willing to take him. Stockholm in the 1950s: Erik fights, and at home his stepfather fights harder, and the second fact explains much of the first. His mother buys him a year at Stjärnsberg, and the price is a promise: no more brawls, or there is no Upper School and no way out of the house he came from. What follows is built on withholding rather than on violence. A boy whose one proven skill is his fists agrees to keep them at his sides, inside an institution that has ranks of its own and its own rules about who is permitted to hit whom. At home it took the Guldbagge for best film, a decent reward for how much of the running time is spent watching a boy do nothing.",
+  "model": "claude-opus-5",
+  "source_sha256": "19e2fcd874fcc23cea72216decdafb50b678c4d2ff556524fa4eac01ccdb35f2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tae-guk-gi-the-brotherhood-of-war-2004",
+  "field": "lead",
+  "film_id": "3e44be41-c645-430f-9ecb-e1e25c00a2b4",
+  "lang": "en",
+  "text": "Two brothers are conscripted, and the elder settles on a private arithmetic: the more dangerous the work he takes, the safer his brother should be. He volunteers for what nobody else wants, and the ledger he is keeping has only one entry in it. It is a strange engine for a 148-minute war film, and it holds. Kang Je-kyu stages the fighting at scale, but the argument the picture keeps returning to is small enough for two people, one of whom has decided what the other's life is worth without asking him. Being protected turns out to be its own injury. The younger brother watches his survival bought at a counter he never approached, while every other man his age is spending his own. What the film lays out in artillery is considerable. What it is about fits between two men, and neither one can say it aloud.",
+  "model": "claude-opus-5",
+  "source_sha256": "d80e52cde9011c578b9ad0d87c44806c468de67497e3a56bd3b66f02003b72bf"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-changeling-1979",
+  "field": "lead",
+  "film_id": "78906a66-7fdd-484d-9401-da505564a849",
+  "lang": "en",
+  "text": "Seattle, a house nobody has lived in for years, and a composer who has come there to be alone with his grief. The premise gives Peter Medak almost nothing: one man, too many rooms, and a building whose history he did not ask about before signing. John Russell's occupation is worth noticing. He is paid to hear, to pull one sound out of the noise around it, to know when a note is wrong, and the film puts him in a place that makes noise for a living. Nothing arrives quickly. At 107 minutes there is time for corridors, for the slow business of finding out who lived there, for the walk from one end of the house to the other. Canada gave it the year's best-picture prize, which is not the usual fate of a horror film, and the patience is why.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8413740fe1b9dc499cc8bf36b66193ad4a4376787f7c486b050fd9a59c666f4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-red-violin-1997",
+  "field": "lead",
+  "film_id": "058dba34-b0ce-4905-a130-2da3813ffd57",
+  "lang": "en",
+  "text": "Made in 1681 by the Italian master Bussotti, the violin outlives every hand that holds it. That is the structure as well as the premise: Austria, England, China, Canada, three centuries and several languages, with an appraiser in Montreal working through the paperwork in the present and trying to say what the instrument is. Each episode builds a world and then gives it up, a hard way to hold 130 minutes, since every half hour the cast is gone and a new one starts from nothing. The bet is that curiosity about an object survives the loss of the people attached to it. François Girard has a protagonist that cannot speak but can be played, so the score carries what no character is able to hand across two hundred years. It took the Academy Award for original score, and it is the only performer in every scene.",
+  "model": "claude-opus-5",
+  "source_sha256": "0646d3deea61b0fe01edb3110469857f2af86f4e4fc850731e6c29a4caf59a2b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "monsieur-lazhar-2010",
+  "field": "lead",
+  "film_id": "f6675587-08ea-4314-be46-f560002f173b",
+  "lang": "en",
+  "text": "Nobody in the classroom knows that the new teacher is waiting to hear whether Québec will let him stay. Bachir Lazhar takes over an elementary class in the middle of a Montréal winter, after its teacher's suicide, and the ordinary business of school, the dictation, the spelling, the corridor rules, goes on over the top of it. He is an Algerian immigrant with a claim pending and a loss of his own, and both stay outside the door each morning. Grief in a room of children is not a topic; it is a seating chart, a syllabus, a substitute nobody chose. So the person with the most in common with these children is the one least able to say so. Philippe Falardeau manages it in 94 minutes and finds comedy in there too, mostly at the expense of the adults.",
+  "model": "claude-opus-5",
+  "source_sha256": "f6e8cba129704f52c331c99f4feda03f33626431ddf5921c5c9561344f7ed707"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "son-of-the-bride-2001",
+  "field": "lead",
+  "film_id": "b8d53579-6021-4c77-8db9-41c7bcfc1ae5",
+  "lang": "en",
+  "text": "The heart attack is a small one, which is the worst kind: it interrupts Rafael Belvedere's life without settling anything. He is forty-two and losing quietly on several fronts at once, with a father whose shadow he has never got clear of, a mother he visits less than he should, a daughter whose time he keeps rationing, and a girlfriend still waiting on a decision he will not make. Juan José Campanella runs the comedy on obligation rather than on jokes about it. Every claim on Rafael is legitimate; no two can be met on the same afternoon. Some of them will keep for another year. His mother will not. Then Juan Carlos, a friend from childhood, turns up, the one person in the picture who wants nothing from him, and the past starts being rebuilt from the inside. 123 minutes, and the crisis never grows larger than a family.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d13ca2e95d0df3a73046a161e1ebd7120bbe603db88c533e50f19c5fe74238b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "xxy-2007",
+  "field": "lead",
+  "film_id": "3b31ad5d-0b2e-452d-b170-422073ada889",
+  "lang": "en",
+  "text": "Alex is fifteen, intersex, raised as a girl, and every adult in the house behaves as though the decision were partly theirs. What the family had managed to leave open is forced by the attentions of another teenager. Lucía Puenzo keeps to 86 minutes and to a handful of people, a judgement about proportion as much as about money: the parents' fear gets as much time as the child's, and neither is granted the wiser position. From outside there is hostility, and there is also gentleness, and they arrive in no order that can be predicted. Alex is not handled as a case and the parents are not handled as an obstacle; the film gives both the ordinary difficulty of people who disagree and cannot leave. It declines the debate it could easily have staged. It stays in the house, with people who have run out of ways to postpone.",
+  "model": "claude-opus-5",
+  "source_sha256": "86fdae1bbbd854a4299252abcada78aa26295e0cb3ce106bc91fb8fdea16608d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "and-then-we-danced-2019",
+  "field": "lead",
+  "film_id": "4a87a6b9-e839-4157-aeed-217c25741b81",
+  "lang": "en",
+  "text": "Merab has trained for years for one place in the national ensemble, with Mary as his partner, and then Irakli walks into the studio. Rivalry and desire turn out to use the same muscles, and Merab has only the one body. Mary is not incidental to this; her own prospects depend on the pair holding together. The audition does not move for anyone's private life; the company will take who it takes; every hour given to Irakli is set against a career a single panel can end. The pressure sits in the form itself, Georgian dance, where what gets judged is the way a man holds himself, so the body doing the wanting is the body being marked. Levan Akin films the training as labour: repetition, correction, a floor, a mirror. Sweden gave the picture its best-film prize, a strange passport for a film spoken in Georgian, and a fair one.",
+  "model": "claude-opus-5",
+  "source_sha256": "d9c1ada8ab3ae2ee76c78bb7be0b4b2f08941d17c44d467ddef7b29aaa196ce4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ararat-2001",
+  "field": "lead",
+  "film_id": "9c644176-a4ed-41ea-b962-c755cba42923",
+  "lang": "en",
+  "text": "Everything is told to a customs officer by a young man who wants to be let through. The frame is the subject: an account of the Armenian genocide arrives at a desk where a stranger has to decide whether it holds together. Atom Egoyan does not dramatise the history so much as the labour of dramatising it, the set, the costumes, the arguments about what a given scene should show and who is entitled to show it. A film production is a machine for making decisions about the past, and every one of those decisions can be contested by somebody claiming a better right to it. The people building the film inside this film do not agree. At 115 minutes it refuses nearly every consolation the material offers, including the one where telling the story is enough.",
+  "model": "claude-opus-5",
+  "source_sha256": "1917412bac57635635b86e7db252b9a6bcf384a4a73367afb9bc76be41bfb5e1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-admiral-roaring-currents-2014",
+  "field": "lead",
+  "film_id": "68ec9a80-44c7-4feb-a7e3-1e54f2f943c7",
+  "lang": "en",
+  "text": "Thirteen ships against three hundred: the film hands over its problem in the opening minutes and then owes two hours to it. Yi Sun-sin has a stretch of water, a plan, and crews who can count the enemy fleet from the deck without being told the number. Command is the real subject here, not tactics alone but the daily work of persuading frightened men to accept arithmetic they have already done for themselves and rejected. Kim Han-min gives most of his 126 minutes to a single engagement, which means there is no subplot to cut away to when the water turns; the film has to keep finding new information inside one battle. It took the Grand Bell for best film at home. What holds attention is smaller than the fleet: one man's face, and how long a crew will look at it.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c6a2cf87edbf86dc47c884d290a99bbbf2a2fbfd80e0ea91d417b8ef2c596f7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bon-cop-bad-cop-2005",
+  "field": "lead",
+  "film_id": "068a3ba3-80c8-4019-ab77-800a7b0c3130",
+  "lang": "en",
+  "text": "The body is found on the sign that marks where Quebec ends and Ontario begins, which makes it two forces' case and nobody's. A hockey executive, Benoit Brisset, laid across a jurisdictional line: the joke is administrative before it is anything else, and Érik Canuel builds the picture on it. A killing that belongs to two jurisdictions gets worked twice, in two sets of forms, up two chains of command. David Bouchard comes from Montreal, Martin Ward from Toronto, and what divides them is not temperament alone but a working day conducted in two languages, each man fully himself in only one of them. The film changes tongue mid-scene because the country does, and it does not stop to translate. 116 minutes in which the paperwork does most of the plotting.",
+  "model": "claude-opus-5",
+  "source_sha256": "22b99eeba9057cdde5c6dbbe99d1abcd2d4426a598f7c46b83f260d94c814d46"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "eye-of-the-needle-1991",
+  "field": "lead",
+  "film_id": "96af3fff-99f5-445d-94c5-5775243d26fb",
+  "lang": "en",
+  "text": "In 1944 a German agent carrying what he knows about D-Day goes to ground on Storm Island, off the north of Scotland. Weather, a few inhabitants, and no boat he controls. MI5 is behind him and the sea is in front. The shape of the thriller changes about halfway through, when a manhunt spread across Britain contracts to one island and the danger stops being pursuit and becomes proximity. Henry Faber is called the Needle, a thin hard thing that goes through cloth without tearing it. What he carries is worth nothing until it is delivered, which leaves the invasion briefly at the mercy of a boat and a forecast. Richard Marquand keeps it to 108 minutes and to very few faces, most of them sharing bad weather with a man whose whole profession is going unnoticed.",
+  "model": "claude-opus-5",
+  "source_sha256": "e852e6fa7eb1a801fd2ec72fdd4b7eae3d3482764cf46e3ac35d17ac09ad537f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-man-who-copied-2003",
+  "field": "lead",
+  "film_id": "cc7fc648-8f20-4d9a-a3f1-b77ee0a5e579",
+  "lang": "en",
+  "text": "He runs a photocopier all day, and the neighbour he cannot stop thinking about keeps a shop whose stock is beyond him. That gap, between an hourly wage and the price of a reason to speak to her, is the entire setup, and Jorge Furtado treats it with more curiosity than pity. A machine that makes exact reproductions is a strange thing to stand at while broke, and the film knows how strange. Watching becomes a scheme, one scheme becomes several, and the arithmetic stays so close to the surface that the crime looks at first like a rounding error somebody got away with. It carried Brazil's Grande Prêmio for best film. 123 minutes built on a small want, with the wages and the shop counters and the coins in a pocket coming through in the margins.",
+  "model": "claude-opus-5",
+  "source_sha256": "66b71464a02f29de9256d428c7d9c576c6daf5e84452d32de963f6e6a4bd5a9e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "el-angel-2018",
+  "field": "lead",
+  "film_id": "b11e0fab-dc70-4696-864b-92e988a869e8",
+  "lang": "en",
+  "text": "Carlos Robledo Puch is nineteen, angel-faced, and steals the way other people take up a trade. Buenos Aires, 1971. The difficulty Luis Ortega has taken on is that a thief without remorse gives a film nothing to climb: no redemption to withhold, no conscience to wear down, only appetite and a gift for it. So the picture works on charm instead and lets the boy be good company, which is the honest solution and the uncomfortable one; the same pleasure the thefts give him is handed straight over, with nothing attached telling anyone what to do with it. Then Ramón arrives, and the thieving acquires a witness; performance changes whatever it is applied to. 115 minutes with someone who does not develop, in which the interest passes to the people around him and what each of them decides he is.",
+  "model": "claude-opus-5",
+  "source_sha256": "a78972447917bec429c8d42144a727812910c45e24a34d1954db77f931b7d564"
+ }
+]

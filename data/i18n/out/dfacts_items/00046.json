@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-ki-duk#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "라트비아 영주권을 얻기 전에 김기덕은 코로나19에 감염됐고, 2020년 12월 11일 리가의 한 병원에서 합병증으로 숨졌다. 예순 번째 생일을 며칠 앞둔 때였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "426e212309caed79719d550db0902b8d0a87eb6f13a202c4cfdaad481ca0fb84"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kiyoshi-kurosawa#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "성도 같고 직업도 같지만, 일본에서 가장 유명한 그 감독과는 아무 관계가 없다. 구로사와 아키라와는 혈연이 전혀 없다는 사실을 그는 수십 년째 해외 기자들에게 정중히 설명해왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b4fdd3000e358b522ecb0cf2ac73f51e7cb0014108e64b52b1da639e9591217"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kiyoshi-kurosawa#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "릿쿄대학에서 사회학을 공부하던 시절, 구조주의 비평가 하스미 시게히코의 전설적인 영화 수업이 그의 영화관을 영영 바꿔놓았다. 심리적 서사가 아니라 화면 위 신체의 움직임을 읽는 법. 그것이 하스미가 가르친 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e3077d24fa67115c01656d1d1194617ea07752a7480cde9ca850ac5ef354fa54"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kiyoshi-kurosawa#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "대학 시절 8mm 독립 단편을 찍으며 출발했다. 초기작 《School Days》를 1980년 피아 영화제에 출품했고, 그 작품이 업계의 기성 이단아들 눈에 띄었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "539619635905ac658ad593ea649e641116abc48f7458572e6f25eaada71c8592"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kiyoshi-kurosawa#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그 세대 일본 작가들이 대개 그랬듯, 구로사와도 연출 데뷔는 소프트코어 '핑크 영화' 판에서 했다. 1983년 닛카쓰 로망 포르노 《간다가와 음란전쟁》이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "80fa94d96b1912377d0cd451d2a2c57a468f967af0ce206f4ddd3df921af2c37"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kiyoshi-kurosawa#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "논란작 《Sweet Home》은 게임으로도 옮겨졌는데, 이 게임이 아이템 관리와 '문 로딩' 화면 같은 서바이벌 호러의 문법을 처음 도입했다. 캡콤의 대히트작 《바이오하자드》 시리즈가 여기서 직접 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9d2307f2a83571f068539aaeeae7ced712b13372b6f5f389f118325cef0dd2b3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kiyoshi-kurosawa#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이타미 소송 이후 메이저 스튜디오에서 사실상 배제된 그는, 1990년대 초반을 저예산 비디오 직행 시장 'V-시네마'에서 버텼다. 《스스로 결정하든 스스로 쏘든》 시리즈 같은 값싼 야쿠자 스릴러를 미친 듯이 찍어냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d835c3acfbb61e780f0c33f12a92c2dacf0945294fb9500ea67ecbe6cb88acd9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kiyoshi-kurosawa#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "V-시네마 유배기에 그는 카리스마 넘치는 배우 아이카와 쇼와 끈끈한 작업 관계를 맺는다. 아이카와는 일련의 실존적 범죄 영화에서 그의 터프가이 뮤즈가 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f9a202caf1a69c90f53cf047e355b689e4172de0c951d481f93d08821ae9374"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kiyoshi-kurosawa#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1997년 국제적 돌파구가 된 《큐어》의 각본은 그가 직접 썼다. 평범한 사람들을 살인으로 몰아가는 최면술사, 그를 쫓는 형사 이야기다. 일본 사회의 동조 압력이 얼마나 쉽게 무너지는가, 그 오래된 불안이 밑바탕에 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bfb92f276f9d755a16d04f2294d304c2c91c3c976f0848ff0fdcc63ffc0f9696"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kiyoshi-kurosawa#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《큐어》는 배우 야쿠쇼 코지와의 결정적인 협업이 시작된 지점이기도 하다. 야쿠쇼는 여덟 편의 장편에서 구로사와의 영화적 분신 역할을 맡아, 초현실적인 공포를 지친 일상의 인간에 붙들어 맸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "36d8897c4088946ba26a0b9f7c5d9b239ec9cf12cf1b9f4ff20e51d083c2acef"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kiyoshi-kurosawa#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 도쿄 외곽에서 썩어가는 폐공장 부지를 직접 찾아다닌다. 지바의 똑같은 폐허를 몇 번이고 다시 찍기도 한다. 일본 '잃어버린 10년'의 경제적 정체를 눈에 보이는 것으로 바꿔놓기 위해서다.",
+  "model": "claude-opus-5",
+  "source_sha256": "211b86ec23e8f4b4a010bc829c8b2a6fa966fc0ae15d3874b7f7d11e11cd7a4e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kiyoshi-kurosawa#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "도쿄예술대학(게이다이) 영상연구과의 창립 교수로서 그는 일본 작가들의 새 세대를 길러냈다. 훗날 오스카를 받는 하마구치 류스케가 대표적이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f12ddb4772ecbadb6d32526648a8e153f5bd79d106a8600f4a488db32974c9f5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kiyoshi-kurosawa#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《도쿄 소나타》(2008)에서 그는 호러와 범죄물을 돌연 접고 가정 드라마로 방향을 틀었다. 각본은 호주 작가 맥스 매닉스의 것. 결과는 칸 주목할 만한 시선 심사위원상이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aefa8a926b4aed028b2b40dd9e9ea7b68fed959429fe502163f4e2990b822774"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kiyoshi-kurosawa#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2013년에는 러시아 블라디보스토크로 건너가 첩보 스릴러 《세븐스 코드》를 찍었다. 주연은 전 AKB48 아이돌 마에다 아쓰코. 기묘하게도 이 영화는 그의 솔로 싱글 홍보용 확장 뮤직비디오로 발주된 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "64dd0d56f3699effc0c4b41837952d32f9c5e56808ec9df7f29413dc2cb95e12"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kiyoshi-kurosawa#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "프랑스에서의 인기를 발판 삼아 그는 《은판 위의 여인》(2016)을 연출했다. 파리 교외에서 전부 촬영하고 배우도 전원 프랑스인인 고딕 로맨스였다. 정작 구로사와는 프랑스어를 거의 못 해 통역을 통해 현장을 지휘했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bbed08c93566d25bb9b7b867fc22483e1518442a13edfad998dda43f9bd39b89"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kiyoshi-kurosawa#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2019년 로드무비 《여행의 끝 세계의 시작》은 흔치 않은 외교 발주에서 태어났다. 일본과 우즈베키스탄 수교 25주년 기념 기획이었고, 그 조건상 중앙아시아 현지에서 전편을 찍어야 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9ff90fe489e5f4d5cb0daace4dc0c892924e31e1eb30dbdbc4085817bad2abbf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kiyoshi-kurosawa#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스승과 제자의 자리가 뒤바뀐 뭉클한 사례. 2020년 베네치아 영화제에서 그는 《스파이의 아내》로 감독상인 은사자상을 받았는데, 각본을 함께 쓴 이가 게이다이 시절 제자였던 하마구치 류스케다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9d18d3b76d9aa9eaa8c4371719cdda598bc87dca09d49795530be04c7e0e4d40"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kiyoshi-kurosawa#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《스파이의 아내》는 애초에 일본 공영방송 NHK의 의뢰작이었다. 초고화질 8K 텔레비전 영화로 촬영한 뒤, 색보정을 거쳐 일반 극장 개봉본으로 다시 내놓은 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f5cdaea1b78b4c0a0808f7364b529b904c0e49f8cf4ce83dac66a9d89902bf3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kiyoshi-kurosawa#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2024년작 《뱀의 길》은 자기 자신의 1998년 V-시네마 야쿠자 스릴러를 프랑스어로, 파리를 배경으로 다시 만든 것이다. 복수에 나서는 주인공의 성별을 바꿔 시바사키 코우에게 맡겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de7fd0b28b38cfd121ce132baf6b80612b7863069ca6b170a62f454a23db7a13"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kon-ichikawa#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "우지야마다의 게이샤 거리, 기모노 상인 집안에서 태어났다. 네 살에 아버지를 잃자 집안은 파산했고, 어머니가 홀로 그를 키웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "91f41d1e4e6236b98146b2a269d2d5bfacda2892b155167488ff7d907bb96e67"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kon-ichikawa#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "10대 시절 월트 디즈니의 《실리 심포니》에 깊이 빠졌던 그는 1933년 영화 일을 시작했다. 실사 연출이 아니라 교토 J.O. 스튜디오의 손그림 애니메이터로.",
+  "model": "claude-opus-5",
+  "source_sha256": "a406805d61ca028aea5fd4b58cce0dbe009c86c08a6c19d1342b7e6316c2d5db"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kon-ichikawa#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1946년 연출 데뷔작은 가부키 《무스메 도조지》를 인형 스톱모션으로 옮긴 작품이었다. 각본을 사전 승인에 올리지 않았다는 이유로 미군정 당국은 곧바로 필름을 압수하고 상영을 금지했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "974fd9adaf95ac1033600ecb15d0bc3dc41d2ad0eb8e9295d7f77512e583ed5a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kon-ichikawa#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "압수당한 그 인형 영화는 수십 년간 소실된 것으로 여겨졌다. 그러다 파리 시네마테크 프랑세즈의 아카이브에서 남아 있던 프린트 한 벌이 기적처럼 발견됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c4c74628fe607506c08ab58822638f3cc76e5ae113684eb58a589fac0819097"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kon-ichikawa#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1948년 그는 도호 스튜디오의 번역가 모기 유미코와 결혼했다. 와다 낫토라는 필명을 쓴 그녀는 그의 가장 중요한 창작 동반자가 되어, 중기 걸작 대부분의 각본을 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ccdd6a1d6a500148254fb097f618e8c3cd7621ddc9b7b7bd7003c138982c48fe"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kon-ichikawa#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1956년 반전 고전 《버마의 하프》를 버마 현지에서 전부 찍을 형편이 못 됐다. 그래서 대부분을 일본 하코네와 이즈반도에서 촬영하고, 짧은 현지 2진 촬영분을 이음매 없이 붙였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "adcac588e86265416a7cb57f36233a0a4cc56ac91df34c7a9cefa55034166574"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kon-ichikawa#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1959년 태평양전쟁 영화 《들불》은 필리핀에서 굶주린 일본 병사들이 끝내 인육에 손대는 장면까지 한 치도 물러서지 않고 그려냈다. 전쟁을 숭고하게 그리는 데 익숙했던 일본 평단은 크게 충격을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "19af960bfc59db0d145ff75b04ec452a3929027da60f7e32564eeb3b6ebcbb74"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kon-ichikawa#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1959년 다니자키 준이치로 원작의 《열쇠》는 노년의 관음과 성적 조종을 노골적으로 다뤄 일본에서 대형 스캔들을 일으켰다. 그러면서도 칸 영화제에서는 심사위원상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b77cb6b0e707fd225a8c05f07876c16dda9cf9f40b0741e8dcf1487c826f4bcb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kon-ichikawa#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "양식미가 극에 달한 1963년작 《설국의 복수》에서 그는 노년에 접어든 미남 스타 하세가와 가즈오에게 1인 2역을 맡겼다. 지극히 남성적인 도둑과 여성스러운 무대 배우. 하세가와의 300번째 출연작을 초현실적인 팝아트 미학으로 기린 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2fc3e13df147363f270d2324d0e27b38df4ad46a9c5b6916447a22bc795150e2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kon-ichikawa#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1964년 도쿄 올림픽 공식 기록영화 연출을 맡은 이치카와는 일본 올림픽위원회를 격분시켰다. 경기 결과와 메달 집계는 거의 무시한 채, 선수들의 땀과 탈진과 기이한 습관에만 카메라를 붙들었기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "96c1edd535a788de45e93eff4ba9f07df43c6e100a849d79e19e89a37d7ed3f2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kon-ichikawa#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "올림픽 담당 장관 고노 이치로는 《도쿄 올림픽》의 대대적인 재편집을 요구하며 이렇게 말한 것으로 유명하다. \"기록을 부탁했더니 예술을 만들어놨다.\" 이치카와는 끝내 거부했고, 영화는 흥행에서 대성공을 거뒀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "851c78992e136e939c39aae84356c47c25a629fca0448ded3536b3099d322396"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kon-ichikawa#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《도쿄 올림픽》은 금메달리스트를 비추는 데 그치지 않았다. 이치카와는 갓 독립한 나라 차드에서 홀로 온 육상 선수 아메드 이사에게 상당한 분량의 시적인 시간을 내줬다. 선수촌에서 혼자 밥을 먹던 사람이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ce5fdc20c167f608b2a5a4c6b2e6d1f267a1dffdad50365d5b9f599e1850c9b2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kon-ichikawa#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아내가 은퇴한 뒤 그의 이력은 기묘한 샛길로 들어선다. 1967년 장편 《토포 지지오와 미사일 전쟁》. 이탈리아의 인기 생쥐 인형이 주인공인 초현실 판타지였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f6d21841abcfe5f9139b40183675c452bc57ab5362e84345bece12d74f9e150b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kon-ichikawa#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1969년 그는 구로사와 아키라, 기노시타 게이스케, 고바야시 마사키와 손잡고 독립 제작사 욘키노카이(사기사의 모임)를 만들었다. 그러나 이 모임이 내놓은 영화는 구로사와의 《도데스카덴》 한 편뿐이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d9e8a623e22e42a58eba2884a6f3a04669a4cd4e009c964e23ef33c951bd377"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kon-ichikawa#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1972년 사무라이 시리즈 《고가라시 몬지로》로 그는 일본 텔레비전을 뒤흔들었다. 거칠거칠한 리얼리즘, 들고 찍는 카메라, 이쑤시개를 문 허무주의적 안티히어로. 매끈하게 다듬어진 전통 시대극과는 정반대였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "00e5e6e5b9d14dcb7dda186ec88315df20bb3e31d3ce2ad50269f23823d0c7cd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kon-ichikawa#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1976년 흥행작 《이누가미 일족》 한 편으로 그는 일본 미스터리 장르를 혼자 힘으로 되살려냈다. 부스스하고 괴짜 같은 탐정 긴다이치 코스케를 스크린에 처음 데려온 작품이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "46c17981d9ff260366db1738e4d21e20e14445d1b966e3e04318de734a536f37"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kon-ichikawa#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "칠흑 같은 검은 배경에 거대한 명조체 흰 글자를 직각으로 앉히는 타이틀 디자인. 그가 널리 퍼뜨린 이 양식은 안노 히데아키의 애니메이션 《신세기 에반게리온》의 상징적인 타이틀 카드로 곧장 이어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9d94c1109fcd34ee83ed986b2eba2b03fb34ada7e93473b40be6df30c2e4a511"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kon-ichikawa#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아흔 살에 그는 마지막 장편을 찍었다. 1976년 자기 고전 《이누가미 일족》을 숏 하나, 대사 한 줄까지 거의 그대로 옮긴 2006년 리메이크였다. 탐정 역은 이번에도 이시자카 코지.",
+  "model": "claude-opus-5",
+  "source_sha256": "57233a2c4b5d781315b4957596d5a3168407a973c40ea84e396459a1703a1f1a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kie-lowski#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "제2차 세계대전 중 바르샤바에서 태어난 키에슬로프스키의 유년은 지독한 가난과 끝없는 이사로 채워졌다. 결핵을 앓던 아버지 로만에게 맞는 기후를 찾아 폴란드 곳곳을 마흔 번 넘게 옮겨 다녔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f6ce98a06b143bb1047016eb7213952ae9bdfb8eebf513c8ec5ed004e0eb4488"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kie-lowski#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "10대의 몇 해는 소코워프스코의 요양원에 갇혀 지냈다. 1960년 아버지를 끝내 죽음으로 몰고 간 그 결핵을, 그도 가볍게나마 앓았기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "948d946640828f3275a37fd712b62241479c83b146aaa0a45b573feea6ff7071"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kie-lowski#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "본래 꿈은 연극 연출이었다. 바르샤바 국립극장기술학교에 들어간 이유는 단순했다. 숙부가 운영하는 학교였던 것이다. 그는 그곳에서 무대 의상 재단사로 일했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9d46bdefd81564fc750b4a5ba44d5ab3ca13c16ac1766af9879d08de1d647ef7"
+ }
+]

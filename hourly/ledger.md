@@ -266,3 +266,106 @@ The 48h story-cluster dedupe and the 7-day film-reuse check read this file. Keep
 2026-08-04T04:00:00+00:00 · PUBLISHED · kw: m · anchor: avengers-endgame-2019 · lane: direct · modules: takescore,locations · /now/avengers-endgame-opening-record-spider-man-brand-new-day · dist: revalidate,indexnow:200,bluesky:200
 2026-08-04T05:00:01+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 0 recorded
 2026-08-04T06:00:00+00:00 · PUBLISHED · kw: very · anchor: christopher-nolan · lane: direct · modules: filmography,takescore-oppenheimer-2023 · /now/very-modern-odyssey-vs-nolan-odyssey-homer · dist: revalidate,indexnow:200,bluesky:200
+2026-08-04T07:00:00+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 1 recorded
+2026-08-04T08:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-04T09:00:01+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 0 recorded
+2026-08-04T10:00:00+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 0 recorded
+2026-08-04T11:00:00+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 1 recorded
+2026-08-04T12:00:00+00:00 · PUBLISHED · kw: Close · anchor: close-2022 · lane: direct · modules: takescore,reception · /now/close-spike-glenn-close-lff-closer-lukas-dhont-2022 · dist: revalidate,indexnow:200,bluesky:200
+2026-08-04T13:00:00+00:00 · PASS · daily cap 4/4 · wire: 3 reviewed
+2026-08-04T14:00:00+00:00 · PASS · daily cap 4/4 · wire: 6 reviewed
+2026-08-04T15:00:00+00:00 · PASS · daily cap 4/4 · wire: 1 reviewed
+2026-08-04T16:00:00+00:00 · PASS · daily cap 4/4 · wire: 3 reviewed
+2026-08-04T17:00:00+00:00 · PASS · daily cap 4/4 · wire: 4 reviewed
+2026-08-04T18:00:00+00:00 · PASS · daily cap 4/4 · wire: 0 reviewed
+2026-08-04T19:00:01+00:00 · PASS · daily cap 4/4 · wire: 3 reviewed
+2026-08-04T20:00:00+00:00 · PASS · daily cap 4/4 · wire: 2 reviewed
+2026-08-04T21:24:13+00:00 · PASS · daily cap 4/4 · wire: 1 reviewed
+2026-08-04T22:00:00+00:00 · PASS · daily cap 4/4 · wire: 0 reviewed
+2026-08-04T23:00:00+00:00 · PASS · daily cap 4/4 · wire: 2 reviewed
+2026-08-05T00:00:00+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 0 recorded
+2026-08-05T01:00:00+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 0 recorded
+2026-08-05T02:00:00+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 0 recorded
+2026-08-05T03:00:00+00:00 · KILLED · Her · gate x2: headline carries neither the trending keyword nor the anchor's name
+2026-08-05T03:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-05T04:00:00+00:00 · KILLED · Her · gate x2: headline carries neither the trending keyword nor the anchor's name
+2026-08-05T04:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-05T05:00:00+00:00 · KILLED · Her · gate x2: headline carries neither the trending keyword nor the anchor's name
+2026-08-05T05:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-05T06:00:00+00:00 · KILLED · Her · gate x2: headline carries neither the trending keyword nor the anchor's name
+2026-08-05T06:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-05T07:00:00+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 0 recorded
+2026-08-05T08:00:00+00:00 · PUBLISHED · kw: Ted · anchor: ted-2012 · lane: direct · modules: takescore,locations · /now/ted-lasso-season-4-vs-ted-2012-search · dist: revalidate,indexnow:200,bluesky:200
+2026-08-05T09:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-05T10:00:01+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-05T11:00:00+00:00 · PUBLISHED · kw: Big · anchor: big-1988 · lane: direct · modules: takescore,canon · /now/big-1988-disney-big-changes-toy-company · dist: revalidate,indexnow:200,bluesky:200
+2026-08-05T12:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-05T13:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-05T14:00:00+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 0 recorded
+2026-08-05T15:00:01+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 0 recorded
+2026-08-05T16:00:00+00:00 · PUBLISHED · kw: Spider · anchor: spider-2002 · lane: direct · modules: takescore,filmography · /now/spider-2002-brand-new-day-billion-clean-slate · dist: revalidate,indexnow:200,bluesky:200
+2026-08-05T17:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-05T18:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-05T19:00:00+00:00 · KILLED · Weekend · gate x2: previous attempt returned no parseable JSON
+2026-08-05T19:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-05T20:00:01+00:00 · KILLED · Weekend · gate x2: previous attempt returned no parseable JSON
+2026-08-05T20:00:01+00:00 · PASS-CAND · Love · archive links 1<4
+2026-08-05T20:00:01+00:00 · PASS · candidates tried, none survived selection/gate · wire: 2 reviewed
+2026-08-05T21:00:00+00:00 · PASS-CAND · Love · archive links 1<4
+2026-08-05T21:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-05T22:00:00+00:00 · PASS-CAND · Love · archive links 1<4
+2026-08-05T22:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-05T23:00:01+00:00 · PASS-CAND · Signs · archive links 0<4
+2026-08-05T23:00:01+00:00 · PASS-CAND · Love · archive links 0<4
+2026-08-05T23:00:01+00:00 · PASS · candidates tried, none survived selection/gate · wire: 2 reviewed
+2026-08-06T00:00:00+00:00 · PUBLISHED · kw: Signs · anchor: signs-2002 · lane: direct · modules: takescore,filmography · /now/signs-2002-agency-deal-search-spike · dist: revalidate,indexnow:200,bluesky:200
+2026-08-06T01:00:01+00:00 · PASS-CAND · Signs · archive links 0<4
+2026-08-06T01:00:01+00:00 · PASS-CAND · Love · archive links 0<4
+2026-08-06T01:00:01+00:00 · PASS · candidates tried, none survived selection/gate · wire: 2 reviewed
+2026-08-06T02:00:00+00:00 · PASS-CAND · Love · archive links 1<4
+2026-08-06T02:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 2 reviewed
+2026-08-06T03:00:01+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-06T04:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-06T10:19:28+00:00 · PUBLISHED · kw: Rocky · anchor: rocky-1976 · lane: direct · modules: takescore,canon · /now/rocky-1976-50th-4k-return-i-play-rocky · dist: revalidate,indexnow:200,bluesky:200
+2026-08-06T11:00:01+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-06T12:00:00+00:00 · PUBLISHED · kw: glastonbury festival · anchor: festival-1996 · lane: direct · modules: takescore,filmography · /now/glastonbury-2027-headliners-and-festival-1996 · dist: revalidate,indexnow:200,bluesky:200
+2026-08-06T13:00:01+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 2 recorded
+2026-08-06T14:00:00+00:00 · PUBLISHED · kw: primetime movie · anchor: predator-1987 · lane: direct · modules: takescore,honors · /now/primetime-pattinson-chris-hansen-predator-1987 · dist: revalidate,indexnow:200,bluesky:200
+2026-08-06T15:00:00+00:00 · PASS · daily cap 4/4 · wire: 4 reviewed
+2026-08-06T16:00:00+00:00 · PASS · daily cap 4/4 · wire: 4 reviewed
+2026-08-06T17:00:00+00:00 · PASS · daily cap 4/4 · wire: 2 reviewed
+2026-08-06T18:00:00+00:00 · PASS · daily cap 4/4 · wire: 3 reviewed
+2026-08-06T19:00:01+00:00 · PASS · daily cap 4/4 · wire: 2 reviewed
+2026-08-06T20:00:00+00:00 · PASS · daily cap 4/4 · wire: 2 reviewed
+2026-08-06T21:00:00+00:00 · PASS · daily cap 4/4 · wire: 4 reviewed
+2026-08-06T22:00:01+00:00 · PASS · daily cap 4/4 · wire: 4 reviewed
+2026-08-06T23:00:00+00:00 · PASS · daily cap 4/4 · wire: 2 reviewed
+2026-08-07T00:00:00+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 1 recorded
+2026-08-07T01:00:00+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 0 recorded
+2026-08-07T02:00:00+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 0 recorded
+2026-08-07T03:00:00+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 0 recorded
+2026-08-07T04:00:00+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 0 recorded
+2026-08-07T05:00:00+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 0 recorded
+2026-08-07T06:00:00+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 0 recorded
+2026-08-07T07:00:00+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 0 recorded
+2026-08-07T08:00:00+00:00 · PUBLISHED · kw: the last house · anchor: house-1977 · lane: direct · modules: takescore,reception · /now/the-last-house-netflix-obayashi-house-1977 · dist: revalidate,indexnow:200,bluesky:200
+2026-08-07T09:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-07T10:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-07T11:00:00+00:00 · PUBLISHED · kw: Werner Herzog · anchor: werner-herzog · lane: direct · modules: takescore-grizzly-man-2005,takescore-fitzcarraldo-1982 · /now/werner-herzog-donostia-award-san-sebastian-2026 · dist: revalidate,indexnow:200,bluesky:200
+2026-08-07T12:00:01+00:00 · PUBLISHED · kw: Luca Guadagnino · anchor: luca-guadagnino · lane: direct · modules: filmography,takescore-challengers-2024 · /now/luca-guadagnino-venice-glory-filmmaker-award-2026 · dist: revalidate,indexnow:200,bluesky:200
+2026-08-07T13:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 3 reviewed
+2026-08-07T14:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 3 reviewed
+2026-08-07T15:00:00+00:00 · PUBLISHED · kw: Madonna · anchor: madonna-2015 · lane: direct · modules: takescore · /now/madonna-william-orbit-death-shin-su-won-2015-film · dist: revalidate,indexnow:200,bluesky:200
+2026-08-07T16:00:00+00:00 · PASS · daily cap 4/4 · wire: 4 reviewed
+2026-08-07T17:00:00+00:00 · PASS · daily cap 4/4 · wire: 2 reviewed
+2026-08-07T18:00:00+00:00 · PASS · daily cap 4/4 · wire: 4 reviewed
+2026-08-07T19:00:00+00:00 · PASS · daily cap 4/4 · wire: 1 reviewed
+2026-08-07T20:00:01+00:00 · PASS · daily cap 4/4 · wire: 3 reviewed
+2026-08-07T21:00:00+00:00 · PASS · daily cap 4/4 · wire: 0 reviewed
+2026-08-07T22:00:00+00:00 · PASS · daily cap 4/4 · wire: 4 reviewed
+2026-08-07T23:00:01+00:00 · PASS · daily cap 4/4 · wire: 1 reviewed
+2026-08-08T00:00:00+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 0 recorded
+2026-08-08T01:00:01+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 0 recorded
+2026-08-08T02:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-08T03:00:00+00:00 · PASS · candidates tried, none survived selection/gate · wire: 1 reviewed
+2026-08-08T04:00:00+00:00 · PASS · no beat candidate above threshold (20 raw) · wire: 0 recorded

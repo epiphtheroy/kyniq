@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "padre-padrone-1977",
+  "field": "lead",
+  "film_id": "3c587fff-dcd4-43a3-9a0c-7ee805110db3",
+  "lang": "en",
+  "text": "Sardinia here is a workplace, not a landscape. Paolo Taviani's film follows the real Gavino Ledda, set to minding his father's sheep as a boy and left with a vocabulary too small to describe his own position; what he does about it, slowly and mostly alone, is teach himself to read. The father's opposition is not disapproval. It is violence, and the film neither softens it into folklore nor explains it away as poverty. Two things are at stake at once, a life and the language that would let anyone outside the family hear about it, which is why literacy is filmed as physical labour rather than uplift. It holds the Palme d'Or and a place on 100 film italiani da salvare. Across 114 minutes the scale never widens past a household, a field, and what one man can learn without a teacher.",
+  "model": "claude-opus-5",
+  "source_sha256": "e9e6b5f27a282093192a7b155f24b283cb63f86ff90fd47cb4856f7e2b93e264"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-mattei-affair-1972",
+  "field": "lead",
+  "film_id": "3e91b3ca-cfb8-4540-b09f-f58349424808",
+  "lang": "en",
+  "text": "On 27 October 1962 a private plane bound for Milan came down, and the state's finding was accident. Francesco Rosi treats that finding as a place to begin. The man aboard was Enrico Mattei, a partisan against the Nazis, then an investor who put a public company behind methane gas, then head of ENI, the state body charged with getting Italy oil of its own rather than renting somebody else's. A Palme d'Or followed, and a place on the register of a hundred Italian films to be saved. What makes the 116 minutes tense is not suspicion so much as arithmetic: how much of a country's energy policy one office could hold, whom that made an obstacle, and how many plausible accounts of a single crash can be assembled from the public record without any of them closing.",
+  "model": "claude-opus-5",
+  "source_sha256": "c79eb8c88844db8a1d8c1bf48e9f0411d894a4d20dc2a39429124aa587c673be"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-birds-the-bees-and-the-italians-1966",
+  "field": "lead",
+  "film_id": "bff18e46-cd3b-48c2-b0d2-c3d93f54b5c8",
+  "lang": "en",
+  "text": "The husbands of one northern Italian town organize, not against a scandal exactly, but against a neighbour who acted without them. Pietro Germi takes Treviso in three passes, and what he films each time is procedure: who hears a rumour first, how it gets verified, what a town does with a fact once it has one. Reputation is the only property here that can be seized, and everyone behaves accordingly. The wives are not spared either, and the men are not flattered. The comedy is broad on the surface and cold underneath, and the register does not hold level across the three stories; the last one collects a bill the earlier two have been running up. It carries the Palme d'Or and a place on Italy's list of films to keep, an odd pair of honours for a picture this willing to be vulgar.",
+  "model": "claude-opus-5",
+  "source_sha256": "b8886946ab5aa674e68e0b225c803d5be86a79b0ec2991cc8a65216ed4caf7d6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "in-the-bedroom-2001",
+  "field": "lead",
+  "film_id": "3d687b30-9bd7-40bc-8638-ef0ef915c5f9",
+  "lang": "en",
+  "text": "A doctor who stayed in the town he was born in, married to a woman who arrived there from somewhere else. Todd Field puts the Fowlers on the Maine coast for the few weeks a year the place is warm, and gives the early stretch to things that look minor: a son's affair with a local single mother, the routines of a small practice, the difference between how Matt speaks to his neighbours and how Ruth does. That difference is the engine. The Los Angeles critics named it the year's best picture and New York's gave it their first-film prize, and the 131 minutes are used the way a novel uses length, on rooms and weather and postponement rather than incident. The subject is who in a family is entitled to speak, and how slowly married people arrive at saying what they think.",
+  "model": "claude-opus-5",
+  "source_sha256": "1fea3a93516ae88d31e0bd3c756e8bb5fd6d448f1514286cb02408d0c42175b4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "shame-2011",
+  "field": "lead",
+  "film_id": "3a43fd01-c05a-4f63-a260-901f25fa3a0f",
+  "lang": "en",
+  "text": "Brandon's apartment in New York runs like a system, and the system runs on nobody staying the night. He avoids intimacy with women and feeds an appetite he cannot govern, and the apartment absorbs all of it. Then his younger sister needs somewhere to stay, and the arrangement has to accommodate a person who remembers his childhood. Steve McQueen is less interested in the compulsion than in the housekeeping around it: what has to be hidden, at what hourly cost, how fast a competent adult becomes unreliable. The lead performance took the Volpi Cup and a European Film Award, and the camerawork was honoured on its own account. It sits on the BBC's poll of this century's best films. The hardest thing to sit through is not appetite but politeness, two adults with the same past being careful with each other across 102 minutes.",
+  "model": "claude-opus-5",
+  "source_sha256": "209acbc26e6e71f539e550d7f5f6b5289996b91f52c573c852232405d15706af"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "away-from-her-2006",
+  "field": "lead",
+  "film_id": "deed8924-729b-48c4-b1e5-1063df9fa465",
+  "lang": "en",
+  "text": "Nearly fifty years of marriage, and one of them has started mislaying the ends of sentences. Fiona's forgetfulness turns out to have a name, and the name comes with a specialized home, which leaves Grant outside the arrangement for the first time in five decades, holding the whole record of a marriage that only one of them can still consult. Sarah Polley's first feature is patient with this and refuses the consolations available to it: the disease is not the antagonist, time is, and time has won several arguments before the film opens. The New York critics gave it their first-film award, and it took the Canadian best-picture prize. 110 minutes, most of it conversation, and nearly every conversation is a negotiation over what gets said out loud and what gets carried home unsaid.",
+  "model": "claude-opus-5",
+  "source_sha256": "252c47e31dce48199d5623322d877f9e95068ed8a486478a86d32a884b5de398"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "honey-2010",
+  "field": "lead",
+  "film_id": "f6d9403c-e384-4e02-973b-76ab28ef3855",
+  "lang": "en",
+  "text": "The bees have disappeared, and a family's income goes with them. Honey keeps to the eye level of a six-year-old: Yusuf, in the forested country of Turkey's eastern Black Sea region, trailing a father whose work he is too small to help with and can only half follow. Semih Kaplanoğlu strips out nearly everything a film normally uses to direct feeling. There is little dialogue and no music; the soundtrack is given over to the forest and whatever is living in it. What remains is attention, and a child's attention is not a metaphor here but the instrument the picture is built on, unreliable about causes and exact about texture. It took the Golden Bear, with European awards for its direction and its camerawork. 103 minutes in which the loudest thing is weather in the trees.",
+  "model": "claude-opus-5",
+  "source_sha256": "55aa4cb4e3ad95b7d088602db6068a1c22c8ed0904b1d078ead0cb83664a45df"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-great-war-1959",
+  "field": "lead",
+  "film_id": "e050dc1b-fc44-449a-be68-8100b10e0ef2",
+  "lang": "en",
+  "text": "Two conscripts spend the First World War trying, by every means available, not to fight in it. Oreste Jacovacci and Giovanni Busacca dodge, malinger and volunteer for nothing, and Mario Monicelli keeps them funny well past the point where the trench behind them has stopped being scenery. The film was made in 1959, when 1916 was still first-hand memory for a great many people in the audience, and it hands them no heroes. The comedy is the argument: courage reads differently when the men asked to supply it were never asked about the war. At 137 minutes there is room for both registers and Monicelli uses all of it. The Golden Lion it holds sits oddly beside its two protagonists, who would have found a way out of the ceremony.",
+  "model": "claude-opus-5",
+  "source_sha256": "066ebed8c63749e498fdd88cc41c1e2a3133b8684d3881727b12537fce5a5f74"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hands-over-the-city-1963",
+  "field": "lead",
+  "film_id": "5d86eab0-ec01-4344-8296-13b333a67d79",
+  "lang": "en",
+  "text": "Rubble is the easy part of a scandal; the hard part is the arithmetic of who signed what. Francesco Rosi builds the film out of the rooms where responsibility gets divided up: a developer with money already in the ground, a council election on the calendar, and men who can each afford to be slightly guilty. It runs 101 minutes and spends most of them in meetings, which ought to be inert and is not, because the pressure comes from knowing exactly who owns which parcel and from watching a majority assemble itself out of people who share nothing but exposure. The Golden Lion went to it, and Italy keeps it among the films it intends to preserve. Anyone who has sat through a local planning dispute will recognize the pitch of the voices before the words arrive.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b6f90e87d3bc5683ffb52dad53dbb0373d475d11eb421cb671fb74f0980367f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "war-witch-2012",
+  "field": "lead",
+  "film_id": "b5b13721-b065-4e9a-92e1-5d9b1650649d",
+  "lang": "en",
+  "text": "The whole account is addressed to a listener who has not been born yet. Komona is fourteen, pregnant, and telling the child what has happened to her since a rebel army took her at twelve, somewhere in sub-Saharan Africa. There is nobody to plead with, so there is no pleading; a mother explaining herself to her own child does not editorialize. The address is not a frame that falls away, either; it holds for the length of the film. Kim Nguyen keeps that length to ninety minutes, which for this material reads as a decision rather than a constraint. The lead performance took a Silver Bear, and Canada sent the film to the Academy Awards. What is unusual is how much room goes to ordinary wanting, for food, for sleep, for somebody to walk beside, inside conditions built to make wanting anything a liability.",
+  "model": "claude-opus-5",
+  "source_sha256": "75512efcda6e16169a63a19d6620e18470aba922b8a8c1efac7645bbc5ff07b5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-simple-minded-murderer-1982",
+  "field": "lead",
+  "film_id": "75a9e483-4113-43ff-b7b0-8db38c68b045",
+  "lang": "en",
+  "text": "He works without wages and sleeps in the cowshed, and the film presents this as an arrangement rather than an outrage. Sven is taken on at the Höglund farm after his mother dies; in this part of Sweden a man judged simple can be housed, fed and used indefinitely without anyone breaking a law. Hans Alfredson's title is not coy, which changes what the film asks to be watched for: not the event but the accumulation, and how many people are placed to notice and decline to. It won the Guldbagge for best film, and a Silver Bear went to the performance at its centre. Against all of it there is Anna, disabled herself, the first person to address Sven as an adult, and the film keeps that ordinary rather than saintly.",
+  "model": "claude-opus-5",
+  "source_sha256": "cefe9b7fed381ec2f2e86c86207f44080c172f19539429d1c7b3deb5934a941d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sandakan-no-8-1975",
+  "field": "lead",
+  "film_id": "dd6562e0-6c5a-4ec7-82b9-c33aace69aea",
+  "lang": "en",
+  "text": "An old woman lets a journalist into her house and, slowly, agrees to remember. What the younger one wants is an account of Sandakan No. 8, the brothel in Borneo where she was held, and the film is built on that unequal exchange: one of them has the questions, the other has the life. Kei Kumai makes the interview the subject rather than the device, because the terms on which a country agrees to hear this from a survivor are themselves part of the history. Nothing in the 122 minutes is arranged to console. Kinema Junpo named it the best film of its year, and the lead performance took a Silver Bear. The past arrives in the first person, in a small room, at the pace of someone deciding sentence by sentence how much to say.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf3c987f737e2da66dfa70d63d45b0d880da4b84f735ca1feab504829b9b9580"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "j-a-martin-photographer-1976",
+  "field": "lead",
+  "film_id": "c5218fd3-4918-4fcc-9229-1c240ee4cebe",
+  "lang": "en",
+  "text": "The photographer's circuit of the Québec countryside is an annual affair, and this year his wife is coming along. Rose-Aimée leaves the children with an aunt for the trip, hoping that weeks of proximity will restore something to a marriage that has gone quiet; that is the whole of the plot, and it is enough. Jean Beaudin films the turn of the century without the varnish usually applied to it. The work is work, the days are long, and the silences between two people who have already said everything to each other carry the picture. 101 minutes, almost no incident, a lead performance that took a best-actress prize, and the Canadian award for best picture. The film is in no hurry to name what the marriage lacks, and for a long while neither are the two people inside it.",
+  "model": "claude-opus-5",
+  "source_sha256": "3ce71c04e4f60543402e28a6220c14bad61288a6ce20e4f08e732b921e9ad814"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "jezebel-1938",
+  "field": "lead",
+  "film_id": "0a0ed1f5-d374-4b2e-b748-21f01e4c75b7",
+  "lang": "en",
+  "text": "Everything in this picture is organized around what one woman wants, and how little she will modify it. In 1850s Louisiana manners function as the legal code, and William Wyler shoots them accordingly: precise, expensive to break, enforced unevenly. The role is a gift and a trap, written so that the same willfulness reads as nerve from one angle and as ruin from another; the honours the film collected fall on the lead performance, the camerawork, and the picture itself. Crowded rooms do most of the work, where the cost of a gesture is measured by how fast the people around it stop moving. It sits in the National Film Registry and on the list of a thousand and one films to see. 103 minutes, and the trouble is never that she is misunderstood. Everyone understands her exactly.",
+  "model": "claude-opus-5",
+  "source_sha256": "f2ebc8927198485b3bf32433645bf4887ea1ee29ebd87c887b2e9be1fdab48b2"
+ }
+]

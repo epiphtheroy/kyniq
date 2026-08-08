@@ -1,0 +1,322 @@
+[
+ {
+  "entity_type": "director_pick",
+  "entity_key": "olivier-assayas#summer-hours-2008",
+  "field": "reason",
+  "lang": "ko",
+  "text": "아사야스에게 가장 쉽게 들어가는 문은 《여름의 조각들》이다. 세상을 떠난 어머니가 남긴 집과 미술품을 두고 삼남매가 결정을 내린다. 상속과 물건과 기억을 따뜻하게 사유하는 이 영화에서, 인간을 향한 그의 시선과 유연한 스타일이 함께 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "olivier-assayas#clouds-of-sils-maria-2014",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《클라우즈 오브 실스마리아》는 나이 든 배우와 그의 조수를 붙여놓는다. 둘이 연습하는 연극이 둘의 관계를 그대로 비춘다. 연기와 삶의 경계가 흐려지고, 비노슈와 스튜어트가 그 경계를 지탱한다. 아사야스의 집착이 두 사람만의 팽팽한 대화극으로 응축된 결과다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "olivier-assayas#irma-vep-1996",
+  "field": "reason",
+  "lang": "ko",
+  "text": "무성영화 연작을 리메이크하는 현장, 그 아수라장을 영화 안의 영화로 담은 것이 《이르마 벱》이다. 장만옥이 라텍스를 입고 자기 자신을 연기한다. 영화가 만들어지고 또 풀어헤쳐지는 과정을 아사야스가 장난스럽게, 스스로를 되비추며 들여다본다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "olivier-assayas#personal-shopper-2016",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《퍼스널 쇼퍼》는 크리스틴 스튜어트에게 유령 이야기를 건넨다. 거기에 애도의 드라마와 문자메시지 스릴러가 겹친다. 있음과 없음, 그리고 소통이 끝내 닿지 못하는 지점을 다루는 기이한 장르 실험.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "olivier-assayas#carlos-2010",
+  "field": "reason",
+  "lang": "ko",
+  "text": "다섯 시간에 걸친 《카를로스》는 1970년대 테러리스트 '자칼 카를로스'의 초상이다. 지구를 가로지르는 이야기를 속도감 있게 밀어붙이고, 에드가르 라미레스가 자석 같은 연기로 중심을 잡는다. 아사야스의 폭이 어디까지인지 보여주는 작품.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "olivier-assayas#non-fiction-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《논-픽션》은 말이 많은 파리 코미디다. 출판인들이 불륜을 저지르며 디지털 격변과 오토픽션을 논한다. 목소리를 낮춘 대신 재치가 살아 있어, 아사야스의 관념적 대화극에 귀가 열린 관객에게 돌아오는 보상이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "orson-welles#touch-of-evil-1958",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《악의 손길》의 첫 장면, 끊기지 않는 그 크레인 숏은 영화사에서 가장 유명한 오프닝 중 하나다. 이후로는 국경 마을의 싸구려 누아르가 펼쳐진다. 웰스의 쉬지 않는 카메라와 흐릿한 도덕을 처음부터 붙들 수 있는 입구.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "orson-welles#citizen-kane-1941",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《시민 케인》은 한 재벌의 생애를 서로 어긋나는 기억들로 쪼갠다. 딥 포커스 화면과 겹쳐 흐르는 소리가 영화 문법을 새로 썼다. 웰스가 왜 중요한지에 대한 답이 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "orson-welles#the-lady-from-shanghai-1947",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《상하이에서 온 여인》은 팜 파탈 누아르를 섬망 상태로 비틀어버린다. 절정의 거울방 총격전에 웰스가 사랑한 왜곡과 겹친 이미지가 다 담겨 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "orson-welles#f-for-fake-1973",
+  "field": "reason",
+  "lang": "ko",
+  "text": "위조꾼과 사기꾼을 다룬 장난스러운 에세이 영화 《F for Fake》. 웰스가 직접 편집하고 직접 내레이션하며 저작(著作)과 환영을 사유한다. 그의 손기술에 빠져든 사람에게 주어지는 보상이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ousmane-sembene#black-girl-1966",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《흑인 소녀》(1966)는 프랑스로 건너간 세네갈 하녀의 한 시간을 팽팽하게 밀고 간다. 사하라 이남 아프리카 최초의 기념비적 장편 데뷔작. 반식민의 시선(gaze)과 권력에 짓밟힌 여자들을 향한 셈벤의 연민으로 들어가는, 군더더기 없는 입구다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ousmane-sembene#moolaade-2004",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《몰라데》(2004)는 여성 할례에 정면으로 맞선다. 도망친 소녀들을 숨겨주는 한 마을 여인을 통해서다. 법정처럼 명료한 도덕적 논증에 마을의 선명한 색채가 뒤섞인다. 전통과 저항, 아프리카의 자기결정에 대해 셈벤이 마지막으로, 가장 사납게 내놓은 발언.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ousmane-sembene#xala-1975",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《할라》(1975)는 독립 이후 세네갈 엘리트를 난도질한다. 부패한 사업가가 결혼 첫날밤 성불구가 되면서부터다. 월로프어로 찍은 신랄한 풍자극이며, 셈벤의 정치와 조롱 취향에 이미 걸려든 관객에게 값을 한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pablo-larrain#no-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《노》는 1988년 칠레 국민투표를 광고 캠페인이라는 매끈한 통로로 재구성한다. 당시 방송용 비디오테이프로 찍어 시대의 질감이 화면에 그대로 배어난다. 이미지와 권력, 칠레의 기억에 대한 라라인의 집착으로 들어가는 가장 쉽고 재치 있는 문.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pablo-larrain#spencer-2021",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《스펜서》는 다이애나 왕세자비를 숨 막히는 크리스마스 사흘에 가둔다. 다큐멘터리적 질감을 버리고 열에 들뜬 심리극으로, 조니 그린우드의 음악과 함께 밀어붙인다. 라라인이 전기영화를 내면의 호러로 다시 만든다는 증거.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pablo-larrain#neruda-2016",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《네루다》는 도망친 시인을 쫓는 추격전을 장난스럽고 자의식적인 허구로 바꿔놓는다. 형사부터가 지어낸 인물일지도 모른다. 정치와 신화와 형식이 가장 눈부시게 뒤섞인 라라인의 한 편.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pablo-larrain#maria-2024",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《마리아》는 마리아 칼라스가 파리에서 보낸 마지막 나날을 따라간다. 기억과 환각과 아리아가 뒤섞인다. 무너져가는 유명한 여자들을 그린 라라인의 삼부작이 오페라적 우울로 완결된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pablo-larrain#the-club-2015",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《더 클럽》은 파문당한 신부들을 잿빛 바닷가 집에 가둬둔다. 교회가 저지른 죄를 조용히, 그러나 잔인하게 심문한다. 여기 놓인 작품 중 가장 암담하고 가장 덜 알려진 편. 이미 빠져든 관객의 몫이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "pablo-larrain#el-conde-2023",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《엘 콘데》는 피노체트를 250년 묵은 흡혈귀로 다시 상상한다. 날 선 흑백 화면의 풍자. 독재를 말 그대로 피 빨아먹는 짓으로 그려내는, 가장 야만적이고 가장 터무니없는 라라인이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "paolo-sorrentino#the-great-beauty-2013",
+  "field": "reason",
+  "lang": "ko",
+  "text": "소렌티노에게 들어가는 가장 매혹적인 문은 《그레이트 뷰티》다. 퇴폐적인 파티와 쓰라린 환멸을 훑고 다니는 로마의 프레스코화. 떠다니는 카메라의 웅장함과 우수가 표류하는 작가의 초상 하나로 응축된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "paolo-sorrentino#the-hand-of-god-2021",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《신의 손》은 볼거리를 걷어내고 날것의 자전으로 간다. 나폴리 소년이 겪은, 삶을 바꿔버�� 상실을 다정하게 따라간다. 가장 사적인 소렌티노이며, 그 모든 현란함 밑에 있던 상처를 보여준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "paolo-sorrentino#il-divo-2008",
+  "field": "reason",
+  "lang": "ko",
+  "text": "일단 걸려들었다면 《일 디보》가 빽빽하고 짜릿한 보상이다. 줄리오 안드레오티를 양식화한 정치적 초상. 오페라 같은 카메라와 이탈리아의 음모가 결합한다. 관객에게 더 많은 것을 요구하지만, 순전한 형식적 배짱으로 되갚는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "park-chan-wook#the-handmaiden-2016",
+  "field": "reason",
+  "lang": "ko",
+  "text": "박찬욱에게 들어가는 가장 매혹적인 문은 《아가씨》다. 겹겹의 시점으로 풀어놓는 사기극. 에로틱 스릴러와 시대극과 사기꾼 플롯이 뒤엉키고, 화면은 아름답고 유머는 짓궂다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "park-chan-wook#oldboy-2003",
+  "field": "reason",
+  "lang": "ko",
+  "text": "박찬욱이라는 이름을 세계에 알린 작품이 《올드보이》다. 망치를 휘두르는 복수의 여정. 그 유명한 복도 격투와 감아놓았다 터뜨리는 구조가 그의 추진력과 충격 장악력을 보여준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "park-chan-wook#decision-to-leave-2022",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《헤어질 결심》은 유혈을 절제와 맞바꾼다. 형사가 용의자에게 빠져드는 안개 자욱한 로맨스 미스터리. 그리움과 시선의 오도(誤導), 우아한 시각적 각운을 다루는 박찬욱의 재능이 여기서 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "park-chan-wook#lady-vengeance-2005",
+  "field": "reason",
+  "lang": "ko",
+  "text": "복수 삼부작을 마무리하는 《친절한 금자씨》. 출소한 여자가 치밀하게 짜놓은 계획을 따라간다. 차가운 색채와 도덕적 무게가 잔혹함을 서늘한 기품으로 눌러준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "park-chan-wook#joint-security-area-2000",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《공동경비구역 JSA》는 그의 도약대였다. 비무장지대 살인 사건을 파고들다 국경을 넘나든 우정이 드러난다. 스타일의 불꽃놀이가 시작되기 전, 인간을 향하면서도 긴장을 놓지 않는 이야기꾼의 모습.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "park-chan-wook#thirst-2009",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《박쥐》는 신부를 흡혈귀로 만든다. 죄책감과 욕망과 어두운 웃음이 뒤섞인, 속이 울렁거리는 장르 실험. 박찬욱이 톤과 윤리를 마음대로 뒤틀 수 있다는 증거다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "park-chan-wook#sympathy-for-mr-vengeance-2002",
+  "field": "reason",
+  "lang": "ko",
+  "text": "복수 연작 중 가장 가혹하고 가장 조용한 편이 《복수는 나의 것》이다. 듣지 못하는 노동자가 세운 유괴 계획이 보복에 보복을 부르며 무너져 내린다. 이미 빠져든 관객에게는 박찬욱의 가장 암담한 형식적 통제가 남는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "park-chan-wook#stoker-2013",
+  "field": "reason",
+  "lang": "ko",
+  "text": "영어권 데뷔작 《스토커》. 수수께끼 같은 삼촌에게 이끌리는 소녀의 성장 고딕이다. 감각적인 세부가 빼곡하고, 위협은 천천히 달아오른다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "paul-thomas-anderson#boogie-nights-1997",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 문턱이 낮은 입구는 《부기 나이트》다. 포르노 산업의 흥망을 앙상블로 그려내며 쉼 없이 밀고 나간다. 떠도는 카메라, 따뜻하고 결함 많은 인물들. 앤더슨 특유의 유사가족 난장판이 여기서 시작된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "paul-thomas-anderson#there-will-be-blood-2007",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《데어 윌 비 블러드》는 앤더슨이 왜 중요한지를 보여준다. 석유 시굴자가 괴물이 되어가는 상승. 황량한 풍경과 조니 그린우드의 불협화음, 그리고 탐욕과 고립을 우뚝 세운 데이 루이스의 연기가 그것을 떠받친다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "paul-thomas-anderson#magnolia-1999",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《매그놀리아》는 《부기 나이트》의 앙상블을 세 시간짜리 로스앤젤레스 교향곡으로 키운다. 우연과 후회와 화해가 얽히고, 마지막에는 영화사에서 손꼽히는 대담한 톤의 도박이 기다린다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "paul-thomas-anderson#the-master-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《마스터》에서 앤더슨은 생략적이고 인물 중심적인 미스터리로 방향을 튼다. 떠돌이가 사교 지도자에게 홀린다. 피닉스와 호프먼이 지배와 결핍을 놓고 벌이는 자석 같은 결투는 끝내 결론에 이르지 않는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "paul-thomas-anderson#phantom-thread-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《팬텀 스레드》는 그 강도를 숨죽인 시대극 로맨스로 흘려보낸다. 모든 것을 통제하려는 오트 쿠튀르 재단사, 그를 뒤흔드는 여자. 속삭이는 긴장과 옷감, 가시 돋친 재치로 이루어진 영화다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "paul-thomas-anderson#punch-drunk-love-2002",
+  "field": "reason",
+  "lang": "ko",
+  "text": "덜 알려진 보상은 《펀치 드렁크 러브》다. 사탕 빛깔로 물든 애덤 샌들러의 로맨스가 불안하게 떨리고, 하모늄의 맥박이 그 위에 깔린다. 앤더슨의 불안이 기이하고 다정한 95분으로 압축된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "paul-thomas-anderson#hard-eight-1997",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《리노의 진실》은 군더더기 없는 데뷔작이다. 리노를 배경으로 한 도박꾼 이야기지만, 멘토 관계와 대리 아버지, 외로운 남자들 사이의 조용한 위협이라는 그의 관심사는 이미 다 들어 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "paul-thomas-anderson#licorice-pizza-2021",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《리코리쉬 피자》는 햇살에 절은 1970년대 샌 페르난도 밸리를 느슨하게 떠돈다. 십 대 장사꾼과 목표 없는 연상의 여자. 에피소드처럼 이어지는 소동과 첫사랑의 아릿한 불확실성이 그 여정이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "paul-thomas-anderson#one-battle-after-another-2025",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《원 배틀 애프터 어나더》는 앤더슨의 최신작. 그의 쉬지 않는 솜씨와 앙상블 감각이 동시대의 음역에서 어떻게 작동하는지, 가장 새로운 시험대다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "paul-verhoeven#robocop-1987",
+  "field": "reason",
+  "lang": "ko",
+  "text": "입구로 《로보캅》만한 것이 없다. 극도로 폭력적인 액션 스릴러 사이사이에 풍자적인 가짜 광고와 기업 패러디가 박혀 있다. 관객을 즐겁게 하는 할리우드 기계 안에 신랄한 사회 비판을 몰래 들여놓는 버호벤.",
+  "model": "claude-opus-5"
+ }
+]

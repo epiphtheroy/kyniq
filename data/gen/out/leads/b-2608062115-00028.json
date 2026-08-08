@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "field-of-dreams-1989",
+  "field": "lead",
+  "film_id": "a18d6244-83af-4124-a5b6-50673a1b5aad",
+  "lang": "en",
+  "text": "A man with a mortgage cuts down a paying crop because he heard a voice in the rows. Iowa, 1989, and the arithmetic is plain: corn is income and a baseball diamond is not, which is the pressure Phil Alden Robinson keeps his hand on for most of 105 minutes. Ray Kinsella's problem is never whether the voice is real; it is what one farm can absorb before the bank takes an interest. The fantasy arrives through the plainest door available — weather, dirt, the sound of a mower — and nobody on screen winks at it. Odd company for the National Film Registry, a picture whose central action is a grown man clearing ground and then standing in it, waiting. What holds is the tone: patient, literal, unembarrassed. Very little gets explained, and the film is stronger for declining to.",
+  "model": "claude-opus-5",
+  "source_sha256": "76309fe172c4fdd34fdb030f0abafb02d5f241b950cdb400e13f29669200bdf7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "13th-2016",
+  "field": "lead",
+  "film_id": "923fcdd0-f75d-47a3-8292-7ffe328b6d93",
+  "lang": "en",
+  "text": "Ava DuVernay had a hundred minutes and chose to argue at the scale of a century. The subject is a system rather than a case: American prisons read as the continuation of an older arrangement, traced through law and policy instead of through any one life. That is difficult to keep watchable for a hundred minutes, and the strain shows in the pace — dense, sequential, closer to a brief than to a portrait. The Guardian put it among the century's hundred best films, unusual company for something built out of statistics and testimony. The writing it provoked afterward treats it as a study of administrative evil, which is fair to the method. Blame lands on procedure — offices doing what offices do — and the accumulation is the argument: a statute, then a decade, then a number, then the next.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d76844ed498f6847f707c3178801acb3f4d4b0fb35ba6c7fb0328a9c1d7b8ab"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-verdict-1982",
+  "field": "lead",
+  "film_id": "030f5a81-fa65-4266-a57c-b2f8b2711247",
+  "lang": "en",
+  "text": "The malpractice suit arrives already settled, needing nothing from its lawyer but a signature. Frank Galvin decides to try it anyway, and that decision gives Sidney Lumet 129 minutes to spend on the unglamorous machinery of a case nobody wants tried: the fee, the clients, the former associate who passed it along as a favor. Galvin drinks and chases ambulances, and the film treats both as facts of a working week rather than as a confession to be extracted from him. What it actually watches is a man deciding, with very little evidence in his favor, that he is still able to do the work. The Writers Guild keeps the screenplay among its 101, and what earns that is less the argument than the bargaining — two men in an office agreeing on a number. Restitution and self-repair turn out to be the same errand, which is why the talk of settlement plays as a moral test.",
+  "model": "claude-opus-5",
+  "source_sha256": "bbb8e0effe24eac9302b35d5c03bb58e20213f5e51530a099bcffc6173b714f3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "eyes-wide-shut-1999",
+  "field": "lead",
+  "film_id": "827bba96-8b83-4ef7-83a1-1a8b330dc0de",
+  "lang": "en",
+  "text": "Alice tells her husband about a thought she once had about a man she met, and the evening turns. The confession is entirely verbal, and Stanley Kubrick spends 159 minutes on what it does to the man who heard it. Bill Harford is a doctor with money, and the film is patient about what money does for a man having a bad night: doors open, names work, people defer. The tempo is deliberate to the point of provocation — pauses held past comfort, an exchange that could have run two lines running four minutes. It holds a place among the thousand titles listed by They Shoot Pictures Don't They?, and the case may be how thoroughly it declines the shape it borrows: thriller machinery installed under a household argument that plot cannot reach. Marriage is the real subject, examined the way a jealous man examines it, badly and at length.",
+  "model": "claude-opus-5",
+  "source_sha256": "275874059bedbe45e80a4b26fddcf4e97e6dc1d094d13446f14c377d677d0e14"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "open-your-eyes-1997",
+  "field": "lead",
+  "film_id": "267daa28-0a2b-4d1e-80fc-7c59bb0b3dc0",
+  "lang": "en",
+  "text": "A face is the film's working capital, and it is ruined before the first hour is out. Cesar at 25 has money, cars, and no shortage of company; after the crash he has a mirror and a cell, and the film's interest starts exactly there — in what a man can still believe about himself once the evidence has changed. Alejandro Amenábar arranges 117 minutes as a re-dealing of the same events, until the order of them stops being trustworthy. It is science fiction the way a locked room is architecture: the genre is in the floor plan, not the hardware. Caimán's hundred best Spanish films keeps it, and the puzzle is not the reason; puzzles age. What holds is the flat patience of a man explaining a life that no longer matches any record anyone else can consult.",
+  "model": "claude-opus-5",
+  "source_sha256": "932081ec8ff69520e2fc2ff0cd86310e203096d187c3e8f033faf3f0d802cbc1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "drunken-master-1978",
+  "field": "lead",
+  "film_id": "de04cec9-1c11-4d63-b103-cbe05df58118",
+  "lang": "en",
+  "text": "Most of the picture is a lesson, and the lesson is delivered as punishment. A boy who will not behave gets handed to an old beggar with a reputation and a drinking habit, and what follows is 111 minutes of drills: water carried, stances held, blows taken from a teacher who plainly enjoys giving them. Yuen Woo-ping builds comedy out of repetition, the same exercise failed until the timing of the failure becomes the joke. The drunken style is that trick at a higher level — a way of moving that looks like collapse and works as defense — and the film takes care to show where the difference lies. The Golden Horse hundred keeps it, and the pupil's real problem is never the opponent. It is the man teaching him.",
+  "model": "claude-opus-5",
+  "source_sha256": "dae88583f8c947fa2693aac8d365d5e1a6884687d97956dedacc76b6bff5d1e7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-way-of-the-dragon-1972",
+  "field": "lead",
+  "film_id": "1f83f923-d491-4de3-869e-7d3627103a26",
+  "lang": "en",
+  "text": "A Chinese restaurant in Rome, and the men leaning on it want the building, not the food. Help arrives by plane from Hong Kong in the form of a family friend who is useful in a fight and out of his depth everywhere else. That is what the early stretch runs on: Tang Lung in a city with no use for him, too polite to be taken seriously. Bruce Lee directed it himself, and the direction is unfussy, inclined to hold still and let a body finish a movement inside the frame. The dispute stays concrete — a lease, a kitchen, a family that cannot afford to move — so the fighting reads as work done for wages rather than as spectacle. One hundred minutes, almost no subplot. What has lasted is the willingness to let the hero look ridiculous for a long time before letting him work.",
+  "model": "claude-opus-5",
+  "source_sha256": "038817627b39dc9be39caa130db9397e694e33d6bfcb4389119e9fca0601eaee"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "fist-of-fury-1972",
+  "field": "lead",
+  "film_id": "b358f574-70ad-4b2f-b29c-46d0989eaa58",
+  "lang": "en",
+  "text": "The teacher is already dead when the film begins, and the school he left has no standing without him. Chen Zhen comes back to a Shanghai under Japanese occupation, where a rival dojo can insult a dead man in public and reasonably expect nothing to follow. That is the whole pressure of the thing: an institution with no protection, in a city where the law answers to somebody else. Lo Wei keeps the grief physical. Chen's anger is not a mood but a sequence of decisions, each one narrowing what remains available to him — the school, the students, the chance of staying where he is. It runs 108 minutes and gives them to humiliation and answer, in that order. The fights carry an argument about nationality that no one in the film ever has to state out loud.",
+  "model": "claude-opus-5",
+  "source_sha256": "3ee99c730fd1de0bf8ae3cc0ba8dcefd97d9b70ab3ec612c81a4588a284e04d4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "my-life-without-me-2003",
+  "field": "lead",
+  "film_id": "880524ed-a5ba-4b8f-af7a-5d3ad9d45fb3",
+  "lang": "en",
+  "text": "The list is written in secret, and it is practical: things to be done, in order, by a woman who has decided her family will not be told. That decision is the film. Isabel Coixet holds to it with a discipline that turns every ordinary exchange in the kitchen into a performance, the audience being the only other party who knows. Nothing gets confessed. A job, a household, a family that needs the day to look like every other day — the pressure here comes from housekeeping rather than from hospitals, and two months is treated as a schedule. 106 minutes, mostly interiors, and a tone that stays level about all of it. What she is doing could be called generosity and could be called control; the film declines to separate them, since in practice they are the same set of tasks.",
+  "model": "claude-opus-5",
+  "source_sha256": "34a7c914d346ea51f5c299257a041833a01d84c95969e81c8643e5ea5423e62e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-day-of-the-beast-1995",
+  "field": "lead",
+  "film_id": "0bfacf5b-8565-4d3a-b7ee-af5eea26de6f",
+  "lang": "en",
+  "text": "Prophecy, done properly, is arithmetic: a priest works out the exact date the Antichrist will be born. What he does with it drives the picture and most of its comedy: sacrilege committed on purpose and by plan, in the conviction that preventing an apocalypse requires exactly that. Álex de la Iglesia gives him two accomplices, a Death Metal record store clerk and a television psychic, and sets the three of them working a city like men on a deadline with no budget. The horror is played straight; the joke is that the apocalypse is being handled by the least qualified crew available. 104 minutes at a run, and the shifts of tone are not managed so much as driven straight through. Nobody in the frame finds any of it funny, which is the whole reason it plays.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7cbb54c7295ec243c2c8753d1ddbda911e1687e52601ba4c46d6c24c945ca02"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lovers-of-the-arctic-circle-1998",
+  "field": "lead",
+  "film_id": "093f3456-bb42-479e-b27d-4bec29ce3662",
+  "lang": "en",
+  "text": "Otto and Ana: both names read the same in either direction, and the film builds its architecture out of that kind of return. Coincidence is the working method here — the two meet as children, and everything after arrives in pairs and echoes that Julio Medem arranges as though someone were keeping records. The parents' marriage makes them siblings on paper, and the script never lets them out of that. What keeps the design from being merely a design is how private the thing at its center is: a relationship carried on inside one household, under the same roof as the adults who made it possible, with no vocabulary available for what it is. 112 minutes of a love conducted in a whisper. Chance, in this film, is a discipline rather than an excuse.",
+  "model": "claude-opus-5",
+  "source_sha256": "e5cdadfbf9d9718fa57e04f36eaa9aeedd7002db9e8e7e2501d617e15eeb7f8b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "what-have-i-done-to-deserve-this-1984",
+  "field": "lead",
+  "film_id": "c0dbe2c0-0ef5-4ec0-b312-5b1b8f90bc3a",
+  "lang": "en",
+  "text": "Everyone in the flat has a claim on the woman who keeps it running, and none of them consults her. Pedro Almodóvar puts a housewife at the middle of the frame — a husband, sons already in trouble, a mother-in-law with plans of her own, a neighbor who sells sex next door — and lets the comedy come out of proximity rather than out of wit. Nobody in the building is doing well. What the film understands without making a speech about it is that unpaid work is a full-time position carrying no standing: she is tired in every scene, and her tiredness is treated as weather. 1984, and the texture is cheap, bright, abrasive. It stays a comedy for all 102 minutes, which is the harder job, given what it is actually describing.",
+  "model": "claude-opus-5",
+  "source_sha256": "681d2ddfcae4619bd556934b342135f394953e6d6fbaf86dcf2a9a1a71491d63"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-chinese-odyssey-part-two-cinderella-1995",
+  "field": "lead",
+  "film_id": "5327a6cf-73ed-4379-8382-08f514268ab5",
+  "lang": "en",
+  "text": "Ninety-nine minutes to make good on five hundred years of misplacement. The second half of Jeffrey Lau Chun-Wai's version of Journey to the West leaves its Monkey King stranded in the deep past and keeps him working there — monsters, rival powers, women with agendas, and one woman who is dying, the only errand he actually cares about. Scripture is treated as raw material: jokes at a rate that assumes nobody needs the story explained, and then, with no change of gear, a scene played entirely straight. It appears on the Golden Horse list of the hundred best Chinese-language films, a solemn place for a picture this willing to be silly. What it manages, at speed and in costume, is to put farce and grief on the same shot list without apologizing for either.",
+  "model": "claude-opus-5",
+  "source_sha256": "a1e5eeaea40d0a1cc2406e7b875d02ff227ad5f8e089e524d50f94c9fe79fbb6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-chinese-odyssey-part-one-pandora-s-box-1995",
+  "field": "lead",
+  "film_id": "45a1ee3c-a687-4af9-aaf9-6de0393f282a",
+  "lang": "en",
+  "text": "The trouble starts above the clouds and comes down inside a body. A goddess clears heaven of the Longevity Monk and his disciples because the Monkey King reached for immortality, and the sentence is served as reincarnation: a man called the Joker, no memory of any of it, two jealous women to keep track of. Jeffrey Lau Chun-Wai plays the old text as a farce about romantic mismanagement, and the 88-minute running time indicates how little patience is on offer: scenes cut off early, and a device for moving through time turns up as casually as a hat. What is unusual is the sincerity underneath the racket. Punishment in this version means having to feel things: for someone who is ill, for the wrong person, at the wrong moment in a life that runs on much longer than it should.",
+  "model": "claude-opus-5",
+  "source_sha256": "58ac173efabf85e25e5e4109fa68ba060a24d48b1a84001e80905007523bad44"
+ }
+]

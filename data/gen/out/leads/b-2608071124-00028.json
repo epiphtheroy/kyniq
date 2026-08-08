@@ -1,0 +1,132 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "stage-door-1937",
+  "field": "lead",
+  "film_id": "ef92b168-f56a-4144-90b1-d7919291cbbd",
+  "lang": "en",
+  "text": "A boardinghouse full of young actresses competing for the same handful of parts turns every shared meal into a duel conducted in wisecracks. Into that dining room walks an heiress who wants a stage career she has not bought, and the room reads her immediately. Gregory La Cava gives the film ninety-two minutes and spends most of them on talk: overlapping, unhurried, cruel in the way people are cruel when they are worried about rent. The comedy is real, and so is the arithmetic underneath it — auditions that go nowhere, a good dress borrowed and returned, work that arrives for one woman and therefore not for another. What holds it together is the ensemble's refusal to be pitied. Nobody in the house explains herself; they keep the jokes coming, and the drama arrives sideways, through what the jokes are working to cover.",
+  "model": "claude-opus-5",
+  "source_sha256": "c4018453d85c698f326091c548978c7ce5fbd285a2b4f1b7d676c36b835a021a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-taming-of-the-shrew-1967",
+  "field": "lead",
+  "film_id": "a3cc17fe-5e58-45a2-b428-f2a2a1f2ea2e",
+  "lang": "en",
+  "text": "The rule of the house is simple: Bianca cannot marry until Katherina does, and Katherina has no intention of marrying anyone. Franco Zeffirelli films the comedy as a physical scrap between two loud people, set in a Padua of market crowds, wet streets and staircases jammed with bodies. Petruchio arrives from Verona broke, hungry and willing to lie. The Academy Award the film took for costume design is legible in every scene: clothes with weight to them, layered and stiff and steadily ruined as the argument proceeds, so the courtship reads as something done to fabric as much as to people. Two hours of shouting could tire anyone out. What keeps it steady is how closely the camera watches the two of them in the pauses, when neither is performing for an audience of Paduans and the fight has to be recalculated.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8955047a0b7d7cf874abd545df1c9f6bf0151f7dce9e03fa433e492cf9ed79a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "super-fly-1972",
+  "field": "lead",
+  "film_id": "1f6f684f-e44a-459f-8b61-b92aba587b94",
+  "lang": "en",
+  "text": "Priest wants out, which in his trade means one last score big enough to retire on and a list of people who must not learn about it. Gordon Parks Jr. shoots New York at street level, in cars and stairwells and coffee shops and on sidewalks, and lets the exit plan carry the film in place of a story. Ninety-one minutes, moving like a man checking his watch. What is striking is how unglamorous the business looks once it is filmed as labor: the phone calls, the counting, a partner who would rather keep earning, customers who are only customers, and an operation in which everyone is one conversation away from the police. The National Film Registry holds it now, and the argument for that sits in the texture more than the plot — a 1972 city recorded at eye level while it was still standing.",
+  "model": "claude-opus-5",
+  "source_sha256": "7158566e753f6cf6b39c89f823f3938c613763ec80325dbd48e97e935a2e0159"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "equus-1977",
+  "field": "lead",
+  "film_id": "3a3b7b7f-2b8a-48f8-beb9-c1b396e79438",
+  "lang": "en",
+  "text": "Six horses in a Hampshire stable have been blinded with a metal spike, and the boy who did it is seventeen, unassuming, and works there. Sidney Lumet stages what follows as an interrogation in a consulting room: the psychiatrist Martin Dysart, a patient who gives up nothing easily, and parents split between an opinionated father and a religious mother, each certain the fault lies with the other. The film runs 137 minutes and consists largely of two people talking. The pressure falls on Dysart, who starts to suspect that the treatment he is qualified to deliver would remove from the boy the one intensity he has, and that his own days contain nothing of that heat. Lumet keeps the framing plain and the rooms ordinary. The talk is what is loud, and what it opens up runs in both directions.",
+  "model": "claude-opus-5",
+  "source_sha256": "aae3e31d256d669c9f0f788caafd95bf9fff731ffb576eda249cb31485b20eab"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-spirit-of-st-louis-1957",
+  "field": "lead",
+  "film_id": "ddc05c9a-2af1-4afb-9451-65db60f13298",
+  "lang": "en",
+  "text": "Most of the drama is procurement: finding backers, arguing over a wing, deciding what can be left out of an aircraft to make room for fuel. Billy Wilder took a story whose outcome every 1957 audience already knew and built it around a man alone in a cockpit with nobody to talk to. The solution is structural. The flight keeps giving way to the assembling of the machine and the money behind it, so that once New York is behind him the audience knows the plane's shortcomings as intimately as its pilot does, and feels each hour of fuel burn as a subtraction. The Academy Award it won for special effects went to work that is mostly weather and instrument panels rather than spectacle. 135 minutes, one character, and the interest sustained by what a pilot does with his hands and his arithmetic.",
+  "model": "claude-opus-5",
+  "source_sha256": "031be7b0674b2c77a1556e99b35a08d74613e8020091f5b18402f50cad0f7307"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tarzan-the-ape-man-1932",
+  "field": "lead",
+  "film_id": "e031bbf1-f603-495e-a2b1-05193eb7a98d",
+  "lang": "en",
+  "text": "The expedition is a business proposition: locate the elephants' burial ground, take the ivory out, come home rich. Jane Parker turns up unannounced to join her father's party, and the film's attention shifts the moment she is carried off into the trees. W.S. Van Dyke keeps the rhythm of a serial, one barrier after another, and treats the jungle as a set of thresholds beyond which the party's plans stop applying. What still holds a viewer in this 1932 version is the courtship, conducted almost without shared language — gestures, single repeated words, a woman doing all the talking and getting back nothing that resembles conversation. The ivory waits politely while that happens. A hundred minutes long, and entirely aware of which of its two stories the ticket was bought for.",
+  "model": "claude-opus-5",
+  "source_sha256": "b822734d0248a72c58d6d59c64f50f80d8930c67f17104487e766057771e7f14"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "homicide-1991",
+  "field": "lead",
+  "film_id": "61496052-49f7-409d-850a-7a83b9232004",
+  "lang": "en",
+  "text": "A detective with a talent for talking his way into any room is handed the one case his talk cannot open. It begins with an elderly woman murdered and becomes, by degrees, a conspiracy involving a Zionist organization, the kind of turn that would collapse into absurdity if David Mamet let the film pause long enough to weigh it, which he does not. 101 minutes, built like procedure: a lead, a door, a conversation, another lead. What shifts underneath is the detective's own standing. He is Jewish, the job had let him keep that at the edge of his life, and the investigation keeps pushing it toward the middle until his fluency with cops and criminals is no use at all in the rooms that have started to matter to him. The plot is a thriller. The pressure is a question of allegiance.",
+  "model": "claude-opus-5",
+  "source_sha256": "7459b6d63f44f8ccbff27ed12e03c62e3e148cee6cd37fda55107fbae0970a06"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "real-women-have-curves-2002",
+  "field": "lead",
+  "film_id": "3c7faace-19bc-45cb-b149-3d8cc320224f",
+  "lang": "en",
+  "text": "In a small textile shop in East Los Angeles, a few women finish dresses by hand through the summer, and the eighteen-year-old among them is expected to inherit the place. Her mother has a plan: marriage, children, the factory floor. She has a college application. Patricia Cardoso keeps the disagreement domestic and declines to settle it with speeches, staging it instead over meals, fittings and the peculiar arrangement of a family business in which the supervisor is also the mother. Eighty-six minutes leaves no room for a manifesto, which turns out to be an advantage: the conflict surfaces sideways, in remarks about weight, about money, about who has earned the right to be tired. It took the audience award at Sundance, and the reason is not hard to locate — one hot workroom, and a cast permitted to be funny in it.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d7a0c24797b0950977c3a8042249282bdbf67958f6d651b7c88a33be3f4e5ec"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-agony-and-the-ecstasy-1965",
+  "field": "lead",
+  "film_id": "04f3e8c9-3ef3-4663-ba03-4a18b61c7433",
+  "lang": "en",
+  "text": "Two men spend two hours arguing over a job neither of them will let go of. Carol Reed films the Sistine ceiling as a construction site, with scaffolding, plaster setting on its own schedule and a painter working above his own head, and films the papacy as a client who keeps revising the order. Michelangelo was hired to carve forty statues for a tomb; he is told instead to paint, doubts he can, and walks off. The picture is at its best when it stays with materials and deadlines rather than inspiration. Its Academy Award for color cinematography went to images preoccupied with a practical question: how much light reaches a man working close under a vault. 138 minutes, and the argument never really alters shape. It only grows more expensive, for the artist's body and for the patron's calendar.",
+  "model": "claude-opus-5",
+  "source_sha256": "f9fec47f168cf0e4969d3bd22c49c69cba388a858ba809608e009ddbde6d3180"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "national-velvet-1944",
+  "field": "lead",
+  "film_id": "6b6c04d3-6e7e-45a4-adb0-76d92dbc1fd8",
+  "lang": "en",
+  "text": "The youngest Brown daughter wins a horse in a town lottery, which sounds like luck and is really a schedule of obligations: feed, fencing, and an animal too spirited for anyone nearby to hold. Mi Taylor, a drifter with his own reasons for staying loose, is talked into training it. Clarence Brown spends 123 minutes here and puts the time into kitchen and paddock rather than any grandstand — a family working out how much encouragement it can afford, a girl who has decided something and will not be reasoned out of it. It is shot in color, and the color goes on mud and weather as readily as on anything pretty. What keeps the film clear of sentiment is the drifter. He arrives as an opportunist, and the story never pretends his interest in the horse began as anything else.",
+  "model": "claude-opus-5",
+  "source_sha256": "d519977689fe75e078d76a93966b9f2cf5e97e39974fb10f8d3c91967c0462fc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-music-box-1932",
+  "field": "lead",
+  "film_id": "014d425a-df95-4ba9-9701-2fb31662513d",
+  "lang": "en",
+  "text": "The whole picture is one flight of stairs. At the bottom, a crated player piano; at the top, Prof. von Schwarzenhoffen's front door; in between, two movers who have already agreed on a price. James Parrott lets the routine repeat because repetition is the structure — gravity returns the piano to the pavement more than once, and each recovery costs a little more dignity than the last. Twenty-nine minutes, almost no plot, and an escalation as strict as arithmetic: a nursemaid with opinions, a staircase that does not get shorter, and the owner of the house turning up at the worst moment without either man knowing who he is. Laurel and Hardy play it patiently, which is precisely what makes it hurt. The National Film Registry keeps it, and the case is plain: one object, one obstacle, no wasted step.",
+  "model": "claude-opus-5",
+  "source_sha256": "03ce759962d8fce90b6e81ee8621cfb45f9bb079d7241a1283547d49d2bab6a6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ben-hur-a-tale-of-the-christ-1925",
+  "field": "lead",
+  "film_id": "4320bc6a-f6ef-4a9f-b68d-009ffca533f4",
+  "lang": "en",
+  "text": "A brick works loose during a Roman parade, and a friendship that survived childhood becomes a sentence at the oars. Fred Niblo's silent version keeps the scale literal, with crowds counted in bodies rather than implied, but the engine is small: two men who knew each other as boys, one now an officer of the occupation, the other a conquered Israelite with property to lose. Judah comes back years later carrying a Roman's money and no one to spend it on. The subtitle promises a Christ; the momentum belongs to the grudge. At 143 minutes the weighting is deliberately uneven, unhurried in the household scenes and overwhelming in the set pieces, and the figure worth watching is Messala, who is not an enemy arriving from outside but a boy who took a job.",
+  "model": "claude-opus-5",
+  "source_sha256": "86a4a1c407c6aa91c032064ed1efa4feeafc81127dee5b3615720e22da986161"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-major-and-the-minor-1942",
+  "field": "lead",
+  "film_id": "2fc4a67d-fafd-400a-854f-80df470d047f",
+  "lang": "en",
+  "text": "A ticket home costs more than Susan Applegate has, and children ride at half fare, so she becomes a child. Billy Wilder springs the trap early: dodging a conductor, she takes cover in the compartment of Major Philip Kirby, who is decent, tired and entirely convinced. Everything after that runs on the distance between what the Major thinks he is being kind to and what the audience can see, which is a hard thing to keep funny and is kept funny for 100 minutes. It is a comedy of nerve rather than of gags, with a woman who has no money inventing a second self and then having to sustain it at close range, in a small space, without rehearsal. Wilder never lets Susan rest. The joke that keeps paying is that every adult she meets is persuaded by the wrong thing about her.",
+  "model": "claude-opus-5",
+  "source_sha256": "7b99532bd2ba9a099bfaa848a111d27577c6da50c512f4d4d682b3b10d54dce6"
+ }
+]

@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bystander-indicted-by-the-face",
+  "field": "title",
+  "lang": "ko",
+  "text": "얼굴이 고발하는 구경꾼",
+  "model": "claude-opus-5",
+  "source_sha256": "c8a0ce1de93bbbbbb9cd2ca94b89ca4ab98cbcea8fea72ee0c28feb0d3fb06e9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-bystander-who-is-secretly-the-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "구경꾼이야말로 주인공이었다",
+  "model": "claude-opus-5",
+  "source_sha256": "37140876f2f7d501eb09b479bbe0aea5489b9b8ac296ac9305da8f0c8ee48398"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-caged-bird-is-the-confined-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "새장 속 새, 갇힌 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "b055aa547dd23d4e0eb142af890b70b04d11610e9f8cab69bc20734fae23ae2d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-caged-birds-are-the-marriage-pact",
+  "field": "title",
+  "lang": "ko",
+  "text": "새장 속 새들이 곧 혼인 서약",
+  "model": "claude-opus-5",
+  "source_sha256": "b38ead18e6e62a1396cb33fefbcdee860da23ee447cf731a6f58c3a781d111ba"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-caged-genius-who-wrote-her-way-out",
+  "field": "title",
+  "lang": "ko",
+  "text": "글로 새장을 뚫고 나간 천재",
+  "model": "claude-opus-5",
+  "source_sha256": "eb02777b5c3e430b7a3e93abd8243ef0b61360e3400ae2e945cd336095d3af61"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cahiers-critic-avenging-himself-in-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화로 복수하는 카이에 비평가",
+  "model": "claude-opus-5",
+  "source_sha256": "172aaf09adf3b28e17fdf32c326e31871aa2f9639855ad79941142a487d763ee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cairo-that-was-never-cairo",
+  "field": "title",
+  "lang": "ko",
+  "text": "한 번도 카이로가 아니었던 카이로",
+  "model": "claude-opus-5",
+  "source_sha256": "8f613d6cfde4a86837992c30020b44791727c62421e51727ca173625bc404265"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-calculus-of-the-one-versus-the-many",
+  "field": "title",
+  "lang": "ko",
+  "text": "하나와 다수를 저울질하는 셈법",
+  "model": "claude-opus-5",
+  "source_sha256": "b7122c37414f23079eda5b46397ef4a6ea3454e4644ef8e8796442e056981ae8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-calculus-that-chooses-the-dead",
+  "field": "title",
+  "lang": "ko",
+  "text": "누가 죽을지 정하는 셈법",
+  "model": "claude-opus-5",
+  "source_sha256": "dd281082bae56286ba277258aecdf2975bd7e97c929dbfca638d6f233097b4cc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-calendar-unit-that-names-the-lie",
+  "field": "title",
+  "lang": "ko",
+  "text": "거짓의 이름이 된 달력 단위",
+  "model": "claude-opus-5",
+  "source_sha256": "ad18000a02f9330ce79666e0df645c59964b09fb39ea229b8515161bd8133e34"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-calm-bureaucracy-that-governs-the-womb",
+  "field": "title",
+  "lang": "ko",
+  "text": "자궁을 관장하는 조용한 관료제",
+  "model": "claude-opus-5",
+  "source_sha256": "64f5b14477f9c19f05a26c47113661040fb374f98ae71dc26cfa37d360256789"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-calm-voice-is-the-hidden-engine",
+  "field": "title",
+  "lang": "ko",
+  "text": "차분한 목소리가 진짜 동력이다",
+  "model": "claude-opus-5",
+  "source_sha256": "f52e143982f6b3173499032b8da171d73ef98bb365b2105fe6abab394011d06b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-address-as-survival-rite",
+  "field": "title",
+  "lang": "ko",
+  "text": "생존 의례가 된 카메라 정면 응시",
+  "model": "claude-opus-5",
+  "source_sha256": "852c5a5a7f016299a598aba0ec97db11da3c40af559c159f0134392170780f97"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-as-a-mode-of-seeing",
+  "field": "title",
+  "lang": "ko",
+  "text": "보는 방식으로서의 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "ccf464f246d29f8843ff549ec05c43770a2f92630e987fc6afd113ab10a4eb4c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-as-manic-defense-against-loss",
+  "field": "title",
+  "lang": "ko",
+  "text": "상실을 막는 조증적 방어, 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "cc78c9b6415732bd2cade2a16287e0494fc72bb5df77712ebffd97e416a67902"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-as-nonhuman-gaze",
+  "field": "title",
+  "lang": "ko",
+  "text": "인간 아닌 것의 응시(gaze), 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "16c363307993bb9215a9e8aec09590a37afaba3a70fc9b57d115afa0ec50dcfd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-as-smuggled-contraband",
+  "field": "title",
+  "lang": "ko",
+  "text": "밀반입된 금제품, 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "73d9ab97bbad5860f07aeb235c26c8aa90c505b72974c2fae1cf82a659572c1f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-as-the-eye-of-an-absent-god",
+  "field": "title",
+  "lang": "ko",
+  "text": "부재하는 신의 눈이 된 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "9ce8b22b57654caa10825d3d45d3e960529f6ad910e9648c1165ea3930fed69c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-as-the-film-s-true-author",
+  "field": "title",
+  "lang": "ko",
+  "text": "이 영화의 진짜 저자는 카메라다",
+  "model": "claude-opus-5",
+  "source_sha256": "623c08215fffde0efdfe95b28f9a1a5819ebdfa92533b1ca0b76257cca8d803b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-at-the-national-hinge",
+  "field": "title",
+  "lang": "ko",
+  "text": "나라가 꺾이는 자리에 선 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "1f645da2a8b90e4def3abff13a5447386ce5269bcaec22b0fe2f4a3babb6d38f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-becomes-the-surveillant-apparatus",
+  "field": "title",
+  "lang": "ko",
+  "text": "카메라, 감시 장치가 되다",
+  "model": "claude-opus-5",
+  "source_sha256": "6a1b937266119d9fbedcfeb59f43efafb705da959cd793a2831d6fd4b24c6954"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-belongs-to-the-seer-not-the-seen",
+  "field": "title",
+  "lang": "ko",
+  "text": "카메라는 보는 자의 것, 보이는 자의 것이 아니다",
+  "model": "claude-opus-5",
+  "source_sha256": "9eb252a7d3949290d39d4b151077033c6c535bf7a5061341b61a5db61aac36b3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-complicit-in-sexual-violence",
+  "field": "title",
+  "lang": "ko",
+  "text": "성폭력에 가담하는 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "d605df033f13fd57df9fdb8d082a7f1e612de6d96bd029a10ce4639d192a5007"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-imprisons-its-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "피사체를 가두는 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "42c55c92b301ffe01871ec4ba8ba269e63cd528e952116545f387b18407caa1e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-indicted-as-decolonization-s-accomplice",
+  "field": "title",
+  "lang": "ko",
+  "text": "탈식민의 공범으로 고발된 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "feb6835d895d29176cef56fa383229c4dc8bed70e09b5ff759a141724e1a7d1f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-interrogates-its-own-witnessing",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 목격을 스스로 심문하는 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "8aaadc1367798bc229468db14ce2d5b191bc4cb9b0ad4cfc2c43dc7279624bfe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-itself-becomes-the-motion",
+  "field": "title",
+  "lang": "ko",
+  "text": "카메라가 곧 운동이 되다",
+  "model": "claude-opus-5",
+  "source_sha256": "b93735a0fa166a049e9299bb484afbaf37aae5ae8bb79b6e7b257508e3b816c0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-itself-becomes-the-predator",
+  "field": "title",
+  "lang": "ko",
+  "text": "카메라가 곧 포식자가 되다",
+  "model": "claude-opus-5",
+  "source_sha256": "eba3894e9b00727a927e57771f64ed9933cd720a238007c36f7e27ece251d73a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-itself-knows-what-we-cannot-see",
+  "field": "title",
+  "lang": "ko",
+  "text": "우리는 못 보는 것을 카메라는 안다",
+  "model": "claude-opus-5",
+  "source_sha256": "7b8f8b01241a16307b30c4d8aaad3b8487c61ee14ec49a3da267b3d3cc4d50b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-made-newly-mobile-and-confrontational",
+  "field": "title",
+  "lang": "ko",
+  "text": "움직이기 시작한, 그리고 대드는 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "26a1f8d37523890248046f52331fc99887073500aab88c754a52686660b61c53"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-outlives-the-man-who-wields-it",
+  "field": "title",
+  "lang": "ko",
+  "text": "카메라가 그것을 든 사람보다 오래 남는다",
+  "model": "claude-opus-5",
+  "source_sha256": "fdddee49ae8c51be3df89d8622bef5dd406a162b462e0de976c2e76e97a5222c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-pinned-to-tatami-height",
+  "field": "title",
+  "lang": "ko",
+  "text": "다다미 높이에 못 박힌 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "7b487b199d93b54e9c397e9139e79ea51c2d93cbc0349813420cfc6ab7ecb073"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-s-aversion-as-its-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "눈을 돌리는 순간이 카메라의 고백",
+  "model": "claude-opus-5",
+  "source_sha256": "ac883786ef887b8060d7d39968b7b5518323a91c19ae282604a0b286be1a9f58"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-s-constraint-becomes-its-cosmology",
+  "field": "title",
+  "lang": "ko",
+  "text": "카메라의 제약이 그대로 우주론이 되다",
+  "model": "claude-opus-5",
+  "source_sha256": "57e6b0e8c63a91c87fd17d9c8ae39a7d87e60fea5a1ef615b44947141360df82"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-s-movement-is-the-politics",
+  "field": "title",
+  "lang": "ko",
+  "text": "카메라의 움직임이 곧 정치다",
+  "model": "claude-opus-5",
+  "source_sha256": "b145103f5d57ac4d0a5c950c433a07874e9b4f442d7672c8eed0718d946a543b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-ages-its-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "피사체를 늙히는 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "9fa3cd6e417ea4ba3c65733e9aafd02dca90efe4d3afa1978828e0e057e6a333"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-cannot-restore-what-s-lost",
+  "field": "title",
+  "lang": "ko",
+  "text": "잃은 것을 되돌리지 못하는 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "601b682b5ab6cca83292b649decd9e0d601d7e7a16d16d670a93f1ee44710c9f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-causes-what-it-records",
+  "field": "title",
+  "lang": "ko",
+  "text": "찍는 일이 곧 벌어지게 하는 일",
+  "model": "claude-opus-5",
+  "source_sha256": "3adda98de3711a444d37f945d0c09b0faae8f595900675923770e55f5df5f7e1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-convicts-its-audience",
+  "field": "title",
+  "lang": "ko",
+  "text": "관객에게 유죄를 선고하는 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "5d4138eb27f8179d76fa776cadb21a842782d04557b3f7e7b7129bbfa07ace0f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-could-not-stop",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 멈추지 못한 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "93baabf4ebc9144f5bb813725bec4ee6f20e31794e4db33be7509f40946e5cf0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-disbelieves-her",
+  "field": "title",
+  "lang": "ko",
+  "text": "그녀의 말을 믿지 않는 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "3b54ff035a2813e085a84521278b18f1430828a045d756fd5ef8eeeee0fa733b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-drinks-with-its-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "피사체와 같이 마시는 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "9348e54bf6a2a5abf4c24ce5a7c6bffe993f11d115c68f6af6ba90870e29e5c6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-has-already-died",
+  "field": "title",
+  "lang": "ko",
+  "text": "이미 죽은 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "fd5e0a9507f297f0927eb0798a09a4eff0f0632e108be426bc7c87db770d7590"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-hunts-the-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸을 쫓아다니는 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "5f188b6999e98554ae270ea1867a38bf16c7ffbdbbbbb91622f904be34810601"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-implicates-its-watcher",
+  "field": "title",
+  "lang": "ko",
+  "text": "보는 사람을 끌어들이는 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "506d071e215e08f34db009b812ec4af127a6f9efef80ce1f33893a33e58da88c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-knows-more-than-its-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "인물보다 많이 아는 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "8a4c0364e62a9d18e38c635b39be8ac0edb544481817748f3b7c5286530c0271"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-records-its-own-witness",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 증인까지 찍어두는 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "82db86a6b79d8cb51a7058d353a5dff38ab5bf6932f26ad3cdb47ea1bfc691d4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-refuses-to-cut-away",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝까지 시선을 돌리지 않는 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "5f9a782a4b995a9d55d525dd361f26a5db8971fa7fe456c4de9160b06b3ec5eb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-refuses-to-flinch",
+  "field": "title",
+  "lang": "ko",
+  "text": "움찔하지 않는 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "20bba8dbb0fcb96b74f613300f9e1830221b44d734bf7a11a0326ebef062ec3a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-refuses-to-show-the-atrocity",
+  "field": "title",
+  "lang": "ko",
+  "text": "참상만은 보여주지 않는 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "97c65bfa344111727c856818546c1ef7a8ffe720c992b389d6a2c56315a6db54"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-watched-but-would-not-save",
+  "field": "title",
+  "lang": "ko",
+  "text": "지켜보기만 하고 구하지 않은 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "9dec28391c5e7fe48eb40a6d52a74972d2e01e3f2264f6205032e9253558848c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-that-withholds-comfort",
+  "field": "title",
+  "lang": "ko",
+  "text": "위안을 주지 않는 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "47ddcda1969a8bad2ce68d69398568179bf1f7d4215249ece009a3926067c853"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-turned-against-its-captors",
+  "field": "title",
+  "lang": "ko",
+  "text": "포획자를 겨눈 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "9759342a114a52f159c15456731d10db4f7035ac771a847a4c41a35195e2de65"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-turned-back-on-the-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "자기 자신으로 돌아선 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "f41297e92ed96af31db720ef0ee4e463afd758c031354b64dd9a965bd7827af1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camera-turned-on-its-own-maker",
+  "field": "title",
+  "lang": "ko",
+  "text": "만든 사람을 겨눈 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "8684761844baf0915a881463d90fcb555421d618cfde4b124857ee1ca3512a2c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camp-as-hidden-constitution-of-the-state",
+  "field": "title",
+  "lang": "ko",
+  "text": "수용소, 국가의 숨은 헌법",
+  "model": "claude-opus-5",
+  "source_sha256": "bdf7d1f0b8fb617c75944242926c6d424edcafbe43bb183c050cb001def309ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camp-logic-as-survived-condition",
+  "field": "title",
+  "lang": "ko",
+  "text": "살아남아 이어지는 수용소의 논리",
+  "model": "claude-opus-5",
+  "source_sha256": "fc86c8ed182063c36005b683bc13454a8c7bd7f9da040e46c8f75544995cd032"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camp-that-refuses-to-be-a-set",
+  "field": "title",
+  "lang": "ko",
+  "text": "세트가 되기를 거부한 수용소",
+  "model": "claude-opus-5",
+  "source_sha256": "6b79c434c9d0a3ab1f7bab0748e6a4b957778991a4051b981ecf24de3df05996"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-camusian-stranger-misread",
+  "field": "title",
+  "lang": "ko",
+  "text": "오독된 카뮈의 이방인",
+  "model": "claude-opus-5",
+  "source_sha256": "9c629acafb59461a29a80b99e67f3f396103a6431ae25566aac59e735902dd4c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-canadian-backwoods-wearing-another-world-s-mask",
+  "field": "title",
+  "lang": "ko",
+  "text": "딴 세계의 가면을 쓴 캐나다 벽촌",
+  "model": "claude-opus-5",
+  "source_sha256": "17bb1c515b5bcd1ae070304259cff3bd48554ff4beb5925a8cd54cfa302547b3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cannes-ovation-as-diagnosis",
+  "field": "title",
+  "lang": "ko",
+  "text": "칸의 기립박수, 그 자체가 진단",
+  "model": "claude-opus-5",
+  "source_sha256": "fd0d09e2eee8475dde8d871faa9d1fd7fa961b52597ae1edb224fda342964d04"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cannibal-as-capitalism-eating-its-own-flesh",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 살을 뜯어먹는 자본주의, 식인",
+  "model": "claude-opus-5",
+  "source_sha256": "9ea7c77dac854f2f031c11d6c1e7d3f85f1c4f10a79fcaf37e3de3b6c11b2d05"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-canon-crowned-it-to-serve-a-need",
+  "field": "title",
+  "lang": "ko",
+  "text": "필요했기에 정전(正典)이 씌운 왕관",
+  "model": "claude-opus-5",
+  "source_sha256": "05e27362a64f4d2a34b1ce4083c70a0f02919062c9cc950850709e9ca5a25daa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-canon-s-coronation-read-as-symptom",
+  "field": "title",
+  "lang": "ko",
+  "text": "증상으로 읽는 정전의 대관식",
+  "model": "claude-opus-5",
+  "source_sha256": "37e65405482f48f3adeb8627f0cf5af0736ed54e3f12df33dd67f0dd24cd03f1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cape-that-wears-the-patriot-act",
+  "field": "title",
+  "lang": "ko",
+  "text": "PATRIOT Act를 걸친 망토",
+  "model": "claude-opus-5",
+  "source_sha256": "b34c1c6f9a7999898f0e7b4385957659a68a0233e4a23da6298701d47bbc236a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-capote-stand-in-devouring-its-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 취재 대상을 삼키는 커포티의 분신",
+  "model": "claude-opus-5",
+  "source_sha256": "1d1390c93ab982e609eab5757a19c9fb6333cd6b155a9ecf9d5a45599930ab30"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-captive-behind-the-glass",
+  "field": "title",
+  "lang": "ko",
+  "text": "유리 너머의 포로",
+  "model": "claude-opus-5",
+  "source_sha256": "645a199a17bdcf59f786d67ee9e6720eb16232c7ea8e1572e17a0240cc409bd4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-captive-bolt-that-reduces-body-to-meat",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸을 고기로 만드는 도살용 볼트",
+  "model": "claude-opus-5",
+  "source_sha256": "c09f99451445fdb28ed87e45ba25bc65083f6f1df2ad121fc056d7ca11e6f11b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-capture-medium-as-its-own-argument",
+  "field": "title",
+  "lang": "ko",
+  "text": "무엇으로 찍었는가가 곧 주장",
+  "model": "claude-opus-5",
+  "source_sha256": "7727834d001b0c6a07d822f75eb70864fab11e94e78d9d5ac0e25e0d79bb3040"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-car-crash-as-erotic-sacrament",
+  "field": "title",
+  "lang": "ko",
+  "text": "성사(聖事)가 된 자동차 충돌",
+  "model": "claude-opus-5",
+  "source_sha256": "18161e81cc1dc1b6b6e315475b7c66bdb0f10754bb7770159ed5e942913a1a71"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-car-crash-as-social-reckoning",
+  "field": "title",
+  "lang": "ko",
+  "text": "사회적 청산으로서의 자동차 충돌",
+  "model": "claude-opus-5",
+  "source_sha256": "329cfea411c6ec3e6ee1a51966decd8371bde58af6345385beae76e8cce7c837"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-car-itself-as-the-film-s-secret-engine",
+  "field": "title",
+  "lang": "ko",
+  "text": "자동차가 이 영화의 숨은 동력",
+  "model": "claude-opus-5",
+  "source_sha256": "7055c98fa91e5c2fd760dbb536b884ec4526bb88d99320eb270bce205e63c687"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-card-that-reasserts-the-calendar",
+  "field": "title",
+  "lang": "ko",
+  "text": "달력을 다시 못 박는 자막",
+  "model": "claude-opus-5",
+  "source_sha256": "55bcefe123bc222d54f11012c7c98fd76935542770a970eeb6ea71e447e89015"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-caregiver-who-chooses-the-face-over-the-rule",
+  "field": "title",
+  "lang": "ko",
+  "text": "규칙 대신 얼굴을 택한 돌보는 자",
+  "model": "claude-opus-5",
+  "source_sha256": "de2bacaef71b927c20203cad862a24119d4cca0139424977aef9257f173d0d0d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-caregiver-whom-care-made-criminal",
+  "field": "title",
+  "lang": "ko",
+  "text": "돌보다가 범죄자가 된 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "6c6ab69cd851c3b101ee83c3313fd4fba119d5b7b7b098f4a5b75a47d0f37c87"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-caregiver-whose-love-is-a-cage",
+  "field": "title",
+  "lang": "ko",
+  "text": "사랑이 곧 새장인 돌봄",
+  "model": "claude-opus-5",
+  "source_sha256": "2bffb8aa912de979bf066dd7875d4490c3d9d402c770fa82b005bd8f510cbe9e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-caressed-fetish-crossing-the-curtain",
+  "field": "title",
+  "lang": "ko",
+  "text": "장막을 건너온, 손길 닿은 페티시",
+  "model": "claude-opus-5",
+  "source_sha256": "4e0de7b166134ea645a7c0986ac73a8f6e0fb89fc6eb479545b8105aafc5d630"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-caretaker-whose-mercy-becomes-a-regime",
+  "field": "title",
+  "lang": "ko",
+  "text": "자비가 통치로 굳어버린 보호자",
+  "model": "claude-opus-5",
+  "source_sha256": "ec48d9f5474691b23bb473432cdcedac336945aa740bf4b63ca4bd1bd15ac9c9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-carpathian-real-beneath-the-studio-lie",
+  "field": "title",
+  "lang": "ko",
+  "text": "스튜디오의 거짓 밑에 깔린 카르파티아의 실재",
+  "model": "claude-opus-5",
+  "source_sha256": "02174bdef0bf62318b4fd588eec7e8fad3920c685a2e1fa1ca967ab1a516303c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-casino-as-capital-s-true-cathedral",
+  "field": "title",
+  "lang": "ko",
+  "text": "자본의 진짜 대성당, 카지노",
+  "model": "claude-opus-5",
+  "source_sha256": "afb9b79a757d32a0624608ccfe31b8746854e56c4cd0b09ab85f41358d854fe3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-casino-filmed-before-its-demolition",
+  "field": "title",
+  "lang": "ko",
+  "text": "허물리기 전에 찍어둔 카지노",
+  "model": "claude-opus-5",
+  "source_sha256": "57da98d82691c9302d09c6b9e2898b19113ffab9c7872994530ef8293009c2fa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cassock-as-sovereign-immunity",
+  "field": "title",
+  "lang": "ko",
+  "text": "면책 특권이 된 사제복",
+  "model": "claude-opus-5",
+  "source_sha256": "5dd87d6fbe9f3f82c0221ce19729f2ae376f6d80f7dd857564845c529b2f7d0c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-casting-choice-is-the-real-text",
+  "field": "title",
+  "lang": "ko",
+  "text": "누구를 캐스팅했는가가 진짜 텍스트다",
+  "model": "claude-opus-5",
+  "source_sha256": "d1acc14db744c1ecbfb32277aa21a75366678fed2b5a2bfe317e54fb03b1d260"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-casting-outrage-as-authenticity-policing",
+  "field": "title",
+  "lang": "ko",
+  "text": "진정성 단속으로 번진 캐스팅 논란",
+  "model": "claude-opus-5",
+  "source_sha256": "14e29c75904f25ca974a178a4e28e83600789a2dc58cf0da437e23be7e8ba19a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-castle-built-to-outlast-its-story",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 이야기보다 오래 살아남도록 지은 성",
+  "model": "claude-opus-5",
+  "source_sha256": "fb441c91ec7a775ea44a7e810e89a7e4ad8c01b59b8a71fc43f0765356be1f74"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-castle-that-is-its-own-trap",
+  "field": "title",
+  "lang": "ko",
+  "text": "성 자체가 덫이다",
+  "model": "claude-opus-5",
+  "source_sha256": "4f5d3b7865e1ac934f3d750893966e91e0dfc162ab41fcf0ad07cf42bd8c0a80"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-castrated-patriarch-in-crisis",
+  "field": "title",
+  "lang": "ko",
+  "text": "거세된 가부장의 위기",
+  "model": "claude-opus-5",
+  "source_sha256": "7ad87e693d46f4ac39c46f7a3553d232d7781824e44bd98b0e2f4b6f48644772"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-castrato-frozen-in-his-role",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 배역에 얼어붙은 카스트라토",
+  "model": "claude-opus-5",
+  "source_sha256": "f9726c27ef75dac4bb2658a27611bf1d21aaa0208d6d139f2facd3871e812d76"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cat-as-externalized-soul",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸 밖으로 나온 영혼, 고양이",
+  "model": "claude-opus-5",
+  "source_sha256": "1fc2f7c8d9f9fddde8383acad032d9eab18b4b18ea52d3ccd70a690a08327966"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-categorical-imperative-as-self-deception",
+  "field": "title",
+  "lang": "ko",
+  "text": "자기기만이 된 정언명령",
+  "model": "claude-opus-5",
+  "source_sha256": "0c115d8906bd1f41f14a74afbf61b2e6c727ceeff9ba3e28bfc335955f8ca2e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-categorical-imperative-made-flesh",
+  "field": "title",
+  "lang": "ko",
+  "text": "살과 피를 얻은 정언명령",
+  "model": "claude-opus-5",
+  "source_sha256": "26ea29dc9884d3209a944be4f47cda547663f79f4836885929223e1b05acb30d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-categorical-imperative-tested-by-a-child",
+  "field": "title",
+  "lang": "ko",
+  "text": "아이 앞에서 시험받는 정언명령",
+  "model": "claude-opus-5",
+  "source_sha256": "4054b4d2e5a01db00e39e0eb165fdd288fc4c6173c2686c8e97b3b6b336f715e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-categorical-imperative-turned-against-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 발등을 찍는 정언명령",
+  "model": "claude-opus-5",
+  "source_sha256": "4bf5763ceb5960455f4153947757bb32e9eace034c2c24c7465705678d72c250"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cave-as-allegory-of-confined-consciousness",
+  "field": "title",
+  "lang": "ko",
+  "text": "갇힌 의식의 알레고리, 동굴",
+  "model": "claude-opus-5",
+  "source_sha256": "1006faaa298007879abd9d9af953d32bd29a1483b332559f2b3e8c087a60b498"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cellar-as-buried-history",
+  "field": "title",
+  "lang": "ko",
+  "text": "묻어둔 역사로서의 지하실",
+  "model": "claude-opus-5",
+  "source_sha256": "904d76fbcf09963497625a34703dae4a724d776db54c8011034da2fb5a954c62"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-celluloid-strip-confessing-its-own-death",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 죽음을 실토하는 필름 한 줄",
+  "model": "claude-opus-5",
+  "source_sha256": "ce5d928e1474d0b70abac7511c20603cb2b5a96cc734ad35f7c191cede73f4c2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cgi-lab-that-birthed-a-new-machine",
+  "field": "title",
+  "lang": "ko",
+  "text": "새 기계를 낳은 CGI 연구실",
+  "model": "claude-opus-5",
+  "source_sha256": "c72463ea6ec80731cb421c1e5db275c2b3e4806f950dc620c7ef93c6147cca0a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-champion-defined-by-what-he-cannot-win",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 못 이긴 것이 규정하는 챔피언",
+  "model": "claude-opus-5",
+  "source_sha256": "6964da129f7f9c23992e4eb83005252f1fdc4b5d8c9e10760c38474b754204e9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-champion-who-cannot-hear-the-people",
+  "field": "title",
+  "lang": "ko",
+  "text": "민중의 목소리가 들리지 않는 대변자",
+  "model": "claude-opus-5",
+  "source_sha256": "732eff4f5016667c0895364eba8068dfc93aa15a24deef161a910394e51e2469"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-character-named-grace-read-against-her-grace",
+  "field": "title",
+  "lang": "ko",
+  "text": "이름은 은총, 그 은총을 거슬러 읽히는 인물",
+  "model": "claude-opus-5",
+  "source_sha256": "9aeb932e80d9b0d7a284a516ff200a24924cf0dc75d4f763465e4644df9d5190"
+ }
+]

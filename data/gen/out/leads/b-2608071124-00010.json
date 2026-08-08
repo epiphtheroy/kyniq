@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "gregory-s-girl-1980",
+  "field": "lead",
+  "film_id": "c31f0e24-fde0-4960-892e-279b2d8d160f",
+  "lang": "en",
+  "text": "A boy loses his place on the school team to a better player, and the better player is a girl. What Bill Forsyth does with that, across ninety-one minutes, is decline to treat it as a crisis. The humiliation is real and it is also just a Tuesday: school carries on, training carries on, and the pursuit that follows is conducted largely through advice from other teenagers who have no idea what they are talking about and deliver it with great confidence. The comedy runs quiet. Jokes arrive sideways, in the wrong tense, often from someone at the edge of the frame with no stake in the plot. Nothing here is played for size, and that scale is what keeps the embarrassment recognisable: a 1980 British comedy about football that is barely interested in the result of a match.",
+  "model": "claude-opus-5",
+  "source_sha256": "d3e4c6b22c487c79a20499ef74df2d2cf78d5885806bbeb2e674941537fd43b0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-loneliness-of-the-long-distance-runner-1962",
+  "field": "lead",
+  "film_id": "07744457-589c-462b-be8a-a6f94ca52e87",
+  "lang": "en",
+  "text": "The reformatory Governor wants a trophy, and he has found a boy who can run. Everything difficult in Tony Richardson's 1962 film follows from that arrangement: status and privileges inside the walls, paid for by carrying the institution's name at a race meeting, by a boy sent there for robbing a bakery. A runner is a convenient sort of inmate - training looks like discipline, results look like reform - and the other boys read the transaction as fast as the staff do. Their ridicule is less cruelty than bookkeeping. Richardson keeps the sport physical rather than symbolic: distance running is hours of solitary effort that nobody can share, which makes it the one thing the Governor cannot quite requisition. A hundred and four minutes, and the boy's grievance is taken as seriously as his speed.",
+  "model": "claude-opus-5",
+  "source_sha256": "3c036cd564c69fbf94f218cf35986fd7dc767f50a220997d04097048ec85b256"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "caravaggio-1986",
+  "field": "lead",
+  "film_id": "62433bec-de80-4fc3-a856-f9d2766829b4",
+  "lang": "en",
+  "text": "A painter who wanted his saints to look like people off the street had to find those people somewhere. Derek Jarman's 1986 film builds its account of Michelangelo Merisi da Caravaggio out of that traffic between the studio and the underworld it borrowed from, treating the pictures less as achievements than as arrangements: someone was paid, or persuaded, or owed a favour, and then held still. The retelling runs through the paintings, so the light does too - a lamp, a shoulder, everything else given to the dark. Desire and money are the same negotiation here, which is why the religious commissions carry a charge of danger rather than devotion. It took a Silver Bear. Ninety-three minutes, mostly interiors, and the pressure sits on what it costs to keep supplying images to a church that would rather not ask where the models came from.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac9e8601d29dde6288f9466f3fdc602aa3f1f18ba0ae11b81d10f64f156f2386"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "billy-liar-1963",
+  "field": "lead",
+  "film_id": "bb5f4a2b-b390-4614-934e-7d26c733d933",
+  "lang": "en",
+  "text": "The job is undertaker's assistant, and the lying starts as relief before it hardens into administration. Billy has told too many people too many different stories, and the machinery of a small English life in 1963 - the family table, the employer's ledger, the people who eventually compare notes - is efficient enough to catch him. John Schlesinger plays the trap as comedy for as long as comedy will hold. The uncomfortable part is how good the invention is: the daydreams have production values, the excuses have plots, and all that talent is being spent on staying exactly where he is. Ninety-eight minutes, most of them in rooms he wants out of. A way out does eventually present itself, and the interest lies less in the offer than in the practised skill with which he has spent the whole film avoiding one.",
+  "model": "claude-opus-5",
+  "source_sha256": "15196e2ba933aaa9b911a0d7166e4f69aef0c95d8a3a70119e995037174917c2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "brighton-rock-1947",
+  "field": "lead",
+  "film_id": "11cb413d-9d43-47c0-9e4d-1484c376c3ad",
+  "lang": "en",
+  "text": "Brighton here is not the seafront on the postcards but the trade behind it: racecourse money, boarding houses, a town living off other people's holidays. Made in 1947 and set in the years before the war, John Boulting's film hands its gang to a leader who is still a boy, and the youth is the frightening part. Pinkie is vicious in the manner of someone who has not yet accepted that consequences apply to him, and the older criminals around him seem to know it; they step around him rather than command him. The crowds do a lot of work. Threats are made in daylight, on piers and promenades, a few feet from people on holiday, and the noise of the resort covers all of it. Ninety-two minutes, wound tight, with the thriller's forward motion forever snagging on a boy's need to be respected by people he despises.",
+  "model": "claude-opus-5",
+  "source_sha256": "aaa6f70f37e3df0ae80f65d8b8e892085e1b37e7f26ab5c42733336ffc2be8a6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "whisky-galore-1949",
+  "field": "lead",
+  "film_id": "ad997ecf-a6ff-4738-903b-44d54e9a18bb",
+  "lang": "en",
+  "text": "On 5 February 1941 a ship bound for Jamaica went down in bad weather off Eriskay, in the Outer Hebrides, with a quarter of a million bottles of whisky in her hold. Alexander Mackendrick's 1949 comedy treats the years since as working capital: an island under wartime rationing, a cargo lying within reach, and a dispute about whether taking it counts as salvage or theft that everyone conducts with immense procedural seriousness. Eighty-two minutes, and the engine is tactics rather than slapstick - who knows what, who is told when, and how quickly a community can close around a fact. Authority arrives from the mainland speaking the language of forms and duty. Bottles from that wreck still turn up in the sand every few years, which suits a film in which the sea keeps handing back goods the law has already counted.",
+  "model": "claude-opus-5",
+  "source_sha256": "a10d7c72761968e17e20b451020503a90964dd5d9ddb0e881225d548e527283d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "carry-on-up-the-khyber-1968",
+  "field": "lead",
+  "film_id": "632d84c7-4cdb-4da8-bbed-d2ed5a58915f",
+  "lang": "en",
+  "text": "The regiment's reputation rests on a rumour about what is worn under the kilt. Everything in this 1968 farce follows from it: an outpost near the Khyber Pass, a ruler who would like all the British dead, and a defence that consists mainly of keeping up appearances. The names announce the intention - Sir Sidney Ruff-Diamond, the Khazi of Kalabar - and the timing lives in the distance between imperial decorum and what is plainly being said underneath it. That the BFI's hundred British films makes room for this says something true about how much of the national comedy runs on rank and innuendo, in that order. Eighty-eight minutes. The pleasure is in watching people hold their composure long past the point at which composure has anything to do with their situation.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b8c9d68e428ba0a517038f82477565c0b1ba94362708487858b7488f4386e3f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-cruel-sea-1953",
+  "field": "lead",
+  "film_id": "96b2d16f-8942-4578-9d29-509a0a709be4",
+  "lang": "en",
+  "text": "Convoy escort was mostly a job of endurance: be there, night after night, in winter seas that would count as punishment on their own. Charles Frend's 1953 film puts officers and men straight out of training aboard HMS Compass Rose under a commander who has to make sailors of them while at sea, and the war they get is largely one of being shot at with little chance to shoot back. The hard part is arithmetic. A ship goes down, men are in the water, and a stopped escort is a target. Two hours and six minutes is long for this, and the length is the argument: fatigue has to accumulate before any of the decisions weigh anything. The Academy gave it an award for the adapted screenplay, which suits a picture that trusts flat procedural talk over speeches and lets a friendship form out of shared watches rather than declaration.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d4cef34c9f2309bf3a9c7dbeaf33f39ad20c4325ec9589d4dea07ea1e4f0ed8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-railway-children-1970",
+  "field": "lead",
+  "film_id": "58f2890e-2326-4ec1-b965-6b09fb649fc6",
+  "lang": "en",
+  "text": "Two men come to the house, the father goes with them, and nothing is explained to the children in language they can use. What follows is a demotion: Bobbie, Phyllis and Peter move with their mother out of the life they had and into a cottage in Yorkshire where money is counted out loud. Lionel Jeffries made this in 1970, looking back to the first years of the century, and he keeps the period close to the ground - coal, food, the neighbours' view of a family that arrived without a father. The railway beside the new house becomes the children's public life, the one place where they can act on the world and be seen doing it. Strangers pass along it daily. A film usually filed as gentle turns out to be about living on the wrong side of a rumour, and about children who work out far more than they are told.",
+  "model": "claude-opus-5",
+  "source_sha256": "33a83948ad68b3244150b0036183be41da871d77005b1a0a491ab74ec99b9896"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "passport-to-pimlico-1949",
+  "field": "lead",
+  "film_id": "b6f9873b-b0e9-4125-99bb-49cd17acbaea",
+  "lang": "en",
+  "text": "An unexploded bomb goes off in a London street and turns up documents proving the neighbourhood is legally Burgundian. The joke is administrative, and Henry Cornelius plays it exactly that way: if Pimlico is foreign soil then British rationing does not apply, and if rationing does not apply then Whitehall has to answer with border posts, cut supplies and a queue at the frontier. In 1949 an audience knew every one of those procedures from the inside. Eighty-four minutes, and the comedy comes from officials doing their jobs correctly inside a situation that has stopped being reasonable. Its original screenplay took an Academy Award, and the writing shows in the speed with which a whimsical premise turns practical - passports, customs, water and gas - long before anyone gets sentimental about independence.",
+  "model": "claude-opus-5",
+  "source_sha256": "15b095e619084ec4fdb96db8939ad7ec32b13ebd516333dfd652832edc16f0fb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "eureka-2000",
+  "field": "lead",
+  "film_id": "12b099a6-9afe-4bdd-828c-af47afe4b2c0",
+  "lang": "en",
+  "text": "Two hundred and eighteen minutes, and much of that time goes to people not talking about the thing that happened to them. Shinji Aoyama gathers the survivors of one violent event in rural Japan and then refuses to organise their recovery: they drift into each other's company and keep to ordinary routines while the damage stays underneath, unnamed and unhurried. A killer is still working in the same countryside, which leaves a thriller's low hum at the edge of a film with no interest in solving anything quickly. Kinema Junpo ranked it among the Japanese films of its decade. The length is the method - at two hours this material would read as a case study; at three and a half it becomes climate, and the smallest movements, someone eating, someone speaking first, arrive with the force of events.",
+  "model": "claude-opus-5",
+  "source_sha256": "22cd02ed74f95e51322a16164bc5d73dc8d769802c42ae95c40a630ed5eb024e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "i-m-all-right-jack-1959",
+  "field": "lead",
+  "film_id": "109bc37a-f07e-4ce4-a223-39c8161dc0e3",
+  "lang": "en",
+  "text": "Both sides of the dispute want the same thing from Stanley Windrush, which is a pretext. He turns up at a munitions factory hoping for a career in the family business, is put on the shop floor, and finds that management sees an opening while the union sees a provocation; neither has any use for his opinions. John Boulting's 1959 comedy declines to pick a side. The bosses are cynical, the officials are procedural, and the quarrel between them has become a livelihood for everyone except the man actually assembling anything. A hundred and five minutes of meetings, walkouts and precisely worded grievances. What keeps it sharp is the manners: everybody stays courteous, every manoeuvre is dressed as principle, so the target ends up being the language of British compromise rather than any one class using it.",
+  "model": "claude-opus-5",
+  "source_sha256": "61aa9ff3a397b6084df331ba0c022121bae0bb710ce6f4507c5bddfdebfa33ad"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "genevieve-1953",
+  "field": "lead",
+  "film_id": "552357f6-3a9a-4e27-a974-7d8a0d75341f",
+  "lang": "en",
+  "text": "The cars are old enough to have moods, and the men driving them are old enough to know better. A private bet on the London to Brighton vintage car rally - who gets home first - is the whole apparatus of Henry Cornelius's 1953 comedy, and eighty-six minutes is the right length for a joke about stubbornness. Since the wager is unofficial, the competition has to be smuggled into breakdowns, wrong turns, unhelpful directions and long stretches of denying that any contest is underway. English politeness does most of the damage: neither man will admit the stake, so the day's humiliations have to be absorbed with a pleasant face. The score took an Academy Award, and it earns the prize by keeping a bright, unbothered tempo over a pursuit nobody involved is willing to name out loud.",
+  "model": "claude-opus-5",
+  "source_sha256": "528cd18d026a8279149a9966372d49edeea246cd20231d8fda27be54582c36e3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-golden-coach-1952",
+  "field": "lead",
+  "film_id": "fbe61126-568c-4d23-9426-66286ac7ff37",
+  "lang": "en",
+  "text": "A French production set in eighteenth-century Peru and played in English: nothing in the arrangement pretends to authenticity, and Jean Renoir has no wish for it to. The company of comedians at the centre performs for a colonial society already busy performing - a viceroy bound by protocol, a nobleman bound by rank, a bullfighter who works an arena and understands exactly what an audience is. All three court the same actress, and each of them offers her a part rather than a life. Renoir keeps the machinery of the stage in view, so that the court's ceremonies and the troupe's turns become difficult to tell apart, which is the joke and also the case being made. A hundred and five minutes, light on its feet, with the weight resting on a working performer deciding which of three stages she could stand to live on.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c0f6e12edcc59cd994e4b8b7b72ae453054847215772869db1c57565fb6f41e"
+ }
+]

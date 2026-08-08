@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vessel-that-carries-more-than-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 크기를 넘는 것을 담는 그릇",
+  "model": "claude-opus-5",
+  "source_sha256": "c2a8feaf354d4ccf31b0cb3d49bbc90d3ee4f388e3e860ebd0860d41e5db9e19"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-victim-recast-as-co-author",
+  "field": "title",
+  "lang": "ko",
+  "text": "피해자를 공동 저자 자리에 앉히다",
+  "model": "claude-opus-5",
+  "source_sha256": "3d95b318ebd879d1146891ed1938816a53d18c010dd0d1e6165af00bab5d3165"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-victory-that-refuses-the-sword",
+  "field": "title",
+  "lang": "ko",
+  "text": "칼을 뽑지 않고 얻은 승리",
+  "model": "claude-opus-5",
+  "source_sha256": "dc97384fca1cb28577666b3c0a10f8a0823ab57725f253a3d9637c9f61e09fa7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-video-store-clerk-s-archive-as-film-form",
+  "field": "title",
+  "lang": "ko",
+  "text": "비디오 가게 점원의 목록이 영화의 형식이 될 때",
+  "model": "claude-opus-5",
+  "source_sha256": "49e5aa4b1d23ca0dc809c54cddde61634888132b9c5378c5ade2329805e3fa2c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-viewer-s-recoil-is-the-verdict",
+  "field": "title",
+  "lang": "ko",
+  "text": "관객이 움찔하는 순간이 판결이다",
+  "model": "claude-opus-5",
+  "source_sha256": "b913bf77d28bbdde5c125388a399ce1ce94391beb5dda931fe002be04ad16a30"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-viewer-who-authors-the-genre",
+  "field": "title",
+  "lang": "ko",
+  "text": "장르를 쓰는 쪽은 관객이다",
+  "model": "claude-opus-5",
+  "source_sha256": "6a796b3ce19db088f2ecc356aeb800b88baf398f2d54a0237a53654353663c2a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-vigil-for-an-arrival-that-never-comes",
+  "field": "title",
+  "lang": "ko",
+  "text": "오지 않을 사람을 기다리는 밤",
+  "model": "claude-opus-5",
+  "source_sha256": "d3c98246144d45fc12870bfb49870b9b5ce059bcc050ab65d976f69c8af874a3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-villa-as-cinema-s-sealed-stage",
+  "field": "title",
+  "lang": "ko",
+  "text": "봉인된 무대가 된 저택",
+  "model": "claude-opus-5",
+  "source_sha256": "256117d71d1ae16f375e86df9e54e1d49cd9982f8297bf81944176d1630da44b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-village-that-is-not-where-it-stands",
+  "field": "title",
+  "lang": "ko",
+  "text": "서 있는 자리에 없는 마을",
+  "model": "claude-opus-5",
+  "source_sha256": "7516d430cc947051f5fb0d3f149fe473c2d4ba376aac7f9e167226fb11bc4fe4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-villain-is-the-bond-m-already-disowned",
+  "field": "title",
+  "lang": "ko",
+  "text": "악당은 M이 버린 또 하나의 본드",
+  "model": "claude-opus-5",
+  "source_sha256": "47c3882459d9b84409415fcf7600eb81a7d067e4db03993e3aa0af2499f25c72"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-villain-who-did-the-math",
+  "field": "title",
+  "lang": "ko",
+  "text": "계산을 끝낸 악당",
+  "model": "claude-opus-5",
+  "source_sha256": "5e4079df5cf4f250e1d235e5c2a42b3030e13717aecff35f0d9e47fdc5b719f1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-villain-who-hijacked-the-script",
+  "field": "title",
+  "lang": "ko",
+  "text": "각본을 가로챈 악당",
+  "model": "claude-opus-5",
+  "source_sha256": "11f7a95076cffe3797c71ac667198954c0aaf5a1ad387765f18af818a83e288f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-villain-who-manipulates-from-behind",
+  "field": "title",
+  "lang": "ko",
+  "text": "등 뒤에서 실을 당기는 악당",
+  "model": "claude-opus-5",
+  "source_sha256": "6f692d503614ac8098a9915b517824fd28be13c9155d2b3bed7a16b91957cf2a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-villain-who-refuses-his-origin-story",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 기원 서사를 거부한 악당",
+  "model": "claude-opus-5",
+  "source_sha256": "11f7cfd0373115f4bc036b74ee7ed9fada2a6ab5db44fd58bc9101f82bb99e77"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-viral-feed-made-flesh",
+  "field": "title",
+  "lang": "ko",
+  "text": "살덩이가 된 바이럴 피드",
+  "model": "claude-opus-5",
+  "source_sha256": "a6556d092a5beb6fd31f0a70f4abd10887947294d1ccc34d19a2f4f788452932"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-virtue-that-refuses-its-own-reward",
+  "field": "title",
+  "lang": "ko",
+  "text": "보상을 마다하는 미덕",
+  "model": "claude-opus-5",
+  "source_sha256": "a65e0d9258d230b1216364efca7894cf2bd63fec9b3784ddb6bd08061c727ccd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-virtuoso-who-maims-what-she-mentors",
+  "field": "title",
+  "lang": "ko",
+  "text": "제자를 망가뜨리는 거장",
+  "model": "claude-opus-5",
+  "source_sha256": "cfb23c399c18fbdc4bae7b469c38b19923fe9ef8262575fc58161c8f5877129c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-virtuoso-who-refuses-the-applause",
+  "field": "title",
+  "lang": "ko",
+  "text": "박수를 마다하는 거장",
+  "model": "claude-opus-5",
+  "source_sha256": "9d9d300b119bc9d866f86d378ffa7cd5df50491fad45553d42ce93a76d44e889"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-visible-artifice-the-director-refused-to-hide",
+  "field": "title",
+  "lang": "ko",
+  "text": "감독이 끝내 감추지 않은 인공(artifice)",
+  "model": "claude-opus-5",
+  "source_sha256": "df0dec567341b2e5d2515c010e6a29a558bf1e800f6ac5631d7805755650e2c1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-visible-lie-of-the-clean-kill",
+  "field": "title",
+  "lang": "ko",
+  "text": "깨끗한 죽음이라는 빤한 거짓말",
+  "model": "claude-opus-5",
+  "source_sha256": "0a8b741f6c734d7bcb5f8712669403910c8ee6cabdcdf4c892bd9ff8da833b69"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-visitant-sublime-pierces-a-disenchanted-world",
+  "field": "title",
+  "lang": "ko",
+  "text": "탈마법의 세계를 꿰뚫는 방문자의 숭고(崇高)",
+  "model": "claude-opus-5",
+  "source_sha256": "71175bce918c8dd798dc19274cd4363378235fe7d82e34a498b0c3dc537baf93"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-as-disavowed-origin",
+  "field": "title",
+  "lang": "ko",
+  "text": "부인당한 기원, 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "283cfb05f0448a718857a528bcf91dd2753b8340c235bf3c5d5311bbcb8d59a7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-as-migrant-s-confiscated-asset",
+  "field": "title",
+  "lang": "ko",
+  "text": "이주민에게서 몰수한 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "621e269e599d02eb705ce612772be3d23345aedbd7421a96a745c286fac63acc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-as-the-film-s-buried-speaker",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화가 묻어둔 화자, 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "d4bdb6880381e4c1aff4a3684088d2ef2dd43f59c305ad49ccbffa6c5677a379"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-bleached-white-to-survive",
+  "field": "title",
+  "lang": "ko",
+  "text": "살아남으려 백인으로 표백한 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "06e30a1d5d3f28c4c74ec635c3ba5528bd37abe3a4c634862fd354fe7b07d027"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-borrowed-from-the-other",
+  "field": "title",
+  "lang": "ko",
+  "text": "타자에게 빌린 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "4a4f1d73d20843303abe9845c00bd5f5f9785cc6b6ba534af6af053c53b369b6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-granted-to-the-refused-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "내쳐진 자에게 건네진 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "574ac4ff404b5b8bbf35757614ea3523e6dcb58cc2c243c57f8ba704ea8d0474"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-is-the-true-monster",
+  "field": "title",
+  "lang": "ko",
+  "text": "진짜 괴물은 목소리다",
+  "model": "claude-opus-5",
+  "source_sha256": "7b778de49be0d5f9f6721287bcfa11d1dd416646c29f3152e290d3f799a487f3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-over-forged-against-the-film-s-time",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화의 시간을 거슬러 벼린 보이스오버",
+  "model": "claude-opus-5",
+  "source_sha256": "fcb4c82c6dd82c3b4aac004c42f0cb07199b6a8620b0e3dc10b0bf4f27397c20"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-over-that-overrules-the-image",
+  "field": "title",
+  "lang": "ko",
+  "text": "이미지를 기각하는 보이스오버",
+  "model": "claude-opus-5",
+  "source_sha256": "51fb26e8c3d344ac5403cec0bf9d7eb6fdd649cacd75e891641e817fa2b66726"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-severed-from-its-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸에서 잘려 나온 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "61af40236493609fb33fee9168771cbde5926709e2848bee57ae5eda0863b9bb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-stolen-to-keep-the-star",
+  "field": "title",
+  "lang": "ko",
+  "text": "스타를 살리려 훔친 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "fd60dc65a573db38958fd6f09950fa55a7a479667ae52fdd5a5d918061ed7583"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-that-betrays-its-image",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 얼굴을 배반하는 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "75e39f3ec33d5759f8c4c8f8271253b61272997c1efb3ead873aa75d95b32bfb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-that-can-only-quote",
+  "field": "title",
+  "lang": "ko",
+  "text": "인용밖에 못 하는 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "5abbc5ec5f675cd166d34f03cd0c453472962cacb85dacb526c506bde5d904ed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-that-cannot-hide-what-it-feels",
+  "field": "title",
+  "lang": "ko",
+  "text": "감정을 못 숨기는 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "ad131e681219d7859a411856f5c976b24396ea77d9a45f986d191810a03e41b6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-that-has-not-yet-arrived",
+  "field": "title",
+  "lang": "ko",
+  "text": "아직 당도하지 않은 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "a1adb4c032fc6a7ff3038169c5b33ab5f138361ca29d1eb175bbc4ee698fd0cc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-that-judges-from-within",
+  "field": "title",
+  "lang": "ko",
+  "text": "안쪽에서 판결을 내리는 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "7106672ed270637e55cd991f24bfc0c02bf1d2ffbb835eb8b4b7afb305038013"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-that-narrates-from-beyond-its-grave",
+  "field": "title",
+  "lang": "ko",
+  "text": "무덤 저편에서 들려오는 서술",
+  "model": "claude-opus-5",
+  "source_sha256": "de0bd427cecae6a19791a6a5942f812d6c5173325ce78157f4da32ff533510b9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-that-outlives-its-owner",
+  "field": "title",
+  "lang": "ko",
+  "text": "주인보다 오래 남는 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "83bc75f96537c0d893f151e821eb969b9ca18c1afc6635c5af9e484377ac755c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-that-outlives-its-singer",
+  "field": "title",
+  "lang": "ko",
+  "text": "가수가 떠난 뒤에도 남는 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "6dbaae219787844f7370f472dd1312e1967fe0217190df80cf3049cb50e32f3b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-that-outlives-the-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸이 스러진 뒤의 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "0c92fd4ed56a7605c191a41037b71e0e925f1e02abd7aa9489ad341ed7c0d8c2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-that-severed-from-its-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 몸과 끊어진 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "a8e9c738de2414fe86576fdc8a16904e15bf80d94717f542ad4578edefb87d31"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-that-speaks-from-the-dead",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽은 자 쪽에서 건너오는 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "70d20e7ea183d5fc2e576b098263433320198c2166cfb09e01154d2291bdb565"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-that-speaks-without-a-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸 없이 말하는 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "3b28d2657b48ff940c1aa74bc9edac40ea937620510b13734e0bc2b0fe01d0a9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-traded-for-belonging",
+  "field": "title",
+  "lang": "ko",
+  "text": "소속과 바꾼 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "d30dd96ea6c325c4da61cb5129270925a65fa1c6c80e6a93904c9c9f98737cd9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-you-cannot-trust",
+  "field": "title",
+  "lang": "ko",
+  "text": "믿어선 안 될 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "08ad8c58bdf454060a70179b69b5555f54779128a2bfe53b5c1a8ee2918b470c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voiceless-heroine-cast-as-a-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "목소리를 잃고 몸으로만 캐스팅된 여주인공",
+  "model": "claude-opus-5",
+  "source_sha256": "5b5f3b96f8bca78cd798ee9a031725c1286c0fbca0930b7086d3c87df356d7bd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-void-as-named-annihilation-of-possibility",
+  "field": "title",
+  "lang": "ko",
+  "text": "이름을 얻은 공허, 가능성의 절멸",
+  "model": "claude-opus-5",
+  "source_sha256": "7778e79225754a91aba8f8444319ffbb1c00959e657263df6d47896e9fcc3de1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-volcanic-island-as-exhausted-earth",
+  "field": "title",
+  "lang": "ko",
+  "text": "다 타버린 대지, 화산섬",
+  "model": "claude-opus-5",
+  "source_sha256": "c5bd1f68f26cacae8dec9ee4c91a853ddbed22f98aee8c7c776e43d610b870be"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wager-made-without-proof-as-faith",
+  "field": "title",
+  "lang": "ko",
+  "text": "증명 없이 거는 내기, 그것이 믿음",
+  "model": "claude-opus-5",
+  "source_sha256": "1dda0f93bcb1e274f8209dde045e1e000af66dde31774975f2b45beb4a011ec8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wager-staked-on-a-soul",
+  "field": "title",
+  "lang": "ko",
+  "text": "영혼을 판돈으로 건 내기",
+  "model": "claude-opus-5",
+  "source_sha256": "59ff446b41b822d7da7b2fa47ee31643c8486716198afc9d3c752822a2ef2c2a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wager-to-show-the-beast",
+  "field": "title",
+  "lang": "ko",
+  "text": "괴수를 끝내 보여주겠다는 도박",
+  "model": "claude-opus-5",
+  "source_sha256": "e51ce34a1c54ec8fe11707198799131b19db4721e70f81e2d6194501941a698b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wagnerian-bride-who-welcomes-annihilation",
+  "field": "title",
+  "lang": "ko",
+  "text": "파멸을 반겨 맞는 바그너의 신부",
+  "model": "claude-opus-5",
+  "source_sha256": "1c97e8f36abde57c106f24c70e5c807fca7b0baefaa873ae246b34cab9ab8fd5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-walk-toward-death-as-sovereign-drive",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽음을 향해 걷는 걸음, 주권적 충동",
+  "model": "claude-opus-5",
+  "source_sha256": "47602860fb15e71fb02451b708a2f334c7068ff2c05d4259280585d0f45092da"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-walkout-as-the-film-completing-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "관객이 자리를 뜰 때 완성되는 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "24b4ef0b748832ee3cf6d3022593d2e18f88a35279178d480bfba3ed98fce042"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wall-as-border-regime",
+  "field": "title",
+  "lang": "ko",
+  "text": "국경 체제가 된 장벽",
+  "model": "claude-opus-5",
+  "source_sha256": "c1eab7d288f0bb46d52b331d8e90de1cc199d0ebfb384f80277e622472723f4d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wall-as-the-skin-of-comfort",
+  "field": "title",
+  "lang": "ko",
+  "text": "안락의 살갗, 벽",
+  "model": "claude-opus-5",
+  "source_sha256": "f44ce37823f44ae42c4356bf3bfcd7b539eb7b74b28932e98c5dd10d02b9da2d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wall-falling-in-reverse",
+  "field": "title",
+  "lang": "ko",
+  "text": "거꾸로 무너지는 벽",
+  "model": "claude-opus-5",
+  "source_sha256": "b80643227a221daae3ede6427efaf4047ad43c55e0b92a5f8e9c9ac5517cab3b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wall-hidden-in-the-name",
+  "field": "title",
+  "lang": "ko",
+  "text": "이름 속에 숨은 벽",
+  "model": "claude-opus-5",
+  "source_sha256": "f98312f13237b2648ca345ec0e985c882014cceffd6748f7a28e28ee81b63ca2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-war-america-cannot-speak",
+  "field": "title",
+  "lang": "ko",
+  "text": "미국이 입에 올리지 못하는 전쟁",
+  "model": "claude-opus-5",
+  "source_sha256": "5a6c6013df09db8f7ccd51befd65ac3272abde477546d8face17d924c4270444"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-war-as-continuation-by-other-means",
+  "field": "title",
+  "lang": "ko",
+  "text": "다른 수단으로 이어가는 전쟁",
+  "model": "claude-opus-5",
+  "source_sha256": "a560bc648f9528ac08e1627f8c54db9bf38c4b5bb7fc2bbf3ffaf1c02d2857b5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-war-conscience-painted-into-anime",
+  "field": "title",
+  "lang": "ko",
+  "text": "애니메이션에 그려 넣은 전쟁의 양심",
+  "model": "claude-opus-5",
+  "source_sha256": "6cdaecb7f92e65b81b1f447ed4dbe9ca2c88aed472a03333dec08cd8eb5f6ca7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-war-film-emptied-of-its-war",
+  "field": "title",
+  "lang": "ko",
+  "text": "전쟁이 빠져나간 전쟁 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "91c1d9df391e5da2f07f79ff5a92cc237deb461f122b5d7398720eb27c290dcf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-war-fought-at-a-remote-console",
+  "field": "title",
+  "lang": "ko",
+  "text": "원격 콘솔에서 치르는 전쟁",
+  "model": "claude-opus-5",
+  "source_sha256": "ec2c3fc16704a195a3997a750e38d75690b285cc619ab83e8d2458d39e43e270"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-war-he-carried-home-inside-him",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸 안에 담아 돌아온 전쟁",
+  "model": "claude-opus-5",
+  "source_sha256": "ed496aeefdb1335a5f4025df3242bceb9559c1e5e29545cf031dbda3a3f97985"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-war-pushed-off-screen-is-the-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "화면 밖으로 밀려난 전쟁이 곧 주제",
+  "model": "claude-opus-5",
+  "source_sha256": "6cf381d7e81bb568d2d433c646a943b0a36eac79e9d8f4f4250653cd468a2bfe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-war-s-atrocity-survives-as-music",
+  "field": "title",
+  "lang": "ko",
+  "text": "음악으로 살아남은 전쟁의 참상",
+  "model": "claude-opus-5",
+  "source_sha256": "125249b6fd02c602431b1cea2b411e0581114cb7c9177db49d5431bfceb8c512"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-war-that-cannot-be-named",
+  "field": "title",
+  "lang": "ko",
+  "text": "이름을 붙일 수 없는 전쟁",
+  "model": "claude-opus-5",
+  "source_sha256": "d908f5ba46b6b297de1156f5310818ec3817bb6944a36cfe58adf0e8f9058277"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-war-that-outlives-its-own-purpose",
+  "field": "title",
+  "lang": "ko",
+  "text": "목적이 ���라진 뒤에도 계속되는 전쟁",
+  "model": "claude-opus-5",
+  "source_sha256": "09867f4978dde9ec62132c9301262aff2a2a5a32899ba4381994f50f619bc6b4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-war-whose-country-is-never-shown",
+  "field": "title",
+  "lang": "ko",
+  "text": "나라를 끝내 보여주지 않는 전쟁",
+  "model": "claude-opus-5",
+  "source_sha256": "41489be2ec8a84b0c38031e920000c43bce9446749f16af4abae478b907a68f2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-war-wound-that-cannot-be-absolved",
+  "field": "title",
+  "lang": "ko",
+  "text": "용서받을 길 없는 전쟁의 상처",
+  "model": "claude-opus-5",
+  "source_sha256": "cc4d102dab0f7137e994ce5f258d26c8dbc6d4afa167426c0114e31981f195a6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wardrobe-as-colonized-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "식민화된 자아가 걸린 옷장",
+  "model": "claude-opus-5",
+  "source_sha256": "f462100d7c1684021e826f70cd2fc9078067c2530999487dc3d86d81ef1f50e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-warning-disguised-as-delight",
+  "field": "title",
+  "lang": "ko",
+  "text": "즐거움으로 위장한 경고",
+  "model": "claude-opus-5",
+  "source_sha256": "5abf31613f7a75e684920d6fcfdfe6ea55ab73093fe77e5386603d8e7585ade0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-warrior-who-cannot-lay-down-arms",
+  "field": "title",
+  "lang": "ko",
+  "text": "칼을 내려놓지 못하는 전사",
+  "model": "claude-opus-5",
+  "source_sha256": "9c85be55887e2e50ddd61824f031dcc4d132c0e5e39b51b813385d2fbe998603"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wartime-broadcast-that-commands-nothing",
+  "field": "title",
+  "lang": "ko",
+  "text": "아무도 움직이지 못하는 전시 방송",
+  "model": "claude-opus-5",
+  "source_sha256": "9abf291d272688f6456d8ed9d92194c779c22cbdebd22f0d883cfabd75f9f7eb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-washed-out-image-as-dictatorship-forensics",
+  "field": "title",
+  "lang": "ko",
+  "text": "빛바랜 화면으로 읽는 독재의 검시",
+  "model": "claude-opus-5",
+  "source_sha256": "00cd898522cb31d601b55de3652595ed038691061e5a1525d01bcf8a8850205a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wasteland-as-a-productive-engine",
+  "field": "title",
+  "lang": "ko",
+  "text": "생산을 돌리는 황무지",
+  "model": "claude-opus-5",
+  "source_sha256": "733fd675144b0fa6726489a604452c9f2d04756cff3cd4cbc8c6825494ec7ccf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wasteland-stitched-from-two-lands",
+  "field": "title",
+  "lang": "ko",
+  "text": "두 땅을 기워 만든 황무지",
+  "model": "claude-opus-5",
+  "source_sha256": "bceb1470bb98cbd5fd482b686509d378bc6e73c8009fcd45c74696fea9598aab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-watch-as-stolen-time-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "훔친 시간 그 자체인 손목시계",
+  "model": "claude-opus-5",
+  "source_sha256": "94811ed08a2d11ed3fc73cef7127704aca7f62be81ddfac45dc561d3b8e0c953"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-watcher-bound-to-the-looking",
+  "field": "title",
+  "lang": "ko",
+  "text": "보는 일에 묶여버린 감시자",
+  "model": "claude-opus-5",
+  "source_sha256": "8747115539b4e8ce2ebb4c2a0fb78356ac9488bd0fc04b2ce5d377dad15b0855"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-watcher-trapped-inside-her-own-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 짠 화면에 갇힌 관찰자",
+  "model": "claude-opus-5",
+  "source_sha256": "61f5e2af9a4bc21cb234ed70b90faee6ac6f26630e42b80eff35427a6eada4db"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-watcher-who-authors-the-watched",
+  "field": "title",
+  "lang": "ko",
+  "text": "보는 자가 보이는 자를 써 내려간다",
+  "model": "claude-opus-5",
+  "source_sha256": "92d97071565c7feae7afd73c9509e631ed6d60b41a74c003fd293e3c7ae15d69"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-watcher-who-is-himself-the-watched",
+  "field": "title",
+  "lang": "ko",
+  "text": "보는 자가 곧 보이는 자",
+  "model": "claude-opus-5",
+  "source_sha256": "548d49f3b292b80eb5aab935491e3b515da99bdfd1dcb496cce96b3cb3a4661d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-watcher-who-lives-the-life-he-cannot-have",
+  "field": "title",
+  "lang": "ko",
+  "text": "가질 수 없는 삶을 대신 사는 관찰자",
+  "model": "claude-opus-5",
+  "source_sha256": "d7654f755886fb4372e1b35eaea133fabc14f5f3b3625dd45639853a03f7bb79"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-water-that-judges-the-village",
+  "field": "title",
+  "lang": "ko",
+  "text": "마을을 심판하는 물",
+  "model": "claude-opus-5",
+  "source_sha256": "e4180b4dfe2e01c6f504018ca42256300755d84acd3ec019a48f13d72f6426a3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-water-that-keeps-reclaiming-the-drowned",
+  "field": "title",
+  "lang": "ko",
+  "text": "빠져 죽은 자를 거듭 데려가는 물",
+  "model": "claude-opus-5",
+  "source_sha256": "1e882c6228486b8ce698d3e76ad9d241868c3c6d0bfc0f2f005e8876a26b50ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-water-that-refuses-to-be-sublime",
+  "field": "title",
+  "lang": "ko",
+  "text": "숭고해지기를 마다하는 물",
+  "model": "claude-opus-5",
+  "source_sha256": "592b0abbd5b5ec6d9b7f6b637c746815796e8830c2ab62458109c898a9f294e7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-water-that-refuses-to-reflect",
+  "field": "title",
+  "lang": "ko",
+  "text": "아무것도 비추지 않는 물",
+  "model": "claude-opus-5",
+  "source_sha256": "88e18db87c18de843af584e8279ae40fd1c7bd3abda52a044772a10087d9f641"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-watergate-stain-on-every-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "프레임마다 배어든 워터게이트",
+  "model": "claude-opus-5",
+  "source_sha256": "5821f99550a8bc3d8aa20088f2b02156740d95bca24c49892bfd1c1a9e5351e4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wave-as-the-unsurvivable-real",
+  "field": "title",
+  "lang": "ko",
+  "text": "살아남을 수 없는 실재, 파도",
+  "model": "claude-opus-5",
+  "source_sha256": "ce5701b04aeb54a6445d04b62a2f7185e661c4ad95f85d55298e62d38a34fe51"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-weapon-as-failing-phallus",
+  "field": "title",
+  "lang": "ko",
+  "text": "무기, 실패하는 남근(phallus)",
+  "model": "claude-opus-5",
+  "source_sha256": "46a06c5635dd6d36535daa41a55badef36d632d84fee772e911599b309ee1d1c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-weapon-forged-from-powerlessness",
+  "field": "title",
+  "lang": "ko",
+  "text": "무력함으로 벼려낸 무기",
+  "model": "claude-opus-5",
+  "source_sha256": "ba7824016c7ea64304341ced9785a9ac958ccb947995eea08f751f37118262cd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-weapon-that-begs-to-be-unmade",
+  "field": "title",
+  "lang": "ko",
+  "text": "부서지기를 청하는 무기",
+  "model": "claude-opus-5",
+  "source_sha256": "db2983d7df9bcb662e674890055a83e682bfa46015e215dfbfea7a840e793a84"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-weaver-caught-in-his-own-web",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 친 거미줄에 걸린 자",
+  "model": "claude-opus-5",
+  "source_sha256": "6e589ce817f7def335926b6004508b6fd0a3c4282253e3e51876c0f722c03ed6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-web-that-is-only-severed-contiguity",
+  "field": "title",
+  "lang": "ko",
+  "text": "끊긴 이웃 관계일 뿐인 그물",
+  "model": "claude-opus-5",
+  "source_sha256": "39782ffca9d3e984cc8e26af9ee948c5f15badb09f00d20ed8be2dbde03f01ac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-welcome-that-was-a-trap",
+  "field": "title",
+  "lang": "ko",
+  "text": "덫이었던 환대",
+  "model": "claude-opus-5",
+  "source_sha256": "f1ff3c0e73be33abb260890d9d22744083fe60e3c1e297afdd1a037b881ab729"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-welfare-state-audits-its-own-promise",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 약속을 감사하는 복지국가",
+  "model": "claude-opus-5",
+  "source_sha256": "d824fc58db4d7a1e76e83f22e53da1a4647a539ec9062feb529959f02445e540"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-welfare-suburb-as-frozen-crypt",
+  "field": "title",
+  "lang": "ko",
+  "text": "얼어붙은 납골당이 된 복지 교외",
+  "model": "claude-opus-5",
+  "source_sha256": "81ddcdb050b8192114c0962c860f72638557291ef87a526f2c0650333ed37905"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-well-as-the-threshold-of-recognition",
+  "field": "title",
+  "lang": "ko",
+  "text": "알아봄이 시작되는 문턱, 우물",
+  "model": "claude-opus-5",
+  "source_sha256": "8776ae48453ff48f8d91e2a70eb0f78e6caadfc17957f95709ea6e10d3a62ab1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-west-anoints-india-as-its-antidote",
+  "field": "title",
+  "lang": "ko",
+  "text": "서구가 인도를 제 해독제로 삼다",
+  "model": "claude-opus-5",
+  "source_sha256": "aed54d2ccb44f559240fa3e96fe94562ba6450d6ab9722ea9d913a79559469bc"
+ }
+]

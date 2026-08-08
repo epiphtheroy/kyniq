@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1967년부터 1970년까지 뮌헨 영화텔레비전대학(HFF München)에서 공부했다. 그 학교의 창립 세대다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bb8db2c8844ada7ce6e4347192b9c60070d3b587f7af1f8d6543b06c301dd8af"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Filmkritik》과 《쥐트도이체 차이퉁》에 비평을 썼다. 음반과 영화를 함께 다뤘고, 미국 로큰롤을 향한 젊은 날의 열정은 이후 그의 작품 전체에 스며든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5c5fa1f22d6a0d258e774f9a2669bdb745e797e59a4ade904f4e8aa6852fc968"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1971년 뮌헨에서 라이너 베르너 파스빈더를 비롯한 젊은 감독들과 함께 Filmverlag der Autoren을 세웠다. 자기 영화를 직접 제작하고 배급하기 위한 공동체였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2bdeb9cc232c92f92094b28e75adaaf4c3328802ba6212737e48922e1728de03"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미국을 향한 애정이 워낙 강해서, 그의 영화에는 폴라로이드와 주크박스, 다이너와 끝없는 도로가 강박처럼 되풀이된다. 훗날 그는 이 미감을 두고 '독일인 무의식이 미국에 식민화된 것'이라 불렀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "49244a4939d4fd9efc12b54930ae96740c6b712f9e2074ca7c51d63640b0c600"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "페터 한트케의 중편을 옮겨 《페널티킥 앞에 선 골키퍼의 불안》(1972)을 만들었다. 오스트리아 작가 한트케와의 평생에 걸친 창작 동행이 여기서 시작된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f2e4f91398fdedd6ac45dd316894f92215451861e378d59040ac026d2f7ea79"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《시간이 흐르면》(1976)은 완성된 각본 없이 찍은 영화나 다름없다. 동서독 국경을 따라 이동하며 전날 밤에 다음 장면을 썼다. 즉흥으로 떠난 진짜 여행이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "56f2ece081de8b1128c99bbd3efbbc4b13aa0647cfb261bff45fc0811c98acce"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "샘 셰퍼드와 함께 쓴 1984년작 《파리, 텍사스》는 칸에서 황금종려상을 받았다. 라이 쿠더의 슬라이드 기타 선율이 영화 전체를 떠돈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a9b44933ef652a3beec862d28883f30dbbf4af76ab2c14c8691c7bb8e44bcc49"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《파리, 텍사스》의 주연 해리 딘 스탠턴은 수십 년 단역 생활 끝에 벤더스가 자기 경력에서 유일한 진짜 주연을 주었다고 말했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7859c7baf8d9265c3efcf98540c1cb31626f1f2d3a463e3c4acd1b2edec68eac"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미국이라는 꿈은 《해멋》(1982)의 난항 속에서 무너졌다. 프랜시스 포드 코폴라의 조에트로프와 함께한 이 영화는 완성에 몇 해가 걸렸고 대부분 다시 촬영됐다. 할리우드에 대한 그의 마음도 그때 식었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8a3ee3a6597a4f586f9ac1a1a175365687d63d7e33d1e589fc1e59e92bb7ba9b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "코폴라와 스튜디오 시스템을 상대로 벌인 그 쓰디쓴 싸움을 그는 자전적인 영화 《사물의 상태》(1982)에 그대로 옮겼다. 그리고 그 영화로 베네치아에서 황금사자상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "727b3b93504e6ccc3fc10f2bb505b855b50ab092f0a22c5676188e25f7037f70"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《베를린 천사의 시》(1987)에서 다시 페터 한트케와 손잡았다. 천사들의 시적인 독백은 한트케가 썼다. 분단된 베를린은 눈부신 흑백으로 찍혔다가, 어느 순간 색을 얻는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d2c53e74af1c6236210156b79bf9b2b98f4499d12a046bfa0a53e418ce0c37c1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《베를린 천사의 시》에서 늙은 이야기꾼을 연기한 배우는 쿠르트 보이스, 나치 독일을 피해 망명한 유대인이다. 영화는 오즈 야스지로와 프랑수아 트뤼포를 비롯한 영화감독들에게 헌정됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd9e630794979b073cc8dd2af835dfb378a0e0588dd6397d1652dfe4db26629d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "일본 감독 오즈 야스지로를 향한 그의 경외는 도쿄행으로 이어졌다. 다큐멘터리 《도쿄가》(1985)는 오즈의 영화 속에 있던, 이제는 사라진 세계를 찾아 헤매는 기록이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e724c0ecd66b4eebfd1187c96705c34dca086d054792563d8e3d093d4e012022"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《이 세상 끝까지》(1991)를 위해 네 개 대륙 열다섯 개 도시에서 촬영했다. 그가 처음 만든 감독판은 다섯 시간에 가깝다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aa56fe4f7ef8351644c07406ac15c4550d74a7c40109a186d69fa1c24247a8de"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "쿠바 음악가들을 담은 《부에나 비스타 소셜 클럽》(1999)은 아카데미상 후보에 올랐고, 이브라힘 페레르와 콤파이 세군도 같은 노장들의 경력을 되살렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4eccbd4f98e42ad2f67d4330fdbd178c0162891af673896758834240d8910513"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "대형 포맷을 다루는 진지한 사진가이기도 하다. 미국 서부와 아르메니아, 호주의 황량한 풍경을 담은 사진들은 주요 미술관에 걸렸고 『Written in the West』 같은 책으로 묶였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "75332745b18af190838891081ce39811054bd486ee27838a543dd339dd8f5c28"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "안무가 피나 바우슈를 다룬 3D 다큐멘터리 《피나》(2011)를 만들었다. 2009년 그가 갑작스레 세상을 떠난 뒤 완성해, 그 기억에 바쳤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fee8391fcb1dedc541f183912ffb052621af4babe3ccb9bdbb7c8c47dd31d07e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#23",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《피나》로 아카데미상 후보에 올랐고, 사진가 세바스치앙 살가두를 다룬 다큐멘터리 《제네시스: 세상의 소금》(2014)으로 또 한 번 후보에 올랐다. 칸에서도 상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9ce5ed75b0a124d9a30cb009ea235dbf326c01b0467e2fd0b0b6df9ea9c54744"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#24",
+  "field": "fact",
+  "lang": "ko",
+  "text": "독실한 개신교 신자이며 자기 신앙을 공공연히 이야기해왔다. 작가주의(auteurism) 감독들 사이에서는 드문 태도다. 로드무비에서 영적인 탐색이 얼마나 중요한지 언급한 적도 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5f0d5c0dc79bc16abec983e02001116ff8448f744798cfa9718df142d75f0a30"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#25",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2015년 고국에서 열린 베를린 국제영화제에서 평생 공로를 기려 명예 황금곰상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "09058ce9d27631ca8545327f93b78ba4b28961496c064cc91b1cd5a1ec0e2bf7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#26",
+  "field": "fact",
+  "lang": "ko",
+  "text": "유럽영화아카데미 회장을 여러 차례 지냈다. 베를린을 거점 삼아 범유럽 영화를 밀어붙였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bd6fff45ed85c1869f0886d1e632d9a0c40efe120d9b506acfa0973ac355eb0c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#27",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2023년작 《퍼펙트 데이즈》는 도쿄에서 찍었다. 야쿠쇼 고지가 연기한 공중화장실 청소부의 이야기로, 그를 일본으로, 그리고 오즈의 정신으로 되돌려놓았다. 야쿠쇼는 이 영화로 칸 남우주연상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fddf6cfbb9c054aac7908bad65c8bf2ec5c931b7953af4e3baf861c450676002"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#28",
+  "field": "fact",
+  "lang": "ko",
+  "text": "다섯 번 결혼했다. 아내 중에는 독일 배우이자 가수 로니 블레이클리가 있고, 1993년부터는 사진가 도나타 벤더스와 함께한다. 도나타는 그의 작업에 자주 참여한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "86d308fa0393599d4a78a8a9e96f7abf6ef32ccc5f426821d3c74a1ba95537b1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#29",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자기 영화는 이야기를 들려주는 일이 아니라 보고 바라보는 일에 관한 것이라고 말한 적이 있다. 스튜디오보다 실제 장소를 오래도록 선호해왔고, 풍경 자체를 하나의 인물처럼 다룬다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d22688ddfa46029555bb4492679dbb41551185194632ec29b827361a220b079e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders#30",
+  "field": "fact",
+  "lang": "ko",
+  "text": "음악에 깊이 빠진 사람답게 U2의 공연 영상과 뮤직비디오를 연출했다. 밴드와의 협업에는 그의 믿음이 배어 있다. 알맞은 노래 한 곡이 장면 하나를 통째로 떠받칠 수 있다는 믿음.",
+  "model": "claude-opus-5",
+  "source_sha256": "d0a2d5de7615b31f3c9a4b1e7ce5da0a6f1072c1506ac653c3b4fee7da251e6c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wong-kar-wai#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "상하이에서 태어나 다섯 살에 부모를 따라 홍콩으로 건너갔다. 그런데 중국 국경이 돌연 닫혔다. 위의 두 형제는 그대로 남겨졌고, 가족과 십 년을 떨어져 지냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7e3c663fbe5fd33f8b714e3cd40a4f8b15044796ce90d052e8b5d4cba19060e9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wong-kar-wai#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "홍콩에 도착했을 때 그는 광둥어를 하지 못했다. 어머니와 함께 극장에서 오후를 보내며 할리우드 영화와 만다린 영화를 봤다. 번역이 필요 없는 것들이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "092b070cefe97b50bdc48c90e89f3e1d8858fb2bbce9f6f4ac01e84e1d789d3e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wong-kar-wai#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "홍콩 폴리테크닉에서 그래픽 디자인을 전공했다. 그 시절 로버트 프랭크, 리처드 애버던, 앙리 카르티에브레송의 사진에 빠져들었고, 훗날 그의 영상 스타일은 여기에 깊이 빚진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5622f94e106bbf3f112f563215f10a2220ae2e51d5a0c809a5a967e036c7ee53"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wong-kar-wai#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "공식 석상에서 짙은 선글라스를 벗은 모습은 좀처럼 보기 어렵다. 처음엔 촬영장의 강한 조명을 견디려고 쓰기 시작한 것이었다. 지금은 스스로 '안전 담요'라 부른다. 생각할 시간을 벌어주고 감정을 가려주기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "054309429a97a4c3349847e068bb6b5ac540627462b3172d8bef47028fbdf84d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wong-kar-wai#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "완성된 각본 없이 영화를 찍는 것으로 유명하다. 대사는 현장에서 쓴다. 카메라가 돌기 직전, 어리둥절한 배우들에게 그날의 대사가 건네진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "17435c18df4313eaaca3095601c0da10cb6b9a46ecd75a7a54a71e289bac73c8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wong-kar-wai#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1994년의 사랑받는 걸작 《중경삼림》은 스물사흘 만에 정신없이 찍어낸 영화다. 지지부진하게 늘어지던 무협 대작 《동사서독》의 편집을 두 달간 쉬는 사이에 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c8f5c4874a7406ff0315dfdf3e3957f42656a45b523bcbad3627015271f47ad"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wong-kar-wai#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미국 감독 쿠엔틴 타란티노는 《중경삼림》을 처음 보고 압도된 나머지 눈물을 흘렸다. 이후 자기 레이블 롤링 선더 픽처스를 통해 1996년 미국 개봉을 직접 밀어붙였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "86461e2f95f7b921af6c0e7efbd1efd2d098a8d33d064506295549b69f78717a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wong-kar-wai#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "음악으로 촬영의 속도를 정하는 일이 잦다. 마마스 앤드 파파스의 「California Dreamin'」을 현장에 계속 틀어두어 스태프들이 영화의 정확한 리듬을 몸에 새기게 한 일화가 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "16fc009ca05d509bdcc459089d8ebc5ab0dcda915912382c3645396058522db6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wong-kar-wai#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1997년 《해피 투게더》로 칸 영화제 감독상을 받았다. 중국어권 감독으로는 역사상 처음이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "983925fdb395162598684965b7e0f3d398374f18750b8e8f66d089108e159243"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wong-kar-wai#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《화양연화》의 숨 막히는 1960년대 공기, 마작 판, 몸에 꼭 맞는 치파오. 홍콩 상하이 이주민 사회에서 보낸 자신의 어린 시절 기억을 대거 끌어다 쓴 결과다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ad56c0ac1049fedf07b196d1e37e5659b1dc75f354c69a546258913a2bb7d72"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wong-kar-wai#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "밀도 높은 즉흥 작업 방식은 결국 이십 년에 걸친 전설적 동행을 갈라놓았다. 호주 촬영감독 크리스토퍼 도일은 오 년이나 끌며 어수선했던 《2046》 촬영의 고통을 공개적으로 토로했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "46144d4992069ef14fd9d6ea98990dadb292ff94fd46998c24f9d818732de923"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wong-kar-wai#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아내이자 오랜 제작 파트너인 에스더 찬과는 1980년대 초 둘 다 방송 일을 하던 시절에 만났다. 그의 첫 레이밴 선글라스도 그녀가 사준 것이라고 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e509f857472e54cf8cc48b624c742853395713df4094ce575815370f8042bde8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wong-kar-wai#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2006년에는 칸 영화제 심사위원장을 맡아 또 한 번 기록을 세웠다. 그 자리에 오른 최초의 중국인이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "39104076f2cb93f49a77a339009e5faf49f60048b1565b0ec707100a38af7bba"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wong-kar-wai#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "예술영화 작가라는 이름표가 무색하게, 2001년 BMW를 위해 단편 액션 《더 팔로우》를 연출했다. 클라이브 오언과 미키 루크, 포레스트 휘터커가 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "46f10268adf2a1ec8d300807c154eda3e8fab1c2162b6f3f2c7aede3a62d10b4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wong-kar-wai#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2007년 첫 영어 장편 《마이 블루베리 나이츠》를 내놨다. 그래미를 받은 가수 노라 존스가 이 영화로 연기에 데뷔했고, 주드 로와 내털리 포트먼이 함께 출연했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d7c5613f6d7868efa3ce0d4984b4e06a08f6d8d87bb05c83d291c3308be2e2c"
+ }
+]

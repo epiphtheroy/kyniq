@@ -1,0 +1,272 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brady-corbet",
+  "field": "intro",
+  "lang": "ko",
+  "text": "환멸에 찬 아역 배우였던 브래디 코베이는 현대 영화에서 가장 사납게 야심적인 작가 중 한 명이 되었다. 연기 경력은 그에게 유럽 영화학교였다. 그 학교를 거쳐 그는 《Vox Lux》와 《브루탈리스트》 같은, 타협을 모르는 셀룰로이드 서사시를 찍는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "583ca6d799a55a3083a705dd20a72ab2f72062b8d8c993278ec8bfc005ef7e81"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brian-de-palma",
+  "field": "intro",
+  "lang": "ko",
+  "text": "브라이언 드 팔마는 서스펜스의 장인이자 화려한 시각의 연출가다. 뉴 할리우드에서 출발해 히치콕적 관음(voyeurism), 분할화면의 기교, 오페라 같은 폭력으로 논쟁적인 경력을 쌓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f394f23e10bf14977c1050e57e6c59c14db993faf2d5a9332a1f8cd40b6e29c4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "carl-theodor-dreyer",
+  "field": "intro",
+  "lang": "ko",
+  "text": "칼 테오도르 드레이어는 초기 영화의 거대한 이름이다. 사랑 없이 상처만 남은 유년을 그는 엄격하고 영적으로 고통스러운 걸작으로 바꿔놓았다. 완벽주의는 폭군에 가까웠다. 끝내 만들지 못한 예수 영화를 수십 년간 붙들다 갑작스레 세상을 떠났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "da8d35926486aefb51f47988067f159d8c302c2eaf2d41a1f1a981499ff8db47"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "celine-sciamma",
+  "field": "intro",
+  "lang": "ko",
+  "text": "셀린 시아마는 영화 속 '여성의 응시(gaze)'를 다시 정의한 프랑스 감독이다. 파리 교외에서 출발해 소녀 시절과 퀴어한 욕망, 여자들이 감춰둔 속내를 집요하게 관찰하고 지극히 가깝게 그려낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "745d7c3957caff28b9dad372e1e7bc573699eade39bd7504ea00b0dc1f605a9b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chad-stahelski",
+  "field": "intro",
+  "lang": "ko",
+  "text": "채드 스타헬스키는 정상급 슛파이터였고 키아누 리브스의 스턴트 대역이었다. 그리고 할리우드 액션을 뒤집어놓은 감독이 되었다. 홍콩식 무술 안무에 고전 신화를 섞어, 《존 윅》 시리즈로 현대 블록버스터의 문법을 새로 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bb390c93de1d553903c7ff23017d0298c4ab9fe7f58bab7cc12122b54af8af54"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "chris-columbus",
+  "field": "intro",
+  "lang": "ko",
+  "text": "현대 가족 블록버스터의 장인. 크리스 콜럼버스는 오하이오 노동계급 출신이라는 뿌리와 어린 시절의 불안을 세대를 규정하는 흥행작으로 바꿨다. 각본가로, 감독으로, 제작자로 그는 《그렘린》과 《나 홀로 집에》와 《해리 포터》의 풍경을 빚었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "572fc41968fae30a79ca590a34a040f3dac07ba7674b04d21e70b49cf4fe8e0d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christian-petzold",
+  "field": "intro",
+  "lang": "ko",
+  "text": "베를린 학파의 선두에 선 크리스티안 페촐트는 유령과 역사의 상처, 붙들리지 않는 정체성을 정밀한 화면 안에 담는다. 동독을 떠나온 부모의 경험이 그를 깊이 물들였다. 고전 장르의 관습을 가져다 갈라진 오늘의 독일 풍경 위에 능란하게 옮겨놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0beaa09ff20cda7bd30c78682d2296f6ea407a90d18b6f99462d6766f8c692df"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-mcquarrie",
+  "field": "intro",
+  "lang": "ko",
+  "text": "크리스토퍼 매쿼리는 아카데미상을 받은 미국의 각본가이자 감독이다. 십 년간 연출에서 밀려나 있다가 톰 크루즈와 공생에 가까운 창작 관계를 맺었고, 오늘날 《미션 임파서블》 시리즈를 설계하는 사람이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4886394b78332f4fb990b75063f171b2b51eb6f4f6bbb49d27060350eedf960c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-nolan",
+  "field": "intro",
+  "lang": "ko",
+  "text": "셀룰로이드와 실사 특수효과를 옹호해온 크리스토퍼 놀란은 머리를 쓰게 만드는 비선형 이야기를 거대 스튜디오 예산과 결합시켜 현대 블록버스터를 다시 정의했다. 타협 없는 그 시야에서 21세기의 가장 호평받고 가장 많이 팔린 스펙터클들이 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b11e8cb692630a0ee744aed476640d9ee2e2395db8c1ecc80118342f8f7966c8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "claire-denis",
+  "field": "intro",
+  "lang": "ko",
+  "text": "클레르 드니는 촉각적이고 생략이 많은 영화로 식민의 역사와 주변부, 그리고 몸을 탐구해온 프랑스의 작가다. 식민지 아프리카에서 자란 그는 지리적·정서적 어긋남이 일으키는 마찰을 감각 그 자체의 경험으로 옮겨놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "15af624e7f80f7b5cbcbac8e281a32386a2c332d72e76e35ba105f4d67651d2e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "clint-eastwood",
+  "field": "intro",
+  "lang": "ko",
+  "text": "미국식 안티히어로를 다시 정의한 배우, 클린트 이스트우드는 오스카를 받은 감독이 되었다. 군더더기 없고 꾸미지 않는 연출로 이름났다. 일흔 해에 걸친 경력을 관통하는 것은 완강한 독립성과 재즈 작곡, 그리고 전설이 된 '한 테이크' 방식이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "11532a4aab5566853f278c2dfdd9c98aa992714def2ef9a2c7ea354f235ad381"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "damien-chazelle",
+  "field": "intro",
+  "lang": "ko",
+  "text": "데이미언 셔젤은 오스카를 받은 미국의 감독이자 각본가다. 리듬이 밀고 가는 그의 영화는 운동에너지로 가득하며, 예술의 정점에 닿기 위해 치러야 하는 잔혹하고 집착적인 대가를 반복해서 묻는다. 무대는 대개 재즈이거나 고전 할리우드다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9517d7d1f370edab13bb93d5402b57c80b941360592a939dabc7d15ed6d36cb2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "danny-boyle",
+  "field": "intro",
+  "lang": "ko",
+  "text": "대니 보일은 시각적으로 대담하고 운동감이 넘치는 영국 감독이다. 연극과 BBC 텔레비전을 거쳐 1990년대 영화를 대표하는 목소리가 되었다. 고동치는 사운드트랙과 광기 어린 에너지로 알려졌고, 전혀 다른 장르들을 넘나들며 인간이 어디까지 버티는지를 본다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de777dd0358687ec396e71ec7c11d7bcd8d953066eb0581842bc9056734d3410"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "darren-aronofsky",
+  "field": "intro",
+  "lang": "ko",
+  "text": "대런 애러노프스키는 몸으로 먼저 와닿고 정신을 소진시키는 영화를 만드는 미국 감독이다. 초현실적 이미지와 집착하는 인물을 섞어, 완벽이나 중독이나 초월을 위해 인간이 감내하는 극단이 어디까지인지를 관객 앞에 들이민다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5cc44ee08c1d11a9c84390ac59985e3a121392a781e8405ce4273a434ec64b43"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "david-cronenberg",
+  "field": "intro",
+  "lang": "ko",
+  "text": "데이비드 크로넨버그는 '보디 호러'를 연 캐나다 감독이다. 생물학과 기술, 심리적 외상이 만나는 지점의 공포를 파고들었다. 그로테스크한 이미지 뒤에 있는 사람은 뜻밖에도 온화하고 깊이 사변적인 작가이며, 그는 토론토를 초현실의 풍경으로 바꿔놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b0544940084f7b09560e6eb71d3d90e522a0b24d6e603ab878c7b6591535479"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "david-fincher",
+  "field": "intro",
+  "lang": "ko",
+  "text": "데이비드 핀처는 병적인 완벽주의와 어두운 색조, 심리 스릴러로 알려진 미국 감독이다. 디지털 촬영과 정밀한 CGI의 개척자이기도 하다. 《세븐》, 《파이트 클럽》, 《소셜 네트워크》가 그의 손에서 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5eae5d75450c2b5eb276bed6ce351cd0be6727145f08ea22af30c9d2d4d3f357"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "david-lynch",
+  "field": "intro",
+  "lang": "ko",
+  "text": "'화성에서 온 지미 스튜어트'라 불린 데이비드 린치. 이글 스카우트 출신의 초현실주의자였다. 미국적인 것의 어두운 뒷면, 초월명상, 산업 소음의 질감에 사로잡힌 그의 집착이 현대의 영화와 텔레비전을 바꿔놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4044910dca9562d5cc794cba20a81280ae7800143a93e07b149151a51d95b80a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "david-yates",
+  "field": "intro",
+  "lang": "ko",
+  "text": "영국 감독 데이비드 예이츠는 거친 BBC 정치 드라마를 찍다가 《해리 포터》 시리즈의 후반부를 맡았다. 말수가 적고 목소리가 낮기로 유명한 사람이다. 마법 세계에서 가장 크게 성공한 이 블록버스터들에 그는 어둡고 심리적인 현실감을 불어넣었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b002ab4f4e38fb4e7b0de32dedfee66812c9de620276e72c566b901d45222cb4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "denis-villeneuve",
+  "field": "intro",
+  "lang": "ko",
+  "text": "드니 빌뇌브는 퀘벡 출신의 작가다. 작고 내밀한 독립영화에서 출발해, 사유하는 SF의 독보적 장인이 되었다. 브루탈리즘적 미학과 압도적 규모로 알려진 그는 타협하지 않는 영상의 시로 할리우드 블록버스터를 다시 정의했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "966d937de4977b00284b3e091391593bf9b76098ed469acde71e4b854d9d69e0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "derek-cianfrance",
+  "field": "intro",
+  "lang": "ko",
+  "text": "데릭 시안프랜스는 부서진 관계��� 날것 그대로, 극사실에 가깝게 그리는 미국 감독이다. 다큐멘터리와 픽션의 경계를 흐리며, 배우들을 실제에 가까운 환경 속으로 밀어 넣어 꾸며지지 않은 행동을 잡아내는 것으로 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e8446d6e425aa0b65be4e18255a75025e37f310580e56424da7cca570f81c744"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "douglas-sirk",
+  "field": "intro",
+  "lang": "ko",
+  "text": "할리우드 멜로드라마의 장인 더글러스 서크는 미국 자본주의와 부르주아의 순응을 향한 날 선 비판을 화려한 테크니컬러 최루극 안에 숨겨 들여왔다. 그것도 아주 잘 팔리는 영화에. 나치 독일을 떠나야 했던 그는 개인의 비극과 망명을 영화사상 가장 정교하게 양식화된 비극으로 바꿔놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e643778a4ca8b942ac7889089a472070f89a57dbebd507af9b397f7026030a0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edgar-wright",
+  "field": "intro",
+  "lang": "ko",
+  "text": "현대 영국 영화의 운동감을 지휘하는 에드거 라이트. 과잉 양식화된 편집, 백과사전 같은 대중문화 지식, 프레임 단위로 맞춘 사운드트랙이 그의 무기다. 그렇게 그는 장르 패러디를 애정 어린 헌사로, 눈이 휘둥그레지는 '미성숙의 찬가'로 끌어올린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ba6f3a57f38eacdbe2fa590ce31b492429cd17a352ba88a96541db54d51030a0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-berger",
+  "field": "intro",
+  "lang": "ko",
+  "text": "에드워드 버거는 스위스·오스트리아계 감독이다. 미국 독립영화계에서 출발해 유럽 영화의 중심 인물이 되었고, 《서부 전선 이상 없다》로 오스카를 여러 부문 휩쓸며 역사에 남을 성취를 이뤘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ceed4bb428a4a5aa8692414775d7e367e8b5998a102d1d58936ef010ebebbe6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "edward-yang",
+  "field": "intro",
+  "lang": "ko",
+  "text": "타이완 뉴웨이브를 연 에드워드 양은 엔지니어에서 작가로 건너온 사람이다. 급속히 근대화하는 타이베이를 해부했다. 건축가 같은 정확함과 광대한 이야기 구조로 이름났고, 도시의 소외와 기억, 세대 간의 충돌을 촘촘한 직물처럼 짜냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9fc6bf3b5dc9a734cb2232c94579faa7c515af630ea86bbce77946849d19809"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-kazan",
+  "field": "intro",
+  "lang": "ko",
+  "text": "엘리아 카잔은 메소드의 심리적 사실주의를 제도로 정착시키며 미국 연기를 바꿔놓았다. 걸작을 연출했고 말런 브랜도와 제임스 딘을 세상에 내놓았다. 그럼에도 그의 이름은 1952년 반미활동조사위원회(HUAC) 앞에서 동료들의 이름을 댄 그날 이후 영영 갈라져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "501531cf6d8c5dd837babc001eec5d9e4836188645f579d60939adeabad3caf3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "elia-suleiman",
+  "field": "intro",
+  "lang": "ko",
+  "text": "엘리아 술레이만은 팔레스타인 감독이다. 표정 없는 얼굴로 스크린에 서는 키턴풍의 페르소나로 알려졌다. 정체성과 망명, 점령 아래 삶의 부조리를 비극이자 희극으로 다루며, 대개 자기 자신이 말없이 지켜보는 목격자로 출연한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eaf16da8d0ea2e992f4820974e2a53d4caeb3910671c4d6592fd3404e702fd8d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "eric-rohmer",
+  "field": "intro",
+  "lang": "ko",
+  "text": "에릭 로메르는 사생활을 철저히 감췄고, 검소했고, 보수적인 가톨릭 신자였다. 누벨바그의 아버지뻘 되는 그 사람. 문학적이고 대사가 이끄는 독특한 영화로 그는 현대 프랑스 청춘의 연애적 자기기만과 도덕적 모순, 그리고 그들이 딛고 선 실제 장소들을 집요하게 지도로 그렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ef63372a16dcbfe912c9a491b8d1518509c5f64432829b7379194ab80f2cabcf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ernst-lubitsch",
+  "field": "intro",
+  "lang": "ko",
+  "text": "에른스트 루비치는 독일 태생으로 할리우드 세련된 코미디를 완성한 사람이다. 우아하고 넌지시 암시하는 그의 화법은 '루비치 터치'라는 이름으로 세계가 우러르는 양식이 되었다. 무성영화 배우로 시작해 고전 할리우드에서 가장 영향력 있고 가장 많이 모방된 감독이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb188b27c8542244a353dd970c6c3be47ef0228b730f01eb66dc4e4c39951721"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "f-w-murnau",
+  "field": "intro",
+  "lang": "ko",
+  "text": "독일 표현주의의 거인 F. W. 무르나우는 카메라를 다루는 새로운 방법과 잊히지 않는 영상의 시로 영화를 바꿔놓았다. 생은 안타깝게 짧았다. 그러나 그 분위기의 걸작들이 현대 호러와 심리 드라마의 기본 문법을 놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9f589e9872a76daf0d771874ef42802c2877e8af140f7cacfd42847383527fbc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "federico-fellini",
+  "field": "intro",
+  "lang": "ko",
+  "text": "이탈리아 영화의 위대한 환영술사. 페데리코 펠리니는 네오리얼리즘 각본가에서 출발해 초현실적이고 자전적인 꿈의 세계를 짓는 사람이 되었다. 서커스와 오컬트, 인간의 그로테스크에 사로잡힌 그는 자기 안에서 뒤틀린 기억을 누구나 알아보는 환각의 언어로 바꿔놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e2cdbeaba0dd645bc4c2397285175fecaaebceee74ea43128f88152741e135d1"
+ }
+]

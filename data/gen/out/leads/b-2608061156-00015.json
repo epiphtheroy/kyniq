@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "chidambaram-1984",
+  "field": "lead",
+  "film_id": "1849d7af-d4d9-4f58-947f-6f2e9a1ab2c3",
+  "lang": "en",
+  "text": "A short story hands a film almost nothing to work with: a situation, two or three people, and no room to explain them. Chidambaram takes one by the Malayalam writer C. V. Shriraman and keeps that thinness across 103 minutes, following an attraction between a man and a woman and the betrayal that opens out of it. Shriraman's story survives the transfer because the film does not try to fill it in. Govindan Aravindan directs at a scale where a glance has to carry what plot carries elsewhere, and where guilt is not pronounced but accumulated. The film works by symbol, which in practice means the images do the arguing while the talk stays clear of them. What it is finally about is the interval between an act and the full knowledge of it, and what people do with the time inside that interval.",
+  "model": "claude-opus-5",
+  "source_sha256": "193a471257a562d5f39c966d0b923c2a76f7c0e75e4ab6a1087bdc8692c5e235"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "trotta-1971",
+  "field": "lead",
+  "film_id": "5725b112-7b16-4308-9cfb-53553af703bf",
+  "lang": "en",
+  "text": "The uniform still fits; the state that issued it has been rearranged past recognition. Franz Ferdinand Trotta, a young KuK officer, comes back to Vienna from imprisonment in Russia to find that defeat has redistributed everything he used to stand on. The fortune is gone. His wife has attached herself to a Hungarian artist. The city runs on a new order of things with no obvious slot for him in it, and the film's business is his effort to be reinstated in a world that no longer keeps the ledger his name was written in. Johannes Schaaf shot it in 1971 at 95 minutes, which keeps the humiliation domestic rather than epic: rooms, calls, arrangements, the daily arithmetic of finding out what a name is worth now. Vienna here is a set of doors, some of which used to open.",
+  "model": "claude-opus-5",
+  "source_sha256": "af26c43d9e32c9955bf3eaa866f506f582ecd90ea5cfe3b0510708294c1327a0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "marie-louise-1945",
+  "field": "lead",
+  "film_id": "b3d0928c-9e8a-4be6-9d46-de50e553b3f1",
+  "lang": "en",
+  "text": "Switzerland made this in 1945, about a French child who becomes reluctant to go home. Marie-Louise is evacuated across the border when her country is overrun, breaks down under it, and is taken in by a wealthy family whose kindness turns into a complication: warm rooms, full meals, and the sense that all of it could simply continue while her mother is somewhere else. Leopold Lindtberg keeps the scale domestic and lets 99 minutes rest on what a household owes a guest and what it may ask back. What the film presses on is a child's disloyalty — the guilt of preferring safety, and of preferring it in a house that is not hers. The screenplay took the Academy Award for original writing, and the case for that sits in the smallest exchanges rather than the largest.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae18285347348290f1f461508d61dbf687e6b02d9432696372e6a80a91cd56d8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "begging-for-love-1998",
+  "field": "lead",
+  "film_id": "ed02bc7e-77ec-4c17-8fd0-ea048482fd16",
+  "lang": "en",
+  "text": "The errand is a grave in Taiwan; what the errand disturbs is the rest of the film. Begging for Love follows a woman looking for her father's burial place, and the looking keeps handing back a childhood she had reason to leave sealed: the beatings, and the ordinary days arranged around them. Hideyuki Hirayama takes 135 minutes and makes the length do the work, so that nothing arrives as a single confession; it comes in pieces, in the intervals of travel and paperwork. Two time frames run against each other, one administrative and geographic, the other domestic and airless. Japan put it forward for the Academy Awards, a decision about which family story a country will send abroad. The steadiness of the telling is what makes it watchable: cruelty filmed as household routine, on the level of meals and errands.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f45c55cf96eb4287da8f7a256217baeaf8d28c7b9fb04aed664b1b6fb179fb3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-incident-1978",
+  "field": "lead",
+  "film_id": "244ffaa4-206b-4c1d-aadf-d8bcc15aca21",
+  "lang": "en",
+  "text": "The body in the forest belongs to a woman of twenty-three; the man charged is nineteen and works in the shipyards; the film goes to court and stays there. The Incident gives most of its 138 minutes to testimony, where the facts keep acquiring context nobody asked for and the shape of one night shifts with each person describing it. Yoshitarō Nomura films a trial as a slow machine and respects the slowness — the interest is procedural, and it holds. Class does steady work throughout: a young manual labourer's account of himself is not weighed the way other accounts are. Ueda Hiroshi is nineteen, and the apparatus deciding what his life will be is older, slower and far more articulate than he is.",
+  "model": "claude-opus-5",
+  "source_sha256": "47d1e4ec132e19ac0ae9b31e4ec23b988955e592609f1c86f8e7e03b02a5d240"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "half-a-confession-2004",
+  "field": "lead",
+  "film_id": "d1cac126-4e80-4ec0-9186-777def596de1",
+  "lang": "en",
+  "text": "A confession is supposed to close a case, and this one leaves a two-day hole in the middle of itself. A retired detective walks into police headquarters and says he killed his wife, who had asked him to during the illness that followed their son's death, and the account would be tidy except for the forty-eight hours between the killing and his arrival at the desk, which he will not explain. Half a Confession spends its 121 minutes with the officers who have to decide how hard to press a former colleague while their superiors want the file closed and the press kept out. Kiyoshi Sasabe opens in the grammar of a thriller and then changes register, and the pressure that remains is institutional: careers, appearances, a department's preference for a story that fits on one page.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f91ac381aa5c562b5302fdfd1cf607d1803f5f8b2ea088bd7566a9c0fc3950c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "damul-1983",
+  "field": "lead",
+  "film_id": "0511e44e-a9b4-49b3-a9f2-835e8b6c3670",
+  "lang": "en",
+  "text": "A landlord tells a man to steal, and the man is in no position to refuse. Damul runs on that single fact: a labourer held by debt, an owner who can put that debt to use the way he would use any other asset, and a village where the terms are common knowledge. Prakash Jha made it in 1983, 106 minutes, and treats bondage as an accounting system rather than a misfortune — who owes, who collects, who gets sent out after dark so the figures come right. The hierarchy is not the background; it is the transmission the story runs through. India's National Film Awards named it Best Feature Film, which put an official stamp on an unofficial economy. What it keeps returning to is that the labourer's decisions are made somewhere else, by people whose names he knows.",
+  "model": "claude-opus-5",
+  "source_sha256": "9613be46851bb43cab190c66b25c0509cd7fe9075d721948663d7d8ca51a3d22"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "if-i-were-for-real-1981",
+  "field": "lead",
+  "film_id": "2f0aa2fa-1e37-43c8-a3c8-f153db4fcd86",
+  "lang": "en",
+  "text": "The students in this one are rehearsing Gogol, and the play they have chosen is The Inspector General. If I Were for Real, made in 1981 and set during the Cultural Revolution, works outward from that rehearsal: young people acting out an authority they do not hold, in years that were destroying people their age. Wang Tung keeps it to 99 minutes, which is not long enough to build a case against a decade, and he does not try; the film stays with the students and what the period asks of them. The pressure is on the young in particular, who had the least protection when the political weather turned and the most reason to want a part that would raise them out of the place assigned to them.",
+  "model": "claude-opus-5",
+  "source_sha256": "2c005e789577e8a8dec77f9e0c95a11ab333c9059960f24d0c7e63d996f43fc9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "coo-coo-043-2022",
+  "field": "lead",
+  "film_id": "e918ca04-6511-4cfd-be1a-61093313fb2b",
+  "lang": "en",
+  "text": "Seven years after it vanished, a racing pigeon comes back, and its return is not good news. The family has been keeping a truce since their son went missing, and the bird lands in the middle of it; then the daughter brings a street boy into the house, and the arrangement they had made with silence stops working. Coo-Coo 043 runs 135 minutes, long for a story with this few moving parts, and the length is where it lives: the same rooms, the same absence, the birds fed and counted and waited for in the half-light. Chan Ching-lin films the racing as work rather than as metaphor and lets the grief move through the routine without anyone naming it. What the household has to decide is whether the thing that comes back is the thing that left.",
+  "model": "claude-opus-5",
+  "source_sha256": "784d1b4d7eca693d0dfbbb7e382bf733d01d35444978c6cc7b01ab3241107155"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-bread-of-those-early-years-1962",
+  "field": "lead",
+  "film_id": "6c1d2fcf-75f8-4f18-85ac-bf0e574ad10e",
+  "lang": "en",
+  "text": "A job, an engagement to the boss's daughter, a future already drafted and initialled. The Bread of Those Early Years takes that arrangement and lets one meeting with a woman from childhood pull the thread: an electrical engineer who has been climbing carefully finds the climb unbearable, and acts well before he has an argument for acting. Herbert Vesely made it in Germany in 1962, 84 minutes, and the compression is the point — there is no room to talk him into it or out of it, only the break and the day it falls on. It took the German Film Award for cinematography, which is the right prize for a film whose real content is surface: faces, rooms, the look of new prosperity examined from a few inches below.",
+  "model": "claude-opus-5",
+  "source_sha256": "1521ab90e6543bec64e8b0e0b26274caf8333b2787c3566807207d974411a08e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "man-of-the-story-1994",
+  "field": "lead",
+  "film_id": "b9fe99d9-9685-4cd5-843e-877f728513c1",
+  "lang": "en",
+  "text": "The counting starts in 1937, before independence, and does not stop. Man of the Story tracks what the decades of political and social change did as they went through India, and solves the problem of scale by refusing the panorama: one life, its rooms and its quarrels, with the national arriving as something that happens to a particular person on a particular day. Adoor Gopalakrishnan works in Malayalam at 107 minutes, which for this material is close to austerity — the decades handled at the size of a household. The intimacy is the argument. History reaches most people the way it reaches this film, as news about someone they know, and the difference between an era and a life is mostly a matter of who is standing close enough to be hurt by it.",
+  "model": "claude-opus-5",
+  "source_sha256": "1060074c69853559e086b2f330a122570888ca94ba7033eb085bce9b6197ea08"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mirza-ghalib-1953",
+  "field": "lead",
+  "film_id": "d2dc066c-aa56-464d-8f82-2005cc7cb238",
+  "lang": "en",
+  "text": "The poet is a real man, the emperor is the last of his line, and the woman is known by the name he gave her: Chaudhvin. Mirza Ghalib fictionalises a life inside a court that is running down, and arranges 145 minutes around an attachment with nowhere safe to sit — a courtesan, a nobleman who writes, and an affection that neither position can absorb. Sohrab Modi directs it as period romance with an economic question inside: what verse is worth when the household paying for it is contracting. The songs carry what dialogue carries in other films, which is the sensible arrangement for work written to be said aloud. A court where a poem still functions as currency is also a court about to change currencies, and the film knows it.",
+  "model": "claude-opus-5",
+  "source_sha256": "4aa64cb9615d3c29c6371151486ed8366e01871d032d3dbc38a65716969172d8"
+ }
+]

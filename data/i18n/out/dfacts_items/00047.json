@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kie-lowski#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "연극학교를 그만둔 뒤 그를 기다린 건 의무 군복무였다. 키에슬로프스키는 어떻게든 이를 피하려고 스스로 굶었고, 정신분열증 연기를 성공시켜 병역 면제를 받아냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f8beae904d1839d62cc50b6f395478ccebe73fd6a9dd93e81bf10343046edea"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kie-lowski#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "바르샤바 다큐멘터리 영화 스튜디오에서 연출을 시작한 초기, 그의 카메라는 노동자와 군인과 관료의 평범한 일상에 붙어 있었다. 공산 폴란드의 민낯을 그대로 담으려는 시도였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "52e5a1a29ee73e5c385da9c209c69a79208500c12a84ad023fd4bee5667e8a8b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kie-lowski#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "경력의 방향이 꺾인 건 1980년이다. 경찰이 다큐멘터리 《Station》의 미편집 필름을 압수해 갔다. 바르샤바 중앙역 사물함 절도 사건의 연루자를 찾아낼 증거로 쓰겠다는 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4384fe29c72a5c3133684371e9bfede629325e242c91e4db6ef6b2b89d5e6ed4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kie-lowski#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자기 카메라가 국가의 감시와 기소 도구로 쓰일 수 있다는 사실에 그는 경악했다. 이후 다큐멘터리를 영영 접고 극영화로만 갔다. 거기서는 실존하는 사람을 위험에 빠뜨리지 않고도 이야기를 그가 쥘 수 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "505c28c51e2d6e7a86838bd225fea41b79bd866f873f35f0b37d5dc6e4c911f7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kie-lowski#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "논픽션 영화의 윤리적 한계를 그는 자주 입에 올렸다. 사랑을 나누거나 우는 일처럼 인간의 가장 내밀한 순간은 닫힌 문 뒤에서 벌어진다는 것. 다큐멘터리 감독에게 남는 선택지는 둘뿐이다. 침입하거나, 카메라를 멈추거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "573d340755d34eefffe136ca441dc2805b900dc4652ee58a8919828b5ca3d075"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kie-lowski#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "계엄령이 폴란드를 짓누르던 1982년, 그는 크시슈토프 피에시에비치를 만난다. 탄압받는 자유노조 활동가들을 변호하던 형사 전문 변호사였다. 각본을 써본 적이 한 번도 없는 사람이었지만, 그는 평생의 공동 집필자가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f689991224180501d6a74753d15bfa6c992946bed8e6396c21250f945ae160b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kie-lowski#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Dekalog》의 화면이 편마다 달라 보이도록 키에슬로프스키는 촬영감독을 아홉 명 따로 썼다. 두 편을 맡은 건 피오트르 소보친스키뿐. 조명과 카메라 세팅은 전적으로 그들 손에 맡겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b87342b1539de6618ee8ff28b5309a373aabff42df3ea6750a17e468927fb087"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kie-lowski#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "국제 예술영화계의 스타가 되고서도 그는 영화판의 허세를 깊이 경멸했다. 목수로 살았다면 훨씬 행복했을 거라고, 입버릇처럼 말하곤 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "024b96e1b0b59a1086d26eaa02c619b2a3bfd6b6d3ab550f85b26dcf456a1beb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kie-lowski#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "악명 높은 골초였다. 프랑스에서 돈을 벌고 심혈관 건강이 급격히 무너진 뒤에도 독한 폴란드 담배를 줄담배로 물었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d816258947e0b44707b6a39b935c315f842d933070a46deef3191271f007cf1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kie-lowski#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1981년작 《Blind Chance》는 사소한 우연이 한 의대생의 정치적 운명을 어떻게 갈라놓는지를 좇는다. 폴란드 공산 정권은 이 영화를 위험하다고 판단했고, 1987년까지 상영을 막고 대폭 잘라냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "53b3eeb87ed893b1c41a4fe0bffc04400807dfaebd2a8f9a1481f2538a3d755a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kie-lowski#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《세 가지 색》 삼부작을 두고 그는 솔직하게 인정했다. 프랑스 혁명의 이념, 자유·평등·박애에는 실은 아무 관심도 없었다고. 지극히 사적인 이야기에 프랑스 자본을 끌어오기 위한 개념적 장치였을 뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e0b8edf69344ac6323b01bf72976e488c543f32b880f400ba2258de998ab3065"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kie-lowski#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "작곡가 즈비그니에프 프레이스네르와의 협업 방식은 독특했다. 촬영에 들어가기도 전에 악보를 먼저 받아두는 일이 잦았다. 음악의 리듬에 맞춰 동선을 짜고 화면을 찍기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "96ea0450b1a1d3178fb28fb075fd52bbba820dc734abff32157476e310f2c33e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kie-lowski#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "두 사람은 판 덴 부덴마이어라는 18세기 후반 네덜란드 작곡가를 아예 지어냈다. 실존하지 않는 인물이다. '재발견된' 그의 음악은 《Dekalog》과 《베로니카의 이중생활》, 《세 가지 색: 블루》를 가로지르며 둘만의 농담처럼 흘러나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c50f8ccc01eba05150470973a8c1c4541470167beb4b5d0d461ba82cd14c387d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kie-lowski#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "프랑스어도 영어도 거의 하지 못했다. 쥘리에트 비노슈나 이렌 자코브 같은 국제적 배우를 연출할 때 그가 기댄 것은 통역, 그리고 배우의 몸짓을 읽어내는 자기 직관이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a553b6dc9f85be9450411d07acea061077cc55cec59affa0ed67535a51832115"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kie-lowski#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1994년 칸영화제, 《세 가지 색: 레드》 상영 자리에서 눈에 띄게 지쳐 보이던 키에슬로프스키는 쉰둘의 나이에 영구 은퇴를 선언해 영화계를 뒤흔들었다. 그저 방에 앉아 담배나 피우고 싶다고 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "76ce8e59f70bcde04acfea3880870912da2f6b95238a27bb02d40103c80c46ae"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kie-lowski#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "은퇴를 공언해놓고도 그는 마지막 몇 달을 피에시에비치와 함께 새 삼부작 각본에 매달렸다. 단테 《신곡》에서 가져온 〈천국〉·〈지옥〉·〈연옥〉이다. 생전에는 영화가 되지 못했고, 훗날 톰 티크베어를 비롯한 다른 감독들의 손을 거쳤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "45dd80826c13b1312c3b08da11068f515007282f038c9f0b9a4468c42462b439"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kie-lowski#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1995년 여름에 심한 심장마비가 왔다. 그리고 몇 달 뒤인 1996년 3월, 바르샤바의 한 병원에서 개심 수술을 받다 세상을 떠났다. 스위스에서 조용한 휴가를 마치고 돌아온 지 며칠 만이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "18f7acea6711fb78dcbbc02518163e8acc60f024645341c9eb123cbfd1743769"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kie-lowski#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "동시대 감독을 칭찬하는 법이 없기로 유명했던 스탠리 큐브릭이 자기 원칙을 깼다. 출간된 《Dekalog》 각본집에 극찬의 서문을 써준 것이다. 내면의 삶을 극으로 만드는 키에슬로프스키와 피에시에비치의 능력에 견줄 자가 없다고 그는 적었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6f073335c4844a6393cf3908ebd301901bbf4c2b64aab5b75c801d16461bf0d8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kie-lowski#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《베로니카의 이중생활》 편집기에 그는 대안 편집본을 어찌나 많이 만들었던지, 결국 미국과 유럽 극장에 결말이 조금씩 다른 판본을 나눠 걸었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a369240d778c1719cdaf7a4376e7ece529528ec578751d087bba6504528421fa"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kieslowski#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1941년 바르샤바에서 태어난 키에슬로프스키의 유년은 이사의 연속이었다. 아버지 로만이 중증 결핵과 싸우는 동안 가족은 스트셰미에시체, 소코워프스코 같은 요양원 소재지를 떠돌았다. 아버지는 끝내 그 병으로 죽었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "612977e9588f61f744f4db7a7434baa1acc80ae4cbaf216eb2dd88966a7fb72e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kieslowski#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화로 가기 전 그는 소방관 양성 학교를 잠깐 다녔고, 이어 바르샤바 국립 연극기술학교에 들어갔다. 그렇게 공인 무대의상 재단사가 됐다. 이유는 단순했다. 친척이 그 학교 교육과정을 맡고 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5e9107a4f3b43676baad5441a8905dc3bb1cc629fec63cb9db44fd11d140c547"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kieslowski#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "타데우시 웜니츠키 같은 폴란드 무대의 대배우들 곁에서 의상 담당으로 일하며 그는 우치 국립영화학교의 문을 두드렸다. 두 번 떨어졌다. 합격은 1964년, 세 번째 시도에서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "077d6e2ebcc486680ebc610269b6cbb80c6dddba118dbd6c5a1a8de521a93931"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kieslowski#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "출발��은 다큐멘터리였다. 공산 폴란드의 시시한 현실을 담아내는 데 그는 진심이었다. 하지만 국가는 가만두지 않았다. 1971년작 《Workers 71》은 당국의 손에 대폭 검열되고 다시 편집됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b90055ad4f8c13e075f2561342e227940daccecc7bb68ab337b0464386ffa141"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kieslowski#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1980년 다큐멘터리 《Station》 촬영 직후가 결정적이었다. 경찰이 살인 사건의 우발적 증거가 담겼기를 기대하며 그의 필름을 압수해 간 것이다. 다큐멘터리가 국가 감시의 도구로 변할 수 있다는 사실을 그때 깨달았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3fc7493fa2bd8e0c3214fd5867647e9f94ee7c0ed01642107607a9c760664312"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kieslowski#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "진짜 인간의 내밀함을 침범하는 일이 불편했던 그는 다큐멘터리를 버리고 극영화로 완전히 넘어갔다. 자서전에 남긴 유명한 말이 있다. '진짜 눈물'이 두려웠다고. 실제 고통을 카메라에 담아 써먹고 싶지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e46af093cba304141c7441dab6d7e6ce86cc57148ce2d6bea836071d45856d3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kieslowski#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1982년, 폴란드 계엄령의 혹독한 시기에 그는 정치범을 변호하던 현직 변호사 크시슈토프 피에시에비치를 만난다. 유령 이야기 《끝없는》을 시작으로 두 사람은 평생 함께 각본을 썼다. 그 없이는 안 되는 사이가 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "75afefad165a8ddad3804c9451cbf74d426050e78798e5d3f5603678f4cbc5aa"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kieslowski#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "한 시간짜리 열 편으로 이뤄진 《Dekalog》이 편마다 다른 화면과 다른 감촉을 갖도록, 그는 일부러 촬영감독 아홉 명을 나눠 썼다. 두 편을 찍은 사람은 피오트르 소보친스키 한 명뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a7749e94b6c959868055ba17ebbe1748c3a7b9c4090d2cdccf2def56afb0aafc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kieslowski#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "한 남자가 기차를 잡으려 달리는 순간에서 세 갈래 시간선이 갈라지는 1981년작 《Blind Chance》. 폴란드 공산 정권은 이 영화를 정치적으로 위험하다고 보아 묶어두었고, 1987년까지 개봉을 금지했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "302b54c16a57e90217f6b18feae5528476f26bcbb839b2d76b1ed0d64e1186a9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kieslowski#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "작곡가 즈비그니에프 프레이스네르와 함께 그는 판 덴 부덴마이어라는 18세기 네덜란드 작곡가를 만들어냈다. 실재하지 않는 인물의 '재발견된' 음악이 《Dekalog》과 《베로니카의 이중생활》, 《세 가지 색: 블루》에서 이야기를 움직이는 결정적 장치로 되풀이된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b8e95370f9f2330bdc40848676845e49e43ca4b08aedb40847b38c3cb71ee18b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kieslowski#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "목공과 자동차 정비, 손수 고치는 일을 그는 평생 사랑했다. 결국 마주리 호수 지역의 낡고 허물어져 가는 시골집을 한 채 샀다. 영화판에서 달아나 몸으로 일하기 위한 집이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bc0c254726c769a3294793cc67bd92da1222c66b3a6902f8007dd37575a049c2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kieslowski#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1994년 칸영화제 《세 가지 색: 레드》 상영 자리에서 그는 돌연 연출에서 영구히 물러나겠다고 선언했다. 쉰둘. 세계 영화계가 충격에 빠졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "82388fee2a6182b14524eaca51e85ad436b665d4db46919f0b4d72e8d7dd88e5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kieslowski#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "은퇴했다고 말하며 장작이나 패던 나날. 그러나 갑작스러운 죽음이 찾아왔을 때 그는 피에시에비치와 새 삼부작을 한창 쓰고 있었다. 단테 《신곡》을 바탕에 둔 〈천국〉·〈지옥〉·〈연옥〉.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd7d2b2db56f2113e98e01d7c830b6163552aabbed7af8aa4c3c974bd1a3c0b0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kieslowski#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "쉰넷, 바르샤바에서 개심 수술 중 숨을 거뒀다. 은퇴 선언으로부터 겨우 2년, 아카데미 감독상과 각본상 후보에 오른 지는 불과 몇 달 뒤였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb0627dd2d4db08b32a361c23b60ab88a871b6cdf35ca352e7a5683476013c9c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kieslowski#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그의 영향력이 어디까지 갔는지는 남겨진 각본들이 말해준다. 영화가 되지 못했던 〈천국〉은 2002년 독일 감독 톰 티크베어가 연출했고, 〈지옥〉은 2005년 보스니아 감독 다니스 타노비치의 손에서 각색됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7360f93e9ba203e8725060d8b83f1106bbeaf3cfd00357bc5bbd70323f87cbef"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kieslowski#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "감정의 울림을 조절하기 위해 그는 극단적인 컬러 필터와 특정 조명 젤을 자주 끌어다 썼다. 가장 유명한 예가 촬영감독 스와보미르 이지아크와 함께한 《살인에 관한 짧은 필름》이다. 짙은 녹색 필터를 걸어 바르샤바를 병들고 숨 막히는 도시로 만들어버렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "40a5d800cf8279bbaccb0153716b4fde642a9217672ab117e85d1a11027a40aa"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kieslowski#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아내 마리아 카우티요를 만난 건 우치 영화학교 마지막 해였다. 두 사람은 그가 죽을 때까지 29년을 함께 살았고, 딸 마르타를 하나 두었다. 딸은 대중의 시선에서 되도록 멀리 떼어놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "562cf89927251ed10e6d9d6b5601433391102ddc1145a02ba6adb5cd7850341f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lana-wachowski#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1965년 시카고 비벌리 동네에서 로런스 워쇼스키라는 이름으로 태어났다. 아버지는 사업가였고, 어머니는 간호사이자 화가였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d8cc35b78983a40ddce44a4eb10e5dd86fc090f8aa966a66338d38a0025732e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lana-wachowski#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "휘트니 영 마그넷 고교 시절 그를 사로잡은 건 던전 앤 드래곤이었다. 이야기로 세계를 짓는 복잡한 작동 원리를 그 테이블탑 게임에서 배웠다고 그는 말한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "519c4ece3bfd48e44def5f1312358974aa16f2df85cc2126258a2501e9c96b2c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lana-wachowski#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "뉴욕 바드 칼리지는 중퇴했다. 수업보다 도서관에서 혼자 읽는 쪽이 더 많이 남는다는 걸 알아차렸기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4daec14d16bc65a0411501520e796cfff7f9743deaf066890d9842ff0024465a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lana-wachowski#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "할리우드에 발을 들이기 전, 라나와 동생 릴리는 시카고에서 목공·페인트칠 사업을 굴렸다. 그러면서 마블의 에픽 코믹스 임프린트를 통해 클라이브 바커의 《헬레이저》 만화 시리즈를 집필했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c510a38a4fdce92e510e07c488a61fa3e01fda17bd3594994e9bf60afb4c708"
+ }
+]

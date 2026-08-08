@@ -1,0 +1,22 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "smoke-thin-record",
+  "field": "lead",
+  "film_id": "00000000-0000-0000-0000-000000000001",
+  "lang": "en",
+  "text": "A man kills a preacher on an empty road in South Africa and then keeps driving toward the church that was expecting the dead man. The congregation is poor, rural, and has never seen the face of the minister it prayed for, which is the whole mechanism: an impostor can only be exposed by people who already know something. Marion Hänsel shoots it in Afrikaans, a Belgian production working in a language loaded with the country's own arrangements of power, and the choice does more than any speech could. What holds the first hour is not suspense about discovery but the slow cost of being trusted. The drifter is given a house, a pulpit, and an authority he did not want and cannot refuse without confessing. Every kindness the parish offers tightens the knot. Grace, here, is an accusation delivered gently.",
+  "model": "claude-opus-5",
+  "source_sha256": "smoke0001"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "smoke-rich-record",
+  "field": "lead",
+  "film_id": "00000000-0000-0000-0000-000000000002",
+  "lang": "en",
+  "text": "A spelling cost Ousmane Sembène eight years of silence in his own country. Ceddo was banned in Senegal over how its title was written, a dispute about orthography that was never about orthography, and the film it belongs to is just as unwilling to be softened. The commoners of a Wolof village refuse the imam's conversion and take the king's daughter as leverage; from there the arguing begins, and the arguing is the drama. Sembène gives the talk the tempo of ceremony rather than debate, which is why the critical shorthand about ritual patience holds. Two hours in Wolof, made in 1977, with Islam, Christianity and the traffic in human beings treated as arrivals from the same direction rather than separate chapters. Sight & Sound's African cinema list carries it; so does TSPDT's thousand. Watching it, the ban starts to look like a review.",
+  "model": "claude-opus-5",
+  "source_sha256": "smoke0002"
+ }
+]

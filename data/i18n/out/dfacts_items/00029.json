@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hou-hsiao-hsien#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "치매를 앓던 할머니는 늘 짐을 꾸렸다. 걸어서 중국 본토로 돌아가겠다는 것이었다. 섬 타이완에서는 불가능한 일이었고, 그 비극을 허우샤오셴은 훗날 자전적 걸작 《동동의 여름방학》이 아니라 《童年往事》—《A Time to Live, A Time to Die》에 새겨 넣었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4805e56e4b7ae81c5431a56967213b8f981bc618cb8ebcfcc60cd4cb9678eafd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hou-hsiao-hsien#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화계에 발을 들이기 전, 그는 타이베이에서 전자계산기 외판원으로 잠깐 일했다. 즐거운 시절은 아니었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "64c45b90be36850c5a260631a6eb77815faeb76609179fbef1c8bb7a85eb3779"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hou-hsiao-hsien#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "타이완 스튜디오 시스템에 들어간 것은 1973년, 스크립트 보이로서였다. 그가 붙은 감독은 국가 주도 장르 '건강 사실주의(健康寫實主義)'를 개척한 베테랑 리싱이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2862af26001d42cf793f9877a554efab8061f3a9556b9258cb043b92e9d37602"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hou-hsiao-hsien#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1982년, 지역 신문에서 주톈원의 단편을 읽고 각색을 제안하며 직접 연락한 일이 그의 경력을 갈랐다. 평생 이어진 각본 동반 관계는 여기서 시작됐고, 그의 필모그래피 전체를 규정했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6364f8200cd1525dd0af44c38c0e4b947cc80b262864c96a44bbd00e1ec38620"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hou-hsiao-hsien#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "에드워드 양의 1985년 뉴웨이브 대표작 《타이페이 스토리》에서는 직접 주연을 맡았다. 과거를 놓지 못하는 한물간 야구 선수 룽 역이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6faacdc0111b60ad6f788e8dc589ae73af45a91b4616303aa237fb05bf5ff9dc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hou-hsiao-hsien#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《타이페이 스토리》 촬영 도중 제작비가 완전히 바닥났다. 허우는 자기 타이베이 집을 저당 잡혀 300만 대만달러를 마련했고, 그 덕에 양은 촬영을 끝낼 수 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d875db5dfbd2452d5e5a48c6c0347c29e6dec44661c1531b58cdc442308cf86a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hou-hsiao-hsien#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "서구 비평가들은 그의 고정된 관찰자적 카메라를 일본의 거장 오즈 야스지로와 줄곧 견주었다. 정작 허우는 자기 스타일이 이미 완성된 뒤에야 오즈의 영화를 처음 보았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "196ea4bd7a375fd8f10ff54b44a290b6ed273e491ddd8ef8ee21c48d4560905a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hou-hsiao-hsien#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《비정성시》(1989)로 그는 2·28 사건을 정면으로 다룬 첫 영화감독이 되었다. 1947년 국민당 군이 타이완 민간인을 학살한 그 사건은 수십 년간 입에 올릴 수 없는 금기였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d25aef994428f757340f94f1467798f986890d858d58265f311150969b6fd20"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hou-hsiao-hsien#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《비정성시》가 베네치아 영화제 황금사자상을 받자, 그 국제적 명성의 무게에 눌린 타이완 정부는 정치적으로 논란이 된 이 영화를 한 컷도 자르지 못한 채 상영해야 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2c81bf467d178f4acd550443b723c5f2fcd67f64ac911a7d26f1e25cde083161"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hou-hsiao-hsien#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "서기는 그전까지 홍콩 삼급(Category III) 소프트코어 영화로 주로 알려진 배우였다. 허우는 그를 《밀레니엄 맘보》(2001) 주연으로 세워 경력을 끌어올렸고, 이후로도 거듭 자신의 뮤즈로 불러들였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1143948e42e1f450c1142e1e242f1810b0c062222f7aa5e242acc87338317c69"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hou-hsiao-hsien#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "어린 시절 그는 싸구려 무협 소설을 닥치는 대로 읽었다. 그 집착이 수십 년 뒤 칸 감독상을 안긴 무협 대작 《자객 섭은낭》(2015)으로 결실을 맺는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b7f353cc2a13d422f3797ba37d3862c87234cde1824868c0710c8c37475e4946"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hou-hsiao-hsien#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "프랑스 영화에 손을 댄 드문 예가 《빨간 풍선》(2007)이다. 오르세 미술관의 의뢰로 연출했고, 쥘리에트 비노슈가 주연을 맡았으며, 알베르 라모리스의 1956년 고전 단편에 바치는 헌사였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5c2de765cb8c05951b30ed84fde90acc379f6862819a805f05de163372af5856"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hou-hsiao-hsien#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2023년 10월, 가족이 그의 알츠하이머 진단과 은퇴를 공식 발표했다. 오래 준비해온 타이베이 물귀신 이야기 《Shulan River》는 끝내 찍히지 못한 영화로 남았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d4d286a9336bafdee003f8b4a15fe80776f435ae1de3ba3c3b71e9ffe83f6dfa"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "howard-hawks#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "코넬 대학에서 기계공학을 공부했다. 이 기술적 이력이 훗날 그의 영화가 보여준 정확하고 과시 없는 시각적 기하학의 바탕이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "54e5b453cf96fd34b3edfc23e1033040acdeb5fec810ecfb929287c74043f757"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "howard-hawks#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1차 대전 때 그는 미 육군 항공대에 복무했지만 전투를 겪은 적은 없다. 텍사스에 남아 비행 교관을 했을 뿐이다. 훗날 그는 공중전 무용담을 늘어놓으며 이 사실을 자주 덮었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "495091ee513ceb3728c5b01a09a0a2d023557e5a66d0edacb1c8d25eb6f90344"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "howard-hawks#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "동생 케네스 혹스도 감독이었다. 1930년 샌타모니카 만 상공에서 낙하산 스턴트를 촬영하다 끔찍한 공중 충돌로 목숨을 잃었다. 하워드는 이 참사를 공개적으로 입에 담은 적이 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aabfb21d25c92491f1b7f2e0e7ba329b6036a168adfe88e6e093673a2ce32e89"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "howard-hawks#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "일찍 센 은발과 속을 읽기 어려운 태도 탓에 할리우드에서는 그를 \"회색 여우\"라 불렀다. 흠잡을 데 없이 재단된 귀족풍 차림을 고수했고, 맞춤 트위드 정장을 입은 채 현장을 지휘하는 일이 잦았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a16432fed916c9127e06a515bc94adc9ff88126fb647c2644b88292ca8c7d5cf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "howard-hawks#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "갱스터 걸작 《스카페이스》(1932)의 폭력 수위를 두고 그는 헤이스 오피스와 길고 지독한 싸움을 벌였다. 폴 무니의 인물이 교수형당하는 대체 결말까지 찍었다. 그러고는 검열 기구가 느슨한 주에서 원래의 반항적인 결말 그대로 영화를 내걸었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "416d3ac4e861a091495e35db87fce155258bd9f6fbcd1c4da5fb2143b8b75bab"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "howard-hawks#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생 자동차 경주광이었던 그는 경주차 보우스 실 패스트 스페셜의 제작을 의뢰하고 설계에도 참여했다. 이 차로 드라이버 루이스 마이어는 1936년 인디애나폴리스 500에서 우승했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b4478cd8f958f7fc947e2553f165d79064b9be48e9803b92113138b1d4b6dcaa"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "howard-hawks#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "낚시 친구였던 어니스트 헤밍웨이에게 그는 유명한 내기를 걸었다. 당신의 최악의 소설로 훌륭한 영화를 만들어 보이겠다고. 그렇게 나온 것이 1944년 누아르 고전 《소유와 무소유》다.",
+  "model": "claude-opus-5",
+  "source_sha256": "73ef9ba4039e35dc00ab796ab33927b452ff5bb747116b919961d8e4d3d3165c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "howard-hawks#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "혹스는 윌리엄 포크너를 할리우드로 불러 각본을 쓰게 했다. 전설적인 일화가 여기서 나온다. \"집\"에서 작업해도 되겠냐고 물은 이 소설가는 로스앤젤레스 아파트가 아니라 미시시피주 옥스퍼드행 기차에 곧장 올라탔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "157a8c59dfb17e8a2f8755be474030885954d71eca8322c216fe2c68138a687c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "howard-hawks#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "첫 아내 애솔 시어러는 MGM 스타 노마 시어러의 동생이었다. 진단받지 못한 심각한 조울증을 앓았고, 종잡을 수 없는 행동은 결혼 생활을 깊이 갉아먹었다. 두 사람은 1940년에 갈라섰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "80ec695657a945cf909ead8a0b647860d7da51e172249ba8a0b5737525672f3d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "howard-hawks#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《연인 프라이데이》(1940)를 준비하던 중 그는 스크린 코미디의 판을 뒤집었다. 비서에게 희곡 《프런트 페이지》의 남성 인물 힐디 존슨의 대사를 읽혀본 것이다. 여자 입에서 나오니 대사가 훨씬 날카로웠다. 그는 곧바로 인물의 성별을 바꿔 로절린드 러셀에게 맡겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e7d6b632af42fd791e1fd6b83bfbe74859c14415ebfffd9eefd0b1c1771b307"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "howard-hawks#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "바콜의 나른하고 도발적인 스크린 페르소나는 혹스가 아내 슬림을 그대로 본떠 만든 것이다. 《소유와 무소유》 �� 바콜의 인물은 아예 \"슬림\"이라 불리고, 험프리 보가트를 부르는 호칭 \"스티브\"는 혹스 자신의 별명이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7666dda75265f98dffd8fc512e54d5aba5c28071061ddebe0fe519c970208e34"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "howard-hawks#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "바콜을 공들여 키우고 7년짜리 전속 계약까지 맺었지만, 그가 현장에서 험프리 보가트와 실제 연애를 시작하자 혹스는 지독한 질투에 사로잡혔다. 결국 계약 지분을 워너 브러더스에 넘겨 막대한 차익을 챙겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6b98a94938eb76ee0a24ee684d22c743f9344cbd678b1c2a284a1aba03c8683c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "howard-hawks#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스토리보드나 빈틈없는 사전 설계를 그는 자주 걷어찼다. 대신 매일 아침 현장에서 배우들과 둘러앉아 그날 찍을 장면을 고쳐 썼다. 즉흥적으로 살아나는 호흡을 붙잡기 위해 대본을 통째로 버리는 일도 흔했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d35aba1f9a98ffe6ebe1d1cdfff58bd6be7ca68ac76db13c66eff4ee2a7f4927"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "howard-hawks#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1948년 서부극 《레드 리버》에서 혹스가 존 웨인을 다루는 방식은 가혹하고도 능란했다. 완성작을 본 웨인의 오랜 스승 존 포드는 이렇게 내뱉었다고 전한다. \"저 덩치 큰 놈이 연기를 할 줄 알았다니!\"",
+  "model": "claude-opus-5",
+  "source_sha256": "0173ed93f598c822893d9cc18f6b14d3f940be72888134ff1861720725646bc1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "howard-hawks#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "난장판 같은 《베이비 길들이기》(1938)에서 캐리 그랜트가 코미디의 톤을 잡지 못하고 헤매자, 혹스는 무성영화 코미디언 해럴드 로이드를 참고하라고 일렀다. 미치광이들 사이에 홀로 멀쩡한 남자처럼 굴라는 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ddc411a1c9b570ad1dad15e3c3bf1a666051ed44fdbbf4d8e2b7cbda95690029"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "howard-hawks#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "하워드 휴스가 제작한 서부극 《무법자》(1943)에서 그는 촬영 2주 만에 잘렸다. 효율적이고 절제된 그의 작업 방식이 휴스의 강박적인 간섭과 정면으로 부딪혔기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a5f35e5c8f5ecee18f28e824302351baf6903d45f67dfd466a4e03492701bc06"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "howard-hawks#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스크루볼 코미디와 필름 누아르에서 서부극과 SF까지, 미국 영화의 거의 모든 장르에서 그는 이론의 여지 없는 걸작을 남겼다. 그런데도 아카데미 감독상 후보에 오른 것은 1942년 《요크 상사》 단 한 번뿐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ed10e8d5aa34e3917c2c92e13fb42c809d6e053d6a34e970a1221bca5dae8541"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "howard-hawks#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그의 영화에는 즉흥적인 잼 세션이 자주 끼어든다. 《리오 브라보》(1959)의 유치장 합창이 그렇다. 벨에어 자택에서 그런 음악 모임을 여는 걸 그 자신이 좋아했기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d2656a8ebff2a51d5bb8adf3a3ef8b1824155fcbde1c0cc5c9fe4d52bd8bf4d6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "howard-hawks#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1959년의 걸작 《리오 브라보》는 프레드 진네만의 호평작 《하이 눈》(1952)에 대한 보수적 반박으로 만들어졌다. 프로 보안관이 온 마을을 뛰어다니며 겁먹은 민간인들에게 도와달라 빈다는 설정에 혹스는 공공연히 역겨움을 드러냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "307bc7e02bfa40c80ddc84466d4e1012240787d309e5d39f51e00d9863816a34"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "howard-hawks#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《카이에 뒤 시네마》의 누벨바그 비평가들은 혹스를 할리우드 작가주의(auteurism)의 정점으로 떠받들었다. 자크 리베트의 말이 유명하다. \"스크린 위의 증거가 곧 혹스가 천재라는 증명이다.\"",
+  "model": "claude-opus-5",
+  "source_sha256": "0811fe09482498c6ce6b2487fbfd0c4d41fdfbcb21c791e27e5363c1fe5edbd2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "howard-hawks#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1975년 제47회 아카데미 시상식. 쇠약해진 혹스는 마침내 명예상을 받는다. 시상자는 존 웨인이었고, 그는 화면을 장악하는 법을 이 감독에게서 배웠다고 말했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9041c8ef0788925fdb54e2968848526cf0fc72ad5279b476f7dcfee76f6457a9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "howard-hawks#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1977년, 여든하나로 세상을 떠났다. 팜스프링스 사막의 집에서 기르던 개에 발이 걸려 크게 넘어졌고, 그 후유증이 사인이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4daa2bc475787fef7aa1cbea573426296f255bcf4e072a0f5f0371a14f1d86c2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ingmar-bergman#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아버지 에리크 베리만은 엄격한 루터교 목사였다. 어린 잉마르를 어두운 벽장에 가두고, 망신을 주려 여자아이 옷을 입히는 벌을 자주 내렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ff5ffa4db15a84f79e31e1dd62fb6cc8ceea499cc8516e2259eca4725bf1aac"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ingmar-bergman#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1934년 교환 여행으로 독일 바이마르에 머물던 십 대 시절, 그는 나치 집회에 참석했다가 잠시 아돌프 히틀러에게 홀렸다. 어린 날의 그 매혹은 어른이 된 뒤 깊은 수치로 남는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d9712e2798d64f38e4f20af987067a985ecb46f11645cebc19cc7c0611e5c4ad"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ingmar-bergman#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1944년 헬싱보리 시립극장 감독으로 임명되면서, 스물여섯의 그는 유럽에서 가장 어린 극장 운영자가 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "12516d59d23bf6ff50ffa74f913f6305ba0210a9e7e7fcd4a9f590eea8315595"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ingmar-bergman#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1951년 스웨덴 영화계 파업으로 장편 제작이 멈추자, 그는 브리스(Bris) 브랜드의 비누 광고 아홉 편을 연출해 생계를 꾸렸다. 광고치고는 지극히 영화적이었고, 조명 설계도 복잡했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b4ea11c8f766f2f8026ab80a3b5acd0ddc1b4c47a114130c80f39f20ad179df2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ingmar-bergman#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1960년 《거울을 통해 어렴풋이》의 로케이션을 찾다가 그는 발트해의 황량한 석회암 섬 포뢰를 발견했다. 그곳에 집과 작업 공간을 짓고, 끝내 영영 눌러앉는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4fab02cb49099bd7e5a2c9928c69a27d38ed4ace6100c37c1adbed12a60fe825"
+ }
+]

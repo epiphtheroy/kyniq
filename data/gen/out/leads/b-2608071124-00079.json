@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "24-hour-party-people-2002",
+  "field": "lead",
+  "film_id": "d1745c02-af40-4fe3-8313-c03080db5b8a",
+  "lang": "en",
+  "text": "Tony Wilson keeps the day job at the local news desk while the evenings go to a record label. Manchester, 1976: a reporter watches the Sex Pistols play and decides that the real work is not the item he will file about them. Soon the city's punk bands want managing, and he obliges, because obliging is what he does. The Guardian later filed the result among the hundred best films of the century, a strange fate for a comedy about a middleman — the man present at everything, central to nothing, who says so first and loudly before anyone else can. Factory Records, then the Hacienda, a nightclub run by people whose qualification was wanting one. Winterbottom's 117 minutes keep pace with enthusiasm as it hardens into payroll, and the funniest thing in them is a man announcing his own significance while it is still very much in doubt.",
+  "model": "claude-opus-5",
+  "source_sha256": "24dd3c151d2c2c57540ee2b3cf90303e57359d4651afb0bf6c03c9395254b349"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "gummo-1997",
+  "field": "lead",
+  "film_id": "dacd8cef-60af-4991-ab50-acd6baaaa719",
+  "lang": "en",
+  "text": "A tornado went through Xenia, Ohio, in the 1970s, and the town has not finished being the place it happened to. Solomon and Tummler are teenagers there with time on their hands and nothing to shape a day; the film keeps their pace, which is barely a pace at all. Korine works without a plot to hold on to — 89 minutes of errands, transactions, rooms entered and left again — so the order of things feels gathered rather than written. Comedy and discomfort arrive on the same beat, and the film never sorts them out afterwards. Poverty is less a subject here than a climate: constant, unremarked, deciding what the boys can and cannot do with an afternoon. It has settled since onto the TSPDT thousand, where it makes an awkward neighbour to nearly everything around it.",
+  "model": "claude-opus-5",
+  "source_sha256": "43192732a87ced70e30cc4a405e7fbfcbca15993e8d61dbd371f4162ecd71255"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "white-god-2014",
+  "field": "lead",
+  "film_id": "662a38e5-e489-4c0a-8d3f-7ae51f490655",
+  "lang": "en",
+  "text": "Lili's father wants the dog out of the flat by evening, and that is all it takes. She is thirteen and Hagen is hers; out on the street he becomes an animal nobody will vouch for, which in a city is a status, not a description. The premise commits Mundruczó to something few dramas attempt — a second lead who cannot be given a line of dialogue — and he holds to it across the full 121 minutes, with a straight face. The animal gets the screen time usually reserved for the child, and no softer framing, so the effect is unease rather than sympathy. European audiences voted it their film of the year, which suggests the fable carried well past its dogs. The mechanism is plain from the early scenes: how quickly an ordinary household decides that a living thing has become an inconvenience.",
+  "model": "claude-opus-5",
+  "source_sha256": "a5e4b1215901891bc619ce6a337a009f0985c6a5f31cd446c0bce2f681331fc6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hatching-2022",
+  "field": "lead",
+  "film_id": "b10a9935-df49-444c-b3f3-3cc80078f005",
+  "lang": "en",
+  "text": "The egg comes indoors at night and is kept warm in a twelve-year-old's bedroom, the one thing in the house her mother has not arranged. Tinja's family exists to be looked at: the held smile, rooms permanently fit for visitors, a daughter rehearsed until she is reliable. Bergholm gives herself 87 minutes and refuses to let the domestic comedy and the creature split into two films; whatever is growing in that bedroom grows out of the household's own habits, and it is fed by hand. The Finnish spoken here is largely the language of encouragement, praise used as a leash. The horror never has to disturb the surface, because the surface was always the problem: nothing may be shown that has not first been approved.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d9a83180cec027a2ede6bd647ea2c9204b60fdafb775b45533ec01c0da5ff19"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "satan-s-slaves-2017",
+  "field": "lead",
+  "film_id": "17430c46-6b47-4cdd-abc2-a98a674ad83f",
+  "lang": "en",
+  "text": "The illness lasted three years, long enough for a household to arrange its meals, its money and its hours around a dying woman upstairs. Then she dies, and then she comes back for her children. Joko Anwar takes 106 minutes over a premise a shorter film would sprint through, and the patience is the method: a house whose noises the children have spent years learning to read, an absence they had already half-rehearsed. Fright is a question of who is in which room and who has been sent to check. The audience at Rotterdam gave it their award, which is worth noting for a horror film that works by domestic arithmetic rather than by shock. Mourning in this house is also a set of chores, and the mother's return is unbearable partly because someone still has to do them.",
+  "model": "claude-opus-5",
+  "source_sha256": "2c15d3650c4a8cc25abcb427a6a193647bfcc1386e6647013b39519529994199"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "woman-at-war-2018",
+  "field": "lead",
+  "film_id": "bbf6802b-d442-4500-839e-740106abebdc",
+  "lang": "en",
+  "text": "Halla is at war with the aluminium industry, and the industry has not yet worked out that it has an opponent. She acts alone, on foot, against infrastructure, in highland country with next to nothing to hide behind — a mismatch of scale the film plays as thriller and as comedy without ever choosing between them. Erlingsson's 101 minutes stay precise about logistics: distance, weather, how long it takes to cross open ground, what one person can carry. Then an adoption enters her life, and the campaign acquires a rival claim on her time and her name. The lead performance took the European Film Award for Best Actress, and earns it by making Halla neither crank nor saint but a woman with a plan and a schedule; the film is less curious about whether she is right than about the practical business of doing it again next week.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc76ad974b0e33352c3a54db758a3007e75832991fffa42d61921036af06b37a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-mole-agent-2020",
+  "field": "lead",
+  "film_id": "f82f5d62-4152-438d-8254-7b8b520fd674",
+  "lang": "en",
+  "text": "Sergio is eighty-three, and the job he takes requires him to lie about why he is moving into a retirement home. A daughter is worried about how her mother is being treated; a private investigator named Romulo needs someone on the inside; Sergio can barely work the phone he has been issued. Maite Alberdi assembles the full apparatus of a spy picture — briefing, target, nightly reports — and then watches it come apart against the actual contents of the building. Chile sent the result to the Academy Awards, an odd destination for an investigation that keeps dissolving into visiting hours. Ninety minutes, largely at the pace of the residents. The comedy is real and never used as cover; what draws Sergio, and then the case file, is the company of people whose days nobody else is checking.",
+  "model": "claude-opus-5",
+  "source_sha256": "c2542988976fb03c33eae5fa3fdc252f9b38bb2d0f0f73507f0e2f49ceb67e20"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "rise-2022",
+  "field": "lead",
+  "film_id": "aa982332-20e1-47d4-ad4b-3f61db045044",
+  "lang": "en",
+  "text": "Vera and Charles Antetokounmpo raise five children in Athens without papers, which leaves the children Greek in every way except the one the state will acknowledge. Deportation is not a crisis in this film but a condition, arriving with the rent, the school year and the question of who answers the door. Omotoso spends 113 minutes on the years before anything famous happens: work taken wherever it can be found, offices, forms, an application that advances by nothing. Basketball is in the story; the attention is on the household. Three of those children ended up NBA champions, which is the reason the film exists and not the reason to watch it — the drama it wants is the ordinary one of parents holding an address, five names and a plausible explanation steady across a decade of being told no.",
+  "model": "claude-opus-5",
+  "source_sha256": "0747d0bd84e2b460a4e85e26ff2e320a9b2b5230964e46eb0079fb05099a6844"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "impetigore-2019",
+  "field": "lead",
+  "film_id": "3e29cc78-eae3-46cf-9d7e-c092f73cb1b6",
+  "lang": "en",
+  "text": "An inheritance arrives: a house in a village she cannot remember, in the place her family came from. Going to look at the property is the reasonable move, and it is the last purely reasonable move available, because the village has been trying to find her too, and not to welcome her. Anwar builds his 106 minutes on village horror rather than haunted-house horror — neighbours who watch, customs that need no explaining among the people who keep them, a curse older than she is and attached to her name. Indonesia sent it to the Academy Awards, a rare errand for a horror film. The pressure comes from the arithmetic of the situation: she is not a stranger who wandered in, she is the only person present who does not know what everyone else has already agreed about her.",
+  "model": "claude-opus-5",
+  "source_sha256": "ffab9af5ee6259dba2b151c0d5706b3d7e669f5c9d9174cf413ad3b62e5da690"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-house-of-mirth-2000",
+  "field": "lead",
+  "film_id": "e53bdaa1-de3b-47d1-a651-d62de6b36b71",
+  "lang": "en",
+  "text": "In this New York nothing is free, and the woman at the centre is short of money in the one class where saying so aloud is unforgivable. Davies films the early 1900s as a system of accounts kept in the language of hospitality: an invitation, an introduction, a sum advanced by someone who would never call it a debt. At 135 minutes the film is slow on purpose, and the slowness is where the cruelty sits — a delay before an answer, a name absent from a list. Her only capital is a reputation, and each attempt to convert it into a settled life spends some of it. The marriage market is shown as work: unpaid, full-time, conducted in rooms where the smallest change of temperature is the whole event. What the film catches best is the sound of people being courteous while they decide what a person is worth.",
+  "model": "claude-opus-5",
+  "source_sha256": "114a9337c76aebe27ef602c1398ed2f9f907f37e500cd6c4e917cf21f7369334"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "amira-2021",
+  "field": "lead",
+  "film_id": "27ba06d7-2278-40d6-b363-b9698a5c6654",
+  "lang": "en",
+  "text": "Amira has met her father only across a prison visiting table, and she was conceived from sperm smuggled out of the same building. In her family that fact is spoken of as a small victory: a child obtained in spite of the sentence, proof that the walls did not settle everything. She is seventeen. Nawar remains her hero, which is easier to sustain at the distance visiting hours enforce, while everyone around her spends the rest of the week making up the difference in attention. Mohamed Diab's 98 minutes sit on the gap between a father as an idea, maintained by an entire household, and a father as a man seen for an hour under supervision. Then the family tries for a second child, and the arrangement that has held Amira's world upright is asked to account for itself.",
+  "model": "claude-opus-5",
+  "source_sha256": "f7405dec30f52fd4734c5f9dae6a29f07d2c301fef56787eddfc00477f85e2c8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "deep-end-1970",
+  "field": "lead",
+  "film_id": "77b081cb-b1b6-4fa5-9296-e2f3703e6165",
+  "lang": "en",
+  "text": "A London public bathhouse takes on a fifteen-year-old, hands him a uniform and a locker of his own. Mike treats the place as a job; Susan, an attendant there longer than he has been, treats it as nothing much, and the film works in the gap between those two readings. Skolimowski keeps almost everything indoors — tile, steam, wet corridors, a workplace where strangers undress as a matter of routine and nobody is meant to notice. That is the joke at first. The comedy of a boy's fixation is played straight enough to turn uncomfortable long before anything is done about it, and the 92 minutes never step outside his attention to measure it against anyone else's. England in 1970, and the subject, plainly, is what a boy has decided he is owed.",
+  "model": "claude-opus-5",
+  "source_sha256": "fea721a4a5b4519e9cf1cf5bc35389975a520d60ad1878da53c57b840156c75c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "in-bloom-2013",
+  "field": "lead",
+  "film_id": "9faeaafd-ba25-4d80-b805-b4eac35eb07e",
+  "lang": "en",
+  "text": "Eka and Natia are best friends at an age when every movement a girl makes through the neighbourhood is watched and repeated. The film is in Georgian, produced out of France, and it takes its time: 102 minutes of the school day, the courtyards, the noise of two households coming apart in different ways. Custom does the work a villain would do elsewhere — what may be said, who may be seen, how quickly a family can settle a future on a daughter's behalf. Ekvtimishvili films adolescence as a series of negotiations conducted by people with no standing to negotiate. It went forward as a national submission to the Academy Awards. The pressure is unremarkable to everyone applying it; nobody here thinks of themselves as cruel, and the girls' only real strategy is each other.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b6d76ccde51c58acd74bd8ebfa006442b4c02b936834b1c76741e5fef99663b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "pee-mak-2013",
+  "field": "lead",
+  "film_id": "26d8dcc2-8821-465c-9349-335df2c99ad6",
+  "lang": "en",
+  "text": "Nak has died, the marriage is continuing, and the problem in this house is not the wife but the friends who have worked out what she is. Mak has not, or will not, and 112 minutes run on that single arrangement: everyone in the room knows except the man whose happiness depends on not knowing. Pisanthanakun plays the romance without a wink — the affection between husband and wife is the most sincere thing on screen — and stacks the comedy onto the men trying to rescue him from it without ever saying why. Horror is present, and it is timed like a punchline. The farce works only because the ghost is the most reasonable person in it, and much the most patient; the living are the ones behaving strangely, and they have to keep explaining themselves at dinner.",
+  "model": "claude-opus-5",
+  "source_sha256": "f20f21d1ef25822d390229165ecafd56303d935744cc7092739cadefc6eca1a4"
+ }
+]

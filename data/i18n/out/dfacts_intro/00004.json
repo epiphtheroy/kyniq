@@ -1,0 +1,272 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lee-chang-dong",
+  "field": "intro",
+  "lang": "ko",
+  "text": "소설가로 늦게 출발해 영화의 대가가 된 사람. 이창동은 한국의 역사적 상처와 현대의 소외를 해부한다. 꿰뚫는 듯한 심리적 리얼리즘으로 이름을 얻었고, 한때는 연출을 멈추고 문화부 장관을 지내기도 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0db25d09a75a980ad9e0859ab8b98809c7e50ca0b72e7a1556b225d3db62868c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "leos-carax",
+  "field": "intro",
+  "lang": "ko",
+  "text": "레오스 카락스는 시각적으로 요동치고 정서적으로는 오페라에 가까운 영화를 만드는 프랑스의 비저너리다. 은둔으로 악명 높은 전직 영화비평가. 그의 이력은 무모한 야심과 비극적 사랑, 그리고 예산을 무너뜨린 전설적인 제작들로 요약된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "217b1eb611c97cd04ac6778397314c92d49985f57a26d084289fbaac980b2a86"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lou-ye",
+  "field": "intro",
+  "lang": "ko",
+  "text": "중국 6세대의 선구자 루예는 잠들지 않는 핸드헬드 도시 영화의 대가다. 타협을 모르는 독립성 탓에 여러 차례 상영 금지를 당했고, 필름을 몰래 국외로 빼내면서 칸의 아이콘이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c095745396273effbba435dc702fe609b8619663f598b8135bf69e613a4720ae"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luca-guadagnino",
+  "field": "intro",
+  "lang": "ko",
+  "text": "루카 구아다니노는 감각의 영화를 다루는 이탈리아 감독이다. 욕망과 건축, 젊음을 무성하고 촉각적인 화면으로 파고든다. 에티오피아와 시칠리아를 오가며 자란 성장기가 그의 코스모폴리탄한 감각을 만들었고, 그래서 그의 작업은 눈부시고 정서적으로 거리낌이 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb23b299e9dec0c10ac4963e113d5c30c50c205c37c7810216992e1d001fdbf8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luchino-visconti",
+  "field": "intro",
+  "lang": "ko",
+  "text": "이탈리아 영화의 마르크스주의 귀족. 루키노 비스콘티는 물려받은 막대한 재산을 밑천으로 네오리얼리즘을 열었고, 이후 퇴폐적이고 오페라적인 대작으로 방향을 틀었다. 그는 가차 없는 완벽주의자였다. 그 걸작들에는 역사적 정확성과 함께 깊은 개인적 우울이 배어 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "07e80a9f6e4bd3952c90cd109144a91a637418389042dcf66bbe9071b86e9b64"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "luis-bunuel",
+  "field": "intro",
+  "lang": "ko",
+  "text": "영화적 초현실주의의 대가이자 지치지 않는 도발자. 루이스 부뉴엘은 꿈과 검은 유머, 반교권주의를 무기 삼아 부르주아의 감수성을 공격했다. 파리에서의 스캔들 같은 데뷔부터 멕시코 망명기의 다작까지, 그는 영화사에서 가장 유쾌하고 가장 타협하지 않는 우상파괴자로 남아 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ac13d0c790962a70d1410872fd416ecf0b68b2b06d2eb9b645c271258acda56"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "m-night-shyamalan",
+  "field": "intro",
+  "lang": "ko",
+  "text": "M. 나이트 샤말란은 인도계 미국인 감독이다. 필라델피아를 무대로 한 초자연 스릴러, 그리고 콘티 하나까지 촘촘히 짜는 방식으로 알려져 있다. 초기의 거대한 성공 뒤에 평단의 역풍이 몰아쳤고, 그는 블록버스터를 자기 돈으로 직접 제작하는 길을 택했다. 창작의 통제권을 온전히 쥐기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1271dc98ae8293a54240536fc35777aac685a25c330096116965396949ab80dd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "makoto-shinkai",
+  "field": "intro",
+  "lang": "ko",
+  "text": "건설업을 하는 아버지의 뜻을 거스르고 나온 독립 디지털 애니메이터. 신카이 마코토는 데스크톱만으로 애니메이션을 만드는 길을 열었다. 아파트 방에서 혼자 SF 단편을 만들던 사람이 일본 흥행 기록을 갈아치우는 우주적 스케일의 대작을 연출하게 된 것이다. 그러면서도 '차세대 미야자키'라는 딱지는 완강히 거부한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f76d339e3bd9f00e7d2af9285a563e0418782f611b403f4ae0de7ebd2c86e453"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-hosoda",
+  "field": "intro",
+  "lang": "ko",
+  "text": "호소다 마모루는 일본 애니메이션의 비저너리이자 스튜디오 지즈의 설립자다. 소박한 가족 드라마에 광대한 SF 설정을 겹치는 솜씨로 알려져 있다. 그림자를 지운 화면과 오리지널 스토리텔링. 그 둘이 그를 현대 애니메이션의 대표적 작가로 만들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "15321162d23e40ac86c3255471f8cc77dd8cdd291b3fd18c4d1c24579ceebcbe"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-oshii",
+  "field": "intro",
+  "lang": "ko",
+  "text": "오시이 마모루(1951년생)는 세계 사이버펑크를 다시 정의한 일본의 비저너리다. 학생운동가에서 애니메이션 작가로. 철학적 우울과 육중한 화기, 그리고 유별난 개(犬) 집착이 뒤섞여 《공각기동대》와 《패트레이버》 같은 이정표로 굳어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e6e2f56b76fa906588dbdc50f8e02842439fa626599e31e7d043d6be91d1164e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "martin-scorsese",
+  "field": "intro",
+  "lang": "ko",
+  "text": "리틀 이탈리아 출신의 천식 앓는 복사(服事) 소년, 하마터면 사제가 될 뻔했던 사람. 마틴 스코세이지는 가톨릭적 죄의식과 백과사전급 영화 집착, 그리고 어린 시절 목격한 조직 폭력을 한데 쏟아부어 자기 세대를 대표하는 미국 감독이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6ff88ad9113c2950e3fa5ee601fd06a70cd51fee7d01160a5af008c21f26160"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "masaaki-yuasa",
+  "field": "intro",
+  "lang": "ko",
+  "text": "유아사 마사아키는 극도로 역동적이고 자유롭게 흐르는 화면으로 알려진 일본의 비저너리다. 사이언스 사루의 공동 설립자이기도 하다. 전통적인 작화력에 디지털 기법을 섞어 초현실적이고 경계를 밀어붙이는 심리의 풍경을 만들어냈고, 그것이 업계를 바꿨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4e3bde53110fd3d92a37831891cd81504cfbd731ffba6f8f766dff63aec78067"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "masaki-kobayashi",
+  "field": "intro",
+  "lang": "ko",
+  "text": "철저한 반전주의자이자 기하학적 구도의 대가. 고바야시 마사키는 2차 대전에서 겪은 상처를 권위에 대한 맹렬한 비판으로 바꿔놓았다. 기념비적인 반전 대작과 사무라이 신화를 잔혹하게 해체한 작업으로 그는 일본 영화를 바꿨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f0fa42d5997ae4f2242fc909d91d8d9edecb3bf0ded960e613b2c675b7b364bb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "max-ophuls",
+  "field": "intro",
+  "lang": "ko",
+  "text": "막스 오퓔스는 독일에서 태어나 프랑스로 귀화한 감독이다. 유려하게 휘도는 카메라와 비극적 낭만주의로 이름을 남겼다. 나치를 피해 달아나며 유럽과 할리우드를 떠도는 이력을 쌓았고, 그 끝에 몰락하는 여자들과 세기말(fin de siècle)의 환영을 기록하는 최고의 연대기 작가가 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "138322d748c76717611b821dc1c91e2afa85f795d3d3c625f54196bc97694fd0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-haneke",
+  "field": "intro",
+  "lang": "ko",
+  "text": "미하엘 하네케는 오스트리아의 작가다. 부르주아의 소외, 미디어의 폭력, 억눌린 죄의식을 임상적이고 타협 없는 방식으로 들여다본다. 늦게 꽃핀 거장. 엄격한 형식주의와 그만의 메마른 도덕적 명료함으로 현대 사회를 해부한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6b74b25c7b81143fe2b438fddcf3a546caebcf2416b0a3b1a3cf9edc6e9914fc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michael-powell",
+  "field": "intro",
+  "lang": "ko",
+  "text": "나치를 피해 달아난 무국적 유대인 난민, 에머릭 프레스버거는 '디 아처스'의 조용한 각본 담당이 되었다. 마이클 파월과 맺은 그 전설적인 동업에서 20세기 영국 영화 가운데 가장 기이하고 가장 눈부시며 가장 영국적인 작품들이 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "75c7b836949d8b0ae82c6954223d5e24b203c0993ad309853eba6cc6c15a652c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "michelangelo-antonioni",
+  "field": "intro",
+  "lang": "ko",
+  "text": "미켈란젤로 안토니오니는 이탈리아 모더니즘의 개척자였다. 그는 전통적인 플롯을 버리는 방식으로 영화를 바꿨다. 남은 것은 소외와 부르주아의 권태, 실존의 불안, 그리고 그것들을 담아내는 엄격한 기하학적 화면이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1a45ab229bda2ad602573c146e3e32ae72163b5519960eeb4c45618b131bde6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "miguel-gomes",
+  "field": "intro",
+  "lang": "ko",
+  "text": "포르투갈 감독 미겔 고메스는 다큐멘터리적 리얼리즘에 초현실적이고 문학적인 허구를 섞는다. 전직 영화비평가. 현대 유럽사의 부조리를 붙잡는 장난스럽고 우울한 서사시들로 그는 세계 영화의 주요한 목소리가 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "18f00e7880278a70fd02b4ab98af945c16eebc70d62c164d4b67d0cf7e7ffb71"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "na-hong-jin",
+  "field": "intro",
+  "lang": "ko",
+  "text": "《추격자》 《황해》 《곡성》처럼 내장을 후비는, 끝까지 어두운 스릴러로 알려진 한국 감독. 소문난 완벽주의자다. 그의 혹독한 촬영 현장은 배우를 심리적 한계까지 밀어붙이고, 그러면서 실존적이고 영적인 공포를 파고든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a50f643f534a1fff4ec0f18cca2f1d2e20b9036ed1c20dabeb3c6628c9171811"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nadav-lapid",
+  "field": "intro",
+  "lang": "ko",
+  "text": "나다브 라피드는 도발적인 이스라엘 작가다. 그의 영화는 국가 정체성과 군사주의, 그리고 언어와 맞붙는다. 스스로 택한 파리 망명, 그리고 세상을 떠난 어머니와의 깊은 창작 동반 관계가 그를 만들었다. 결과는 공격적일 만큼 역동적이고 논쟁적인 작업이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "534fcabf0ebbe565eaa0d2ab106d6116e14910f3d3a9cccb010d04ae65a942c7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nagisa-oshima",
+  "field": "intro",
+  "lang": "ko",
+  "text": "일본 뉴웨이브의 급진적 도발자. 오시마 나기사는 영화의 금기와 사회의 금기를 함께 무너뜨렸다. 격렬한 학생운동에서 지루한 외설 재판까지 거치며, 그는 전통적 미학을 내던지고 현대 일본의 정치적·성적·심리적 균열을 드러냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d6204366a3f66896acf9e390cf14354326c036f9b40fcb32fa3cb0b06344f562"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "noah-baumbach",
+  "field": "intro",
+  "lang": "ko",
+  "text": "가정이 부서지는 자리를 집요하게 기록하는 사람. 노아 바움백은 뉴욕 지식인 계층의 지나치게 말 많은 불안을 영화로 옮긴다. 지독하게 반복하는 테이크 수, 대본 그대로를 고수하는 원칙, 그리고 반쯤 자전에 가까운 이야기가 그의 표식이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "842eb0571480ab0d72fda1c036a2cc7576d421fea47f2364222961484432cccf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "nuri-bilge-ceylan",
+  "field": "intro",
+  "lang": "ko",
+  "text": "우울한 슬로 시네마의 대가인 터키 작가 누리 빌게 제일란은 실존적 소외를 숨 막히게 아름다운 화면으로 붙든다. 아나톨리아의 초원과 체호프적 사유에 뿌리를 둔 이 지극히 사적인 영화들로 그는 칸을 거듭 정복해왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eddfe9762581be2adda83e2886956ee70341c6762d0d839c6abe86db05ccab00"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "olivier-assayas",
+  "field": "intro",
+  "lang": "ko",
+  "text": "올리비에 아사야스는 철저히 코스모폴리탄한 프랑스 작가다. 68년 5월 이후의 지성, 세계화된 장르 영화, 그리고 펑크록을 한자리에 잇는다. 《카이에 뒤 시네마》 출신 비평가였던 그는 쉬지 않고 움직이는 카메라와 국경을 넘나드는 이야기로 평가받는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c8c399b33dded7562126a4b7fd0f990915a26aec34e5a4fac742c0e2b103d8cd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "orson-welles",
+  "field": "intro",
+  "lang": "ko",
+  "text": "우렁찬 목소리로 시가를 씹던 신동, 스물여섯이 되기 전에 연극과 라디오와 할리우드를 차례로 정복한 사람. 오슨 웰스는 끝내 독립적인 이단아였다. 거대한 식욕, 스튜디오 통제에 대한 반항, 스스로 택한 수십 년의 망명. 그렇게 조각난, 그러나 견줄 것 없는 유산이 남았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3f3ac87d6b3949f5a406909e883fd2abc7815f8dee625379cde28df6367b63d4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ousmane-sembene",
+  "field": "intro",
+  "lang": "ko",
+  "text": "'아프리카 영화의 아버지'로 불리는 우스만 셈벤. 마르세유 부두에서 일하며 독학한 노동자가 마르크스주의 감독의 길을 열었다. 그는 카메라를 무기로 삼아 탈식민의 비판을 세네갈의 문맹 대중에게 직접 전달했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "63d045745a326619df093635e72e9eadde6cdbdb9e90c253f5535fe795352b5c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pablo-larrain",
+  "field": "intro",
+  "lang": "ko",
+  "text": "칠레 보수 정치 엘리트 가문에서 태어난 파블로 라라인은 그 뿌리에 반기를 들고 라틴아메리카에서 가장 날카로운 목소리가 되었다. 반(反)피노체트 3부작, 그리고 위기에 갇힌 역사적 인물들을 다룬 폐쇄적이고 심리적으로 팽팽한 반(反)전기영화가 그의 이름을 알렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3c033dddb8ead170a8391bc53ee8c5348a3c70ccbf0f8cb1aa811f80aa18c347"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paolo-sorrentino",
+  "field": "intro",
+  "lang": "ko",
+  "text": "파올로 소렌티노는 현대 이탈리아 바로크 영화의 마에스트로다. 상류사회와 정치, 영혼의 부패를 취할 듯 화려하고 우울한 화면으로 훑는다. 유장한 트래킹 숏과 실존적 아이러니. 그것이 그를 페데리코 펠리니의 영화적 후계자로 만들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "94febad9df094ce138a94728234be1a829a2af4b2ff8c86a6ff1146ffa93f9ef"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "park-chan-wook",
+  "field": "intro",
+  "lang": "ko",
+  "text": "한국의 작가 박찬욱은 전직 영화비평가다. 한 컷까지 계산된 구도, 폭력이 오페라처럼 흐르는 스릴러, 관능적인 심리극. 그는 철학적 물음과 피에 젖은 정교한 탐미주의를 겹치며 한국 영화를 세계 무대로 끌어올렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3080b44242927ad6e109776e10c77c018e0387d5a6920c90ae0215cf4e952ee9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paul-thomas-anderson",
+  "field": "intro",
+  "lang": "ko",
+  "text": "폴 토머스 앤더슨은 광활한 스케일의 인물 연구와 능란한 카메라 워크로 알려진 미국 감독이다. 그의 영화는 샌퍼낸도 밸리에 깊이 뿌리내린 채 대리 가족과 집착, 그리고 미국 자본주의의 어두운 밑바닥을 파고든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d585487f217a7d9f45effb324df2b2d10116d2ec0abc8fdee1b83a994a30b2e0"
+ }
+]

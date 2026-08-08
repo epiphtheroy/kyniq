@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-godfather-part-iii-1990",
+  "field": "lead",
+  "film_id": "30b8f0b4-bca7-4c6b-9bcc-9d3af837b428",
+  "lang": "en",
+  "text": "Absolution cannot be purchased, which does not stop an aging don from trying to arrange it like a merger. Michael Corleone in 1979 is rich, tired, and moving money toward respectability — New York offices and Italian ones rather than back rooms — while the crimes he wants forgiven are decades old and the people who might forgive him are not accountants. Coppola spends much of the 162 minutes on the slow machinery of legitimacy: papers, meetings, family gatherings where the guest list is itself a negotiation. Meanwhile a younger man is brought in close, taught, watched. The subject underneath is what an old operator does with the knowledge that he cannot be the last one, that whatever he built has to be handed to somebody, clean or not, and that the handing over is its own form of confession.",
+  "model": "claude-opus-5",
+  "source_sha256": "378cf917e142ef9f40a6658f5d3c94bbcfe81c80bfb6d2916e5ea84ab6250b12"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-killer-1989",
+  "field": "lead",
+  "film_id": "35b05781-9f8b-4c2a-8414-eec9386938f0",
+  "lang": "en",
+  "text": "A nightclub singer loses her sight in the crossfire of a contract killing, and the man who pulled the trigger decides he owes her the operation. That debt drives everything: a hired gun who treats murder as a vocation discovers that vocations carry obligations, and the only currency he holds is one more job. Hong Kong, 1989, a hundred and ten minutes with no slack in them. What surprises is how much of the running time belongs to feeling rather than firepower — the assassin and the policeman pursuing him are pulled together less by plot than by a shared conviction that a code, however absurd, outranks survival. Woo stages the shootouts as sustained arias and stages the quiet scenes with exactly the same seriousness, which is why the sentiment lands instead of curdling.",
+  "model": "claude-opus-5",
+  "source_sha256": "4de0b46a8d3916277b0b9f819d1a622ee1b513e855b5736d97f94a46b2394ee8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-exterminating-angels-2006",
+  "field": "lead",
+  "film_id": "eba6d917-b969-432b-91dd-bb120a979dbc",
+  "lang": "en",
+  "text": "A director sets up a camera, invites women to audition, and asks them to show what a film about female pleasure would require. The awkwardness is structural, and Brisseau does not evade it: the man with the camera inside the fiction is doing what the man with the camera outside it is doing, and no framing device dissolves that. Among the genres attached to it is fantasy, the first sign that the audition room will not keep its shape. The transaction holds the attention rather than the bodies — who asks, who agrees, what an artistic pretext is permitted to license, how quickly a piece of research becomes something else. A hundred and three minutes at a low temperature, which is the only defensible way to shoot such material. The procedure stays in frame, and that is the part that stings.",
+  "model": "claude-opus-5",
+  "source_sha256": "526bba4a1a03b7f70bb1ac36a80361570c40163466a41ee3898a223acfb8c0f6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "duel-in-the-sun-1946",
+  "field": "lead",
+  "film_id": "2b8d52f2-0355-42f9-bd74-b7b15eb1297d",
+  "lang": "en",
+  "text": "Two brothers on the same ranch, one of them decent, and the girl taken into their mother's household after her father's death is expected to choose. A hundred and forty-four minutes is a great deal of Western for 1946, and the excess is the point: Vidor pushes frontier romance until its conventions crack, and what leaks out is heat, jealousy, and a family's ugly arithmetic about blood. Pearl Chavez arrives as a ward and is handled as a problem — the wrong ancestry for the people who agreed to keep her, and useful to whichever son can claim her. The film is candid about how that judgment gets delivered, in courtesies as often as in insults. Vidor keeps the landscape wide and the rooms small, so the question of who is permitted to want whom plays out beneath an indifferent sky.",
+  "model": "claude-opus-5",
+  "source_sha256": "a4ffce29890978b4683c448c3976c53c6a2ea54c5471f136fc83f28c33864db8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-page-of-madness-1926",
+  "field": "lead",
+  "film_id": "332b2bf4-ea94-4d98-9c54-4cc948f58454",
+  "lang": "en",
+  "text": "Sweeping floors is the cheapest way into a building that admits no visitors. The man in Teinosuke Kinugasa's film takes work at an asylum because his wife is held there, and proximity is all he can afford; whatever plan he has is smaller than his need to be near her. Seventy-one minutes, Japan, 1926, silent and disinclined to explain itself. Horror is one of the genres attached to it, though the fear on offer concerns no monster — it comes from images of a mind arriving with the same authority as the corridor and the rain outside. The institution grants the picture its licence: inside, perception is officially unreliable, so the camera is free to behave as the patients do. Holding it together is the husband, waiting, hoping devotion counts for something in a place that does not run on devotion.",
+  "model": "claude-opus-5",
+  "source_sha256": "f57ef59669376d7ab0ad259b1e28e77f8e46abdeedc6a9d31873f7563c1733db"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "from-the-clouds-to-the-resistance-1979",
+  "field": "lead",
+  "film_id": "fe4c768d-b663-4db7-8afa-d0eaf0113c7e",
+  "lang": "en",
+  "text": "Gods argue in a field; an hour later a man walks back into a village in the Langhe. The film is built in two blocks and declines to fuse them. First, six of Cesare Pavese's mythological dialogues, spoken by figures who discuss fate the way farmhands discuss weather; then a passage from his novel, in which an emigrant returns to postwar northern Italy and finds that the war has rearranged who owes what to whom. Huillet keeps the camera still and lets the written sentences carry the weight, delivered as text rather than smoothed into conversation — an adjustment at first, then the pleasure of the thing. A hundred and four minutes, in Italian, unhurried to a degree that reads as a position rather than a manner. The countryside is filmed as ground where work is done, not as scenery for myth or for memory.",
+  "model": "claude-opus-5",
+  "source_sha256": "92fd6fb97f52a861162d7e953b9e39f1ab2c4c43b2e8bde8f9a73dc5a85a2b83"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "diary-1983",
+  "field": "lead",
+  "film_id": "487f0560-8ba1-46c9-a362-9f9d448b4507",
+  "lang": "en",
+  "text": "Three hundred and thirty minutes, and much of it is a window, a table, and whoever happens to be home. David Perlov pointed a camera at his own household and kept it running across years, so the film accumulates rather than builds. Nothing is staged. Nothing is urgent. At this length repetition turns into evidence — faces change slowly, rooms change slowly, and the Israel of the seventies and eighties arrives not as event but as pressure at the edge of the frame, in what the family talks about and what it leaves alone. Perlov speaks over the images in Hebrew, a man telling himself what he has just shot. The scale is the argument: a diary short enough for one evening would be a sketch, while five and a half hours gives ordinary domestic time the weight normally reserved for history.",
+  "model": "claude-opus-5",
+  "source_sha256": "35b0fe868112d9337578118d74bcd5261d86ab2df914e10efdefd00600417fb5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "doomed-love-1978",
+  "field": "lead",
+  "film_id": "c3ca9e0a-c4da-42f9-bf01-aa3c7eeb88b5",
+  "lang": "en",
+  "text": "A romance between two people whose worlds were never meant to meet, told at a pace that turns down every chance to hurry. The disproportion is the design. Manoel de Oliveira takes a story that fits in one sentence and gives it two hundred and sixty minutes, holding scenes long past the moment their information has arrived, having lines spoken as if read aloud — declared rather than felt. The camera keeps a formal distance from the unhappiness it records, which makes grief look like ceremony. Over four and a half hours this produces an odd patience: where the story is heading becomes legible early, the film knows it, and attention shifts instead to the arrangements — of family, of position, of what may be said in a room — closing around two people with very few moves left available to them.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a83c5fead49e1edfa57acdb64801244ffd2a1c8123fa898d4987b3ad06d2f4b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "elevator-to-the-gallows-1958",
+  "field": "lead",
+  "film_id": "5913f9ee-c9f6-4308-a7ed-18cd4e714ca2",
+  "lang": "en",
+  "text": "A murder committed by a competent man, planned to the minute, and then the evening does what evenings do. Ninety-two minutes, Paris, 1958: less a thriller about whether the crime will be found out than a study of how quickly a plan stops belonging to the person who made it. The businessman has calculated everything except contingency. His mistress, whose husband is the dead man, spends much of the picture waiting, and Malle films the waiting with more care than the killing — night streets, telephones, hotel desks, the particular helplessness of being unable to reach the place one is expected. The Louis Delluc Prize went to it, a respectable outcome for a film whose real material is small mechanical failure. Nothing supernatural intervenes. Objects and strangers simply behave as they do.",
+  "model": "claude-opus-5",
+  "source_sha256": "f9c0cbac8a6c6f0518b4dbea59dfc1db1d236fe9a27fafe33766d867622553f2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-reckless-moment-1949",
+  "field": "lead",
+  "film_id": "cf5310f7-d36c-4bdb-a039-ae06f6f80667",
+  "lang": "en",
+  "text": "The crisis arrives inside a schedule that cannot be suspended: meals, errands, a house that expects her at all hours. A woman finds a dead man connected to her teenage daughter and decides within minutes that the family will not be touched by it, then has to administer that decision alone while the ordinary keeps running. Eighty-two minutes, and Ophuls uses the compression; nobody is granted time to deliberate. What unsettles is the competence. She meets each consequence with the same unshowy management she brings to housekeeping — moving between rooms, keeping one person from meeting another, absorbing costs. The film never proposes that she ought to have telephoned somebody, and it never lets her sit down. An American picture of standard length in which a mother's day becomes a series of transactions she cannot decline.",
+  "model": "claude-opus-5",
+  "source_sha256": "89e9c685028d01a5d8010cef6a33f2032e7975acc763603aa408092def2f8ae6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "perfumed-nightmare-1977",
+  "field": "lead",
+  "film_id": "3ed625e6-8b04-46da-83ef-6c04b367420d",
+  "lang": "en",
+  "text": "A jeepney driver in the Philippines follows the American space programme the way other men follow a league. He is called Kidlat, as is the director, and the film is filed as documentary and comedy at once, which is less a contradiction than a description of method: actual roads, actual work, a tall tale told over the top. The first stretch runs on appetite. Rockets, bridges, engines, everything suggesting the world is being assembled somewhere else and might yet be joined. Then Paris, where the promise is available at close range and turns out smaller and colder than the broadcasts made it sound. Ninety-five minutes in Tagalog, deadpan enough that the jokes never announce themselves, and clear about how a person can be colonised by admiration before anything heavier gets a chance.",
+  "model": "claude-opus-5",
+  "source_sha256": "1f790742e3d0a8a99a47a7e1f96f73c640f531e461baf8f2006bfbd5571adee1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sawdust-and-tinsel-1953",
+  "field": "lead",
+  "film_id": "419aef2c-55e1-426b-a4a1-7e1c24855f61",
+  "lang": "en",
+  "text": "The circus is a poor one, and everyone travelling with it knows exactly how poor. A ringmaster stops his company near the town where the wife he left still lives, and whether he calls on her is a decision conducted in full view of the lover who travels beside him. Ninety-three minutes of humiliation performed in public — the show requires costume, paint, and a straight back, so every private injury has to be carried into the ring and shown to a paying crowd. Bergman, in 1953, seems less interested in who betrays whom than in what it costs to keep working while the betrayal is common knowledge among the company. The jealousy itself is ordinary. The setting makes it unbearable, since there is nowhere in a travelling troupe to go unobserved, and the next town is always the same size.",
+  "model": "claude-opus-5",
+  "source_sha256": "204cacf735abb4299665884fe63a20c02fe558c6acfd8ae6f85dc05c3fb595b1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "true-heart-susie-1919",
+  "field": "lead",
+  "film_id": "2c968faa-a7e0-49ef-8f8e-f2363214ae52",
+  "lang": "en",
+  "text": "Nothing is said, and the film runs eighty-seven minutes. Susie loves the young man next door; he does not know it, and the machinery that would tell him — a letter, a friend, one plain sentence — never quite engages. This is silent cinema making its handicap the subject: a medium without spoken dialogue, telling a story about two people who cannot bring themselves to speak. Comedy and ache both come from information the audience holds and the characters do not, so the tension lives entirely in faces, small gestures, a glance held half a second too long. The setting is domestic and narrow, all porches and chores and neighbours who observe everything and interpret most of it wrongly. Griffith works small here in 1919, and the reduction in scale sharpens him considerably.",
+  "model": "claude-opus-5",
+  "source_sha256": "060955a82390fa6a8cd9621ba09abfd2ad7697bf66b4dfe5e1fd0e6d2cf95617"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "love-friendship-2016",
+  "field": "lead",
+  "film_id": "2bcfb20d-0a49-48a1-8f6e-7a528fe6857d",
+  "lang": "en",
+  "text": "Lady Susan Vernon arrives at her in-laws' estate with two problems and one instrument: rumours about her conduct, a daughter who needs a husband nearly as much as she does, and conversation. The comedy runs on speech. Stillman lets Austen's early prose stay complicated — sentences that take a corner three times before they arrive — and the cast delivers them at speed, which turns the drawing room into a contest the quickest talker wins. Ninety-four minutes; no scene outstays its joke. Two men complicate the plan, one handsome, the other wealthy Sir James Martin, and the pleasure is in watching a woman with no fortune and no allies manage both while maintaining, at volume, that she is the party being wronged. The audience at IFFR gave it their award.",
+  "model": "claude-opus-5",
+  "source_sha256": "1580d1e06d6ecad6e4a43c816af0ca25e25c1655b12db7651494fc2af59d2387"
+ }
+]

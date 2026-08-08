@@ -1,0 +1,322 @@
+[
+ {
+  "entity_type": "director_pick",
+  "entity_key": "robert-bresson#pickpocket-1959",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《소매치기》는 지갑을 터는 손가락에 그 정밀함을 그대로 적용한다. 범죄를 발레처럼 안무하면서 한 청년의 영적 불안을 좇는다. 브레송의 방법론이 가장 매혹적인 얼굴로 나타나는 지점.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "robert-bresson#au-hasard-balthazar-1966",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《당나귀 발타자르》는 잔인한 주인들 사이를 옮겨 다니는 당나귀를 따라간다. 고통과 은총을 다룬 브레송의 정점이자 가장 참혹한 영화다. 그 금욕적인 스타일이 감당하기 어려울 만큼의 정서적 무게에 도달한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "robert-bresson#diary-of-a-country-priest-1951",
+  "field": "reason",
+  "lang": "ko",
+  "text": "젊은 사제의 일기를 뼈대로 삼은 《어느 시골 사제의 일기》에서 보이스오버, 메마른 얼굴들, 고뇌와 믿음이라는 주제가 한꺼번에 자리를 잡는다. 이후의 모든 작품이 여기서 나온 판형이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "robert-bresson#mouchette-1967",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《무셰트》는 시골의 괴롭힘당하는 소녀로 《발타자르》를 되비춘다. 갇히고 모욕당한 존재를 향한 브레송의 연민이 잊히지 않는 어린 얼굴 하나로 응축된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "robert-bresson#lancelot-du-lac-1974",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《호수의 랑슬로》는 아서왕 전설에서 부딪히는 갑옷 소리와 파편화된 몸, 환멸에 빠진 기사들만 남긴다. 브레송의 가장 낯설고 추상적인 실험. 금욕이 끝까지 밀어붙여진 자리다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "robert-bresson#l-argent-1983",
+  "field": "reason",
+  "lang": "ko",
+  "text": "유작 《돈》은 위조지폐 한 장이 폭력으로 번져가는 연쇄를 무자비할 만큼 차갑게 따라간다. 도덕적 전염이라는 브레송의 시선이 가장 날카로워지는, 깊은 곳의 한 편.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "robert-eggers#the-witch-2015",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《마녀》는 에거스의 방법을 가장 작은 규모로 보여준다. 시대에 충실한 대사, 촛불 아래의 공포, 서서히 조여오는 불안. 황야 끝에서 한 청교도 가족이 무너져 간다. 그의 감각으로 들어가는 가장 깨끗한 입구.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "robert-eggers#the-northman-2022",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《노스맨》은 강박적인 고증과 원초적 폭력을 바이킹 복수극의 규모로 키운다. 민담에 흠뻑 젖은 그의 비전이 낯섦을 잃지 않은 채 피가 도는 신화적 스펙터클을 밀고 갈 수 있음을 증명한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "robert-eggers#the-lighthouse",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 대담한 보상은 《라이트하우스》다. 두 남자, 바위섬 하나, 딱딱한 흑백과 아카데미 화면비의 상자 안. 소금에 절어가는 광기와 뱃사람의 신화로 내려간다. 이미 걸려든 관객이 가장 풀린 에거스를 만날 차례다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "robert-zemeckis#back-to-the-future-1985",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《백 투 더 퓨처》의 저메키스는 힘 하나 들이지 않는다. 시계태엽처럼 짜인 시간여행 플롯에서 깔아둔 것이 하나도 남김없이 회수되고, 그 위를 온기와 코미디의 박자가 받친다. 그의 감각으로 들어가는 완벽하고 매끄러운 입구.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "robert-zemeckis#forrest-gump-1994",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《포레스트 검프》에는 그의 연장통이 전부 나온다. 눈에 보이지 않는 특수효과가 한 남자를 수십 년의 역사에 꿰매 넣고, 휘몰아치는 감정이 기술적 마법과 한 몸이 된다. 저메키스라는 이름이 문화에 남긴 자국을 규정한 영화다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "robert-zemeckis#who-framed-roger-rabbit-1988",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《누가 로저 래빗을 모함했나》는 CGI가 나오기 수십 년 전에 실사와 애니메이션을 이음매 없이 붙였다. 순전한 장난기 하나를 위해 저메키스가 물리적·광학적 속임수를 어디까지 밀어붙였는지 보여주는 느와르 코미디.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "robert-zemeckis#contact-1997",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《콘택트》는 웃음을 사색과 맞바꾼다. 믿음과 이성을 두고 과학에 발을 딛은 채 인내심 있게 나아가는 이야기다. 관객을 즐겁게 하는 스펙터클 너머, 저메키스의 성찰하는 얼굴과 야심이 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "robert-zemeckis#cast-away-2000",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《캐스트 어웨이》는 한 남자와 침묵만 남기고 전부 걷어낸다. 대사도 볼거리도 없이 화면을 붙들어보라는 도전이다. 가장 절제된 저메키스를 원하는, 이미 걸려든 관객을 위한 보상.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "roman-polanski#chinatown-1974",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《차이나타운》이 이상적인 출발점이다. 햇빛에 바랜 LA 느와르에서 탐정이 맡은 수리권 사건이 도시의 부패로 소용돌이쳐 들어간다. 천천히 밝아오는 공포와 도덕적으로 더럽혀진 미스터리를 다루는 폴란스키의 솜씨가 여기 다 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "roman-polanski#rosemary-s-baby-1968",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《악마의 씨》는 폴란스키 특유의 편집증을 아파트 한 채로 졸인다. 친절한 이웃과 임신이 폐소공포의 호러가 되는데, 피는 한 방울도 흐르지 않는다. 순수한 심리적 질식.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "roman-polanski#the-pianist-2002",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《피아니스트》는 장르적 위협을 전시 바르샤바의 생존과 맞바꾼다. 폴란스키 자신의 유년이 바탕이다. 조용히 관찰하는 그 허기 속에서, 스릴러들 밑을 흐르던 자전적 물살이 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "roy-andersson#you-the-living-2007",
+  "field": "reason",
+  "lang": "ko",
+  "text": "안데르손의 무표정한 타블로로 들어가는 가장 따뜻한 문이 《유, 더 리빙》이다. 인간의 갈망을 담은 부조리한 삽화들이 꿈의 논리와 부드럽고 우스운 통증으로 눅여져 있어, 고정 카메라 스타일에 처음 발을 들이기 좋다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "roy-andersson#a-pigeon-sat-on-a-branch-reflecting-on-existence-2014",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《비둘기, 가지에 앉아 존재를 성찰하다》는 필멸과 헛됨을 그린 안데르손의 가장 확신에 찬 벽화다. 팬시용품 외판원 둘이 창백하고 정교하게 구성된 장면들을 꿰고 다닌다. 베니스 황금사자상 수상작.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "roy-andersson#songs-from-the-second-floor-2000",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《2층에서 들려오는 노래》는 '삶 3부작' 방법론이 시작된, 황량하고 종말론적인 원점이다. 위기와 희생으로 꽉 막힌 도시. 가장 가혹하고 타협 없는 비전을 감당할 준비가 된 관객의 몫이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ryan-coogler#creed-2015",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《크리드》는 아도니스 크리드의 눈으로 록키 사가에 다시 피를 돌게 한다. 밀착한 핸드헬드와 원테이크로 찍은 복싱 라운드에서, 감정과 육체적 기예를 결합하는 쿠글러의 재능이 선언된다. 가장 환대하는 입구.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ryan-coogler#black-panther-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《블랙 팬서》는 슈퍼히어로 블록버스터를 디아스포라와 유산, 그리고 한 국가가 세계에 진 빚에 관한 사유로 바꿔놓는다. 그 원한이 이해되는 악당이 중심을 잡는다. 쿠글러가 큰 규모에서 왜 중요한 감독인지가 ���기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ryan-coogler#sinners-2025",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《싱어스》는 쿠글러가 자기 것으로 휘두른 한 방이다. 짐 크로 시대를 배경으로 델타 블루스와 뱀파이어 신화, 인종의 역사를 녹여낸 호러. 프랜차이즈의 의무에서 풀려난 그를 볼 준비가 된 관객을 위한 보상이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ryan-coogler#black-panther-wakanda-forever-2022",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《와칸다 포에버》는 현실의 슬픔을 애도와 계승의 이야기로 소화한다. 상처 입은 프랜차이즈를 상실 한가운데로 끌고 가는 쿠글러가 보인다. 전작보다 무겁고 더 오래 생각하게 하는 짝패.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ryusuke-hamaguchi#wheel-of-fortune-and-fantasy-2021",
+  "field": "reason",
+  "lang": "ko",
+  "text": "독립된 단편 세 편으로 이루어진 《우연과 상상》이 하마구치의 방법에 발을 들이기 가장 편한 문이다. 우연과 욕망, 오인된 정체를 두고 오래 말을 주고받는 2인극. 한 장씩 끊어 삼킬 수 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ryusuke-hamaguchi#drive-my-car-2021",
+  "field": "reason",
+  "lang": "ko",
+  "text": "정점은 《드라이브 마이 카》다. 무라카미를 옮긴 세 시간짜리 영화에서, 다국어로 올리는 《바냐 아저씨》 연습과 조용한 차 안의 시간이 슬픔과 공모를 천천히 파낸다. 그의 인내가 왜 중요한지를 보여준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ryusuke-hamaguchi#asako-i-ii-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《아사코》는 그 대화를 불편한 로맨스로 돌려놓는다. 사라진 첫사랑과 똑같이 생긴 남자에게 끌리는 여자. 더 수수께끼 같고 발밑이 흔들리는 음역이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ryusuke-hamaguchi#happy-hour-2015",
+  "field": "reason",
+  "lang": "ko",
+  "text": "비직업 배우들과 만든 다섯 시간짜리 《해피 아워》는 네 여자 친구의 결혼 생활과 고백을 따라간다. 하마구치가 하는 모든 것의 토대가 드러나는, 지구력 시험 같은 영화.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "s-s-rajamouli#rrr-2022",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《RRR》이 라자몰리에게 다가가기 가장 쉬운 길이다. 우정과 저항을 축으로 한 서사시가 그 한 편으로 완결되고, 세계를 사로잡은 'Naatu Naatu' 댄스 배틀과 중력을 무시하는 액션이 이어진다. 그의 최대주의 스타일을 한자리에서 소개하는 셈.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "s-s-rajamouli#baahubali-the-beginning-2015",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《바후발리: 더 비기닝》은 두 편짜리 신화적 사가의 출발점이다. 폭포를 기어오르는 스펙터클로 마히슈마티 왕국을 세우고, 회상 구조로 세계를 짓는 야심을 가장 넓게 펼쳐 보인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "s-s-rajamouli#baahubali-2-the-conclusion-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "1편에 걸려든 관객에게 《바후발리 2: 더 컨클루전》이 값을 치른다. 궁중 암투와 배신, 거대한 최후의 전투로 절벽 끝에 걸린 이야기를 마무리한다. 그 거대한 설계가 감정으로도 구조로도 완성되는 지점.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sam-mendes#american-beauty-1999",
+  "field": "reason",
+  "lang": "ko",
+  "text": "데뷔작 《아메리칸 뷰티》가 멘데스에게 다가가기 가장 쉬운 길이다. 콘래드 홀의 회화적인 화면에 담긴 교외 풍자극. 무감각한 중산층의 삶 안에 아름다움이 숨어 있다는 그의 주제가 여기서 시작된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sam-mendes#skyfall-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《007 스카이폴》에서 구도를 보는 그의 눈은 블록버스터 크기로 확대된다. 로저 디킨스가 네온의 상하이와 스코틀랜드 황야를 배경으로 본드에게 빛을 입힌다. 예술영화의 기예가 스펙터클을 끌고 갈 수 있다는 증명.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sam-mendes#1917-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "기술과 감정 양쪽의 정점은 《1917》이다. 한 번에 찍은 듯한 착시가 1차 대전의 심부름 하나를 끊기지 않는 공포로 바꿔놓는다. 배회하는 디킨스의 카메라와, 할아버지의 전쟁이라는 지극히 사적인 이야기가 한 몸이 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sam-mendes#revolutionary-road-2008",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《레볼루셔너리 로드》는 《타이타닉》의 두 주연을 다시 불러 1950년대 결혼 생활을 부식시킨다. 《아메리칸 뷰티》의 교외적 절망으로 돌아가되 풍자를 걷어내고, 날것 그대로의 가차 없는 가정 안의 충돌만 남긴다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sam-mendes#spectre-2015",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《007 스펙터》는 더 크고 더 위험하게 간 두 번째 본드다. 죽은 자의 날을 훑는 대담한 트래킹 숏으로 문을 열고, 앞선 작품들의 악당을 하나의 신화로 엮는다. 전작들을 다 본 관객의 몫.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sam-raimi#spider-man-2-2004",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《스파이더맨 2》(2004)의 레이미가 가장 다가가기 쉽다. 실은 의심과 책임에 관한 슈퍼히어로 영화이며, 열차 시퀀스와 수술실 장면에서는 블록버스터 안에 심어둔 호러의 본능이 튀어나온다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sam-raimi#evil-dead-ii-1987",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《이블 데드 2》(1987)는 슬랩스틱과 유혈이 뒤섞이는 레이미의 서명 같은 영화다. 휙 돌아가는 카메라, 악령의 시점 숏, 브루스 캠벨의 몸 개그. 이후의 모든 것이 여기서 규정된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sam-raimi#the-evil-dead-1981",
+  "field": "reason",
+  "lang": "ko",
+  "text": "원점은 거칠고 돈 없는 《이블 데드》(1981)다. 오두막 한 채, 녹음기 하나, 그리고 쉬지 않고 튀어나오는 카메라의 발명. 돈이 생기기 전부터 그의 눈이 어땠는지를 증명한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sam-raimi#spider-man-2002",
+  "field": "reason",
+  "lang": "ko",
+  "text": "이미 걸려든 관객에게 《스파이더맨》(2002)은 들뜬 만화적 에너지와 윌렘 대포의 연극적인 위협으로 답한다. 레이미의 호러 기예가 주류로 넘어온 발사대.",
+  "model": "claude-opus-5"
+ }
+]

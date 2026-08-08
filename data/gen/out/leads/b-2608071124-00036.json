@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "it-1927",
+  "field": "lead",
+  "film_id": "4b72b81c-ad27-4838-8c80-9c754fb9f0a0",
+  "lang": "en",
+  "text": "Seventy-two minutes leaves little room for hesitation, which suits a comedy whose heroine has none. She works a counter; her boss owns the store, and the distance between those two facts is the engine of everything that follows. What is odd about the film now is how frankly it treats charm as a skill rather than a gift — something timed, deployed from behind a display case, by a woman with rent to pay. The 1927 word for this was animal magnetism, and she handles it the way a shopgirl handles stock. The romance itself runs on the arithmetic of class comedy, with misunderstanding standing in for obstacle. What lasts is the tempo. Scenes end a beat early, the wardrobe does half the acting, and a way of walking is presented as news worth reporting.",
+  "model": "claude-opus-5",
+  "source_sha256": "01e563c0e785bdab38370263e00365c1f2b837c020bbdcfcc02d466716fa860f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "memento-mori-1999",
+  "field": "lead",
+  "film_id": "438fccf0-1eb1-489f-8c15-7a753733952c",
+  "lang": "en",
+  "text": "The scariest object in this South Korean high school is a notebook. A girl finds the diary of a classmate who is dead, and reading it — pages of a love that was answered and then refused — puts her inside a grief she had no part in. The horror machinery is real: a school after hours, corridors that carry sound too well, adults who prefer not to know. But most of the ninety-eight minutes go to the social physics of an all-girls school, where an attachment between two students becomes public property, gossip travels with real force, and being seen is the actual danger. Made in 1999, the film treats the relationship at its centre as a love story rather than a symptom, which is why it turns up among KOFA's hundred Korean films and why it still stings.",
+  "model": "claude-opus-5",
+  "source_sha256": "88b689e58f3388852885207c33d5660e9697abe708a29df6cd53cf55b2362962"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "edge-of-the-city-1957",
+  "field": "lead",
+  "film_id": "e44cf4d2-578b-4598-aba8-a8deb8de3fa7",
+  "lang": "en",
+  "text": "Work on the docks in 1957 came through a man who decided who got hired, and that man is the pressure everything in this film runs against. A deserter turns up needing a job and no questions asked; a Black dock worker vouches for him, and the friendship that follows is filmed with a plainness that was not standard then — two men in kitchens and railyards, talking about nothing. The corruption is petty and close at hand: a boss skimming from wages, a threat delivered as a joke, a hiring line everybody understands. Eighty-five minutes, almost all of it at street level. What Ritt gets right is the arithmetic: one man has papers he cannot show, the other has a wife, a home and a job he needs to keep, so the cost of standing up is not equal and the film never pretends it is.",
+  "model": "claude-opus-5",
+  "source_sha256": "38099c558329db58ad6c9eb34a8b50313bfb62d0aed90ade9d0f5a450b06fa28"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "big-business-1929",
+  "field": "lead",
+  "film_id": "844426d1-9745-4db4-b59f-ec257a15ac0d",
+  "lang": "en",
+  "text": "Two men are selling Christmas trees door to door in California, where nobody needs one and the sun is out. Eighteen minutes, and the first several go to nothing but knocking: a bell, a refusal, a tree wedged in a closing door. Then they reach a householder with no patience whatsoever, and the short settles into its real subject, which is turn-taking. He damages something of theirs. They wait. They damage something of his. Nobody hurries and nobody shouts; the comedy comes from the courtesy with which each escalation is offered and accepted, and from the way both parties treat property damage as a formal procedure with rules. A policeman comes up the street at his own pace. By then the film has established the one thing it needs: neither side will ever be first to stop.",
+  "model": "claude-opus-5",
+  "source_sha256": "90b44e01ef44f8aaa8051e7d4cd20542a736ce5414e2eab4ee04575d7cc82572"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-day-of-the-dolphin-1973",
+  "field": "lead",
+  "film_id": "11548ce8-4694-4704-a112-6067f48e6bf4",
+  "lang": "en",
+  "text": "A dolphin learns to say a few words of English, and the first stretch of the film is nothing but the work of getting there: tanks, hydrophones, a biologist who spends more hours talking to an animal than to any person. Nichols directs research as domestic routine — feeding schedules, notes, weather, the same tasks every morning — so when visitors arrive wanting to know precisely what the animals can be asked to do, it plays as a break-in rather than a plot turn. The 1973 timing matters; this is a thriller about a private institute, made when nobody trusted what institutes were for. It took the Academy Award for Best Sound, and the award is legible in the film itself, which needs an audience to accept a whistle as a sentence and a small high voice as a mind.",
+  "model": "claude-opus-5",
+  "source_sha256": "a4deea4548b864c3ced047b6b4e158af13181661b4b1fbaea2d9d427379a0fdf"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-four-horsemen-of-the-apocalypse-1921",
+  "field": "lead",
+  "film_id": "e03fe41c-0713-4aa2-8958-14a3d76056bd",
+  "lang": "en",
+  "text": "An Argentine cattle fortune, two daughters, two marriages — one French, one German — and a war that has not happened yet. The 1921 film takes 156 minutes to close that trap, and it spends the first long stretch on ranch life and inheritance: a patriarch's preferences, quarrels over money, grandchildren raised to think of themselves as European. Made three years after the fighting stopped, it does not treat the war as spectacle to be reached; the waiting is the argument. When the family splits between France and Germany, cousins acquire different uniforms and different opinions about the same dead man's estate. For a silent epic the emphasis stays oddly domestic. A will read aloud in one act is what becomes, later, mobilization notices arriving at two addresses.",
+  "model": "claude-opus-5",
+  "source_sha256": "0ad76cc7d79efbd82329246dc10fab4a4607723224ed0ef6772e9c646a9086f3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "comes-a-horseman-1978",
+  "field": "lead",
+  "film_id": "1e285856-9bc1-4a52-bc60-060cc6c052ed",
+  "lang": "en",
+  "text": "Jacob Ewing wants Ella Connors's cattle land, and his method is patience: he already owns most of what surrounds it. She will not sell, so a 1978 Western turns into a film about holding on through a winter, about counting animals and working out whether the count is enough. Alan J. Pakula shoots the ranch labor at full length — riding, branding, fence line — and lets the human business happen in the gaps, in the uneasy quiet between Ella and her neighbor Frank Athearn, who need each other's hands before either will admit to anything else. There is sabotage. There are stampedes. But the Western furniture sits on top of a story about property and who gets to stay, and the picture settles when nobody is talking and the weather does the work.",
+  "model": "claude-opus-5",
+  "source_sha256": "83f1a8d70bf76239c20be74a3a3854aeb3e4c375f8a2ba91c8665c81d7866bea"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mr-mrs-bridge-1990",
+  "field": "lead",
+  "film_id": "6c710c51-200b-49a4-aa11-98f2edd556c2",
+  "lang": "en",
+  "text": "A father who will not say what he feels, and a house organized around that refusal. James Ivory gives the story 126 minutes and very little incident: dinners, a car, a daughter's plans, a wife whose days fill up with clubs and lunches and the management of one man's silences. The Second World War stays offstage, a thing on the radio that keeps proving the children right and their parents unequipped. The drama is procedural — how a household absorbs a patriarch whose certainties have already expired — and nothing detonates. Manners hold, then hold with visible effort, and the effort is the performance. What the film asks for is patience with the ordinary volume of a marriage in which the decisive sentences are never spoken aloud; its returns arrive late, quietly, and mostly through the wife.",
+  "model": "claude-opus-5",
+  "source_sha256": "e1f52a6a6ffe2431d72f57abc2174454d4196966b8bca3b0efff978711062a31"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "kid-auto-races-at-venice-1914",
+  "field": "lead",
+  "film_id": "f6bd0f08-b67a-44ba-b381-3c8e4d5796a0",
+  "lang": "en",
+  "text": "Venice, California, January 1914: a children's auto race is being filmed, and one man will not stay out of the frame. Seven minutes, most of them real crowd — parents, spectators, cars going past — with a single performer working against the camera instead of for it. The Tramp blocks the lens, is moved aside, comes back, straightens his clothes with an air of injured dignity while the operator waits him out. Half of what happens is bystanders noticing that something other than the race is going on. The gags are coarse and early, but the construction is strange enough to hold attention now: a document of one afternoon with a nuisance inserted into it, and a nuisance who knows exactly where the lens is pointed. It sits on the National Film Registry, and seven minutes is all it asks.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a4dac494fd30e3e4cb0eeb87bf847da1c7f0d0e7fac66498b3e5e048917134e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "resurrection-1980",
+  "field": "lead",
+  "film_id": "6e399313-7041-4968-acbd-68731fd49b4c",
+  "lang": "en",
+  "text": "Healing, in this film, looks like work: hands on a body, a long wait, exhaustion afterwards. A woman comes out of a car accident with an ability she never asked for and no vocabulary for describing it, and the 1980 picture is stubborn about keeping her ordinary — plain speech, plain rooms, a power that arrives with no doctrine attached. That missing doctrine is what draws the crowd. Preachers want a source, skeptics want a trick, the desperate want a turn, and all of them want her to explain. Petrie films the gathering of people with something close to dread, since attention is the one thing here that behaves like an illness. Fantasy is the shelf it sits on, but nothing is enchanted: the cures are quiet and physical, and the trouble that follows them is entirely social.",
+  "model": "claude-opus-5",
+  "source_sha256": "c41a6f1414f7f08f80373a9ee551e2b110cfa470497fcca5c2ec6d75be562097"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "cabin-in-the-sky-1943",
+  "field": "lead",
+  "film_id": "7d295d03-a65e-4f7c-bc58-01e6ce1a1c38",
+  "lang": "en",
+  "text": "Six months on Earth, and no memory of the bargain that bought them: Little Joe Jackson wakes into a second chance whose terms he cannot see. Vincente Minnelli stages the metaphysics as household traffic — an angel called the General, the devil's son named Lucifer Jr. — figures perfectly able to stand in a kitchen while a wife pours coffee, arguing over a man who is right there between them. Petunia's devotion is the fixed point, and the songs do what argument cannot: a hymn holds one end of the street, a dance number holds the other, and Joe keeps drifting toward the noise. Ninety-eight minutes, and the tone never turns solemn even with damnation on the table; temptation comes as a good song and an open door, which is why the moral bookkeeping never weighs anything down.",
+  "model": "claude-opus-5",
+  "source_sha256": "c90f2f7cee9db430e599b0128298230ea299351aadd1bf32d2d4f328918130c4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "road-to-zanzibar-1941",
+  "field": "lead",
+  "film_id": "3261ec34-8514-4b5f-928d-77651b6c997e",
+  "lang": "en",
+  "text": "The Africa of this picture is a joke about Africa — a studio's notion of jungle, with animals the two heroes are supposed to wrestle and a script that knows they are props. Chuck and Fearless are stranded and broke, one step ahead of their own last scheme, and two con-women size them up for exactly what they are worth. The engine is talk: plot arrives, gets ignored, comes back later to be ignored again. Ninety-one minutes of that needs stamina, and it gets it from the songs, from a double act timed to the syllable, and from the pleasure of watching two men negotiate with each other rather than with whatever is in front of them. The National Board of Review put it in that year's top ten, which says something about what a studio could turn out as routine work in 1941.",
+  "model": "claude-opus-5",
+  "source_sha256": "4e64759231bcea106329695cb8f7763e8e61fc9c171764ed407ebca349dfa06e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-count-of-monte-cristo-1934",
+  "field": "lead",
+  "film_id": "007cc2fe-c8cb-436d-b664-5c621f5bb531",
+  "lang": "en",
+  "text": "Edmond Dantès goes into a cell for something he did not do, and the 1934 film is at its most attentive in there, in the accounting: who signed what, who stayed silent, how many years. The adventure furniture is all present, a fortune and a new name and a return to men who prospered in the meantime, but the transformation is handled as clerical work rather than magic. Dantès reads, learns, calculates. It runs 113 minutes and covers years, so most of the film's movement is a jump across time, and the cost of the interval registers in how the man speaks afterwards, in drawing rooms where everyone is courteous and one guest knows more than he says. What holds up is the patience of it: waiting is the most active thing anybody in this picture does.",
+  "model": "claude-opus-5",
+  "source_sha256": "c0b96e19f562e605edf075d917731697b2f5e78a850a6d1cd9d6c727bd275314"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-girl-at-my-door-2014",
+  "field": "lead",
+  "film_id": "8ad03109-999c-46cc-80ac-a78bdcf496e4",
+  "lang": "en",
+  "text": "A police transfer out of Seoul to a village on the coast is rarely good news for the officer receiving it. She arrives in a place that runs on fishing labor and mutual knowledge, where the hierarchy is long settled and a woman in uniform from the capital is a problem to be handled politely. Then there is the girl: bruised, watched by everyone, protected by no one, drawn to the only adult who behaves as though she counts. July Jung keeps 119 minutes in daylight and small talk, and the abuse is never staged for effect; it is simply the arrangement the village has agreed not to name. What tightens is the officer's position, since every kindness she extends is available to be read another way. One of a hundred titles KOFA keeps as national record, and the quietest kind of alarming.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e78bbfae8c2b8d43dfbe2851d24010007f139f8b7d092dd00e21173e802757f"
+ }
+]

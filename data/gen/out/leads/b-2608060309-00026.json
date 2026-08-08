@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "midnight-in-paris-2011",
+  "field": "lead",
+  "film_id": "fc1e822d-28f5-42a6-9283-701f9d3821a2",
+  "lang": "en",
+  "text": "A man walks a Paris street at midnight and the century changes around him, on schedule, every night. The mechanism is never explained, which is the right call; what matters is that the trip repeats, so a wish turns into a habit and the habit turns into a problem. Ninety-four minutes is short for a fantasy, and the brevity works as discipline: no cosmology to build, just a screenwriter, a fiancée, her family, and an appointment he starts arranging his days around. The joke runs against its own hero. He is homesick for a decade he knows from reading, and the film keeps handing him exactly what he asked for. Its screenplay awards fit it, since the comedy lives in the sentences and in the timing of an introduction rather than in the trick that gets him to the party.",
+  "model": "claude-opus-5",
+  "source_sha256": "eed3d79724420c30100bbd6114aaaa5f7fa70f52eefa3eac83e67a2c3dac2cde"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "12th-fail-2022",
+  "field": "lead",
+  "film_id": "f995a25b-6f6b-46ac-89df-c11853f2efec",
+  "lang": "en",
+  "text": "The exam at the center of this film draws millions of candidates, and the interest here is in the ones who sit it twice. Manoj Kumar Sharma is a real person who became an IPS officer; the film goes back to the years before that, when the only road out of where he started ran through the UPSC. The stakes are arithmetical: what another year of preparation costs, who pays for it, which room a candidate can afford to sleep in. Vidhu Vinod Chopra gives the setbacks the same screen weight as the results, so restarting rather than arriving becomes the shape of the thing. Academic writing has taken the film up as a case study in social inequality, a fair reading of 146 minutes spent on fees, forms and deadlines. It won the National Film Award for best feature and a Filmfare best film.",
+  "model": "claude-opus-5",
+  "source_sha256": "a0f26f8d5dc7ea956f3a9921868bebfdeaa726bf14cb349417f8e29db3bc40f7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "no-other-choice-2025",
+  "field": "lead",
+  "film_id": "12f1f468-dbb8-4120-a861-dc198b9f16ec",
+  "lang": "en",
+  "text": "The layoff comes first, and the film files it under comedy before it gets anywhere near the crime. A paper mill manager with a long record of competence is informed that his competence is surplus, and Park Chan-wook treats that notification as the initiating violence: everything afterwards is a man disputing a verdict already entered against him. The genre order is worth reading as a warning about tone rather than a summary of plot. Two hours and nineteen minutes gives the descent room to be gradual, and gradual is where the joke and the dread sit in the same chair. Blue Dragon and Baeksang both named it best film. What is at stake is standing rather than income, and the film knows which of the two a person will ruin himself over.",
+  "model": "claude-opus-5",
+  "source_sha256": "bfd873e71656bdacf006c41e80ffb1296aeb54b9515383d5017ab6e6055e8d36"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-taxi-driver-2017",
+  "field": "lead",
+  "film_id": "f6f1e873-ffd9-45c0-97c2-0f6977f12607",
+  "lang": "en",
+  "text": "In May 1980 a Seoul cab driver takes a fare to Gwangju because the money is good and he has a daughter to feed. Man-seob does not know what he is driving into. His passenger, a German journalist, has not said. That withholding is the design: the history is enormous and the vantage point is deliberately small, a hand-to-mouth widower who wants the fare paid and to be home by evening, set down inside days far larger than he is. Jang Hoon lets the situation arrive at the pace the driver learns it, which turns a national event back into something happening on one road, to one man who would rather not be there. Korea put it forward as its submission to the Academy Awards, and both Blue Dragon and the Grand Bell named it best film. Reluctance, not courage, is where it starts.",
+  "model": "claude-opus-5",
+  "source_sha256": "a3234d500ea593cafa08044544010e520cc24703223f6a1aba40fff12a79b29e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "l-eclisse-1962",
+  "field": "lead",
+  "film_id": "b2f13298-6840-4280-bc06-c7b283919a33",
+  "lang": "en",
+  "text": "The floor of the Roman stock exchange is where Vittoria meets Piero, and it is the one place in the film that shouts. She translates literature for a living; he prices things by the minute. Both occupations are exercises in equivalence, and neither one is any help to them here. Most of the 126 minutes go not to what the two say to each other but to the intervals around it, the walk back, the wait, the room just after somebody has left it. What is at risk is not the affair. It is the capacity to want one. Antonioni gives that condition the time it needs to become visible. Four registers hold the film: TSPDT's thousand greatest, the BBC's hundred foreign-language films, a Jury Prize, and Italy's list of works to be preserved.",
+  "model": "claude-opus-5",
+  "source_sha256": "3ff1574ed89fdde10bc7e3846a54b28c0a8beef1fdac86f3ee438b314831b25d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "assassination-2015",
+  "field": "lead",
+  "film_id": "1c0d8bf7-16c5-4416-8b76-566bfd7b7cb9",
+  "lang": "en",
+  "text": "Three fighters, two targets, one plan: the occupation is handled here with the fittings of a heist picture. Choi Dong-hoon assembles his crew in Japanese-ruled Korea, and the names on the list are a military commander and the Korean who serves him. That second target keeps the film from being an adventure. Collaboration is the harder subject, and it is built into the mission rather than mentioned around it, since the system under attack is partly staffed by people from the country it occupies. Across 140 minutes there is room for the double-crosses the genre requires and for the discomfort it usually skips. Baeksang and Blue Dragon both named it best film. It is period thriller before it is history, but it knows which period it has borrowed.",
+  "model": "claude-opus-5",
+  "source_sha256": "a16c5f61e87fa7feae84e2d48d0139de5282e4179040c8adf975ec9cc92f7522"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "escape-from-mogadishu-2021",
+  "field": "lead",
+  "film_id": "bb90a714-8e63-4245-bd9a-58cd61c23453",
+  "lang": "en",
+  "text": "Two embassies in one city, run by governments that refuse to acknowledge each other, and then the city goes up. Civil war strands North and South Korean diplomatic staff in Somalia, in a conflict that has nothing to do with either delegation, and it removes every authority they would ordinarily appeal to. What is at stake is stranger than survival: whether the two staffs can be seen cooperating, and what the sight of it will cost them once they are home. Ryoo Seung-wan runs it as an action film, 121 minutes with the escape as its spine, and lets the politics arrive as logistics, as the question of what has to be shared and with whom. Korea submitted it to the Academy Awards, and it took best film at both Baeksang and Blue Dragon.",
+  "model": "claude-opus-5",
+  "source_sha256": "a69836c061392d84ebfc0bff6eaa80945547c5b81b7b9ee89f9c6740af2d7c03"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "inside-men-2016",
+  "field": "lead",
+  "film_id": "7c04f10b-1da6-47a5-a752-bed162caeb3e",
+  "lang": "en",
+  "text": "Bribery is dull in small doses and appalling at scale, which is what a hundred and eighty-one minutes are for. The three men here are a discarded enforcer, a prosecutor with ambitions of his own, and a newspaper editor who decides which candidate the country will be permitted to like. Woo Min-ho places the editor above the politician, and that inversion is the film's real proposition: the man with the press outranks the man with the votes. The alliance at the center is one of convenience between two people who would each prefer to hold the leverage. Length lets the same transaction recur until it stops reading as an exception. Blue Dragon and the Grand Bell both named it best film. Nobody in it is clean, including the two doing the exposing.",
+  "model": "claude-opus-5",
+  "source_sha256": "f35528e6140fbc05f2239512eeddd6e74ec8278777ce94f371a93b4ba44b29e9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "forever-the-moment-2008",
+  "field": "lead",
+  "film_id": "ec45bbf6-a78e-4e9f-9f00-92bf4d093549",
+  "lang": "en",
+  "text": "The Korean women's handball squad gets a country's full attention once every four years, and this film spends its time in the other three. Yim Soon-rye's attention is on preparation: selection, training, and the ordinary lives that have to be rearranged around both. The obstacles are not the delay before the story. They are the story. The 2004 Olympics sit at the end of the road, and the road is the film. Two hours and four minutes lets the setbacks accumulate the way a season does instead of arriving the way a plot does, and what is at stake turns out to be a professional last chance falling in the one month anyone is looking. Baeksang and Blue Dragon both named it best film. Sports pictures usually live in the closing minutes of a final; this one lives in the year before it.",
+  "model": "claude-opus-5",
+  "source_sha256": "2cbfc9a9332046b5b7cb34e958ed4c44ff6f1d01175ed35643b5ef3452b915b0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "our-twisted-hero-1992",
+  "field": "lead",
+  "film_id": "7b60341f-45d1-4a26-9ae5-e5344539e658",
+  "lang": "en",
+  "text": "The frame is a train ride to a teacher's funeral, and the film is what the passenger remembers on the way. Han Byung-tae teaches at a cram school in Seoul now, which rhymes uncomfortably with where he is travelling: one classroom exchanged for another, the second billed by the hour. At the other end of the memory is a rural elementary school and the fights he got into there. Park Chong-won seems less interested in who won them than in how a room of children sorts itself into ranks, and how quickly that arrangement comes to feel like weather. The lesson is learned early and it holds. Baeksang and Blue Dragon both named it best film. Two hours of one man's recollection, and the man recollecting now stands at the front of a room himself.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd21549a9bb424c049199e8be18de3565c3ef9db94a0d2df2faaf7761882ddfb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "kinship-1963",
+  "field": "lead",
+  "film_id": "89c6fd65-8e9d-4eb3-8edf-4375af725c36",
+  "lang": "en",
+  "text": "The households in this film live on a mountain slope and make their living selling socks and pens. They came south from the North, and what they hold instead of property is children. Kim Deok-sam wants his son Geo-buk in the American army. Next door, Ok-Mae teaches her daughter Bok-soon the old folksongs and steers her toward work as a gisaeng. Both parents are proposing the same transaction in different currencies, a child converted into an exit, and Kim Soo-yong stages the two plans against each other inside 82 minutes, which is barely long enough for anyone to finish an argument. Blue Dragon and the Grand Bell both named it best film. What separates the generations here is not a misunderstanding. It is a conflict of interest, and the parents are not wrong about the arithmetic.",
+  "model": "claude-opus-5",
+  "source_sha256": "79e61e156259ecbf1cb9120f15abfe5e7941534a53f3f8a65c8a61383488e719"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-wonders-2014",
+  "field": "lead",
+  "film_id": "65e5742b-d78e-48c2-969f-787cbb1113f8",
+  "lang": "en",
+  "text": "A family of honey farmers is invited to perform its own way of life on television, for prize money. The competition is looking for Italy's most traditional family, and the Tuscan household would qualify almost by accident: four daughters, a father with rules, and an eldest child, Gelsomina, running the place from a position she never applied for. Alice Rohrwacher's interest is in what happens to a private economy the moment somebody puts a price on it. The farm is short of money. The show has some. Gelsomina can see the trade and her father will not, so the argument between them is only nominally about the prize. It took the Grand Prix at Cannes and an audience award at the IFFR. Then a boy arrives to stay for rehabilitation, and a routine that has never had a witness gets one.",
+  "model": "claude-opus-5",
+  "source_sha256": "c2f465f076f430cc4958b6e2c8da2e8392821d8114a822a42538c64e0be24b06"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "babe-1995",
+  "field": "lead",
+  "film_id": "d6bf6e76-f66e-4996-a726-3d4da8c17668",
+  "lang": "en",
+  "text": "The National Society of Film Critics gave its best-picture award to a film about a pig who wants to herd sheep. That is the durable fact about Babe, and it is not a joke at the critics' expense. The Australian farm is filmed as a working property with a hierarchy: dogs above sheep, sheep below everyone, a duck under the impression he is a rooster, and a pig who has not yet been told what pigs are for. The comedy runs on manners, on who may address whom and what happens when a small animal politely declines the arrangement. Farmer Hoggett sees the ability before anyone else does, which puts a man and a pig in quiet conspiracy against the ordinary uses of a farm. Ninety-two minutes, and it holds because everyone inside it behaves as though the stakes were entirely serious.",
+  "model": "claude-opus-5",
+  "source_sha256": "1bcace6c48f973af52dc833dacad543010978a4ead03025c34358c55f212b5be"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "salvatore-giuliano-1962",
+  "field": "lead",
+  "film_id": "9488b513-7344-41a4-9c57-34dc0d0896e2",
+  "lang": "en",
+  "text": "A body lies face down in a courtyard in Castelvetrano, a handgun and a rifle beside it, and the press arrives before the explanation does. The man in the title is gone before the film has properly started, so everything after has to be assembled out of other people's accounts: police, journalists, villagers, and the arrangements that allowed a twenty-seven-year-old to be Italy's most wanted criminal and a hero at the same time. Francesco Rosi works outward from the corpse rather than back through a biography. The villagers are witnesses and participants both, which is what makes the reconstruction hard and worth attempting. It took a Silver Bear for direction, sits on TSPDT's thousand, and appears on Italy's list of works to be preserved.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f9194cf980845c3aa931840771da085cb144cef5fc3627df9e63b2f3ea9877d"
+ }
+]

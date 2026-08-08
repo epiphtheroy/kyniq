@@ -1,0 +1,314 @@
+[
+ {
+  "entity_type": "director_pick",
+  "entity_key": "edgar-wright#scott-pilgrim-vs-the-world-2010",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《스콧 필그림 vs. 더 월드》는 만화 칸과 게임의 규칙, 화면에 찍히는 효과음까지 과잉 활성 상태의 연애담 안에 쏟아붓는다. 그의 이력에서 가장 과감한 형식 실험이자, 컬트의 사랑을 받는 편.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "edgar-wright#the-world-s-end-2013",
+  "field": "reason",
+  "lang": "ko",
+  "text": "코네토 3부작을 닫는 《The World's End》. 술집 순례가 침공극으로 넘어가는 이 영화는 앞선 두 편보다 어둡고 슬프다. 어른이 되다 만 인간이라는 라이트의 주제를 따라온 팬에게 값을 치르는 편이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "edward-berger#conclave-2024",
+  "field": "reason",
+  "lang": "ko",
+  "text": "베르거에게 가장 쉽게 들어가는 문은 《콘클라베》다. 교황 선출이 벌어지는 밀실 하나로 조여 붙인 스릴러. 속삭이는 정치와 랄프 파인즈의 절제가 절차라는 것에 전류를 흘려보낸다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "edward-berger#all-quiet-on-the-western-front-2022",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《서부 전선 이상 없다》에는 베르거의 역량이 전부 나와 있다. 진창이 눌어붙은 참호의 공포, 오싹한 색조, 그리고 1차 대전을 감각적 공포로 바꿔놓는 제임스 프렌드의 카메라. 이 감독이 왜 중요한지가 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "edward-berger#the-ballad-of-a-small-player-2025",
+  "field": "reason",
+  "lang": "ko",
+  "text": "이미 걸려든 관객에게 주어지는 보상은 《The Ballad of a Small Player》다. 마카오의 도박판을 열병처럼 훑는 이야기 속에서 베르거는 대작의 규모를 버리고 네온에 절은 심리적 불안을 택한다. 콜린 파렐은 무언가에 홀린 얼굴로 거기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "edward-yang#yi-yi-2000",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《하나 그리고 둘》은 타이베이의 한 가족 3대를 결혼식과 장례식 사이로 따라간다. 아이 하나가 사람들 뒤통수를 찍는다. 남들이 놓치는 것을 본다는 것, 그 이야기를 양더창은 여기서 가장 따뜻하고 가장 다가가기 쉽게 풀었다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "edward-yang#a-brighter-summer-day-1991",
+  "field": "reason",
+  "lang": "ko",
+  "text": "1960년대 십대 갱단의 살인 사건 하나가 네 시간에 가까운 서사시가 된다. 《고령가 소년 살인사건》은 뿌리 뽑힌 가족들과 표류하는 한 세대를 담은, 전후 대만에 관한 양더창의 가장 야심적인 초상이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "edward-yang#taipei-story-1985",
+  "field": "reason",
+  "lang": "ko",
+  "text": "야구 선수였던 남자와 근대화된 삶을 살아가는 여자친구가 전통과 변해가는 도시 사이에 발이 묶인다. 멈춰 선 삶에 관한 초기작 《타이페이 스토리》는 조용히 사람을 무너뜨린다. 허우샤오셴이 주연을 맡았다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "edward-yang#the-terrorizers-1986",
+  "field": "reason",
+  "lang": "ko",
+  "text": "소설가, 사진가, 가출한 소녀. 《공포분자》는 낯선 이들을 쪼개진 타이베이 위로 엮어 넣는다. 우연과 도시적 소외를 다룬 양더창의 실험 가운데 가장 차갑고 형식적으로 가장 대담한 편.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "elia-kazan#on-the-waterfront-1954",
+  "field": "reason",
+  "lang": "ko",
+  "text": "카잔으로 들어가는 가장 또렷한 입구는 《워터프론트》다. 부두에 갇힌 도덕극이자, 브랜도의 멍든 양심과 \"나도 한때 챔피언감이었어\"의 그 친밀한 순간이 메소드 연기가 미국 영화에 무엇을 가져왔는지 보여준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "elia-kazan#a-streetcar-named-desire-1951",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《욕망이라는 이름의 전차》는 윌리엄스의 희곡에 날것의 스크린 연기를 붙인다. 브랜도의 짐승 같은 스탠리와 비비안 리의 시들어가는 블랑슈가 뉴올리언스의 숨 막히는 열기 속에서 맞붙는다. 팽팽하게 당겨진 연극적 긴장을 다루는 카잔의 솜씨.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "elia-kazan#east-of-eden-1955",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《에덴의 동쪽》은 제임스 딘에게 첫 주연을 안겼다. 아버지의 사랑에 굶주린 아들. 카잔은 이를 풍성한 시네마스코프 색채로 찍었다. 일단 빠져든 뒤에 받아 들 다정하고 안절부절못하는 보상이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "elia-suleiman#divine-intervention-2002",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《신의 간섭》에는 술레이만의 서명이 다 들어 있다. 무표정한 짧은 장면들, 말이 거의 없는 코미디, 이스라엘 검문소의 삶을 다룬 부조리한 화면. 그 모두를 화면 속에서 말없이 지켜보는 그 자신이 붙들고 있다. 이 무표정한 문법으로 들어가는 가장 깨끗한 입구다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "elia-suleiman#the-time-that-remains-2009",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《The Time That Remains》는 1948년 이후 나사렛에 살아온 그의 가족사를 수십 년에 걸쳐 훑는다. 개인의 기억과 국가의 역사가 정교하게 구성된 우울한 희극적 화면 안에서 하나로 붙는다. 가장 야심 차고 감정적으로도 가장 멀리 울리는 작품.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "elia-suleiman#it-must-be-heaven-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《It Must Be Heaven》은 그 말 없는 관찰자를 파리와 뉴욕으로 데려간다. 팔레스타인의 부조리가 어디에서나 되울린다는 발견. 그의 리듬에 이미 귀가 맞춰진 관객이라면, 후기의 이 능청스러운 세계화를 즐길 수 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "eric-rohmer#my-night-at-maud-s-1969",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《모드 집에서의 하룻밤》은 로메르의 방법을 하룻밤의 긴 대화 하나로 졸여낸다. 신앙과 우연과 욕망을 두고 오가는 말. 그 말이 곧 서스펜스다. 소리 내어 생각하는 영화를 좋아하는 관객에게 더없이 좋은 초대장.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "eric-rohmer#claire-s-knee-1970",
+  "field": "reason",
+  "lang": "ko",
+  "text": "한 남자가 여자의 무릎 하나에 붙들린다. 《클레르의 무릎》은 그 집착을 볕 좋은 도덕 희극으로 바꿔놓는다. 호숫가의 여름빛, 그리고 면도날처럼 예리한 자기기만. 여섯 편의 도덕 이야기는 여기서 우아한 정점에 닿는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "eric-rohmer#the-green-ray-1986",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《녹색 광선》은 프랑스의 여름을 정처 없이 떠도는 외로운 여자를 따라간다. 대사는 대부분 즉흥으로 나왔고, 이야기는 부서지기 쉬운 자연의 계시를 향해 쌓여간다. 후기 로메르의 헐거워지고 감정적으로 더 날것이 된 국면이 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "eric-rohmer#pauline-at-the-beach-1983",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《해변의 폴린》은 바닷가에서 벌어지는 유혹과 거짓말의 경쾌한 윤무다. 그 전부를 십대 소녀의 맑은 눈이 지켜본다. 자기변명에 능한 연인들을 배치하는 로메르의 기하학에 귀가 맞춰졌을 때 받아 들 보상.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ernst-lubitsch#the-shop-around-the-corner-1940",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《모퉁이 가게》의 루비치는 가장 따뜻하다. 부다페스트의 두 점원이 얼굴을 맞대면 티격태격하면서, 익명의 펜팔로는 서로 사랑에 빠진다. 예절 아래 감정이 흐르는 그의 세계로 들어가는 가장 부드러운 입구.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ernst-lubitsch#ninotchka-1939",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《니노치카》는 파리에 온 엄격한 소련 특사를 샴페인과 웃음으로 녹인다. 가르보가 화면에서 웃는다는 그 유명한 장면. 이���을 연애로 바꿔놓는 루비치의 방식을 보여주는 완벽한 다리다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ernst-lubitsch#trouble-in-paradise-1932",
+  "field": "reason",
+  "lang": "ko",
+  "text": "프리코드 시대의 정점은 《낙원의 곤경》이다. 우아한 도둑 둘이 부유한 미망인을 유혹하고, 서로를 유혹한다. 모든 이중적 대사와 닫히는 문과 곁눈질이 그 이름난 '루비치 터치'를 정의한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ernst-lubitsch#to-be-or-not-to-be-1942",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《사느냐 죽느냐》는 나치 점령하의 바르샤바를 웃음거리로 삼는 모험을 감행한다. 허영에 찬 극단이 게슈타포를 따돌린다. 루비치의 재치가 어디까지 갈 수 있는지 믿게 됐을 때 받아 들, 가장 대담하고 가장 날 선 보상.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "f-w-murnau#nosferatu-1922",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 알아보기 쉬운 입구는 《노스페라투》(1922)다. 실제 장소와 그림자만으로 무르나우는 공포를 만들어낸다. 쥐를 닮은 막스 슈렉의 흡혈귀는 이후 백 년간 호러의 시각 문법이 됐다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "f-w-murnau#the-last-laugh-1924",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《마지막 웃음》(1924)에는 이야기꾼으로서 무르나우의 야심이 드러난다. 자막이 거의 없는 이 영화를 끌고 가는 것은 '풀려난 카메라'다. 미끄러지고 기울면서 카메라는 한 도어맨의 무너지는 자존심을 옮긴다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "f-w-murnau#sunrise-1927",
+  "field": "reason",
+  "lang": "ko",
+  "text": "예술적 정점은 《선라이즈》(1927)다. 한 부부의 결산을 다룬 할리우드산 우화를 이중노출과 움직이는 카메라, 분위기를 빚는 세트로 그려냈다. 독일 표현주의와 서정적 로맨스가 여기서 하나로 녹는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "f-w-murnau#faust-1926",
+  "field": "reason",
+  "lang": "ko",
+  "text": "이미 빠져든 관객에게 《파우스트》(1926)는 무르나우의 가장 호사스러운 효과를 내놓는다. 치솟는 구름, 미니어처 마을 위를 나는 날개 달린 악마. 카메라 안에서 부리는 속임수를 무성영화 시대의 한계까지 밀어붙였다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "federico-fellini#amarcord-1973",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《아마코드》는 일 년에 걸친 소도시의 삶을 따뜻한 삽화들로 엮는다. 가장 다가가기 쉽고 가장 다정한 펠리니. 웃음과 향수와 볼거리가 있고, 사전 지식은 필요 없다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "federico-fellini#la-dolce-vita-1960",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《달콤한 인생》은 가십 기자를 따라 로마의 화려한 밤을 돌아다닌다. 현대의 공허와 유명세가 상징적인 장면들 안에 붙들려 있다. 다들 어렴풋이 기억하는 그 펠리니가 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "federico-fellini#8-1-2-1963",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《8과 1/2》은 막혀버린 감독의 창작 위기를 기억과 환상과 현실이 뒤엉킨 눈부신 직조로 바꿔놓는다. 자기 자신을 되비추는 이 정점이 펠리니가 왜 영화를 다시 만들었는지를 보여준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "federico-fellini#i-vitelloni-1953",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《비텔로니》는 지방 소도시의 목적 없는 젊은 남자들을 좇는다. 청춘과 탈출과 소읍의 삶이라는 펠리니의 주제가 처음 결정을 이루는 반자전적 초기작.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "federico-fellini#juliet-of-the-spirits-1965",
+  "field": "reason",
+  "lang": "ko",
+  "text": "펠리니의 첫 컬러 장편 《영혼의 줄리에타》는 한 주부의 내면으로 뛰어든다. 기억과 환영이 뒤섞인 환각의 세계. 《8과 1/2》의 짝이 되는, 화려하고 여성을 중심에 둔 작품이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "federico-fellini#satyricon-1969",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《사티리콘》은 서사를 버리고 고대 로마를 외계의 꿈 풍경 삼아 환각적이고 파편적인 하강을 감행한다. 가장 기이한 펠리니. 이제 완전히 빠져든 관객을 위한 보상이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "francis-ford-coppola#the-godfather-1972",
+  "field": "reason",
+  "lang": "ko",
+  "text": "입구는 《대부》(1972)다. 한 가족의 범죄 연대기를 참을성 있는 호흡으로 밀고 나가는 영화. 잊히지 않는 연기와 고든 윌리스의 그늘진 화면이, 처음 온 이에게 코폴라의 기술이 무엇인지 못 박아 보여준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "francis-ford-coppola#the-godfather-part-ii-1974",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《대부 2》(1974)는 판돈을 배로 올린다. 두 시간대를 나란히 놓고, 아들의 차가운 부상과 아버지의 이민 시절을 엮는다. 코폴라가 하나의 이야기를 비극으로 넓힐 수 있다는 증거.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "francis-ford-coppola#apocalypse-now-1979",
+  "field": "reason",
+  "lang": "ko",
+  "text": "예술적 정점은 《지옥의 묵시록》(1979)이다. 베트남전 속으로 거슬러 오르는 환각의 강 여행. 오페라 같은 사운드와 비토리오 스토라로의 색채, 그리고 영화라는 것을 부서지는 지점까지 밀어붙인 코폴라가 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "francis-ford-coppola#the-conversation-1974",
+  "field": "reason",
+  "lang": "ko",
+  "text": "조용한 보상은 《컨버세이션》(1974)이다. 도청 전문가가 녹음된 한 토막 때문에 풀려나간다. 코폴라의 밀착된 편집증적 정밀함, 그리고 월터 머치가 새로 연 사운드 디자인이 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "francis-ford-coppola#bram-stoker-s-dracula-1992",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《드라큘라》(1992)에는 최대주의자 코폴라가 있다. 카메라 안에서 부리는 속임수, 사치스러운 의상, 열병 같은 낭만주의. 순전히 연극적인 솜씨만으로 흡혈귀 신화를 다시 짰다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "francis-ford-coppola#megalopolis-2024",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《메갈로폴리스》(2024)는 코폴라가 사재를 털어 만든 만년의 대작이다. 유토피아를 꿈꾸는 건축가를 다룬 이 방대하고 평가가 갈리는 우화가, 여전히 불가능한 야심을 좇는 노장의 얼굴을 드러낸다.",
+  "model": "claude-opus-5"
+ }
+]

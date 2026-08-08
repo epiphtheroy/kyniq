@@ -1,0 +1,182 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alain-resnais#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《밤과 안개》를 두고 그는 프랑스 검열 당국과 지루한 싸움을 벌였다. 사진 한 장에 피티비에 수용소를 지키는 프랑스 헌병이 또렷이 찍혀 있었던 탓이다. 결국 그는 타협했다. 헌병의 특징적인 케피 모자 위에 나무 들보를 덧칠해 가린 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "820d0c6307299211a58c4ca24bf842ad261d44a00ab7b77cf3c401976a2a1b35"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alain-resnais#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "같은 시기 누벨바그 감독들과 달리 그는 작가주의(auteurism)를 격렬하게 거부했다. 자기 시나리오를 직접 쓰기를 마다했고, 마르그리트 뒤라스나 알랭 로브그리예 같은 문학의 거인들에게 영화적 건축을 제공하는 것이 자기 몫이라고 못 박았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c139d896b13e5ebcff78d213703171f50c5ac5ee2736b1b45ad6d6ea1edad47a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alain-resnais#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "비평가들은 그를 《카이에 뒤 시네마》 진영의 핵심으로 분류하지 않았다. 대신 '좌안파(Rive Gauche)'의 대표 격으로 묶었다. 바르다, 크리스 마르케르, 자크 드미가 속한 이 보헤미안 무리는 문학과의 깊은 유대를 공유했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a37655793b5754441b32b488889aa3d717f8f62a693d06e163dc2371442014a1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alain-resnais#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1970년대 초, 그는 뉴욕으로 건너가 마블 코믹스의 두뇌 스탠 리와 직접 SF 시나리오 두 편을 개발했다. 《The Monster Maker》와 《The Inmates》. 둘 다 끝내 영화가 되지 못했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb21415d6adb61b856c8fa973b9c213fea40a2e73597d070187e9bdb78dbc4ac"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alain-resnais#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "브로드웨이 뮤지컬의 열렬한 팬이었던 그는 1974년 전기영화 《Stavisky》의 풍성하고 낭만적인 음악을 맡기려고 작곡가 스티븐 손드하임을 직접 찾아갔다. 손드하임이 영화음악에 발을 들인 드문 경우다.",
+  "model": "claude-opus-5",
+  "source_sha256": "38da702dac8ea77cf94acc4e26dfa00db9cc34ae62634b382aac7aa449af8109"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alain-resnais#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "첫 아내는 프랑스 문화부 장관 앙드레 말로의 딸 플로랑스 말로였다. 그녀는 1961년부터 1986년까지 그의 고정 조감독으로 일했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a3bab335d3b7e6cc801765f7dae7bc78e92ece1040d68564e4d54e710ab84c3c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alain-resnais#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "생의 마지막 30년은 배우 사빈 아제마와 함께였다. 그녀는 그의 결정적인 뮤즈가 되어, 연극성이 짙어진 후기작 열 편에 주연으로 섰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d0a297c056cccf55b54027445672887f7650f0003ef39ee0b6a37c3ee2bd3991"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alain-resnais#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "펄프 탐정소설 《Harry Dickson》의 영화화에 그는 몇 년을 매달렸다. 콘셉트 아트와 대본을 끝없이 발주했지만, 자금이 모이지 않아 그 거대한 기획은 여러 차례 무너졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d99481b1f5a69aaa201a56effbf20089d992f10f15dd20012259f0f8f6a83a7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alain-resnais#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1993년 두 폭 영화 《Smoking/No Smoking》에서 그는 앨런 에이크번의 희곡을 야심찬 구조 실험으로 바꿔놓았다. 가능한 결말이 열두 가지. 이 작품으로 세자르상 작품상과 감독상을 휩쓸었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7446d99f7ec4064c0f5e0e6c892aeacc3731a9e2bc8872a9a04404cc1045d75e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alain-resnais#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1997년 뮤지컬 코미디 《Same Old Song》에서 그는 정극으로 이름난 배우들에게 이상한 요구를 했다. 장면 한복판에서 느닷없이 에디트 피아프나 세르주 갱스부르 같은 가수들의 원곡 녹음에 입을 맞추라는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c1c52b6ac53d75ffe11614df25e166a42f404831764e0308bcae47a837eaff5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alain-resnais#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "고결한 지성주의자로 통했지만, 정작 그가 사랑한 것은 가벼운 오페레타였다. 1925년 뮤지컬 코미디를 거리낌 없이, 즐겁게 옮긴 《Not on the Lips》(2003)가 그 증거다.",
+  "model": "claude-opus-5",
+  "source_sha256": "71087013e933ba3cf0f79f19da30b93ee8a73656ec5cd0f8f567581f94a75e43"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alejandro-gonz-lez-i-rritu#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "열여섯에 고등학교에서 쫓겨난 그는 부잣집 딸과 아카풀코로 달아났다. 그 뒤 화물선 갑판을 닦는 일을 얻어 미시시피강을 따라 흐르다 유럽과 아프리카까지 건너갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "58b976c9587b6f3e455b0751b6dd71d453a3e5cdc4cf5451ca740b91ebe948a0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alejandro-gonz-lez-i-rritu#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화로 오기 전, 그는 1984년 멕시코 록 방송국 WFM의 스타 진행자였다. 종잡을 수 없는 선곡과 영화 같은 오디오 스케치가 이 방송국을 전국 1위로 밀어 올렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "647e4504cb335bbf58b310175e52ad9e9881d32fda21ebf2b2a7f932494a7dac"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alejandro-gonz-lez-i-rritu#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1991년 제작사 Z Films를 차렸다. 텔레비전 광고를 수백 편 연출하며 회사를 멕시코 최대 규모의 제작사 중 하나로 키웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9acea0483aa5449cf4e8c96f4d6f71d7c2c10ed2df66934814be4c1cd9ee998a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alejandro-gonz-lez-i-rritu#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스물아홉 무렵 정식 훈련이 필요하다고 느낀 그는 멕시코시티에서 연극 연출을 배웠다. 스승은 폴란드에서 망명한 엄격한 연출가 루드비크 마르굴레스. 대본을 가차 없이 심문하는 법을 그에게서 배웠다고 이냐리투는 말한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb1c58ecdc156eefd424b1c9daad1b13d9c2cc3cbeadf987da341d32ae6370ea"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alejandro-gonz-lez-i-rritu#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "학생 단편에서 본 무명의 가엘 가르시아 베르날을 그는 《아모레스 페로스》에 앉혔다. 그 바람에 젊은 배우는 런던 센트럴 스피치 앤드 드라마 스쿨 수업을 빼려고 꾀병을 부려야 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3b150d30efb3500984c4cb919e74bdd295c9a2f0711171e47dfcd51a84b8245c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alejandro-gonz-lez-i-rritu#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "기예르모 델 토로, 알폰소 쿠아론과 함께 '세 아미고'로 불린다. 서로의 러프컷을 사정없이 물어뜯는 사이이기도 해서, 쿠아론은 《아모레스 페로스》에서 20분을 덜어내도록 도운 일화로 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a53c85c9c13117e3bf8c799754683bd5eabad3405faa04b855bdf7046c8b8ea"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alejandro-gonz-lez-i-rritu#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《비우티풀》은 처음부터 하비에르 바르뎀을 염두에 두고 쓴 각본이었다. 그는 배우를 수소문해 찾아가 우스발 역을 제안했다. 바르셀로나 뒷세계를 헤매는 죽어가는 남자. 이냐리투 자신이 품고 있던 죽음에 대한 실존적 공포를 파고든 인물이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7b10ec515b6fa58323b35eacd695f8655fc98be727357570244638ac790ff9b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alejandro-gonz-lez-i-rritu#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 위파사나 명상을 꾸준히 수행한다. 스스로 강박적이고 과잉활동적이라 부르는 자기 정신, 그리고 작품과 작품 사이에 밀려드는 짓눌리는 불안을 견디려 침묵 수련회를 자주 찾는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "47928d2e3b45d61dec093a46a4a21754480583537b5cb45bedecd88889e61f9e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alejandro-gonz-lez-i-rritu#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《버드맨》의 음악은 재즈 드러머 안토니오 산체스의 타악기만으로 가야 한다고 그는 고집했다. 즉흥으로 빚은 그 혼란스러운 음향은 결국 아카데미 음악상 후보 자격을 잃었다. 기성 클래식 곡이 함께 쓰였다는 이유였고, 논란이 뒤따랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "776c1efa11a0c7d8649adf4ee357db7295d5945e264d3aebb87ca505cc2d0e70"
+ }
+]

@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-servant-who-exposes-the-master",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "기계 혹은 개종자가 인간의 거짓말을 들춰낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a1e01c696b9592ae7799a415b12ec8d68f4f4c38e299944a47a30b27b8db2ac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-servant-who-manages-her-master-s-sleep",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "여성의 돌봄 노동을 주인에게 딸린 가내 예속으로 되비추기.",
+  "model": "claude-opus-5",
+  "source_sha256": "ddb06d651e60ba5ad035f23b3f3c83595e433f3e8e0900c4e79da4337e9261ef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-servant-who-secretly-runs-the-house",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "주인의 세계를 실제로 떠받치고 있는 아랫사람.",
+  "model": "claude-opus-5",
+  "source_sha256": "066f85e29e138eb93dc6a4906a8fd5088c13bfce9b01bc0808b90fc9491abef1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-servant-whose-worship-conceals-forbidden-desire",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "충성이 굳어 사랑이 된다. 끝내 이름 붙일 수 없는 사랑이.",
+  "model": "claude-opus-5",
+  "source_sha256": "b7cbacbf1b53a2521d6b2797f79bac0c87d8dc0a208dba576075da0ab0f92e3f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-served-who-quietly-becomes-sovereign",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "섬김이 지배로 뒤집힌다. 기대던 쪽이 명령한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "40ce4a8c68924115d46f6e304a4a902b901ff12d213733048e66e060bb5c09f6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-set-is-a-world-with-no-outside",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "세트가 이야기를 밀봉한다. 벽 바깥에는 아무 데도 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "999ea3b1a2fe5704ee6b0c15b5ffc5465202df7fd14d3f15d67d5232a5a1841b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-set-more-honest-than-the-real",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "치네치타의 석고 허구가 실제 장소는 끝내 못 하는 고백을 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7648e1bebebf6c798aca6a58b950543f6e2435d34014f1c19024b920133dc3f5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-set-that-indicts-its-own-building",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "촬영지가 작품을, 혹은 그 작품을 낳은 문화를 고발하는 증거로 바뀌는 경우.",
+  "model": "claude-opus-5",
+  "source_sha256": "02a4a89d5625c5f38acbb4e594b89de0c5124190fe08b15946f0491a23e89f55"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-set-that-lies-to-tell-the-truth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지어내거나 다른 데서 찍은 장소가 진짜 장소에서는 금지된 것을 말한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3aa14038ff86e2de1f3eb0d7c375ea5acfe67610a50f6aad24879505c2a65836"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-set-that-refuses-its-geography",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지어 올린 공간이 제 실제 위치를 부정하거나 거꾸로 뒤집도록 재배치된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9a17e6b6abe92a7f7f4e39fba0a76d77d2861b394b97e98b358cd1a683d99664"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-settlement-as-a-devouring-gut",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "읍이든 마을이든 도시든, 하나의 소화하는 몸으로 읽기",
+  "model": "claude-opus-5",
+  "source_sha256": "af8e637b0ec883a787e457b00637d11a4b33b6061fce7ca15230ab06f06d585b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-settler-who-mistakes-possession-for-belonging",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "식민자가 애도하는 대상은 자기 자신이다. 가정의 안락이 곧 진행 중인 범죄로 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "35f9e835c472a48ac225994ad34c1b5ffa5105ca3e89fed46bb94808bd36845f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-severed-body-part-as-symbolic-castration",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "절단된 신체는 법이 주체에 그어 놓은 칼자국으로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "34f48d5fdbf98cb66dfea59fcc04851ec5ac46b75397cddae4713838a9af31e9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-severed-hair-as-seized-sovereignty",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "잘린 머리카락은 영토다. 권력이 차지하거나, 내주거나, 벗겨 가는 육체의 영토.",
+  "model": "claude-opus-5",
+  "source_sha256": "72f323305a4d4f694363261343c4ac48727c169d06d78fd9e05204a81e7a3bfc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-severed-hand-as-disavowal-of-castration",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "떨어져 나온 기관이 제가 저지른 상실을 인정하지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc58a8760bcd5c0e1670ebe342b6f899af58a8f9a40aef03a30fb44c29889074"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-severed-head-that-outlives-its-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "참수. 살이 죽은 뒤에도 끝나지 않는 충동.",
+  "model": "claude-opus-5",
+  "source_sha256": "0dd1edda5a00aa0d3f3cbd911bb06774f3e8058303491c7723404204d6f0b4ee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-severed-limb-is-the-repressed-made-flesh",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몸이 묻어 버린 것이 스스로 움직이며 되돌아와 몸을 고발한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "db045a515d486003f7beaf0946bb19cce09130d23fcbf47b2900e324be79142b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-severing-that-avenges-a-wound",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "절단은 자리를 옮긴 거세다. 묻어 둔 원한을 청산하는 한 번의 베임.",
+  "model": "claude-opus-5",
+  "source_sha256": "283ac6d71b48d0aca4a35b43de87d08e3bedc739176c0e41aa45ba766b95eda6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sex-worker-who-authored-her-own-image",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "맥신은 낙인을 제 손으로 만든 스타덤으로 바꾼다. 피해자 역할의 각본은 받지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "57e114b6f7c5afa7c929ef8ff2b845630ed3ed84864965a65dcaab1c3ab34679"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-shadow-as-an-autonomous-disavowed-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "그림자가 떨어져 나와 제멋대로 움직인다. 이제는 그림자가 저를 버린 몸을 드리운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4929cea47e161f94a203c6b7c6475174fdc0d8b74bf515978558af06f8126719"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-shadow-as-refusal-of-studio-light",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "내주지 않은 빛. 산업이 요구하는 가시성에 대한 반역으로 읽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e03fde8ee4c05a8039cbc24272745e35d562abd1886d9703afc8541c9753dc0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-shallow-focus-as-moral-confinement",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "흐려지거나 납작해진 배경이 곧 윤리적·영적 감금이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4585c2bceccb257ff093b4e7225df5e812f1745edc84f7a6b60ef5782e8cafa1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ship-of-theseus-replaces-its-parts",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정체성이란 끝없는 교체다. 원래의 것이 하나도 남지 않을 때까지.",
+  "model": "claude-opus-5",
+  "source_sha256": "dda2dd3e7d47421fcff351251b560e01b05c1160658f6a6584a486aab4278521"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-shoot-s-duration-bled-into-the-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몇 해에 걸친 실제 노동이 화면의 진짜스러움으로 가라앉는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "696fc6677a9a20ee452d21b2bc9b1ef27846912455c5f01cf07f603ff4e6fd10"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-shorn-head-as-violent-unmaking-of-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "머리를 깎는 일. 의례적 죽음이자 굴복이자, 벗겨진 정체성.",
+  "model": "claude-opus-5",
+  "source_sha256": "6ad2a16e49e7b77188a2a8695aa49fba7e1fee08f82477376cc25f741d2af134"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-shot-held-past-its-dramatic-use",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지속이 드라마보다 오래 남는다. 끊지 않은 테이크 자체가 하나의 진술이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6f57472e455d244ffa5f2c6454a50aac8e66f56d8627842c8af210461f715b3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-showman-who-trades-in-your-gaze",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "호객꾼이자 흥행사. 그가 파는 진짜 상품은 관객의 주의력이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "65cd7d04a391ac5ca6da294ad736d79d7b4d90b9946f1f72e17fc8df57327d26"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-showman-who-weaponizes-skepticism",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "의심을 연기하는 자가 스펙터클을 진실로 착각한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "32696d2b06cedc7304c24ed17bd33114c22d6a1b0ad4ff49c84de73e56fa0f81"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sibling-as-buried-family-symptom",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장애가 있거나 말이 없는 형제가 가족이 발설하지 못하는 진실을 대신 짊어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bfff5534295d477a6a14df49a0a845bd4f68227185ee3b4e18e9a71837af800f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sibling-as-unspeakable-incest-object",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "폭력의 배후에 부인된 욕망의 대상이 있다. 형제, 혹은 자매.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ee3ad779615126910ae84411bceb1d5c60f004f5862b31333d4d7b92e1d0953"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sign-detached-from-its-referent",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "스펙터클과 지도가 한때 가리키던 영토를 밀어내고 그 자리를 차지한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0c986ee62440852d8fa8ca6720280ac30c149656598d621c342c98b24a40af1b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sign-that-points-at-nothing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가리킬 것 없이 떠도는 빈 기표(signifier)를 기호학으로 읽어낸 자리.",
+  "model": "claude-opus-5",
+  "source_sha256": "995003a5860509b1a65bed27347e0be161e744207f0faa256c55b611647891e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-signature-as-instrument-of-state-capture",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "서명 한 번이 시민을 권력의 공범으로, 그것도 동의한 공범으로 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1cee26fd33de0c7aeb618c987f36af9e1ae1ad202fd94efb6159347cd6bb38dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-signature-that-erases-the-witness",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사람을 사건번호나 이름으로 만들어 지워 버리는 관료의 손놀림.",
+  "model": "claude-opus-5",
+  "source_sha256": "ad219d0703580f2e217f34e60d947c1901832c9c416bd87e3389fce4a932be80"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-silence-that-cannot-mourn",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "말 없음. 애도의 노동을 거부하는 멜랑콜리아(melancholia).",
+  "model": "claude-opus-5",
+  "source_sha256": "63a27413e3f5aaea62f267dd2590781ec712a6f6119f13dce2085f930ffb966b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-silence-that-confesses-what-speech-cannot",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "끝내 하지 않은 말이 영화에서 가장 진실하고 가장 아픈 고백이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8cfcb8e7c836f54c49593924f0dd3cdd58005aeaedcff663b91ef5eb96c004db"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-silence-that-hardens-into-a-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "삼킨 말이 살을 얻는다. 되찾은 목소리이거나, 몸이 되어 버린 고백이거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "5436f10fcaf27d109d296e2048c78f39124e241cd62b232ae5ecb61e7c723b97"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-silence-that-heals-the-cosmos",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "우주적 고요. 어떤 대사도 내놓지 못한 답이 거기 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d916a45a81dccd01e97bc9ea3db93f734eb0003047efce454e85c8dab5b33029"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-silenced-tongue-as-colonial-subjection",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "벙어리, 말더듬, 사라진 목소리. 피식민자와 서발턴에게서 빼앗은 말이 여기 새겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e3d597789da345ac8babaf1d20dec4e423bb10e69fbd09f00b8fb5ac51df6288"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-silent-clown-who-speaks-in-slaughter",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "무언극이 곧 사냥이다. 말 없는 몸이 공포가 쓰는 유일한 언어가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b5dc56354a4d381b82de5573a550fa48192d5177d5c513af53d81efe0f0a7da2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sin-committed-by-looking-away",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가만히 있음, 하지 않음, 돌려 버린 눈길. 죄는 거기 깃든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8c58314181771c0514b9e4d674b154b7a3c7a8a6e659fce11962d7d8ab10e73"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-singer-who-voices-another-s-grief",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 것이 아닌 슬픔을 담아 나르는 그릇으로서의 노래.",
+  "model": "claude-opus-5",
+  "source_sha256": "f0ae75107f98ea841ba2c1cc50235cfabf9259e2a515314c1d72758e3b94182c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-single-building-as-whole-world",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "닫힌 홍콩식 건물 한 채가 사회 전체를 대신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f52e2bb09c7e7c0871746316ca6439a065ae661c45825ff328a313fe0c8ee83"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-single-cipher-that-unlocks-everything",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "열쇠 하나, 암호 하나, 해법 하나가 기계 전체를 푼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "96d3780cb9d08f331aad610195866427dca52eaf5d36f7b40a7cc41104f9f621"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-single-conveyor-belt-of-abandonment",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "멀찍이 떨어진 장소들이 실은 끊기지 않은 하나의 착취 사슬이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb560dfae338c6199d2f87f69202537acc31eb08ad1778b431b83dc770208e36"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-single-day-dilated-into-eternity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "빌려온 하루, 혹은 하룻밤. 그 안에 모든 시간이 들어앉도록 늘어난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f456eb2d5d25b2020363facead64ae293797043d0635ea2d2efceeaaa6582532"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-single-detail-that-detonates-the-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "요소 하나를 전체의 숨은 마스터키로 지목하기.",
+  "model": "claude-opus-5",
+  "source_sha256": "4abcee294b5fc28192fc86ca39a54d4323f27da3f5329bb5d9d93e4b65c2f108"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-single-detail-that-solves-everything",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아무도 눈여겨보지 않던 사물이나 몸짓 하나가 영화 전체의 의미를 연다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f841ad1a8ac38d3e24ed7c20325279ea593f60084ceaedd2d80bcfee33392eb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-single-object-that-decodes-the-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "빛나거나 기계로 된 물건 하나가 작품 전체를 움직이는 논리를 쥐고 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "43755d7e3390c9a5d8e132ee3c8269277d6f2717d8f91061a579f831d0c9dec7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-single-object-that-decodes-the-whole",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "소품 하나로 영화가 전혀 다른 드라마로 풀린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c37b5e86b272775f6c749199e681d3951e7a19791765efb3a1e0185667db5da7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-single-object-that-solves-the-whole-film",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "뒤늦게 나온 디테일 하나가 앞의 모든 것을 거슬러 해독한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e6bcb140e32b676fe1ef680ec22175435670bb3183bc44158a84e85488351c8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-single-stain-that-returns-the-repressed",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "홀로 찍힌 색 하나가 화면을 깨고, 묻어 둔 것이 새어 나온다.",
+  "model": "claude-opus-5",
+  "source_sha256": "685b1abeac80811c90ed1503cc227ab2c0bce4d1fbdb6c053040b9d95730d727"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-single-touch-that-decodes-everything",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "사소한 몸짓 하나가 영화를 읽는 열쇠가 되는 순간.",
+  "model": "claude-opus-5",
+  "source_sha256": "3a6a80225844ec582d1bf8fd6b06a0de2c9a0f57ec6d0c1d7c76c6e5668c3f13"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sinking-city-knows-what-the-plot-denies",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가라앉는 베네치아의 지층이 이야기의 무의식이다. 익사한, 그러나 더 참된.",
+  "model": "claude-opus-5",
+  "source_sha256": "036d0f256952e2844b8274789fc482af82925ead7f647be116e6aa013f4c77c0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-skin-as-the-self-not-its-cover",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "정체성은 피부 밑에 숨어 있지 않다. 피부가 곧 정체성이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a9d86ceae4f534741e81df6c6ce76696e8d62fe4c008857748047fbf22c810ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-skin-tattooed-into-a-commodity",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살갗에 새긴 표식이 소유를, 경계를, 매매를 증명한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2e61423311f8ddf73aff066c1e875bd52135acfa70ae579b736faa62a4b30987"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-skyline-as-vertical-class-map",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "높이가 곧 재산이다. 도시는 결코 만나지 않는 두 층으로 갈린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8cfe953199268330636d66e2f206577807bbd278d873774aa1cbf774d1f13c8c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-slap-that-stakes-the-right-to-refuse-service",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "가내 예속을 거부하는 순간, 그것은 자기 주권의 선언이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "27af0fa147b200a534b5e70834917a572d195baecb041b853011856108510d64"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-slasher-s-sexual-contract-refused",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "'섹스하면 죽는다'는 규칙은 실은 그렇게 읽어 온 비평가의 도덕이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0f4c908db47079386bbb0fd08a7df09677b5b387cee1e3cd1949897b517b781b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sleeping-body-refuses-its-waking-life",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "잠, 기면, 불면. 견딜 수 없는 삶을 두고 몸이 내린 판결이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5182fab0bf2affe2d4d06c496be8af741bd6b62704433994536090249c749044"
+ }
+]

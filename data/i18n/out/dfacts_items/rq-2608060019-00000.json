@@ -1,0 +1,182 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "agnes-varda#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1951년 그녀는 파리 14구 다게르 거리의 낡은 집으로 들어갔다. 안뜰이 딸린 그 집을 분홍색으로 칠했고, 이후 68년을 거기서 살고 찍고 일했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1286665e0ef11b0f31e05f2941a559f9b66f6b2b97a387fe3dc99d9de0378c6d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "agnes-varda#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1958년 투르 단편영화제에서 자크 드미를 만나 1962년 결혼했다. 1990년 그가 세상을 떠날 때까지 가장 가까운 협업자로 남았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9bc9966bc1e92dd964cad30e079b05a6914241ec2041c3eb60d70fb334cbb86"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "agnes-varda#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "캘리포니아 시절, 두 사람은 로스앤젤레스 집에 선룸을 짓겠다고 젊은 목수 한 명을 고용했다. 아직 무명이던 해리슨 포드였고, 그 인연은 평생 이어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3a46e5b2ab216c23c69828656375d50892667684876bf607264e1d67c29c37fd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "agnes-varda#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1968년 바르다는 캘리포니아대 버클리의 활동가들에게 16mm 카메라를 빌려 《Black Panthers》를 찍었다. 오클랜드에서 열린 휴이 P. 뉴턴 석방 집회를 담은 단편 다큐멘터리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "be6e9d17ce5327696240e9838f7acde2da63e43357f49caf7f30a01e84c507ba"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "agnes-varda#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "과감한 페미니스트 활동가이기도 했다. 1971년 저 유명한 '343인 선언'에 서명해, 프랑스에서 불법 낙태를 했다고 공개적으로 밝혔다. 형사 기소를 무릅쓴 일이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "96b0af990f16d6289eedf00bc4de0a7df9bfcdf625ccd8dd3e820e17b8f4ce0c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "agnes-varda#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "하트 모양 감자에 대한 집착은 평생 그녀를 떠나지 않았다. 2003년 베네치아 비엔날레 설치작 《Patatutopia》가 그 정점이었고, 이때 거대한 감자 인형 옷을 입고 레드카펫을 걸어 화제가 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e4ad9c6cb42aca5372898efab5f3b10936d0343bcd37f900b108e53f2157cec"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "agnes-varda#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "일흔이 넘어 바르다는 세 번째 직업, 시각예술가로 나섰다. 《Ma Cabane de l'Échec》(나의 실패의 오두막)은 말 그대로 집이다. 1966년 흥행에 참패한 《Les Créatures》의 버려진 35mm 셀룰로이드 프린트만으로 지은 집.",
+  "model": "claude-opus-5",
+  "source_sha256": "c923f78f962efefeaacce2f456e8eeb17f94f20b6e9f8000d444d516c3f4584e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "agnes-varda#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자크 드미의 진짜 사인은 에이즈 합병증이었다. 바르다는 그의 사생활을 지키려 18년간 이 사실을 굳게 숨겼고, 2008년 자전 다큐멘터리 《아녜스의 해변》에서야 입을 열었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8ba73dfde6cb6887b719fdc8893165c9af44cb7d2a58b810b107b3de4831c78"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "agnes-varda#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2015년, 칸영화제 명예 황금종려상을 받은 최초의 여성 감독이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd418016562f9022274d39bfc4c5a7cb76ea49b0558ac5205f108edfba5f6bb9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "agnes-varda#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "여든아홉에 《바르다가 사랑한 얼굴들》로 아카데미 장편 다큐멘터리상 후보에 올랐다. 당시 경쟁 부문 오스카 역사상 최고령 후보였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fda4c08cfa9d667689724608f23b2ffbc60900fa65f02a09f8ae3163470b0904"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "agnes-varda#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2018년 비벌리힐스에서 열리는 오스카 후보자 오찬에 갈 수 없게 되자, 그녀는 실물 크기 판지 인형으로 자기를 대신 보냈다. 공동 연출자 JR이 그 인형을 들고 다니며 메릴 스트립, 스티븐 스필버그 같은 이들과 나란히 포즈를 취했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd76755d80fd8a122d2dee184ef45736275d5ab1f59908b62fc604ecafaca4b5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "agnes-varda#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "'프랑스 누벨바그의 할머니'라 불렸지만 바르다는 늘 자신이 다른 갈래에 속한다고 했다. 크리스 마르케, 알랭 레네와 함께한 좌안파(Rive Gauche)다. 트뤼포나 고다르처럼 영화 비평에서 출발한 이들과 달리, 이쪽을 묶어준 것은 문학과 좌파 정치였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d9d80c01ac8ccbb812984afed90669999e1a7b4e1c963c8293b31b49a8c3115e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "agnes-varda#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2019년 유방암으로 아흔에 눈을 감았고 몽파르나스 묘지에 묻혔다. 드미와 한 무덤에 누웠으며, 그 앞에는 지금도 팬들이 두고 간 생감자가 자주 놓인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb1d7d7254e1ae1dab6d246b3cf8207e0467a241381943f576b5502d952892e2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "akira-kurosawa#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아키타 출신 옛 사무라이 가문에서 태어났다. 아버지 이사무는 엄격한 육군 장교였으나, 한편으로 근대 체육을 열렬히 옹호하고 아이들을 서양 영화관에 자주 데려갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7a830a4ec91ab3b73e8985f3da3d130e31d2be38fe954363ce74a76447c3e390"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "akira-kurosawa#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1923년 관동대지진이 도시를 쓸고 간 뒤, 형 헤이고는 겁에 질린 열세 살 아키라를 폐허가 된 도쿄로 끌고 나갔다. 검게 탄 시체들을 똑바로 보게 했다. 두려움을 아예 없애버리라는 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d913a0e0de24e68a1e137d36f470f9866b551ffc591db41da5f404e4880d2c4e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "akira-kurosawa#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "형 헤이고는 무성영화의 변사(辯士)였다. 유성영화가 그 직업을 몰락시킨 뒤 1933년 스스로 목숨을 끊었다. 아끼던 형의 죽음은 구로사와에게 평생 가시지 않는 생존자의 죄책감을 남겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6f51af3a71f0d54bfc566a79b2582ef85757210e1691b49b060bf63e991a0583"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "akira-kurosawa#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화에 들어서기 전 그는 열혈 마르크스주의자였고 프롤레타리아 미술가동맹에서 그림을 그렸다. 다만 시위를 조직하기보다 러시아 문학을 읽는 데 시간을 더 썼다고 훗날 인정했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a403f1daa0b28a4dfb0ae1d4e34088485722164c85c29a8d08b31236d8ce90b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "akira-kurosawa#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1936년, 조감독을 뽑는다는 신문 광고에 대뜸 응한 것이 시작이었다. 들어간 곳은 P.C.L. 촬영소(뒤의 도호)였고, 거기서 베테랑 감독 야마모토 가지로의 품에 들어갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ad9c26c368407612b95837287346a12f69859e1e8ebf755644383dce081ca453"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "akira-kurosawa#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《가장 아름답게》 현장에서 여배우 야구치 요코가 그에게 정면으로 맞섰다. 여성 배우들을 혹독하게 몰아붙이는 권위적 방식에 항의한 것이다. 두 사람은 1945년 결혼했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c4e53f5e6a73a71bc4a6eee1a39f321c51d1ef62a99f380c9528cb9a32d5805"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "akira-kurosawa#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《거미집의 성》 절정부에서 미후네의 진짜 공포를 끌어내려고, 구로사와는 전문 궁수들을 불러 강철 촉이 박힌 실제 화살을 쏘게 했다. 배우 얼굴에서 몇 센티 떨어진 자리로.",
+  "model": "claude-opus-5",
+  "source_sha256": "ff985a9c30da8d9c42f2e2f2a58569372548a00e84be66d9c78c3efc11322305"
+ }
+]

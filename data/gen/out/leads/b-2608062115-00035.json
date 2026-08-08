@@ -1,0 +1,112 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-spooky-bunch-1980",
+  "field": "lead",
+  "film_id": "9c500e22-cb77-432c-8835-c42b6e326d1a",
+  "lang": "en",
+  "text": "A touring Cantonese opera troupe finds that its worst problem is not the box office but an army of ghosts. The quarrel is inherited: two dead grandfathers, one of them belonging to an actress in the company and the other to a young man, are still not finished with each other, and the living are conscripted into a fight settled long before they were born. Ann Hui shot it in 1980, ninety-seven minutes, and the comedy runs on a very local premise — that a company which spends its nights painting faces and singing to the dead is exactly the wrong household to haunt, because it knows the repertoire. Horror, comedy and fantasy are not alternating here; they arrive in the same gesture. The stage machinery becomes defence, then the defence becomes another performance.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a3adc30ea89cb4a87d305068583a70f01fd784eb4e9b7502c935254295950b4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "far-from-the-trees-1972",
+  "field": "lead",
+  "film_id": "9db01162-6ab4-4001-9de3-9f95ff39c86c",
+  "lang": "en",
+  "text": "Spain in 1972 had a story it told tourists, and Jacinto Esteva went looking for the country that story left out. His camera goes to the villages behind the coast, to rites involving blood and animals and pain, and records them in black and white without softening or explaining. A hundred minutes of it. The synopsis calls the film unprejudiced, and the word is doing hard work: the folklore here is not quaint survival but something with real cruelty inside it, filmed while a government sold the sixties as an economic miracle and unstoppable progress. Esteva does not argue with that campaign. He simply puts the other Spain on screen, its atavism and superstition intact, and lets the two images sit in the same country. Caimán's list of the hundred best Spanish films keeps a place for it.",
+  "model": "claude-opus-5",
+  "source_sha256": "71e86065b8d0c2ab0ad3f7dc8f94e1e54bc754caed63e52277e5ad73463bea15"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "living-in-seville-1978",
+  "field": "lead",
+  "film_id": "aa43e0fd-dfca-4080-a0fb-cc620a87ffe8",
+  "lang": "en",
+  "text": "A painter comes home to Seville after forty years away, and the city he returns to is not the one he left. Gonzalo García-Pelayo made this in 1978, and the timing matters more than the plot, which is slight enough to state in a breath: Miguel loves Rosa, Rosa and Miguel fail, Rosa falls for the returned exile. What the film has is the place. A hundred and nine minutes given to a southern city in the first years after a long silence, with music and drift where a tighter picture would put incident, and with two people whose romantic trouble is small next to the fact that the streets around them have just been handed back. Comedy and drama are not balanced so much as allowed to interrupt each other. The exile's return is the film's real event, and it happens in the margins of somebody else's breakup.",
+  "model": "claude-opus-5",
+  "source_sha256": "98b33701bc90cf03a91c78ca379910f9da04b34e0779ba46f9acc5701eec20bb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "embrujo-1947",
+  "field": "lead",
+  "film_id": "14743573-fc76-4cc9-979b-1d985d783884",
+  "lang": "en",
+  "text": "Two flamenco performers, a singer and a dancer, cannot be together, and one of them crosses an ocean to stop wanting it. Carlos Serrano de Osma made Embrujo in 1947, eighty minutes, at a moment when Spanish cinema was not much given to formal risk — and the premise is a dare in itself, since it asks a film to carry a bond across the Atlantic without the two bodies ever sharing a room. Flamenco supplies the means. Manolo drinks; Lola dances in America; the cante and the footwork have to do what dialogue cannot, keeping a connection alive through sound and rhythm rather than plot. The Caimán hundred admitted it decades later, which says something about how it played at the time. It is a melodrama that would rather be a trance.",
+  "model": "claude-opus-5",
+  "source_sha256": "f592a2893e0c070fb6f3afe9f24e3f572f9d2a6da71a647f27b8b5fda929c3d0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-blue-and-the-black-1966",
+  "field": "lead",
+  "film_id": "f3a5f266-d671-458a-a8aa-08c1208a568d",
+  "lang": "en",
+  "text": "Tientsin in the 1930s, under Japanese occupation, and a love affair that the city will not permit. Doe Ching's melodrama runs a hundred and eighteen minutes and stars Linda Lin Dai, among the most popular performers of that period in Hong Kong cinema — which shapes how the film works, since the studio built the whole apparatus around a face the audience already loved. War pictures usually make the occupation the subject and the romance the ornament. This one inverts it: the history is what keeps entering the room, unasked, to break something private. The Golden Horse list of the hundred greatest Chinese-language films carries it, and the surprise on watching is how patient the thwarting is, how many small refusals it takes before the large one lands.",
+  "model": "claude-opus-5",
+  "source_sha256": "e28bdc4891ccdfd5174feb1fd40b060651e9d7cd741321aa845d242a95afcc2b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "contactos-1970",
+  "field": "lead",
+  "film_id": "5f7a94a5-b86c-4130-a3cf-292610e167f8",
+  "lang": "en",
+  "text": "Two tenants in a Madrid boarding house, separate rooms, a landlady who must not find out. That is the whole apparatus of Paulino Viota's seventy-minute film from 1970, and the constraint is not a plot device but the shooting condition — corridors, thin walls, a door that has to stay closed at certain hours. Intimacy under surveillance produces its own grammar: what can be said aloud, when, and how loud. TakeScore rates its durable value at 66 out of 100, which is one way of saying the film has outlasted the circumstances that made it necessary. Viota was working at the edge of what Spanish cinema was permitted to be at the end of the sixties, with almost nothing — a pension, two people, a schedule. The smallness is the argument.",
+  "model": "claude-opus-5",
+  "source_sha256": "f6ef26a2dbef5f1af1053fcada9dc4f31e65ccf10cbaf3eec146f0423339e501"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "goodbye-darling-1987",
+  "field": "lead",
+  "film_id": "1c61d9a5-e0ab-4e2d-b5cd-4999addef252",
+  "lang": "en",
+  "text": "Tai works in hotel management, adores his wife, and has a lawyer friend who turns up whenever things go wrong — which, in a Hong Kong comedy from 1987, is constantly. Raymond Wong Pak-Ming directs and stars, with Cherrie Chung as Josephine, and the first movement is pure farce: a company ball, a colleague with a reputation for seducing his friends' wives, and two men improvising defences that make everything worse. Ninety-two minutes. What lifts it out of the run of marital comedies is the second engine, a misunderstanding about Tai's health that turns his jealousy inside out — the same husband who spent the ball guarding his wife now begins arranging her future without him. The Golden Horse hundred includes it. Farce and dread share a projector, and neither yields.",
+  "model": "claude-opus-5",
+  "source_sha256": "d6268a0caa3cc015978ea90bf96e528c2641a4083439868dc2c93637017e69f3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "jade-love-1984",
+  "field": "lead",
+  "film_id": "4ba737e6-61a2-47f5-94ba-b19b77704fa4",
+  "lang": "en",
+  "text": "Everything in this film is seen by a ten-year-old, which means everything in it is partly wrong. Chang Yi sets the story in China in the 1940s: a boy, the nanny who looks after him, and the godbrother she keeps close, a man the synopsis calls a weakling. A hundred and five minutes routed entirely through a child's understanding of an adult arrangement he is too young to name. The device does real work — the boy registers tension, favouritism, the shape of a jealousy, without possessing the vocabulary that would make it ordinary, so the audience assembles what he cannot. Taiwanese cinema in 1984 was in the middle of rethinking what its films looked like. This one puts a household under a small, constant, uncomprehending gaze and lets the discomfort accumulate. It sits on the Golden Horse hundred.",
+  "model": "claude-opus-5",
+  "source_sha256": "d72201a438dce55cbeb9fa69a232a72a6ab75ee205be9b7cb9c10bce40eaca5f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "story-of-mother-1973",
+  "field": "lead",
+  "film_id": "4a57fb88-44bd-471c-b95e-b04200e4f821",
+  "lang": "en",
+  "text": "A boy sees his mother with a man who is not his father, and the father is dying in another room. Sung Tsun Shou made this in Taiwan in 1973, eighty-eight minutes, and the film's difficulty is that it refuses to let the child's judgement be the last word. He despises her. Another family takes him in. Then the picture has to do the harder thing, which is to bring two people back toward each other across years in which one of them was right to be angry and the other was never given a hearing. Melodrama of this vintage usually resolves such a debt with a single scene of weeping. Here reconciliation is described as achingly difficult, and the running time is spent earning that adverb. The Golden Horse hundred lists it.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac03073b8ffa6bc07e847702cdc8bd8d14698a322b801d3ad9353f1474db0e19"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "let-it-be-2000",
+  "field": "lead",
+  "film_id": "ee879f8e-29e7-4b76-a1bd-005cd2d9c777",
+  "lang": "en",
+  "text": "Anthony Wong in a Hong Kong drama from 2000, directed by Hugo Ng Doi-Yung, and carried on the Golden Horse list of the hundred greatest Chinese-language films. The record we hold is thin — the title, the year, the cast line, the canon entry — and the honest thing is to say so rather than manufacture a plot. What can be said is where it stands: a serious drama made in Hong Kong at the turn of the century, when the industry's output was contracting and the appetite for anything unhurried was small. Wong by then had built a career on men who are hard to like and harder to look away from. A list assembled by people who watched everything decided this one belonged among the hundred. That judgement is the invitation.",
+  "model": "claude-opus-5",
+  "source_sha256": "132fe87b1ebd77dc2e6e0876d219df0a0c93bfda14926a9a6899daafcaeada86"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "2-or-3-things-i-know-about-her-1967",
+  "field": "lead",
+  "film_id": "db1640e3-07d1-4744-8955-5c1fc3a16b7b",
+  "lang": "en",
+  "text": "A woman in a new high-rise outside Paris does the shopping, minds two children, and works some afternoons as a prostitute to cover what the household costs. Jean-Luc Godard shot this in 1967, eighty-seven minutes, while the region was being rebuilt at speed — and the pronoun in the title is doing something quietly aggressive, since her refers to the woman and to the city at once, and the film keeps swapping them. Consumer culture is not a backdrop; it is the arithmetic that makes her arrangement rational. The camera holds on advertising, on construction sites, on a cup of coffee, for longer than a story would tolerate, and a whispered commentary keeps interrupting to ask what any of it means. TSPDT's thousand greatest films carries it. Domestic economy, rendered as an inquiry.",
+  "model": "claude-opus-5",
+  "source_sha256": "756462037720955bfad21975ab505ef04f522c9d2794800fac21c226caa23f07"
+ }
+]

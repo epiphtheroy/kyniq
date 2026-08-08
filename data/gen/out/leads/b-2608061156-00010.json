@@ -1,0 +1,112 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "young-mothers-2025",
+  "field": "lead",
+  "film_id": "059ca1af-80c3-4203-b0de-14c56389d7a5",
+  "lang": "en",
+  "text": "Five names share the film: Jessica, Perla, Julia, Ariane and Naïma, and the shelter that houses them has room for all of them at once. Belgium, French, 106 minutes for five young mothers whose difficulties began well before the children did. Luc Dardenne builds an ensemble, and at that length the ensemble forces compression: a single scene has to carry a job interview, a custody question and a bus fare. The shelter has rules, hours and staff. The pressure comes from where those rules meet a young woman's week, and from the film's refusal to treat either side as unreasonable. The Ecumenical Jury at Cannes gave it their prize, which suits a picture in which nearly every decision is about what one person owes another.",
+  "model": "claude-opus-5",
+  "source_sha256": "7cd391304f5d9b7c1667e0a6c6ed0f098e0ed554314b4273a79cec00d14995c3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "3-days-in-quiberon-2018",
+  "field": "lead",
+  "film_id": "7a0424ae-08bf-4cae-8a59-be60e98f176e",
+  "lang": "en",
+  "text": "A spa hotel on the Breton coast in 1981, two women who have known each other a long time, and one of them is famous enough that the visit doubles as work. Hilde Fritsch has come to see a friend who retreated to the hotel to get out from under her own life; the friend is Romy Schneider, and being the person who steadies a star is not the same as being a guest. Emily Atef stays inside that difference for the length of the film — the walks, the drinks, the long stretches in which nothing is decided and something is being decided anyway. The European Film Award for Best Actress belongs to this one, and it is the fact that matters: everything rests on a single face, and on how much of herself a woman is prepared to hand over, and to whom.",
+  "model": "claude-opus-5",
+  "source_sha256": "acf2bdf33a76ee5dadcbf51c3d81d6ed0e9d49d12285c14a91e27ca956ac71b8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "home-from-home-chronicle-of-a-vision-2013",
+  "field": "lead",
+  "film_id": "638d58c1-c72f-4d27-b23b-9ea003f9e1f9",
+  "lang": "en",
+  "text": "Two hundred and twenty-five minutes in a village that does not exist, and the length is not indulgence but method. Schabbach sits in the Hunsrück, in Rhineland-Palatinate, and Edgar Reitz invented it long ago for television, where his Heimat films lived; this one was made for a cinema screen. Duration of that order changes what a film is able to notice — weather, the order of chores, how long a conversation runs when nobody in the room has a reason to end it. History arrives here the way news reaches a farm: late, second-hand, and requiring a decision from people who did not ask for it. Schabbach is fiction. The Hunsrück is not, and the invented place gets the patience owed to the real one.",
+  "model": "claude-opus-5",
+  "source_sha256": "ed951281b1ccf7534d97a961c1ec1ed79e1fd84b461432fcb6319e439efddd26"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "princess-o-rourke-1943",
+  "field": "lead",
+  "film_id": "1ac74ce8-877a-4987-a7dc-1e9f8f05db2f",
+  "lang": "en",
+  "text": "The Academy gave its original screenplay award that year to a comedy about a pilot and a European princess on holiday in the United States. Norman Krasna wrote it and directed it, and the writing is plainly where the weight sits. Charm, in a 1943 studio comedy, is a technical requirement rather than a mood. Ninety-four minutes leaves no room for a subplot, so nothing is concealed: introductions, complications, a decision deferred and deferred again. Comedy of this kind runs on rank. One party may do as they like and the other may not, and every scene has to keep that difference in view while behaving as though it were not there. The down-to-earth pilot is less a character than a measuring device, and it is the princess who gets measured.",
+  "model": "claude-opus-5",
+  "source_sha256": "0aedf82490ea06c9c841d0a02c326edbf79e51753f081f31108409ccf4da9894"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "railroad-man-1999",
+  "field": "lead",
+  "film_id": "97edb8f3-c9a6-42f0-9efd-c3bdd5527342",
+  "lang": "en",
+  "text": "The job of a stationmaster at the end of a Hokkaido line consists largely of being present when almost nobody comes. The line is scheduled to close and there is work waiting at a hotel, which for this man reads not as an offer but as a subtraction. Yasuo Furuhata paces it by a thinning timetable. He lost a wife and a daughter and kept working; what the film puts in question is the habit itself, once the reason for it has been withdrawn. A young woman with an interest in trains arrives, she resembles the daughter, and the tact of the thing lies in how slowly that resemblance is allowed to mean anything. The Japan Academy Prize for the lead performance is the fact worth carrying in: nearly all of this is handed to one actor required to stand still and wait.",
+  "model": "claude-opus-5",
+  "source_sha256": "88462fc0f4073da26de64da97c2462aa15988dfba1e5cb1a45a8344c7b5d2928"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "company-limited-1970",
+  "field": "lead",
+  "film_id": "63216b66-f4c0-484e-8102-074847f09f6a",
+  "lang": "en",
+  "text": "A man takes his wife's sister on a tour of everything he has earned, and she declines to be impressed. Shyamalendu is doing well, and doing well requires an audience; Tutul is the wrong audience, which makes her the most interesting person in the house. Satyajit Ray keeps it to a hundred and ten minutes in Bengali and lets the household do the arguing, its comforts arranged where a visitor could not miss them. The film is not against ambition so much as attentive to its upkeep: a position like his has to be performed at home as well as at work, and performing it in front of a relative who knew him earlier costs something. Nothing here is louder than a dinner conversation, and nothing needs to be.",
+  "model": "claude-opus-5",
+  "source_sha256": "a4d3063cb8902560d53b1f3261ebd57ef615b90087bc02b3f2c6e6202aa9cb93"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "malina-1991",
+  "field": "lead",
+  "film_id": "543ff945-e018-4cbb-a773-9defaf37d19c",
+  "lang": "en",
+  "text": "Two men, one apartment in Vienna, and a passion that runs in one direction only. The woman at the centre lives with Malina and falls for Ivan, and what she feels is larger than anything Ivan is equipped to understand, let alone return. Werner Schroeter treats the mismatch as a condition rather than a fault to be corrected. Two hours and five minutes is a long time to hold a feeling at that pitch, and the film never lowers it. Melodrama normally organises itself around a choice between two men; this one is organised around what happens to a person whose feeling has nowhere to go, which leaves the second man less a rival than a fixed point in the room. Vienna is the address. The temperature is the subject.",
+  "model": "claude-opus-5",
+  "source_sha256": "968cf9a065eb8d797e624f74b8a9df9c2c2c332eaec336e5e47a99157e4a28e9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "interrupted-melody-1955",
+  "field": "lead",
+  "film_id": "f6a4d885-d893-49ee-b60f-0ab4af028c68",
+  "lang": "en",
+  "text": "A 1955 studio picture built around a soprano's working life: auditions, roles, and the physical demand of singing Wagner. Marjorie Lawrence was Australian and made her name in the Wagnerian repertory, which is not a career a film can convey by montage alone — the parts are heavy, the voice is an instrument requiring maintenance, and the film's 106 minutes are most alert when they treat singing as labour rather than as a gift. The Academy Award for Best Actress came out of it, and the prize is legible in the construction: this is a film built to be carried by one performer in close-up. Biography of that era tends to sand its subject smooth. The interest here is in what resists the sanding — the schedule, the strain, the sheer weight of the roles.",
+  "model": "claude-opus-5",
+  "source_sha256": "ea917615486219a5af22ee936b0903952863132e138776ce5c65dd1100eadca9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tokyo-towers-mom-and-me-and-sometimes-dad-2007",
+  "field": "lead",
+  "film_id": "e64774af-2489-4351-a2f9-d80a00e4292f",
+  "lang": "en",
+  "text": "The two people in this story are called Okan and Oton, mom and dad, which is how a son tells a story he has not finished settling. Adapted from a bestselling autobiography, and 142 minutes long, which is the length needed to move a boy from rebellion to competence without skipping the dull years between. Jōji Matsuoka divides the inheritance plainly: recklessness from one parent, endurance from the other, and a son who is a long time finding out which of the two he took. Then Tokyo, and rent, and a mother who comes to live with him. The method is episodes rather than plot, and the real material is money and small obligations — who pays, who telephones, who is expected home.",
+  "model": "claude-opus-5",
+  "source_sha256": "82f774ed03d2a6fcb58e0b568b5b302204bb0b5b4f7ec10a23f12cee72ed3078"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-lightship-1963",
+  "field": "lead",
+  "film_id": "9e69c215-5b2e-47e8-8cd3-edad5811aee6",
+  "lang": "en",
+  "text": "A lightship goes nowhere by design; it sits anchored so that other vessels can find their way, and three robbers have just come aboard. Eighty-nine minutes, one deck, and a crew whose work has never before required courage. Jerzy Skolimowski runs it as a thriller with the exits removed: the vessel cannot be steered away from the problem and the men on it cannot pretend to be somewhere else. The leader of the three is the engine of the thing, clever and pleased about it, treating the seizure as an argument to be won rather than a job to be finished. That the crew fights back is in the premise. What the film is actually about is the interval before they decide to.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ceafa9a48c1461a4e8021fb779e83adfdf0cb322f80f5a220020ccd4dff46e3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-samurai-in-time-2024",
+  "field": "lead",
+  "film_id": "55a23f2f-7411-4f5e-a7c4-9bd4c1e266f8",
+  "lang": "en",
+  "text": "A swordsman wakes up on a film set and takes the only work he is qualified for: pretending, on camera, to be himself. Lightning does the transporting, and the film treats it as paperwork rather than wonder — one flash, and then 131 minutes of a man learning a trade he already has. On a period-drama set his training is a liability: he was taught to end fights, and the job requires him to lose them convincingly, on cue, take after take, and to wait around between setups. Junichi Yasuda is patient with the joke, which suggests the joke was never the destination. What the comedy examines is the distance between a skill that once decided things and the same skill priced by the day.",
+  "model": "claude-opus-5",
+  "source_sha256": "41f0e3b8e4553ab5c4b3a56357181c08ae912b286b3890a31ff8034ac5e8e31d"
+ }
+]

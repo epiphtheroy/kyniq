@@ -15,6 +15,12 @@ const ConnectionDesk = dynamic(() => import("@/components/ConnectionDesk"), {
  * the SentenceLexicon text grid beside it (tops/bottoms aligned, grid scrolls
  * inside). Header left-aligned like every other section. The whole desk is
  * lazy-mounted (LazyMount + dynamic) so the home's first paint never pays for it.
+ *
+ * This is the GROUPED view of /network: bare /api/map (no mode/type/key) falls
+ * through to map_overview() — the same payload the explorer's "Grouped" tab
+ * draws — and the lexicon samples the same interpretation-layer patterns as
+ * that tab's VIEW_ROOT.critical, so the home is a faithful preview of where
+ * "Open Connections" lands (/network?m=critical).
  */
 export default function HomeNetwork() {
   return (
@@ -23,17 +29,17 @@ export default function HomeNetwork() {
         <div className="shead">
           <div>
             <h2>The map of cinema <span className="chev">›</span></h2>
-            <div className="sub">Films, figures, tropes, ideas and directors — the whole critical web. Drag to wander, scroll to zoom, click a node to travel in.</div>
+            <div className="sub">Films, figures, tropes, ideas, directors and theorists — <b>grouped by what actually connects them</b>. Start at any node and follow the thread: click to travel in, drag to wander, scroll to zoom, ↗ opens its page.</div>
           </div>
-          <a className="seeall" href="/network">Open Connections ›</a>
+          <a className="seeall" href="/network?m=critical">Open Connections ›</a>
         </div>
         <div className="homemap">
           <LazyMount height={560} label="Drawing connections…">
             <ConnectionDesk
               api="/api/map"
-              full="/network"
+              full="/network?m=critical"
               height={560}
-              root={{ type: "sample", key: "A_affinity,B_bridge,H_dense,C_reading,L_trope,N_question", label: "The critical web" }}
+              root={{ type: "sample", key: "C_reading,G_theorist_twin,I_lens_twin,L_trope,M_frame", label: "The critical web" }}
             />
           </LazyMount>
         </div>

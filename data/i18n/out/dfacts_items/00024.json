@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-truffaut#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영어권 제작이라 여러모로 삐걱거렸던 《화씨 451》 현장에서, 트뤼포는 주연 오스카 베르너의 오만함을 견디지 못했다. 스태프에게 그를 무시하라고 지시했고, 카메라는 일부러 그가 못나 보이는 각도를 골랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2fe697681e1c4309e66a940d1218faf400f9ee051ce1ae950213469b3d7c0769"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-truffaut#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《보니와 클라이드》의 각본은 원래 데이비드 뉴먼과 로버트 벤턴이 트뤼포의 연출을 염두에 두고 쓴 것이다. 그러나 트뤼포는 《화씨 451》을 택하며 이를 고사했고, 대신 아서 펜을 추천했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "54d05ed1c47e1f728b8059f49c560d3107d04b0fc19e912514fa321bd092b2ed"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-truffaut#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자기 영화의 여주인공과 사랑에 빠지기로 악명 높은 로맨티스트였다. 잔 모로, 카트린 드뇌브, 재클린 비셋, 파니 아르당과의 연애가 줄줄이 세간의 입에 올랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7918658155270162b758e467b0d7124729199da2f7c84385abedc5309692ecd6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-truffaut#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1968년 5월, 트뤼포와 장뤼크 고다르는 칸영화제 상영막에 몸으로 매달려 상영을 막았다. 프랑스를 휩쓴 학생·노동자 시위에 연대한다는 뜻이었고, 영화제는 끝내 중단됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8949c8d864fcd424fae853b1c5dae9721ba791b2002fb705052863da4d21ea15"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-truffaut#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "트뤼포와 고다르의 전설적인 우정은 1973년에 산산조각 났다. 고다르가 《아메리카의 밤》을 \"거짓말\"이라 부르며 돈을 요구하는 편지를 보낸 것이 발단이었다. 트뤼포는 스무 장짜리 맹렬한 답장으로 고다르를 위선적인 \"개자식\"이라 되받았다. 두 사람은 다시는 말을 섞지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "426e5a09337f1fc7609dcd18561fe51d9ca3556eace2bb4ab3f3854a74358821"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-truffaut#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스티븐 스필버그는 1977년 흥행작 《미지와의 조우》에서 프랑스인 과학자 클로드 라콩브 역에 트뤼포를 앉혔다. \"아이의 영혼\"이 눈에 보이는 배우가 필요했기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b38c064274917ee2341e4ddb2750597b4920cdab1536e75438e4edaa4ccdea0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-truffaut#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스필버그의 영화에 출연을 승낙한 이유는 연기라는 직업에 관한 책을 쓸 작정이었기 때문이다. 그러나 할리우드 현장의 끝없는 대기가 견딜 수 없이 지루했던 나머지, 책 계획은 그대로 접었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1632d973948c590ec81beae02304292bd73aaf4cf5b9b7991e10a8f72ca4cb5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-truffaut#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1983년 파리에서 운전하던 중 갑작스러운 뇌졸중이 그를 덮쳤다. 그 길로 악성 뇌종양이 발견됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b4fd1e14beaac539f21c9e205585265fe13acc4519d9d23dad77268625c5d305"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-truffaut#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마지막 몇 달은 뇌이쉬르센의 파리 아메리칸 병원에서 보냈다. 향년 52세, 임종의 자리에는 마지막 반려였던 배우 파니 아르당이 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ab108e0e223111339ffd5356601682b27d3af2871c5cf047c61301fdeb07dc20"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "frank-capra#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "본명은 프란체스코 로사리오 카프라. 시칠리아의 마을 비사퀴노에서 태어나 1903년 게르마니아호의 삼등 선실에 실려 열사흘간 미국으로 건너갔다. 훗날 그는 그 선창에서 \"쉰 포도주와 싸구려 시가\" 냄새가 났다고 회상한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e0d9c0d2dd306b9069c0728473e889f767aac7e350f431d63bb2b67a6d8e4e10"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "frank-capra#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "로스앤젤레스의 \"리틀 이탈리아\"에서 자라며 신문을 팔아 집안 살림을 도왔다. 고등학교만은 마치겠다고 버티자, 글을 읽지 못하는 부모가 완력으로 막아섰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "756ccae871443ae5b7f0bc05a867046df0faaf0770bc50ec3c40a197190f60cf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "frank-capra#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "훗날 캘리포니아 공대가 되는 스룹 폴리테크닉의 학비는 전부 스스로 벌어 냈다. 교내 세탁소에서 일하고, 동네 발전소에서 엔진을 닦고, 패서디나의 나이트클럽에서 밴조를 켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d4c6303acd366d8d18c8f1cf0d89c5be7be75d773a0347aa5408510fd99a773"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "frank-capra#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1918년 화학공학 학위를 받자마자 미 육군에 입대했다. 그러나 스페인 독감에 걸려 전투는 한 번도 겪지 못한 채 의병 제대했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b53ac354aa5095c179a88f54dbad7667197cc886c4776fb6a9014ab1eb6aedce"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "frank-capra#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1922년, 그는 허풍으로 영화계에 발을 들였다. 샌프란시스코의 괴짜 셰익스피어 배우 월터 몬터규에게 자신이 산전수전 다 겪은 할리우드 감독이라고 믿게 만든 것이다. 그렇게 1릴짜리 단편 《Fultah Fisher's Boarding House》의 연출을 따냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ba4d8ad1bcfe57fe3ec61105d56a78b14fd17cadef36496ffc0c58731623c60"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "frank-capra#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1920년대 중반 맥 세넷 밑에서 개그 작가로 일하던 시절, 카프라는 보드빌 코미디언 해리 랭던을 무성영화의 거물 스타로 만들어 놓았다. 그 성공이 절정에 이르렀을 때 랭던은 카프라를 해고했다. 감독이 공을 너무 많이 가져간다는 이유였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e523ccb1f330d9c6441ef4d37b310953b2ef5cbe2b1a155d9e8c4953875a219"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "frank-capra#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "일자리가 급했던 카프라는 1928년 컬럼비아 픽처스와 계약했다. 입이 험하기로 소문난 거물 해리 콘이 운영하던 \"포버티 로\"의 군소 스튜디오였다. 이후 십 년, 그는 혼자 힘으로 그 회사를 메이저 반열에 올려놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "20e413f269a876cdd4a315903560962c0db70ee3ad5c2a2c2a8abdd4de8c4243"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "frank-capra#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1934년 그가 연출한 《어느 날 밤에 생긴 일》은 아카데미 주요 5개 부문을 싹쓸이한 최초의 영화가 됐다. 반항적인 클라크 게이블에게 벌을 주려고 MGM이 떠넘긴 기획이었다는 점을 생각하면, 놀라운 승리였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0950e662d43e515e581ec5dead15e9ecfd8f0c10a88ce4bb666558302aae5a51"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "frank-capra#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "급작스러운 회복의 공은 이름 모를 크리스천 사이언스 치유사에게 돌렸다. 병상을 찾아온 그 사람이 어둠 속 수백만에게 가닿을 신이 준 재능을 썩히고 있다고 꾸짖고는 홀연히 사라졌다는 것이다. 카프라는 곧장 자리를 털고 일어나 다시 메가폰을 잡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7e80ee3d68b7e86235deab96b7924f4a6ad952f499389d08b4bf774e3bb97d08"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "frank-capra#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "탐욕을 겨냥한 그의 짙은 대중주의 영화들은 좌파 비평가들에게 뉴딜 선전물로 추어올려졌다. 정작 카프라 본인은 평생 완고한 보수 공화당원이었고, 프랭클린 D. 루스벨트를 혐오했으며 단 한 번도 그에게 표를 준 적이 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f3c404ec735ed6e7b3ec0ce081da62911292f968f3302f3e8af3c667f1bdd3af"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "frank-capra#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1936년 카프라는 미국 영화예술과학아카데미 회장을 맡았다. 스튜디오의 노동 관행에 항의하며 갓 노조를 결성한 배우와 감독들이 오스카를 집단 보이콧하려 했지만, 그는 이를 막아 냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ccafc8dc77d6395a0e7796fdf4110f219b7a0dbf2d1db5b6b55b8effeea2151e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "frank-capra#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "진주만 공습 나흘 뒤, 마흔넷의 카프라는 돈이 되던 할리우드 경력을 내려놓고 소령으로 미 육군에 재입대했다. 육군참모총장 조지 C. 마셜은 그에게 직접 임무를 맡겼다. 미군 병사들에게 이 전쟁이 무엇인지 설명하라는 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9727c72a11e67c660ee05331a93b919a119981bb167d2d2ff420dc4207c10f37"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "frank-capra#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "막강한 영향력을 발휘한 선전 시리즈 《우리는 왜 싸우는가》를 만들면서, 카프라는 추축국이 찍은 화면을 거꾸로 이용했다. 레니 리펜슈탈의 나치 영화 《의지의 승리》를 가져다 다시 편집해, 독일의 전쟁 기계를 무섭되 영혼 없는 물건으로 보이게 만든 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9fd1bdcbddc7354be12411164a35de92ebfbc5f5e208ba11675cd83d7158dcac"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "frank-capra#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2차대전이 끝난 뒤, 카프라는 윌리엄 와일러·조지 스티븐스와 함께 독립 제작사 리버티 필름스를 세웠다. 스튜디오 시스템의 독재를 우회하겠다는 뜻이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8bd5f26e9f81cd9d81b64d0af16c4ad647769551c2d3372f93bc34af730da5ea"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "frank-capra#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "리버티 필름스의 첫 작품이 《멋진 인생》이었다. 1946년의 흥행 참패가 어찌나 컸던지 회사가 파산했고, 카프라는 파라마운트에 지분을 넘겨야 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ec84f9acad1ef67ecb536514be5dfce616ca8b9e43d36be18e266b1015307f7f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "frank-capra#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1950년대의 카프라는 교육 방송으로 방향을 틀었다. 벨 연구소가 후원한 과학 특집물 《Our Mr. Sun》 연작이 그것으로, 애니메이션과 실사를 섞어 아이들에게 물리와 생물을 가르쳤고 평도 좋았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2cd744b07c47cf8b9de631fb1d9762a0a02fe1dd0a8821b65ee65acc36f9299d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "frank-capra#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "매카시 시대, 그는 1930년대 영화들의 좌파적 색채 때문에 블랙리스트에 오를까 봐 벌벌 떨었다. 그리고 공산주의에 동조한다고 의심되는 할리우드 동료들의 이름을 몰래 FBI에 넘겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8e01c15845468e5e462293de9989ac205d18693a203ab5a173b4d791a1d07908"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "frank-capra#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "캘리포니아 폴브룩에 드넓은 아보카도 농장을 사들여 은퇴 생활의 상당 부분을 보냈다. 나무를 돌보는 일에 매달렸고, 끝내 영화가 되지 못한 공상과학 각본들을 썼다. 향년 94세, 잠결에 눈을 감았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "db80326ae53e21f88067bc7426b523fe9e28cbde05b1a54fe0edcaa04d1fb99b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "fritz-lang#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "랑은 빈에서 태어났다. 아버지 안톤 랑은 잘나가는 건축가였고, 어머니 파울리네 슐레징거는 가톨릭으로 개종한 유대인이었다. 어머니는 아들을 지극히 엄격한 독실한 가톨릭 가정에서 길렀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2686593aa4971641151886a6cdec1e68fa43aa3750b44f11dfa37c23f706218d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "fritz-lang#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아버지의 뒤를 이으라는 압박에 밀려 1910년 빈 공과대학 토목공학과에 들어갔다. 그러나 얼마 못 가 학교를 버리고 뮌헨과 파리로 그림을 배우러 떠난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "622c108b0dc515bc61eefcdb34a1c8dc4d11409204c70ca6d1547a66f82c595b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "fritz-lang#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1차대전 전까지 몇 해 동안은 떠도는 화가로 살았다. 북아프리카에서 중국, 일본, 발리까지 훑고 다니며 엽서를 팔고 캐리커처를 그리고 카바레 간판을 칠해 먹고살았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e65c267cec63bc260c61b698edd887034ec34224410b7636c3718fac3a699869"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "fritz-lang#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1916년 빈의 육군병원에서 심한 전쟁신경증을 앓으며 회복하던 중, 그는 첫 영화 시나리오를 쓰기 시작했다. 같은 병동의 부상병들이 꾸린 연극 무대에도 올랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "72bce04120ba378de53f29dfc10169687c0390c197ab5dbca6243e9c078bfc3a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "fritz-lang#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "랑의 첫 아내 리자 로젠탈은 1920년 가슴에 총상을 입고 숨졌다. 공식적으로는 자살로 처리됐다. 다만 그가 훗날의 동료 테아 폰 하르보우와 정을 통하는 현장을 아내가 목격했다는 소문이 오래도록 떠돌았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2bc85c50824a80a2232e3aab164828a8147f8a7edb3590ff1ebf9208b5e02117"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "fritz-lang#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1922년 폰 하르보우와 결혼한 뒤, 두 사람은 무서운 창작 콤비가 됐다. 미술품으로 가득한 베를린 아파트에서 《도박사 마부제 박사》와 《메트로폴리스》 같은 표현주의(Expressionismus)의 걸작들이 함께 쓰였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aa502ce5b2fea3080a59f2f61ba7391a2b3d13fc546f63be9dc52414f7a9a78f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "fritz-lang#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "310일에 걸친 《메트로폴리스》(1927)의 지옥 같은 촬영 동안, 랑은 진짜 불을 피워 배우 브리기테 헬름을 화형대에서 태워 죽일 뻔했다. 뻣뻣한 나무 로봇 의상은 온몸에 멍을 남겼고, 그는 열사병으로 몇 번이고 쓰러졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e415fdc684ef187b98351f5f118d536e81ec4558cc7ab04d858a831f33c6d070"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "fritz-lang#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "배우를 다루는 가학성으로 악명이 높았다. 《M》을 찍으면서 페터 로레를 계단 아래로 몇 번이고 굴러떨어지게 했고, 배우의 몸은 성한 데 없이 멍투성이가 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc4a0366b7c0a676931e1ce744c2de4f215cdb3a99879bf034c32f64040be0d9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "fritz-lang#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1933년 선전장관 요제프 괴벨스가 독일 영화사 UFA의 수장 자리를 제안했다고, 랑은 두고두고 말하고 다녔다. 그 길로 그날 밤 예금도 아내도 남겨 둔 채 파리로 달아났다는 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "00a2a0037536614a532fb368dce134f78d646f107ddb8e319a2fec97069fcfdb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "fritz-lang#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "극적인 한밤의 탈출담을 랑은 수십 년간 우려먹었다. 그러나 훗날 여권이 말해 준 사실은 달랐다. 그는 1933년 내내 독일과 프랑스를 예사롭게 오갔고, 그런 뒤에야 영영 떠났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "41d2419a9f0bcebc6572e71a244c6c63382a3185de6996112fd4cc904d59bd1d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "fritz-lang#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "폰 하르보우가 열성적으로 나치당에 입당하고 독일에 남기로 하면서 결혼은 완전히 끝났다. 나치를 격렬히 혐오한 랑은 할리우드로 건너갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1f9181a04df41d65776f692294fa6d1484c3557ca8ae743a93ddf483ad53e7a9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "fritz-lang#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "기괴한 것에 대한 집착은 자료로 남았다. 현실에서 벌어진 별난 살인과 납치, 배신을 다룬 신문 스크랩을 방대하게, 그것도 빈틈없이 분류해 보관했다. 영화의 착상은 늘 거기서 캐냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "da69ee2d9b2363a8e18003abd33fcbe1458be4cf680486ed7f79d8e7f4b9ebea"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "fritz-lang#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "할리우드에서 그는 폭군 같은 작가주의(auteurism) 감독의 상을 스스로 지어냈다. 트레이드마크인 외눈안경에 승마 부츠, 사파리 재킷 차림으로 현장에 서서, 억센 억양의 영어로 스태프에게 고함을 질러 댔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6927b217a0049f00dcfc171afa4e333d311d767841d58041a665b384e210e511"
+ }
+]

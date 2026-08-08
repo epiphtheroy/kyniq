@@ -1,0 +1,62 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "song-to-song-2017",
+  "field": "lead",
+  "film_id": "10961eb5-0949-4f70-8b4e-501b1a30bcd7",
+  "lang": "en",
+  "text": "Two songwriters, a mogul, a waitress: four people, 129 minutes, and no settlement. Austin is not scenery here but the employer — the venues, the bookings, the man who can put a song in front of an audience — so every seduction carries a second motive that nobody has to state aloud. Malick lets romance and career blur until the distinction stops being useful, which is either the method or the flaw, depending on the patience available for a film that would rather drift beside its people than follow them. Desire and betrayal are the climate here rather than the incidents. What holds attention is texture: rock and roll as a set of rooms to pass through, and love as something people keep attempting during working hours.",
+  "model": "claude-opus-5",
+  "source_sha256": "166c5d509dbd24f9bd0e4acc0d4182928c1b4c64b8fdb7671f79ffb05aab7541"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "diamond-island-2016",
+  "field": "lead",
+  "film_id": "1380647b-f7c9-45fd-9a4a-937cd29aed79",
+  "lang": "en",
+  "text": "The paradise in the title does not exist yet; it is a construction site, and Bora, eighteen, has left his village for a job on it. Davy Chou keeps both shifts in view: the wage labour raising an ultra-modern city for people who will never meet the men who poured it, and the nights afterward, when those same young men move through a rougher version of what they are assembling. Then the brother comes back. Solei disappeared five years earlier and returns with money, ease and an introduction to the wealthy young of the city, so the film narrows to the distance between two brothers who left one village by different routes. Tomorrow's Cambodia is the advertised backdrop, and its pleasures are described as illusions; the trouble is that they work anyway, on Bora and on the film, for as long as a night lasts.",
+  "model": "claude-opus-5",
+  "source_sha256": "fcd179e17ce91f3d6d1b1c01966d6e3637c849d18efd535185b60d28a9d3cd7f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-last-princess-2016",
+  "field": "lead",
+  "film_id": "13dba25b-ab03-4abd-a85f-9b578b98a2ab",
+  "lang": "en",
+  "text": "Deok-hye holds a title the empire occupying her country has no use for except as a lever. Moved to Japan while the Joseon dynasty finishes declining behind her, she is left with a problem most costume films avoid — how to fill a life whose main activity is waiting — and Hur Jin-ho solves it two ways. One is genre: action sits in the credits beside history, and there are plans, allies, people prepared to move a woman across water. The other is Jang-han, the childhood attachment who gives homesickness someone to address. What 126 minutes finally holds is smaller than sovereignty and harder to play: the daily upkeep of a bearing that no court survives to require, performed in rooms belonging to the country that took her.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc4d9617006e1f2552395fee00054a625ccf439507a3139afbe8fc16bc485465"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "my-dear-enemy-2008",
+  "field": "lead",
+  "film_id": "140f5821-a1e8-4081-b33d-d82eaf7e868f",
+  "lang": "en",
+  "text": "Hee-soo needs the money now, and the man who borrowed it proposes to raise it from a list of ex-girlfriends. She goes with him, to make sure the cash reaches her. Lee Yoon-ki builds two hours from that single errand, which puts the weight on the intervals — what is said between stops, and what is carefully not said, since Hee-soo came to supervise a transaction and not to reopen anything. The comedy is dry and structural: every door opens on another woman who once knew him well enough to consider lending, and his charm turns out to be an asset with a worse balance sheet than his debts. Romance appears in the genre line, which reads as a joke on a premise where affection has been converted into a figure and is being collected in instalments.",
+  "model": "claude-opus-5",
+  "source_sha256": "35cfaeca77f18c9a038fa6491c4e2597325c85494b746ed6919bfef8dcc04637"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "songs-my-brothers-taught-me-2015",
+  "field": "lead",
+  "film_id": "1418d07d-af32-4425-b901-49f5fa44c482",
+  "lang": "en",
+  "text": "One of them means to leave; the other is too young to be consulted. Chloé Zhao sets that asymmetry on the Pine Ridge Indian Reservation and refuses to hurry it — 93 minutes spent mostly on ordinary hours, on a brother and a younger sister who both say home and mean different distances by the word. A film made on a reservation for general release has to decide how much it will explain, and this one presents itself as a portrait rather than an account: modern-day life in the plain sense of what people do on a given afternoon. The drama sits in the arithmetic of a departure. If he goes, something in her day has to be rebuilt around the gap, and she is old enough to see that coming and not old enough to argue about it.",
+  "model": "claude-opus-5",
+  "source_sha256": "179907857ceade6e1895857a29098754890ab318ac453e244efce2d5792d5583"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ode-to-the-goose-2018",
+  "field": "lead",
+  "film_id": "14356cdf-9b67-4288-98ed-85db5390b453",
+  "lang": "en",
+  "text": "He wanted her while she was his friend's wife; she is divorced now, and he has arranged a trip. Gunsan, a guest house, a middle-aged proprietor and his autistic daughter — the lodging turns out to be a second household rather than a setting, one the visitors keep crossing. Zhang Lu spends 122 minutes on a short stay, and the duration does the work: an arrangement this delicate cannot be hurried without showing what it is. Yoon-young has a shape in mind for the days ahead and both travellers are declining to name it, while the household they are staying in runs on terms settled long before they knew about it. Two arrangements under one roof, neither discussed, and the film watches to see which of them is steadier.",
+  "model": "claude-opus-5",
+  "source_sha256": "f667bdac50707c83184ef12fd7b1819d178598348275e4facdc110e9ac8204c8"
+ }
+]

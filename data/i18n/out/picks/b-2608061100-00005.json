@@ -1,0 +1,322 @@
+[
+ {
+  "entity_type": "director_pick",
+  "entity_key": "david-cronenberg#crimes-of-the-future-2022",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《Crimes of the Future》는 말년의 종합이다. 고통이 사라진 미래에서 수술을 섹스로, 살을 진화하는 것으로 다시 불러낸다. 그를 규정해온 모든 집착이 여기 한 편에 모인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "david-fincher#se7en-1995",
+  "field": "reason",
+  "lang": "ko",
+  "text": "핀처의 서명은 《세븐》 한 편에 다 들어 있다. 비에 젖은 불안, 흠 하나 없는 수사물의 공정, 그리고 도덕의 심연. 탐정 스릴러라는 외피 덕에 처음 보는 사람도 쉽게 들어오지만, 끝까지 걷히지 않는 음울함이 그의 세계관을 못 박는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "david-fincher#the-social-network-2010",
+  "field": "reason",
+  "lang": "ko",
+  "text": "핀처가 왜 중요한지 알고 싶다면 《소셜 네트워크》다. 소킨의 속사포 대사가 메트로놈에 맞춰 잘려 나가고, 증언실이 서사의 무대가 된다. 야망을 차갑게 해부한 끝에 코딩이 비극이 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "david-fincher#zodiac-2007",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《조디악》은 카타르시스를 버리고 집착을 택했다. 수십 년에 걸친 수사를 법의학적 세부까지 따라간다. 끝내 알지 못한다는 것의 대가를 다룬, 핀처의 가장 참을성 있고 가장 엄밀한 영화.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "david-fincher#gone-girl-2014",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《나를 찾아줘》는 언론이 짜는 이야기와, 연기로서의 결혼을 무기로 쓴다. 정밀한 통제와 급격한 톤 전환. 핀처가 만든 가장 능청스럽고 가장 서늘한 대중영화다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "david-fincher#fight-club-1999",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《파이트 클럽》은 요란하고 무정부적인 파열이다. 갈라진 의식, 소비사회를 향한 분노의 풍자, 쉬지 않는 편집. 형식을 부술 각오가 된 핀처가 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "david-fincher#the-game-1997",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《더 게임》은 편집증적인 퍼즐 상자다. 주인공을 가지고 놀고, 보는 사람까지 함께 가지고 논다. 불확실성을 얼음처럼 다루는 핀처의 이른 솜씨.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "david-fincher#the-killer-2023",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《더 킬러》는 군더더기를 걷어낸 공정의 영화다. 절차와 습관, 무표정한 내레이션, 기계적으로 반복되는 리듬. 말년에 그린 자기 강박증의 축소판.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "david-fincher#mank-2020",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《맹크》는 예외이자 보상이다. 흑백으로 찍은 옛 할리우드 각본가 드라마. 매끈한 표면 아래에는 장인의 기술을 향한 경외와, 아버지가 쓴 각본이 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "david-lynch#blue-velvet-1986",
+  "field": "reason",
+  "lang": "ko",
+  "text": "린치의 주제를 가장 선명하게 압축한 것이 《블루 벨벳》이다. 잘린 귀 하나가 소도시의 순진한 청년을 벨벳처럼 어두운 지하세계로 끌고 들어간다. 누아르라는 익숙한 틀을 쓰되, 불안은 조금도 덜어내지 않았다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "david-lynch#mulholland-drive-2001",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《멀홀랜드 드라이브》는 할리우드의 꿈을 자기 자신으로 되돌아오는 악몽으로 바꾼다. 정체성도 서사도 녹아버린다. 욕망과 기억과 분신(分身)에 관한 린치식 논리의 결정판.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "david-lynch#the-elephant-man-1980",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《엘리펀트 맨》에는 린치의 다정함이 있다. 흑백의 공업적 질감은 눈부시고, 형식은 한결 얌전하다. 아무리 기이한 이미지라도 결국 그의 연민이 붙들고 있음을 보여주는 증거다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "david-lynch#twin-peaks-fire-walk-with-me-1992",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《트윈 픽스: 파이어 워크 위드 미》는 드라마의 짓궂은 유머를 걷어내고 상처와 슬픔만 남겼다. 린치가 위안을 완전히 포기했을 때 얼마나 참혹해지는지 알 수 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "david-lynch#lost-highway-1997",
+  "field": "reason",
+  "lang": "ko",
+  "text": "뫼비우스의 띠 같은 구조는 《로스트 하이웨이》에서 처음 나왔고 《멀홀랜드 드라이브》에서 완성된다. 네오누아르의 위협, 그리고 미스터리 맨. 린치가 꿈의 논리에 온전히 몸을 던진 순간이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "david-lynch#eraserhead-1977",
+  "field": "reason",
+  "lang": "ko",
+  "text": "모든 것의 시작에 있는 악몽이 《이레이저 헤드》다. 오 년에 걸쳐 손수 만든 신체 공포, 공장 소리로 짠 음향, 부모가 된다는 데 대한 원초적 공포. 그의 스타일이 흘러나온 순수한 수원(水源).",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "david-lynch#the-straight-story-1999",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《스트레이트 스토리》는 온화한 예외다. 전체 관람가 등급에, 노인 하나가 잔디깎이를 몰고 아이오와를 가로지른다. 진심 어린 미국 풍경화. 기괴함 밑에 깔린 온기가 여기서 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "david-lynch#wild-at-heart-1990",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《광란의 사랑》은 조증에 걸린 오즈의 마법사 로드무비다. 엘비스와 폭력과 야한 로맨스에 흠뻑 절었다. 가장 고삐 풀린, 가장 신나게 과잉인 린치.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "david-lynch#inland-empire-2006",
+  "field": "reason",
+  "lang": "ko",
+  "text": "완전히 빠져든 사람을 위한 세 시간이 《인랜드 엠파이어》다. 조각난 디지털 화면이 내내 불안을 뿜는다. 린치의 마지막 장편, 형체 없이 최면적이며, 연기와 현실의 경계를 남김없이 녹여버린다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "david-yates#harry-potter-and-the-order-of-the-phoenix-2007",
+  "field": "reason",
+  "lang": "ko",
+  "text": "예이츠가 시리즈에 합류한 첫 편이 《해리 포터와 불사조 기사단》이다. 권위주의에 장악된 호그와트, 더 어둡고 더 정치적인 시선이 여기서 시작된다. 그의 구간으로 들어가는 가장 깔끔한 입구.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "david-yates#harry-potter-and-the-half-blood-prince-2009",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《해리 포터와 혼혈 왕자》에서 예이츠는 분위기와 우울에 기댄다. 촬영감독 브뤼노 델보넬의 탈색된 색조, 전쟁 직전의 조용하고 인물 중심적인 불안.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "david-yates#harry-potter-and-the-deathly-hallows-part-1-2010",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《해리 포터와 죽음의 성물 1부》는 호그와트를 아예 지워버린다. 남은 건 황야를 떠도는 십 대 셋의 로드무비. 시리즈 안에서 가장 느긋하고 사적이며, 톤이 유별난 영화다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "david-yates#harry-potter-and-the-deathly-hallows-part-2-2011",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《해리 포터와 죽음의 성물 2부》는 예이츠의 정상이다. 호그와트 공성전. 그동안 쌓아온 기술이 길게 이어지는 액션과 감정의 방출로 되돌아온다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "david-yates#fantastic-beasts-and-where-to-find-them-2016",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《신비한 동물사전》은 무대를 1920년대 뉴욕으로 옮긴다. 학교 소년들의 신화 대신 이방인의 엉뚱한 동물 사냥. 마법 세계 작업 중에서는 헐거운 쪽, 덜 사랑받는 가지다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "denis-villeneuve#arrival-2016",
+  "field": "reason",
+  "lang": "ko",
+  "text": "빌뇌브에게 들어가는 가장 너그러운 문은 《컨택트》다. 첫 접촉을 다루면서 볼거리 대신 언어와 슬픔 위에 이야기를 세웠다. 참을성 있게 쌓는 정조, 요한 요한손의 음악, 그리고 누구에게나 가닿는 인간적 지성.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "denis-villeneuve#sicario-2015",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《시카리오: 암살자의 도시》는 나사를 조인다. 국경의 마약 전쟁 속으로 내려가��� 수사물. 로저 디킨스의 촬영과 빌뇌브 특유의 불안이 스릴러를 도덕적으로 숨 막히는 무엇으로 바꾼다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "denis-villeneuve#prisoners-2013",
+  "field": "reason",
+  "lang": "ko",
+  "text": "미국 진출작이자 돌파구가 된 것이 《프리즈너스》다. 아이가 사라진 겨울, 절박한 아버지가 어디까지 갈 수 있는지 시험한다. 제이크 질렌할과 디킨스의 잿빛 빗속 화면이 영화를 붙든다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "denis-villeneuve#blade-runner-2049-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《블레이드 러너 2049》는 빌뇌브의 정점이다. 광대하고 우울한 속편이면서, 회화 같은 디킨스의 이미지와 기억·정체성을 향한 아픈 물음으로 그 규모를 정당화한다. 거대한 SF를 다루면서도 영혼을 잃지 않을 수 있다는 증명.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "denis-villeneuve#incendies-2010",
+  "field": "reason",
+  "lang": "ko",
+  "text": "프랑스어권 캐나다 시절의 돌파구 《그을린 사랑》은 전쟁이 할퀸 중동을 가로질러 어머니의 내력을 풀어가는 쌍둥이를 따라간다. 구조로 짜인 퍼즐이 끝내 사람을 무너뜨린다. 이후 그의 모든 장르영화를 움직이는 감정의 엔진이 여기 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "denis-villeneuve#enemy-2014",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 기이한 영화는 《에너미》다. 누렇게 물든 토론토에서 질렌할이 자기 분신과 마주친다. 손에 잡히지 않는 심리적 수수께끼. 줄거리를 버리고 불쾌감 자체를 택할 준비가 된 관객용.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "denis-villeneuve#polytechnique-2009",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《폴리테크닉》은 냉랭한 흑백으로 1989년의 학살을 다시 세운다. 태도는 무겁고 절제되어 있다. 실제 폭력을 사유의 대상으로 바꾸는 법을 그가 처음 익힌, 거칠고 결정적인 초기작.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "denis-villeneuve#dune-part-two-2024",
+  "field": "reason",
+  "lang": "ko",
+  "text": "서사시적 야심이 만개한 자리가 《듄: 파트 2》다. 사막의 크기로 찍은 이미지, 의례, 예언. 스펙터클을 다루는 손과 불안을 다루는 손이 만나 압도적인 와이드스크린 신화가 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "derek-cianfrance#blue-valentine-2010",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《블루 발렌타인》은 들뜬 연애의 시작과 고통스러운 파국을 번갈아 붙인다. 시안프랜스 특유의 감정적 사실주의, 그리고 라이언 고슬링의 날것 같은 친밀함. 사랑이 닳아가는 과정에 대한 그의 관심으로 들어가는 가장 선명한 입구다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "derek-cianfrance#the-place-beyond-the-pines-2013",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《플레이스 비욘드 더 파인즈》는 그 사적인 화법을 아버지와 아들 삼대의 삼면화로 넓힌다. 오프닝의 오토바이 추적 촬영 하나로 야심이 선언된다. 구조적으로 가장 과감한 작업.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "derek-cianfrance#roofman-2025",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《Roofman》은 가장 최근작이자 가장 덜 알려진 시안프랜스다. 소설보다 기이한 실화 범죄물이 좀처럼 편들기 힘든 도망자를 상대로 그의 연민을 시험한다. 그의 집착이 다음에 어디로 가는지 보고 싶은 사람을 위한 보상.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "douglas-sirk#all-that-heaven-allows-1955",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《순정에 맺은 사랑》은 서크의 방법을 알기 쉬운 로맨스 한 편으로 압축한다. 정원사를 사랑한 미망인. 포화된 색채와 그 유명한 텔레비전 화면의 반영이 교외의 잔인함을 드러낸다. 그의 아이러니로 들어가는 가장 맑은 입구.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "douglas-sirk#imitation-of-life-1959",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《슬픔은 그대 가슴에》는 서크의 가장 웅장한 멜로드라마다. 두 쌍의 모녀를 명성과 인종, 백인 행세를 관통해 엮는다. 오페라 같은 감정과 폐부를 찌르는 장례식 결말이 그가 왜 중요한지 정확히 말해준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "douglas-sirk#written-on-the-wind-1956",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《바람에 쓴 편지》는 야한 보상이다. 텍사스 석유 왕조가 부유함 속에서 썩어간다. 히스테릭한 색, 색정광 상속녀, 총을 든 퇴폐. 가장 착란적이고 가장 전복적인 서크.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "edgar-wright#shaun-of-the-dead-2004",
+  "field": "reason",
+  "lang": "ko",
+  "text": "입문작으로는 《새벽의 황당한 저주》가 완벽하다. 좀비 코미디의 껍질 안에 채찍처럼 빠른 시각적 개그와 매치 컷 편집, 그리고 어른이 된다는 것에 대한 진짜 감정이 숨어 있다. 라이트의 특징이 저예산 형태로 전부 나온다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "edgar-wright#hot-fuzz-2007",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《뜨거운 녀석들》은 페그와 프로스트의 호흡을 그대로 키워 버디 캅 풍자로 옮긴다. 서류 작업조차 과잉 편집된 몽타주가 되고, 조용한 영국 시골 마을이 터무니없이 폭력적인 비밀을 숨기고 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "edgar-wright#baby-driver-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《베이비 드라이버》는 액션의 박자, 총성, 기어 변속까지 처음부터 끝까지 음악에 붙여버린다. 강도 스릴러가 뮤지컬이 되는 것이다. 편집을 리듬으로 삼는 라이트의 시야가 가장 눈부시게 드러난다.",
+  "model": "claude-opus-5"
+ }
+]

@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "all-under-the-moon-1993",
+  "field": "lead",
+  "film_id": "86b37cf0-087d-48c6-a60b-d25db09eecfb",
+  "lang": "en",
+  "text": "The fare decides the scene: a Korean driver in 1990s Tokyo takes whoever climbs into the back, and the film lets each of them talk. Yōichi Sai runs two registers at once, so a joke about a thin night's takings sits next to something that cannot be joked about — the employers who set the wage, the passengers who hear the accent before they hear the man. At 109 minutes it stays inside the working day rather than reaching for a larger frame, and the cab is the one interior where a stranger and a driver are stuck with each other. It took the Blue Ribbon for best picture, which is worth mentioning mainly because the film that got it is so unbothered about being tasteful. Comedy here is a method of surviving the shift, not a way of softening what happens during it.",
+  "model": "claude-opus-5",
+  "source_sha256": "73b43d9e18e3c72581b9d6ab397a4fe3a22c6da2970f020036842dfb509cb0ec"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-gaucho-war-1942",
+  "field": "lead",
+  "film_id": "1742e54e-3cb1-4f6d-8b16-460748627dab",
+  "lang": "en",
+  "text": "The soldiers own their horses and little else: gauchos in the north of Argentina, holding a line against the Spanish Crown. Lucas Demare has ninety minutes for a campaign that ran for years, so the film proceeds by raid rather than by chronology — a pass, a night ride, a bridge, then the next one. Made in 1942, it treats independence as unpaid labour done by people who already had work, and it gives the terrain a share of the fighting, since ground is the one advantage an irregular force holds over an army with supply lines. It took the Silver Condor for best film. Its attention stays on the arithmetic: how few men, how much country, how long anyone can stay out before the work waiting at home stops waiting.",
+  "model": "claude-opus-5",
+  "source_sha256": "6dff7bc558580b1491f2e1c598a06c030a8f94a19029bc8571fa9c5fd128afc8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "what-made-her-do-it-1930",
+  "field": "lead",
+  "film_id": "9bb7798c-8c0b-41c1-9bc6-18f7a6c68ae1",
+  "lang": "en",
+  "text": "Sumiko is handed on twice before the story has properly started: first to an uncle who drinks, then to a circus that pays cash for her. Eighty-five minutes, 1930, and the picture moves the way a ledger moves — each household she enters has already worked out what she costs and what she can be got for. Shigeyoshi Suzuki attends less to her feelings, which a child in that position is not permitted to display, than to the succession of adults who take her in and pass her on. It placed on the Kinema Junpo list for the year. What accumulates is not incident so much as transaction: every new roof over her head arrives with a price already agreed, and she is never party to the agreement. The cruelty is administrative before it is personal.",
+  "model": "claude-opus-5",
+  "source_sha256": "c4ed1faf18cac278e0277086276d4ada3950ce06f5480c6d710bb600e577acc9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "okiku-and-the-world-2023",
+  "field": "lead",
+  "film_id": "b9f7ca67-9250-435a-aead-c3a480923f57",
+  "lang": "en",
+  "text": "Two men make a living hauling what the tenement toilets produce and selling it to farmers as fertiliser. It is a trade with routes, customers and a price, and Junji Sakamoto films it without flinching and without apology. Then he puts a love story inside it: Okiku, the daughter of a samurai who has fallen out of his rank, lives on the same lane. Ninety minutes is brief for a period film, and the brevity helps — no pageantry, only the daily round of buckets, weather, and who is willing to speak to whom. The comedy comes from proximity; the drama comes from the fact that everyone on this street has either fallen from somewhere or was never anywhere to begin with. Affection, in this arrangement, has to be conducted in the smell of the job.",
+  "model": "claude-opus-5",
+  "source_sha256": "b740521ca691c1e2fab5590f3a5d82d78fbc884eb899ea72157311388fa98640"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-long-darkness-1972",
+  "field": "lead",
+  "film_id": "cb9bb25d-ca5c-43b8-89ad-4752425c271e",
+  "lang": "en",
+  "text": "Nothing in either of their lives recommends marriage, and they marry anyway. He is a university student from a family whose name has gone bad; she waits tables and sends most of her wages to relatives who cannot manage. Kei Kumai takes 121 minutes over this, long for a courtship and about right for a negotiation, since what the film follows is how much of the past each of them will be required to explain, and to whom. The two of them talk about love as a way out, but what they are proposing is closer to an arrangement: shame arriving from either side, halved by being shared. It sat on the Kinema Junpo list for 1972. It is slow on purpose; nothing here can be settled faster than the families involved are prepared to settle it.",
+  "model": "claude-opus-5",
+  "source_sha256": "36ba1a9ba9fe4b73ee4e622806072cfc851fd217d6e15ddec969d7705a377f53"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "apartment-no-13-1990",
+  "field": "lead",
+  "film_id": "e6bba3d9-49a4-4727-8752-f44f8e68ee8f",
+  "lang": "en",
+  "text": "The errand is simple enough to state in a sentence: sell the inherited apartment, take the money, marry, buy a workshop. Mashallah Iranmanesh comes up to Tehran from Kerman with exactly that plan and finds a building full of people whose lives are none of his business and shortly will be. Yadollah Samadi builds ninety-eight minutes out of the gap between a straightforward transaction and the neighbours standing between it and its signature. The comic principle has teeth: a man's whole future is parked in a property he has no use for, and the only route to it runs through people he did not choose. It took the Crystal Simorgh for best film. What keeps it from pure farce is the cost of delay — every week the sale does not happen, the rest of the plan waits.",
+  "model": "claude-opus-5",
+  "source_sha256": "4346f138fe3b1e0051bffde8462450e591df2d64669c70b4b468526382e44719"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "to-be-a-millionaire-1980",
+  "field": "lead",
+  "film_id": "15ccaf47-dfa9-42fd-b423-e9642775835b",
+  "lang": "en",
+  "text": "The kidnappers want two things: a prisoner let out, and an aircraft to fly him to Albania. The prisoner is Fors, picked up after an attack on an OPEC meeting; the hostage is a minister's daughter; the file lands on the desk of Olsson of SÄPO. That last detail is where the Swedish comedy enters, because a thriller staffed by civil servants is a thriller in which somebody has to authorise the plane. Mats Arehn keeps it to a hundred minutes and lets the genres grind: the demands are lethal, the machinery answering them is an office. It took the Guldbagge for best film. The suspense turns out to be administrative — who decides, how quickly, and what the answer costs the person it is not about.",
+  "model": "claude-opus-5",
+  "source_sha256": "42f83bed7da4eea51c19f9f48adc100077b79ce24cd428e14f589e742520ff42"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "come-come-come-upward-1989",
+  "field": "lead",
+  "film_id": "39644e7d-05ca-4834-b841-0fa9b0d89910",
+  "lang": "en",
+  "text": "One winter day a girl climbs to a temple and asks to be admitted. Sun Nyog has already come through a household that could not hold her — a father who left to become a monk, a mother who looked away, the mother's lover who did not. Im Kwon-taek takes 134 minutes over what follows, and the length matters, because ordination here is not a door shutting on the world but a curriculum: hours, rules, other women, a body learning a new schedule. The irony is left where it lies, since the religion that took her father is the one now offering her a roof. The film went into competition at MIFF in 1989, where the lead performance took the Bronze St. George. Belief arrives as work before it arrives as anything else, and the work is measured in days.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c5fffdf825c27aba47c9334d41c06371d3273bfd353ab30bbc92752eb3442ee"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "an-inlet-of-muddy-water-1953",
+  "field": "lead",
+  "film_id": "7c1de25c-86ab-4e5a-9ec4-1e0b3cc4e100",
+  "lang": "en",
+  "text": "Three lives, written down in one woman's diary, and none of them hers. The frame is modest and does a great deal of work: what can be shown is limited to what a single observer saw or was told, so each of the three young women reaches us at a remove, already partly hearsay. Tadashi Imai gives the arrangement 130 minutes, long enough for each episode to lay out a household, a trade and a set of obligations before the pressure inside it becomes visible. The pressure is usually money, and usually money owed by or on account of a woman with no standing to argue about it. The film sat on the Kinema Junpo list for 1953. The diary keeps its tone level throughout. Three times is not a coincidence, which is the point of counting them.",
+  "model": "claude-opus-5",
+  "source_sha256": "5e3e8704f4e27fcd9a3227f4a3e9470b05af97282b567c49efa5d4fe47802165"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tit-coq-1952",
+  "field": "lead",
+  "film_id": "39b41159-c0cf-4130-b1f1-89930e593368",
+  "lang": "en",
+  "text": "He comes home from the war bad-tempered, and nobody in the film asks him to improve. The girl he wrote to has married someone else — that is the whole plot and less than half of what is going on in a French-language Canadian picture from 1952 about a soldier with a temper and a plan for a household. Gratien Gélinas keeps it to 104 minutes and to a handful of rooms, and the drama runs on temperament rather than incident: a man who wants an ordinary domestic life colliding with the one arrangement he cannot argue his way into. It holds the Canadian Screen Award for best motion picture. Between what he believes he is owed and what he can actually claim, the film finds its whole running time.",
+  "model": "claude-opus-5",
+  "source_sha256": "d75ba6dee3c4d07a4dbf7646e9ab21548aaaf516fb6c42a80ff286ec07a490df"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "katinka-1988",
+  "field": "lead",
+  "film_id": "7927b3c1-2c7d-4857-a977-b8bd12fe3528",
+  "lang": "en",
+  "text": "A village where the news comes in by train, and the stationmaster's wife has the platform for a view. Katinka is childless, unwell, and married to a decent man who does not look closely; Huus, the new foreman, is the season's event for every unmarried woman in the parish and spends his evenings with the couple instead. Max von Sydow directs the Herman Bang material with a very quiet hand — ninety-six minutes of Danish weather and small talk — and the interest sits in what cannot be said at a table where three people are being polite. Bai notices nothing, which is less stupidity than a settled lack of curiosity about the woman he married. Denmark, 1988. Nothing here is declared; everything is arranged, and the arrangement is the feeling.",
+  "model": "claude-opus-5",
+  "source_sha256": "db9fffefbd89ff6e7c401d2e91fd08be920c969df4035c3dab6d3ec2687fdff4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "spring-in-my-hometown-1998",
+  "field": "lead",
+  "film_id": "c6bfff06-dd5f-4ee8-937c-c1cba47889c2",
+  "lang": "en",
+  "text": "Summer of 1952: the fighting is two years old, and the film spends it with two boys in a village. Sungmin and Changhee are the vantage point, which costs the picture direct access to whatever the adults are managing, and that cost is the design, since a war reaches children as overheard talk and as parents who have started behaving differently. Lee Kwang-mo takes two hours over a single season, and the war never needs to be staged to be present in what the grown-ups will not discuss. It took the Grand Bell for best film. Boys go on being boys through it, which is neither consolation nor irony but simply what children do. The distance the film keeps is not coolness; it is the actual distance between a child and the thing happening to his country.",
+  "model": "claude-opus-5",
+  "source_sha256": "51bbd7b4e2f8f2aafb10c3d6cae472abea37730282681a01fcb263d0b95c526c"
+ }
+]

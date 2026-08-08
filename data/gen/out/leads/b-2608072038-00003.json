@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "clemency-2019",
+  "field": "lead",
+  "film_id": "52362551-de2b-4ddf-a011-edc403a7f9f3",
+  "lang": "en",
+  "text": "An execution has a schedule, a checklist, and one official whose signature moves it along. Chinonye Chukwu gives that official a name — Bernadine Williams — and a composure so complete that the film has to work sideways to show what maintaining it has cost. Another inmate is due, and the procedures begin again, rehearsed until they resemble care. Chukwu keeps the camera on administration rather than crime: corridors, forms, meetings, the small courtesies staff extend one another. Her marriage waits at home for whichever version of her comes back. The film is closer to a study of work than of punishment, and its most disquieting suggestion is that competence is the problem: the calm that lets Bernadine do the job is the calm that will not let her put it down. Sundance's dramatic jury gave it their top prize in 2019.",
+  "model": "claude-opus-5",
+  "source_sha256": "938aa06ee4d37a83e7122cb4373fa09c945577d4b320ff46c313bcec7bce993a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "in-the-soup-1992",
+  "field": "lead",
+  "film_id": "f61ca648-2f35-4ea2-bc12-e1eadea20527",
+  "lang": "en",
+  "text": "The script is finished, which is the least useful thing a script can be. Alexandre Rockwell sets a young man with a manuscript and no money beside a talkative older criminal who is delighted to appoint himself producer, and much of the pleasure lies in watching the second man treat filmmaking as a hustle he already understands perfectly well. Ninety-six minutes, and the plot is mostly errands. What holds it together is voice: deals struck in kitchens and doorways, the flattery, the borrowed confidence, the way an offer of help never fully separates itself from a threat. The 1992 Sundance jury singled out the acting, which is the right emphasis, because everyone here is performing solvency at everyone else. Comedy and menace share the same tone of voice, and neither man is quite lying.",
+  "model": "claude-opus-5",
+  "source_sha256": "800cba82d019cc1309c908fe96919d78dba4f8f198cee33fb02ee25311aec34f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "my-name-is-joe-1998",
+  "field": "lead",
+  "film_id": "2f2a7d6a-b7bd-49ec-8bba-ceaaea279514",
+  "lang": "en",
+  "text": "Joe does not drink now, and the film treats that as an arrangement he keeps up rather than a victory he won. He is out of work. Sarah is a community health worker, which gives her a professional view of the same Glasgow streets he lives on, and the courtship they begin gets conducted in the intervals between her appointments. Ken Loach films at the pace of the week rather than the scene: two people in their thirties in one of the harder parts of the city, discovering how much of a private life turns out to be other people's business. The speech comes fast and thick and makes no accommodation for outsiders. The lead performance took the European Film Award for best actor, and the reason is visible in small refusals — what a man with no money can offer, and to whom, and at what rate.",
+  "model": "claude-opus-5",
+  "source_sha256": "d67dd305f2f3d6826e6fec6bbaa73f7df869bc2ed6346ea4a8840684171c8bcd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bleak-moments-1972",
+  "field": "lead",
+  "film_id": "2bba0442-b1b2-4ce7-ac0a-efc189e950bc",
+  "lang": "en",
+  "text": "Two sisters share a house: one leaves for an office each morning, the other cannot be left alone for long. Around them Mike Leigh arranges a boyfriend who teaches and cannot finish a sentence in company, a neighbour with opinions, a workmate who talks. The film runs a hundred and eleven minutes of tea, waiting, and conversations that stall three words in, and it is funny in a way that leaves nobody a comfortable place to stand. Leigh keeps scenes going past the point where a script would cut. Silence is the main event — not the loaded kind, but the domestic sort, where two people in a front room exhaust what they can offer each other and stay seated anyway. The Golden Leopard went to it in 1972, awarded to embarrassment held steadily in frame until it becomes a form of tenderness.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d180ee85342cd770172fc26cf95edcd0783a20c36afbd20d57579e1d167f4c2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "back-to-stay-2011",
+  "field": "lead",
+  "film_id": "f9f5863b-a324-46f0-bedb-824945bb48e9",
+  "lang": "en",
+  "text": "The grandmother who raised them is gone and the house is still arranged the way she left it. Milagros Mumenthaler keeps Marina, Sofía and Violeta inside it for most of ninety-nine minutes: rooms crossed and re-crossed, chores unclaimed, doors somebody has to decide whether to open. Mourning is handled as housekeeping. Who clears the table, who answers the telephone, who is entitled to be the one most upset — the friction is all in that domestic arithmetic, not in any confrontation. Three sisters, one inherited set of habits, no adult left to referee. Mumenthaler shoots the interiors in flat daylight and lets the performances divide the loss unevenly, which is the observation the film is built on: grief does not synchronise, and people running at different speeds become intolerable to one another. It won the Golden Leopard.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f0a49428c9f66265191491f278316ca97e476d4e73b68ca9c3866c34f8a02c0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "she-a-chinese-2009",
+  "field": "lead",
+  "film_id": "679bb92f-1fce-44ee-b6a7-45768b809d55",
+  "lang": "en",
+  "text": "Mei leaves her village with no plan more specific than elsewhere. Chongqing first, and a factory job that goes wrong; then London, and a marriage to a much older man that organises her days as narrowly as the assembly line did. Xiaolu Guo builds the film in stages, each new city offering roughly the same bargain in a different language. The structure carries the argument. A journey from east to west, told as a series of rooms Mei is permitted to occupy on conditions set by somebody else. She is not sentimentalised: her decisions are often poor and always her own, and Guo declines to explain her to the country she arrives in. Migration here works less as a crossing than as a repetition, and the film is sharpest about how little has to change for the arrangement to reassemble itself.",
+  "model": "claude-opus-5",
+  "source_sha256": "8cb988b1e39d613816bfcb16a38f5e3bf58bcfefdf4696c970efd36a47342509"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "autumn-moon-1992",
+  "field": "lead",
+  "film_id": "65c0a2c4-10f3-4330-ab05-db56a52b755c",
+  "lang": "en",
+  "text": "The family is going to Canada; a fifteen-year-old and her grandmother are the part still in Hong Kong. Into that gap walks Tokio, a Japanese tourist with time on his hands, and Clara Law lets the three of them keep one another company in a city people are in the process of leaving. They share very little language, which suits the film: attention substitutes for conversation, and a comedy assembles itself out of gestures, meals and misunderstandings nobody troubles to correct. Law shoots high-rise interiors with the patience of someone recording a place before it alters. The bond between a teenager and a grown stranger is handled without alarm and without uplift. The grandmother is the figure the film keeps returning to — the household's last occupant, unconsulted about the move and not asking to be consoled.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d134d6b284de7722dcdf9fe8b4f8fc0e7fb5731c4354a44f4a7d23d60361021"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "courage-for-every-day-1966",
+  "field": "lead",
+  "film_id": "97a78606-f809-41ad-9a77-71cd82dc5992",
+  "lang": "en",
+  "text": "A committed man discovers that his convictions have become slightly embarrassing to everyone around him. Evald Schorm made Každý den odvahu in Czechoslovakia in 1966, inside a state film industry, with a model worker for a hero and his obsolescence for a subject. Eighty-five minutes, no villain. The work continues, the language of the cause continues, and what has quietly drained out is anyone's belief that the two are connected — while the film's sympathy stays with the man who has not yet noticed. Schorm gives him speeches nobody wants to hear and a private life too small to absorb the disappointment. The tone is neither satire nor tragedy but something less comfortable than either: sincerity going out of date at normal speed, filmed by people who knew precisely which sincerity they meant.",
+  "model": "claude-opus-5",
+  "source_sha256": "403692e0a6b6737426a279752edae2b75d66f7ec8dd2b56b8f5a72e9c2c0e729"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "antonio-gramsci-the-days-of-prison-1977",
+  "field": "lead",
+  "film_id": "ab7bf9cd-02b5-4265-aa03-457fa8a01d01",
+  "lang": "en",
+  "text": "Twenty years was the sentence, and the film stays in the cell. Lino Del Fra takes Antonio Gramsci, convicted by a fascist tribunal, and lets the political career arrive only as recollection: meetings, factions, arguments won in rooms that no longer exist, set against a present in which the largest available action is writing. Two hours and seven minutes is a long time to spend with a man who cannot go anywhere. That is what the running time is for. Made in Italy in 1977, it treats the fascist courtroom as recent business rather than costume, and it reconstructs the history of a movement through someone confined to a table and a fixed daily routine. The private life is not decoration here. It is the part a sentence removes first, and the film counts the cost item by item.",
+  "model": "claude-opus-5",
+  "source_sha256": "e9c605a0ca1c461c920b74d52cd62343eb9d6a4cc0c19fd78f7cdd19fbf3bfe0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-winner-1962",
+  "field": "lead",
+  "film_id": "77732c20-7337-4dc1-82ae-5c8f23a93873",
+  "lang": "en",
+  "text": "A young African boxer arrives in Paris to be looked over by strangers who will decide whether he is worth training. François Reichenbach shoots in documentary manner: faces caught rather than composed, a story that advances by observation instead of by incident, and a line between the staged and the recorded that is deliberately hard to locate. The method buys the ordinary texture of the trade. Weigh-ins, waiting rooms, the tedium between rounds of training, the daily business of a man being assessed as equipment by people who will not have to live with the assessment. Paris here looks like a city he is passing through rather than one that has taken him in. The Louis Delluc prize went to it, which is a notable destination for a film that keeps declining to behave like fiction.",
+  "model": "claude-opus-5",
+  "source_sha256": "c0bf8974697d42ce6000e818c02f40c8d66cb6451b4a283737858ba3b41b8491"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "look-both-ways-2005",
+  "field": "lead",
+  "film_id": "94e4c595-510d-4971-8f1f-c5fc87c379f2",
+  "lang": "en",
+  "text": "One unusually hot weekend, and four people who have each just heard something they cannot unhear. Sarah Watt builds the film out of a habit of mind rather than a plot: the reflex by which a piece of news becomes a private rehearsal of the worst available outcome, run again and again while ordinary conversation continues on top of it. The friendships absorb it unevenly. Australian heat supplies the conditions — glare, delay, the sense that nothing can be settled until the temperature drops — and Watt cuts between four sets of arithmetic without ranking them. The AACTA acting awards went to both leads, and the emphasis is fair, since most of the work happens in reaction, in the pause where somebody decides not to say the thing. Romance is in the genre listing, earned the awkward way.",
+  "model": "claude-opus-5",
+  "source_sha256": "4f8b931277660e097bcb0ed128263461c219aaa752351b936a51a329770646c2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "muddy-river-1981",
+  "field": "lead",
+  "film_id": "e90c773d-28fb-410b-88bf-34714f372c45",
+  "lang": "en",
+  "text": "The river supplies the parents with a living and the boys with their entire geography. Kōhei Oguri films at water level in Osaka: mud, the working edge of a channel, adults occupied with trade, two children who take up with each other in the gaps left over. Not much happens in the way a plot means it. What accumulates instead is knowledge — the boys learn, at the pace children actually learn such things, what their parents do and what it costs them, and the film trusts them to register it without a scene arriving to spell it out. Oguri holds shots until the children stop performing for the camera. Kinema Junpo's critics made it their film of the year, and the reasons sit in the margins: adults keeping accounts at the table, the river doing what rivers do.",
+  "model": "claude-opus-5",
+  "source_sha256": "820bab13f3a22d4db41e4c6ac481c390ba7c1d56bb015aa1bdb58d83374e8774"
+ }
+]

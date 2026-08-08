@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "everyday-god-kisses-us-on-the-mouth-2002",
+  "field": "lead",
+  "film_id": "d133cfc5-7bf4-493a-b973-c51902be7928",
+  "lang": "en",
+  "text": "Dumitru comes out of a Romanian prison for the first time since communism fell, and he is planning his return to work before the train reaches home. Siniša Dragin builds the film on a distinction that only paperwork maintains: the same man kills animals and is called a hunter, kills people and is called an assassin, and the second word costs him everything the first one never did. Ninety-three minutes, with comedy filed beside drama, and the comedy is the kind that surfaces once a life has stopped being negotiable. A card game among strangers on the way. A household that rearranged itself while he was gone. A country running on laws passed in his absence. A Tiger Award is the durable part of its record, and what the film puts at risk is not his life, which he treats as spendable, but the distinction itself.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d8426ef8340ab168eb41763bf1c73019b0a2b8ae3930599ddaa8e47732e2407"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "soldate-jeannette-2013",
+  "field": "lead",
+  "film_id": "597ac747-80e7-4ef0-a7c4-5ef834394c4a",
+  "lang": "en",
+  "text": "The first purchase is a tent, bought by a woman who has decided she is finished with money. Fanni walks out of one economy and Anna walks off a pig farm, and the two departures are set side by side rather than explained to each other. Daniel Hoesl gives this eighty minutes and almost no exposition: cash, cars, hay, a needle left in it. Decisions arrive with the reasoning stripped out, which is either the point or the problem depending on how much a viewer needs to be told. Austria, 2013. It holds a Tiger Award and a user score down in the lower half, a split that tends to follow films withholding motive on principle rather than for suspense. Whether the two women are quitting the same thing is left standing, unresolved, for the length of the running time.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d5c6239b8a34f47e8350223f2605f8258b192125d70895f202f9643023820e3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "postman-1995",
+  "field": "lead",
+  "film_id": "b5449bba-167b-438c-8104-a7386324e037",
+  "lang": "en",
+  "text": "A postman is fired for reading other people's letters, and his route passes to Xiao Dou, who is shy, naive, and lives with his sister. Beijing, 1995: the mail moves by hand, through the hands of a man carrying an entire district's private business in a bag. He Jianjun spends a hundred and two minutes on the narrow gap between reading a letter and answering it, and on how quickly a habit takes on the shape of a duty. The job supplies everything an obsession needs. Solitude, access, repetition, a plausible reason to stay late. What is at stake is not really whether Xiao Dou gets caught but whether he goes on thinking of the people inside the envelopes as strangers, and how long a man can hold that many other lives before he starts arranging them.",
+  "model": "claude-opus-5",
+  "source_sha256": "02bca323554c158e70645f8d37eb8040bf64f5923022131b2c698c591fbaf451"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "cold-water-of-the-sea-2010",
+  "field": "lead",
+  "film_id": "09f3b651-0e47-47e3-a6ca-84b584997916",
+  "lang": "en",
+  "text": "Late on a New Year's night, on the Costa Rican coast, two people in a car come across a seven-year-old girl standing alone. She tells them she has run away from home. Mariana is twenty-one, Rodrigo is thirty, and the trip is an errand with a holiday laid over it: he has a property to sell. Paz Fábrega keeps all three inside the same eighty-three minutes without settling which of them is the visitor. Karina's account of herself is the only account available, and everything the adults decide is a guess made at night, out of season, on a coast that belongs to none of them. The film is patient enough to let the guessing show. The nine years between Mariana and Rodrigo end up weighing as much as the fourteen between her and the child.",
+  "model": "claude-opus-5",
+  "source_sha256": "5ce60d5a69fa77c01ec0cbec0369de32bf50434924b20fab1d1f4683d2753b2d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "nemmeno-il-destino-2005",
+  "field": "lead",
+  "film_id": "a3c45690-51b9-48f9-8959-1c012bb9f025",
+  "lang": "en",
+  "text": "Alexander and Ferdi are boys in the squalid outskirts of a southern Italian city, and they have already worked out that nothing is coming for them. Daniele Gaglianone takes a hundred and ten minutes with that, longer than the premise needs and exactly as long as the friendship does. Poor families, a city in decline, two kids with time and no plan for it. The material is described as a story of friendship before it is described as anything else, and that order is worth trusting: the conditions are permanent and the boys are not, so the boys are what there is to watch. The stake is small and total, which is how stakes work at that age. Whether the friendship survives contact with what each of them will eventually have to do is the entire suspense. Italy, 2005, and a Tiger Award.",
+  "model": "claude-opus-5",
+  "source_sha256": "fbfad4837b3ccc3a721cdb69bbb1941ebda7be1b25d7c5b58e56b6b455af8639"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "videophilia-and-other-viral-syndromes-2015",
+  "field": "lead",
+  "film_id": "94fed22b-d494-4123-be4f-70ff0be6062a",
+  "lang": "en",
+  "text": "In Lima, Google Glass turns out to be useful mainly for making amateur pornography. J.D. Fernández Molero shoots internet cafés, drifting teenagers, screens filmed off other screens, and files the result under fantasy, horror, comedy and drama at once, since no single one of them would hold it. A hundred and twelve minutes that treat the image as a psychedelic instrument rather than a window, made in a country wired up on the same schedule as everywhere else and putting the connection to its own uses. Then the institutional part, which is stranger than the film: this took the APRECI award for best Peruvian feature, and it went out as Peru's international submission to the Academy Awards. A disreputable surface, read at home as the year's serious work.",
+  "model": "claude-opus-5",
+  "source_sha256": "836fbfdca6ffca458f85997110f2440c44ba70deda38646ab14ecdbf4c05d163"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-widowed-witch-2018",
+  "field": "lead",
+  "film_id": "0c103310-367a-4b61-b98a-f13f2464cedc",
+  "lang": "en",
+  "text": "She has buried three husbands, and her village has drawn the obvious conclusion about her. Cast out with the winter coming, the widow does the arithmetic anyone in her position would do: what she needs is a room, and what people will pay for with a room is someone who can turn away sickness and drive out spirits. Cai Chengjie gives this two hours and files it as fantasy and drama together, which is the honest filing for a story in which belief is at once a household economy and a live question. A Chinese village in winter, a woman going from door to door with a service to offer. What she is selling is not quite a lie. It is the thing the village already decided about her, turned around and rented back to them at a price she sets.",
+  "model": "claude-opus-5",
+  "source_sha256": "80f3fa5eddc177285f16354ecd6a08fe21ffc2991e7a6c5a8d218edecc0b9555"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "eami-2022",
+  "field": "lead",
+  "film_id": "f35f3845-d670-41fd-a398-89594166eb77",
+  "lang": "en",
+  "text": "Thirty-five hectares an hour is the clearing rate in the Paraguayan Chaco, and the film puts that figure where a premise would normally go. Paz Encina is telling the story of the Ayoreo Totobiegosode, who hold a reserve secured through legal means and call the place Chaidi, the land where they have always lived. In Ayoreo the word for forest is also the word for world, so a number counting hectares is counting something else at the same time. Eighty-five minutes, documentary crossed with fiction, narrated by Asoja, a bird-god who sees across time, which answers the question of whose account this is before anyone asks it. It went out as an international submission to the Academy Awards. The loss here is not pending; it is being measured while the film runs.",
+  "model": "claude-opus-5",
+  "source_sha256": "e07b999c7984f647fdab810145a59188773434ef4b53bbc7d90a698e58663ed0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-iron-heel-of-oligarchy-1999",
+  "field": "lead",
+  "film_id": "39004a58-ea07-4b35-a444-c2a83c26684d",
+  "lang": "en",
+  "text": "A man arrives in a city with a plan to organize a revolution against the oligarchy, and the film that follows him is seventy-five minutes long. That ratio is the interesting part. Nikolai Petrovich is the man, St. Petersburg is the city, and Aleksandr Bashirov made this in Russia in 1999, where putting oligarchy in a film title that year is naming the opponent flatly, at the start, rather than building toward the naming. Seventy-five minutes cannot chronicle a movement. It can stay with one man doing the early, unglamorous work of persuasion, the part that happens in rooms before anything happens in streets. A Tiger Award attached itself to the result. The bet is that the persuading is worth watching before any of it has begun to work.",
+  "model": "claude-opus-5",
+  "source_sha256": "9194c917254f736aac98b355d193cfdd718c7a126538a6051d3633d5ea0b6379"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "en-route-2004",
+  "field": "lead",
+  "film_id": "f21ddf6c-3d3e-4e20-86f3-a867c10a552e",
+  "lang": "en",
+  "text": "He is charming, a little sinister, and within a few days he is part of the family's holiday. A young mother, her daughter and the mother's boyfriend are camping; the fourth person was not budgeted for. Jan Krüger runs eighty-nine minutes and files them under romance as well as drama, and the romance is not decoration. It is the mechanism by which a stranger becomes load-bearing. Germany, 2004. A campsite gives a story like this thin walls and no doors, so nobody can shut anyone out and every renegotiation happens in the open, with everyone present and nowhere private to go afterward. Whatever the newcomer is after, he never has to force it. He only has to be better company than the arrangement that was already there.",
+  "model": "claude-opus-5",
+  "source_sha256": "f3c1bff76227e5e7a91b2ab6c9f39d126a6734ccd905b783a93f5018b2220e00"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "with-love-lilly-2003",
+  "field": "lead",
+  "film_id": "6a74c179-b2fb-4120-89f7-df19065c1935",
+  "lang": "en",
+  "text": "Lilya works at a chicken factory and keeps house for her grandfather, and the one thing she has decided on, marriage, is the only item she cannot arrange herself. Larisa Sadilova gives her ninety-eight minutes of dates that go nowhere, talk with coworkers, talk with family, and a local pianist she follows at a careful distance. Russia, 2003, filed as comedy and drama and romance all three, which is a combination that puts somebody's dignity on the table. The comedy lives or dies on one question: whether Lilya is the joke or the person telling it. Most of the film is conversation, and the dates are simply the parts that end. What is really in play is the distance between a plan she states plainly to anyone who will listen and the means available for carrying it out.",
+  "model": "claude-opus-5",
+  "source_sha256": "a9190266d73cbd887f33b5b397c54f50edb58a3e892c16e5fa3aed45695c369e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-project-of-the-century-2015",
+  "field": "lead",
+  "film_id": "c83fdc9b-2997-44a0-9771-ab92c347f90d",
+  "lang": "en",
+  "text": "Cuba's nuclear program was abandoned, and an engineer who worked on it is still living in the dilapidated city of tomorrow. His son Leo comes back there after a relationship ends, into a household that also contains a belligerent grandfather, so three generations of men are now sharing rooms none of them chose. Carlos Quintela keeps a hundred minutes at that scale. The reactor is not a symbol anyone in the apartment has patience for; it is what Rafael used to do for a living and does not do now, which makes it a matter of temper rather than history. Nothing is being commemorated and nothing is being mourned out loud. Whatever gets argued about in that apartment is domestic in size and national in origin at the same time.",
+  "model": "claude-opus-5",
+  "source_sha256": "bab5c27336f893ae5563151d52661a64485a513fb2c3d845d5f4dc43c537e784"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "egg-and-stone-2012",
+  "field": "lead",
+  "film_id": "25a3db93-5084-4db8-8300-d2c5e3507654",
+  "lang": "en",
+  "text": "Honggui is fourteen, and the two years her parents went to the city to work have quietly become the whole arrangement. She was farmed out to an aunt and uncle who did not want her either, and Huang Ji declines to stage that knowledge as a revelation; it is simply the weather in the house. When the girl telephones, her mother is too busy to take the call. That unanswered call is the unit of measurement the film works in. A hundred and five minutes in the countryside, built around a child with no adult she can tell anything to, so that every ordinary event has to be absorbed alone and none of it can be reported to anyone. What the method risks is a viewer's patience. What it protects is the accuracy of the account.",
+  "model": "claude-opus-5",
+  "source_sha256": "b2ad9fb540ac77dc5b543c18880f5396a9be258130961648428566c6cb480388"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "walking-on-the-wild-side-2006",
+  "field": "lead",
+  "film_id": "5df8245c-bd92-4bd8-a57e-79ca0279c29b",
+  "lang": "en",
+  "text": "The young men on screen are not actors; they are, by the production's own account, real troublemakers. The district they move through is the mining country in Shanxi where Han Jie grew up, and his first feature is a road movie only in the sense that a gang keeps needing to be somewhere else. One kind of trouble, then the next, and the road between them. Eighty-nine minutes, no professional performances, and two available plans, liberty and easy money, which turn out to be the same plan said twice. The barren country they cross does much of the film's arguing. What makes it hard to shrug off is that the sympathy and the severity arrive together: nobody here is being excused, and nobody is being turned in either.",
+  "model": "claude-opus-5",
+  "source_sha256": "1763ab149db4cddf3a8c841502b11d99fdb4c908b27f8c8ffde0e79bcd475096"
+ }
+]

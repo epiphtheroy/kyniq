@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-man-who-never-was-1956",
+  "field": "lead",
+  "film_id": "f66eda01-e7ad-4b90-97a6-5459212547b2",
+  "lang": "en",
+  "text": "The plan needs a dead man with a plausible life: a name, a rank, a letter in the breast pocket that will survive seawater. Ronald Neame's account of a 1943 deception spends much of its first hour on clerical work — choosing the paper, aging the ink, inventing a fiancée for a man who will never read her — and the tension comes from how ordinary the labour looks against how much rests on a detail nobody thought to check. War pictures usually want noise. This one wants a filing cabinet, a courier, and a long wait while other people decide what to believe. British cinema of the mid-fifties had a quiet, procedural manner with recent history, and the BAFTA for best British film went to this exercise in patience. Then the film crosses over to the men reading the forgery, and the waiting belongs to somebody else.",
+  "model": "claude-opus-5",
+  "source_sha256": "302207d357eb1250cec4363244fe8a1faaa0e734ab7e4f147598ba6f7d5a480f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "round-midnight-1986",
+  "field": "lead",
+  "film_id": "3371f461-08fd-421d-9160-a7b30b0a0e64",
+  "lang": "en",
+  "text": "A man who cannot afford a glass of wine stands in the rain outside a club, listening through the wall. Inside the Blue Note, in Paris in 1959, an ailing tenor player is working his way through a set. Bertrand Tavernier gives what follows 131 minutes, which is a long time for so little incident, and the length is the argument: the film keeps the tempo of the music rather than of a plot, and scenes end when a number ends. The younger man's devotion is not simple. He wants to keep the older one alive, and he wants to be close to the sound, and those are not always the same errand. The score took an Academy Award, which is less a decoration than a description — the picture puts its thinking where the playing is, and asks an audience to sit inside a long solo without being told what it means.",
+  "model": "claude-opus-5",
+  "source_sha256": "27c12faa5942f4999e9398bddac077d93cdf390958cea39810d4ccdc7a2d7efb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-saragossa-manuscript-1965",
+  "field": "lead",
+  "film_id": "df991e65-7979-422a-bbae-0483d1c5d538",
+  "lang": "en",
+  "text": "Two officers on opposing sides of the Napoleonic wars stop fighting in order to read the same book, which one of them discovers his grandfather wrote. Rękopis znaleziony w Saragossie, a fixture of Polish canon lists, takes three hours over that find, and the manuscript works less as a frame than as a trapdoor: the Spain on its pages — inns, gibbets, hospitality offered a little too readily — keeps taking the screen away from the war. Wojciech Has directs the supernatural business with a straight face, which is where the comedy comes from. The pleasure is architectural. A door shuts behind one story and the next room is furnished with the same chairs. Very little of it asks to be solved; the film is content to be walked through, at the pace of somebody with nowhere urgent to be.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b6f75f04291978d719e84d4cb87ff38756b064adada6c9949d2e4d04defcdd5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "road-to-morocco-1942",
+  "field": "lead",
+  "film_id": "748f3394-ad0f-4ef1-8eeb-68ea6fb5e808",
+  "lang": "en",
+  "text": "Eighty-two minutes, a studio desert, and two shipwrecked men with no plan between them. Road to Morocco arrived in 1942, when an Arabian Nights city was one of the few places an American audience could travel and laugh, and the film is untroubled about the fakery: the painted horizon is part of the joke rather than a thing to hide. Its engine is the double act. Both men want the same princess, both keep talking, and the plot exists to deliver songs and insults on schedule. The Academy gave it the original screenplay award, which for a picture this loose is a remark about craft — the timing is machined even where the story is not. Nothing serious happens at any point, and everyone behaves as though the outcome mattered enormously. That is harder to sustain for eighty-two minutes than it looks.",
+  "model": "claude-opus-5",
+  "source_sha256": "750d0c32533bb3cb0caf99a1e37d81f2f9880fafa49ceb171d2f11dac441b2d1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "imitation-of-life-1934",
+  "field": "lead",
+  "film_id": "8b2ebfff-e18c-466d-98b2-155d74a70da4",
+  "lang": "en",
+  "text": "The business succeeds, and the proceeds do not divide the way the work did. John M. Stahl's 1934 film opens with a widow barely holding on and a Black housekeeper who moves in with a small daughter of her own, and the partnership that grows out of that arrangement is never quite named by the women inside it. Running alongside is the harder matter of the housekeeper's fair-skinned girl, learning early what a stranger's assumption will buy her and what it costs at home. Stahl's method is patience: long scenes, ordinary rooms, a subject that surfaces in the middle of domestic talk and then goes back under. Nothing is played for shock; the melodrama arrives at the kitchen table. The camera stays in the room a beat after the polite thing has been said, which is where the film does its real work.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a0690c600c52778561dfdc895017c39d0509c6ede4093347c71b391e7c36ace"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "nicholas-and-alexandra-1971",
+  "field": "lead",
+  "film_id": "c8d5decb-790e-4bd9-8be7-cdb3f952a5c1",
+  "lang": "en",
+  "text": "The last tsar's failing, in this telling, is not cruelty but an inability to imagine anyone outside his own household. Franklin J. Schaffner's 1971 production builds that household at a scale that invites counting the braid on a sleeve — the costume design took an Academy Award, and the expense does something, since the subject is a family so upholstered that news from outside arrives late and softened. Three hours and nine minutes, most of them indoors. Nicholas is not written as a villain; he is written as a man of small domestic competence and no political imagination, which turns out to be worse for everyone. The country moves without him. Schaffner keeps the politics at the edges of frames — a petition, a telegram, a raised voice down a corridor — and the distance between those rooms and the rest of Russia is the entire design.",
+  "model": "claude-opus-5",
+  "source_sha256": "eccb79328f86d82a72205dadbb51b02065321ac9fc892919d9bf7b88a1240a9d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "el-norte-1983",
+  "field": "lead",
+  "film_id": "5fe0b3af-1ddb-47c6-b563-853c4bd333f0",
+  "lang": "en",
+  "text": "A brother and sister leave a Guatemalan village because staying has stopped being survivable, and the film gives more than two hours to what leaving involves. El Norte was made in the United States in 1983 and is spoken in Spanish; Gregory Nava is more interested in the middle of the journey than in either end, in the waiting and the paying and the handing-on from one stranger to the next. Enrique and Rosa's ambition is small and exact: work, a room, a door that locks. What the film keeps noticing is how much of that is priced, and who sets the price. The National Film Registry entry came later. The attention on screen stays low to the ground — fares, papers, the going rate for a day's labour, the particular politeness required of people who need something.",
+  "model": "claude-opus-5",
+  "source_sha256": "b69240545979ae966b6c1e6b1ebcf7427bfcf18141cd66ccc5d83f825d3df4c5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "cooley-high-1975",
+  "field": "lead",
+  "film_id": "bca1e99e-bcea-483f-b143-32874c9f08c7",
+  "lang": "en",
+  "text": "The Near North Side of Chicago in the mid-sixties, and a school year spent largely elsewhere. Cooley High keeps the scale small: parties, a girl worth impressing, somebody else's Cadillac, an arrest that lands on two boys who had nothing to do with it. Michael Schultz plays the comedy first and lets it be properly funny — the talk is quick, layered, in no hurry to reach a plot point — so that when trouble arrives it does not announce itself. The distance between horsing around and a police report turns out to be one wrong car. The National Film Registry took the film in, and the reason is audible: dialogue is doing the work that incident usually does, across 107 minutes of a friendship the school calendar is already closing.",
+  "model": "claude-opus-5",
+  "source_sha256": "6745a7a38f5a0aeae865f78a4754149cfa65e524702c6fe9fa16eed08ac66a7a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "thieves-like-us-1974",
+  "field": "lead",
+  "film_id": "69987c9a-7d94-4983-b494-2b3572a6eb9c",
+  "lang": "en",
+  "text": "Robbery, in this film, is a job with a schedule and a great deal of dead time wrapped around it. Robert Altman gave Thieves Like Us 123 minutes in 1974, and the three escaped men spend far fewer of them taking banks than working out who drives, who is owed, which relative will put them up and for how long. Then one of them falls in love, which here is not a break from the trouble but another set of arrangements to keep. The tone stays level. Nobody is presented as an outlaw of consequence, the talk overlaps and wanders and dies out, and a plan for one last job gets discussed in the same register as supper. The National Board of Review put it among the year's ten best, which for a crime picture so uninterested in speed is an accurate compliment rather than a garland.",
+  "model": "claude-opus-5",
+  "source_sha256": "1120e6c35c0ca2ccdf1f765ff62846918c64b0912d5ab74bafc96a535c3adf9d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "5-fingers-1952",
+  "field": "lead",
+  "film_id": "ddff78ad-0c9a-43e7-b411-ee2aa3dcb656",
+  "lang": "en",
+  "text": "The best-placed spy in the city is the man who presses the ambassador's shirts. 5 Fingers is espionage with the action removed: a valet in wartime Ankara photographs what crosses his employer's desk, carries it a short distance to people who will pay, and names his figure. His motive is not political. He wants money enough to be waited on himself, and he wants a refugee Polish countess to notice the difference — an ambition that exposes him more thoroughly than any counter-intelligence officer could manage. The Academy honoured the adapted screenplay, and the suspense it builds is clerical: a key back on its hook, a door left ajar, a colleague unusually pleasant at breakfast. Both sides dine well in Ankara, at the same tables, with excellent manners. That arrangement is the whole trap.",
+  "model": "claude-opus-5",
+  "source_sha256": "a75fa5fa6b508a481fb894cf3bf9081173abc59aea823312f0523bcec70a4545"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dracula-1931-39259",
+  "field": "lead",
+  "film_id": "b8eca0e0-ae6f-4acc-804f-eed62b9a512f",
+  "lang": "en",
+  "text": "Drácula was made in Los Angeles in 1931 and is spoken entirely in Spanish. The story is the familiar one — an estate agent travels to Transylvania about a lease, his host takes an unusual interest in him, and the two of them go on to London together — and George Melford honours the premise as a property matter first: terms, a viewing, a client whose habits do not match his address. He is in no hurry to leave the castle, and at 104 minutes he does not have to be. Sound was only a few years old, and long passages here carry almost nothing but a voice and a staircase. The National Film Registry keeps a copy. What it preserves is an address as much as a film: Hollywood horror speaking directly, in 1931, to an audience that did not speak English.",
+  "model": "claude-opus-5",
+  "source_sha256": "bb3a4d83c6c805f4b0cb79a34fecc25d4a2bdc99e4dd7249b9c96faea3cde86a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-prisoner-of-zenda-1937",
+  "field": "lead",
+  "film_id": "4e5ef57c-eafd-4a5a-b856-e810235b6a1e",
+  "lang": "en",
+  "text": "A coronation cannot be postponed, and the man due to be crowned is not available. With an assassination arranged around the ceremony, the heir to a small kingdom trades places with a visiting lookalike, who is crowned in front of a hundred people who have known the king for years. Then the real one is taken, and the temporary job acquires no end date. John Cromwell's 1937 film runs 101 minutes and spends them on strain rather than swordplay: a man learning the protocol of a court while occupying its highest office, unable to ask a single question out loud. Princess Flavia makes it worse. She is promised to the king and begins to prefer the substitute, a compliment he can neither accept nor decline. The production design took an Academy Award; it earns that by making the rules look old enough to be dangerous.",
+  "model": "claude-opus-5",
+  "source_sha256": "b285ec4ed3c53e083c76b887b825163f043935eae45a709bf64a0803ed45b409"
+ }
+]

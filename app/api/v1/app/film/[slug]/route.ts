@@ -79,7 +79,8 @@ export async function GET(req: Request, { params }: Params) {
       8,
     ).catch(() => [] as string[]);
 
-    const [tsRes, figRes, availRes, linRes, geoRes, cardRes, affRes, tvRes] = await Promise.all([
+    const [tsRes, figRes, availRes, linRes, geoRes, cardRes, affRes, tvRes, leadRes] =
+      await Promise.all([
       db.rpc("takescore_for_slugs", { p_slugs: [slug] }),
       db.from("figures").select("id").eq("film_id", film.id).eq("status", "approved"),
       db.rpc("film_availability", {
@@ -106,6 +107,10 @@ export async function GET(req: Request, { params }: Params) {
         .eq("film_id", film.id)
         .eq("status", "published")
         .limit(1),
+      // App-parity lead: written prose for films that never got an invitation take.
+      // Fetched unconditionally so it costs no extra round trip — it is a primary-key
+      // lookup, and whether we use it is decided below.
+      db.from("film_leads").select("lead").eq("film_id", film.id).limit(1),
     ]);
 
     type TvProgramRow = {
@@ -135,23 +140,23 @@ export async function GET(req: Request, { params }: Params) {
       invitation = (inv?.[0]?.rationale as string | undefined) ?? null;
     }
 
-    // Fantasia fallback lead — EN only (locale projection owner decision)
-    let leadFallback: string[] = [];
-    if (!invitation && locale === "en") {
-      try {
-        const { data: sent } = await db.rpc("film_sentences_for", {
-          p_slug: slug,
-          p_limit: 4,
-          p_per_pattern: 1,
-        });
-        leadFallback = ((sent ?? []) as { sentence: string }[])
-          .map((s) => s.sentence)
-          .filter(Boolean)
-          .slice(0, 2);
-      } catch {
-        /* optional */
-      }
+    // Tier-2 films have no invitation take, so the section used to disappear. The
+    // lead is an additive layer (migration 0140): written for exactly these films,
+    // and shadowed automatically the day one of them is promoted and earns a real
+    // take. It sits ABOVE the Fantasia fallback deliberately — sentences stitched
+    // from the corpus are a last resort, prose written for the film is not.
+    if (!invitation) {
+      invitation = ((leadRes.data ?? []) as { lead: string }[])[0]?.lead ?? null;
     }
+
+    // The Embedding Fantasia fallback that used to fill this slot is gone. It
+    // stitched two corpus sentences together for films with no invitation, which
+    // was the best available answer when nothing had been written for them. Now
+    // something has: film_leads covers every catalogue film whose record could
+    // support a paragraph. The 198 that remain are the ones the writer read and
+    // declined — the record was too thin to say anything true — and answering that
+    // judgement with assembled sentences is exactly the overclaim it avoided.
+    // No lead, no section: the same rule the rest of this brief follows.
 
     type AvailRow = { kind: string; pid: number; name: string; logo: string | null; cc: string };
     const availability =
@@ -391,7 +396,11 @@ export async function GET(req: Request, { params }: Params) {
         ts,
         analyzed: !!film.is_analyzed,
         invitation,
-        lead_fallback: leadFallback,
+        // lead_fallback is retired but still emitted empty: the shipped app reads
+        // `invitation || lead_fallback.join(" ")`, and a version that has not been
+        // updated would join undefined. An empty array is falsy in that expression
+        // and costs nothing; drop the field once no build in the wild reads it.
+        lead_fallback: [] as string[],
         availability,
         lineage,
         locations,

@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hum-aapke-hain-koun-1994",
+  "field": "lead",
+  "film_id": "16cba4bc-e633-496e-a79f-842123f431cb",
+  "lang": "en",
+  "text": "Two people fall in love at a wedding that is not theirs, in a house where nobody is ever alone. Prem and Nisha are the younger siblings of a bride and groom, which puts their courtship inside somebody else's ceremony and under the eyes of two families busy with other things. Sooraj Barjatya gives this three hours and twenty-seven minutes. The length is the argument: affection here is not a private transaction but a slow public one, worked out in the gaps between rituals, songs and shared meals, at the speed relatives change their minds. Almost nothing can be hidden, which turns an ordinary glance into an event. And when the plot finally arrives, it arrives as an obligation rather than an obstacle — the trouble comes from what a family is owed, not from anyone standing in the couple's way.",
+  "model": "claude-opus-5",
+  "source_sha256": "3f9dee84640335893ea1b19b025e28a015deb68e9e3150698578cb6a7e3231cf"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "they-shoot-horses-don-t-they-1969",
+  "field": "lead",
+  "film_id": "c7104b1f-3025-4cc3-8ae5-c4b6eaa107a7",
+  "lang": "en",
+  "text": "The prize is $1,500, and the only condition is to stay upright longer than anyone else in the room. Sydney Pollack films a Depression-era dance marathon as a job of work. Contestants sign on — a failed actress, a middle-aged sailor, a pregnant girl, a blonde with a story about herself — and an emcee named Rocky keeps them circulating, because circulation is what the paying crowd came in for. Two hours, most of it close to that floor. Fatigue is the subject rather than the texture; the contest offers precisely what the decade has withdrawn, money in exchange for effort, and bills the body by the hour. Rocky may be the most honest person present. He never pretends the arrangement is anything other than an arrangement, and the couples go on dancing while he says so.",
+  "model": "claude-opus-5",
+  "source_sha256": "161ff5b51d690c3e1d3484aa790e02c0aad89b8a55ed22a5acdf1deec1d33e78"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hum-dil-de-chuke-sanam-1999",
+  "field": "lead",
+  "film_id": "cae7b263-7d7e-4b47-8cf4-f5e73b036454",
+  "lang": "en",
+  "text": "A husband takes his wife to Italy to look for the man she loves. The marriage is new; her attachment is older; and his answer to the discovery is neither anger nor patience but an errand, pursued with the energy other men would put into revenge. Sanjay Leela Bhansali gives it just under three hours and keeps the early stretches comic, which is what makes the turn hold — the same household warmth that produced a wedding also produces the impossible offer that follows. Two appetites live inside that offer, and the film is honest about both: the wish to be loved, and the wish to be admired for one's behavior. Italy is mainly distance. It is where the search can be conducted with nobody from home watching, and where a decision taken out of decency has room to turn into something that costs.",
+  "model": "claude-opus-5",
+  "source_sha256": "855df8c41976e91f180a7a40c34b84d32f37a14b0d391602bea243e276971ea5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "katyn-2007",
+  "field": "lead",
+  "film_id": "44e4f034-665f-4004-893e-e91bb82b74c8",
+  "lang": "en",
+  "text": "Two invasions, seventeen days apart, and an army that cannot turn to face both. On the first of September 1939 the German border opened; on the seventeenth the Red Army crossed from the other side; and thousands of Polish soldiers and officials passed into custody. Andrzej Wajda builds the film on the interval that follows — the years in which a plain question, where is he, is asked and not answered. Poland sent it to the Academy Awards, sixty-eight Septembers after the one it opens on. The fighting itself stays largely offscreen. What carries the weight is the arithmetic of a country losing two wars at once and then losing track of its own men, compressed hard into two hours: nothing is explained twice, and the years pass the way years pass for people waiting, which is unevenly.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d911134aede4c45ad4f8d55c587fbce3c3d1b5de23b5a2ee3c090152e0c1486"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "kaho-naa-pyaar-hai-2000",
+  "field": "lead",
+  "film_id": "e5225b47-d7bb-4040-bdf8-5250486aa3b9",
+  "lang": "en",
+  "text": "One face, two men, and a woman who has to work out what she is looking at. Sonia's first love is Rohit; when her life breaks open she goes to New Zealand, and there she meets Raj, who wears the same face and offers to help her finish something that was never his to finish. Rakesh Roshan takes nearly three hours and four moods to arrive — courtship, comedy, songs, and a hard turn into investigation — and the seams show, which is not a fault in a picture assembled this way. What holds it is what the resemblance does to Sonia. She knows the difference between a man and a likeness, and the film lets her know it while still allowing her to look. Everything Raj does, he does about a debt that was never his: a stranger completing an obligation nobody assigned him.",
+  "model": "claude-opus-5",
+  "source_sha256": "aecb63f929bd6e5ee0f630a71f42faf50c645fb648e945f984c786a3fd5f8d15"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "renaissance-2006",
+  "field": "lead",
+  "film_id": "4925b590-23cc-4e27-9f0c-770b538c0853",
+  "lang": "en",
+  "text": "A missing-person case, drawn: a French science-fiction feature that hands its detective work to animation instead of a camera. Karas is looking for a woman named Ilona, and the search goes where these searches go — corporate security, organized crime, and a laboratory whose research is the reason anyone cares what happened to her. Christian Volckman's decision to animate it is the interesting part. A city built frame by frame owes nothing to any city that exists, and a plot about engineered bodies gets to be made of the same substance as its streets and rooms. Karas walks through a world with no location scout behind it. Annecy gave the film its Cristal, the prize an animation festival keeps for features, and a hundred and five minutes is long enough to see the reasoning: nothing in these frames arrived by accident.",
+  "model": "claude-opus-5",
+  "source_sha256": "f6445a7a9112192e2342bf9ef236455b3dfd0c269c67085c14181daa8db57738"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "shampoo-1975",
+  "field": "lead",
+  "film_id": "4d649036-8ab3-4143-8740-a1e047c12796",
+  "lang": "en",
+  "text": "The hairdresser is very good at his job, and that is most of the trouble. George Roundy spends Election Day 1968 moving between appointments and between women — clients, girlfriends, a mistress whose husband is meanwhile occupied with George's ex — and the film, made seven years afterward, plants the whole tangle on that date and lets nobody in it look up. Hal Ashby keeps the timing tight and the surface light, which is how the picture gets its colder observation past the audience: a man whose charm is also his livelihood has no way to tell being wanted from being booked. The Writers Guild gave the screenplay its award for an original, and the machinery shows why — everyone in the schedule wants one specific thing from George, and the schedule is the only commitment he has ever kept.",
+  "model": "claude-opus-5",
+  "source_sha256": "b031c48610a9c55cd72fd76ade3d93c4417df87619dae57931f5c31fd4366c0c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "alice-1988",
+  "field": "lead",
+  "film_id": "a657250a-1abb-4768-90a0-f1bd374f1bad",
+  "lang": "en",
+  "text": "The dead animals are stuffed, and they move anyway, along with everything else in the room that has no business moving. Jan Švankmajer takes a quiet English girl, a white rabbit and a chase, and stages all of it with things rather than drawings: real objects, handled and worn, carrying the marks of use. That changes what a transformation costs. Drawn, it is free; performed with actual materials, it has weight, resistance and a sound. Eighty-six minutes is a short feature and a long dream, and the film holds to the second measurement — nothing here is enchanted, only animated, by someone interested less in wonder than in what the objects themselves appear to want. The girl is the only one in the room who was not assembled, and the film keeps her there.",
+  "model": "claude-opus-5",
+  "source_sha256": "5a9aee7153d3067d9e38b24fe7759d02904f85fea520556c22657fd367f3954a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "maine-pyar-kiya-1989",
+  "field": "lead",
+  "film_id": "0beef1d5-3f67-49dd-9513-fba43587cf9b",
+  "lang": "en",
+  "text": "A father goes abroad to earn and leaves his daughter in another family's house. Suman lives there as neither guest nor relative, and that arrangement — favors extended with no stated terms and no way to ask what they are — is the film's engine well before anyone falls in love. Then she and Prem do, and the obstacle is not the feeling. It is a condition: Prem must show her father that he is not a copy of his own. Sooraj Barjatya spends three hours and change on that showing, and it is unromantic by design, made of work, delay and effort put where it can be seen. Two fathers set the terms, one absent and earning, one present and doubted. The couple meet those terms, or try to, and the trying is the courtship.",
+  "model": "claude-opus-5",
+  "source_sha256": "20073942b206381fccadc86a1ed9479057fcfff3ee180c17ad4e3faf14a10427"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "when-the-wind-blows-1986",
+  "field": "lead",
+  "film_id": "59da6cb3-e01b-40aa-98cb-a05ae8870fa4",
+  "lang": "en",
+  "text": "A government pamphlet tells them what to do, and they do it exactly. The couple are elderly, British and entirely calm, having been through a war once already and filed it away as a thing one survives with instructions, thrift and a settled routine. Jimmy T. Murakami animates the preparations at household scale — a shelter put together at home, tasks performed in their proper order — while what they are preparing for belongs to another order of magnitude entirely. Eighty-four minutes, and the gap between what the two of them believe and what is actually the case never closes. The film refuses to make them foolish for it. They are capable people working from an obsolete manual in good faith, which is harder to watch than incompetence, and drawing is what makes it watchable at all.",
+  "model": "claude-opus-5",
+  "source_sha256": "1883ba12f68efc68658c3632cae992542b762fd50f202744095f218ec5fe3c32"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "deewaar-1975",
+  "field": "lead",
+  "film_id": "37a38ff7-17b7-4a85-86f5-72bd2054753f",
+  "lang": "en",
+  "text": "One brother carries a police badge; the other is the man that badge gets sent to collect. Vijay takes the criminal road out of whatever the past did to him, Ravi takes the lawful one, and Yash Chopra treats the symmetry as a starting position rather than a verdict. Nearly three hours go into making both men hard to give up on. The crime side is not glamour, the law side is not virtue, and the confrontation the plot has promised from the first reel turns out to be a family argument conducted in the vocabulary of the state. What gives Deewaar its heat is that Vijay's reasoning holds. He looked at the legitimate world, priced it and declined, and the film makes his brother answer that rather than simply arrest it.",
+  "model": "claude-opus-5",
+  "source_sha256": "5aceb5a38e33d7308785a5b0c301979a0da1d82dc68d69c3d269e9be8c5684ef"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "kirikou-and-the-sorceress-1998",
+  "field": "lead",
+  "film_id": "03f3979c-ce9f-4f15-b82f-d9f64c9cc377",
+  "lang": "en",
+  "text": "The hero is a newborn, and the film treats that as a practical condition rather than a joke. Kirikou can talk and walk from his first minute and cannot fight anyone at all, which pushes the story onto other tactics: asking, following, and going to the places the adults of the village have agreed not to go. Michel Ocelot draws the material from West African folk tales and holds the whole thing to seventy-one minutes, a length that trusts children with a plot and declines to pad it. The village's difficulty has a name, Karaba, and a shape everyone has settled into. What the smallest person present brings to it is a refusal to take a settled fear as a finished fact. Everyone taller than him has already decided what is possible.",
+  "model": "claude-opus-5",
+  "source_sha256": "be57b729ca77612317f4d994ad067e5119aa9887e55f9e285cbc224f0aea6243"
+ }
+]

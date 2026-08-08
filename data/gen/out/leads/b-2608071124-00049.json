@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "princess-nicotine-or-the-smoke-fairy-1909",
+  "field": "lead",
+  "film_id": "9377939b-8ac8-4191-8019-71425c0a2173",
+  "lang": "en",
+  "text": "Five minutes, one table, and a man who cannot keep his smoking things where he left them. The tricks turn on scale: a fairy small enough to sit inside a flower, a pipe that will not behave, matches and bottles moving with purpose while the smoker's back is turned. In 1909 five minutes was a whole picture, provided one gag could be varied enough times, and the variation here is escalation — the pipe first, then a box, then glass. The comedy runs on irritation rather than wonder. Nothing is explained, which is part of the joke: the fairies need no origin, only a nuisance to commit. The smoker is never enchanted; he is being pestered, and he answers by confiscating whatever pesters him. It sits in the National Film Registry, and it asks about as much of a viewer as a single cigarette does.",
+  "model": "claude-opus-5",
+  "source_sha256": "8253a6672daa4979511cbeed72997d073bb9e7e80bc46b31bb5a8e5b7a4816c4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "journey-for-margaret-1942",
+  "field": "lead",
+  "film_id": "def01a43-eba8-48cb-8b0b-9fe455bea3e5",
+  "lang": "en",
+  "text": "A newspaperman files copy from a city being bombed, and the assignment he wants least is the one about the children. Journey for Margaret was released in 1942, which is to say the war inside it was still running when audiences walked back out into the street; nothing in the story could be settled by hindsight. Van Dyke gives the correspondent and his wife their own disaster first — shrapnel, a hospital, a pregnancy ended — and then sends him, worn down, into a home for orphans where a small girl waits to be turned into eight hundred words. Eighty-one minutes leaves no space for a campaign or a front line. The film stays indoors, at the scale of a cot and a name, and lets a reporter's professional distance carry what a war picture usually hands to a gun.",
+  "model": "claude-opus-5",
+  "source_sha256": "d7446c08542f365dd94b3af72cdb73d0b4cfdb183f37b90d8405fcf333c5b835"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ulysses-1967",
+  "field": "lead",
+  "film_id": "b59ebb8e-bcbf-42cd-8f2b-56b4b47bd5ee",
+  "lang": "en",
+  "text": "June 16, 1904: one Dublin day, from morning errands to the small hours, given two hours and twelve minutes. Strick's Ulysses keeps that calendar exactly, which means the film has almost no plot and must live on encounter — a young man who has appointed himself a poet, drifting into the company of Leopold Bloom, middle-aged, Jewish, and not quite at home among the people he greets on the street. A funeral in the morning. Drink at night. The Academy's adapted screenplay award went to it, and the award is the interesting fact: someone had to decide how much interior speech can be spoken aloud before a film stops being watchable, then find actors to say it. Molly, Bloom's wife, is the fact of the marriage he carries through every hour of it.",
+  "model": "claude-opus-5",
+  "source_sha256": "241aac8d9378ec5c06ad0f1c81244d71c455b12de9101743462a5cb367dc8ccf"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "king-lear-1971",
+  "field": "lead",
+  "film_id": "f836922b-84bd-43b8-9c22-aaef6594fb15",
+  "lang": "en",
+  "text": "A Danish production, in English, of a play about an old man dividing his kingdom. Peter Brook begins where the text does: a king asks his three daughters to price their love out loud, with land as the payment. Goneril and Regan know how such a question is answered. Cordelia will not accept it as a real one, and the refusal costs her a country inside the first quarter of an hour. Everything afterwards follows from ten minutes of vanity, and that is the demand the film makes — 137 minutes spent living inside a decision that took no time at all to reach. Denmark keeps it in the national canon; audiences elsewhere have largely let it alone. It suits a viewer who does not need the play introduced and can stay with a king who is wrong from the first scene onward.",
+  "model": "claude-opus-5",
+  "source_sha256": "6443649de09e47128781a34d215c0db208a182e94a166709a941f691c36b7760"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "edge-of-doom-1950",
+  "field": "lead",
+  "film_id": "d464d71b-017e-43b6-86fd-b78cb883d517",
+  "lang": "en",
+  "text": "A priest is dead, and the man hunting his killer is another priest. Edge of Doom takes the standard equipment of a 1950 crime picture — a body, a suspect, a city that keeps working through both — and puts the pursuit in the hands of someone trained in absolution rather than evidence. He has no badge and no warrant. What he has is a parish, which means the people he must go on serving on Sunday are the people he is watching sideways all week; the interest of the ninety-nine minutes lies in that overlap rather than in any chase. The National Board of Review counted it among the ten best of its year, an odd fate for a thriller whose central figure can neither arrest anyone nor repeat what he has been told. Robson's problem is a man with authority of exactly the wrong kind.",
+  "model": "claude-opus-5",
+  "source_sha256": "2072e50241a8ad09d3830afbb4375914043ac88fed011e622c0e9bc6fb0196d8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-book-of-fish-2019",
+  "field": "lead",
+  "film_id": "cc3f0235-b265-4bed-9836-50044ca78df5",
+  "lang": "en",
+  "text": "An encyclopaedia of fish, compiled by a man sent to an island as punishment. In 1801 the Korean court moved against Catholic converts, and the scholar Jeong Yak-jeon was put ashore on Heuksando with his career over and his classical learning of no further use to anyone in the capital. What he did there was look at what the sea gave up, and write it down. Lee Joon-ik takes two hours and six minutes over that turn, which is time enough for the slow part: a mind trained on texts learning to treat local knowledge — species, seasons, how a thing is actually caught — as knowledge. The Korean Film Archive keeps it among its hundred; outside Korea it has hardly travelled. The subject is what a person makes of the years after the state has finished with him, and how much of that depends on who else is on the island.",
+  "model": "claude-opus-5",
+  "source_sha256": "7e3cdeff1734d74e9b880ec38445baa278d0f8e389fdf6ee3a0fdd3884a23550"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-green-pastures-1936",
+  "field": "lead",
+  "film_id": "3a89acb8-2fd7-4ce7-89be-c3e18cf14707",
+  "lang": "en",
+  "text": "The Creation, the Flood and several more Old Testament episodes, staged in 1936 as though remembered by rural Black Americans in the South. The word the record reaches for is 'supposedly,' and that hesitation is the film's permanent condition: a Hollywood studio rendering somebody else's faith, and the question of who was permitted to do the borrowing does not go away. Fantasy, as a genre, commits it to literalism — heaven has to be built and furnished, the Flood has to be shown — so there is no room anywhere to hedge. Ninety-three minutes, and the National Board of Review placed it among the year's ten best, which records the industry's opinion of itself as much as anything on the screen. Whatever else it is, it is very good evidence about 1936.",
+  "model": "claude-opus-5",
+  "source_sha256": "c463af5626d2bea9efc11ef8870b5db32204c0474037f3dcc9bd31a0fbbf5413"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "holy-matrimony-1943",
+  "field": "lead",
+  "film_id": "991ec00b-3afd-4aa4-aa29-596efcd56b9a",
+  "lang": "en",
+  "text": "A painter comes home after years away, his manservant dies, and he lets the wrong name go onto the death certificate. From there Holy Matrimony runs the oldest engine in comedy, a man living under an identity anyone might check, and then complicates it with a wife who married the valet rather than the artist. Every domestic kindness afterwards is also a small fraud. The Academy's adapted screenplay award went to it, which fits: the pleasure is in dialogue holding two truths at once, and in how long a lie survives on silence alone. It is filed as comedy and as drama, about right for a joke that begins with a funeral. What the painter is hiding from is not the law but his own reputation, and eighty-seven minutes is long enough for that to stop being funny.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb1011df03383e46cbb569bf2779b3bfa9a464fff42ac6599bb543efec944ab8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "garlic-is-as-good-as-ten-mothers-1980",
+  "field": "lead",
+  "film_id": "ce8d38e4-73f5-474f-b01e-7053208c584e",
+  "lang": "en",
+  "text": "The subject is a bulb that makes a room smell for hours, and the film has no interest in claiming it stands for anything larger. Les Blank spends fifty-one minutes with growers, cooks and eaters, Alice Waters of Chez Panisse among them, and lets appetite do the work that structure usually does; there is history and cultivation in it, but the organising principle is closer to hunger than to information. Music runs through most of it. The National Film Registry took the film in, which is a formal way of noting that a short documentary about a smell has outlasted a good many earnest ones. Nothing here is being argued. People cook, people talk with their mouths full, and the camera stays where the food is.",
+  "model": "claude-opus-5",
+  "source_sha256": "c1314e1e71b0df2642acbe8e1dd6e7b4e029f96fbf418a6af7f6c52cdffdd032"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-moon-and-sixpence-1942",
+  "field": "lead",
+  "film_id": "abeee258-b111-4093-a2b6-cb09787507ab",
+  "lang": "en",
+  "text": "Charles Strickland gives up a wife, a household and a stockbroker's desk in middle age in order to paint, and nothing in the picture asks that this be admired. That is its awkward proposition: a man in pursuit of beauty who treats everyone within reach as an obstruction, filmed without the softening that biography usually extends to talent. The outline comes loosely from Gauguin. The cruelty appears to be the point. Eighty-nine minutes is a fast clip for a life, and Albert Lewin lets the Academy-honoured score carry the feeling the dialogue withholds; Strickland explains nothing, since explanation would concede that someone is owed one. What holds attention is the flatness of his certainty, and the way the people near him keep waiting for an apology that has not occurred to him.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c723cfc0b100cc4c5bf673f63d47d649392a7589650aad139f09cba362f139e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-bachelor-party-1957",
+  "field": "lead",
+  "film_id": "a826dd60-6c6a-4ab0-9b49-53fd6a5c5b8e",
+  "lang": "en",
+  "text": "A night out arranged as a favour to the man who is getting married turns, bar by bar, into an accounting of everyone else's life. Five men from one office, one evening, ninety-two minutes: the film holds that scale and never leaves it, so what happens is talk — jobs that went nowhere, marriages already a few years old, the arithmetic of a wage against a rent. The groom is the occasion, not the subject. Drink loosens the men in the order anyone would predict, and then a little further than that, and the confidences stop being companionable somewhere around the third stop. An Academy Award for supporting actress came out of a picture whose title promises a room full of men, which suggests how much of the night happens at its edges.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f78afb0c377651471faf884e5a89bba4f9072e86c87dd1594b8ce11ccc00fb4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "where-are-my-children-1916",
+  "field": "lead",
+  "film_id": "624e4a43-b123-4d1f-8624-833a2ff6237b",
+  "lang": "en",
+  "text": "The district attorney wants children of his own, and spends his working hours prosecuting a writer for printing what the law calls indecent. Lois Weber sets those two facts side by side in 1916 and lets the pressure build between them: what a man will argue in public, and what he has not been told at home. His wife and the women she moves among have an understanding, with its own discretion and its own rules, and the film treats that circle as an institution rather than a scandal. Sixty-four minutes, nearly all of them indoors. The National Film Registry holds the film, which is part of why something this contentious came down to us at all. Weber's method is to make the prosecutor's own household the case he has been trying all along.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e81cf58a0471960ea7cbf684ed2d752b5b498bd0ee5dd0749289815b5a7abf6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "who-killed-cock-robin-1935",
+  "field": "lead",
+  "film_id": "23ba0427-795b-4196-8078-e0e210bb275c",
+  "lang": "en",
+  "text": "A bird is shot in the opening seconds, and the forest answers with due process. Who Killed Cock Robin? gives eight minutes to a judge, a jury, a parade of suspects and the whole apparatus of a trial, conducted by animals quite sure of their own fairness. The joke is the mismatch: procedure carried out with total gravity by creatures decided on at a glance. Guilt, in this court, is largely a matter of appearance. Animation in 1935 could install a legal system in a clearing without pausing to explain how a jury of birds came to be sworn, and the short takes full use of the licence. The National Board of Review put it on a ten-best list otherwise made of features, which is the strangest thing about it: eight minutes of drawn crime standing beside the year's dramas.",
+  "model": "claude-opus-5",
+  "source_sha256": "eeb40ba812728eec5e7ad217e585fbec9ca1289661e8a10d54ca43c7e5ed09c8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "why-man-creates-1968",
+  "field": "lead",
+  "film_id": "bf5eff5f-428e-475d-8ddf-c89c340ead8c",
+  "lang": "en",
+  "text": "An argument against the industrial system, delivered mostly in drawings. Why Man Creates runs twenty-five minutes and moves between animation and documentary as the point requires, which is the advantage of the form: an idea can be sketched, run fast, and abandoned before it stiffens into a thesis. Saul Bass made it in 1968, and the year is audible in the impatience — the assembly of things by procedure is treated less as an economic arrangement than as something done to people who might otherwise have invented something. The Academy gave it the documentary short award. It has no interest in balance, and it does not report on creativity so much as behave like it, which is why twenty-five minutes is exactly enough.",
+  "model": "claude-opus-5",
+  "source_sha256": "b3645138e81eb69f0350b290edfedfe303ba7bfb49326f127591d91a833abc27"
+ }
+]

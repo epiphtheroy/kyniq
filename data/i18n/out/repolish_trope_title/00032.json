@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-perpetrator-s-privilege-of-forgetting",
+  "field": "title",
+  "lang": "ko",
+  "text": "잊을 수 있다는 가해자의 특권",
+  "model": "claude-opus-5",
+  "source_sha256": "d4de570dc22fa87cf3f3cc9c28f19f76601b0d010710c52b91f689ddf7a1a521"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-persecutor-who-becomes-penitent",
+  "field": "title",
+  "lang": "ko",
+  "text": "박해하던 자가 무릎 꿇을 때",
+  "model": "claude-opus-5",
+  "source_sha256": "7a06427a2395f4c8e08460e14db8e86b92016cd10b216e2e4aaedf2826f265f7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-person-named-who-isn-t-there",
+  "field": "title",
+  "lang": "ko",
+  "text": "이름은 불리는데 없는 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "21e2c19fc8bc61059bb60fe3b590d14608b266bd2daa000e13c7c413f751a8fb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-person-reduced-to-an-account",
+  "field": "title",
+  "lang": "ko",
+  "text": "계정으로 쪼그라든 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "4265e8fc00538e1d3e84a3017c976287dedeeb78b9745e669dd3be9106d7788e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-person-used-merely-as-means",
+  "field": "title",
+  "lang": "ko",
+  "text": "수단으로만 쓰인 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "74c832789d28e8b7a78d9176512e7b0a30c7273cf35b357b8ce9ee74da7177b2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-persuader-confesses-his-own-pitch",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 수법을 실토하는 설득자",
+  "model": "claude-opus-5",
+  "source_sha256": "14a6f17507b28a69ca11206d0574fcb888923fa56c5b169073e4af42e46b8a13"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pet-name-spoken-over-a-grave",
+  "field": "title",
+  "lang": "ko",
+  "text": "무덤 앞에 불러보는 애칭",
+  "model": "claude-opus-5",
+  "source_sha256": "dd823fecfd593ea05a1c8f9b89160abd8d7ba4c71e1ad0693a5b9be5bb479474"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-petal-that-justifies-the-sword",
+  "field": "title",
+  "lang": "ko",
+  "text": "칼을 정당화하는 꽃잎 한 장",
+  "model": "claude-opus-5",
+  "source_sha256": "dfdf0931233cf3e0b2c70714229b16eb0e87a9734f7967ae60af43be143e97ce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-petrol-station-as-fated-meeting-place",
+  "field": "title",
+  "lang": "ko",
+  "text": "운명이 마주치는 주유소",
+  "model": "claude-opus-5",
+  "source_sha256": "698dfffcd28e309d0530b765006faaae9c6d200ee66dfefe9eaa56cb43b92406"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-phallus-returns-by-other-means",
+  "field": "title",
+  "lang": "ko",
+  "text": "다른 길로 돌아오는 팔루스",
+  "model": "claude-opus-5",
+  "source_sha256": "5879e24c608addddd2326b41a16c72cb1aa2f50b704214f67d5efc6d9d696484"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-phantom-pregnancy-as-return-of-the-repressed",
+  "field": "title",
+  "lang": "ko",
+  "text": "억압된 것이 돌아오는 자리, 상상임신",
+  "model": "claude-opus-5",
+  "source_sha256": "6fc8586a4f5e9157d5bce19861f1a4c53a7ded73a75ca1834b516fc58bf8ad15"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pharmakon-cure-and-poison-as-one",
+  "field": "title",
+  "lang": "ko",
+  "text": "파르마콘(pharmakon): 약이자 독",
+  "model": "claude-opus-5",
+  "source_sha256": "c62869b2190e04e4f68bf794688d602d030fa50932481874d9b43ffd22f434be"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-phase-loop-that-reveals-by-repeating",
+  "field": "title",
+  "lang": "ko",
+  "text": "반복할수록 드러나는 위상 루프",
+  "model": "claude-opus-5",
+  "source_sha256": "ef80cfc54f31166aac06cab0d3c35dd9ad5c34bba25a8edc60c066789ae19fcb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-phone-as-instrument-of-surveillant-control",
+  "field": "title",
+  "lang": "ko",
+  "text": "감시와 통제의 도구가 된 전화",
+  "model": "claude-opus-5",
+  "source_sha256": "a55049f38024f0695987058401e984469670bf90e5bf68374419925ca1fa4a31"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-phone-as-open-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "아물지 않는 상처가 된 전화",
+  "model": "claude-opus-5",
+  "source_sha256": "f498cdfc957a34b638449850dc811f679045b88423b18e5e9cf0e979b2c4fbe9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-phone-as-severed-umbilical-cord",
+  "field": "title",
+  "lang": "ko",
+  "text": "끊긴 탯줄로서의 전화",
+  "model": "claude-opus-5",
+  "source_sha256": "2f07c5ad0d8077f0900cb946a3116c7560e6822790ee8ffb9a866b5e3036cd00"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-phone-seized-as-weapon-of-the-powerless",
+  "field": "title",
+  "lang": "ko",
+  "text": "힘없는 자가 무기로 쥔 휴대폰",
+  "model": "claude-opus-5",
+  "source_sha256": "41928a5ca05bbee07fb589769f4bd629e12e4055e746d169fc0618fdb3d5e32f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-photograph-as-buried-cause",
+  "field": "title",
+  "lang": "ko",
+  "text": "묻혀 있던 원인, 사진 한 장",
+  "model": "claude-opus-5",
+  "source_sha256": "a14e6353d78ce9fb3f68cbe05d42e8a11ad1eee2289f0d1be7ac2e5882aeb393"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-photograph-as-proof-of-being",
+  "field": "title",
+  "lang": "ko",
+  "text": "존재를 증명하는 사진",
+  "model": "claude-opus-5",
+  "source_sha256": "b9374e50aab0c833b066dfbf0e920d5af704fa3d43777fd6af7d91af6386801c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-photograph-that-indicts-the-living",
+  "field": "title",
+  "lang": "ko",
+  "text": "산 자를 고발하는 사진",
+  "model": "claude-opus-5",
+  "source_sha256": "31a98974e6db32def16e1fd3787a36c2add30e4e91f8ef3f3cd1488bb6e8c6f6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-photograph-that-names-whom-the-watcher-refused-to-see",
+  "field": "title",
+  "lang": "ko",
+  "text": "보기를 거부한 자에게 이름을 들이미는 사진",
+  "model": "claude-opus-5",
+  "source_sha256": "0b8b3a7d10543e1ea0f7ab72b5351fa1a924cb25379487a7b8d01c43acc3fe71"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-photograph-that-outlives-its-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "찍힌 사람보다 오래 남는 사진",
+  "model": "claude-opus-5",
+  "source_sha256": "2f2b14c4766f17278b10ab4f325d0b1ff315e52c7acc165c6a610c7041330ef2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-photograph-that-will-not-mourn",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 애도하지 않는 사진",
+  "model": "claude-opus-5",
+  "source_sha256": "a7a016111c7504af22fdec3404c4a23e08e20a409641e18804213063b9ce266a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-photographer-s-eye-lights-black-skin",
+  "field": "title",
+  "lang": "ko",
+  "text": "검은 피부에 빛을 주는 사진가의 눈",
+  "model": "claude-opus-5",
+  "source_sha256": "858bde581e68c5527e41a8d45232766f68eb51af408e4b26543904013dca7d55"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-photographer-s-eye-that-withholds-narrative",
+  "field": "title",
+  "lang": "ko",
+  "text": "이야기를 내주지 않는 사진가의 눈",
+  "model": "claude-opus-5",
+  "source_sha256": "1ce9436824fdb7d31387e0239059dc1077dbfec21aa02d189fcc3f4e388755e1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-photographer-who-could-not-reach-the-war",
+  "field": "title",
+  "lang": "ko",
+  "text": "전장에 끝내 닿지 못한 사진가",
+  "model": "claude-opus-5",
+  "source_sha256": "84b6ddfa89ec07ad591fd25e5ccc38d535698d7e5fe4f6cdfb0b54ef08d98cb5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-photographer-who-witnesses-what-eludes-the-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "프레임 밖으로 달아난 것을 증언하는 사진가",
+  "model": "claude-opus-5",
+  "source_sha256": "2fe047177263ddab2177cecec3b410cd2b578d1aabc637eae56d5ba64fec4426"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-photographer-whose-frame-is-a-weapon",
+  "field": "title",
+  "lang": "ko",
+  "text": "프레임을 무기로 쓰는 사진가",
+  "model": "claude-opus-5",
+  "source_sha256": "66cade47e401263e7de9b0c84335f15d3c6a0e774c9706b04063a4b427ff48b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-physicist-who-recoiled-from-his-power",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 손에 쥔 힘 앞에서 물러선 물리학자",
+  "model": "claude-opus-5",
+  "source_sha256": "767c6aab6a70a26ee4e1ed053c6fa13b69dbaddad753e1c5ba1467e27a1cc3bd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pianist-whose-music-is-thwarted",
+  "field": "title",
+  "lang": "ko",
+  "text": "음악이 번번이 막히는 피아니스트",
+  "model": "claude-opus-5",
+  "source_sha256": "9d82f3eaa2f2d3dfd96df893ce236862d2594780f999d2ced67f160eeb0a527d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-piano-as-the-voice-of-a-silenced-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "입 막힌 자아가 내는 소리, 피아노",
+  "model": "claude-opus-5",
+  "source_sha256": "d2100a4b0db1af36aaadf1c2e7ca7cda2254b8ade43fee9a8e2a1a809b343e8e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pickpocket-s-hand-as-stolen-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "소매치기의 손, 훔쳐낸 자기 자신",
+  "model": "claude-opus-5",
+  "source_sha256": "328aed55faf3e4fb8cc070495cbcc8fa6f54cc7bfb9b2094590f89590ad23aec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-picturesque-region-that-conceals-violence",
+  "field": "title",
+  "lang": "ko",
+  "text": "폭력을 덮고 있는 그림 같은 고장",
+  "model": "claude-opus-5",
+  "source_sha256": "b902fa3727dd4f88142db51f4f4984e7970ddffc2b1ff1f605eb07630163d353"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pig-as-self-disgust-made-flesh",
+  "field": "title",
+  "lang": "ko",
+  "text": "살덩이가 된 자기혐오, 돼지",
+  "model": "claude-opus-5",
+  "source_sha256": "2e1f007f9e41003dbff767d096e306215b7ba0fefeb2a0d91201f01ff2815259"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pilgrimage-toward-an-empty-signified",
+  "field": "title",
+  "lang": "ko",
+  "text": "텅 빈 기의(記意)를 향한 순례",
+  "model": "claude-opus-5",
+  "source_sha256": "9f85d61e96ea211d63ad1cd1b48baaabdb11ead35030d65b105862e4570466e1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pilot-who-loved-flight-more-than-living",
+  "field": "title",
+  "lang": "ko",
+  "text": "사는 것보다 나는 것을 사랑한 조종사",
+  "model": "claude-opus-5",
+  "source_sha256": "d7cc8e7a55103d874365d155d1082e85e618edd72d75a19e6ccf63df4c2de6a3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pinched-nose-as-recoil-from-the-other",
+  "field": "title",
+  "lang": "ko",
+  "text": "코를 틀어막는 손, 타자를 향한 혐오",
+  "model": "claude-opus-5",
+  "source_sha256": "37d5bd69e719f7d314d74df6bf4339a197efaf4dc078c6e872bd4c1b55f8b4cf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pinhead-sublime-withheld-and-diminished",
+  "field": "title",
+  "lang": "ko",
+  "text": "바늘 끝의 숭고(崇高), 유보되고 쪼그라든",
+  "model": "claude-opus-5",
+  "source_sha256": "dd9e2445f432474a819307ea45766cc9a4725eec57e16394e170d30b9a8abee5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pirandellian-who-knows-he-s-authored",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 쓰인 인물임을 아는 자",
+  "model": "claude-opus-5",
+  "source_sha256": "77b2c00d38ef2c9ddefc3f9caa4c9249cbb7ffdc861bbd3a5499c10808490531"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-assembled-from-other-places",
+  "field": "title",
+  "lang": "ko",
+  "text": "다른 장소들을 이어 붙여 만든 장소",
+  "model": "claude-opus-5",
+  "source_sha256": "132cbd2f37b48c92c8033991b5ecf0a7c8633fbbef2244b40d50ec91139145bf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-built-because-the-real-was-forbidden",
+  "field": "title",
+  "lang": "ko",
+  "text": "진짜가 금지되어 지어 올린 장소",
+  "model": "claude-opus-5",
+  "source_sha256": "c086142fdded2504e71d1ac4289b6e7543770df87b0290f9339ed600b4f3a488"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-filmed-standing-in-for-another",
+  "field": "title",
+  "lang": "ko",
+  "text": "다른 곳을 대신해 찍힌 장소",
+  "model": "claude-opus-5",
+  "source_sha256": "354f303ea140e67881bbd5b844971a3041a951abda8f0d84bd8320a00a823aa8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-forged-on-a-foreign-stage",
+  "field": "title",
+  "lang": "ko",
+  "text": "남의 땅 위에 벼려낸 장소",
+  "model": "claude-opus-5",
+  "source_sha256": "0c54dec48b3f3dac9b74de10b598d821fff7546df2a1bded295d1e114b7c8feb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-name-as-edge-of-the-imaginable",
+  "field": "title",
+  "lang": "ko",
+  "text": "상상의 끝자락에 붙은 지명",
+  "model": "claude-opus-5",
+  "source_sha256": "253963a594242ed9f2aa14b14d0aad50b7f3aebf4bad07a612ac22517f52fccf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-name-that-names-no-place",
+  "field": "title",
+  "lang": "ko",
+  "text": "가리키는 곳이 없는 지명",
+  "model": "claude-opus-5",
+  "source_sha256": "cea332b6542da45ed690eaf4dd746745d32902ce1fa88ead0efa46d935fb5ee5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-that-doubles-as-its-opposite",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 정반대를 겸하는 장소",
+  "model": "claude-opus-5",
+  "source_sha256": "1a888b64c1d3d6ff51eb9db8fc2c9ce8a679a08cd8ba0144ca2e27667d24c7c1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-that-engulfs-its-people",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 사람들을 삼키는 장소",
+  "model": "claude-opus-5",
+  "source_sha256": "81e5f4a240d1a0e4e187d4b2d030e2dfe8cce2e2e295f7688298b7772c8cbb46"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-that-is-anywhere-and-nowhere",
+  "field": "title",
+  "lang": "ko",
+  "text": "어디에나 있고 어디에도 없는 장소",
+  "model": "claude-opus-5",
+  "source_sha256": "95fc7d4ec7c8383a0a6d6e80d32f894d540b93ebed29fd937248081273980c2a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-that-is-banishment-made-geography",
+  "field": "title",
+  "lang": "ko",
+  "text": "추방이 지도가 된 장소",
+  "model": "claude-opus-5",
+  "source_sha256": "12d997e68eeddb18f115411db269292f0dc78e78fd9bc3140d407ba72fd2cb45"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-that-plays-another-that-forgot-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "자기를 잊은 어떤 곳을 대신 연기하는 장소",
+  "model": "claude-opus-5",
+  "source_sha256": "3417e7f71652ede5b6dee6290114b5248e2bb422b285d58a7cb2fc0b30228e7b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-that-stands-in-for-the-unfilmable",
+  "field": "title",
+  "lang": "ko",
+  "text": "찍을 수 없는 것을 대신 서는 장소",
+  "model": "claude-opus-5",
+  "source_sha256": "3dfaad263183cd2066f9ba9895b9040335e20e3e6e84f4db9e2b0fa68b9a0db2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-that-stood-in-for-another",
+  "field": "title",
+  "lang": "ko",
+  "text": "다른 곳의 대역을 맡은 장소",
+  "model": "claude-opus-5",
+  "source_sha256": "5147dcea0b217d8f8ea1d2bc542838c0517e34e72d264cdf7889fc061bba0cf1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-where-time-has-already-happened",
+  "field": "title",
+  "lang": "ko",
+  "text": "시간이 이미 지나가버린 곳",
+  "model": "claude-opus-5",
+  "source_sha256": "026a96eaab83d8247a6ee2f37a9f9a7fb07d1ae6a06a295b457cbabcef2f6aab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-whose-name-is-the-crime",
+  "field": "title",
+  "lang": "ko",
+  "text": "이름이 곧 범죄인 장소",
+  "model": "claude-opus-5",
+  "source_sha256": "9b3ec2824b14685d0faf44b72a289bf2b92eb8b2b5c491ab5ef8026830ac6b00"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-place-you-find-but-never-re-enter",
+  "field": "title",
+  "lang": "ko",
+  "text": "한 번 찾고 두 번은 못 들어가는 곳",
+  "model": "claude-opus-5",
+  "source_sha256": "f7d421133418170739c879e37602cac0a51ef294868c043c2478e790d43abe95"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pleasure-principle-versus-the-reality-principle",
+  "field": "title",
+  "lang": "ko",
+  "text": "쾌락원칙과 현실원칙의 맞대결",
+  "model": "claude-opus-5",
+  "source_sha256": "d322021f788e0a776e55f85f66885a0d01522c9407676506c594d73d3de04174"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-plot-as-disguised-theory-of-capital",
+  "field": "title",
+  "lang": "ko",
+  "text": "자본론을 감춘 플롯",
+  "model": "claude-opus-5",
+  "source_sha256": "767efd24a180c80f4117a5a5484682a35f42690636375c8d8c5e54f6c60f823b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-plot-is-merely-the-clothesline",
+  "field": "title",
+  "lang": "ko",
+  "text": "플롯은 빨랫줄에 지나지 않는다",
+  "model": "claude-opus-5",
+  "source_sha256": "10281dab8fcdb1d8ec77f256d2cfc73f977dfa9b8cb7bf7ba6347ff25a30fca7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-plural-that-dissolves-the-hero",
+  "field": "title",
+  "lang": "ko",
+  "text": "영웅을 녹여버리는 복수형",
+  "model": "claude-opus-5",
+  "source_sha256": "8b71719aa371dbcb05aa50cb2fba1903e87c7c37c8a3f5df8f21244b9865c669"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-poem-worth-nothing-and-everything",
+  "field": "title",
+  "lang": "ko",
+  "text": "값이 없으면서 전부인 시",
+  "model": "claude-opus-5",
+  "source_sha256": "3769f8a7e3f5741cb5477b42436480582ec920914a3ba0fabde998248abe4d8d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-poet-buried-by-his-own-apotheosis",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 신격화에 깔려 죽은 시인",
+  "model": "claude-opus-5",
+  "source_sha256": "2cb47d9ce241235ef20f3da9fd0438bfe434e67732f4f7c209dc4d07cab4efad"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-poet-hidden-in-the-working-man",
+  "field": "title",
+  "lang": "ko",
+  "text": "일하는 사내 안에 숨은 시인",
+  "model": "claude-opus-5",
+  "source_sha256": "d06d9a98d9db0926daec6dcdeb4d5421f54b26764c9f3729f7add0c80ea9e2ba"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-poet-s-book-as-saboteur-of-order",
+  "field": "title",
+  "lang": "ko",
+  "text": "질서를 망가뜨리는 시집",
+  "model": "claude-opus-5",
+  "source_sha256": "6c2ce527957b78f3ccca2a6e08331e15ab29b625546cba48e2c63c9f9daf5eeb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-poet-who-loves-only-his-own-reflection",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 모습에만 반한 시인",
+  "model": "claude-opus-5",
+  "source_sha256": "429e77c28e94c8fc1e51557193790b44bd5b6bf213cbecbe5d0701fa5b4e76f6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-poet-who-punctured-the-suburb",
+  "field": "title",
+  "lang": "ko",
+  "text": "교외에 구멍을 낸 시인",
+  "model": "claude-opus-5",
+  "source_sha256": "bb22ac057122bb6a353215b07f882a426dd70f5e06aad5afb7aeb57de097a04e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-poison-that-is-also-the-cure",
+  "field": "title",
+  "lang": "ko",
+  "text": "독이면서 약인 것",
+  "model": "claude-opus-5",
+  "source_sha256": "c4680b816e8fa17d68ee0c61eda0ade4ded1c76e82fdd0b00e390b78b632e2bb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-police-as-the-only-integrated-order",
+  "field": "title",
+  "lang": "ko",
+  "text": "유일하게 통합된 질서, 경찰",
+  "model": "claude-opus-5",
+  "source_sha256": "3cda1ae90bc9e1a2765f610ad49764b9bc051900de599f7a5f78834e754a44b4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-polis-without-a-sovereign",
+  "field": "title",
+  "lang": "ko",
+  "text": "주권자 없는 폴리스",
+  "model": "claude-opus-5",
+  "source_sha256": "485a9940d4a588a192ef69b3fa280ba5b548c7f30321171068b14f5b44d16d91"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-polite-clerk-who-administers-atrocity",
+  "field": "title",
+  "lang": "ko",
+  "text": "잔혹을 처리하는 정중한 공무원",
+  "model": "claude-opus-5",
+  "source_sha256": "e1a290c9864df14b3ff470677bf224ef3dbee22a71cde3680e6da8c3b4e3f6c3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-politics-hidden-in-who-decides",
+  "field": "title",
+  "lang": "ko",
+  "text": "누가 정하느냐에 숨은 정치",
+  "model": "claude-opus-5",
+  "source_sha256": "b210d699ef6858571fb630df7e927a3e274b4a8f1a11a42d881bf4be4bf05ada"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-politics-of-disproportionate-sentencing",
+  "field": "title",
+  "lang": "ko",
+  "text": "형량이 기울어지는 정치",
+  "model": "claude-opus-5",
+  "source_sha256": "5d63729ba1081fc709a9bfb0df27e5bb184b637a4bf865339aa78cf015af3966"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-politics-of-who-counts-as-a-person",
+  "field": "title",
+  "lang": "ko",
+  "text": "누구까지 사람으로 치는가의 정치",
+  "model": "claude-opus-5",
+  "source_sha256": "0bf6a383fa00ec055ee37bdf626a87a13b575ff0aa914375145bac805c870e84"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pop-score-that-hides-the-dread",
+  "field": "title",
+  "lang": "ko",
+  "text": "공포를 덮는 팝 스코어",
+  "model": "claude-opus-5",
+  "source_sha256": "87f87ff5d5821ae3de676f5b362468d581cb7ec3b129d47701ea6def006bd2cc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pop-song-as-mistaken-mourning",
+  "field": "title",
+  "lang": "ko",
+  "text": "잘못 짚은 애도, 그 팝송",
+  "model": "claude-opus-5",
+  "source_sha256": "7bc1f2e698de2a722590f97a00d791c12a0dbbc8a2255b9058ac4605a510b345"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pop-song-as-secret-key",
+  "field": "title",
+  "lang": "ko",
+  "text": "열쇠 노릇을 하는 팝송",
+  "model": "claude-opus-5",
+  "source_sha256": "1d7a1c13f08b07276c0c039d6373e8b4a18e1744191f74b630481be4635cab78"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pop-song-as-smuggled-soul",
+  "field": "title",
+  "lang": "ko",
+  "text": "밀반입된 영혼, 팝송",
+  "model": "claude-opus-5",
+  "source_sha256": "5546aa42e9a9a0ea0a236de96b31cd0fbcbf65e412a0ba9010d44e793896dbb5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-pop-soundtrack-as-moral-laundering",
+  "field": "title",
+  "lang": "ko",
+  "text": "도덕을 세탁하는 팝 사운드트랙",
+  "model": "claude-opus-5",
+  "source_sha256": "9d3cbb94ac459ad46832b8c0b34b5cd4f678c56db427e3bbff101804c27e6828"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-port-town-as-occupation-s-open-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "점령이 남긴 생채기, 항구 도시",
+  "model": "claude-opus-5",
+  "source_sha256": "871e4a4307d789359319877f9cb567ac6df086d8d69c0cbec284f3b3988d0fc4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-possessive-that-confiscates-what-it-claims",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 주장한 것을 빼앗는 소유격",
+  "model": "claude-opus-5",
+  "source_sha256": "879cf328ca7cc34c508e558249aa9e154fd7bec8dd81b41fac74c361d8241f1d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-possessive-title-that-indicts-ownership",
+  "field": "title",
+  "lang": "ko",
+  "text": "소유를 고발하는 소유격 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "ffc1862542ed543d064474c9958a1feaac8546a9b27be57d9bc4cba02d42a4b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-postcard-landscape-refuted",
+  "field": "title",
+  "lang": "ko",
+  "text": "엽서 속 풍경에 대한 반박",
+  "model": "claude-opus-5",
+  "source_sha256": "0fb05a242de0342786babf52856808def7452ac00ec62cb893ddff2ba0d6edd7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-postwar-comedy-that-soothed-britain",
+  "field": "title",
+  "lang": "ko",
+  "text": "전후 영국을 달랜 코미디",
+  "model": "claude-opus-5",
+  "source_sha256": "4ea159a46b82a6c3514e4ded575d3920208d98888e73250407fd2648d281547e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-postwar-miracle-read-into-every-object",
+  "field": "title",
+  "lang": "ko",
+  "text": "사물마다 새겨 읽는 전후의 기적",
+  "model": "claude-opus-5",
+  "source_sha256": "cc4b74105d5670bba3843caf4f5955bbf4914d201092c164ec0a02f1a0b853d8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-postwar-threshold-that-re-sorts-the-returning-man",
+  "field": "title",
+  "lang": "ko",
+  "text": "돌아온 남자를 다시 분류하는 전후의 문턱",
+  "model": "claude-opus-5",
+  "source_sha256": "254875744a84412d9e6adad52a9cf2dfebbc6e432871801443b89f41c9e0ebe1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-power-that-cannot-outrun-death",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽음을 따돌리지 못하는 권력",
+  "model": "claude-opus-5",
+  "source_sha256": "1a4208bfb148d3539f03d59eecead01f933d0d33a8d85315abfc5754f9675eac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-power-that-demands-its-own-judgment",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 심판을 자청하는 권력",
+  "model": "claude-opus-5",
+  "source_sha256": "724ea60110c9b1e9381e63279a6771c1697e1317ebd3959d7cc8f900416d1aba"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-practical-effect-as-belief-made-physical",
+  "field": "title",
+  "lang": "ko",
+  "text": "만질 수 있게 된 믿음, 실물 효과",
+  "model": "claude-opus-5",
+  "source_sha256": "c44ea5ffb6df5df4d7b1eb274a349cf6c0306164b9ae96a1f8f907ad28a06891"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-practical-stunt-as-anti-digital-authenticity-wager",
+  "field": "title",
+  "lang": "ko",
+  "text": "디지털에 맞선 진정성의 내기, 실사 스턴트",
+  "model": "claude-opus-5",
+  "source_sha256": "a3728ad383df185aedd5b99e43ffb86c3d66affe57bd7f6a5e58988b46c5144a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-praise-for-gentleness-as-critical-symptom",
+  "field": "title",
+  "lang": "ko",
+  "text": "‘온화함’이라는 상찬, 비평의 증상",
+  "model": "claude-opus-5",
+  "source_sha256": "ca8e1fe0da4b523c4c1ae9bba5b4d9c88ddd82c10f549906c262eb751de57bf0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-praise-for-maturity-as-symptomatic-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "성숙하다는 칭찬이 흘리는 고백",
+  "model": "claude-opus-5",
+  "source_sha256": "230a8bf22d45c81b942aeea76e40329de5838872ad667f74def8ac2dcc411b1a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-praise-for-realism-as-a-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "‘리얼리즘’ 예찬이라는 고백",
+  "model": "claude-opus-5",
+  "source_sha256": "3b7f3363e41a9ef926c294c71a2bd30e89276c60b542588f7e5ee53c48d266aa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-praise-that-confessed-critical-exhaustion",
+  "field": "title",
+  "lang": "ko",
+  "text": "비평의 바닥을 실토한 찬사",
+  "model": "claude-opus-5",
+  "source_sha256": "d3aafab12390713b7be75a86ddafa9cab61dae76088cbe7f51e4c28f57696b00"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-praise-that-confesses-a-prior-absence",
+  "field": "title",
+  "lang": "ko",
+  "text": "그전엔 없었음을 실토하는 찬사",
+  "model": "claude-opus-5",
+  "source_sha256": "363816969b64e09a5008b6320500f9c87df5003e0848c9074072624df9a34283"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-praise-that-confesses-the-critic-s-appetite",
+  "field": "title",
+  "lang": "ko",
+  "text": "비평가의 허기를 들키는 찬사",
+  "model": "claude-opus-5",
+  "source_sha256": "b92ccbbea014b35a4b2325694a8e7fc7ebc963a1a443e0c58422954f9c31016f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-praise-that-indicts-the-praiser",
+  "field": "title",
+  "lang": "ko",
+  "text": "칭찬한 자를 고발하는 칭찬",
+  "model": "claude-opus-5",
+  "source_sha256": "4cfbbd80564ab41c06ab2b7179005035406a038ac5cc6bf9b7195d82df42fedc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-praise-that-indicts-the-praiser-2",
+  "field": "title",
+  "lang": "ko",
+  "text": "찬사가 겨누는 것은 찬사를 보낸 쪽",
+  "model": "claude-opus-5",
+  "source_sha256": "e7c2fec4e251e99d74f43739aef0d70e8492ab2235716333423a6a0f1e9ce472"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-praise-that-misses-the-point",
+  "field": "title",
+  "lang": "ko",
+  "text": "핵심을 비껴간 찬사",
+  "model": "claude-opus-5",
+  "source_sha256": "29963a7c91d19d5bcce4da8671553cf0494c37ff99c7ddc4abd6eee31b9f9fa4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-praise-that-quietly-re-erases",
+  "field": "title",
+  "lang": "ko",
+  "text": "조용히 다시 지우는 찬사",
+  "model": "claude-opus-5",
+  "source_sha256": "b4dea44634fe99afa3601bda9cb4c61474f40f1dc93565193972e8c05faeedeb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-praise-that-reveals-its-own-reduction",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 깎아낸 것을 드러내는 찬사",
+  "model": "claude-opus-5",
+  "source_sha256": "6b013b1fe9f7013955438e708c9a78e5ddb58293e3fbde8a91e7180efca80976"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-praise-that-reveals-the-praiser",
+  "field": "title",
+  "lang": "ko",
+  "text": "칭찬하는 쪽이 드러나는 칭찬",
+  "model": "claude-opus-5",
+  "source_sha256": "ec2ef210606a057bab09b7f4bd63bb75fbea3177648f5c8e198cccbdd6bebb51"
+ }
+]

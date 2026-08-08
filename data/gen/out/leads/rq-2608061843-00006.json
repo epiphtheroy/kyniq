@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "orfeu-1999",
+  "field": "lead",
+  "film_id": "4ec50b9e-6fb2-4020-bd12-103e5f07e485",
+  "lang": "en",
+  "text": "A samba school's composer has a song due and a neighbor he cannot stop looking at, and the man who runs the neighborhood has an interest in both. Carlos Diegues sets Orfeu inside a favela in 1999 and keeps the distances short: the rehearsal floor, the stairs, the room where Lucinho gives orders. Music here is work. Orfeu writes to a deadline for a school with hundreds of people counting on the result, while Euridice has just arrived and holds no map of who is owed what by whom. Brazil chose it as its Academy Awards entry that year. The romance keeps being interrupted by the job, and the job keeps being interrupted by Lucinho, which is nearer to how the place runs than either thread would be on its own.",
+  "model": "claude-opus-5",
+  "source_sha256": "d286472b2108cbd94365872b74d77bd58fc94d876358d9a7960f92688b8c351e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-divine-weapon-2008",
+  "field": "lead",
+  "film_id": "972506f1-d92d-4262-9236-82274dcd786e",
+  "lang": "en",
+  "text": "The Joseon court of King Sejong appears here less as a golden age than as an engineering problem with a deadline. Ming China is expanding and the peninsula is in the way; the answer the film follows is a weapon built in secret, which puts the story less with generals than with the people who have to make the thing work. Kim Yoo-jin has 134 minutes and the resources of a period action picture, and the choice worth noticing is how much of that time goes to development rather than battle: funding, secrecy, the small number of people who can be told. It took the Grand Bell Award for Best Film. The unease in the premise outlasts the costumes — a country's independence resting on whether a handful of craftsmen get a measurement right, and on whether the court keeps paying while they fail.",
+  "model": "claude-opus-5",
+  "source_sha256": "748470ea0cce9f59608fe54d4d61ca977e789cbe8b22f412ed30b3c099a5c366"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "all-the-long-nights-2024",
+  "field": "lead",
+  "film_id": "0a446702-28b8-4de8-83cc-afba1b5a8449",
+  "lang": "en",
+  "text": "At Kurita Optics, two employees cannot promise anyone what they will be like tomorrow. Misa's PMS has cost her jobs and a good deal of patience from strangers; Takatoshi's panic attacks arrive without notice and leave him quiet. Sho Miyake keeps them at work — the routine of a modest firm, sweets at the desk, tasks that get done anyway — and lets the two conditions sit side by side without ranking them. The interest is accommodation, not cure. Kinema Junpo put it at the top of the year. Neither person is offered as a case study, and what forms between them is a bond the film declines to name: 119 minutes on the logistics of covering for someone else's bad day in the middle of one's own, and on the courtesies that make it possible.",
+  "model": "claude-opus-5",
+  "source_sha256": "c75453366b9476e38d27ea974f1702e5175f249992479404e94cc578721c6198"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-tokyo-night-sky-is-always-the-densest-shade-of-blue-2017",
+  "field": "lead",
+  "film_id": "15ed4bf2-8c4c-410c-b7a3-7f4ea3591c84",
+  "lang": "en",
+  "text": "Mika finishes a shift on a hospital ward and starts another one entertaining men at a girls' bar. Shinji has one working eye and a construction job that makes no allowance for it. Yuya Ishii films a Tokyo where a day is long enough to hold two working lives and pays properly for neither, and where these two keep turning up in each other's vicinity, which the film takes as ordinary rather than as fate. The engine is proximity, not plot: 108 minutes in a city arranged so that people who might need each other rarely stand still long enough to find out. Kinema Junpo named it the best film of its year, a verdict that sits oddly against how quietly it operates. Ishii trusts talk, and lets these two say nearly everything except the thing at hand.",
+  "model": "claude-opus-5",
+  "source_sha256": "bc70242cfe5f62d1f374425c5cf0041989826f2fa9d01116820cb0c37d4bb332"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "paradise-is-burning-2023",
+  "field": "lead",
+  "film_id": "e290ea72-13c0-4551-a97d-32d374566315",
+  "lang": "en",
+  "text": "One phone call about foster care turns a mother's absence from a holiday into a problem the children have to solve. Until it rang, the summer had belonged to Laura and her two sisters: no supervision, no schedule, nothing to be late for. Mika Gustafson films that stretch without treating it as a wound in need of dressing; the sisters are loud, competent and having a good time. The freedom is real and it is also running out. The fix Laura settles on is to find a woman willing to stand in as their mother, which puts her in rooms she would otherwise never enter. Its Guldbagge for Best Art Direction is the telling one: 108 minutes of what three children make of a house when nobody corrects them.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c94478c83fc802e283f7264d5679c5922e787c9755a9bc8c8cccb0d80a0302a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "good-riddance-1980",
+  "field": "lead",
+  "film_id": "575e13d6-870f-408a-895c-0e5b31bf9857",
+  "lang": "en",
+  "text": "The firewood has to be cut, ordered and delivered no matter what else is going on in the house, and a great deal is going on in the house. A woman runs that small business in French-speaking Canada with a daughter whose moods can turn a day over, a brother who needs looking after, and two suitors waiting on an answer she has no time to compose. Francis Mankiewicz refuses to sort these into a main plot and its subplots; they arrive together, the way they would. At 120 minutes there is room for the plain sequence of a working day, and that is where the pressure comes from: every demand lands on the same pair of hands. The Canadian film academy named it best motion picture. Affection, in this house, is also a form of siege.",
+  "model": "claude-opus-5",
+  "source_sha256": "66ae7d1bb77222927cdd8ca9f1dae070359709ab0b146d364b674b109d0846fa"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-terry-fox-story-1983",
+  "field": "lead",
+  "film_id": "cd697417-a5ea-433c-8e3d-fd2706b5d453",
+  "lang": "en",
+  "text": "Running across Canada on one leg is less a sports story than a logistics one: distance, weather, and the arithmetic of the next mile. Terry Fox lost a leg to cancer and set out to cross the country to raise money for research, and the 1983 film made from it keeps a plain register — 97 minutes, made for television, a real schedule where a plot would be. Ralph L. Thomas faces the problem every film about a famous effort faces: the audience knows the shape and has to be given the texture. So the weight falls on what does not photograph as heroism, the money and the attention and the daily maintenance of a body doing something it was not built to do. It took the Canadian film academy's best-picture prize, an unusual verdict for a television production.",
+  "model": "claude-opus-5",
+  "source_sha256": "ebe5189aa6d5387a341f2cfe111b9269a8256e7fdff8429385eeb25c48d09281"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-bay-boy-1984",
+  "field": "lead",
+  "film_id": "3d3262c1-97f4-489d-a78e-10f44e13689a",
+  "lang": "en",
+  "text": "Glace Bay is small enough that the policeman who commits a murder is also the man two pews ahead on Sunday. The teenage boy at the center of The Bay Boy has seen that murder, and everyone he might tell it to is someone the killer sees every week. He is weighing the priesthood as well, which in a parish like this is a career as much as a calling, and a girl he likes, who happens to be the killer's daughter. Daniel Petrie, whose film took Canada's best-picture prize, lets all three problems belong to one adolescence rather than promoting the crime and demoting the rest. Cape Breton in the 1930s, 107 minutes, and a predicament so ordinary it barely needs the crime: a boy with nobody safe to talk to.",
+  "model": "claude-opus-5",
+  "source_sha256": "e64ca9b87f16a56cdea3ac6539de4ec09ce3e0ebb56751c680722a1d3d36b698"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "everybody-loves-sunshine-1998",
+  "field": "lead",
+  "film_id": "28543237-67d2-43a4-aa4d-bfd858fbadd9",
+  "lang": "en",
+  "text": "Two cousins came up together, ran a gang together and went to prison together; only one of them wants a life on the other side of it. Ray does. He has Clare, and an idea of himself that does not involve the crew, and Terry has an attachment to Ray that the film names as obsession and then uses as its engine, so Clare becomes a rival and so does the mere notion of Ray as a private citizen. Meanwhile the Triads have spent those same years getting stronger, a man from the old gang is dead, and the crew wants someone to say what happens next. Andrew Goth allows 97 minutes, short for a story about succession, which forces the question of who gives the order to be settled before anyone has cooled down. Loyalty here behaves exactly like a trap.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ebd6890a432bbd4c6ffd39d51cd7a168d0f22fa7622489aadbb7b3d7136fb00"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "night-zoo-1987",
+  "field": "lead",
+  "film_id": "67730abb-fc57-4d4e-bfb7-b3ba4a042fd3",
+  "lang": "en",
+  "text": "Marcel's father believes his son has been away on a long trip; the son has been in prison, and the lie is now something he has to keep or dismantle. Jean-Claude Lauzon puts two films in the same 115 minutes and refuses to keep them apart. Two corrupt police, one carrying an old grudge, want drug money they believe Marcel is holding, and their pursuit is not a subplot: it sets the clock the reunion with Albert has to beat. Julie is working the street now, and whatever the two of them were resumes on those terms or not at all. Canada sent it to the Academy Awards. The bind in the premise is the durable part — to go on being a good son Marcel has to keep lying, and to stop lying he has to become a worse one.",
+  "model": "claude-opus-5",
+  "source_sha256": "03eb151f76c44240ac92e9a6f61326286c352f5a64f279ef52a7196571d158a5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dear-doctor-2009",
+  "field": "lead",
+  "film_id": "5485dda0-5251-4177-ba73-b80e98eb27a4",
+  "lang": "en",
+  "text": "Nobody in the village is in a position to check the doctor's work, and nobody wants the job. Osamu Ino is that doctor, and the affection around him is not misplaced sentiment: he is knowledgeable, tireless, the person everyone calls. Miwa Nishikawa gives him an intern, Keisuke Soma, who did not want the posting and whose duties amount largely to watching. Then something out of Ino's past reaches the village, and the same man has to be held in two ideas at once. Kinema Junpo made it the year's best film. The 127 minutes are generous, and the generosity is the design: the long early stretch on what care consists of where the alternatives are few is what makes the reckoning land on somebody known rather than a stranger.",
+  "model": "claude-opus-5",
+  "source_sha256": "03a63ddc5a3677aa789ab44ac862d3fa4983d33cadc8d73443816d42fa6f6431"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-fever-2019",
+  "field": "lead",
+  "film_id": "249d1d6e-d0f4-44c1-a00e-7a3da3fcc1e0",
+  "lang": "en",
+  "text": "Justino guards a harbor in Manaus where the cargo keeps moving and he does not. He is forty-five, a Desana man, and his daughter is about to leave for Brasília. Then a fever arrives that nobody can name. Maya Da-Rin holds the illness open instead of resolving it, and the 98 minutes stay tight against Justino's own timetable — the shift, the gate, the rooms about to hold one person fewer — so the fever registers first as a change in what he can stand and only later as a symptom. Brazil's Grande Prêmio do Cinema Brasileiro named it the year's best film. It is filed as mystery and thriller, and both fit, though the suspense turns out to be a man at a gate, watching other people's goods pass into a city that has a use for him and no curiosity about him.",
+  "model": "claude-opus-5",
+  "source_sha256": "52eb69986b6563b28bbe3fbd49de7c46cd242333c861e2c7d4496240c9ee71ab"
+ }
+]

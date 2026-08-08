@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-watermelon-woman-1996",
+  "field": "lead",
+  "film_id": "d0872180-9c15-4c1c-923b-69a791337cd2",
+  "lang": "en",
+  "text": "A 1930s actress is remembered by a billing rather than by a name, and a filmmaker in 1996 decides that this counts as a research problem. Cheryl Dunye's premise is a question with an archive attached: who was the woman cast in Hollywood's mammy roles and credited as The Watermelon Woman, and what did her life look like when the camera was off. The search belongs to a young black lesbian director working with her own equipment and her own hours, so the investigation keeps colliding with a romance that will not stay outside the frame. The timing is comic, the attitude toward the record is cold, and the joke and the grievance often arrive in the same line. The National Film Registry holds the film now, which is an odd fate for something built around how thin such holdings can be.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e06ebc57cfcac0d0cf25b8aad19eaeb8373eda2e8532f4fb787a17e58f5f83f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-navigator-1924",
+  "field": "lead",
+  "film_id": "6d9e8752-1b89-4c1d-8de6-211adb6c7dac",
+  "lang": "en",
+  "text": "An ocean liner built for hundreds puts to sea carrying two people, neither of whom has ever had to do a single thing unassisted. Rollo Treadway proposes to his neighbor Betsy O'Brien, is refused, and boards the honeymoon cruise anyway; she ends up on the same wrong ship. The comedy of 1924 is a comedy of scale: a real vessel, all decks and corridors and machinery built for a crew, against two small figures now working out where breakfast comes from. Money is no use to Rollo out here. Sixty-five minutes with no spoken dialogue to lean on, so every joke has to be assembled out of objects, doors and distance. Donald Crisp directs, and the picture keeps finding new ways for an enormous thing to behave like an uncooperative housemate.",
+  "model": "claude-opus-5",
+  "source_sha256": "a7f29fde89d0382c1da033d04e47a7a59944f1d4217f85ad71bfba5569351347"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bambi-1942",
+  "field": "lead",
+  "film_id": "bd9d0dd0-fe3f-4ba1-81b3-8be1b8030d43",
+  "lang": "en",
+  "text": "A year of weather passes over a forest, and the film treats that as event enough. Bambi moves season to season rather than scene to scene: a fawn learning what the ground is, what the other animals are, what cold does to a place that was warm. Speech is scarce and the score does most of the narrating, which leaves whole stretches to rain, wind and the noise of animals moving in cover. David Hand's animators pitch everything at the height of the undergrowth, so the trees are enormous, light becomes an event, and water has weight. Seventy minutes, made in 1942 for children, built with the patience of a nature study and answering to the calendar rather than to plot. The forest is the subject; the animals live in it at its discretion.",
+  "model": "claude-opus-5",
+  "source_sha256": "3cb5e14572d64e6b66ff2c913482f132c00143f3c6dc2280bb174103a42551ef"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "frida-2002",
+  "field": "lead",
+  "film_id": "6458c347-090f-4d54-92a3-302d22626581",
+  "lang": "en",
+  "text": "The hard part of filming a painter is that the paintings hold still. Julie Taymor's answer, in a life as crowded as Frida Kahlo's, is surfaces: costume, makeup, the composition of a face for a room that is looking at it. The injury arrives early and never leaves; the marriage running beside it is loud, public and no help to the work it feeds. An Academy Award for makeup and hairstyling sounds like a footnote and reads more like a description of method, since so much here concerns what a person builds in order to be looked at. The film moves best when it stops keeping time with dates, and strains when the pageantry gets ahead of the woman inside it. What holds is the refusal to treat the paintings as evidence in a case about a life.",
+  "model": "claude-opus-5",
+  "source_sha256": "4841baad16f15c125c4fee2eda39df16451c65e7d00f836967c5ad8af2e722a4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "saturday-night-fever-1977",
+  "field": "lead",
+  "film_id": "f168af25-b468-4de8-9aa2-5071dc6515b6",
+  "lang": "en",
+  "text": "Filed under a single genre, drama, and nothing else, which may be the most accurate thing anyone has said about it. Tony is admired on a dance floor on Saturday nights and nowhere else; the rest of his week goes badly, and John Badham spends more of the film there than the soundtrack's reputation would suggest. Stephanie complicates the arrangement, mostly by wanting something outside the neighborhood. The dancing is granted real discipline — rehearsed, competitive, the one thing Tony owns outright — which makes the hours on either side of it look worse by comparison. On the National Film Registry now, it plays as the portrait of a young man whose whole standing in the world depends on one room being open one night a week.",
+  "model": "claude-opus-5",
+  "source_sha256": "74c99cbe84ed5090e47d8eb395e4c0654060faf571f6dbba710389f7222b84b7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sabrina-1954",
+  "field": "lead",
+  "film_id": "88dc2299-b437-4cae-bca8-e096e0c1f3fe",
+  "lang": "en",
+  "text": "A chauffeur's daughter comes back from two years in Paris, and the household she grew up beside cannot place her. The house belongs to her father's employers: the elder son runs the family business, the younger one mostly costs it money. Billy Wilder builds the comedy on an arrangement nobody states out loud, since a merger depends on David marrying an heiress and Sabrina has just made that calculation inconvenient. Linus, sent to manage the problem, turns out to be the real subject, a man who has never done anything without first pricing it. The jokes are almost all about class, delivered in black and white and lightly enough to pass for compliments. The decisive conversations happen between two brothers, and they are about money.",
+  "model": "claude-opus-5",
+  "source_sha256": "d808213b9e95224b93ef4401d618659eccde43e8ce58c4fc0f3153953f04526f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "in-cold-blood-1967",
+  "field": "lead",
+  "film_id": "7a76108d-2251-429a-b9b0-eb486b6394b2",
+  "lang": "en",
+  "text": "Two men drive to a farmhouse for money that is not there, and the rest of the film is the arithmetic of that mistake. Richard Brooks keeps two columns: the drifters moving through the days afterward, and the investigation assembling behind them, neither given the excitement the material would have paid for. It is a crime picture that behaves like a record — the killing is not staged for thrill, the men are neither monstered nor excused, and the camera keeps the same distance from a detective's desk as from the two it is following. 134 minutes, released in 1967, and the pressure comes from plainness: flat country, the routine of a search, two people with nowhere to be who still have to get through an afternoon and then an evening.",
+  "model": "claude-opus-5",
+  "source_sha256": "ee4e9cf7f288c14ad5cb4c11cac8e64831c90627a9d3fb3aac147e4b5ed79dd4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "seven-brides-for-seven-brothers-1954",
+  "field": "lead",
+  "film_id": "5477a239-2cb1-4ae9-8308-774dd23e73f9",
+  "lang": "en",
+  "text": "Oregon, 1850: one farmhouse, seven brothers, and a wife introduced to all of them at once. The bargain is domestic before it is romantic, since she has arrived to keep house for six other men as well, and the conclusion they draw about how to correct that imbalance is both obvious and indefensible. Stanley Donen stages it as a musical and gives the numbers to men who work outdoors, so the choreography carries the weight of labor rather than floating free of the farm. What the brothers want is stated as romance and organized as recruitment. The Academy Award went to the score, which is a fair guide to where the film's energy actually lives. The manners belong to 1954; the plot belongs to something considerably rougher.",
+  "model": "claude-opus-5",
+  "source_sha256": "33cdaa0d174a3445c5538cef2d8b0c5f0b6243a473c3f43731304e753bf44295"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-joy-luck-club-1993",
+  "field": "lead",
+  "film_id": "74e4f5c1-d520-4e3a-ad85-19eb157acc6f",
+  "lang": "en",
+  "text": "Eight women, two countries, and a structure that keeps handing the story from a daughter to her mother. The daughters were born in America; the mothers were born in a China the film calls feudal, and what divides them is less sentiment than what could be said out loud in each place. Wayne Wang runs it in flashback, which functions here as an argument: each present-day misunderstanding is followed by the older life that produced it, so a daughter's complaint keeps getting answered with material she was never told. The risk in that design is neatness, and the film mostly escapes it by letting the past be harsher than the explanation requires. What stays afterward is the ordinary talk of the American scenes, dinners and small corrections, carrying weight the speakers cannot hear in it.",
+  "model": "claude-opus-5",
+  "source_sha256": "acca6a9e5672524f30d16050ede7c0a56461f13ab86cacee2825e566c640d9b2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "twelve-o-clock-high-1950",
+  "field": "lead",
+  "film_id": "886fec01-181b-4bd9-844f-2fb0fed04312",
+  "lang": "en",
+  "text": "A war picture in which the central problem is management, not combat. A bomber group has stopped functioning and General Frank Savage is sent to make it work again, which puts most of the film on the ground: briefings, assignments, and the discipline of men who fly over Germany in daylight and can count how many crews came back last time. Savage's method is deliberate coldness, and Henry King is honest about what it costs to apply as well as to receive. Released in 1950, close enough to the war that the losses needed no explaining, it stays on the base and in the cockpit and treats combat as work performed at altitude by people who would rather be elsewhere. The suspense is administrative, and it is entirely real.",
+  "model": "claude-opus-5",
+  "source_sha256": "02e8bfd572d1dcf81003c64e40e9bc5127b60e58af88db706cf32c1623a2c762"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "fury-1936",
+  "field": "lead",
+  "film_id": "70b181a8-914f-4066-b772-55379835c751",
+  "lang": "en",
+  "text": "Everything follows from a man stopping in a town where nobody knows his face. Joe runs a gas station with his brothers, is engaged to Katherine, drives out to see her, and is arrested on the strength of a resemblance to a wanted kidnapper. Fritz Lang builds the whole picture out of that error, and the case against Joe is assembled from a likeness and the confidence of people who were not present for anything. What the film watches is how ordinary certainty hardens: a description passed along, improved slightly with each telling, until the name attached to it stops mattering. Made in 1936, set in an American small town with nothing particular about it, it is a thriller whose menace comes from people entirely convinced that they are in the right.",
+  "model": "claude-opus-5",
+  "source_sha256": "37c575fd2bfac09d11b9245d2b142cee1a8651f25efa633e12b90822665df5e3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-tree-grows-in-brooklyn-1945",
+  "field": "lead",
+  "film_id": "e711130d-32bc-4e8b-bd53-1f3cfef882bb",
+  "lang": "en",
+  "text": "From the Nolans' rooms in Brooklyn, around 1900, exactly one tree is visible, and the household economy is counted out in pennies. Elia Kazan keeps the drama strictly domestic: a school transfer Francie wants badly, a father who drinks and charms in the same breath, an aunt whose succession of husbands scandalizes the block, and the daily question of what can be afforded. Nothing is arranged to hurry the family toward rescue; the film sits at the kitchen table and lets the pressure come from the cost of things. What makes it hold is how evenly it treats people who are managing badly — the father is not offered as a lesson, and the poverty turns into neither squalor nor charm. Papa's promises and Francie's schooling get weighed in the same currency, which is how the Nolans have to weigh them.",
+  "model": "claude-opus-5",
+  "source_sha256": "57917c53c97c33dee7e475e7a1e59e1682f60ef69d18ee6d8fc7a9a4c53a8e24"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lassie-come-home-1943",
+  "field": "lead",
+  "film_id": "c66a06b9-0fa2-41e3-a4e7-fb6f6b702a55",
+  "lang": "en",
+  "text": "A family sells its dog because the money has run out, and the film treats that as the serious event it is. The buyer is the Duke of Rudling, who has the means to keep her; the boy, Joe Carraclough, gets no say in the transaction at all. Fred M. Wilcox splits the picture into two unequal halves: a household where solvency costs exactly this much, and a long walk home across country by an animal whose reasons nobody in the film can account for. It stays clear of sentimentality by keeping the money visible, since the debt is real and the sale is a transaction rather than a cruelty. The color photography turns weather and distance into the opposing party, and the route is filmed as geography rather than metaphor.",
+  "model": "claude-opus-5",
+  "source_sha256": "86fac70ad61cb9460df2b0059f6126b083974f18c625b2674c48e5f54c776e16"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "wild-river-1960",
+  "field": "lead",
+  "film_id": "81f3ed29-0a21-42c7-aed2-99b4b8236c35",
+  "lang": "en",
+  "text": "A federal man arrives in Tennessee holding the authority to buy an island and no way to make its owner sell. The dam is going in regardless; the Tennessee Valley Authority has sent him to finish the paperwork, and the paperwork requires an eighty-year-old woman to agree to leave the land she lives on. Elia Kazan runs two arguments at once: her refusal, and a local farmer's objection to a government man hiring black laborers and paying them wages. The affair with her widowed granddaughter grows in the same slow air and keeps unsettling whose side the young man is standing on. 110 minutes in a countryside being measured for water, later preserved by the Academy Film Archive, and the price stays specific: one house, one island, in the frame the whole time.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e0eb3df43f4275f0a3562df79f9dfe7842c09dabe96702d6319f3c0e7e6163f"
+ }
+]

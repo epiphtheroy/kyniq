@@ -1,0 +1,272 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sidney-lumet",
+  "field": "intro",
+  "lang": "ko",
+  "text": "뉴욕 영화의 거인. 시드니 루멧은 아역 배우로 출발해 생방송 TV 시대의 개척자가 되었고, 끝내 《12인의 성난 사람들》과 《네트워크》 같은 거칠고 도덕적으로 복잡한 걸작들을 남겼다. 전설적인 속도, 배우를 향한 지독한 의리, 그리고 할리우드에 대한 뿌리 깊은 혐오가 그의 작업 방식이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f2503bf731526eac68f2b722e15ad518b970a658a34484ed31cba950069849fe"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sion-sono",
+  "field": "intro",
+  "lang": "ko",
+  "text": "소노 시온은 도발적이고 지독하게 다작하는 일본의 작가다. 《사랑의 죄》로 알려진 그는 통념을 뒤집고 한계를 밀어붙이는 대작을 만들어왔다. 거리의 시인에서 영화감독으로 건너온 이력답게, 극단적 폭력과 어두운 유머, 종교적 상흔을 뒤섞어 격렬하고 논쟁적인 스펙터클을 빚어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "61d2d2ff46d39cb59492c26a659708996cfcaebd998ea23d7f772f4386fda66f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sofia-coppola",
+  "field": "intro",
+  "lang": "ko",
+  "text": "아카데미상을 받은 감독. 연기자로 데뷔했다가 혹독한 혹평에 시달린 상처를, 그는 찬사받는 연출 경력으로 바꿔놓았다. 속삭이듯 조용한 촬영 현장과 꿈결 같은 미감으로 이름 높으며, 고립된 젊은 여자들이 갇힌 도금된 새장과 그 우울을 거듭 들여다본다.",
+  "model": "claude-opus-5",
+  "source_sha256": "21b0d5cad6dacedac5e4c6d7ed69937a519e98ad4d4344766488c0a3e96d8096"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-jonze",
+  "field": "intro",
+  "lang": "ko",
+  "text": "슈피겔 카탈로그 재산가의 집안에서 태어난 스파이크 존즈는 교외의 부를 버리고 BMX와 스케이트보드의 언더그라운드로 갔다. 뮤직비디오와 스케이트 테이프의 문법을 갈아엎은 뒤, 현대 영화에서 가장 기발하면서도 정서적으로 깊이 울리는 작가 중 하나가 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "014ef2cb0826214a303e061edb4b6a9016ec405539eaa6ea537b9966ab9830e2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "spike-lee",
+  "field": "intro",
+  "lang": "ko",
+  "text": "미국 독립영화의 길을 낸 힘. 스파이크 리는 흑인 도시 생활을 그리는 방식 자체를 바꿔놓았다. 브루클린이라는 근거지에서, 할 말을 삼키지 않는 이 작가는 역동적인 화면과 타협 없는 사회 비평을 결합해 인종과 정치, 문화를 해부한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f8958d85a06d2a644465af36829351aa84ace1cc6e8c2fdda5c5e9037f88e3b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "stanley-kubrick",
+  "field": "intro",
+  "lang": "ko",
+  "text": "브롱크스가 낳은 신동은 은둔하는 거장이 되었다. 스탠리 큐브릭은 병적인 완벽주의로 영화 만들기의 방식을 바꿔놓았다. 영국의 저택에 틀어박힌 채, 그는 아연할 만한 기술적 혁신과 차갑고 철학적인 응시(gaze)를 결합해 영화사에 남을 걸작들을 만들어냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ec453bb8f45a4bbce58fe62739ea1f30d8edc1b4d81bf660c0c957a0edd5974"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-soderbergh",
+  "field": "intro",
+  "lang": "ko",
+  "text": "쉬지 않고 만들며 끊임없이 실험하는 미국의 작가. 스티븐 소더버그는 매끈한 할리우드 대작과 초저예산 인디 실험 사이를 오간다. 촬영과 편집을 직접 맡으면서, 영화의 제작과 배급이라는 관습적 경계를 계속 흔들어댄다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8e6e4cd6e21c6b9d479c276db0fe765493848f1472cdd7bc1ca85f785379ae78"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-spielberg",
+  "field": "intro",
+  "lang": "ko",
+  "text": "현대 블록버스터를 설계한 사람, 이론의 여지가 없다. 스티븐 스필버그는 교외에서 자라며 품은 불안과 역사의 상처를 영화적 금덩이로 바꿔놓았다. 상업적 이야기가 도달할 수 있는 한계를 다시 그으면서, 그는 역사상 가장 큰 흥행 수익을 거둔 감독이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e4ac4e720506962407dd49eda3147ee3bf62af6363f2f828127e6ff3293d0e8f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sylvester-stallone",
+  "field": "intro",
+  "lang": "ko",
+  "text": "직접 쓰고 직접 연출해 가난을 빠져나온 언더독. 실베스터 스탤론은 현대 액션 영화를 세운 거대한 기둥이다. 근육질 이미지 뒤에는 부지런한 각본가, 붓을 놓지 않는 화가, 그리고 집요하기로 소문난 작가가 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d5d58a0674f1ac47693b9a9278119b39798e462b3428f721819c023f53d3a864"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "taika-waititi",
+  "field": "intro",
+  "lang": "ko",
+  "text": "타이카 와이티티는 오스카를 받은 뉴질랜드의 감독이자 배우다. 불경하면서도 깊이 인간적인 코미디로 알려져 있다. 마오리와 유대인이라는 두 뿌리를 뉴질랜드 특유의 능청스러운 감각과 섞어, 마블 시네마틱 유니버스에 활기를 되돌려놓는 한편 세계 곳곳에서 원주민의 이야기를 앞장서 밀어왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6286588122080c3565f195e7d2b21185d1aa8894bbf76b4a90468eadea4a8cd6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "takeshi-kitano",
+  "field": "intro",
+  "lang": "ko",
+  "text": "일본 대중문화에서 거대하고도 모순된 인물. 기타노는 저속한 텔레비전 코미디언 '비트 다케시'인 동시에, 우울하고 극도로 폭력적인 야쿠자 영화로 국제적 추앙을 받는 작가다. 표정 없는 금욕과 미니멀한 '기타노 블루'가 그를 규정한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3b72ffb6bb2a438a082095bf39a6ccff23243a83932333e0c3f9ae2d10315d21"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "terrence-malick",
+  "field": "intro",
+  "lang": "ko",
+  "text": "악명 높을 만큼 은둔하며, 철학을 정식으로 공부한 감독. 테런스 맬릭은 시각적으로 시에 가깝고 자연을 향해 열린 영화로 상찬받는다. 이십 년간 자취를 감췄다가 돌아온 일화는 유명하다. 그 뒤로 그는 기억과 슬픔, 그리고 미국의 풍경을 깊이 영적으로 파고들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "686617ab086cb5f1f18ed004634e137ca9f621e79eac7833a0329338f905a679"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "terry-gilliam",
+  "field": "intro",
+  "lang": "ko",
+  "text": "테리 길리엄의 영화는 초현실적이고 바로크적이며, 권위라면 사납게 물어뜯는다. 몬티 파이튼식 부조리와 디스토피아적 공포가 거기서 뒤섞인다. 할리우드 스튜디오와 벌인 무모한 싸움들로 이름났고, 그의 작업은 늘 상상력이 관료제를 이기는 순간을 기린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d646901e38f653eb623e1bdd310e856d94b54d6cd6a0b57f04c8a776ac46fa28"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "theo-angelopoulos",
+  "field": "intro",
+  "lang": "ko",
+  "text": "테오 앙겔로풀로스는 유럽 영화의 거인이었다. 장중하고 느리게 흐르는 그의 서사시는 그리스의 시각적 풍경을 다시 정의했다. 시퀀스 숏의 대가였던 그는 20세기의 역사와 정치적 환멸을 깊고 우울한 시로 바꿔놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e108c31043f0afb2f76bdae23eb648af40e1138ca02b338ba7b84626ff6e6c6f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "thomas-vinterberg",
+  "field": "intro",
+  "lang": "ko",
+  "text": "토마스 빈터베르그는 아방가르드 운동 도그마 95를 함께 세운 덴마크 감독이다. 공동체와 슬픔, 인간의 취약함을 날것으로, 정서적으로 무너뜨리듯 파고드는 작업으로 알려져 있다. 《셀레브레이션》으로 국제적 명성을 얻었고, 오스카를 안긴 《어나더 라운드》가 뒤를 이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "216ba19460e49e17b729b0c4829320272adf2afa004afde719c3681cef6059ad"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ti-west",
+  "field": "intro",
+  "lang": "ko",
+  "text": "타이 웨스트는 2010년대 '멈블고어' 흐름을 앞장서 이끈 미국 감독이다. 이후 A24에서 호평받은 X 삼부작을 내놓았다. 공들여 쌓아 올리는 '슬로 번' 리듬과 복고적 화면이 그의 표식이며, 각본과 연출, 편집을 직접 겸하는 일이 잦다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d094c458bb20f83191b6b7df738faeb178276b8c0411265a8f43d65296433faf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tim-burton",
+  "field": "intro",
+  "lang": "ko",
+  "text": "팀 버튼은 교외에서 느낀 소외감을 세계 어디서나 알아보는 고딕 팝의 미감으로 바꿔놓은 미국의 몽상가다. 음산한 독일 표현주의와 20세기 중반 B급 영화의 캠프를 붙여, 그는 영화 속 아웃사이더들을 연민을 자아내는, 그러면서 엄청나게 돈이 되는 대중문화의 아이콘으로 만들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf7f0bc5b689a31530932dda163027338e66307c297c6bac16ac136f4801bff2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-haynes",
+  "field": "intro",
+  "lang": "ko",
+  "text": "토드 헤인즈는 뉴 퀴어 시네마를 연 작가이자, 치밀한 영화적 패스티시(pastiche)의 대가다. 통념을 흔드는 멜로드라마와 농밀한 시대극 화면으로 이름 높으며, 흔들리는 정체성과 사회적 소외, ��리고 순응이 사람을 어떻게 짓누르는지를 한결같이 파고든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7441c4efec7dfb15f87006bdd58777622b047ae60c1f9de78dc9dc38dc1891ef"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-phillips",
+  "field": "intro",
+  "lang": "ko",
+  "text": "토드 필립스는 브루클린 태생의 미국 감독이다. 저질스러운 다큐멘터리와 《올드 스쿨》 《행오버》 같은 남학생 사교클럽 코미디에서 출발해, 오스카를 휩쓴 《조커》와 그 뮤지컬 속편을 연출하는 자리까지 올라갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0ccb186248ec534f08cb5166deb823732254d48724a67e7dc9bcfeb8a9da1534"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang",
+  "field": "intro",
+  "lang": "ko",
+  "text": "말레이시아에서 태어난 대만의 작가, '슬로 시네마'의 이름. 대사가 거의 없는 영화 속에서 도시의 고독과 새어 나오는 물, 그리고 뮤즈 이강생이 상찬받아왔다. 황금사자상을 받은 뒤 그는 미술관과 걷기 쪽으로 방향을 틀었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "063387c8d722b976049f92bd8b2d18447184cd3b0fd198581efadb80dac75d22"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "victor-erice",
+  "field": "intro",
+  "lang": "ko",
+  "text": "빅토르 에리세는 스페인의 전설적인 작가다. 사무치도록 시적이고 한 치의 빈틈 없이 벼려진 그의 영화는 기억과 유년, 그리고 스페인 내전이 남긴 유령을 더듬는다. 오십 년 동안 단독 장편이 넷뿐이지만, 그는 여전히 영화의 거인으로 남아 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e50aa74d6cbed537bea6f39ba3ea172c18eecd3b346a36a714bb4fb14b52f5e5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "vincente-minnelli",
+  "field": "intro",
+  "lang": "ko",
+  "text": "빈센트 미넬리는 할리우드 스튜디오 시스템을 능란하게 다룬 사람이다. 그의 손에서 뮤지컬 영화는 초현실적이고 심리적인 예술의 영역으로 올라섰다. 미감에 집착하는 완벽주의로 유명했던 그는, 호사스러운 색채를 물감 삼아 인물의 내면 풍경을 그렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e292ad021a1547d07f63c67afe252118267867f519852dd99cf23054e0927c3c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "werner-herzog",
+  "field": "intro",
+  "lang": "ko",
+  "text": "뉴 저먼 시네마의 개척자. 베르너 헤어초크는 극한의 인내와 실존적 호기심, 그리고 '황홀한 진실'을 향한 집요한 추적 위에 전설이 된 경력을 쌓았다. 험한 밀림과 살아 있는 화산, 인간 정신의 가장 어두운 구석이 그 무대였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9fb4e37d2626b4ed910178914295fc1b0b7ae3755bc5d656a38f09de0b614d6d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wes-anderson",
+  "field": "intro",
+  "lang": "ko",
+  "text": "1969년 휴스턴에서 태어난 미국 감독. 자로 잰 듯한 대칭과 파스텔 색조의 세계, 그리고 앙상블 캐스트로 알려져 있다. 남 흉내 낼 수 없는 그 우울한 변덕 덕분에 '웨스 앤더슨'은 아예 하나의 형용사가 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a2005e0ca57cdf4052e972098338763e2b6604a04a1d4b1af66a7dff2a7ece4b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wim-wenders",
+  "field": "intro",
+  "lang": "ko",
+  "text": "전후 뒤셀도르프에서 태어난 뉴 저먼 시네마의 감독. 로드무비와 우수에 젖은 방랑자들, 그리고 미국 문화를 향한 헌신으로 상찬받는다. 빈 풍경을 찍는 다작의 사진가이기도 하며, 일흔 후반에 접어든 지금도 현역으로 영화를 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a58cd6b323f8fb7d3fa3eae6ed08d98553f596022747c3de0feed4c28e566a10"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "wong-kar-wai",
+  "field": "intro",
+  "lang": "ko",
+  "text": "분위기의 대가, 네온에 젖은 우울의 감독. 왕가위는 즉흥적인 작업 방식과 농밀한 화면, 그리고 이루어지지 않는 사랑에 대한 탐구로 홍콩 영화를 바꿔놓았다. 선글라스를 벗지 않는 이 작가는 오늘날 영화가 가진 가장 위대한 예술가 중 하나로 널리 꼽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "152899a449df9d9c3000fe40319ac34ae1b25dbb6f082c727c1b9f552d623428"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "xavier-dolan",
+  "field": "intro",
+  "lang": "ko",
+  "text": "열아홉에 첫 장편을 연출한 퀘벡의 신동. 그자비에 돌란은 칸이 사랑하는 이름이 되었다. 어머니와 퀴어의 갈망, 그리고 청춘을 선명하고 뜨겁게 그려낸 영화들로 상찬받으면서, 연기와 편집, 의상 디자인까지 스스로 해낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "62620f954eab9ffe6c24f6e6ae6544740805d0232fa28bdeb721151ecb85faa1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "yasujiro-ozu",
+  "field": "intro",
+  "lang": "ko",
+  "text": "일본의 감독(1903–1963). 낮은 앵글로 응시하는 《동경 이야기》 같은 가족 드라마로 추앙받는다. 평생 독신이었고, 술을 많이 마셨으며, 무엇 하나 대충 넘기지 않는 장인이었다. 예순 번째 생일에 도쿄에서 눈을 감았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "af832a03f541608b7ee34dc31e4fbc7f1be042a606d462f9ab9f8865154f0e7d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "yorgos-lanthimos",
+  "field": "intro",
+  "lang": "ko",
+  "text": "아테네 출신의 그리스 감독. 표정 없이 서늘한 《송곳니》 《더 랍스터》 《더 페이버릿》 《가여운 것들》로 그는 이른바 그리스 위어드 웨이브를 대표하는 이름이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "02d57ec73aaa61a6d17ff897329fe371b09871cd6b5f06416064eec7fe1f7de2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "zack-snyder",
+  "field": "intro",
+  "lang": "ko",
+  "text": "시각적 과잉을 밀어붙이는 사람. 잭 스나이더는 매끈한 자동차 광고에서 출발해 블록버스터로 신화를 짓는 자리로 옮겨갔다. 호오가 갈리는 작가이지만, 타협하지 않는 미감과 팬덤을 향한 뜨거운 헌신으로 스튜디오와의 싸움 양상을 바꿔놓았고 감독판이라는 말의 뜻까지 다시 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d1fa0ba1e008e7a1e1e1e28502d57933f182829c1959161483ed3b4c1b5c26ed"
+ }
+]

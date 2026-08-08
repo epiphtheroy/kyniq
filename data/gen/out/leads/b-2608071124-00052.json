@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-pied-piper-1942",
+  "field": "lead",
+  "film_id": "dd4f237d-9157-4358-aa01-e5cb3f3d5452",
+  "lang": "en",
+  "text": "An Englishman goes to eastern France to fish, and the German army arrives instead of the trout. What begins as a delayed departure turns into a slow accumulation of children: the two Cavanaugh children first, whom he is persuaded to take, then others, until a man travelling light is travelling with a household. Irving Pichel shot it in 1942, two years after the roads it describes were actually full, with the outcome of the war still open, and the scale stays down at what one adult can carry, feed and keep quiet. The pressure is language. In occupied northern France an English sentence spoken at the wrong volume is evidence, and children do not lower their voices on instruction. Eighty-seven minutes of trains, carts and checkpoints, and of a man calculating how much a child can safely be told.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1c627c3bfe26589c3765fc1511bac7318191b2841e414a541f18e0f79706b82"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lot-in-sodom-1934",
+  "field": "lead",
+  "film_id": "6cb22704-3ee4-4e03-be0c-0a58bd1e2cff",
+  "lang": "en",
+  "text": "A biblical city rendered almost entirely in bodies: oiled, half-dressed, dissolving into one another as the images pile up. Lot in Sodom takes twenty-six minutes over a story usually told in a paragraph, and spends them on texture rather than incident — smoke, water, flame, limbs shot close and layered until anatomy goes abstract. The National Board of Review put it among its ten films of the year. James Sibley Watson's attention is on what a camera and a laboratory can do to skin rather than on doctrine, and the condemning frame around the material is what allows the material to be filmed at all. Motion here is rhythmic rather than narrative. The story arrives already known, which frees the film from having to tell it. Nobody crosses a room in order to accomplish anything.",
+  "model": "claude-opus-5",
+  "source_sha256": "0026d87cfd387900dbce221182d89aaf9b2bd3d5fca64bf293dbbccabd6fc7b8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-house-i-live-in-1945",
+  "field": "lead",
+  "film_id": "279317ae-8003-45e2-9ad0-7de1c78a8600",
+  "lang": "en",
+  "text": "A group of boys has cornered another boy, and the man who steps in to break it up is Frank Sinatra. Eleven minutes: a scuffle, an argument about religious difference, a short talk that makes no attempt to disguise itself as anything but instruction, and a song. Mervyn LeRoy directed it in 1945, and the didactic shape is the design rather than a flaw in it — a message sized to sit in front of a feature, with a singer doing the persuading because a singer was who the boys in the audience would sit still for. What holds up is the plainness of the delivery. Sinatra is not acting so much as reasoning aloud with children, and the Academy gave the film an honorary award for it. The argument he makes is short enough to memorise, which was presumably the point.",
+  "model": "claude-opus-5",
+  "source_sha256": "b19f7ec95f0b0eb8064d7d29ae7f62dec3b0221f6480b8a7b66e9df394eb5875"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "martin-luther-1953",
+  "field": "lead",
+  "film_id": "c62f1c5d-0a15-495a-aafe-420be37ac53f",
+  "lang": "en",
+  "text": "A monk's quarrel with his own church, filmed in Germany in 1953 and spoken in English. The span is 1505 to 1530, which commits the picture to making drama out of documents, disputations and men in rooms arguing over what a word means; it does not cheat by inventing battles. Where the money went is visible: the Academy's notice fell on the black-and-white photography, and the film thinks in those terms throughout — stone, timber, candle, the fall of a woollen habit, a face lit from one side. Irving Pichel keeps a certain distance from Luther himself, filming a case rather than a temperament. A hundred and five minutes, most of them indoors, with the outside world arriving as news carried in by somebody who has just come through the door.",
+  "model": "claude-opus-5",
+  "source_sha256": "69e045a39d1bff7ed721ba9bde8e4c56ebb5eead6b5346458c1b1fb454ce82d7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tales-of-beatrix-potter-1971",
+  "field": "lead",
+  "film_id": "77dad659-9235-4e27-a0a3-ab0368ad2118",
+  "lang": "en",
+  "text": "Dancers in full animal heads cannot use their faces, which leaves the entire performance to shoulders, hands and feet. That is the constraint the Royal Ballet accepted for ninety minutes in 1971: Squirrel Nutkin, Jemima Puddle-Duck, Jeremy Fisher and the rest, danced by professionals whose expressions are sealed inside Rostislav Douboujinsky's costumes. Reginald Mills is the director, but the authorship sits with the choreographer Frederick Ashmore and the composer John Lanchbery, and the film knows it — the camera mostly stands back far enough to keep the feet in frame. There is a midnight pas de deux for two pigs, Pigling Bland and Pigwig, and a sequence in which Tom Thumb and Hunca Munca wreck a spread of plaster food. Whether that plays as whimsy or as a straight-faced technical exercise depends on how closely the footwork is watched.",
+  "model": "claude-opus-5",
+  "source_sha256": "a080b16c83b08f1f37ff3fa9a940d8fa3a53d8ed6662bb2d7e73c83e1ee8b07f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "king-a-filmed-record-montgomery-to-memphis-1970",
+  "field": "lead",
+  "film_id": "3d39275b-16f2-4f84-bbd1-304fbb62db64",
+  "lang": "en",
+  "text": "Nothing in it was staged, because all of it had already been photographed by somebody else. Three hours and five minutes, opening with the bus boycott in Montgomery in 1955, and Sidney Lumet's editorial choice is to let the speeches run at length rather than trim them down to the sentences that later became quotations. Between the reels of newsfilm, actors read: Ruby Dee, James Earl Jones, Burt Lancaster, Joanne Woodward and others, plainly filmed, doing the work a narrator would otherwise do. The seam between the two registers is the strangest thing in the film — the trained voices keep marking off everything around them as not performance. It was released in 1970, close enough to the events that its first audiences were remembering rather than learning.",
+  "model": "claude-opus-5",
+  "source_sha256": "ba499bf00816ea46fcc0c052659649ef3ab4e9d666ee36bf5d11686e3472698a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "wild-and-woolly-1917",
+  "field": "lead",
+  "film_id": "f64baad1-bb77-4f85-b698-5d35a5b8634d",
+  "lang": "en",
+  "text": "By 1917 the American frontier was near enough to remember and far enough gone to be furniture. A rich young Easterner wants to live in the West he has read about; the town he proposes to move to is orderly, solvent and dull, and its citizens, who want his money, decide to give him the West instead. What that takes — costumes, a redressed saloon, somebody willing to be the villain — the film treats as an honest day's work. The joke is not that the young man is a fool. He is sincere, and sincerity aimed at a fabrication tends to put weight on it. Seventy-two minutes of a whole community lying in unison, with the usual difficulty of a lie that has to keep being told after the tellers have grown tired of telling it.",
+  "model": "claude-opus-5",
+  "source_sha256": "23b0e06851fd25a12ac4bfbec470f2d9be4bd9718e8262439f9a5e137d956618"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "four-days-in-november-1964",
+  "field": "lead",
+  "film_id": "3c379ea8-df8d-4cee-be66-9a188b00b882",
+  "lang": "en",
+  "text": "A year afterwards, and two hours long: the film puts the four days back into order, hour by hour, out of whatever cameras happened to be running at the time. Mel Stuart's material is newsreel and television footage, and the assembly is chronological rather than argumentative — no theory advanced, no expert seated at a desk to explain it. What comes back is texture: the ordinary morning that precedes everything, reporters who do not yet know what story they are on, a city going about its errands. The Academy gave it the documentary award. Two hours is a long time to spend on four days, and the length is the method: what was experienced as a blur is laid out in sequence, with the intervals restored.",
+  "model": "claude-opus-5",
+  "source_sha256": "5127c4791320add5e807724c9da12b30dda0158e66557e09d0bf1389a8a7fa82"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-trip-down-market-street-before-the-fire-1906",
+  "field": "lead",
+  "film_id": "352478d0-7689-46e5-85f5-839083f07c2e",
+  "lang": "en",
+  "text": "A camera bolted to the front of a cable car, pointed forward, cranked by hand from Eighth Street to the turntable at the Ferry Building. That is the whole plan. What arrives inside the frame was not arranged: carts cutting across the rails, vehicles swinging back for another pass, pedestrians who notice the lens and pedestrians who do not, awnings, hats, a street organising itself without instruction. Harry Miles turned the crank on the Bell & Howell; his brothers Herbert, Earle and Joe produced. Twelve minutes of San Francisco in 1906, made by a family firm as a saleable novelty rather than as a record, which is precisely why it serves as one now. Nothing in the picture knows it is evidence. The line ends where the track does, at the water.",
+  "model": "claude-opus-5",
+  "source_sha256": "5ef9aba422f59bcca9fc7818c7c9d6fab6f46031266514ea3bd3db24981d6e44"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-dragon-painter-1919",
+  "field": "lead",
+  "film_id": "7d69d9bf-85a9-47ca-8cf2-bf1e04622b07",
+  "lang": "en",
+  "text": "A wild man with a gift is taken into a master painter's household as a pupil, and the household acquires a problem it did not foresee. His talent runs on wanting. Sixty-one minutes, silent, and the film organises itself around a proposition harder than most romances will touch: that what makes the work possible may be exactly what a settled life removes. Discipleship gives the story a usable shape — a studio, a master, rules about how paint goes onto a surface — against which an untutored temperament can be measured. William Worthington directs, and the running time leaves no room for subplot; everything in it bears on the same question. Most of the picture is one man being domesticated and an older one deciding whether to count that as a loss.",
+  "model": "claude-opus-5",
+  "source_sha256": "54a920216d97d0a28e5e134370dfffa8c62565cb38805f79c95ef87fcb533aac"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-river-1938",
+  "field": "lead",
+  "film_id": "c29b8d60-63b4-4df7-9b0a-588bb894ceea",
+  "lang": "en",
+  "text": "Thirty-one minutes to argue that a tree felled upriver ends as mud in a parlour a thousand miles south. Pare Lorentz makes the case geographically — watershed, tributary, cut-over hillside, topsoil moving downstream past towns that had no part in the decision — and it is carried by the cutting rather than by anyone on camera explaining it. The river itself is filmed as a working thing rather than as scenery. The date does work here: 1938, the consequences still arriving, the farmers photographed on their own exhausted ground instead of recalled afterwards. The sympathy is plainly with them. It is also unwilling to pretend they had no hand in what happened, which is a harder line for a short documentary to hold than blame would be.",
+  "model": "claude-opus-5",
+  "source_sha256": "4e0c6713681ed9ad621660ab124368339102461cf7bce50f31494baaae7a15c2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mighty-like-a-moose-1926",
+  "field": "lead",
+  "film_id": "3b26eecf-c3d7-4d68-b1ac-0cb506e61d72",
+  "lang": "en",
+  "text": "Two people who have been married for years each decide, separately and in secret, to have their faces remade. What follows is twenty-three minutes of 1926 comedy with a cruel little engine inside it: husband and wife meet as strangers, like what they see, and arrange an assignation, each unfaithful to a spouse sitting directly across the table. Leo McCarey directs, and the machinery is exact — every laugh turns on the audience knowing precisely one thing more than the characters do. The premise also makes a hard observation about long marriage, which is that the two are not repelled by each other so much as used to each other, and that a new profile is enough to undo years of that. Silent, so the misunderstanding never has to survive the sound of a familiar voice.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1e743702288dde354739e098b3dd756d9836303d3ecf56eae2558f4ea75041f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "holiday-1930",
+  "field": "lead",
+  "film_id": "2a664976-5e81-4634-87ea-53d9d68cc4b2",
+  "lang": "en",
+  "text": "Marrying into money comes with a dinner at which the newcomer has to say what he intends to do with his life. That is roughly the engine here: a young man with unorthodox ideas about how years should be spent, engaged to a woman whose family has organised itself around accumulation, and ninety-one minutes of rooms in which the disagreement stays too well-mannered to be said outright. It is an adaptation and moves like one — talk, thresholds, a staircase, people arriving and being announced — which in 1930 was less a limitation than the shape talking pictures were still settling into. The Academy's attention went to the leading actress, and the film does sharpen whenever the good manners slip.",
+  "model": "claude-opus-5",
+  "source_sha256": "14e14f5ed38ea6daee29f5817ef7078d9b1e25325468d1df972a4a304b5e6b0e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-cool-world-1963",
+  "field": "lead",
+  "film_id": "84874227-3abd-4bac-a3c2-e6ca13abeeb5",
+  "lang": "en",
+  "text": "The ambition is specific and it has a price: a boy of fifteen wants a gun, and the gun has to be bought from a grown man named Priest. Everything else follows from that purchase — the money to be raised, the standing it would buy, the presidency of a gang contested by adolescents inside a business run by adults. Shirley Clarke made it in 1963, in a Harlem where the gang fighting the boy wants to bring back had already tailed off, which puts him in the strange position of being nostalgic at fifteen. The pacing is not dramatic pacing. Scenes run well past their point, and the plot advances at whatever rate the money does. Adults appear mainly as suppliers.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf06fb3fee7b0400d05fcca10e707741c9edde7787b85c2d6832f08248cc0bc3"
+ }
+]

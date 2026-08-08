@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tongues-untied-1989",
+  "field": "lead",
+  "film_id": "fdb34c28-d22c-4291-8d57-17c24b3b633c",
+  "lang": "en",
+  "text": "There is a classroom in this film where men learn to snap their fingers: the sling snap, the point snap, the diva snap. Marlon Riggs gave the whole thing fifty-five minutes, barely long enough for an argument and exactly long enough for a voice. Essex Hemphill recites; Riggs tells his own growing up; men talk and dance and the camera stays with them past the point where a documentary would cut away. The comic material is not relief between serious parts. It sits level with them, so a lesson in finger technique carries as much of the film as a memory does. What holds the pieces together is rhythm rather than thesis — poem, anecdote, joke, dance, and back around — and the whole of it moves at the speed of talk among people who already know each other.",
+  "model": "claude-opus-5",
+  "source_sha256": "25f888f4385377c359918f0a10a3184c1d0c0a864cbf70f65843855581c61a66"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-last-temptation-of-christ-1988",
+  "field": "lead",
+  "film_id": "5ee59194-da0f-4c3d-9722-ea2dd92737bc",
+  "lang": "en",
+  "text": "The Jesus here is a carpenter who is only beginning to suspect what he is, and the suspicion unsettles him more than the Roman garrison does. Judas wants the occupation fought. The carpenter keeps saying that love, not violence, is the road, and the quarrel between the two of them runs the length of a picture that lasts nearly three hours. That length is doing work: doubt takes time to become real, and a shorter film would have to assert the torment rather than let it accumulate. Nothing about the role is presented as settled. Most of the drama is interior, which means it gets carried on faces and in the pace of walking. Martin Scorsese hands Judas the stronger argument for long stretches and takes his impatience seriously, which in this material is rarer than the theology.",
+  "model": "claude-opus-5",
+  "source_sha256": "720349b237fc189aae1d5d77fb39fc8c12543a67f2784151e61484d9247814ea"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dirty-harry-1971",
+  "field": "lead",
+  "film_id": "1acca0d2-644b-4e5a-b469-dcc7076c24d3",
+  "lang": "en",
+  "text": "The city is San Francisco and the killer calls himself Scorpio, which is the sort of name a man chooses when he intends to be reported on. Harry Callahan is the detective assigned to him, a cop whose reputation rests on arriving before the rules do. Don Siegel keeps the whole thing to a hundred and two minutes, and that economy is the argument. There is no procedural middle, no scene where anyone talks the problem through to a solution. The film is built so that Callahan's way keeps being the way that works, and it never softens him to make that easier to take — he is poor company for most of the running time, and the picture knows it. The hunt is geography rather than deduction, worked out on foot across a city that gives neither man cover.",
+  "model": "claude-opus-5",
+  "source_sha256": "301fbe1fd721fbe634c63ab9ed502c396846aa1b7e41276cc09eebc1e7794d9b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "outrage-1950",
+  "field": "lead",
+  "film_id": "4b6cee7f-129a-42db-bcca-ac5ef4695110",
+  "lang": "en",
+  "text": "Seventy-five minutes, a young woman just engaged, and an attack on the walk home from work that the story refuses to leave behind. Ida Lupino directed it in 1950 and put the weight not on the crime but on the weeks after — the job she is expected back at, the fiancé who wants things restored, the ordinary transactions that no longer run the way they did. The genre label says crime; the attention is entirely on the aftermath. Much of the film is about being looked at, and about how sympathy and curiosity reach a person in the same sentence. The pressure it describes is daily rather than dramatic. Lupino works in plain setups and short scenes, keeps the camera at a polite distance from the face, and declines nearly every chance to make endurance look like courage.",
+  "model": "claude-opus-5",
+  "source_sha256": "caad543fe35886e6a0bf084a5c7babbe2cb23209c176172afdfcf9b3599bb0d0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ed-wood-1994",
+  "field": "lead",
+  "film_id": "7d063fdb-f05f-4155-b8e8-f5945fc4575c",
+  "lang": "en",
+  "text": "Nobody in this film is any good at making movies, and the film is not laughing at them for it. Tim Burton follows Ed Wood through a stretch of B-picture work where the budgets are nothing, the schedules are shorter than nothing, and no one involved doubts for a moment that the work is worth doing. The shoots are staged with total conviction and no competence, which is the joke and also the tribute. The friends Wood collects are strange, and the film is fond of them without pretending otherwise. Two hours and seven minutes is generous for a comedy, and the time goes to the routine parts of production — casting, borrowing, waiting, persuading — which is where the affection lives. It won an Academy Award for its makeup, which in a story about people remade by cheap means is not a side note.",
+  "model": "claude-opus-5",
+  "source_sha256": "be93c850ea47cdd361d877323cb7c023f1cef487a1db6ccbf16e070b01206f60"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ride-the-high-country-1962",
+  "field": "lead",
+  "film_id": "6204e819-265d-4757-a57e-c4a1ae24379e",
+  "lang": "en",
+  "text": "Two men past their working prime take a job carrying gold down from a mining camp, and only one of them means to be honest about it. The country they cross is still a going concern — mines, camps, payrolls — but the work available to men with their history has shrunk to escort duty at poor wages, and the ex-lawman takes it because there is nothing else he can accept without embarrassment. Sam Peckinpah keeps it to ninety-four minutes. The route carries more than the plot does: high ground, a town at the far end of it, and the long stretches between, where two old friends have time to find out how differently the years have settled on them. Much of the film is conversation on horseback. The humor in it is real, and never at their expense.",
+  "model": "claude-opus-5",
+  "source_sha256": "03ec3c1f0dfd3b53285283fe6c4e716d374d20fc6d5b37001302cf2ca5a7404d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lady-windermere-s-fan-1925",
+  "field": "lead",
+  "film_id": "984de9b4-bee0-4d1c-9567-804db61111a6",
+  "lang": "en",
+  "text": "A wife decides her husband is being unfaithful, and she is wrong, and the film declines to correct her for a very long time. Ernst Lubitsch made it in 1925, which means the suspicion has to be assembled out of glances, doors, arrivals and the order in which people are seated, since nothing anyone says will be heard. The comedy comes from the gap between what the characters know and what the audience has already been shown, and Lubitsch holds that gap open past the point of comfort. He shoots reactions more than events, so the story advances in what people notice about each other. Eighty-nine minutes in drawing rooms, the tension entirely social: who is observed going in, who is placed beside whom, what an object in the wrong hands implies to people trained from birth to read such things.",
+  "model": "claude-opus-5",
+  "source_sha256": "90e8e60d09d936174cd01c65adc053c398baef7e61664557be3d93eb351c726d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "eden-2014",
+  "field": "lead",
+  "film_id": "ab24b8ab-034b-464f-9d67-0e1f719354da",
+  "lang": "en",
+  "text": "Paris, the early nineties, in rooms where the music is new enough that nobody has decided yet whether it counts as a career. Paul and his friends start a DJ collective, and Mia Hansen-Løve gives them a hundred and thirty-one minutes and lets years pass inside that, which is not how films about nightlife are usually built. The nights are shot as nights rather than as spectacle: the same rooms, the same records, the work of choosing what comes next. Covering years instead of a season forces the film to account for what changes and what refuses to. One French critic's title asked whether this amounted to a portrait of the DJ as poet, a fair question about a picture that treats a set the way other films treat a body of work.",
+  "model": "claude-opus-5",
+  "source_sha256": "e5a86f5ab85699e6ff77933d5eef924dad8b6fe0c65b639af494c43ec6974403"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "desperately-seeking-susan-1985",
+  "field": "lead",
+  "film_id": "943a74eb-f1e0-4223-bbcd-279a216a6b5a",
+  "lang": "en",
+  "text": "A New Jersey housewife reads the personal columns the way other people follow a serial, tracking one stranger's messages week to week. The stranger is Susan, who turns out to be reachable, and the film runs on a misidentification that nobody inside it has the information to correct. Susan Seidelman shot it in 1985, and the free-spirited life the housewife gets mistaken for is filmed as an actual way of paying for things rather than as a fantasy of escape. The comedy is mechanical in the good sense: doors, coincidence, appointments kept by the wrong person. Underneath sits a harder question about how much of a suburban life is costume, and the film gets at it by following a woman who takes the costume off and finds the day still expects her somewhere on time.",
+  "model": "claude-opus-5",
+  "source_sha256": "99206171d2b50b01f8e161f7e630686ae354a81fc815e148a871b94d398197ce"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ratcatcher-1999",
+  "field": "lead",
+  "film_id": "c2e99f50-50a9-4173-9ed0-06648bf0f6ab",
+  "lang": "en",
+  "text": "A canal runs past the housing where James lives, and it is the one place in the film that belongs to him. He is twelve. Something has happened that he is not telling, and the not-telling has turned him into a guest in his own family. Lynne Ramsay gives it ninety-four minutes and spends most of them at eye level with a boy who has time on his hands and nowhere to put it. Margaret Anne is fourteen and looking for affection in the places least likely to return it; Kenny holds on to an innocence the surroundings do not reward. The dialogue is sparse and explains nothing; what a scene means arrives through where a body is standing and what it is looking at. Ramsay films the three of them without commentary and without pity.",
+  "model": "claude-opus-5",
+  "source_sha256": "f84ba9f581efeb8b328070508e1406ecbeeff6729340fd2f98da5447b4b11dcf"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "seven-beauties-1975",
+  "field": "lead",
+  "film_id": "49406168-ba0e-4d7b-b7fe-74b609d4123e",
+  "lang": "en",
+  "text": "Pasqualino lives off what his seven sisters earn and calls it protecting their honor, and Naples has given him a nickname for it. Lina Wertmüller opens in farce with a criminal's logic: a small man of enormous self-regard, a family reputation he manages like a business, a code that requires him to do things no reasonable person would do. Then the war takes him out of the neighborhood entirely, and the same instincts have to work in a place running on other rules. What survives the move is his one talent, which is bargaining, and the film's proposition is that this talent has no floor. A hundred and sixteen minutes, and the register shifts more than once without warning. The comedy keeps working after the situation has stopped being funny, which is the uncomfortable part and entirely deliberate.",
+  "model": "claude-opus-5",
+  "source_sha256": "6253bb253f0a9404535105bb91141226f94abf6ee66250e17cb2788e945c2a29"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-league-of-their-own-1992",
+  "field": "lead",
+  "film_id": "44febc02-29df-447b-9d9f-175fafdfd474",
+  "lang": "en",
+  "text": "A candy manufacturer short of men and long on publicity pays for a women's professional baseball league, and the war supplies the rest of the reasoning. The setting is not decoration: the league exists because the men are gone, and everyone in it understands the arrangement to be temporary. What the film is about starts when the players arrive — sisters Dottie Hinson and Kit Keller, who have been competing since long before anyone bought a ticket, and Jimmy Dugan, a coach who has already had his career and resents being handed theirs. Penny Marshall shoots the baseball as baseball, which keeps the comedy from floating. Two hours and eight minutes go to the ordinary business of a season rather than to one decisive game, and the film is willing to let both sisters be right at once.",
+  "model": "claude-opus-5",
+  "source_sha256": "13c4929534274e65f018bb95081f76a7c4aa0f15b2dd058bf8ea5bc41546ef71"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-party-1968",
+  "field": "lead",
+  "film_id": "c4e47381-21e2-41d3-b53e-df92cce0c3c9",
+  "lang": "en",
+  "text": "A clerical error puts an accident-prone actor on the guest list for a Hollywood producer's party, and the evening that follows takes up the entire film. Blake Edwards built it as one continuous event in one house: no subplot, no cutaway to a life elsewhere, just a room filling with people and a man inside it who touches nothing without consequence. Cahiers du Cinéma later placed it among a hundred of the most beautiful films in the world, a strange thing to say about a farce and also not wrong about the staging. The structure runs like a mechanism — each small disaster is left standing so the next one has something to knock into. Dialogue counts for less than choreography; much of the ninety-nine minutes could be followed with the sound turned off.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf947fddeec9347d858871a92f0b65636e6ac0967aae145367bec971841c6616"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "private-life-2018",
+  "field": "lead",
+  "film_id": "3a9c752a-f2b0-4628-9ded-feb06e315f7e",
+  "lang": "en",
+  "text": "The marriage in this film is conducted in waiting rooms, on hormone schedules, and in phone calls with agencies that have their own vocabulary. Richard and Rachel have been trying to have a child long enough that the trying has become the shape of their days, and the film picks them up well inside that. Tamara Jenkins writes them as people who are still funny, and the jokes are the marriage working while everything around it turns procedural. Two hours and four minutes, mostly interiors, much of it two people in a kitchen weighing a chance nobody can quote them odds on. The comedy never lets either of them off, and the film never converts the situation into a lesson. It stays where they are: in the appointment before the next appointment.",
+  "model": "claude-opus-5",
+  "source_sha256": "750cb205f60582846f13b656f23ce82e949dcc2378b93a49acc26c7988a1a1a1"
+ }
+]

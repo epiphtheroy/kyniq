@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brady-corbet#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "애리조나주 스코츠데일에서 태어나 어머니 메리의 손에 홀로 자랐다. 일곱 살에 텔레비전 광고 아역으로 일을 시작했고, 이후 영화를 하겠다며 로스앤젤레스로 옮겨 갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "99835f459ee47bd351390da65fe65d00cb61acc54aa82e04a32ba3da6133b9f2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brady-corbet#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "열네 살에 처음으로 굵직한 배역을 맡았다. 캐서린 하드윅의 거친 십대 드라마 《Thirteen》(2003)에서 주인공의 오빠 메이슨 역이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a4bd59136ae20946b47603368e91b3e05d69a99bf2bfc3a1b0167c64ffcf8635"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brady-corbet#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "조너선 프레이크스의 《Thunderbirds》(2004)에서 앨런 트레이시를 연기했다. 평단과 흥행 양쪽에서 참사였던 이 작품은 십대 배우에게 상처로 남았고, 그는 이후 스튜디오 대작을 영영 미워하게 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f0ef8730202fe24247e661e166a6513c197d4fe2f43c1a2fddadad70d2e5fe62"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brady-corbet#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미국 상업영화에 환멸을 느낀 코르베는 배우 경력을 사실상 영화학교로 삼았다. 라스 폰 트리에, 올리비에 아사야스, 루벤 외스틀룬드처럼 타협하지 않는 유럽 작가들의 현장을 골라 찾아다니며 그들이 어떻게 찍는지를 배웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b5a52257524f7c772038bc3cb1c2612c5559b6c7a55d0a542b1a6b8518cf8cad"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brady-corbet#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "연출 데뷔는 열아홉 살, 단편 《Protect You + Me》(2008)였다. 선댄스영화제 심사위원 특별언급을 받으며 그가 카메라 뒤로 자리를 옮겼음을 알린 작품이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "889a2055fa79de1074b0ab47e28c1bcf0a9a0101ef586f077137152d9577926d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brady-corbet#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "노르웨이 감독 모나 파스트볼드와는 그녀의 연출 데뷔작 《The Sleepwalker》(2014)에 캐스팅되면서 만났다. 연인이자 창작 동반자가 된 두 사람은 이후 코르베의 장편 세 편을 모두 함께 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "333dcbe8aae02bbba9312fc31f81c18a912d400ce7d3e55ef33c09f88211bab4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brady-corbet#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《The Childhood of a Leader》를 위해 워커가 쓴 우레 같은 관현악 사운드트랙은 그의 마지막 영화음악 가운데 하나였다. 워커는 코르베의 두 번째 장편 《Vox Lux》(2018)에도 음악을 붙였고, 2019년 세상을 떠났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8bde380013a68ba26340d267a74ec7d08d28fe23cb4cbbea8ff0fa61cfe60b15"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brady-corbet#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "데뷔 장편 《The Childhood of a Leader》는 2015년 베네치아영화제에서 처음 공개됐다. 스물일곱의 감독은 그해 신인감독상인 루이지 데 라우렌티스상과 오리종티 감독상을 동시에 가져갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a9b7d9957f5d49296cc036b4720e565d9fa133e02039b39e00cc9be1268f4835"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brady-corbet#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Vox Lux》의 스타디움 공연 장면에 진짜 팝스타의 질감을 입히기 위해, 코르베는 호주 팝스타 시아에게 미발표 신곡을 의뢰했다. 나탈리 포트만이 극 중에서 부르는 노래가 그것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb48eb06d17351b0a651c5c2dcbeb6a23aafd0347dc198d40cf819ddc7e38a9f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brady-corbet#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오늘날 독립영화에서는 좀처럼 보기 힘든 야심이었다. 코르베는 《The Brutalist》를 지금은 극히 희귀한 비스타비전 35mm 필름으로 찍었고, 극장 상영을 위해 70mm로 확대했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ed4a7560137bab5de5db3b38b4840ef37ba253a7241842ecdd148c532daf79c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brady-corbet#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "넉넉지 않은 제작비를 늘려 쓰려고 《The Brutalist》는 거의 전부 헝가리에서 찍었다. 전후 펜실베이니아를 대신할 거대한 브루탈리즘 건축 세트를 현지 스튜디오에 지어 올렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "464c171666b2125bbcc76339bb5bd348da2f082d21c8e40c7e0efb95fa1bbeb6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brady-corbet#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "215분에 이르는 《The Brutalist》의 상영 시간에는 15분짜리 인터미션이 의무처럼 박혀 있다. 코르베가 흠모하는 20세기 중반 할리우드 서사시에 바치는 구조적 오마주다.",
+  "model": "claude-opus-5",
+  "source_sha256": "55e5da200aa31c4c2b7cd8a273fe1293c9dfb0036bc8119f3e863b182ae61630"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brady-corbet#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2024년 베네치아영화제. 《The Brutalist》 월드 프리미어가 끝나자 12분간 기립박수가 이어졌고, 코르베는 감독상인 은사자상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4086b052f014e4ff400bfb33b9b8a8ca4a08d242ab6f1b9609ec653dd7252c5b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brady-corbet#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생의 시네필인 그가 자기 영화의 신으로 꼽는 이름은 로베르 브레송, 칼 테오도르 드레이어, 스탠리 큐브릭이다. 그래서인지 그의 영화들도 장(章)으로 나뉜 건축적 설계 위에 단단히 세워진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "02b3f1c385d641f2074990e6ff02aaa463717a1ed82d7602bfa3c4931d7df5a1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brady-corbet#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "세 편의 장편은 하나의 주제로 묶인 삼부작이다. 20세기의 정치사회적 폐허가 어떻게 괴물 같은 과대망상가를 빚어내는가. 《The Childhood of a Leader》의 1차대전 이후, 《Vox Lux》의 9·11 이후 대중문화, 그리고 《The Brutalist》의 홀로코스트 생존까지.",
+  "model": "claude-opus-5",
+  "source_sha256": "f7664b60c116f7c6a94a82c2213d899a9547441a03daa360328837f8854394df"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brian-de-palma#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "필라델피아에서 자란 어린 드 팔마는 정형외과 의사인 아버지 앤서니 드 팔마가 피투성이 절단 수술을 하는 수술실에 자주 들어가 서 있었다. 훗날의 감독은 그 시절에 이미 극한의 유혈 앞에서 무감해지는 예방주사를 맞은 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "017d8904feaf8ebad2375ffe7a6a4d816ff551621be30ceafab7e48d19be0873"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brian-de-palma#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "컬럼비아대학에 물리학을 공부하러 들어갔다. 그러나 교내 상영으로 본 앨프리드 히치콕의 《현기증》과 오슨 웰스의 《시민 케인》에 홀려버렸고, 과학을 접고 연극과로 향했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e5223f5987d45233087a275917d663657a52927393e78d01a5d807e9fe6c89b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brian-de-palma#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1962년, 그는 오랫동안 여성만 받아온 세라 로런스 칼리지에 입학한 최초의 남학생 가운데 한 명이 된다. 그해 신설된 연극 전공 예술석사 과정을 통해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d0435c64a2b6bc7d3ec63a24bd809ef16824c7f7f73ebbfde54f724fd145d61"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brian-de-palma#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1963년 데뷔 장편 《The Wedding Party》를 찍으며 드 팔마는 열아홉 살의 무명 배우 한 사람을 발굴한다. 로버트 드 니로였다. 다만 크레딧에는 오타로 'Robert Denero'라 적혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c9057885ef8677ebb9641b3ac07c357dab1b4087d2565c70135b7f69b68e1441"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brian-de-palma#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1972년 스튜디오 코미디 《Get to Know Your Rabbit》 현장에서 드 팔마를 괴롭힌 사람은 다름 아닌 그의 우상 오슨 웰스였다. 대사를 외우지 않고 시나리오를 계속 바꾸라 요구하는 웰스에게 시달린 끝에, 젊은 감독은 자기 영화에서 잠시 해고당하기까지 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "56d87392a7e91e1213b239bd4b73dc381090eb1775de671bf87c226638f9faec"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brian-de-palma#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1975년 드 팔마와 절친한 친구 조지 루카스는 캐스팅 오디션을 함께 열었다. 배우들은 한자리에서 《캐리》의 고등학생 역과 《스타워즈》의 우주판타지 역을 동시에 보았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "047bef205cf6a28ec102e00cd9eb0850c6b773423cc317849d994ec972784a75"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brian-de-palma#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "특수효과가 붙기 전의 《스타워즈》 초기 시사는 재앙이었다. 기가 막힌 드 팔마는 뒤죽박죽인 플롯을 사정없이 조롱했고, 이야기가 통하도록 그 유명한 오프닝 자막을 루카스와 함께 직접 고쳐 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8772336e3e3c63fe44e7925c7f3a8856acae38c5cc188a2f3ee0be2cab56f29a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brian-de-palma#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "은퇴해 있던 거장 버나드 허먼을 구슬려 《Sisters》와 《Obsession》의 음악을 맡겼다. 성마른 이 음악가의 발작적인 성질도 함께 감당해야 했는데, 한 트랙이 예전 히치콕 스코어 같다고 말했다가 면전에서 고함을 들은 일화가 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6d326dd85bc799e3ee234ffbb7e3235f0dc735767f2516f5aba6538e73c8665"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brian-de-palma#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1976년 흥행작 《캐리》로 ��는 스티븐 킹의 소설을 영화로 옮긴 첫 감독이 되었다. 판권을 산 시점의 킹은 아직 이름 없는 작가였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d176c5ab0c6148678a990faca5197de4e3e93685ec86e93de138ba0d7945eb34"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brian-de-palma#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1979년 배우 낸시 앨런과 결혼했고 그녀를 자신의 뮤즈로 삼았다. 《Dressed to Kill》에서는 냉소적인 매춘부로, 《Blow Out》에서는 순진한 분장사로 세웠다. 두 사람은 1983년 갈라섰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "69c8961d25199b13a57aa7c54e8b2895f4d8c2dcda65e8bedb3c7d92938a48a6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brian-de-palma#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Dressed to Kill》과 《Body Double》은 페미니스트 단체 '여성폭력에 반대하는 여성들'의 격렬한 항의를 불렀다. 이들은 극장 앞에서 피켓을 들고, 드 팔마가 여성을 잔혹하게 살해하는 장면을 미화한다고 규탄했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c9158b67843f173be0b1881ffff5a6f3c27a39efa1be72109919482e7d67a049"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brian-de-palma#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《스카페이스》 현장에서 드 팔마는 각본가 올리버 스톤과 거듭 부딪쳤다. 스톤이 알 파치노에게 부탁하지도 않은 연기 지시를 계속 건네자, 결국 그를 현장에서 쫓아냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b9a8b59dec7fd41d97c1c285a1ac2277ddb889bc3514e5a032ed3cf1b62794e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brian-de-palma#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Blow Out》이 흥행에 실패한 뒤 상업적 성공이 절실했던 그는 브루스 스프링스틴의 'Dancing in the Dark' 뮤직비디오 연출을 수락한다. 무대 위로 끌려 올라오는 팬 역에 신인 코트니 콕스를 앉힌 것이 이 영상이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "48e600ff00aeaeae9237123ed0eda52ec16786451db423af72050164b74277f8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brian-de-palma#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "파라마운트가 《언터처블》의 값비싼 조차장 총격전에 돈을 대지 않겠다고 하자, 드 팔마는 시카고 유니언역 계단에서 그 장면을 즉석에서 다시 짰다. 계단을 굴러 내려가는 유모차는 세르게이 예이젠시테인의 《전함 포템킨》에서 빌려온 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "91e514a8240a2eb93f6f329900fa3a0eff9812bc7f0412129b799e3aa8c46eac"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brian-de-palma#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1991년에는 할리우드의 실세 제작자 게일 앤 허드와 결혼했다. 제임스 캐머런과 막 이혼한 참이었던 그녀는 심리 스릴러 《Raising Cain》을 제작했고, 두 사람 역시 뒤에 이혼했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ec8de3673354ea5232272e3f71e69f7b31c2749aef740eeb7b094354879c1709"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brian-de-palma#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1996년 《미션 임파서블》 1편의 연출자로 드 팔마를 데려온 사람은 톰 크루즈 본인이었다. 그러나 속편 제안은 완강히 거절했다. 프랜차이즈 대작은 한 편이면 차고 넘친다는 것이 이유였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b0bbb66061a1a35f14755de001d3b448925133416c0370818a2810b73587e6d1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brian-de-palma#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《미션 임파서블》에서 톰 크루즈가 와이어에 매달려 적막한 CIA 금고실로 내려오는 그 장면은 온전히 드 팔마의 발상이다. 대사도 총성도 없는 서스펜스를 만들어보겠다는 목적 하나로 설계됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aadd43f848b53c360b613a9a4ffab4d495df4e0e00656b0ca11dbdc48e1b1b7d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brian-de-palma#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그의 경력 전체는 2015년 다큐멘터리 《De Palma》에 담겼다. 흥행 참패도 불화도 숨기지 않는 이 작품의 연출자는 열렬한 추종자인 노아 바움백과 제이크 팰트로였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "384c8e57262b256396e8aec821d1cc26bf2bdbe09da90c3b66bffa5368325036"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brian-de-palma#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1998년 스릴러 《Snake Eyes》의 도입부에서 드 팔마는 니콜라스 케이지를 따라 애틀랜틱시티 복싱 경기장을 훑는 12분짜리 롱테이크를 설계했다. 실은 여러 테이크를 디지털 효과로 몰래 이어 붙인 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4086f61de6ed4db32f3ac163a803b4ffb4c95316b4036b902aa03f6aab190d46"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brian-de-palma#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《언터처블》의 알 카포네 역은 원래 밥 호스킨스에게 돌아갔다. 로버트 드 니로가 마음을 정하지 못했기 때문이다. 드 니로가 끝내 수락하자, 드 팔마는 물러나 준 호스킨스에게 고마움의 뜻으로 20만 달러짜리 '페이 오어 플레이' 수표를 보냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "66a430272b5073fb3258841a8bafe05e2dba35e249b793d9d87ed104c938e9b1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brian-de-palma#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1974년 록 오페라 《Phantom of the Paradise》는 미국에서 처참하게 망했다. 그런데 어찌 된 영문인지 매니토바주 위니펙에서만은 거대한 문화 현상이 되어, 극장에서 몇 달을 내리 걸렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "71b3fc5ec9fbd19627b4e0b2b3814e1767006ee062b46c1894e7606b3d9f4d12"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brian-de-palma#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "베트남전 만행을 다룬 대니얼 랭의 《뉴요커》 기사를 영화로 옮기는 데 그는 20년을 매달렸다. 그렇게 완성한 1989년작 《Casualties of War》의 현장에서, 주연 마이클 J. 폭스와 숀 펜은 진심으로 서로를 혐오했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "411d8084933f5608f24769d9e30fbf705e2c910698304dbe288188b7be4bce14"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "brian-de-palma#23",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1990년 톰 울프 원작 《The Bonfire of the Vanities》의 제작 과정은 재난에 가까웠다. 그 아수라장에서 줄리 새먼의 베스트셀러 취재기 《The Devil's Candy》가 나왔고, 이 책은 지금도 할리우드 실패작을 다룬 가장 적나라한 기록으로 남아 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "90e8fbd9361545814caaaced578f9bdb0b3a3cd848420aec521f574ef48a5733"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "carl-theodor-dreyer#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "드레이어는 코펜하겐에서 혼외자로 태어났다. 아버지는 아내가 있는 덴마크인 농장 관리인 옌스 크리스티안 토르프, 어머니는 그 집의 스웨덴인 가정부 요세피네 베른하르디네 닐손이었다. 어머니는 관계를 감추려 아이를 입양 보냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "319ef9c28de300c34673bdab6b7de947925b038d26b4ba00210270e0f700d7a8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "carl-theodor-dreyer#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그를 데려간 양부모는 엄격한 루터교 신자인 식자공 칼 테오도르 드레이어와 그의 아내 잉에르 마리였다. 두 사람은 사생아로 태어난 주제에 밥을 먹여주니 고마운 줄 알라는 말을 끊임없이 되풀이하며 아이를 학대했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1596b43d599065350d87cde7cf93905968778864a840a45d376a253d8e9d662a"
+ }
+]

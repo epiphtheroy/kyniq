@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuaron#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1998년 《위대한 유산》을 만든 일을 두고 그는 공개적으로 깊은 후회를 밝혀왔다. 잘못된 이유로 찍었고 개인적 연결이 전혀 없었던, 자기 경력에서 유일한 영화라는 말을 여러 번 반복했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b55cc6ca89abf427917ccfeb1c907bfc16363dd3f99e4fbd98836fd7b929dfc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuaron#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "할리우드 스튜디오 간부들과 부딪히면서 그는 자기 목소리를 잃었다고 느꼈다. 성적으로 노골적인 로드무비 《이 투 마마》는 입안을 헹구듯 감각을 되돌리려 의도적으로 택한 작업이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0a98ffbdf151172ba1328fda82a393544393e4330641afb36c8fabca3ad0a2d7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuaron#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "어린 《해리 포터》 배우들이 역할을 이해하도록 쿠아론은 각자 자기 캐릭터에 관한 에세이를 써 오게 했다. 결과는 극중 인물들과 똑같았다. 엠마 왓슨은 열여섯 장을 썼고, 대니얼 래드클리프는 한 장을 냈고, 루퍼트 그린트는 끝내 제출하지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d3ffcf689548b1e40ca2e1ae8485fce13c3ca619832331fc31913072239aefaf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuaron#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "인공어 에스페란토의 열렬한 지지자다. 제작사 이름을 \"Esperanto Filmoj\"로 붙였고, 세계 에스페란토 운동을 공개적으로 후원해왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "50917c90f6d30dc6ad7c3ef66ef0c4828e876b96deb40316e75483fae51a49eb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuaron#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "디스토피아 걸작을 준비하면서 그는 P. D. 제임스의 원작 소설 《The Children of Men》을 읽기를 거부했다. 요약본 하나에만 의지해, 불임의 미래에 관한 자기만의 사회정치적 그림을 그렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "75e5b9e7ccf58438737978933941c139619880d1c5297c19246d809e8f7db2f8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuaron#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《칠드런 오브 맨》의 그 유명한 롱테이크 액션 장면을 찍던 중 가짜 피가 렌즈에 그대로 튀었다. 쿠아론은 \"컷!\"을 외쳤지만 폭발음에 목소리가 묻혔다. 결국 그 거칠고 우연한 화면이 완성본에 남았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f3ea46570e8f32501d4552d40d6f17a1e34580cde5c15af115584dff405e1ed"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuaron#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "기예르모 델 토로, 알레한드로 곤살레스 이냐리투와 함께 \"영화계의 세 아미고\"를 이룬다. 셋은 서로의 각본과 편집본을 가차없이 비평하고 함께 다듬는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d1ceabb9ecf6a21b3620c04f1af1ad4f120c49340f7f6fb372946a183a8e36a3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuaron#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《그래비티》의 끊기지 않는 무중력 환영을 찍을 기술은 아예 존재하지 않았다. 쿠아론과 촬영감독 에마누엘 루베스키는 삼 년을 들여, 수백만 개의 LED를 안쪽에 두른 20피트 크기의 \"라이트 박스\"를 만드는 데 힘을 보탰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "75cf2500f7867748061aef66792dabae5a45dc097ca87f6799e7788c9eb4450a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuaron#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "숨이 조이도록 긴장된 《그래비티》의 각본은 맏아들 호나스 쿠아론과 함께 썼다. 작은 인디 아이디어로 시작한 것이 거대한 스튜디오 블록버스터가 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f708215fbca665d37d5ecb5ea5ea143a60bc4b3546a1e69c8a141eb85df3135"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuaron#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2014년 《그래비티》로 그는 아카데미 감독상을 받았다. 라틴아메리카 영화인으로는 최초였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e4402b1ebf9cbf45838ad03bf10084b29d85973530f39f9c679e474804be0d0b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuaron#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《로마》의 주연은 갓 졸업한 유치원 교사 얄리차 아파리시오였다. 연기 경험은 전혀 없었다. 그를 택한 이유는 하나, 어린 시절 자신을 키운 유모 리보의 기운을 그대로 지니고 있었기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5e955e81ba2dd57e1d4806c35d527ba59f280311e1308bb7c186d8ea3147fd7a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuaron#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생의 동반자였던 촬영감독 에마누엘 \"치보\" 루베스키가 일정이 겹쳐 《로마》에서 빠지게 되자, 쿠아론은 과감히 촬영까지 직접 맡기로 결정했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e54ea24b1fe75df5c6274a813b81c5f00d6b5e1954f4d70600896ccb877409c9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuaron#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2014년 《타임》이 그를 세계에서 가장 영향력 있는 100인으로 선정하면서 그의 문화적 위상은 굳어졌다. 소개글은 J. J. 에이브럼스가 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e47f3b9a65acb3b446f5ca924231b7dfb111d9cbf4b141b1b0f832dbaaa9bf97"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuaron#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "동생 카를로스 쿠아론과 자주 손을 잡는다. 오스카 후보에 오른 《이 투 마마》의 각본도 동생과 함께 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a2a10060285fbb6177deacbaf391f6ace9fb0a2be03d3c832aabb521d7dbfeef"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfonso-cuaron#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "거대한 성공과 여러 개의 아카데미상에도, 그는 CUEC 영화학교를 정식으로 졸업한 적이 없다. 논란 속에 쫓겨난 그 일은 경력의 사망 선고가 아니라 디딤돌이었던 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c7817d9b122c29bb048cabd91e963d60b0e56e9a8872fabaf37218248faf3d7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfred-hitchcock#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "다섯 살 때 아버지는 그를 쪽지 하나와 함께 동네 레이턴스톤 경찰서로 보냈다. 당직 경관은 아이를 십 분간 유치장에 넣고 이렇게 말했다. \"말 안 듣는 아이는 이렇게 되는 거다.\" 이 경험이 평생 경찰을 두려워하는 공포로 남았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3dbe393ce984a8cf6a142bdc9e6a7f9d2df4357a8c07cefa1154b8cdc24c22d7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfred-hitchcock#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스탬퍼드힐의 예수회 학교 세인트이그네이셔스 칼리지에는 단단한 고무 가죽띠로 학생을 때리는 징계 제도가 있었다. 그도 그 대상이었다. 다만 매질은 몇 시간 뒤로 예약되었다. 서스펜스의 고통에 평생 매달리게 된 씨앗이 여기 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3890e31e7060dc74da8e27e26f8296efac76e3712c3acf5924356e24817c1383"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfred-hitchcock#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1920년, 페이머스 플레이어스-래스키 런던 지사에서 무성영화 자막 카드를 디자인하며 영화계에 발을 들였다. 야학에서 배운 삽화 실력이 밑천이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b567d58e2cd53789d4027aa098a20977ecce4f93a60a4c4dadbb6b1e0faffda"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfred-hitchcock#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "훗날 아내가 될, 그리고 누구보다 없어서는 안 될 동료가 될 알마 레빌을 그는 페이머스 플레이어스-래스키에서 만났다. 당시 그는 편집자로 일하고 있었다. 이후 히치콕이 만든 모든 영화가 알마의 날카로운 각본 메모와 편집 지적에 기댔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cdb4b866f5d752214d9185855b6381febd6451f9834ee1aa41c3044d043ac3da"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfred-hitchcock#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "후기작에서 관객이 그를 찾느라 영화에 집중하지 못하는 일이 잦아졌다. 그래서 카메오를 상영 첫 오 분 안에 배치하기로 했다. 관객이 마음 놓고 이야기를 따라가도록.",
+  "model": "claude-opus-5",
+  "source_sha256": "acb801502e98bfa02a30f892cc8a876c17e7533a04f4342cdfb9025d85692dda"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfred-hitchcock#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《레베카》(1940)를 연출하러 할리우드로 건너간 뒤 그는 제작자 데이비드 O. 셀즈닉과 지독한 기 싸움을 벌였다. 셀즈닉은 집착에 가까운 메모를 쏟아부으며 편집권까지 쥐려 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6dcdb2550db4768bb3d56f44d2f1dceb87b057152222f47148c23a20d74b838f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfred-hitchcock#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "셀즈닉 같은 스튜디오 간부가 자기 영화를 다시 편집하지 못하게, 히치콕은 원하는 앵글만 딱 찍었다. 제작자가 이어 붙일 다른 화면은 아예 남기지 않은 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7815f1c448671911ac6bbad8bf271072b5300e72ea8c4dde899f11ceb4773ca6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfred-hitchcock#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "화면 속 키스가 삼 초를 넘으면 안 된다는 헤이스 코드의 엄격한 조항이 있었다. 그는 《오명》에서 이를 우회하는 장면을 짰다. 캐리 그랜트와 잉그리드 버그먼은 삼 초마다 입술을 떼고 서로를 살짝 물고 속삭이다가 다시 붙는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5e73dbec692734b6b3935849ee8c5fbfcd60f204b31938964476f6d069c56691"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfred-hitchcock#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "로버트 블록의 소설 《사이코》 영화화 권리를 익명으로 9천 달러에 사들인 뒤, 그는 비서에게 미국 전역 서점의 재고를 남김없이 사들이라고 지시했다. 결말을 ���추기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "72a260b6b4f83fa1b61c4db86960a6c65f3e446c1ca671b6bca6969c8c81a908"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfred-hitchcock#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《사이코》로 그는 현대적 스포일러 방지 캠페인의 문을 열었다. 극장 로비마다 손목시계를 가리키는 자기 등신대를 세워두고, 영화가 시작된 뒤에는 아무도 입장할 수 없다는 원칙을 밀어붙였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "35f3c5b03f4f696cc0a2a46f05ceddee483472e305cb34273788aaf280b0f47f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfred-hitchcock#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1960년대 초 월트 디즈니는 히치콕이 디즈니랜드에서 촬영하는 것을 딱 잘라 금지했다. 이유도 공개적으로 밝혔다. 저 감독이 \"그 역겨운 영화 《사이코》\"를 만들었기 때문이라고.",
+  "model": "claude-opus-5",
+  "source_sha256": "4539b7be3f19a04c32fe27210a80bc46e50808272856ccf2aecd6ef2f488caa0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfred-hitchcock#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《새》와 《마니》를 찍는 동안 그는 배우 티피 헤드런에게 어두운 집착을 키웠다. 촬영장 밖에서 무엇을 입을지까지 지시했고, 사람을 붙여 뒤를 캤다. 성적 요구를 거절당하자 사실상 계약을 묶어 그를 옴짝달싹 못하게 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "98e85038d7f6c2995639926746873fb4ec5703ece05ad5aebd4e06a5fc04d74e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfred-hitchcock#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 티피 헤드런의 어린 딸 멜라니 그리피스에게 관을 닮은 맞춤 소나무 상자를 보냈다. 안에는 《새》의 의상을 입은 어머니의 밀랍 인형이 들어 있었다. 소름 끼치는 짓이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "57cc68bd3447bded871e6adf26753adbc9ef7ed913f6031e8400c9a07ebe1698"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfred-hitchcock#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "다섯 번 후보에 올랐지만 경쟁 부문 아카데미 감독상은 끝내 받지 못했다. 1968년 명예상인 어빙 G. 탈버그 기념상을 받았을 때, 수상 소감 전문은 이랬다. \"감사합니다... 정말로.\"",
+  "model": "claude-opus-5",
+  "source_sha256": "8135f2de3c06c2345e2385a6ad8710ad9169a434588f6565d0c4e507b2dec7f7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfred-hitchcock#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "'맥거핀'이라는 말을 널리 퍼뜨린 사람은 그다. 애초 만든 이는 각본가 앵거스 맥페일이었다. 훔친 마이크로필름이든 우라늄이든, 인물들을 맹렬히 움직이게 하지만 정작 관객에게는 아무 의미도 없는 장치를 가리킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ef16330205187942fbe094d34fe458516c8d60db42b6b43a8246ba9fab969fa9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfred-hitchcock#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "캘리포니아에서 십오 년을 산 뒤 1955년 미국 시민권을 얻었다. 그러면서도 영국 여권과 이중 국적은 자랑스럽게 지켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c8c518c5863c0061ec1c6f7bbf7dc8896e1ce68785856c2123ec53da72262cb3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfred-hitchcock#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1980년 신년 서훈에서 엘리자베스 2세는 마침내 그에게 대영제국 훈장 2등급 기사(KBE)를 수여했다. 세상을 떠나기 넉 달 전이었다. 짧게나마 '서 알프레드'로 불릴 수 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ea3db88b49beff0edf198d791ffcaafcf3f7b3a95ec1a89aacb0091c0a65d616"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "alfred-hitchcock#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1980년 신부전으로 세상을 떠난 뒤 장례는 베벌리힐스의 굿 셰퍼드 가톨릭 교회에서 치러졌다. 유골은 조용히 태평양에 뿌려졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "296219758a318c1a359583393a57504f6b7cad75e48175e1bebaef0721d7ce42"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ali-abbasi#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아바시는 2002년 학생 비자로 스웨덴에 건너가 스톡홀름 KTH 왕립공과대학에서 건축을 공부했다. 이란의 제약을 합법적으로 벗어날 실질적인 수단이었던 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "375fbf1d585f3d4dd7e7716ca08084ee04884f5545c03e0c95150a9f17a044a7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ali-abbasi#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2007년 건축학 학사를 받은 뒤 그는 건물 설계에서 완전히 발을 뺐다. 향한 곳은 코펜하겐, 명문 덴마크 국립영화학교의 연출 과정이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ba7a32f2150e410ed72d7a5c559a5b3f042680e5523d53e78b9e1ed8176b2414"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ali-abbasi#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《보더》는 2018년 칸영화제 주목할 만한 시선 부문 대상을 받았다. 이 영화에 눈길이 멈춘 사람이 쇼러너 크레이그 마진이었고, 그는 아바시에게 HBO 화제작 《더 라스트 오브 어스》의 마지막 두 회차 연출을 맡겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "22a23c09a6ce96b93f3781a7acd1c65e0a13eaa8aa2d7b28da273a2b0243c4d8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ali-abbasi#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2021년 연쇄살인 스릴러 《성스러운 거미》를 드디어 찍으려 하자 이란에서는 촬영이 막혔다. 이란의 외교 압력으로 터키에서도 쫓겨났다. 결국 그는 요르단 암만에 이란의 성지 마슈하드를 몰래 다시 세워야 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5fd70597d23ee37cf6fb876c80f6d51e85846777537055cf14e56ccc0e902506"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ali-abbasi#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자르 아미르 에브라히미가 《성스러운 거미》로 칸 여자연기상을 받은 직후, 그와 아바시 두 사람에게 이란 강경파의 살해 협박이 쏟아졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6c449c8127e6e05e553bf65c83071049b0e7ac8a29b3fa29abd7f3e51e639b3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ali-abbasi#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영어권 데뷔작 《어프렌티스》(2024)는 전례 없는 무대 뒤 싸움에 휘말렸다. 제작사 키네매틱스의 대주주였던 억만장자 댄 스나이더가 이 영화가 도널드 트럼프를 떠받드는 성인전이 아니라는 걸 깨닫고, 개봉을 막으려 격노해 달려든 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b4fb05e1c553fce5bc5c7cc1035978031ebf6e7acea749143a0b55410b15d32"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ali-abbasi#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《어프렌티스》가 칸에서 첫 공개된 뒤 도널드 트럼프의 법률팀은 제작진에게 공식 경고장을 보냈다. 트럼프가 첫 아내 이바나를 강간하는 장면을 문제 삼아, 거액의 명예훼손 소송을 걸겠다는 위협이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "59311f280f47d2eb335878f5cda6b7a8a4d3573a07a5cf3907efffa71be158e5"
+ }
+]

@@ -1,0 +1,132 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "system-crasher-2019",
+  "field": "lead",
+  "film_id": "6e7623a8-8668-40fb-9662-fc386d4d1dbe",
+  "lang": "en",
+  "text": "Benni is nine years old, and every place that takes her in eventually finds a reason to send her on. Child protection has a term for children like her, and the term is closer to an admission than a diagnosis. Nora Fingscheidt stays close for 118 minutes, mostly within arm's reach of a small body that will not be managed: foster placements, group homes, classrooms, the vans in between. What Benni wants is unremarkable, her mother's flat and her mother in it, and the apparatus around her can arrange almost anything except that. Then Micha is hired to teach her to hold her temper, and the film reaches its hardest ground, which is what a paid adult owes a child once she has decided he is hers. It took the European Film Award for Best Film, though it plays less like a prize picture than like a case file nobody can close.",
+  "model": "claude-opus-5",
+  "source_sha256": "cf6a13ded7d41ec4aa06f40ce63eabfd26e1b51345c033f9e1f0ba68d3b64443"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sweet-sixteen-2002",
+  "field": "lead",
+  "film_id": "6f627a70-6fb0-4b27-8af9-7152a7d1ed54",
+  "lang": "en",
+  "text": "The plan is simple and entirely reasonable: a home of their own, paid for and waiting on the day his mother is released from prison. Everything that makes it impossible is arithmetic. Ken Loach puts his Scottish teenager in a town where honest wages accumulate too slowly to matter, so the boy reaches for the faster money already circulating around him, and the film watches those terms come due in ways nobody writes down. Its 106 minutes go to logistics rather than sermons: who is owed, who is watching, what each favour costs. The performance at the centre took the European Film Award for Best Actor, and the reason is audible, a voice pitched between a child's wheedling and a negotiator's calm, sometimes inside one sentence. Loach's fondness for the boy never softens into pity.",
+  "model": "claude-opus-5",
+  "source_sha256": "3938fe246b1c24e30446a228801efce40ba1d7a64fde1295365364e94468e0d0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "father-goose-1964",
+  "field": "lead",
+  "film_id": "cc36fb40-e6c0-41b1-8c28-5f9d69671c45",
+  "lang": "en",
+  "text": "A 1964 war picture in which almost nobody fires a shot and the enemy is mainly a noise passing overhead. Walter Eckland has arranged his life to avoid exactly this kind of obligation, an island and a bottle and no one to answer to, and is talked into watching the sky for aircraft, a job made of waiting and reporting. Then a schoolteacher arrives with a file of pupils behind her, and the arrangement collapses into something closer to a household: rations, bedtimes, hygiene, negotiation. The comedy runs on two competent adults who each regard the other as an unnecessary complication, and the writing is tight enough to have taken the Academy Award for Original Screenplay. It is 118 minutes long, most of them on one beach, with a war close enough to keep the jokes from floating away.",
+  "model": "claude-opus-5",
+  "source_sha256": "78822140442d27d5951dee574fdbe6eaf48a2604cb9bc305c7cbf1effbec3f23"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-bachelor-and-the-bobby-soxer-1947",
+  "field": "lead",
+  "film_id": "4fd2ce20-4bca-4e2e-991e-76cb184a5b59",
+  "lang": "en",
+  "text": "The bargain is handed down by a judge: keep company with the infatuated teenager until she tires of it, or take the jail cell. Irving Reis runs the ninety-five minutes that follow as a machine of enforced propriety, where private feeling has to pass through somebody's official capacity, the bench or the school or the family. Susan is old enough to script an adult romance in her head and young enough to be disastrously literal about it. Richard, cast as the reluctant object, must perform a courtship he is forbidden to mean. The screenplay took the Academy Award, and the prize sits on the structure more than the wisecracks, since the premise keeps generating fresh obligations for everyone who touches it. A 1947 comedy about the exact distance an adult is supposed to keep, and how hard that is to measure from the inside.",
+  "model": "claude-opus-5",
+  "source_sha256": "7731994717e0561063438a77cfc6917f866cf41c73d52b58eec958ec32993382"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "marakkar-lion-of-the-arabian-sea-2018",
+  "field": "lead",
+  "film_id": "51733e2e-4e3f-4faa-aab3-b4f5fdaac039",
+  "lang": "en",
+  "text": "The Zamorin of Calicut kept a naval chief for the Portuguese problem, and the fourth man to hold that post is the one this film wants remembered. Priyadarshan gives him 182 minutes in Malayalam and builds at the scale that claim implies: fleets, court politics, a coastline with trade to protect and a rival navy anchored off it. Sixteen victories are credited to Kunjali Marakkar the fourth, won by strategy rather than by weight of ships, and the film places him where a ruler's diplomacy and a sailor's practicality stop agreeing. That friction, more than the battles, is what the running time is for. It sits on the National Film Award roll of Best Feature Films, and it takes the Arabian Sea as a working sea, a matter of cargo and weather and men who read both, rather than scenery for a flag.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c26568e396e947c7b672dd08d98fd761d7f9099d02e1177187b9add3c64e502"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-third-murder-2017",
+  "field": "lead",
+  "film_id": "b3bbaa13-ac1f-4dde-84eb-89cf69085697",
+  "lang": "en",
+  "text": "A defence lawyer's brief is not to establish what happened but to find the version that costs his client least. Hirokazu Kore-eda builds 125 minutes on that distinction and then lets it spoil. The case looks finished before the defence begins, a robbery and a killing with a man already in custody, and the doubts that follow arrive not as evidence but as a growing sense that the story is being shaped by everyone who handles it, defence included. Rooms do the work here: an interview booth, a table, the flat administrative time of a file assembled by people with schedules. It is recognized among the Japan Academy Film Prize's Pictures of the Year, an odd home for a film whose argument is that a courtroom cannot manufacture truth on demand. It moves at the speed of paperwork, and the patience it asks is the point.",
+  "model": "claude-opus-5",
+  "source_sha256": "df4329d49b9cee9b9c242a36940075b3a97f85f434cf83a1ad8c77f338282a84"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "battleground-1949",
+  "field": "lead",
+  "film_id": "1c90b12a-6a8c-4aff-bef4-7a2230d3b8eb",
+  "lang": "en",
+  "text": "What the men holding Bastogne need is not reinforcement or nerve but a break in the clouds. Fog keeps the aircraft down, and without aircraft there is no supply and no cover, so much of the fighting in this 1949 picture is a matter of digging in and outlasting weather that answers to nobody. William A. Wellman keeps the squad small and its concerns smaller: boots, eggs, a rumour, the whereabouts of the man who was here an hour ago. That is how the December cold gets into the film instead of being described by it. The Academy Award for black-and-white cinematography went to a landscape of snow, mist and bare Belgian timber where sight lines end early and a shape at the treeline could be anyone. Made four years after the events, close enough to assume an audience that already knows the cold.",
+  "model": "claude-opus-5",
+  "source_sha256": "7511c263932d2bfb781d8b73894d537a621d49117f02ba3cdf09d8a6f9ad7efd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "titanic-1953",
+  "field": "lead",
+  "film_id": "2ad196d7-394d-4cd7-a62e-c149489a15e3",
+  "lang": "en",
+  "text": "Julia Sturges books passage to America to end a marriage, and her husband books passage on the same liner to keep the children. For most of its ninety-eight minutes this is a domestic case argued in first-class corridors: whom the children will resemble, which country will raise them, what a wife is permitted to decide by herself. The ship is a venue rather than a subject, and that imbalance is the interesting part. The black-and-white art direction, an Academy Award winner, supplies rooms that do social work, a dining saloon that ranks everyone seated in it, a stateroom too small to hold a quarrel, decks where a couple can be watched but not overheard. Everyone in the audience knows something the passengers do not, and Jean Negulesco lets that knowledge sit beneath the manners rather than nudging it.",
+  "model": "claude-opus-5",
+  "source_sha256": "0694c1d85aa731b892377eb95bac6b46b1273d4710d23718333aaf7017891960"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "henry-fool-1998",
+  "field": "lead",
+  "film_id": "7f3c5e08-7c48-4594-a615-de40d2564e4c",
+  "lang": "en",
+  "text": "A man turns up with an enormous opinion of himself and nothing to support it, and the opinion turns out to be contagious. Hal Hartley gives him 137 minutes and a New Jersey household to work on: a garbage man who barely speaks, a sister who is not asking to be rescued, a route, a basement, a kitchen table. What follows is less mentorship than infection, since borrowed confidence travels faster than whatever talent it was meant to serve. Hartley's dialogue holds its flat, formal cadence throughout, which turns grand statements about art into something like legal argument, funny the way a straight face is funny. Its subject is the moment a private habit gets called a gift by somebody with no standing to say so, and what that does to everyone else living in the house.",
+  "model": "claude-opus-5",
+  "source_sha256": "ce337ae735dda2830f60ebae802fdf44e8982225a9d0ef4dab03fecb2ac210ad"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "four-minutes-2006",
+  "field": "lead",
+  "film_id": "775bef68-1bf5-4f1f-94e4-fb899349df7a",
+  "lang": "en",
+  "text": "An eighty-year-old woman carries her sheet music into a prison every week, and the stubbornness that requires is where the film starts. Her pupil, Jenny, is young and violent and unrepentant, and the talent is not in dispute; what is in dispute is whether talent buys anything inside an institution built to withhold exactly that. Chris Kraus keeps both women free of sentiment. The teacher's interest is closer to appetite than to charity, a chance to complete something her own life left unfinished, and the girl can feel it. So the lessons become negotiations: scales, refusals, small extortions, two people who need each other and would deny it under oath. The European Film Academy's Prix d'Excellence went to it, and nothing in its 112 minutes suggests that music is going to heal anybody.",
+  "model": "claude-opus-5",
+  "source_sha256": "05ff3faf9ac4690dfebe36b026b4eb4ffdadb968d39c1d2ce96cbb653115c6cb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "seethamma-vakitlo-sirimalle-chettu-2013",
+  "field": "lead",
+  "film_id": "a3bfc58d-3de7-4e77-8598-ad9ca49a1c58",
+  "lang": "en",
+  "text": "Two brothers share a house and almost nothing else in temperament, and the film gives that difference 159 minutes without forcing it into a quarrel. A Telugu family drama at this length runs on a calendar rather than a plot: visits, meals, errands, and the slow committee work of finding each son a wife, conducted by parents and relatives long before either brother is asked his opinion. Srikanth Addala treats that search as the household's real labour, and much of the comedy comes from how many people consider themselves qualified to conduct it. Affection between the brothers is played as habit, the shorthand of two men who grew up in the same rooms, rather than as a lesson about family. Its place on the National Film Award roll of Best Feature Films makes more sense at the end of the second hour than at the start.",
+  "model": "claude-opus-5",
+  "source_sha256": "29f2004cfb19298b5dc169519feebbcf38c4a27d923931518d1d88c7cd4d10a1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "john-rabe-2009",
+  "field": "lead",
+  "film_id": "bd2bb524-b7bc-4874-8a60-01a62a03c1d6",
+  "lang": "en",
+  "text": "More than two hundred thousand people is not a figure one man is built to be responsible for. The record of Nanjing in the winter of 1937 attaches that number to a German businessman. Florian Gallenberger films it from inside the logic of a foreign national: a company, a compound, permits, and the peculiar standing a European held in a Chinese city under attack. Much of the 134 minutes is administrative, which is the right call, since protection at that scale gets assembled out of negotiation, paperwork and bluff, and the danger arrives as conditions to be argued around rather than as spectacle. Austrian-produced and in German, it keeps a distance from the man's interior life and stays with what he did in rooms, at gates, on telephones. History settled the outcome long ago; the film is interested in the improvising.",
+  "model": "claude-opus-5",
+  "source_sha256": "bba8c725a901aad7efdc19c9f7d2ef0c661b9ce706ac349a8427e9143912f24e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "maybe-maybe-not-1994",
+  "field": "lead",
+  "film_id": "915802bc-6b64-4bf3-93e8-60b4c2153391",
+  "lang": "en",
+  "text": "Axel is put out of his girlfriend's flat for cheating and lands on the sofa of a man who finds him attractive, which is the entire engine of the thing. Sönke Wortmann keeps it to ninety-four minutes and plays the misunderstandings at speed, with doors, wrong assumptions and a hero whose vanity is the one dependable thing about him. The joke underneath is that Axel rather likes where he has landed, an apartment with better company and fewer accusations than the one he keeps meaning to return to, which complicates the choice the plot eventually hands him. Its assumptions about who is looking at whom belong to 1994, and watching them now is part of the interest, since a mainstream comedy is a durable record of what a country was willing to laugh at in public. It sits on the German Film Award's Best Feature list.",
+  "model": "claude-opus-5",
+  "source_sha256": "aaa15bb142774546520c3b949487ce2d3b96ebeb9c48577d2d671605fda164ce"
+ }
+]

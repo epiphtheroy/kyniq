@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-inheritance-1976",
+  "field": "lead",
+  "film_id": "0904f202-ce57-45a5-948c-4feeb4f08700",
+  "lang": "en",
+  "text": "A Roman bakery shuts its doors in 1880, and the ovens are barely cold before the sons begin counting what their father still owns. Mauro Bolognini builds the film out of that arithmetic - a household where affection and accounting share a vocabulary, and where the most dangerous person present married in. The daughter-in-law works the brothers one at a time, having understood that a family's rules hold only as long as the men enforcing them agree. What she is fighting is not poverty. It is a second wedding, which would divide everything again. The costumes are 1880; the machinery is property law, applied to people who are never alone in a room and never quite candid in it. One hundred and fifteen minutes, and the air thins steadily.",
+  "model": "claude-opus-5",
+  "source_sha256": "acde0dee0ec5150543032468795d9aea2158b8143b038a1e35af8b341bdf1652"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "outrageous-1978",
+  "field": "lead",
+  "film_id": "c66e2e84-63d8-4866-b9e9-3d6cbcb5228b",
+  "lang": "en",
+  "text": "Robin Turner styles the wigs for other people's acts and then goes home to think about his own. He dresses drag queens for the stage and watches from the floor, keeping the ambition private long enough for it to harden into a habit. Liza breaks the habit by turning up with nowhere to stay, a schizophrenia diagnosis, and a pregnancy no one planned; what forms between them is less a romance than a standing dare. The film is Canadian, 1978, and files itself as comedy, which is what lets it treat a nightclub act as work rather than deliverance, and a friendship between a hairdresser and a woman coming apart as a practical arrangement with rent in it. A Silver Bear went to the lead performance. It does not look down at anyone in it.",
+  "model": "claude-opus-5",
+  "source_sha256": "048dfd7a90fdf5f4007dd16c7b34f43dd9432b010dfe03551fc476f4e923d929"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "gloria-mundi-2019",
+  "field": "lead",
+  "film_id": "6e1aa34d-5009-4b75-979f-69eee4de9f10",
+  "lang": "en",
+  "text": "A newborn arrives into a household where every adult is on some kind of trial period. Mathilda has just given birth and her job selling in a shop is not yet permanent; Nicolas drives his own car for fares and sleeps in the gaps; Daniel, her father, comes back to Marseilles from prison to find a family that has rearranged itself without him and cannot afford to do it twice. Robert Guédiguian films all of this as routine, which is the argument: the work here has been cut into pieces small enough to sell by the hour. The turn comes when licensed taxi drivers decide that the man undercutting them is the problem standing in front of them. It is not offered as fate. It is people with thin margins choosing people with thinner ones, and there is an infant in the next room who will grow up inside the difference.",
+  "model": "claude-opus-5",
+  "source_sha256": "b5cfb5bbf1bd0ffe3e91140cbb362527a6256cfa620631d1d62443c72751c863"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-man-who-lies-1968",
+  "field": "lead",
+  "film_id": "2ff47b1d-0671-4d2c-8307-54dd35d7ef6f",
+  "lang": "en",
+  "text": "The man talks, and the town listens, and that is the entire mechanism. He walks in out of the war with an account of himself - a comrade dead, the Nazis at his back, a debt of witness to discharge - and offers it to the household of the man he says he lost. Alain Robbe-Grillet made this in 1968, close enough to the war that a stranger with resistance credentials could be believed on sight and be lying at the same time. Ninety-seven minutes, and the suspense is not about the truth: it is about the upkeep. Each new version has to be squared with the last, and the family's willingness to take him in becomes a form of complicity. The affair, the sister, the servant girl: all of it is material in the argument he is running.",
+  "model": "claude-opus-5",
+  "source_sha256": "41ead44af426dd1a1c157a821254bc71a2b24a7198e793f8344803ef16482959"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "another-way-1982",
+  "field": "lead",
+  "film_id": "6f5f7dc1-ac78-4888-a168-c221fe7e78d5",
+  "lang": "en",
+  "text": "Hungary, in the years just after 1956, and a newspaper office where what can be printed is settled every morning by people who already know the answer. Eva takes the job and does not accept the answer. Károly Makk sets that refusal beside another one: her attraction to Livia, a colleague who is married and does not find any part of this simple. The film's proposal is that these are the same act performed twice, once against an editor and once against a life already arranged, and it keeps both of them costly. Livia's hesitation gets as much room as Eva's certainty, which is the harder choice and the one that makes the film honest. Made in 1982 and set in the aftermath of 1956, it is exact about dates, because everyone in it is being asked what they said, and when.",
+  "model": "claude-opus-5",
+  "source_sha256": "f945c8305f0ea0319e658ab4688e3aa6fda77e6d3f61aaafa47ebca50ae3d2b0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "woman-in-a-dressing-gown-1957",
+  "field": "lead",
+  "film_id": "e40d48c2-2ea9-445d-9a13-b5777f9f7390",
+  "lang": "en",
+  "text": "The husband made his decision somewhere else, and his wife is the last person in the house to hear about it. J. Lee Thompson hands the film to her - middle-aged, talkative, entirely comfortable in the marriage on the morning it ends - and declines to make her either a victim or a joke. The whole thing runs an hour and a half and barely leaves the house. The younger woman is not written as a schemer and the husband is not written as a monster; the difficulty comes from the everyday equipment of a household, the meals and the mending and the hours nobody counts, and from a woman obliged to argue for her own life in the middle of a weekday. The register is what lasts: a marriage coming apart at conversational volume, indoors, in daylight.",
+  "model": "claude-opus-5",
+  "source_sha256": "306611f55bad1fb4a531db564ffb86b312fab6c5a16eac8300d326934c0bab40"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "one-potato-two-potato-1964",
+  "field": "lead",
+  "film_id": "7dfb5e62-686b-4959-9ed1-c2ca01c70e5e",
+  "lang": "en",
+  "text": "Eighty minutes is a short film for a custody fight, and the brevity does work: there is almost nothing here to argue about, and the argument proceeds anyway. A divorced white woman marries a Black man, and her former husband returns to ask a court to move her daughter out of the house on the grounds of who now lives in it. Larry Peerce made it in 1964, in the United States, which means the judge on the bench is not a device but a neighbor. The discipline of the thing is that it stays with procedure - the filing, the testimony, the language of a child's best interest - instead of with speeches, so the prejudice arrives dressed as reasonableness and spoken in a courteous voice. The couple's ordinary life before the summons gets the same plain attention.",
+  "model": "claude-opus-5",
+  "source_sha256": "b53bd46a2439c64ed956a709f32a6e90e8e77d8509bfb7b4d564c4b535d3f2b0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ask-any-girl-1959",
+  "field": "lead",
+  "film_id": "a1e101e9-9c2b-4f34-95ff-f5f3a19f32c6",
+  "lang": "en",
+  "text": "A suitcase goes missing at Penn Station in the first minutes, and the film treats it as the normal cost of arriving. Meg's project is a husband, pursued in New York with the seriousness other people bring to a career, and the joke Charles Walters is telling has to do with method. She loses a room, loses a boss who has made a pass and cannot be corrected, and lands at a motivational research agency, where preferences are measured for money. Then she turns the instruments on the two brothers who own the place, one punctilious and one not. The picture is 1959 and never questions its premise - a single woman in a rented room as a problem that marriage solves - which sits oddly against a heroine who is plainly the most capable researcher in the building.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae07824f7251d8b2d790580ac305a743498668c0a316274097ed44b4087209c3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "love-by-request-1983",
+  "field": "lead",
+  "film_id": "12ba78d9-844e-47d0-8633-07b9832a4a7a",
+  "lang": "en",
+  "text": "Two people decide to fall in love on purpose, by method, on a schedule they set in advance. Igor was an athlete and is now a man who works for drinking money; Vera is a librarian nobody looks at twice; the arrangement between them is explicitly technical, a course of psychological conditioning with affection as the intended output. Sergey Mikaelyan keeps a straight face for the whole eighty-nine minutes, which is what makes the film funny and then makes it something harder. The comedy is in the earnestness of the method. The drama is in what the method turns out to require of two adults - turning up, being looked at, being sober at a stated hour, and surrendering the excuse of spontaneity, which is the excuse both of them have been living on. Made in the Soviet Union in 1983, and unembarrassed by any of it.",
+  "model": "claude-opus-5",
+  "source_sha256": "d95ac39cdd7f5ecbab30326d7e301fec0898cc09335aeb1df9572114a33d4635"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-quiet-son-2024",
+  "field": "lead",
+  "film_id": "0ce931e2-e6b2-4bdc-bd41-aa924ab4dae4",
+  "lang": "en",
+  "text": "One son leaves for the Sorbonne; the other stays in the house, and the house is where the film lives. Pierre raised both boys alone and believes he knows the difference between them: Louis, who reads, and Fus, who did poorly at school and now keeps his evenings to himself. What Fus is joining is no mystery to anyone watching, only to his father, and Delphine Coulin builds the film in that gap - the small revisions a parent performs in order to go on believing his own son, the questions asked at the wrong volume, the silences a man in his fifties has taught himself to accept. Nearly two hours, played at close range. The extremism is treated as something happening to a household rather than a subject to be explained, which keeps the argument at the table, between a father and a son.",
+  "model": "claude-opus-5",
+  "source_sha256": "a1d3c2adc2417557d4f739e120a25081566ca6b2a2fe36310c097b3afd9198a4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-story-of-piera-1983",
+  "field": "lead",
+  "film_id": "98d808af-e785-4b93-870b-a3327127670e",
+  "lang": "en",
+  "text": "Piera grows up watching her mother, and what she learns from the watching is not caution. Marco Ferreri films a childhood and an adolescence as one long exposure to adult appetite: a girl raised less as a daughter than as a confidante, an audience, a companion in her mother's enthusiasms, with the household's tenderness and its damage arriving in the same gestures. A hundred and five minutes, held at the level of what the girl herself understands. The mother is charming and unwell. The parents' idea of closeness has no line drawn in it anywhere. What holds the film together is the question of how a person assembles a self out of that material, having never been shown an ordinary one, and it sits closer to a portrait than to a case study.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d3771fcfc462721f7f9f0a1c55a32ee78f488ec5a4847e43c246f840233f16b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-conjugal-bed-1963",
+  "field": "lead",
+  "film_id": "44b3a804-2586-4b15-bc64-abf466f39b3b",
+  "lang": "en",
+  "text": "He is forty, employed, comfortable, and has decided it is time to marry. The bride is quiet through the wedding and something else after it, and Marco Ferreri builds the film as a steady subtraction: a man who wanted a household gets one, complete with a purpose he never thought to ask about, and the picture measures what it costs him the way a meter measures gas. It runs ninety-two minutes in Italian, and the cruelty is farce cruelty - it never raises its voice, it simply keeps count. The wife is played straight throughout, which is the choice that makes it work: she is not a monster, she is a person doing exactly what the arrangement she agreed to calls for, and he is the one who cannot say so out loud.",
+  "model": "claude-opus-5",
+  "source_sha256": "46d8bb24598c489473083de4423093f6ad8071f46d14dca0a400c56d14620729"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tribute-1980",
+  "field": "lead",
+  "film_id": "45482dfd-0d7a-4959-9d1b-7bb515119cfe",
+  "lang": "en",
+  "text": "A press agent is paid to be liked on other people's behalf, all day, professionally. Bob Clark hands one such man - Broadway, fast, hollow in a way his friends have always found charming - two arrivals at once: a diagnosis, and the son he had with his ex-wife, come for a visit. Two hours of a man who has never been serious in his life being required to manage it, and the film will not let him get good at it quickly. The son is not an accuser. He simply does not laugh in the right places, which is the worst review this man has ever had. The performance at the center is the whole architecture, and the record shows the Academy took note of it. Comedy and drama are not alternated here so much as spoken in the same breath.",
+  "model": "claude-opus-5",
+  "source_sha256": "01a764e503bf4bfa8fcc19ac236300ad13303037ad35ae83d320e562242bbc96"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "that-championship-season-1982",
+  "field": "lead",
+  "film_id": "3c85ad85-c086-406c-a650-50c69834d693",
+  "lang": "en",
+  "text": "The championship was 1957, and the five men in the room have been living off it ever since. Four teammates and the coach who made them, one house, one night, a conversation that begins as reminiscence and turns into an audit. Jason Miller keeps the camera where a stage would keep it: close, indoors, unrelieved. What surfaces across a hundred and ten minutes is less a secret than an accumulation - the careers that stalled, the marriages nobody brings up, the loyalty the coach is still charging interest on. Made in 1982 about men still measured by a single season, it does not flatter them, and its lead performance carried a Silver Bear. The pleasure, if that is the word, is in watching five men talk themselves into the open.",
+  "model": "claude-opus-5",
+  "source_sha256": "321e59bc1d3be5a77c60cf5934c9912c2d412d9f66163a9b5640110af590d503"
+ }
+]

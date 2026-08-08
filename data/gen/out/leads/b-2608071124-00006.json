@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "as-i-was-moving-ahead-occasionally-i-saw-brief-glimpses-of-beauty-2000",
+  "field": "lead",
+  "film_id": "fdd379c4-3f55-4136-b5d2-856e583ef4a4",
+  "lang": "en",
+  "text": "Five hours of home movies, assembled in no order at all, by a man who had been pointing a camera at his own household for thirty years. Jonas Mekas kept close to what a private life actually consists of and then declined to arrange the results: the order of the footage, by his account, was settled purely by chance. That decision does most of the work. With chronology gone there is no growing up and no before-and-after, only recurrence — rooms, weather, faces, a hand crossing the frame. Duration stops being a demand made of the audience and becomes the condition under which small things register at all. Much of it is ordinary, and the ordinariness is not an accident. Thirty years pass in 288 minutes without anyone explaining what they meant.",
+  "model": "claude-opus-5",
+  "source_sha256": "d49bdabbf1bf11b096f6c20d580b1190a680e6b5590bce52c3b520994a485f1f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "i-walked-with-a-zombie-1943",
+  "field": "lead",
+  "film_id": "b206dcb3-070c-4531-a5ad-8c783d83b4f3",
+  "lang": "en",
+  "text": "A nurse hired to care for a woman who no longer speaks falls in love with the woman's husband, and then goes on nursing her. That is the trouble the film runs on, and it is domestic before it is supernatural: she cannot leave, and she cannot want what she wants. Jacques Tourneur had sixty-nine minutes and a title with pulp in it; what he built inside those limits is closer to mystery than to shock, made of distance, sound and withheld information rather than display. The Caribbean setting is not decoration either: the house is foreign to her, and the people who work in it hold beliefs she first dismisses and then, out of desperation for a cure, consults. Brevity like this usually means incident piled on incident. Here it means nothing is explained twice.",
+  "model": "claude-opus-5",
+  "source_sha256": "87d9ae10ecbbd774bf8511d73076fc189a2512e6bc2713e025decd4dc23f885e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bigger-than-life-1956",
+  "field": "lead",
+  "film_id": "14f3d097-2d6d-44be-9345-a5e43a6ecc3e",
+  "lang": "en",
+  "text": "The danger in this house comes on a prescription pad. A suburban teacher, well liked and well paid, is put on cortisone and begins to swell inside his own living room: patience turns to verdict, the standards he sets for his child become impossible to meet, and a family's habit of deference gives him room to work. Nicholas Ray keeps the surfaces pleasant — the good job, the sound house, the tidy street — and lets the reorganisation of a household around one man's moods supply the horror. Ninety-five minutes, no intruder, and no authority to appeal to beyond the doctor who wrote the thing down. What makes it hard to watch is not the shouting but how recognisable the man was before it started. It is a film about medicine the way a fire is about a match.",
+  "model": "claude-opus-5",
+  "source_sha256": "09a1bbfd935414027eb1d8e2a6c68c1a0446eb9f03097de1d85bb2728a8f0723"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "je-tu-il-elle-1974",
+  "field": "lead",
+  "film_id": "47f910bc-27bc-4caa-8633-2f17a22eac91",
+  "lang": "en",
+  "text": "A woman is left, and what follows is not a crisis but an arrangement of hours: a room to occupy, food to consider or refuse, a body moved from one position to another. Chantal Akerman treats the aftermath of a breakup as something with duration rather than shape, and keeps a distance that supplies neither comfort nor diagnosis. Eighty-six minutes, Belgium, 1974. Very little is dramatised, so what the film hands over is the act of watching itself — the reason the writing about it keeps circling the pleasure and unease of looking. Desire enters, and the listing calls it a romance, but nothing here is arranged for anyone's ease. The interest is in how long a camera can stay with a person who has stopped performing her own unhappiness.",
+  "model": "claude-opus-5",
+  "source_sha256": "de2d2fd23a3c545dde8e27ddb99c867e5fbf9746bc1318d4fe6b1d7ec3e9325b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "man-of-aran-1934",
+  "field": "lead",
+  "film_id": "61054bc1-c770-4c28-8f62-401e4e8bfaec",
+  "lang": "en",
+  "text": "The Aran Islands arrived at the camera with their meaning already assigned: a remnant of older Ireland, hard, unspoiled, valuable for what it was thought to have kept. Robert Flaherty went out in 1934 to film that idea, and what he made is a blend of documentary and invented narrative, scenes shaped to fit a thesis about a man and a hostile place. The contrivance is easy to see. The sea is not contrived. Seventy-six minutes of rock, surf and small boats, and the labour a landscape like that demands whether or not anyone has come to record it. What keeps the film uncomfortable and alive is that its argument and its images pull apart: the argument wants struggle to be the whole content of a life, while the images keep noticing people who are simply working.",
+  "model": "claude-opus-5",
+  "source_sha256": "3abb811d182f53d98f994e72b0071ce53b0d91dad9b0d6a684bba3922c5c0acf"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hatari-1962",
+  "field": "lead",
+  "film_id": "478c5a3c-26fd-4b5f-8976-b3e49b5fc248",
+  "lang": "en",
+  "text": "Trapping a live animal for a zoo is a job with procedures, and Howard Hawks is interested in the procedures. Two and a half hours in East Africa with men who catch things for a living: trucks, ropes, timing, and the rhythm of work, rest and work again. The plot is thin by choice. What happens instead is that a woman arrives to photograph the operation, is not sent home, and slowly alters the balance of a group that had settled its hierarchy long before she got there. The one Academy Award it holds is for color cinematography, the right prize for a film whose pleasure is daylight, dust and distance, animals filmed at the speed they actually move. Comedy this relaxed is harder to arrange than suspense. Hawks makes it look as though someone merely happened to be filming.",
+  "model": "claude-opus-5",
+  "source_sha256": "63da4d746b8a0e35de14808254cc47f6180da171ac4edbf33374d92a9bb23636"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "loves-of-a-blonde-1965",
+  "field": "lead",
+  "film_id": "b8c29bbc-ef73-4ea7-8433-b6ebb3c4663c",
+  "lang": "en",
+  "text": "Andula takes a young musician at his word, and he has already forgotten the conversation. Miloš Forman shot this in Czechoslovakia in 1965 — eighty-one minutes, tuned to the way people talk when they are trying to arrange something they cannot say outright: a factory girl who wants a life, a visitor from Prague who wants an evening. The comedy comes out of that gap and it is not cruel; nobody is stupid, they are only differently informed. What gives it weight is the machinery around her — the shifts, the town, the countable number of futures on offer. When she decides to go to Prague she is not being foolish; she is doing the only thing available to someone who took a promise literally. Her mistake is reasonable. So is his, which is the more uncomfortable half of the joke.",
+  "model": "claude-opus-5",
+  "source_sha256": "633425b6d16e9e58bbc917ee910c4b9d99efed76eeb841c75bb41159236f1436"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-ghost-story-2017",
+  "field": "lead",
+  "film_id": "1e4e5d64-46b4-405a-827c-e1d20e6794a3",
+  "lang": "en",
+  "text": "The ghost is a man under a bedsheet with two holes cut for the eyes, and the film declines to find that funny. David Lowery's conceit only works if an audience will accept a household object as a figure of grief, so he gives it the one thing that can carry it: patience. Long held shots, a fixed address, rooms that stay in frame after the living have walked out of them. The dead man's difficulty is not invisibility but that he cannot move on in either sense, stuck at one house while the clock outside it accelerates and a widow's life proceeds at a speed with nothing to do with him. Ninety-three minutes, very little talk. The scholarship has settled on memory and return, fairly enough, though the sharpest thing here is physical: how long a room takes to stop being someone's.",
+  "model": "claude-opus-5",
+  "source_sha256": "efd242ace802692360e3df75ce6cdfa815d532d293bada2fb0d112553fd8fa9a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "magic-mike-xxl-2015",
+  "field": "lead",
+  "film_id": "3be4aadb-1066-4701-bd61-67ea0bdaf1ef",
+  "lang": "en",
+  "text": "There is a van, a destination, and almost nothing else in the way of plot. Three years after quitting, Mike rejoins the men he used to work with for a drive to Myrtle Beach and one last show, and the trip is the film: stops, detours, conversations that arrive nowhere in particular, an act assembled on the road. Gregory Jacobs treats dancing as a trade — technique, timing, a read on the room — and treats the people it is performed for as individuals with specific tastes rather than a crowd to be flattered. The result is an unusually generous comedy about work. Nobody is punished for wanting anything. It turned up on a best-of-the-decade list, which is not where sequels about strippers on a road trip usually end up.",
+  "model": "claude-opus-5",
+  "source_sha256": "657ef7f0988c7ba1a48f5ce93a6a7fd9737eee533a9712879c62c65fc4621d18"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-illusionist-2010",
+  "field": "lead",
+  "film_id": "7cb41392-3d1f-4b85-934b-eade4a8d45a2",
+  "lang": "en",
+  "text": "A stage conjuror takes the work that is left, which by now means small halls at the far end of Scotland. Sylvain Chomet draws all eighty minutes by hand: weather, staircases, the wrong end of a bill, and a city given the attention usually reserved for portrait sitters. The pairing at the centre is precarious and never quite named — a man whose trade is making things appear, and a young woman from a village who has no reason to think he cannot. She follows him to Edinburgh. What she admires keeps arriving, at a cost the film lets the audience add up rather than announce. Animation is usually defended by what it can invent. This one earns its keep by observation: the stoop of a man carrying a case uphill, the light of a place where the season is over and money is short.",
+  "model": "claude-opus-5",
+  "source_sha256": "d9a37ef6750d2efe033b6b851be320c89341154d6a3d8c4a50b29756c22109c4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-duke-of-burgundy-2014",
+  "field": "lead",
+  "film_id": "201b386a-09c9-4974-a556-298aaa9722a9",
+  "lang": "en",
+  "text": "The submission has a script, and one of them is getting tired of the lines. Cynthia and Evelyn perform mistress and maid daily, and Peter Strickland is much less interested in the ritual's shock than in its upkeep: who writes it, who must be word-perfect, who cannot say plainly what she wants without damaging the arrangement that lets her want it. The asymmetry is ordinary and cruel — one of them drifting toward something more conventional, the other pressing further out. Around it, a house and a routine, both of them work. The film's European Film Award went to its composer, which suits a picture that carries its unease in sound rather than in incident. A comedy of manners, essentially, played with an entirely straight face.",
+  "model": "claude-opus-5",
+  "source_sha256": "4069d0ed012a55c3419d87716dd834f136241059dad490d42855aeb1a71df6ea"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "roma-1972",
+  "field": "lead",
+  "film_id": "d3f4ceea-a972-4b3f-a3eb-35854c36508d",
+  "lang": "en",
+  "text": "No story, no protagonist to follow, no problem to be solved by minute ninety. Federico Fellini's portrait of Rome proceeds by episode instead: crowds, noise, spectacle staged and remembered rather than reported, held together by nothing firmer than the fact that it is all one city. Two hours of that can be exhausting and sometimes is. What keeps it upright is scale — the willingness to build a set-piece to the size of the feeling it has to carry, and then to move on without collecting a moral. The paperwork is a small joke in itself: an Italian-language film on the most Roman subject available, reaching the record as a French production. Whether the Rome on screen was ever the Rome outside is not something the film worries about.",
+  "model": "claude-opus-5",
+  "source_sha256": "df789c7c58dc8e8635999b10c5401d27754b51d668c3c83e933b4e624c4d70ca"
+ }
+]

@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-profession-of-arms-2001",
+  "field": "lead",
+  "film_id": "ecd50de5-7800-46ac-a3e3-65e1ed8f9c8d",
+  "lang": "en",
+  "text": "Autumn 1526, and German mercenaries are walking toward Rome with the papal armies behind them, both columns fighting the winter as hard as they fight each other. Ermanno Olmi cares more about the march than about any battle: rivers that have to be crossed, cannon that have to be got hold of, arrangements between lords that settle a campaign before a shot is fired. The film is Italian-language and 105 minutes, and it spends them on the labor of war, on wet ground and bad food and orders that arrive late and cost something. It took the David di Donatello for film and for direction, and a European award for its camerawork, a prize that at least records how carefully the thing was looked at. Underneath sits the change gunpowder was making: courage at the front of a column was becoming beside the point.",
+  "model": "claude-opus-5",
+  "source_sha256": "a8ffd4967180452f0db2e481849b3c6c2c72e17bc1d4a3606f962f5dec94989e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-truce-1996",
+  "field": "lead",
+  "film_id": "d19b4df6-4d34-48ce-8ac3-e9ca96589c10",
+  "lang": "en",
+  "text": "The camp gates open early, and everything after that is the distance between a liberated man and Turin. Francesco Rosi gives the distance 112 minutes and treats it as the subject rather than the epilogue: a continent where the shooting has largely stopped and nothing has been put back yet, one order finished and the next not arrived. The interest is in what a person does with the hours once staying alive stops being the whole occupation of a day. Food to find, company to choose, a language to guess at. Rosi keeps the register level, with no swell of relief to carry the traveler along, only kilometers and the people met on them. The David di Donatello went to the film and to its director, which for a picture this unemphatic is worth putting on the record.",
+  "model": "claude-opus-5",
+  "source_sha256": "a4e6d670788d29f9fe0e0a58b46f2286f634f4bcbd708f3fec5333396c134e85"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "min-and-bill-1930",
+  "field": "lead",
+  "film_id": "9d056c82-601f-4fb1-a07b-7b24df55e900",
+  "lang": "en",
+  "text": "Sixty-six minutes, a hotel on the docks, and a woman deciding what becomes of the girl she took in as an infant. Min and Bill was made in 1930, when American pictures were still working out what a microphone could carry, and it aims that new equipment at waterfront people: cheap rooms, credit, tempers, work that leaves marks on the hands. The comedy and the damage are not kept apart. They arrive in the same scenes, which is much harder to stage than either one alone, and the film is built to give the performance at its center room to do it, short and plain and undecorated. The Academy's acting award went to that performance. What Min stands to lose in all this is not the hotel, and the picture never once pretends otherwise.",
+  "model": "claude-opus-5",
+  "source_sha256": "52ac930391899d0e0032dd4b5c8001974cde0e35f49de4cbb5d2ee8f1b8e905d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "black-and-white-in-color-1976",
+  "field": "lead",
+  "film_id": "7e6f3a5c-7b81-403a-8be7-b3a8d776ce61",
+  "lang": "en",
+  "text": "Word that France is at war reaches the colonial outpost months after the fact, and the settlers, having missed the start, set about producing a war of their own against the Germans down the road. Jean-Jacques Annaud shoots it as comedy and lets the arithmetic do the harm: the Europeans supply the enthusiasm, the local population is issued boots and rifles and drilled into the shape of an army. A young geographer, the one reasonable head in the town, ends up running the thing once everyone else has bungled it, which is its own joke about competence. The picture came out of Côte d'Ivoire and took the Academy's award for international feature. Ninety-two minutes in French, about Frenchmen, made in the country whose people are being conscripted on screen.",
+  "model": "claude-opus-5",
+  "source_sha256": "2021de927b0931b9d658019fa368839050a8fa66ed7072900336deff35b0127d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-man-who-will-come-2009",
+  "field": "lead",
+  "film_id": "f01d374e-b508-4d49-8217-0824e91cf745",
+  "lang": "en",
+  "text": "The argument in the village is over how much to give the partisans, and everyone taking part in it will still be there when the Germans arrive. Giorgio Diritti keeps the film at the height of the people who have to live with the answer: farmers with a season's work in the ground, weighing a political question that will be settled by whoever is armed. The 115 minutes go largely to ordinary labor, and that is the case being made. War arrives into a place that is working, not an empty stage cleared for it. The events behind the story happened. Diritti and the film both took David di Donatello awards, though the more telling decision is one of scale: not the campaign, not the resistance as a movement, but a household working out what it owes and what it can survive owing.",
+  "model": "claude-opus-5",
+  "source_sha256": "9aca79103bfe46a61da64e17896cec4b164f4ff1d0d7e7545578f96350e248ec"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "madame-rosa-1977",
+  "field": "lead",
+  "film_id": "0f5dbebd-6f66-4207-b5b9-d2b78bb5d2fb",
+  "lang": "en",
+  "text": "Six flights up in the Pigalle, with no lift, a retired prostitute raises the children of women still working. Madame Rosa is Jewish and survived Auschwitz; Momo, the oldest of her charges and the one she keeps, she is bringing up as a Muslim. Moshé Mizrahi lets that arrangement stand a long while without explaining it, and the attention goes to practicalities: money that runs short, stairs that get steeper, questions about parents answered sideways, a puppet worked on the street for coins. The comedy is real and never at the boy's expense. A César went to the performance at the center and the Academy's international award to the film, but what holds is smaller than either, an old woman and a child working out day by day which of them is looking after the other.",
+  "model": "claude-opus-5",
+  "source_sha256": "d656759d39d9cf9c42d2c43a004dc0014029b7676cbc16845c1514447d452aa7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "carmen-1984",
+  "field": "lead",
+  "film_id": "8478fc71-09ed-44e9-a0c8-2f8bd002e999",
+  "lang": "en",
+  "text": "The story is public property: a sergeant deserts for a woman, the woman's attention moves to a bullfighter, and the sergeant cannot let it go. Francesco Rosi spends 152 minutes on it anyway, a length that announces the plot is not the point. What he is after is physical. Seville and the dry country around it early in the nineteenth century, heat, animals, labor, uniforms in a climate that does not want them, and above all sound, which the British academy singled out and which carries more here than dialogue could. The lead performance took a César; the film took the BAFTA for best film not in the English language. Less a tragedy of character, in the end, than a study of a place where a man with nothing to fall back on meets a woman who will not be owned.",
+  "model": "claude-opus-5",
+  "source_sha256": "c874e19e23106dcd5a3074dc12fa8380868e95f168837d533c322fedff17bfca"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "special-section-1975",
+  "field": "lead",
+  "film_id": "906a66bf-dd25-457b-bbcd-8a528219ab8e",
+  "lang": "en",
+  "text": "The occupier wanted executions, and the hard part was never finding Frenchmen to shoot; it was finding French judges willing to try them. Costa-Gavras builds the film around that clerical difficulty, a court convened for a single purpose and staffed by men who each had a reason to agree, once Joseph Barthélémy has worked out that token deaths will do. None of it is staged as drama. Papers are drafted, seniority is respected, careers are weighed, and the machinery runs precisely because nobody inside it is committing the whole of the crime, only a portion small enough to live with. It runs 110 minutes and was released in 1975, when a great many people in the audience had been adults for the events on screen.",
+  "model": "claude-opus-5",
+  "source_sha256": "7214802d96829f37c3274d00bf8fd039a8815f0b82004985d153092bc0b7c8f0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dangerous-moves-1984",
+  "field": "lead",
+  "film_id": "815989bd-3ed8-4139-a555-13c63dcc71de",
+  "lang": "en",
+  "text": "Two men sit down at a board and behind each of them stands a state. The world championship as Richard Dembo stages it is administered as much as played: a hundred minutes in which the decisive pressure comes from corridors, hotel rooms, and questions of who may travel and who may be spoken to. The chess is real enough. But the film is about two temperaments made by two systems and no longer separable from them, which is why what one player stands to lose has almost nothing in common with what the other does, and why neither of those things is the title. It took the Louis Delluc Prize at home and the Academy's international feature award abroad, on the strength of a subject that resists filming: men thinking, slowly, in a quiet room.",
+  "model": "claude-opus-5",
+  "source_sha256": "2e76adbb9b1c2790df26933ed6009380865d416b049ac20c62376505f3de2c3e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "in-old-arizona-1928",
+  "field": "lead",
+  "film_id": "1397e5a5-4ea9-4300-81f9-cb47ae729530",
+  "lang": "en",
+  "text": "A sergeant wants the Cisco Kid; the Kid wants Tonia; Tonia has done the arithmetic on the reward. In Old Arizona comes from 1928, the year the pictures started talking, and the collision is audible throughout: a genre that had made its living on gesture, distance and landscape now has to account for voices, accents and drawl. That tension is most of what is still interesting in it. The Academy's acting award went to the lead, and the film figured in the cinematography and directing categories too, which says something about how much the technical problem preoccupied the industry that season. The triangle is old business, worked before and since. Tonia is the one to follow, the only person here running calculations entirely her own.",
+  "model": "claude-opus-5",
+  "source_sha256": "d99bc1e47b3152ddbde28681fac0ae8a7aeb2acb39edaebe74f7cac59635eb0a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "disraeli-1929",
+  "field": "lead",
+  "film_id": "3dfa8c43-5086-4636-9737-32175024a68d",
+  "lang": "en",
+  "text": "The whole engine of the film is a purchase: a prime minister maneuvering to buy the Suez Canal before the Russians can block him and before his own side loses its nerve. Disraeli comes from 1929, when sound equipment favored pictures a voice could carry, and this one is carried almost entirely by one, ninety minutes of pressure applied in drawing rooms where the business of an empire gets done by persuasion, timing and bluff. The Academy's acting award went to that performance, and the film figured in its picture and writing categories as well. What keeps it off the shelf of waxworks is how unheroic the method is. A state's largest decision arrives as a private transaction, arranged by a man who is part statesman and part speculator and shows no sign of telling them apart.",
+  "model": "claude-opus-5",
+  "source_sha256": "cf63f576c617360c63f36d72129edf905b23d096d2d547e22634d2d7d0e58ba2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "love-and-bullets-2017",
+  "field": "lead",
+  "film_id": "560d3de2-a9d1-46e7-8607-e01dd7f2f224",
+  "lang": "en",
+  "text": "The boss buries himself, and the arrangement holds until a nurse sees him upright after the funeral. What follows is 140 minutes of crime picture that keeps stopping to sing: the hitman sent to deal with the witness knows her, has known her since before either of them settled into a trade, and the film takes that coincidence as a license rather than a problem. Antonio Manetti runs the registers side by side, a working crew and a romance and numbers performed straight and loud, and the length is a decision rather than an accident, since songs need room and the plot has to keep moving underneath them. It took the David di Donatello for both film and direction, a serious result for a picture this cheerful about its own machinery.",
+  "model": "claude-opus-5",
+  "source_sha256": "bd752df3f49db7b7d39b3af4fb5146dd1fada858acb0251002e867fec686e715"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "alfredo-alfredo-1972",
+  "field": "lead",
+  "film_id": "6e903598-7e07-4fa8-845c-3f8d96b5390a",
+  "lang": "en",
+  "text": "Alfredo gets the woman in the first half, which is where most romances stop and where this one starts working. Pietro Germi is interested in the arithmetic after the wedding: a shy man who wanted one thing very badly, obtained it, and now lives at close quarters with a person he pursued rather than knew. The comedy is domestic and procedural as much as romantic, since a marriage is a household and a legal condition before it is a feeling, and Germi lets 110 minutes accumulate small evidence instead of forcing a crisis. He also keeps the sympathy unsettled. Maria Rosa is not a punishment administered to Alfredo for the sin of wanting her; she has her own account of what has happened, and the film keeps making room for it.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf9d1a9547e9209e537ed42b594e8b65f6dfc2039500ac03db10fe9c21a87089"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "august-vacation-1995",
+  "field": "lead",
+  "film_id": "af939a6e-e8ec-47c7-8707-8d144d06336f",
+  "lang": "en",
+  "text": "The house next door gets let to strangers, and that is the entire plot. Every August the journalist Sandro takes his family and his friends to Ventotene; this year the neighbors are people whose manners and politics are nothing like theirs, and the island is not large enough for either party to avoid the other. Paolo Virzì keeps the comedy from settling the argument. The vacationers' decency is genuine and so is their snobbery, and both show up in the same gesture, usually to everyone but them; the other family is coarse and also not wrong about being condescended to. A hundred and six minutes of holiday, with the humiliations running in both directions. The David di Donatello went to the film and to its director.",
+  "model": "claude-opus-5",
+  "source_sha256": "44a3ee535ee99f8a26875b998a0b4c23d3aa01bc5fee80a35b0e09408d9f123a"
+ }
+]

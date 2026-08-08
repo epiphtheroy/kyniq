@@ -1,0 +1,272 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paul-verhoeven",
+  "field": "intro",
+  "lang": "ko",
+  "text": "네덜란드 출신의 도발자 파울 페르호번. 유럽 예술영화든 할리우드 블록버스터든 가리지 않고 전복적인 풍자와 극단적 폭력, 노골적인 성을 뒤섞는다. 수학자 출신답게 그는 장르영화에 서늘하고 짓궂은 렌즈를 들이대며 파시즘과 종교, 미국적 과잉을 겨눈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "30f313e245428bb202d809dcdcfe49314406946371e278cb571a8425c2bdc0c1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almod-var",
+  "field": "intro",
+  "lang": "ko",
+  "text": "프랑코 사후 마드리드의 언더그라운드 펑크 신에서 출발한 페드로 알모도바르는 스페인에서 가장 사랑받는 작가가 되었다. 강렬한 원색, 복잡한 여성 주인공, 물러설 줄 모르는 퀴어 감수성. 그의 화려하고 도발적인 멜로드라마는 이 세 가지로 정의된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1deccae7bdf32f46614b2343032c673c74dba74f46f811a17d7193e7ff946b68"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almodovar",
+  "field": "intro",
+  "lang": "ko",
+  "text": "프랑코 독재의 잿더미에서 페드로 알모도바르가 걸어 나왔다. 그는 모비다 마드릴레냐(Movida Madrileña)의 현란한 설계자였다. 가톨릭적 죄의식과 퀴어의 욕망, 선명한 멜로드라마를 뒤섞어 그는 지극히 사적인 영화 세계를 지었다. 그 한복판에는 복잡하고 끈질긴 여자들이 서 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "823a68b3362e4e82e9cf5561e61f30b0e9bb91560075c2644e8324f105fb6742"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pete-docter",
+  "field": "intro",
+  "lang": "ko",
+  "text": "피트 닥터는 미국의 애니메이터이자 감독이며, 픽사 애니메이션 스튜디오의 최고 크리에이티브 책임자다. 감정의 결을 다루는 데 능한 이야기꾼으로, 《몬스터 주식회사》 《업》 《인사이드 아웃》 《소울》을 연출했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b0fcde34fea6fd806f4c735dfde0c3a5059b590c8b779410db51fee110df20f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "peter-jackson",
+  "field": "intro",
+  "lang": "ko",
+  "text": "초저예산 스플래터 코미디에서 시작해 영화사상 가장 거대한 판타지 서사시를 지휘하기까지. 뉴질랜드의 이 몽상가는 웰링턴 뒷마당에 할리우드와 맞먹는 시각효과 제국을 세웠다. 그러면서도 뭔가를 직접 만들어 보는 괴짜의 기질은 잃지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ebf9e94554a7c93dea0de33254015acb1cf93f7c33f6bc50573bc2c66bd7ef56"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini",
+  "field": "intro",
+  "lang": "ko",
+  "text": "피에르 파올로 파솔리니는 이탈리아에서 가장 도발적인 지식인이었다. 교회를 옹호한 마르크스주의자였고, 성 해방을 경멸한 게이였다. 그리고 그 잔혹한 죽음은 20세기의 풀리지 않은 수수께끼로 남았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "60bcbf49922d51f762531f7c1f2dba1533715f31ee876bf93a19cbf368aa9f8a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "quentin-tarantino",
+  "field": "intro",
+  "lang": "ko",
+  "text": "고등학교를 중퇴하고 비디오 가게에서 배운 것이 전부인 사내가 황금종려상까지 갔다. 백과사전 같은 시네필 쿠엔틴 타란티노는 지나치게 문학적인 대사, 강박적인 장르 오마주, 스타일화된 폭력에 대한 거리낌 없는 애정으로 현대 미국 영화의 지형을 바꿔놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "59086ebf4836ff7db25c82540e636fc6e54712ae71fbc125901ec0ac4e2df4be"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rainer-werner-fassbinder",
+  "field": "intro",
+  "lang": "ko",
+  "text": "뉴 저먼 시네마의 격렬한 신동. 라이너 베르너 파스빈더는 자기 안의 깊은 악령과 약물 중독, 불안정한 양성애를 15년의 놀라운 다작으로 쏟아냈다. 그의 손에서 할리우드 멜로드라마는 사회를 난도질하는 무기로 바뀌었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6555ed0fc1fa9d4700fd361ca1e63cf58d05056a9601386cc54463724f263b8a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rian-johnson",
+  "field": "intro",
+  "lang": "ko",
+  "text": "라이언 존슨은 장르를 뒤집는 데 능한 미국 감독이다. 정교한 퍼즐 상자 같은 서사로 이름을 얻었다. 인디 네오누아르에서 출발해 블록버스터 스페이스 오페라까지, 그는 낡은 영화적 관습을 날카로운 재치와 깊은 애정으로 되살려낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1bb5f19b074c99f67cb78f3ebf3814344db9141ec2f6a1ab64b76cd9df9e2a1d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-donner",
+  "field": "intro",
+  "lang": "ko",
+  "text": "리처드 도너는 현대 블록버스터의 문법을 세운 미국 감독이다. 《슈퍼맨》과 《구니스》, 《리쎌 웨폰》 시리즈로 슈퍼히어로 장르를 개척했고, 할리우드에서 가장 사랑받는 스승 중 한 명으로 불렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d40fe3cc7172b9cb3ef7e8ce0e41783d1f6c713aa4ee437cb9731329c36c1731"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-linklater",
+  "field": "intro",
+  "lang": "ko",
+  "text": "1990년대 독립영화 운동을 독학으로 열어젖힌 리처드 링클레이터. 그는 텍사스라는 뿌리를 하나의 영화 세계로 바꿔놓았다. 인간적이고 시간을 비트는 이야기로 알려져 있으며, 오스틴을 또 하나의 할리우드로 만들면서 협업과 장기 서사의 방식 자체를 새로 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b60f045f08a1b7ce893860736fb5ffe27bbab5fbf25c3461a181d0cccb002384"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ridley-scott",
+  "field": "intro",
+  "lang": "ko",
+  "text": "영국 감독이자 이미지의 장인. 광고계에서 쌓은 다작의 이력을 딛고 SF와 역사 서사시의 기준을 세웠다. 지칠 줄 모르는 작업 윤리로 유명한 그는 공기까지 계산된 세계를, 콘티 한 장 한 장까지 다져가며, 그것도 놀랍도록 빠른 속도로 지어 올린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c46425053dba56b28e5c2b9bfce63fc45722b2496bc85a3253044950445985f5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rob-reiner",
+  "field": "intro",
+  "lang": "ko",
+  "text": "롭 라이너는 시트콤 《올 인 더 패밀리》의 '미트헤드'로 에미상을 받은 배우였다. 그는 할리우드에서 가장 폭넓은 감독 중 하나로 변신했고, 1980~90년대에 장르를 넘나들며 한 세대를 규정한 고전들을 믿기 힘든 연속으로 내놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "03c41a1e8b5b76b8b25659160c7ba5ddca3e6dbd53dc3d8a6088978bc9982c31"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-bresson",
+  "field": "intro",
+  "lang": "ko",
+  "text": "프랑스 영화의 타협 없는 거인. 로베르 브레송은 연극적인 것을 거부하고 스스로 '시네마토그래피'라 부른 금욕적이고 영적인 미학을 택했다. 비전문 배우를 '모델'로 쓰고 손과 소리에 집요하게 매달린 그의 방식은 영화라는 매체의 진로 자체를 바꾸었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e489cafd5b5d68e9295cc93b2e76fba4e1bedfe745f6955f7f88112417102cc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-eggers",
+  "field": "intro",
+  "lang": "ko",
+  "text": "로버트 에거스는 역사적 고증에 대한 집착과 공기처럼 스며드는 공포로 알려진 미국의 각본가 겸 감독이다. 연극 무대미술에서 영화로 건너온 그는 잊힌 방언과 소름 끼치는 민간전승을 되살려, 손에 만져질 듯한 시대의 악몽을 짓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a9c2274e45fe0e44578aaade8963a92498086faef842e3c4aa1afd4b06f81868"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-zemeckis",
+  "field": "intro",
+  "lang": "ko",
+  "text": "고전 할리우드의 이야기법과 최첨단 시각효과를 매끄럽게 붙여놓은 미국 감독. 로버트 저메키스는 초기의 흥행 참패를 딛고 한 세대를 규정한 블록버스터들을 만들었다. 퍼포먼스 캡처 기술을 앞장서 개척했고, 시간을 넘나드는 드로리안부터 바람에 실린 깃털 하나까지 오래 남을 이미지를 남겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "570a8d55b7d563951fa446dcadd00e8e9602ea60dea5dd04ab14836a545bea69"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roman-polanski",
+  "field": "intro",
+  "lang": "ko",
+  "text": "심리 스릴러의 대가이자 홀로코스트 생존자. 로만 폴란스키의 삶은 상상하기 힘든 비극과 영화적 광휘, 그리고 씻기지 않는 오명으로 이루어져 있다. 1978년 그는 미성년자 성폭행 유죄 판결을 피해 미국을 떠났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb5d973c69dcbcb75099d46eec1773108a609ec691aeca2b4f036862958ebd75"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roy-andersson",
+  "field": "intro",
+  "lang": "ko",
+  "text": "스웨덴 작가 로이 안데르손은 25년의 장편 공백을 오히려 자산으로 바꾸었다. 광고를 찍어 스톡홀름에 자기 스튜디오를 세웠고, 아프도록 우스운 화면을 한 컷씩 공들여 지었다. 인간의 부조리를 바라보는 그 눈은 비희극을 그리는 화가의 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c8974c37df61eac03e3aed17d3c94eaf8aeae0c8d89df75868b86eb309bc20d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ry-suke-hamaguchi",
+  "field": "intro",
+  "lang": "ko",
+  "text": "하마구치 류스케는 아카데미상을 받은 일본의 작가다. 감정의 결이 촘촘하고 천천히 달아오르는 드라마로 사랑받는다. 사��과 사람이 닿는 순간을 다루는 데 능한 그는, 대사로 가득 찬 긴 영화 속에서 친밀함과 상실, 그리고 일상에 깃든 조용한 연극성을 들여다본다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f320da63e5d927cc9b53c68a29550040a454ea4d7b83691dc4fae8a4bb9170b6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryan-coogler",
+  "field": "intro",
+  "lang": "ko",
+  "text": "라이언 쿠글러는 베이 에어리어라는 사적인 뿌리와 남다른 정서적 감각을 21세기 가장 울림 큰 영화들로 바꿔낸 미국 감독이다. 거칠고 작은 독립영화의 화법과 거대한 할리우드 블록버스터 사이를 그는 이음매 없이 오간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "25744a2054514d5b6985836cae1129e0493c66099f4291896b4cbf6c0a8ff0ff"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryusuke-hamaguchi",
+  "field": "intro",
+  "lang": "ko",
+  "text": "하마구치 류스케는 아카데미상을 받은 일본의 작가다. 감정의 결이 촘촘하고 천천히 달아오르는 드라마로 사랑받는다. 사람과 사람이 닿는 순간을 다루는 데 능한 그는, 대사로 가득 찬 긴 영화 속에서 친밀함과 상실, 그리고 일상에 깃든 조용한 연극성을 들여다본다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f320da63e5d927cc9b53c68a29550040a454ea4d7b83691dc4fae8a4bb9170b6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "s-s-rajamouli",
+  "field": "intro",
+  "lang": "ko",
+  "text": "S. S. 라자몰리는 극대주의와 VFX로 무장한 서사시로 텔루구 영화를 뒤바꾼 인도 감독이다. 완벽주의로 이름난 그는 고대 힌두 신화에 과속하는 액션을 섞어, 인도 영화사상 가장 많이 벌어들인 세계적 흥행작들을 만들어냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4241fbad231426364efe549e7d35f162ac8a5664d73323049ad0ac7f56b17614"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-mendes",
+  "field": "intro",
+  "lang": "ko",
+  "text": "무대와 스크린 양쪽에서 인정받은 영국 감독. 샘 멘데스는 웨스트엔드의 신동에서 오스카를 받은 영화감독으로 매끄럽게 건너왔다. 한 치의 어긋남도 없는 시각적 안무, 어두운 심리의 밑바닥, 그리고 제임스 본드 시리즈를 되살린 솜씨로 알려져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c8f567eb9bbb720219a04c6d8e0163d001815495e402c51878673be16fcfa36"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-raimi",
+  "field": "intro",
+  "lang": "ko",
+  "text": "샘 레이미는 광란의 《이블 데드》 3부작으로 독립 호러를 뒤집어놓은 미국 감독이다. 이후 할리우드 블록버스터로 옮겨가, 2000년대 《스파이더맨》 연작의 진심 어린 혁신으로 현대 슈퍼히어로 영화의 틀을 세웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bd537268a02298551c61cc5506d20f173f58ff7a0d56bcd2ffa36b7fc4529055"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satoshi-kon",
+  "field": "intro",
+  "lang": "ko",
+  "text": "곤 사토시는 일본 애니메이션의 몽상가였다. 만화경 같은 그의 영화는 현실과 꿈, 인터넷의 경계를 지운다. 이른 죽음이 그를 데려가기 전, 《퍼펙트 블루》와 《파프리카》 같은 심리의 미궁은 세계 영화에 깊은 자국을 남겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c1e6b27ecc9884dc863de4c7be3a63d0753b94ac7cdf35530e908fdc4f0e517c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satyajit-ray",
+  "field": "intro",
+  "lang": "ko",
+  "text": "사티야지트 레이는 벵골의 감독이자 작가이자 작곡가였다. 그 폭넓음만큼이나 그의 인간주의 영화는 인도 영화를 세계의 무대로 밀어 올렸다. 볼리우드 바깥에 서서 36편을 연출하는 동안, 그는 아이들이 사랑하는 소설을 쓰고 자기만의 서체를 디자인하기도 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fe310d368c98029a4067325b7406034c90a7bb78986b89cf9b00548d905d251a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "scott-derrickson",
+  "field": "intro",
+  "lang": "ko",
+  "text": "스콧 데릭슨은 묵직한 신학적 주제와 살갗에 닿는 공포를 뒤섞는 미국 감독이다. 공기 자체를 불안하게 만드는 데 능해, 《시니스터》 같은 작은 장르영화와 마블의 《닥터 스트레인지》 같은 대형 스튜디오 영화를 모두 만들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aa22763ba59e3a4e09fe7237c49df9765a38c437919dfad05b96c0bfb9c693d9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sean-baker",
+  "field": "intro",
+  "lang": "ko",
+  "text": "미국 독립영화 감독 션 베이커는 주변으로 밀려난 사람들을 숨 가쁘고 다정한 시선으로 담아낸다. 사회적 리얼리즘에 선명한 팝의 미감을 겹치는 그의 화면에는 성노동자와 거리의 장사꾼, 긱 이코노미를 버텨내는 이들이 늘 있다. 미국의 가장자리에서.",
+  "model": "claude-opus-5",
+  "source_sha256": "b6f67e4f88d1f5d6bf9463ff07e6e55b2129e8292ce207debfeb4016dd655b4f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sergio-leone",
+  "field": "intro",
+  "lang": "ko",
+  "text": "세르지오 레오네는 오페라 같은 '스파게티' 걸작들로 서부극을 다시 발명한 이탈리아 작가다. 극단적인 클로즈업과 광활한 풍경, 엔니오 모리코네의 잊히지 않는 음악. 그 셋으로 그는 할리우드가 곱게 다듬어놓은 프런티어를 거칠고 선악이 흐릿한 신화의 땅으로 바꿔놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3ed5be5e9b8dae56b86b3df93d39723641d3191c60accd9414a7476011207968"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura",
+  "field": "intro",
+  "lang": "ko",
+  "text": "이마무라 쇼헤이는 일본 뉴웨이브를 대표하는 인물이다. 선배 세대의 점잖은 중산층 미학을 그는 정면으로 거부했다. 대신 흙냄새 나고 욕정으로 들끓는 일본의 밑바닥을 기록했고, 끝내 칸에서 두 번의 황금종려상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3f89661f07ef34d3e7c75b0e988059f8161c0a713767df32b0fa4e640a18d290"
+ }
+]

@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1994년 액션 코미디 《비버리 힐스 캅 3》에 그가 직접 얼굴을 비친 일이 있다. 심기가 뒤틀린 테마파크 손님 역이었고, 크레딧에는 'Disappointed Man'으로 올랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "14c72f46f926967e8f201b82f04e9c33f86c2ebb968b9020bfad0aef8a54d96e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《스타워즈》 3부작의 원본, 손대지 않은 극장판을 현대 고화질 포맷으로 내는 일을 루카스는 수십 년간 완강히 막았다. CG를 잔뜩 입힌 '특별판'이야말로 자기 비전의 유일한 결정판이라는 주장이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac0dcaa7ee0658aa6b2515e54cad7790f18816d09bc1061ff4179e0c608e18fe"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2012년, 루카스는 자기 회사 루카스필름을 통째로 월트 디즈니 컴퍼니에 40억 5천만 달러에 넘겨 업계를 놀라게 했다. 바통은 제작자 캐슬린 케네디에게 건네졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3d0dcad7ef63a3fb6559c6eedbf464226bf46602ee515aec4dc7329fa16e2cf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "디즈니 매각으로 손에 들어온 40억 달러. 그중 대부분을 루카스는 교육 자선단체에 기부했고, 그렇게 기빙 플레지 서약을 지켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a682e8a05d02fd8edbed3f50d218fb0664f848916de2422d02b6a9cec9227310"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas#23",
+  "field": "fact",
+  "lang": "ko",
+  "text": "로스앤젤레스의 루카스 내러티브 아트 미술관에 그는 여러 해와 사재 10억 달러 이상을 쏟아부었다. 평생 모은 방대한 일러스트레이션과 만화 원화, 노먼 록웰 회화를 들일 집이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "024c36f9a58493ddf216d93ed7a82022ca4e5015dc22910eacf4c9aa96977bcf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas#24",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2013년 스카이워커 랜치에서 루카스는 멜로디 홉슨과 결혼했다. 신부는 애리얼 인베스트먼츠 사장이자 드림웍스 애니메이션 이사회 의장을 지낸 인물. 주례는 저널리스트 빌 모이어스가 맡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8183964a418685129253c1321d8d741bd487bc0780afe1f4db46a6984bbe4db"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas#25",
+  "field": "fact",
+  "lang": "ko",
+  "text": "할리우드로부터 재정적으로 독립해 있는 상태를 그는 유별나게 지켰다. 《제국의 역습》과 《제다이의 귀환》, 그리고 프리퀄 세 편까지 전부 자기 돈으로 댔다. 창작의 통제권을 온전히 쥐기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "232cef39140df5825a36b1470f5e04867c945d63cb7427a32e656820788372b3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas#26",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2024년 칸영화제는 루카스에게 명예 황금종려상을 안겼다. 독립 영화인의 극단에 서 있던 사람이 얼떨결에 현대 할리우드 블록버스터를 낳았고, 그 경력에 얹힌 마지막 돌이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9a193bc52f1b050380ec1c651aa793260e376805bc1dd69920cb7214afef1aca"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-miller#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "조지 밀러의 부모는 키티라섬에서 건너온 그리스 이민자였다. 본래 성은 밀리오티스. 아버지가 퀸즐랜드 시골 마을 친칠라에 정착하면서 밀러로 영어화했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0f570d95ea64824f2bb383d3fad463f68f7b5a0910d1c950afe4d1eed0c1905f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-miller#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "처음에 그가 택한 길은 의학이었다. 뉴사우스웨일스 대학에서 이란성 쌍둥이 형제 존과 함께 공부했고, 존은 그대로 의사가 되어 자리를 잡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d6d13f95b4e361576f2666df23561a056a5c52ee6430ebac4ec13b1ee1d6665c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-miller#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "시드니 세인트빈센트 병원 응급실 의사로 일하며 밀러는 처참한 교통사고 환자들을 받았다. 《매드 맥스》의 차량 살육극은 거기서 나왔다. 몸으로 겪은 현실이 재료였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "60ea45506618a4ba4cb64a15b0763ab8d75c65377b9d540b943d88137d07b8f2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-miller#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편으로 가기 전, 밀러는 제작 파트너 바이런 케네디와 1971년 단편 《Violence in the Cinema, Part 1》으로 손을 풀었다. 영화 속 유혈을 우스꽝스럽게, 그러나 노골적으로 파고든 작품이었고 호주영화협회상 2관왕에 올랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9ac2b6b2806b8946de8cae1de14b792a486118f7237d3e99b110d0ee33c4f3c9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-miller#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1983년 헬리콥터 추락 사고는 밀러에게 깊은 상처를 남겼다. 가장 가까운 친구이자 제작 파트너였던 바이런 케네디가 《매드 맥스 3》 촬영지를 물색하다 목숨을 잃었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c895c859f9b6bb6792b26763c68670a578a776b04527d86495edb1a19a63c87a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-miller#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《이스트윅의 마녀들》 촬영은 아수라장이었다. 제작자 존 피터스와 피터 구버가 번번이 감독의 발목을 잡았고, 주연 잭 니콜슨이 감독을 자르면 자기도 현장을 떠나겠다고 으름장을 놓고서야 물러섰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "49ef1c0476ae5ded8a586dd1e076971be6c8d5540977469b7268c4f833451f59"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-miller#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1992년작 《로렌조 오일》을 연출하며 밀러는 자신이 받은 의학 교육을 끝까지 밀어붙였다. 희귀 신경질환 부신백질이영양증의 복잡한 생화학이 과학적으로 엄정하게 화면에 오르도록 붙들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dcd809566ba93ec1308e0d6f02fb5cec9c7f31638e563a7a46e76b1bee6c5f51"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-miller#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1997년 SF 대작 《콘택트》의 연출자로 처음 낙점된 사람은 그였다. 대본을 대폭 고쳐야 하고 촬영 일정도 미뤄야 한다고 요구하자 워너브라더스는 그를 해고했고, 자리는 로버트 저메키스에게 돌아갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5becc25f084a9c9ecbaef0ff247217a388e5e20118ff526b1c4667c6dd61019e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-miller#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《꼬마 돼지 베이브》 각본은 그가 감독 크리스 누난과 함께 썼다. 그러나 두 사람 사이는 영영 틀어졌다. 제작자로 나선 밀러가 자신을 밀어내고 영화의 엄청난 성공을 지나치게 자기 공으로 돌린다고 누난은 느꼈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5eeaee3ee6cac70c2358aa3c94c6993cd6ac07d9749a24e8a6c7687a1d540164"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-miller#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "더 어둡고 기이해진 속편 《꼬마 돼지 베이브 2》는 흥행에서 참패했다. 가족 관객은 개봉과 함께 등을 돌렸다. 그런데 평론가 진 시스켈은 이 영화를 1998년 최고의 작품으로 꼽으며 열렬히 편들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d1665b2044f770141a2e81b320d56460d66b7ab9b11d2348cdfad4b7fa6c2de"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-miller#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《저스티스 리그: 모탈》 프리프로덕션에 밀러는 몇 해를 쏟았다. 배트맨에 아미 해머, 원더우먼에 메건 게일까지 캐스팅을 마쳤다. 하지만 2007년 작가조합 파업과 호주 세금 환급을 둘러싼 분쟁이 촬영 몇 주 전 기획을 무너뜨렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "363428cd9ec63e191d8a622bbc41e2653996918c8d6f46685e6989a4611a3f1c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-miller#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《매드 맥스: 분노의 도로》는 10년 넘게 개발 지옥에 갇혀 있었다. 애초 계획은 2001년, 원년 주연 멜 깁슨과 함께 카메라를 도는 것이었다. 9·11 테러의 경제적 여파가 예산을 주저앉혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "19ec378bb67716c5b83907618b139397b896d982002f7ab871c2a7d9e4c358cf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-miller#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마침내 호주 브로컨힐에서 《분노의 도로》를 찍으려던 참, 유례없는 폭우가 쏟아졌다. 메마른 흙바닥이 야생화 밭으로 바뀌었고, 밀러는 그 거대한 제작을 나미비아 나미브 사막으로 통째로 옮겨야 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "465054ab45b8fb54b06e4bdb93ab78874c0b84144e3a70ce4cd9353bcd29940b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-miller#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "통상적인 시나리오를 밀러는 아예 쓰지 않았다. 만화가 브렌던 매카시와 함께 3,500컷짜리 스토리보드만으로 《분노의 도로》를 구상했다. 액션을 굴리는 힘이 대사가 아니라 시각적 운동에서 나오게 하려는 선택이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3295e28c9f7c0c4689ac9272d677f8d5f1eb76f34d50f22755ddcd85534b1fa3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-miller#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《분노의 도로》 편집을 아내 마거릿 식셀에게 맡긴 이유는 분명했다. 액션 영화를 한 번도 편집해본 적이 없다는 것. 그래야 장르의 상투를 피해 갈 거라고 그는 판단했다. 식셀은 이 작업으로 아카데미상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "08f026506d63c4d7eae36f980c1868c9feb3544d1114d1d60425d05d9283f444"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-miller#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《분노의 ��로》 현장의 험악한 공기는 유명하다. 톰 하디와 샤를리즈 테론이 고성을 주고받으며 폭발하듯 부딪쳤고, 밀러는 훗날 그 갈등을 사막에 고립된 채 이어진 혹독한 촬영이 심리에 남긴 대가로 돌렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "abdd0c7b628e0f7210c55413778f2904f7ca7904432fc811ca8b1293ecbc17c8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-miller#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "R등급 디스토피아 액션의 대가라는 이름값에도 불구하고, 그가 감독으로 받은 처음이자 유일한 아카데미상은 《해피 피트》였다. 탭댄스를 추는 펭귄이 나오는 가족용 애니메이션 뮤지컬.",
+  "model": "claude-opus-5",
+  "source_sha256": "5f90a03fa061a6e97e2268351815482d9cce60ed39f5fa5a873c26026e463e5e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-miller#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "셰익스피어 무대에서 훈련받은 배우 휴 키스번을 그는 첫 《매드 맥스》의 악당 토커터로 세웠다. 그리고 36년 뒤 다시 불러들여 《분노의 도로》의 군벌 임모탄 조를 맡겼다. 의도된 재회였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a5ee7866c848ed895263f50d50f2691062b9cb12695a018c2d326adb0335480"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-miller#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2016년 밀러는 칸영화제 심사위원장을 맡았다. 이 권위 있는 자리를 호주 사람이 이끈 것은 그가 처음이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "06965a8a497993674e5d727a7cbcd2b7e9657b39d5e1ed1c26d8520b73b7e8e8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-miller#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "코로나19 시기에 밀러는 광활한 사막 서사에서 방향을 틀었다. 《3000년의 기다림》을 연출하며 그 정교한 판타지 각색을 시드니의 호텔 방 세트 안에서 거의 다 찍어냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a8b616bba15884f0231f6154ef06fb480486629798935256581b189f216bca8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-miller#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "블록버스터 프랜차이즈가 세계적으로 크게 성공했어도 밀러는 여전히 시드니에 산다. 할리우드로 아주 옮겨 가는 일만은 분명하게 피해 왔다. 자기만의 괴짜스러운 창작 독립을 지키기 위해서다.",
+  "model": "claude-opus-5",
+  "source_sha256": "75f368838fcf232e604bfba3790d0f82f63b492ff519af17ce8636b1c8f80acc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "greta-gerwig#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "간호사인 어머니와 신용조합 컴퓨터 프로그래머인 아버지 밑에서, 새크라멘토에서 자랐다. 집안은 유니테리언 유니버설리즘이었는데도 거윅은 세인트프랜시스 가톨릭 고등학교에 가겠다고 고집을 부렸다. 가톨릭 미사의 연극성에 홀딱 빠져 있었기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f37ebfbf3877652204840d02cee8002dfde60b8adf3bb37b1f0c0ca4b9127c35"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "greta-gerwig#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "연극에서 독립영화로 방향을 튼 계기는 온전히 낙방이었다. 학부를 마치고 예일, 줄리아드, 뉴욕대의 극작 석사 과정에 지원했고 세 곳 모두에서 곧바로 떨어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "28b48a3dd2a2467258d815bcbe6735ba176c75f4f93c89990f22eb27c2c5950b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "greta-gerwig#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "초저예산 멈블코어 운동의 마지못한 '잇 걸'로 그는 일찍 이름을 얻었다. 노트북 카메라 한 대를 나눠 쓰며 조 스완버그와 공동 연출한 1만 5천 달러짜리 첫 장편이 《Nights and Weekends》다.",
+  "model": "claude-opus-5",
+  "source_sha256": "006cd17a9e55d059e80dcd7d3a0f3dbf86cb70fd619180d9f25de588797cf580"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "greta-gerwig#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오랜 연인이자 창작 동반자인 감독 노아 바움백과의 첫 만남은 2010년 코미디 《그린버그》였다. 벤 스틸러의 상대역으로 그를 캐스팅한 것이 바움백이다. 다만 두 사람이 사귀기 시작한 것은 그가 제니퍼 제이슨 리와 이혼한 뒤였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "78e6443573631d064df64d3e501405d6f4c4848346462ac38c8e4e641fabcc4f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "greta-gerwig#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "단독 연출 데뷔작 《레이디 버드》의 각본은 처음엔 《Mothers and Daughters》라는 제목의 350쪽짜리 방대한 서사였다. 그대로 찍었다면 상영 시간이 여섯 시간에 육박했을 물건이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d1cbf603bb897754f4a48804ae7e6a56e2028ed5499713a813927cf6252ad951"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "greta-gerwig#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《레이디 버드》에 데이브 매튜스 밴드의 \"Crash Into Me\"와 저스틴 팀버레이크의 \"Cry Me a River\"를 넣으려고 거윅은 스튜디오 변호사들을 건너뛰었다. 십 대 시절 자신에게 그 노래가 어떤 의미였는지를 절절하게 적은 편지를 뮤지션들에게 직접 보냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ee5681915aea7a605ffedbf64fa63e6d9e7b8e8e126c568016df5c0d9a4dfb31"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "greta-gerwig#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《작은 아씨들》 연출권은 그가 밀고 들어가 따냈다. 2015년 소니 임원 에이미 파스칼의 사무실로 걸어 들어가, 이 영화를 연출할 수 있는 사람은 세상에 자기뿐이라고 선언한 것이다. 《레이디 버드》도 아직 찍기 전이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7172a2aaf0e0c7b8b8825ab62bf3b14958930b9617151872b11815aed844b81e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "greta-gerwig#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2018년, 역사상 다섯 번째로 아카데미 감독상 후보에 오른 여성이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "82aa827fe3ea798e1aa970338c0780fc64502767faba1aa640445d60ba792ec7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "greta-gerwig#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《바비》 각본은 거윅과 바움백이 코로나19 봉쇄 기간 뉴욕 아파트에서 함께 썼다. 기업이 던져준 그 기묘한 과제를 두 사람은 비밀 모래놀이터처럼 다뤘다. 워너브라더스가 실제로 촬영을 허락할 리 없다고 여겼으니까.",
+  "model": "claude-opus-5",
+  "source_sha256": "893a6285964a0fdc72e91599bc97bd55917b3362cb287e282c57f5cfe887da08"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "greta-gerwig#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《바비》의 대규모 군무 장면에서 그가 곧장 참조한 것은 1930년대 버스비 버클리 뮤지컬의 기하학이다. 카메라를 무용수들 머리 바로 위에 걸어 몸의 배열을 만화경 무늬로 바꿔놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a94bd209afd9956508e3451b4381f3d7adf8ac366c1c239b42ae93caaaeabf6f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "greta-gerwig#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "ADHD 진단을 받았다는 사실을 그는 숨기지 않고 말해 왔다. 한 가지에 과몰입하는 성향이야말로 장편을 연출하는 그 집요하고 온몸을 삼키는 과정에서는 분명한 초능력이라는 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9bcaf22b2af5da04e07343f426d95e60947404db1f8ffd6070092aa1c4fcc692"
+ }
+]

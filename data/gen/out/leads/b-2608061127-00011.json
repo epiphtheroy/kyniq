@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "darkest-hour-2017",
+  "field": "lead",
+  "film_id": "a83d9ef4-45c6-45ab-864f-e5c287d74ce6",
+  "lang": "en",
+  "text": "The war is somewhere else; what gets filmed is corridors, cabinet rooms and the back of a car, a government arguing about whether to talk to Hitler while France falls. Joe Wright shoots the confinement rather than working around it, and the Academy's cinematography prize went to a picture whose largest spaces are underground. The other went to the performance at the centre, which is the wager the whole thing rests on: 125 minutes of one man being doubted, flattered and wrong-footed in rooms full of people who would rather he stopped. History has already supplied the outcome, so tension has to be built out of procedure, out of counting votes and drafting a sentence and deciding who is told what and when. May 1940 as an office problem, with the map being redrawn outside the window.",
+  "model": "claude-opus-5",
+  "source_sha256": "293a3b90126a8ee1f4969c378ce4e605dfa1326df37cfc920c22ce4f71b78257"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "blue-jasmine-2013",
+  "field": "lead",
+  "film_id": "24ed01bc-3ec2-4e6f-9829-400f8ff721ca",
+  "lang": "en",
+  "text": "A woman who used to have money moves into her sister's apartment, and neither of them has the vocabulary for it. Ninety-nine minutes go on that friction: Jasmine arriving in San Francisco from New York with her anxiety and a past she keeps re-entering mid-sentence, Ginger absorbing her, the two of them sharing a family and almost nothing else. Woody Allen builds it as a duet of rooms rather than a fall from a height. The collapse has already happened; what is left is the daily business of being watched by people who knew the earlier version. The Academy cited it three times, for lead actress, supporting actress and original screenplay, a fair account of where the weight sits. The comedy in it is real and rarely kind, and nearly all of it comes from mismatch: of income, of manners, of what each sister believes the other owes her.",
+  "model": "claude-opus-5",
+  "source_sha256": "e4fbe17580c748b292c915d1c7da7ec660d75837baa21b432e4ef1a4b395fdec"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-last-king-of-scotland-2006",
+  "field": "lead",
+  "film_id": "8fe99b85-7efc-4f12-ba28-e8bc4473998b",
+  "lang": "en",
+  "text": "Adventure is the word the young doctor uses for it: education finished, luck to be tried, Uganda chosen. What he finds there is a government falling and a new president who takes a liking to him and wants him close. The structural decision is everything, because the camera stays with the Scot rather than the man he serves, so that nearness to power is shown from inside the flattery instead of described from a safe distance. Idi Amin arrives in bursts, charming and then not, and that performance took the Academy's award for best actor and a European one besides. Kevin Macdonald runs it at 123 minutes, and the real subject is smaller and more uncomfortable than a dictatorship: how quickly a guest agrees to be useful, and how long he can call it hospitality.",
+  "model": "claude-opus-5",
+  "source_sha256": "b3034af97721b645109738302e13db605a2cf01c499b092038045dd6c67dcacf"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "foxcatcher-2014",
+  "field": "lead",
+  "film_id": "82c3d91e-1632-4f57-a11f-04bd5ca0cee2",
+  "lang": "en",
+  "text": "Wrestling does not pay, which is the hinge everything else hangs from. Two brothers who win at a sport their country barely watches accept a rich man's invitation to train on his estate and be carried toward the 1988 games in Seoul. Bennett Miller files the result as drama and thriller at once, and the second word is earned by pacing rather than event: long quiet scenes in which little is said directly and the balance of obligation shifts an inch at a time. The Academy's citations went to a lead performance, the direction and the makeup, an odd trio that describes the film precisely, since so much of it depends on faces altered just enough to become unreadable. 134 minutes on what money expects in return for company.",
+  "model": "claude-opus-5",
+  "source_sha256": "f6f8171ab8739a7ef67eb6d7a5553881355670d1d62b7ad87e366282101a9cd2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "still-alice-2014",
+  "field": "lead",
+  "film_id": "3ffefa5f-147b-41c1-8000-62ea8aa6d14c",
+  "lang": "en",
+  "text": "The woman who begins to lose words teaches, for a living, how words work. Still Alice takes that as its premise and then declines to widen the frame: 101 minutes inside one household, working through the arithmetic a family does when a diagnosis turns memory into something everyone has to plan around. The medicine stays vague and the logistics stay exact, which is the right proportion. Who is told, who moves back home, which conversation is worth having twice, which task now gets written down. Wash Westmoreland keeps the camera close enough that nearly everything the film knows arrives through a face catching its own gaps a half-second late. The Academy's best actress award is where the weight sits. Grief here is procedural, and the procedure is the drama.",
+  "model": "claude-opus-5",
+  "source_sha256": "ba1daf497a87bba05b482468f516c1ab0190cae97c3e2ae8fe06cd492cf127ac"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-best-offer-2012",
+  "field": "lead",
+  "film_id": "989e9de5-2005-4c46-85a7-2b96d940b717",
+  "lang": "en",
+  "text": "An auctioneer at the top of his trade has arranged a life with almost no people in it; then a young woman with a family collection to value asks him to the house. Virgil Oldman's expertise is authentication, deciding first what is genuine and then what it is worth, and Giuseppe Tornatore keeps the register formal to match: catalogues, appointments, valuations. Italy gave the film its David di Donatello for best film and best direction, and European audiences their People's Choice. Crime sits in the genre list beside romance from the first reel, which changes how every gesture is watched. Attention becomes appraisal, and a viewer starts grading people the way the man grades objects. 131 minutes of an expert being an amateur at exactly one thing.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca3eca448b83175e5bfce1b2603de1e03247d9904b21a78fcc4953019ca54c96"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-iron-lady-2011",
+  "field": "lead",
+  "film_id": "8a4d529f-4be6-4e2a-9092-00f7644a29b3",
+  "lang": "en",
+  "text": "Two of this film's three Academy citations went to a lead performance and to the makeup that ages her. That is an accurate map of where the effort concentrated. Margaret Thatcher's years in office are approached through one question, what power cost the person who held it, and the question narrows the frame to a private interior while policy stays somewhere off at the edge. Phyllida Lloyd directs 105 minutes that behave more like a chamber piece than a chronicle. European audiences liked it enough to hand it their People's Choice award; 115,000 IMDb voters have settled it at 6.4. Both numbers are true, and they describe different films, one carried entirely by an actor and one that declines the argument its subject spent a career having.",
+  "model": "claude-opus-5",
+  "source_sha256": "ef3bd75465c4a3f070b7e54b552e6156abdc084263e21e903215378c0b12c3d2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "crazy-heart-2009",
+  "field": "lead",
+  "film_id": "ac2b2d6a-5b43-4a65-9df0-4c6113ad05f2",
+  "lang": "en",
+  "text": "Bad Blake still gets booked, which is not the same as still being wanted. A journalist comes to interview him, they connect, and a woman with a young son briefly becomes the argument for staying sober. Scott Cooper films a musician's decline without pretending the songs are incidental to it: the picture is filed under music as much as drama, and the numbers carry information that dialogue would otherwise have to deliver. What holds it together is scale, 112 minutes and few people, with no attempt to build an era out of one man's habits. The Academy gave it lead actor and supporting actress, and BAFTA matched the first. Performance prizes, all of them, and they name the thing exactly. The film lives between how a man sounds onstage and how he behaves an hour later.",
+  "model": "claude-opus-5",
+  "source_sha256": "81fc91db0e707fae97f80f3b0e9775b9e63263e3e8ec82b753013548ae43255a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "la-vie-en-rose-2007",
+  "field": "lead",
+  "film_id": "5616e4c3-f567-479c-a925-8c24e574ffe6",
+  "lang": "en",
+  "text": "In 1935 a nightclub owner named Louis Leplee talked a badly frightened street singer into performing anyway, and the fright never entirely left. Olivier Dahan gives Edith Piaf 140 minutes and spends them on the physical facts of a performing life: a childhood in a grandmother's brothel in Belleville, later the concert halls of New York, a voice that does not match the frame it comes out of. Three Academy prizes went to the film, for lead actress, costume design and makeup. That is a craft budget aimed almost entirely at one person, and it sets the register, closer to a portrait sitting than a survey of a career, songs performed at length rather than illustrated in montage. It is most alert early, before the fame has hardened into a shape.",
+  "model": "claude-opus-5",
+  "source_sha256": "45d5dac127c990f261c3bb5e2eb15b793ccbbb5ad51924f0e43e3bb24ec58d3e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "judy-2019",
+  "field": "lead",
+  "film_id": "3b775ece-5a50-4acb-86d2-770eb2fafa46",
+  "lang": "en",
+  "text": "The Talk of the Town, London: a run of sold-out engagements that someone has to walk out and perform, night after night. Judy takes a narrow slice of a life, one booking three decades after the picture that fixed her image, and treats a residency as labour, with hotel rooms and contracts and the hours before curtain given as much attention as the stage. Rupert Goold builds the film around numbers sung in full, which loads nearly all of it onto the lead; the Academy and the Golden Globes both answered by naming that performance. A romance with the musician who becomes her fifth husband arrives as part of the schedule rather than an escape from it. 118 minutes, and the pressure is simply that the show is tomorrow and she is expected.",
+  "model": "claude-opus-5",
+  "source_sha256": "94145150291277d5650286b2ea55a05d9d0f7c0c36501f002c21cad9abd6856a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "true-grit-1969",
+  "field": "lead",
+  "film_id": "65f4e852-d43e-483a-8bbb-0a80e6219bc6",
+  "lang": "en",
+  "text": "The arrangement is a hire: a teenage girl with a murdered father engages a marshal because his reputation says he finishes things. The Academy's prize went to the man she hired, which is the standard misreading of a film whose motor is the girl. She has the grievance, the money and the plan, and none of the physical means, so every scene becomes a matter of keeping a hired adult pointed in the right direction. Henry Hathaway takes 128 unhurried minutes over it, wide country and daylight, and the National Board of Review counted it among the year's ten. What stays afterwards is not the manhunt but the bargaining, two people who disapprove of each other's methods and are tied together by terms neither can improve on.",
+  "model": "claude-opus-5",
+  "source_sha256": "94e00f1baf190049ad39435603e9efeb8d2a646633dde1d9010cd906c9dff547"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-counterfeiters-2007",
+  "field": "lead",
+  "film_id": "94625899-b94c-48c7-b834-ed093b647420",
+  "lang": "en",
+  "text": "Forgery is a skill, and a skill is a reason to keep a man alive. Salomon Sorowitsch was a counterfeiter before any of this; inside Sachsenhausen the operation had use for exactly that, and the arrangement which follows is the whole subject. Work done well enough to be spared, and what the doing costs the men who do it. Stefan Ruzowitzky keeps the war offscreen and runs the thing at 98 minutes, so the pressure comes from a workshop where the deadline and the sentence are the same document. It took the Academy's award for international feature. The question it keeps putting to its prisoners is whether skill is a form of survival or a form of service, and no one in the room is permitted to answer it comfortably.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7f9185056dfcdd3007e69a005b965df5e5f651f2e6b905089da35bcc0119b8d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "in-a-better-world-2010",
+  "field": "lead",
+  "film_id": "129799aa-6eae-4678-8188-49c4aeba7d50",
+  "lang": "en",
+  "text": "Two households in Denmark, and a friendship that neither family would have chosen. Susanne Bier builds the film on crossings, two sets of lives that meet at an angle and then send the consequences back up into marriages, jobs and the careful arrangements people make to keep a household orderly. It runs 118 minutes and lets its characters be tired: loneliness and frailty are conditions here rather than incidents, and the danger grows out of them slowly enough that its shape is clear only once it has set. The Academy named it the year's international feature and European audiences chose it too. The friendship is called risky before anything has happened, which is the right warning. What the film watches is not the damage but the reasoning that precedes it, and how sensible that reasoning sounds at a kitchen table.",
+  "model": "claude-opus-5",
+  "source_sha256": "2789bea1e546f4ac777b24ea7e30892a8ff172209c1522a6058ebe9473bf2a6e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-eyes-of-tammy-faye-2021",
+  "field": "lead",
+  "film_id": "431d6981-6ded-42f2-8b50-1c0c1caf716a",
+  "lang": "en",
+  "text": "Television is the instrument, and the couple at its centre learned to work it before anyone had settled what religious broadcasting was for. From the 1960s to the 1980s Jim Baker and Tammy Faye built an empire out of airtime and donations, and the title puts her name on the story, pointing the camera at a face made for cameras. That is the interesting decision. Doctrine, money, the eventual collapse: all of it reaches an audience through cosmetics, costume and the composure required to keep smiling at a lens for twenty years. 126 minutes, and the strongest stretch is the climb, when two unknown people discover that sincerity broadcasts better than polish. What a film can add to a scandal already on the record is the texture of the years before it.",
+  "model": "claude-opus-5",
+  "source_sha256": "f5d8eb220ea326985979f3c9c751ee1fed55a28028b338c3e3c4edbda55894f6"
+ }
+]

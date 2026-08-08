@@ -1,0 +1,272 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "paul-verhoeven",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "이름 Paul은 라틴어 'Paulus'에서 왔다. '작은', '겸손한'이라는 뜻이다. 네덜란드 성 Verhoeven은 'van der Hoeven'이 줄어든 형태로, '농장에서 온', '영지에서 온'이라는 지형 이름이다. 중세 네덜란드어 'hoeve'(토지 면적 단위)가 뿌리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e7f9f9091d6574a32bcd6144203a772386abbcf0cb2beba8ad1768c335f5484"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almod-var",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "Pedro는 라틴어 'Petrus'에서 나왔고 '바위' 또는 '돌'을 뜻한다. 성 Almodóvar는 아랍어 계통이다. 'al-mudawwar'(المدور), 곧 '둥근' 또는 '둥근 곳'이라는 말에서 왔는데, 역사적으로는 스페인에 남은 원형 무어식 요새나 언덕을 가리켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "27fcce1c7391711dddc6e87a89120a6e1a6f5596a2bfff323e15613e411c0fd8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almodovar",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "Pedro는 라틴어 'Petrus'에서 왔다. '바위', '돌'이라는 뜻이다. 성 Almodóvar는 아랍어 'al-mudawwar'(المُدَوَّر)에서 나온 말로 '둥근 곳'을 가리키는데, 보통은 원형으로 성벽을 두른 마을을 뜻했다. 어머니 쪽 성 Caballero는 '기사' 혹은 '말 탄 사람'이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "48143e18f5927ddc90665efa508b4c74c0683dde4b493627ca08342d3dc2a0f0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pete-docter",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "Pete는 Peter의 애칭이다. 그리스어 'Petros'(Πέτρος), 곧 '바위'나 '돌'에서 왔다. Docter는 네덜란드와 독일에서 온 직업 성으로, '가르치는 사람'을 뜻하는 라틴어 'doctor'가 뿌리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d08e2e041f328e74312c67b5eea2c140c93fcad1850ef90df23989ffa854312a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "peter-jackson",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "Peter는 그리스어 Petros(Πέτρος)에서 왔고 '바위' 또는 '돌'을 뜻한다. 성 Jackson은 잉글랜드와 스코틀랜드 계통으로, 글자 그대로 '잭의 아들'이다. Jack은 중세에 John을 부르던 애칭이었고, John의 뿌리는 히브리어 Yochanan, '야훼는 자비로우시다'다.",
+  "model": "claude-opus-5",
+  "source_sha256": "594d3631edefaa961483cc351661f62ccec3fb1f30a8e3c0edcfc76a15d11e14"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pier-paolo-pasolini",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "Pier Paolo는 두 이름을 붙인 것이다. 그리스어 'petros'('바위')에서 온 베드로, 라틴어 'paulus'('작은', '겸손한')에서 온 바울. 각각의 이탈리아어 형태다. 성 Pasolini의 유래는 둘 중 하나로 짐작된다. 'Pasqua'(부활절)의 애칭이거나, '목초지'를 뜻하는 라틴어 'pascuum'이거나. 어느 쪽이든 에밀리아 시골에 뿌리를 둔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b66cd56aa0b97cb0112d433b97cfe1d5efb0b13bbd91a894addb5abb22c998a8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "quentin-tarantino",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "Quentin은 라틴어 'Quintinus'에서 왔다. '다섯째'라는 뜻으로, 다섯째로 태어난 아이나 5월에 태어난 아이에게 붙이던 이름이다. Tarantino는 지명에서 온 이탈리아 성이다. 남부 풀리아 지방의 오래된 해안 도시 타란토, 그곳이 조상의 땅이라는 표시다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9e44eebfdea6405fb1f0f3b10a84e84cf67085bd9e4c22e3d0a2ba7a7fd190ea"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rainer-werner-fassbinder",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "독일 이름 Rainer는 고대 고지 독일어 'Raganhar'에서 왔다. '조언하는 전사'라는 뜻이다. Werner는 'Warinheri', 곧 '지키는 군대'에서 나왔다. 성 Fassbinder는 전통적인 직업 이름으로, 글자 그대로 옮기면 '통을 묶는 사람', 곧 통장이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f39dfd29d0711e9584ca4728cd93d33da87939e2ec1c955c5255aa5994eeae9f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rian-johnson",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "Rian은 아일랜드 이름으로 '작은 왕'을 뜻한다. 고대 아일랜드어 'rí'(왕)에 축소 접미사가 붙었다. Johnson은 잉글랜드의 부칭 성으로 '존의 아들'이다. John은 히브리어 Yohanan에서 왔고, 그 뜻은 '야훼는 자비로우시다'.",
+  "model": "claude-opus-5",
+  "source_sha256": "e600d35b059694ce89541d79222e2d1ab7e6a9ef44ccf5cf3472d45444864d33"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-donner",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "본명은 Richard Donald Schwartzberg다. Richard는 '용감한 힘'을 뜻하는 게르만어 요소에서, Donald는 '세상의 지배자'를 뜻하는 켈트어에서 왔다. Schwartzberg는 독일어와 이디시어로 '검은 산'이다. 나중에 그가 택한 예명 Donner는 독일어로 천둥을 가리킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "177c08c11a50953e551fb75c83c1581d77e75c51c0b846bc9f95ad2622618a8b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "richard-linklater",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "Richard는 게르만어 *ric*(지배자, 강한)과 *hard*(용감한, 굳센)가 합쳐진 이름으로 '용감한 지배자'라는 뜻이다. Linklater는 고대 노르드어에서 온 스코틀랜드 지명 성이다. *lyng*(헤더)와 *klettr*(바위, 절벽)의 결합. 오크니 제도에서 헤더로 뒤덮인 바위 곁에 살던 사람을 그렇게 불렀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "277c1f0075cdc133f6653992d443bdeec61275bbfa9c857aa65dbe8de11dfca8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ridley-scott",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "Ridley는 지명에서 온 잉글랜드 성이다. 고대 영어 'hreod'(갈대)와 'leah'(숲속 빈터)가 붙었다. Scott은 종족을 가리키는 성으로 라틴어 'Scoti'에서 왔고, 본래 게일어를 쓰는 사람 또는 스코틀랜드 출신을 뜻했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d597508c315a35cabb34f381a3b202dd3079fab5308a6d469d2a582aa1b107d0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "rob-reiner",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "Robert는 게르만어 'Hrodebert'에서 왔다. '빛나는 명성', 영광 속에서 빛난다는 뜻이다. 성 Reiner의 게르만어 뿌리는 'Raginhari', 곧 '지혜로운 군대'다. 다만 아슈케나지 유대인 전통에서는 여자 이름 Rayne, '순수한'이라는 뜻의 이디시어 이름에서 왔다고도 본다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6af678828aef9293ee491747dc72df3a9e670ffa9bd372a96f4919a0c743c986"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-bresson",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "Robert는 게르만 이름 Hrodebert에서 나왔다. 'hrod'(명성)와 'beraht'(밝은)가 만나 '빛나는 명성'이 된다. 성 Bresson은 프랑스 계통이다. 동부 브레스 지방 출신임을 가리키는 표지였거나, 고대 프랑스어 동사 'bercer'(흔들다, 요람에 재우다)의 애칭형에서 왔을 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9d56b72d634ca4b62ca5e4a86f96784ec0522f0d71b23b935d66a692096063cd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-eggers",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "Robert는 원시 게르만어 *Hrōþiberhtaz*(고대 고지 독일어 *Hrodebert*)에서 왔다. *hrod*(명성)와 *beraht*(밝은)가 합쳐져 '빛나는 명성'이 된다. 성 Eggers는 게르만 부칭 성인데, 뿌리는 둘 중 하나다. *agil*(칼날)과 *hard*(용감한)에서 온 인명 Eckhard이거나, 쟁기질하는 사람을 가리키던 중세 저지 독일어 *egge*(써레)이거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "4582d624098ed31e0b1c26cf7ff0f41bc865168cff31a1ea7cf0edb0adc7d192"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "robert-zemeckis",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "영어 이름 Robert는 게르만어 'Hrodebert'에서 왔고 '빛나는 명성', '눈부신 영광'을 뜻한다. 성 Zemeckis는 리투아니아 이름 'Žemeckis'가 미국식으로 바뀐 형태다. 'žemė'(흙, 땅)에서 나온 말로, 예전에는 농부나 땅 가진 사람을 가리켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d54c60954d00c730d146e37ac8258569357b8ebf2a2d3f67ee766cb10a069001"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roman-polanski",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "본명은 Roman Rajmund Liebling. 본래의 독일어 성 'Liebling'은 '사랑스러운 사람', '총애받는 이'라는 뜻이다. 아버지가 1937년에 성을 Polański로 바꿨다. 폴란드어 'polana'(숲속 빈터)나 'Polanie'(들에 사는 사람들)에서 딴 것으로, 유대인 티가 덜 나게 하려는 선택이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "53693c149b033c2cae769840bc6db1de5d78b2b0911f2b87d6ddf0729f9ae72d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "roy-andersson",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "이름 Roy는 게일어 'ruadh'('붉은') 혹은 고대 프랑스어 'roy'('왕')를 영어식으로 옮겨 온 것이다. 성 Andersson은 스웨덴의 부칭 성으로 '안데르스의 아들'을 뜻한다. Anders 자체는 그리스어 'Andreas'에서 왔고, '사내다운' 또는 '용감한'이라는 뜻이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "77e481b08c607ecd4cbedf0410209e8ef0394ba69b0f123a0728408095206945"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ry-suke-hamaguchi",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "성 하마구치(濱口)는 '하마'(바닷가)와 '구치'(입, 어귀)가 붙은 말이다. 이름 류스케(竜介)에서 '류'는 용을 뜻하고, '스케'는 중재하거나 돕는다��� 뜻의 글자로 일본 남자 이름에 오래 쓰여 왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2592bc9c1a03335cbd42587f1b520a8ed44e7ef68975dd57552a8c94ff5d3109"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryan-coogler",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "Ryan은 아일랜드 성 Ó Riain에서 왔다. '리안의 후손'이라는 뜻인데, 고대 아일랜드어 뿌리 *rí*가 '왕'이니 Rian은 '작은 왕'이 된다. Coogler는 독일과 스위스 독일계 성 'Kugler'의 미국식 철자다. 두건 달린 옷을 짓는 사람을 가리켰거나, 공을 굴리는 중세 놀이를 하던 사람을 뜻했다. 독일어 *Kugel*이 공, 구체를 가리킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0b809ab3fd5ac19dad85390b2773571e4a6fcd1d5f2fad6d4087bf509ee1a9e4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ryusuke-hamaguchi",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "성 하마구치(濱口)는 '하마'(바닷가)에 '구치'(입, 어귀)가 붙은 이름이다. 이름 류스케(竜介)의 '류'는 용이다. '스케'는 중재하고 돕는다는 뜻을 지닌 글자로, 일본에서 사내아이 이름에 전통적으로 쓰였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2592bc9c1a03335cbd42587f1b520a8ed44e7ef68975dd57552a8c94ff5d3109"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "s-s-rajamouli",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "'코두리'(కోడూరి)는 텔루구 집안의 성으로, 조상이 살던 마을 이름에서 왔다. '스리사일라'(శ్రీశైల)는 시바 신을 모시는 성지 스리사일람을 가리키고, '스리'(శ్రీ)는 상서로움을 담은 존칭이다. '라자마울리'(రాజమౌళి)는 산스크리트어와 텔루구어로 '왕들의 왕관'이라는 뜻이다. 라자가 왕, 마울리가 왕관 또는 머리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "71d533855437501f2722e3e0fbedfcd8139f2208390dbd9c21a71d0008242d27"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-mendes",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "Samuel은 히브리어 שְׁמוּאֵל(슈무엘)에서 왔고 '하느님이 들으셨다'는 뜻이다. Alexander는 그리스어 Ἀλέξανδρος(알렉산드로스), '사람들을 지키는 자'다. 성 Mendes는 포르투갈과 갈리시아의 부칭 성으로, 서고트 이름 Hermenegildo에서 나왔다. 그 뜻은 '온전한 희생'.",
+  "model": "claude-opus-5",
+  "source_sha256": "00494952c28bd66e64552a3a20ba25bbe212f2196a44bc25cbaf4276f133cf23"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sam-raimi",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "성 Raimi는 엘리스섬 시절 헝가리계 유대인 집안 이름 'Reingewertz'(이디시어: ריינגעווירץ)를 영어식으로 바꾼 것이다. 독일어 rein(순수한)과 Gewürz(향신료)가 그 뿌리다. 이름 Samuel은 히브리어 'Shmuel'(שְׁמוּאֵל)에서 왔고 '하느님이 들으셨다'를 뜻한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "58a0b36252775575524c3cfd116615a1a8c60ef6bd9858c5e81505eb8807de87"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satoshi-kon",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "성 곤(今)은 '지금', '현재'라는 뜻이다. 이름 사토시(理)는 이치, 논리, 진리를 가리킨다. 현대의 주관적 현실이란 무엇인가를 평생 캐물었던 감독에게 이보다 맞춤한 이름도 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "85485c478a65c6b38f736ce823a4119dd130c58ffa8b6d1def4c833596c8c8f1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "satyajit-ray",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "사티야지트(সত্যজিত)는 산스크리트어로 '진리를 정복한 자'라는 뜻이다. 성 라이(রায়)는 벵골의 귀족 칭호로, 산스크리트어 '라자'(왕)에서 왔다. 역사적으로는 큰 토지를 가진 이들에게 내려주던 이름이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d462ee3a6eb1a21afcf9571f70a919e0dfd80e3c1fe85d79d0a7fc5a97f3f326"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "scott-derrickson",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "이름 Scott은 고대 영어와 라틴어 'Scoti'에서 왔고, 게일어를 쓰는 사람이나 스코틀랜드 출신을 가리켰다. 성 Derrickson은 '데릭의 아들'을 뜻하는 부칭이다. Derrick의 뿌리는 게르만 이름 Theodoric, '백성의 지배자'다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bd48292308ae378d2c2f678e8504d1ece7c58f2aab365a75dc8fa44b59a5c5a8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sean-baker",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "Sean은 히브리 이름 'Yohanan'(John)에 대응하는 아일랜드식 이름으로 '하느님은 자비로우시다'를 뜻한다. Baker는 잉글랜드의 직업 성이다. 고대 영어 'bæcere'에서 왔고, 빵 굽는 사람 또는 마을 공용 화덕의 주인을 가리켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "056686425af70bf050f67aa4f585d13939eb8d7c8399faaa9863d9064787b3f5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sergio-leone",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "Sergio는 로마 씨족명 Sergius의 이탈리아어 형태다. 고대 에트루리아에 뿌리를 두고, '하인'이나 '시중드는 자'를 뜻했으리라 짐작된다. 성 Leone은 이탈리아어로 곧 사자다. 라틴어 'leo'에서 왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4bf7355ada3739b3a2f3bb98ca34083e3df5ca83ea454d77ca6ef8e2faf94962"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "shohei-imamura",
+  "field": "name_meaning",
+  "lang": "ko",
+  "text": "성 이마무라(今村)는 '이마'(今), 곧 지금과 '무라'(村), 곧 마을이 붙은 이름이다. 이름 쇼헤이(昌平)에서 '쇼'(昌)는 번창하다, 밝다는 뜻이고 '헤이'(平)는 평평하다, 평화롭다, 고르다는 뜻이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "257a418519a86b97161e0e833c5dde34a9c6df2c5158f18d763ec62587b33efd"
+ }
+]

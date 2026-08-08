@@ -1,0 +1,322 @@
+[
+ {
+  "entity_type": "director_pick",
+  "entity_key": "krzysztof-kieslowski#three-colors-white-1994",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《세 가지 색: 화이트》는 삼부작 중 유일한 블랙코미디다. 모욕당한 폴란드인 미용사가 복수를 꾸민다. 평등이라는 주제를 씁쓸하고 우스꽝스러운 소극으로 바꿔놓을 줄도 알았던 감독임을 여기서 확인하게 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "lana-wachowski#the-matrix-1999",
+  "field": "reason",
+  "lang": "ko",
+  "text": "입문은 《매트릭스》(1999)다. 군더더기 없이 앞으로만 내달리는 SF 스릴러. 불릿 타임 총격전과 현실이 곧 감옥이라는 설정이 액션영화의 회로를 통째로 갈아끼웠고, 지금 처음 보는 사람에게도 곧장 읽힌다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "lana-wachowski#the-matrix-reloaded-2003",
+  "field": "reason",
+  "lang": "ko",
+  "text": "야심이 가장 멀리 뻗은 편은 《매트릭스 2: 리로디드》(2003)다. 고속도로 추격과 벌리 브롤이 볼거리의 정점이라면, 아키텍트와의 철학적 대면은 1편이 열어둔 신화를 한 겹 더 파고든다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "lana-wachowski#the-matrix-resurrections-2021",
+  "field": "reason",
+  "lang": "ko",
+  "text": "이미 빠져든 사람에게 주어지는 보상이 《매트릭스: 리저렉션》(2021)이다. 속편이라는 것, 향수라는 것, 창작물의 소유권이라는 것에 관한 메타 논평. 자기가 되살린 프랜차이즈를 스스로 심문한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "lars-von-trier#melancholia-2011",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《멜랑콜리아》부터 시작하라. 화려한 슬로모션 서곡으로 문을 연 뒤, 행성 하나가 지구로 다가오는 동안 우울증을 아주 가까이서 들여다본다. 폰 트리에의 아름다움과 공포가 처음 보는 사람에게 가장 순하게 열리는 지점이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "lars-von-trier#breaking-the-waves-1996",
+  "field": "reason",
+  "lang": "ko",
+  "text": "핸드헬드로 감정을 난도질하는 방식은 《브레이킹 더 웨이브》에서 시작됐다. 에밀리 왓슨이 연기한 베스, 헌신이 곧 희생이 되어버리는 그 신자는 놀랍다. 감독이 자기 여주인공을 어떻게 학대하고 동시에 어떻게 숭배하는지, 그 태도가 여기서 정해진다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "lars-von-trier#dancer-in-the-dark-2000",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《어둠 속의 댄서》는 시력을 잃어가는 공장 노동자의 하루를 뮤지컬 환상으로 바꾼다. 비외르크를 앞세운 이 멜로드라마에서 노래는 공장의 비참함을 뚫고 솟구친다. 장르를 이토록 참혹하게 쓴 적은 없었다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "lars-von-trier#dogville-2003",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《도그빌》에는 세트가 없다. 맨바닥에 분필로 그린 선이 마을 전체를 대신한다. 그 연극적 궁핍함으로 니콜 키드먼이 연기한 이방인을 통해 미국식 자선과 복수심을 해부한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "lars-von-trier#antichrist-2009",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《안티크라이스트》는 아이를 잃은 부부를 숲속 오두막의 죄책감과 공포 속으로 밀어 넣는다. 자연 이미지가 그대로 흉기가 된다. 절망과 정면으로 맞붙은 영화이고, 아름다우면서 진짜로 사람을 벌한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "lars-von-trier#europa-1991",
+  "field": "reason",
+  "lang": "ko",
+  "text": "전후 독일의 기차 안. 《유로파》는 최면을 거는 내레이션, 배경 영사, 흑백과 컬러를 겹쳐 쌓은 화면으로 관객을 홀린다. 핸드헬드 혁명 이전, 형식주의자였던 젊은 폰 트리에가 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "lars-von-trier#the-element-of-crime-1984",
+  "field": "reason",
+  "lang": "ko",
+  "text": "데뷔작 《범죄의 요소》는 온통 세피아빛이다. 형사 한 명이 물에 잠긴 누아르적 유럽 속으로 가라앉는다. 스타일과 공기뿐인 영화지만, 그의 차가운 시각적 집착이 어디서 출발했는지 알려준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "lee-chang-dong#burning-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 문턱이 낮은 편은 《버닝》이다. 무라카미에서 출발해 계급적 질투와 실종을 천천히 태워가는 미스터리. 그 모호함이 처음 보는 사람을 붙들고, 다시 볼수록 갚는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "lee-chang-dong#poetry-2010",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《시》는 시 쓰기 강좌에 등록한 노년의 여자가 가족이 저지른 범죄와 마주하는 이야기다. 이창동의 윤리적 엄격함과 조용한 품위가 가장 온전한 형태로 응축돼 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "lee-chang-dong#oasis-2002",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《오아시스》는 전과자와 뇌성마비 여성을 나란히 세운다. 다정하면서 불편한 사랑 이야기다. 소외된 사람을 두고 값싼 감상에 기대지 않겠다는 태도가 여기서 분명해진다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "lee-chang-dong#peppermint-candy-2000",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《박하사탕》은 한 남자의 이십 년과 한국의 멍든 현대사를 거꾸로 거슬러 올라간다. 한 영혼이 어떻게 상해가는지를 파내기 위해 형식을 쓰는 재능, 그 증거다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "lee-chang-dong#green-fish-1997",
+  "field": "reason",
+  "lang": "ko",
+  "text": "데뷔작 《초록물고기》는 제대한 병사가 범죄에 휘말리는 조폭 이야기다. 사회적 리얼리즘도 멜랑콜리도 처음부터 완성돼 있었음을 보여주는 숨은 한 편.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "leos-carax#holy-motors-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《홀리 모터스》 하룻밤이면 카락스의 감각 전부가 손에 들어온다. 드니 라방이 파리를 가로지르며 배역에서 배역으로 변신한다. 영화라는 것의 변태(變態)하는 생명에 관한 영화. 가장 눈부신 입구다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "leos-carax#the-lovers-on-the-bridge-1991",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《퐁네프의 연인들》은 날것의 광기 어린 사랑에 아찔한 스펙터클을 붙였다. 퐁네프 위로 터지는 불꽃, 그 아래 노숙하는 두 연인. 카락스의 낭만과 무모한 육체적 연출이 최고 강도로 타오른다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "leos-carax#annette-2021",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《아네트》는 후기의 큰 스윙이다. 스팍스가 쓴 전편(全篇) 노래 뮤지컬, 애덤 드라이버, 그리고 인형으로 등장하는 아이. 인공성과 비탄을 대담하게, 호오가 갈리는 데까지 밀어붙인다. 이미 빠진 사람 몫이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "lou-ye#summer-palace-2006",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《여름궁전》은 1980년대 말 베이징을 배경으로 한 여대생의 격정적인 연애를 좇는다. 사적인 욕망과 국가의 격변이 한 몸으로 붙는다. 잠시도 가만있지 않는 핸드헬드의 밀착과 정치적 저류, 러우예의 특징이 한 편에 다 들어 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "lou-ye#blind-massage-2014",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《마사지사》는 시각장애인 안마사들이 일하는 난징의 안마원 안으로 관객을 들여놓는다. 촉각적인 소리와 초점 나간 화면으로 그들의 지각을 흉내 낸다. 형식적으로 가장 과감하고, 동시에 가장 인간적이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "lou-ye#spring-fever-2009",
+  "field": "reason",
+  "lang": "ko",
+  "text": "연출 금지 처분을 받고 있던 시기, 난징에서 몰래 찍었다. 《스프링 피버》는 비에 젖은 밤들을 지나 양성애자 연인들의 뒤엉킨 관계를 따라간다. 거칠고 입자 굵고 은밀하다. 그의 밤의 관능에 이미 눈이 트인 관객에게 돌아가는 몫이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "luca-guadagnino#challengers-2024",
+  "field": "reason",
+  "lang": "ko",
+  "text": "입구로는 《챌린저스》가 가장 쉽다. 땀에 절은 테니스 삼각관계, 맥박처럼 뛰는 트렌트 레즈너의 스코어, 시간을 건너뛰며 밀어붙이는 구조. 욕망을 경쟁으로 다루는 구아다니노의 식욕이 그대로 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "luca-guadagnino#call-me-by-your-name-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《콜 미 바이 유어 네임》은 그의 관능과 햇볕에 늘어진 이탈리아적 나른함을 첫사랑 이야기로 응축한다. 참을성 있게 이어지는 롱테이크와 만져질 듯한 세부. 그의 영화가 왜 그리움으로 아픈지 여기서 알게 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "luca-guadagnino#queer-2024",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《퀴어》는 버로스를 환각적이고 양식화된 집착과 중독의 연구로 옮긴다. 연극적인 세트, 무방비 상태의 대니얼 크레이그. 이미 그의 실험적인 쪽에 귀가 열린 사람에게 주는 보상이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "luca-guadagnino#after-the-hunt-2025",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《애프터 더 헌트》는 열기를 걷어내고 서늘한 학원가의 긴장을 택했다. 고발과 모호함을 둘러싼 캠퍼스 도덕 스릴러. 더 차갑고 더 이성적인 땅을 시험해보는 중이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "luchino-visconti#rocco-and-his-brothers-1960",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《로코와 그의 형제들》은 남부의 한 가족이 공업도시 밀라노로 올라오는 이야기다. 감정이 곧바로 전해지는 가족 멜로드라마이고, 네오리얼리즘의 뿌리와 오페라적 진폭이 함께 있다. 비스콘티의 세계로 들어가기에 가장 수월한 문이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "luchino-visconti#the-leopard-1963",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《레오파드》는 통일 과정에서 자기 계급이 녹아 없어지는 광경을 지켜보는 시칠리아 귀족을 따라간다. 장식을 보는 귀족적인 눈, 그 유명한 무도회 시퀀스, 그리고 중심을 붙드는 버트 랭커스터. 시간과 쇠락에 대한 감독의 가장 큰 진술이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "luchino-visconti#senso-1954",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《센소》는 짙은 테크니컬러와 베르디에 전쟁기 백작부인의 무모한 정사를 붙였다. 정념과 무너지는 귀족이라는 《레오파드》의 주제를 미리 한 번 돌려본 셈이고, 화면은 온통 회화적 호사다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "luchino-visconti#death-in-venice-1971",
+  "field": "reason",
+  "lang": "ko",
+  "text": "만을 옮긴 《베니스에서의 죽음》은 이야기를 시선과 말러만 남기고 다 덜어냈다. 역병의 그늘이 드리운 리도에서 늙어가는 작곡가는 아름다움에 붙들린다. 디르크 보가르드. 후기의 가장 최면적이고 가장 헐벗은 문체다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "luchino-visconti#ossessione-1943",
+  "field": "reason",
+  "lang": "ko",
+  "text": "데뷔작 《강박관념》은 케인의 《포스트맨은 벨을 두 번 울린다》를 옮긴 것으로, 거칠고 땀내 나는 이탈리아 네오리얼리즘의 발원지다. 오페라적 장려함이 오기 전, 그의 경력이 어디서 시작됐는지 알 수 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "lucrecia-martel#la-cienaga-2001",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《늪》은 마르텔 특유의 빽빽한 사운드 디자인과 나른하게 썩어가는 부르주아 가옥 안으로 관객을 담근다. 무더위와 가족의 무기력으로 채워진 여름 한철을 견디다 보면, 겹치고 어긋난 그의 화면을 읽는 법이 몸에 붙는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "lucrecia-martel#zama-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《자마》는 그 방법론을 식민지 시대극으로 확장한다. 스페인 관리 하나가 기다림의 열병 속에 갇힌다. 방향을 잃게 만드는 소리와 감각의 착란, 장인적 통제력이 여기서 완전한 형태로 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "luis-bunuel#belle-de-jour-1967",
+  "field": "reason",
+  "lang": "ko",
+  "text": "부뉴엘로 들어가는 가장 쉬운 문은 《세브린느》다. 카트린 드뇌브가 연기하는 부르주아 아내가 낮의 매춘굴로 흘러든다. 백일몽과 현실이 하도 매끄럽게 짜여 있어, 처음 보는 사람도 그의 초현실주의를 힘들이지 않고 붙잡는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "luis-bunuel#the-phantom-of-liberty-1974",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《자유의 환영》은 플롯을 아예 버렸다. 변기가 식탁을 대신하는 부조리한 삽화들이 사슬처럼 이어질 뿐이다. 부뉴엘의 꿈 논리가 가장 순수하게 드러난 편, 몸을 내맡길 준비가 된 관객용.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "luis-bunuel#the-discreet-charm-of-the-bourgeoisie-1972",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《부르주아의 은밀한 매력》은 끝내 자리에 앉아 식사를 하지 못하는 우아한 여섯 명을 따라간다. 재치 있게 맴도는 순환 구조 덕에, 상류층을 향한 그의 조롱은 거부할 도리가 없어진다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "luis-bunuel#the-exterminating-angel-1962",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《절멸의 천사》는 만찬에 온 손님들을 방 밖으로 나가지 못하게 붙들어 둔다. 이유는 끝내 없다. 사교 의례가 곧 보이지 않는 감옥이라는 부뉴엘의 시각, 공포와 부조리가 정확히 반반인 상태. 그의 세계가 가장 잘 졸여진 한 편이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "luis-bunuel#viridiana-1962",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《비리디아나》는 경건한 수련 수녀를 거지와 정욕의 세계로 내보낸다. 신성모독으로 읽힌 거지들의 만찬 장면에서, 자선과 신앙을 향한 그의 야만적인 공격이 드러난다. 스페인을 발칵 뒤집었고, 칸을 가져갔다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "luis-bunuel#that-obscure-object-of-desire-1977",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《욕망의 모호한 대상》은 나이 든 남자가 쫓는 한 여자를 배우 두 명에게 나눠 맡긴다. 유작인 이 영화는 에로틱한 집착을 욕망의 불가능성에 관한 능청스러운 퍼즐로 바꿔놓는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "luis-bunuel#los-olvidados-1950",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《잊혀진 사람들》은 멕시코시티 빈민가 아이들 속으로 뛰어든다. 잔혹한 리얼리즘을 꿈 장면이 군데군데 찌른다. 끊겼던 경력을 되살린 작품이자, 후기의 아이러니 이전에 그가 품었던 사회적 분노를 보여주는 영화다.",
+  "model": "claude-opus-5"
+ }
+]

@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-bourne-ultimatum-2007",
+  "field": "lead",
+  "film_id": "2ea3b464-2ee3-4ce8-b789-857f66de17f2",
+  "lang": "en",
+  "text": "A reporter's column, not a gunshot, is what pulls Bourne out of hiding. From there the film runs on paperwork and proximity: a name printed in a newspaper, a photograph pulled off a surveillance feed, a man walking a little too close behind another man in a crowded station. Paul Greengrass keeps the camera at shoulder height and inside the crowd, so a chase reads less as spectacle than as two people trying to solve the same room at once. The Academy Award for Best Film Editing is the right prize for it; the argument is made in the cut, in the half second between one grainy feed and the order given because of it. 115 minutes, almost none of them spent on explanation. What Bourne wants by now is not escape but a name — whoever wrote the file on him — and the search keeps walking him back into buildings staffed by people paid to find him first.",
+  "model": "claude-opus-5",
+  "source_sha256": "35151f96880b5402c0c2c0db03f81c56a51211f2ad3f8ac6612b7a600aa286d9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "blood-diamond-2006",
+  "field": "lead",
+  "film_id": "598d8cbf-9336-4251-b013-8e9790f03be7",
+  "lang": "en",
+  "text": "The stone at the centre is worth more than either man chasing it, and neither can get it out of the country alone. Blood Diamond puts that bargain in Sierra Leone in 1999: a Mende fisherman whose son has been taken into a rebel column, and an ex-mercenary whose living depends on knowing which border guard takes what. Edward Zwick spends 143 minutes on the distance between a riverbed and a shop window, and the film is sharpest when it stays with logistics — who flies the cargo, who signs the certificate, who is paid not to ask. The combat is staged for scale; the conversations are about accounting, and the two registers grind against each other in ways the picture does not always smooth over. What the fisherman has to trade is the only thing he knows, set against the only thing he wants back.",
+  "model": "claude-opus-5",
+  "source_sha256": "756f1128e36f4a1908ea4c2d0ddd37147c037c5ea4c7ddd037c1335c11cef82e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "fury-2014",
+  "field": "lead",
+  "film_id": "b5604f0f-c7ab-4368-8117-1eefd164df14",
+  "lang": "en",
+  "text": "April 1945: everyone in Europe can count the weeks left in the war, which is what makes another mile of it unbearable. Fury puts five men inside a Sherman tank and keeps them there — a space small enough that every argument happens at arm's length, and David Ayer treats that geometry as the whole subject. A replacement arrives who has never worked inside a turret and is expected to learn the job while the job is happening; the crew's first task is not the mission but deciding what to do with him. Much of the picture is the labour of armour: loading, traversing, listening for an engine note that is not theirs. Outside is a countryside still being defended by people doing the same arithmetic about how little time is left. 135 minutes, most of it at the height of an open hatch.",
+  "model": "claude-opus-5",
+  "source_sha256": "7812965641380ff70657a3fdeba07bb754b8911b36bb9e446113e9c4ec0ccf71"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-last-samurai-2003",
+  "field": "lead",
+  "film_id": "a3d6a83b-3cb6-4f03-80ad-6cafe4dd9ec3",
+  "lang": "en",
+  "text": "Nathan Algren is hired to do a technical job: teach a conscript army to load, aim and fire on command. The Last Samurai runs 154 minutes and spends many of them on what that instruction costs the country buying it, since the drill is meant to replace men who fight with older tools and a code attached to them. Edward Zwick shoots the two sides as two kinds of work — the parade ground, where movement is issued in orders, and a village where training and daily labour are hard to tell apart. The Academy noticed the costumes, which is not a small remark about a picture in which cloth, armour and uniform carry most of the argument. Algren's position is awkward by design: paid by one side, increasingly persuaded by the other, and the film is honest enough that his admiration also looks like a form of tourism.",
+  "model": "claude-opus-5",
+  "source_sha256": "54101088ceb028d023041c065b454e548c7ace906dc92bedfd2ee259adee1d72"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "black-hawk-down-2001",
+  "field": "lead",
+  "film_id": "7b4c57b9-4512-41a6-a48a-eb3c41976fce",
+  "lang": "en",
+  "text": "The plan is a snatch: two men lifted out of a building, everyone back before dark. What follows is a long correction to that plan, staged as one continuous emergency in a city where each street resembles the last and the map stops helping the moment a convoy turns wrong. Ridley Scott films it as a question of position — who is where, which radio hears whom, how far a rescue column can move against a crowd on foot. The soldiers are hard to tell apart under helmet and dust, and the film does not apologise for it; identity arrives by voice, by a name shouted twice. 145 minutes with almost no interior life, which is a decision rather than an oversight. The effect is closer to a procedural than to a war story: a complicated machine failing in public, and men trying to work out which part went first.",
+  "model": "claude-opus-5",
+  "source_sha256": "66f782d8c3f559fed80bba2d380d0bcbb398b50140e81d62d2cf6148d7705d94"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-lego-movie-2014",
+  "field": "lead",
+  "film_id": "38b27cc6-d876-4882-8645-54300630fed0",
+  "lang": "en",
+  "text": "A mass-produced mini-figure with no distinguishing features is mistaken for the one person who can build anything. The Lego Movie takes that mistake seriously for 100 minutes, which is longer than a joke usually survives. The premise is frankly commercial — a feature about a branded toy — and the film's answer is a constraint: everything on screen is assembled from the same finite kit, so motion, weather and damage all have to be built rather than drawn. Against that stands a tyrant who would like the parts glued down permanently, which turns the plot into a quarrel between order and improvisation conducted in plastic. Phil Lord runs the gags at a rate that assumes a second viewing and lets plenty of them pass unremarked. Children get the chase; the adults get the joke about following the instructions.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c4198cdcb1b13bb204e338bfbca8025dc0da42f2e1f8875964cbb9cd24efa29"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-fighter-2010",
+  "field": "lead",
+  "film_id": "b565ff38-58e7-4085-a181-dca80d7efa23",
+  "lang": "en",
+  "text": "The man training this fighter is also the family's chief liability, and nobody is going to say so out loud. Dicky was a boxer once, then came close enough to drugs and crime to lose that, and he is now shepherding his half-brother Micky Ward toward a shot at the world light welterweight title. The Fighter carries one genre label, drama, and the label is accurate: the bouts are brief, the negotiations around them go on for reels. David O. Russell is interested in what it costs a household to run two projects at once — one brother being rebuilt, the other being made — and in how readily the second gets spent on the first. Micky's obstacle is not an opponent. It is that the people managing his career are the people he cannot fire, and every decision about a gym or a purse comes pre-attached to a debt of loyalty.",
+  "model": "claude-opus-5",
+  "source_sha256": "eddd18eec8c433ac891a67e160136aedde02dd6f65766a7bc62183eb01153289"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-secret-life-of-walter-mitty-2013",
+  "field": "lead",
+  "film_id": "79b1fd13-1845-485a-ae7f-10a76ee8c00f",
+  "lang": "en",
+  "text": "The whole plot turns on a piece of film the size of a postage stamp. A photo manager at a magazine has mislaid a negative he was responsible for, and going to look for it means leaving a desk he has effectively never left. The Secret Life of Walter Mitty spends its first stretch inside daydreams staged at full budget — the fantasy is not described, it is shot, at the same scale as everything around it — before switching to actual travel, where nothing gets edited to flatter him. Ben Stiller keeps the two registers close enough that the seam shows, and the seam is the point. 114 minutes, comic on the surface and quieter underneath: the study of a man whose profession is custody of images other people went out and made.",
+  "model": "claude-opus-5",
+  "source_sha256": "e2016ee951894f01da121235b5b5a18fc83a14d7c25e36cd83bb270ffad965de"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "grease-1978",
+  "field": "lead",
+  "film_id": "7bbe448d-4773-4b85-a0f5-afbc82ab652a",
+  "lang": "en",
+  "text": "Sandy and Danny fell for each other over a summer, in private, and now have to manage it in front of an entire high school. Grease makes that its mechanism: nothing between the two of them stays between the two of them, because every feeling is run past a friend group first and then, usually, sung. Randal Kleiser stages the numbers as public verdicts — the chorus is not backing, it is the crowd the couple is performing for. The National Film Registry took the film in, and the logic holds beyond popularity: few American pictures are so plain about the way teenage life sorts itself into factions with uniforms and a dress code for defection. At 110 minutes it is brisk and, under the gloss, unsentimental about where the difficulty sits. Sandy's problem is not Danny. It is Danny's friends.",
+  "model": "claude-opus-5",
+  "source_sha256": "ea2249ec6836301cff58de738dee5e7ccb25713d51043e0b944c1eae12fce377"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lone-survivor-2013",
+  "field": "lead",
+  "film_id": "e47ee9d6-24e0-4ee2-be5c-a49d5411f1f7",
+  "lang": "en",
+  "text": "Before a shot is fired, four men on an Afghan mountainside have to make a decision that will not come out clean whichever way they choose. Lone Survivor gives its first third to procedure — insertion, radio checks, the repeated discovery that communications do not reach where the map says they should — and that patience is what makes the rest legible. Peter Berg treats the terrain as the opposing force: scree, gradient, the difference between cover and simply being lower down. Academy attention went to the sound, which is where the film does most of its thinking, since information arrives by ear well before it arrives by eye. 121 minutes, and the question posed in the first half hour is not one the rest of the film pretends to settle.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e6d515a510dfb44309ad21d76e9f632398fbfe3e32f66a0d635d20c5ba5b473"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sully-2016",
+  "field": "lead",
+  "film_id": "e2da235f-0616-49e4-8d69-2f9abbc9c876",
+  "lang": "en",
+  "text": "The flight itself lasted minutes; the film gives most of its time to the people asking, afterwards, whether it needed to happen that way. Sully is a disaster picture in which the disaster has already been survived before the story begins, and the pressure comes from an investigation weighing one pilot's judgment against what a machine can be shown to do. Clint Eastwood shoots it in 96 minutes, plain and unpadded. The reconstructions, the transcripts, the gap between seconds available to a man and seconds available in a simulation: that is where his attention goes, and the procedural instinct suits him. Being publicly celebrated and privately audited at the same time is the real subject, and it is played largely in a face that declines to perform either the hero or the defendant.",
+  "model": "claude-opus-5",
+  "source_sha256": "b479681c57b6c2e4185c429553191a23848afcf655ea1fda0b314e5bebe71ed7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "changeling-2008",
+  "field": "lead",
+  "film_id": "1c698cbb-dbdb-43c9-aa47-974eae8015fc",
+  "lang": "en",
+  "text": "A woman is given back a child and told, in public, to be grateful. Changeling opens with a disappearance — Los Angeles, 1928, a single mother leaves for a shift and her son is not there when she returns — but the case Clint Eastwood pursues is the second one: what a police department will do to protect an announcement it has already made. 142 minutes moving at the speed of institutions, which is to say slowly, and on letterhead. Christine Collins's difficulty is not that nobody believes her; it is that disbelief has been made official, so every route she has for arguing runs through the office that requires her to be wrong. Eastwood shoots the period as clean surfaces and long corridors, and the cinematography earns its Academy notice by making a bright, orderly city look like a place where a person can be filed away.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d9b29520bd4ce4e87c0168700311385684253626e926adaca8b5c74689ab509"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-bucket-list-2007",
+  "field": "lead",
+  "film_id": "4b74ec6a-0bcb-4012-b10a-3240e691d4c2",
+  "lang": "en",
+  "text": "Two men end up in the same hospital room because someone assigned the beds, and that accident is the entire basis of the friendship. The Bucket List keeps its arithmetic simple: a corporate billionaire, a working mechanic, a shared prognosis, and a sheet of paper listing what neither got round to. Rob Reiner does not stay in the ward long; the second half is a travel picture funded by one man's money and shaped by the other man's manners. At 97 minutes it is built for two actors and a great many two-shots, and the comedy runs on an imbalance neither will name, since only one of them has ever been able to pay for anything. The friction worth watching is not mortality, which the premise concedes early, but class: what it costs a proud man to accept a journey he could never have bought.",
+  "model": "claude-opus-5",
+  "source_sha256": "34b0f7394ecfd6a84ed56ed5f615228fe97c13696fe6d53c0ed300ca839d39e2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "match-point-2005",
+  "field": "lead",
+  "film_id": "a632b476-9be9-4d16-bff8-b036429387d4",
+  "lang": "en",
+  "text": "A tennis lesson is how Chris gets inside a family whose money he has no intention of leaving. Match Point sets him among London wealth, and Woody Allen films that world with an agent's eye for property: the addresses, the invitations, the rooms that arrive attached to a surname. Chris becomes engaged to his student's sister while fixating on the woman his student intends to marry, which is less a triangle than a balance sheet — one attachment comes with a job, a flat and a family, the other with nothing but wanting. The screenplay, singled out by the Academy, is exact about how people talk when a purchase is being made and nobody will say so. Allen keeps the tone social and mild for a long stretch; the film is a thriller some while before anyone inside it notices.",
+  "model": "claude-opus-5",
+  "source_sha256": "4e17d9c923e48d3479c1ed718cc6917a5c124faa70da9b028f4575801b0c8056"
+ }
+]

@@ -1,0 +1,322 @@
+[
+ {
+  "entity_type": "director_pick",
+  "entity_key": "satoshi-kon#millennium-actress-2002",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《천년여우》는 은퇴한 여배우의 삶을 그가 찍은 영화들 속으로 엮어 넣는다. 기억과 촬영장 사이를 미끄러지듯 오간다. 따뜻하고 문턱이 낮은 구조라, 어두운 작품들이 주는 불안 없이 곤 특유의 현실 비틀기 편집을 먼저 맛볼 수 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "satoshi-kon#perfect-blue-1997",
+  "field": "reason",
+  "lang": "ko",
+  "text": "아이돌에서 배우로 옮겨간 여자가 스토킹과 자기 의심 속에서 현실 감각을 놓친다. 《퍼펙트 블루》의 면도날 같은 매치 컷은 꿈과 연기와 삶의 경계를 지워버린다. 그를 심리 스릴러의 이름으로 만든 문법이 여기서 세워졌다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "satoshi-kon#paprika-2006",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《파프리카》는 꿈 치료사를 환자의 무의식 안으로 들여보내고, 악몽의 행렬은 깨어 있는 세계로 넘쳐흐른다. 현실이 무너지는 광경을 향한 곤의 집착이 눈부신 최대치까지 밀려 올라간 작품. 《인셉션》에 남긴 자국도 뚜렷하다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "satoshi-kon#tokyo-godfathers-2003",
+  "field": "reason",
+  "lang": "ko",
+  "text": "크리스마스이브의 도쿄, 세상 밖으로 밀려난 노숙자 셋이 버려진 아기를 줍는다. 《도쿄 갓파더즈》는 스크루볼의 소동으로 굴러가는 따뜻한 휴먼 코미디다. 환각 같은 스릴러들에 가려 잘 보이지 않던 곤의 다정한 얼굴이 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "satyajit-ray#pather-panchali-1955",
+  "field": "reason",
+  "lang": "ko",
+  "text": "레이의 데뷔작이자 가장 부드러운 입구. 《Pather Panchali》는 가난한 벵골의 마을을 아이의 눈으로 본다. 비와 기차와 사소한 죽음이 감당하기 어려운 감정을 실어 나른다. 왜 이 사람이 중요한가가 궁금하다면 여기서.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "satyajit-ray#aparajito-1956",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《Aparajito》는 아푸를 마을에서 베나레스로, 다시 캘커타로 데려간다. 어머니와 야심 찬 아들, 끝내 떠나는 아들에 관한 조용한 관찰로 이야기가 깊어진다. 《Pather Panchali》 다음에 볼 것은 자연스럽게 이 편이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "satyajit-ray#the-world-of-apu-1959",
+  "field": "reason",
+  "lang": "ko",
+  "text": "삼부작을 닫는 편이다. 어른이 된 아푸의 결혼과 상실, 문학의 꿈과 사랑이 서로를 저울질한다. 여기까지 오면 레이가 영화 세 편으로 한 사람의 일생을 통째로 지어 올렸다는 사실이 보인다. 《The World of Apu》.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "satyajit-ray#charulata-1964",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《Charulata》에 레이의 예술이 응축돼 있다. 19세기 저택에 갇힌 외로운 아내, 젊은 사촌을 향해 흔들리는 마음이 눈길과 그네와 노래로 옮겨진다. 그가 만든 것 중 가장 정교하게 통제된 한 편.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "satyajit-ray#the-music-room-1958",
+  "field": "reason",
+  "lang": "ko",
+  "text": "몰락해 가는 귀족이 파산을 부르는 음악회에 끝까지 매달린다. 세계는 이미 무너지는 중인데도. 《The Music Room》은 음악에 흠뻑 젖은 최면적인 영화이고, 자존심이 시대에 뒤처지는 순간을 붙든다. 인간을 믿는 아푸 삼부작과는 전혀 다른 자리에 서 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "satyajit-ray#the-big-city-1963",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《The Big City》는 캘커타의 전업주부를 일터로 내보낸다. 첫 월급이 결혼 생활을 어떻게 바꿔 놓는지 차근차근 따라간다. 근대의 여성과 경제의 변화를 향한 레이의 가장 날카로운 시선이 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "satyajit-ray#nayak-1966",
+  "field": "reason",
+  "lang": "ko",
+  "text": "유명 영화배우를 밤 기차에 가둬 놓고, 고백과 꿈으로 그 명성을 한 겹씩 벗겨낸다. 《Nayak》은 좁고 심리적으로 밀착한 작품이다. 레이가 그리는 사람의 안쪽에 이미 붙들린 관객이라면 다음은 이것.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "satyajit-ray#days-and-nights-in-the-forest-1970",
+  "field": "reason",
+  "lang": "ko",
+  "text": "캘커타의 남자 넷이 별생각 없이 시골로 휴가를 떠난다. 그 며칠 사이에 자기 계급을 보지 못하는 눈과 스스로를 속여 온 태도가 드러난다. 《Days and Nights in the Forest》는 느슨하고 현대적이며 대화로 굴러가는 영화, 이미 레이에게 설득된 이들에게 주어지는 보상이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "satyajit-ray#the-chess-players-1977",
+  "field": "reason",
+  "lang": "ko",
+  "text": "1856년, 영국이 왕국을 삼키는 동안 두 귀족은 체스판에서 눈을 떼지 못한다. 우르두어로 찍은 역사 풍자이자 레이가 펼친 가장 넓은 화폭. 《The Chess Players》는 맨 마지막에 보는 편이 좋다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "scott-derrickson#the-black-phone-2022",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《블랙 폰》은 데리슨의 스릴러 중 문턱이 가장 낮다. 초자연적 공포를 1970년대의 유괴 사건에 단단히 붙들어 맸다. 아이가 주인공이고, 가면을 쓴 에단 호크가 위협을 맡는다. 걸린 것이 분명하고 호흡이 팽팽하니 여기서 들어가면 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "scott-derrickson#sinister-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《시니스터》를 보면 이 감독이 왜 중요한지 알게 된다. 슈퍼 8밀리 파운드 푸티지 릴이 돌아가고, 가정의 불안은 천천히 타오르며, 사운드 디자인은 침묵을 무기로 쓴다. 악이 한 집안으로 스며들어 부풀어 오르는 과정을 그가 가장 순도 높게 밀어붙인 영화다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "scott-derrickson#doctor-strange-2016",
+  "field": "reason",
+  "lang": "ko",
+  "text": "이미 빠져든 관객이라면 《닥터 스트레인지》. 호러의 감각을 블록버스터 스펙터클의 규모로 키운 결과가 보인다. 에셔의 그림처럼 접히는 도시와 신비술이 뜻밖에 으스스한 슈퍼히어로 기원담을 만든다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sean-baker#the-florida-project-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《플로리다 프로젝트》에는 미국의 변두리에 사는 사람들을 향한 베이커의 공감이 응축돼 있다. 디즈니 옆 모텔을 아이의 눈으로 본다. 따뜻하고 들어가기 쉬우면서 그의 작업 전체를 담아낸 입구다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sean-baker#anora-2024",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《아노라》는 베이커의 에너지와 인간애를 한데 녹여 가장 힘차게 굴러가는 작품이 됐다. 브루클린의 성노동자를 따라가던 스크루볼 소동이 어느 순간 다정하고 아픈 것으로 변한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sean-baker#tangerine-2015",
+  "field": "reason",
+  "lang": "ko",
+  "text": "아이폰으로 찍었다. 《탠저린》은 트랜스젠더 성노동자 두 사람을 햇빛에 타들어 가는 로스앤젤레스의 크리스마스이브로 내보낸다. 거칠고 악착같은 이 영화가 증명한다. 베이커는 거의 아무것도 없는 곳에서 이만큼을 불러낸다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sean-baker#red-rocket-2021",
+  "field": "reason",
+  "lang": "ko",
+  "text": "매력적이고 자기밖에 모르는 전직 포르노 배우가 텍사스의 고향 마을을 사기로 휘젓는다. 《레드 로켓》은 그 옆자리에 앉아 끝까지 가보라고 도발한다. 베이커의 인물 연구 중 가장 불편하고 도덕적으로 미끄러운 편이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sergio-leone#the-good-the-bad-and-the-ugly-1966",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《석양의 무법자》에 레오네의 서명이 다 들어 있다. 극단적인 클로즈업이 있고, 모리코네의 테마가 울부짖고, 남북전쟁 한복판에서 세 사내가 보물을 쫓는다. 처음 오는 사람에게 이만한 출발점은 없다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sergio-leone#once-upon-a-time-in-the-west-1968",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《옛날 옛적 서부에서》는 서부극의 속도를 늦춰 오페라의 제의로 만든다. 첫 기차역 장면과 찰스 브론슨의 하모니카를 보라. 장르가 순수한 신화의 영화로 넘어가는 순간이 거기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sergio-leone#once-upon-a-time-in-america",
+  "field": "reason",
+  "lang": "ko",
+  "text": "서부를 버리고 수십 년을 가로지르는 네 시간짜리 유대계 갱스터 비가(悲歌)로 간다. 《원스 어폰 어 타임 인 아메리카》는 기억과 시간과 후회를 향한 레오네의 집착을 그대로 드러낸다. 마지막 영화이자 가장 사적인 영화.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "shohei-imamura#pigs-and-battleships-1961",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《돼지와 군함》은 야쿠자와 미군 수병이 우글거리는 항구 도시 한복판에 관객을 떨어뜨린다. 전후 일본의 밑바닥에서 살아남는 자들을 보는 이마무라의 흙냄새 나는 풍자적 눈이 여기 다 있다. 활기차고, 그래서 보기 쉽다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "shohei-imamura#vengeance-is-mine-1979",
+  "field": "reason",
+  "lang": "ko",
+  "text": "실재했던 연쇄살인범을 부서진 시간 순서로 따라가며 악을 해부한다. 해부하되 설명해 치우지는 않는다. 《복수는 나의 것》은 이마무라의 차갑고 인류학적인 응시(gaze)가 가장 흔들림 없고 가장 대담하게 구조를 밀어붙인 자리다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "shohei-imamura#the-insect-woman-1963",
+  "field": "reason",
+  "lang": "ko",
+  "text": "한 농촌 여자가 수십 년의 착취를 손톱으로 긁으며 통과한다. 《The Insect Woman》은 여자의 끈질김과 본능을 어떤 곤충 못지않게 무자비한 것으로 그려낸다. 이마무라를 대표하는 초상이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "shohei-imamura#the-eel-1997",
+  "field": "reason",
+  "lang": "ko",
+  "text": "말년의 이마무라는 한결 부드럽다. 《우나기》에서 출소한 남자는 뱀장어 한 마리와 길가 이발소로 삶을 다시 세운다. 인간의 욕망을 향한 오랜 관심이 조용하고 다정한 구원 쪽으로 옮겨 간다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "shohei-imamura#black-rain-1989",
+  "field": "reason",
+  "lang": "ko",
+  "text": "원폭이 떨어지고 몇 해가 지난 뒤, 히로시마의 생존자들에게 방사능병이 천천히 떠오른다. 《검은 비》는 절제되어 있고 그래서 더 무너뜨린다. 변방의 사람들을 향한 이마무라의 연민에 이미 익숙해진 관객이라야 값을 온전히 받는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sidney-lumet#12-angry-men-1957",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《12명의 성난 사람들》은 배심원 열둘을 찌는 방 하나에 가둔다. 카메라는 점점 좁혀 오고 성질은 점점 올라간다. 탁자 하나가 스릴러가 된다. 루멧의 도덕적 압력솥으로 들어가는 가장 깨끗한 입구다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sidney-lumet#network-1976",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《네트워크》는 방송국 보도국을 시청률과 분노와 구경거리에 관한 예언으로 바꿔 놓는다. 패디 차예프스키의 폭포 같은 대사, 거기에 계단을 오르듯 고조되는 루멧의 연출. 제도가 사람을 삼키는 광경을 이 감독이 얼마나 손아귀에 쥐고 있는지 보인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sidney-lumet#dog-day-afternoon-1975",
+  "field": "reason",
+  "lang": "ko",
+  "text": "실패한 브루클린 은행 강도 사건이 땀에 절은 길거리 서커스로 쪼그라든다. 알 파치노는 절박함을 즉흥으로 밀어붙이고 구경꾼은 계속 불어난다. 《뜨거운 오후》의 루멧은 가장 인간적이고 가장 예측하기 어렵다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sion-sono#love-exposure-2008",
+  "field": "reason",
+  "lang": "ko",
+  "text": "종교, 변태성, 가족, 로맨스. 소노의 집착이 전부 《Love Exposure》 안에 있다. 치마 속을 찍는 십 대 소년을 앞세워 네 시간을 쉬지 않고 밀어붙이는 서사시다. 그 진심과 널뛰는 톤이야말로 그의 감각으로 들어가는 가장 정직한 문이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sion-sono#cold-fish-2010",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《차가운 열대어》는 그 혼돈을 팽팽하게 조인다. 실제 연쇄살인 사건을 바탕으로 피에 젖은 추락을 그린다. 열대어 가게 주인이 점점 괴물이 되어 가는 과정을 보면, 러닝타임이 줄었을 때 이 감독이 공포를 얼마나 정밀하게 다루는지 알게 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sion-sono#the-forest-of-love-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "이미 빠져든 사람에게 주는 보상이 《The Forest of Love》다. 사기꾼이 세운 사이비 집단과 그를 찍는 아마추어 영화인들을 겹쳐 놓은 방대한 메타 변주. 소노가 자기 주제들을 거울의 방에 넣고 되돌리고 또 되돌린다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sofia-coppola#lost-in-translation-2003",
+  "field": "reason",
+  "lang": "ko",
+  "text": "시차에 절은 우울, 네온의 도쿄 밤, 끝내 말이 되지 못한 교감. 코폴라의 서명이 《사랑도 통역이 되나요?》에 응축돼 있다. 그의 영화 중 가장 접근하기 쉽고 은근히 웃긴 편이니, 처음이라면 여기서.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sofia-coppola#the-virgin-suicides-2000",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《The Virgin Suicides》에서 코폴라의 세계가 자리를 잡는다. 뿌옇게 흐린 교외의 몽롱함, 남의 시선 속에서 신화가 되어 버린 소녀들. Air의 음악이 씌운 얇은 막 같은 공기가 이후 그의 영화 전부를 규정한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sofia-coppola#marie-antoinette-2006",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 대담한 선언은 《마리 앙투아네트》다. 파스텔 빛 방탕, 시대를 무시하고 흘러나오는 팝, 특권 안쪽의 고립. 역사 전기영화를 금박 입힌 외로움에 관한 십 대의 열병 같은 꿈으로 바꿔 놓는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sofia-coppola#priscilla-2023",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《프리실라》는 금빛 새장이라는 주제를 소녀 쪽에서 다시 본다. 그레이스랜드의 푹신한 벽 안에서, 나이 많은 남자의 세계에 맞춰 빚어지고 갇히는 젊은 여자를 따라간다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sofia-coppola#the-beguiled-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《매혹당한 사람들》의 코폴라는 긴장과 위협 쪽으로 날을 세운다. 아련함을 버리고 남북전쟁기 온실 같은 집에서 벌어지는 여자들의 권력 다툼을 붙든다. 촛불빛의 절제, 그 아래에서 끓는 것.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sofia-coppola#somewhere-2010",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 헐벗고 가장 참을성 있는 영화. 속이 텅 빈 영화배우가 샤토 마몽을 떠돈다. 《썸웨어》는 분위기와 정지, 끝내 말해지지 않은 자리에 귀를 열어 둔 관객에게 값을 한다.",
+  "model": "claude-opus-5"
+ }
+]

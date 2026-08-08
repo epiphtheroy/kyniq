@@ -1,0 +1,102 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "this-must-be-the-place-2011",
+  "field": "lead",
+  "film_id": "7e39121b-206b-4340-a177-a042c0db1771",
+  "lang": "en",
+  "text": "Retirement can outlast, by decades, the career that paid for it. The man at the centre of This Must Be the Place has been idle in Ireland long enough that boredom has hardened into a manner, and when his father dies he takes up an errand he never asked for: finding the war criminal who tormented his father, now living out his refuge somewhere in the United States. Two hours is a long stretch for a revenge plot, and Paolo Sorrentino declines to hurry it. What accumulates instead is distance — the width of a country, the gap between this man and whoever he was when people were listening, the flat courtesy of strangers with no idea who he used to be. The David di Donatello he took for direction fits a film in which almost nothing depends on what happens and nearly everything on the tempo at which it is allowed to happen.",
+  "model": "claude-opus-5",
+  "source_sha256": "9374eafe9c35b376ea0b169bfb287c1a76e725a7758ac842b6cafa4d71e8f421"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-salt-of-the-earth-2014",
+  "field": "lead",
+  "film_id": "7e3a80a6-7bbf-4c86-9487-53331ca78428",
+  "lang": "en",
+  "text": "A son picks up a camera and points it at his father, who has spent forty years pointing one at everybody else. Sebastião Salgado photographed people under pressure — conflicts, famines, the roads taken when a country stops being livable — and four decades of that amounts to an archive with a weight to it. The film comes at him from two sides: Juliano Ribeiro Salgado, who went along on the recent journeys and grew up inside the work, and Wim Wenders, who handles a camera himself and arrives as a colleague. Lately the pictures have changed. Fauna, flora, ice and forest, land with nobody standing in it. In a hundred and ten minutes the move from human catastrophe to untouched country comes to look less like a change of subject than a decision about how much a person can go on looking at.",
+  "model": "claude-opus-5",
+  "source_sha256": "5ffb54d79f2d9d1258dded184925bf8157cf5564cae68ffe066b053ddf33f26f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tokyo-family-2013",
+  "field": "lead",
+  "film_id": "7eb0645e-d9de-4b14-9c75-92791040ee75",
+  "lang": "en",
+  "text": "An elderly couple arrive in Tokyo with luggage and the assumption that room will be made for them. Their grown children are preoccupied, each mid-sentence in a life arranged without a spare bedroom in mind, and the visit turns into a scheduling problem: whose apartment tonight, who can spare an afternoon, where the parents can be put tomorrow. Yoji Yamada takes 146 minutes over this, which is the point. At that length the small evasions cannot be summarised; they have to be sat through, in real rooms, at the pace of people being polite to each other. Nobody here is cruel. They are busy, and busyness turns out to be an efficient way of postponing a conversation until the visit ends and it is no longer required.",
+  "model": "claude-opus-5",
+  "source_sha256": "46898883584378c1281b2c92752aabac154c94e08175fe1be7cea2176bd6f4b9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "racer-and-the-jailbird-2017",
+  "field": "lead",
+  "film_id": "802a54ad-0541-41fc-b687-f0e58aba8b26",
+  "lang": "en",
+  "text": "Bénédicte drives racing cars, which is one way of arranging a life so that the danger arrives on a schedule. Gino's danger keeps no schedule. Hers is a profession with rules and safety crews; his has neither. It is love at first sight, so nothing much depends on whether they want each other; the pressure comes from what one of them knows and has not said, and from how long that can go on inside an ordinary shared week. The catalogue files this under crime, romance and drama at once, and Michaël R. Roskam lets none of the three win outright. The secret is not a device to be sprung. It is daily work — the call not made, the question answered slightly wrong — and 130 minutes is roughly the time it takes for work of that kind to start showing on both of them.",
+  "model": "claude-opus-5",
+  "source_sha256": "7e2a90ef997d35c4c91006ad20dd72a4a6e31f1b76e25a21ae06c7fe5932ecc6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dorian-gray-2009",
+  "field": "lead",
+  "film_id": "805654c6-3380-4048-9962-ff58b80d5002",
+  "lang": "en",
+  "text": "The portrait is commissioned early, and after that the young man who sat for it never has to account for a late night again. Oliver Parker takes the arrangement literally and plays it as a thriller: Lord Henry Wotton opens a door into a decadent circle, Dorian walks through, and what follows is the upkeep of a secret — where the picture is kept, what gets said about it, who asks once too often. The fantasy is a single fixed rule, honoured without fuss, and everything else proceeds as consequence. Handsome and rich is the starting position, not the subject. The 112 minutes go on the narrowing: how a man with one thing to hide finds that the hiding has taken over the day, and that the people closest to him are the ones most likely to notice.",
+  "model": "claude-opus-5",
+  "source_sha256": "a878f51eecb6692e5119ea3f3ae5475e516f711544da3ecc959b8e8f6bb5aa00"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-tale-of-autumn-1998",
+  "field": "lead",
+  "film_id": "8119f69c-7903-4fb5-b4f7-33e6d5611a08",
+  "lang": "en",
+  "text": "Two women, working separately and telling each other nothing, decide that their friend needs a husband. Magali does not. She has vines, a cellar and a business that keeps its own calendar, plus a loneliness she has not asked anybody to solve; widowed and in her forties, she has become an object of concern to people who love her, which is a form of company in itself. Éric Rohmer stages the double scheme at conversational speed, so the comedy never announces itself: the meeting that has to pass for chance, the introduction with too much preparation behind it, the silence of a woman working out that she is being handled. Nothing is confronted; everything is discussed. Rosine and Isabelle are not wrong about the loneliness. They are wrong to think it is theirs to arrange.",
+  "model": "claude-opus-5",
+  "source_sha256": "da8b93a68cc36eeb3c0d9d72d925306c7b2ad8a08baac5222988cd898055a4fc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "take-shelter-2011",
+  "field": "lead",
+  "film_id": "8169eb93-0282-4ff1-a155-28ec4dcb65d8",
+  "lang": "en",
+  "text": "A man begins seeing weather that has not arrived, and cannot establish whether it is coming for his family or coming out of him. Either answer demands action, and from outside the actions look the same: a father taking precautions, asking his wife to accept a conviction he can defend with nothing but the vividness of what he saw. Jeff Nichols keeps the ordinary machinery running throughout — the marriage, the child, the household that still has to be held together — so each step toward the storm is also a step away from a life that was working. The catalogue calls it thriller, drama and horror, and all three are accurate, because the frightening thing on offer may not be the sky at all. It may be a name for what is happening to him.",
+  "model": "claude-opus-5",
+  "source_sha256": "8af623b9672b5f40b3f5fac4cca84f90da28ebdbd0615d94cc52df65d42b34c5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-wandering-soap-opera-2018",
+  "field": "lead",
+  "film_id": "81ad7aa1-a06f-400e-a844-fc7691904038",
+  "lang": "en",
+  "text": "The premise is not a story but a proposition: that Chilean reality does not exist, and that what occupies its place is a set of soap operas running at once. Raúl Ruiz adopts the assumption and then proceeds as though it had been settled years ago. Scenes arrive with melodrama's grammar already installed — the raised voice, the vocabulary of betrayal, the pitch of a confession — and then decline to conclude, handing off to whatever is playing next. Eighty minutes, and nothing is permitted to finish. The comedy comes of watching people take their own conventions with complete seriousness; the disquiet comes of how well the arrangement holds, once the assumption is granted that a country might in fact be organised exactly this way.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd41d139f72c2a79e91578252ca86a5d60c3643b3e8ea8705689a70130f50be2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "porto-2017",
+  "field": "lead",
+  "film_id": "829b0c1a-4e1b-45c5-824f-2ed28ddd3eea",
+  "lang": "en",
+  "text": "Seventy-five minutes is a short allowance for a night that has to be lived through more than once. Jake and Mati are outsiders in Porto, and they had an encounter neither of them has managed to file away. Gabe Klinger builds the film out of returns: the same hours approached again from a second position, with different details remembered as the important ones. What one of them is sure of, the other cannot confirm. The gap between the two accounts is the material, and it is not a puzzle so much as the common discovery that two people in the same room were not in the same evening. The northerly city does the rest of the work, less as scenery than as the reason two strangers were still awake at that hour.",
+  "model": "claude-opus-5",
+  "source_sha256": "2de7d8dcb4290d735d10c16fb1c7f0b18f14ef6fb05a77120a12ab33cc91639b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "road-to-perdition-2002",
+  "field": "lead",
+  "film_id": "83462e2b-86cc-44b0-bdd7-ccab6f9173b6",
+  "lang": "en",
+  "text": "A boy sees something he was not supposed to see, and by morning the arithmetic around him has changed. His father kills people for a living, on behalf of a crime boss he regards as a father of his own, and that double loyalty is the engine here: once the child is inside the equation, neither claim can be honoured. What follows is flight and reprisal at the same time, a man keeping his son alive while settling accounts with the people who forced the choice. Sam Mendes puts the weight on surfaces — the Academy Award the film took for cinematography is a fair index of where the care went — and 117 minutes go by on a plot that would fit on a postcard. The odd, lasting part is a boy learning his father's trade by travelling beside him while he practises it.",
+  "model": "claude-opus-5",
+  "source_sha256": "e23208458de433859d001ae00a99a8419dcf45b7a4284ac87d115919f3dca48e"
+ }
+]

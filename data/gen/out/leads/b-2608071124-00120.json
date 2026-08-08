@@ -1,0 +1,72 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "what-s-eating-gilbert-grape-1993",
+  "field": "lead",
+  "film_id": "ebca6323-801d-4862-b9eb-ac89c5fe5480",
+  "lang": "en",
+  "text": "Gilbert Grape's obligations have addresses: a mother who cannot get out of the house, a brother with a knack for finding trouble, a grocery counter where his shifts are posted. Lasse Hallström films the arrangement as weather rather than crisis, and the standing affair with Betty Carver is filed somewhere between errand and consolation. Then Becky turns up. What changes is not Gilbert's situation but his tolerance for it, and most of the two hours go to the arithmetic of a household: who lifts, who watches, who gets told what. Its one Academy Award was for supporting work, which suits a picture whose center of gravity keeps drifting off the man named in the title. Comedy intrudes constantly, usually at the worst moment, and nobody on screen apologizes for laughing.",
+  "model": "claude-opus-5",
+  "source_sha256": "da16567ecf3661977af6f5a503de8820a9d2100975cd876d161186099e169669"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "compliance-2012",
+  "field": "lead",
+  "film_id": "ec761b69-8011-430e-8dea-56defa61755e",
+  "lang": "en",
+  "text": "A voice on the telephone says it belongs to a police officer, and the back room of a suburban Ohio fast food restaurant becomes a place where questions get asked. Craig Zobel allows himself ninety minutes and one busy shift. Sandra, who manages the store, has a lunch rush to run and a caller who keeps supplying reasons; every instruction is only slightly worse than the one she has already followed, and the film is precise about that slope. Its tension comes from workplace ordinariness rather than from threat — the schedule, the chain of command, the wish to be seen cooperating with authority. Nobody raises a voice. What the ninety minutes measure is how long a room full of employees will keep treating a stranger's account of himself as the account of record.",
+  "model": "claude-opus-5",
+  "source_sha256": "9f5ee2936df3492de050f2bd76af0756693dc843ef24ff9cd4b518661b889769"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "i-ve-loved-you-so-long-2008",
+  "field": "lead",
+  "film_id": "ec866dfd-0569-4962-8cb3-4401fd3c057f",
+  "lang": "en",
+  "text": "Fifteen years in prison end, and the hard part starts: a spare room in someone else's house, meals with people who went on living without her. Philippe Claudel spends a hundred and fifteen minutes on the weeks after release, which is the right proportion. Nothing much is arranged for her to do: she waits, answers questions from people entitled to ask them, and is measured by relatives working out how much she can be trusted with. The household has rules that predate her, and every kindness in it doubles as a reminder of who arranged the years she missed. A César went to the lead performance, and the prize describes the construction — a film with no engine but a face learning again how to be in a room. Small courtesies do more damage here than any accusation could.",
+  "model": "claude-opus-5",
+  "source_sha256": "3befb115c939e371285113c5a368d50a5b599a83cc5aa425da536ec840edf0c2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "take-this-waltz-2011",
+  "field": "lead",
+  "film_id": "efce5cd6-ded0-42b4-9a8d-2f5b21f1eaf5",
+  "lang": "en",
+  "text": "One of the men in Margot's life develops recipes for a living; the other lives close enough that avoiding him would take planning. She is twenty-eight and content, and the attraction is not in question — the film establishes that early and then declines to hurry. Sarah Polley builds the next two hours out of repetitions: kitchen routines, jokes worn smooth by repetition, a short walk that keeps arriving at the same door. Comedy is in the genre list and earns its place, mostly in scenes where nobody has decided anything. Lou is not a villain and Daniel is not a rescue, which leaves Margot without an excuse and the film without anyone to blame. The subject is the interval: the months in which nothing has happened and something has plainly already begun.",
+  "model": "claude-opus-5",
+  "source_sha256": "3cca4edf86cb948d6a89ba39aee0dfd0163c5e4b916d20887304c9451b46afc3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "close-knit-2017",
+  "field": "lead",
+  "film_id": "f03d9d53-966c-44ce-bc07-3979110a732c",
+  "lang": "en",
+  "text": "The girl's mother stops coming home, so she is taken in by her uncle, who does not live alone. Naoko Ogigami gives a little over two hours to three people assembling a household: the uncle, his girlfriend, who is transgender, and a child schooled in expecting less. The register is domestic in the strict sense — cooking, school mornings, who is responsible for whom — and the pressure arrives from outside the door, in other people's confidence about what a family is allowed to look like. An audience award at Tromsø, a long way north of Japan, suggests how legible the arrangement turns out to be. Ogigami's tenderness has something stubborn in it. She wants this to be an unremarkable film about a home, and the world inside it keeps refusing to let it be one.",
+  "model": "claude-opus-5",
+  "source_sha256": "9aa9cec5ec7d57035f42d28e61485a58b30ea571db38230435b6d9689ec13940"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-assistant-2015",
+  "field": "lead",
+  "film_id": "f0599cde-1bee-4670-bfcc-e77d2056b25e",
+  "lang": "en",
+  "text": "A man driving his wife to the maternity ward kills a young man on the road. Nine years later the dead man's mother, Marie-France, takes a job as that driver's secretary, and he has no idea who she is. Nathalie Baye plays her; Malik Zidi plays Thomas, who has a family, a workload, and no reason to look twice at the woman managing his diary. Nicolas Bonilauri works within eighty-seven minutes and keeps the audience ahead of the man, which is the older and colder kind of suspense. The instruments of an office thriller are unglamorous: appointments, messages, keys, the small permissions a secretary is handed on the first morning. Grief becomes administrative. The film is clear-eyed about how fast a life turns accessible to whoever has been hired to keep it in order.",
+  "model": "claude-opus-5",
+  "source_sha256": "1f84d0a51e8cb7f7cfa5d2a841f33e8c40970e3aa4d4d0f2d123a773fc9ed684"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "iri-2008",
+  "field": "lead",
+  "film_id": "f240a289-2b15-404e-bdc3-d7b91c8ae06d",
+  "lang": "en",
+  "text": "The station at Iri blew up; the city rebuilt and took a different name, and the maps now say Iksan. Thirty years on, Zhang Lu picks one household out of the reconstruction: Jin-seo, who was being born while her mother lived through the blast and has carried its damage since, and her brother Tae-woong, who drives a cab. The film is that plain about its arithmetic. Jin-seo is gentle and known to everyone, and in this town being known works against her; men read her mildness as permission. Tae-woong earns during the hours she is least safe. A hundred and eight minutes at street level, among doors, fares and neighbours who have already decided what she is. The explosion is not being remembered here; it is still being paid for, in installments, by the person least able to explain the bill.",
+  "model": "claude-opus-5",
+  "source_sha256": "a8e2afc4b8301762b15ddc3600cda19e2a932cd53d8121407d4656cafc989e4c"
+ }
+]

@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jordan-peele#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "맨해튼 어퍼웨스트사이드에서 백인 싱글맘 루신다 윌리엄스 손에 자랐다. 필은 자신이 혼혈이라는 사실을 늘 과하게 의식했다. 스스로 회고하는 어린 시절의 자기 모습은 조용한 \"관찰자\", 서로 다른 사회적 세계 사이를 끊임없이 코드 스위칭하며 오가는 아이였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "83783dfd029ba2146dbba6cc6ad990ae78a8611d539cc6801b7ccad6c228fdb4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jordan-peele#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미국 텔레비전에 진입하기 전, 필은 암스테르담의 Boom Chicago 전속 배우로 즉흥극을 갈고닦았다. 그 무대에 자주 함께 선 동료가 훗날 《Saturday Night Live》의 수석 작가가 되는 세스 마이어스다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9d56d8c040376019802e308aee5709e4d6c7612f183810261e1c1faeec2b680f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jordan-peele#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《겟 아웃》의 각본은 오바마 정부 시절에 쓰였다. 목표는 하나, \"탈인종 미국\"이라는 대중문화의 환상을 부수는 것. 그래서 악당을 남부의 전형적인 인종주의자가 아니라 리버럴 엘리트 중에서 골랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6571083d723f10f342ee00746a888b5755895a989b142b692536309f1925cf4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jordan-peele#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2018년 《겟 아웃》으로 아카데미를 받으며 필은 역사를 썼다. 각본상을 수상한 최초의 아프리카계 미국인이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3c48e3774d471f6f0be560ceed06cf315e3938e28d1eb7b46e4fbb0ff263df5a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jordan-peele#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "역사적인 수상 직후, 얼떨떨한 얼굴로 그가 한 일은 휴대폰을 꺼내 트윗 하나를 올린 것뿐이었다. \"방금 오스카 받았음. Wtf.\"",
+  "model": "claude-opus-5",
+  "source_sha256": "e0a85cb387f832dd1fc8fb73e1e5aa47aa064354ccc3bfeb7e2d53543d7585d2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jordan-peele#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "연출에만 매달리려고 그는 사실상 연기를 접었다. 훗날 농담 삼아 밝히길, 혹평받은 2017년 애니메이션 《이모지 무비》에서 \"똥\" 역을 제안받은 게 자신을 카메라 뒤로 밀어낸 결정적 계기였다고.",
+  "model": "claude-opus-5",
+  "source_sha256": "1768f30af8889c2f1b1a0a61bcf6bdfba138a1a40aa64126776ea89209cc859f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jordan-peele#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "제작사 이름 Monkeypaw Productions는 W.W. 제이컵스의 고전 단편에서 따왔다. 엔터테인먼트 업계에서 \"무엇을 소원하는지 조심하라\"는 것을 늘 되새기기 위해서다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f575c9b58ea080f675ef5dd9242585ea7c1bf85fa4a78535af81488de77605b1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jordan-peele#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2016년 필은 코미디언 첼시 페레티와 함께 도피 결혼을 했다. 빅서에서 치른 작디작은 비공개 예식이었고, 그 자리의 유일한 증인은 부부가 입양한 유기견이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "75cf19358654b4285088a657a73ac87880ed6a0c1f8eb023683e6b7582a922fc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jordan-peele#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2022년 SF 호러 《놉》에서 필은 촬영감독 호이터 판호이테마와 손잡고 무거운 IMAX 카메라를 들었다. 대낮처럼 보이는 거대하고 광활한 야간 장면을 담아내려고 새 리그까지 따로 개발했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1db5bdd2aa31119439d598c71b7fbdc4e6b9d05fdc411b1e89cb9440e7e3449f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jordan-peele#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《놉》의 주제적 뿌리는 에드워드 마이브리지의 실제 캐비닛 카드 \"Horse in Motion\"에 있다. 필은 여기에 허구의 내력을 붙였다. 1878년의 그 유명한 연속 사진 속 이름 없는 흑인 기수가 영화 주인공들의 선조라는 설정이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd112d14c27f216c43dabf6e90bf2dec0d18f71abcb0eecb54ee745a3090c109"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jordan-peele#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생 로드 설링을 흠모해온 그는 2019년 CBS All Access가 되살린 《The Twilight Zone》에서 진행과 내레이션을 맡아 우상의 자리에 직접 섰다. 설링 특유의 짧게 끊어 치는 불길한 어조까지 의도적으로 가져왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e641bc3a0dceb302ae76438c34c12fff43f9edc093002073907ddb6e1e933f34"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jordan-peele#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2018년, 그는 1990년대 애니메이션 시리즈 《가고일》을 어둡게 실사화하는 기획을 디즈니 경영진에게 제안했다. 애정을 쏟은 프로젝트였지만 스튜디오는 끝내 접었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac0e2294b3358dfe27127a328f67e9fe54d647c5dffaf4766bf9eaa8419bef1f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jordan-peele#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "워너브라더스가 애니메이션 고전 《아키라》의 실사판 연출을 제안했다. 누구나 탐낼 자리였다. 그는 거절했다. 자기가 직접 쓴 오리지널을 연출하는 쪽이 훨씬 좋다는 이유였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d57e3a32fb291de4bcc7120077ce3c667b6f4a834c391de4e06bb0f57bdbfa34"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jordan-peele#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "실사 연기에서는 물러났지만 애니메이션을 향한 애정만은 여전했다. 헨리 셀릭의 2022년작 《웬델과 와일드》에서 그는 키건마이클 키와 다시 만나 제목의 스톱모션 악마 형제 목소리를 맡았다. 각본에도 공동으로 이름을 올렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "96cd512a10694b2669d047cb83ad9197a1cca3cfe776e34b1ae255a1474d2564"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jordan-peele#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그가 꼽는 역대 최고의 호러는 《악마의 씨》다. 젠더 역학과 가스라이팅을 다루는 솜씨 때문인데, 이 영화가 《겟 아웃》의 심리적 고립을 다루는 방식에 곧장 스며들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d9f97224bc25c3ea6de838548cc21c9463a1d9dc2b43d74216524699e2c568cf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "justin-kurzel#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "동생 제드 커젤과의 창작적 공생은 평생 이어져왔다. 블루스록 듀오 The Mess Hall을 공동 결성한 제드는 형의 장편 거의 전부에 불협하고 서늘한 음악을 붙여왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c8ead7bfeaa90bba46c3b49231737b2af86c4dd2d068a3cf2c3631e0a8d2cbe"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "justin-kurzel#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "연출자가 되기 전 커젤은 시드니 국립연극예술학교(NIDA)에서 무대 디자인을 공부했다. 1992년 졸업, 이후 10년 가까이 연극 무대 디자이너로 일했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "be905c6c3cda4e1280848069f962917f960f3601c1446bf60d1f2fbd47d2ead4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "justin-kurzel#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화로 방향을 틀기 위해 멜버른의 빅토리아예술대학(VCA)에 들어갔다. 훗날 단골 촬영감독이 되는 애덤 아카포와 만난 곳이 여기다. 2004년 졸업 작품 단편 《Blue Tongue》은 열세 개가 넘는 국제 영화제에서 상영됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "64e20f91d9305caac0285750578c891fe77476fe82964de7a23d1be2b1bab681"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "justin-kurzel#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2002년 호주 배우 에시 데이비스와 결혼했다. 데이비스는 이후 그의 《켈리 갱의 진짜 이야기》와 《나이트람》에 출연했고, 부부에게는 쌍둥이 딸 스텔라와 루비가 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f7c31188108063696dfae3dfdf929cbf9e2d871c3caca64759fff0e1862f0d57"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "justin-kurzel#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《스노우타운》은 호주 최악의 연쇄살인이 실제로 벌어진 사우스오스트레일리아의 그 동네에서 찍어야 한다고 그는 고집했다. 배우는 거의 전부 각본이라곤 읽어본 적 없는 지역 비전문가들이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f8af190b5a5947547f543f96dde7741b4bb8a2b6c08d27ef7568c1a77cffeac9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "justin-kurzel#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《스노우타운》의 날것 그대로의 질감에 마이클 패스벤더는 깊이 동요했고 또 감탄했다. 2015년 《맥베스》의 연출자로 커젤을 앉힌 것은 배우 본인의 적극적인 추천이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "be83f7e9617a5eadd87af582a3740e45875e76007a9316e6677a272d0a1632e4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "justin-kurzel#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《어쌔신 크리드》에서 커젤은 그린 스크린보다 실제 효과를 앞세웠다. 스턴트맨 데미언 월터스에게 38미터(125피트) 자유낙하 \"신뢰의 도약\"을 실제로 시켰고, 이는 근 35년 사이 스턴트맨이 해낸 최고 높이의 자유낙하 중 하나로 남았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c3945ab0ac7e17839b204e09f989ce553c556152054359a42fbd9ad314f5d29"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "justin-kurzel#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1996년 포트아서 학살 가해자의 심리를 파고든 《나이트람》(2021)이 발표되자 호주 전역이 곧바로 들끓었다. 정치인과 생존자들은 보이콧을, 나아가 상영 금지를 요구했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d62e92c7eda4d1e4be0d63a3af733c2aaa9df732092106c75b02953daa90262b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "justin-kurzel#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "희생자를 존중하고 그 지역의 상처를 다시 헤집지 않기 위해, 커젤과 제작진은 《나이트람》을 태즈메이니아에서 찍지 않기로 했다. 촬영은 전부 본토 빅토리아주 질롱에서 이뤄졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "80b319f3c6748125734c74a09523e2bb61feb32fecdc437f4dd8e1305e0a5d4e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "justin-kurzel#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "실존 살인범을 미화하지 않겠다는 원칙 아래 커젤과 각본가 숀 그랜트는 두 가지를 엄격히 금했다. 영화 속에서 그자의 실명을 부르는 일, 그리고 학살 장면 자체를 보여주는 일.",
+  "model": "claude-opus-5",
+  "source_sha256": "d92e7f164b471909c5a47b8e8f6ac2ce04868b3d298360887bd39347070c17de"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "justin-kurzel#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "본토 영화판의 중심에서 벗어나 조용히 살고 싶었던 커젤과 에시 데이비스는 가족과 함께 태즈메이니아 호바트로 옮겨갔다. 《나이트람》을 만들기 전, 그 섬의 고립을 몸으로 이해하게 된 배경이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6150f0c72c542f3f5d8ff5218292fb03ee445853fa40d3d74e747c411ba26cd0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "justin-kurzel#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편과 장편 사이를 커젤은 광고 연출로 버텨왔다. 주목도 높고 대체로 거친 결의 작업들, 이를테면 빅토리아 교통사고위원회(TAC)의 과속 방지 캠페인 같은 것. 보는 사람의 몸이 먼저 반응하는 광고였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a6f76be1513ec535ec08769e0f85bc720ea265fe1c7c8597974d5d5eebc4423"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaneto-shindo#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "히로시마 사에키군의 부유한 지주 집안에서 태어났다. 아버지가 남의 빚 보증을 잘못 서면서 신도의 어린 시절은 한순간에 무너졌다. 집안은 별안간 가난해졌고, 형과 누나들은 일자리를 찾아 미국으로 떠났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "adb32a04e18e57fa8179a0eea22057311009b56d714c4c87620d5c76c8f26308"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaneto-shindo#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "결국 미술부로 옮겨간 그는 거장 미조구치 겐지 밑에서 배웠다. 가르침은 가혹했다. 각본을 서른 번까지 다시 쓰게 했고, 원고를 넌더리 난다는 듯 되던지기 일쑤였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "643d4c1fc2ea303329c94be8790201f91f70d79bf2e74919de24a6a08c3f0c7c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaneto-shindo#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "첫 아내 다카코는 1940년대에 결핵으로 세상을 떴다. 그 상처는 이후 그의 각본에 되풀이해 등장하는 병으로 스러지는 몸, 여자의 고통으로 남았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "70158fcd5269fb68ab44fba38ddc89c159c79aa8eaa6c5926508f91d2b7d16da"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaneto-shindo#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1944년 서른둘의 나이로 일본 해군에 징집돼 다카라즈카의 해군 건설 부대에 배치됐다. 같은 파견대 100명 중 살아서 종전을 맞은 사람은 여섯. 그중 하나가 신도였고, 살아남았다는 죄책감은 평생 그를 따라다녔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9a1135fc4a3ccdcd67adfe141f9ebebff877e5ae5371d8121e9890d007bb87a9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaneto-shindo#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "히로시마 사람으로서 원폭은 그에게 지울 수 없는 상처였다. 그는 폐허가 된 고향으로 돌아가 《原爆の子》(1952)를 찍었다. 핵 공격 이후를 정면으로 그린 최초의 일본 장편이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6acfe469f1fce2402ad1bf2ea5261ecc90d6a4583110f96bb32eeeeb52237e26"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaneto-shindo#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《原爆の子》는 일본교직원조합의 의뢰로 만들어졌다. 그런데 개봉하자 조합은 매섭게 등을 돌렸다. 자신들이 요구한 전투적 반미 메시지가 빠진 채 눈물이나 짜내는 영화라는 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "27120fb0324c995e7b2287b7cadfec42fc7a818e6fa4831807a33f2e1266f99a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaneto-shindo#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스튜디오 시스템의 굴레에 넌더리가 난 신도는 1950년 감독 요시무라 고자부로, 성격파 배우 도노야마 다이지와 함께 독립 제작사 근대영화협회(近代映画協会)를 세웠다. 다만 첫 10년은 파산 문턱을 아슬아슬하게 오갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c2fcfdf5797c0544a25876753f0db04901b489a0d281b98ac41fda214059d40"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaneto-shindo#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그의 궁극적 뮤즈는 쇼치쿠의 화려한 스타 오토와 노부코였다. 돈 되는 주류 경력을 버리고 그의 가난한 독립영화에 출연하겠다는 결정에 일본 영화계가 술렁였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ed868389d75a98527c3ec32c7f0aa7882bab852ddd28e75523da9c6c3daec0f0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaneto-shindo#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1960년이 되자 근대영화협회의 빚은 4천만 엔을 넘었다. 신도는 이제 마지막이라 여기며 《벌거벗은 섬》을 썼다. 영화로 쓴 유서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "20bc5710d64042acfbd08cea3e1e97a998630a3e12c89cba0e5ffa0428ed214a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaneto-shindo#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "열세 명뿐인 최소한의 스태프, 사람이 살지 않는 작은 스쿠네섬, 그리고 대사 한 마디 없는 화면. 《벌거벗은 섬》은 주연 배우들에게 찌는 더위 속 가파른 언덕으로 무거운 물통을 지어 나르게 했다. 몸이 쓰러질 때까지.",
+  "model": "claude-opus-5",
+  "source_sha256": "89ce4ff8602ed809d2ff40c972fecf791131e9e312157a7926bd64ee7a554ce8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaneto-shindo#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그런데 《벌거벗은 섬》이 제2회 모스크바 국제영화제 대상을 받았다. 심사위원이던 루키노 비스콘티가 직접 밀어붙인 결과였다. 뒤이은 해외 흥행 수익으로 근대영화협회의 산더미 같은 빚은 전부 청산됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "841d27a2d97c457bc373c87578b16a2bc289a13a45199e5bef81951dda1afad8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaneto-shindo#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1964년의 호러 고전 《오니바바》를 찍으면서 그는 스태프를 몇 달씩 지바현 습지의 임시 야영지에 살게 했다. 화면을 옥죄고 숨 막히게 만든 것은 끝없이 흔들리는 억새밭이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a3b1b08600f094e1e772d3ce7617c196cbbe44225680737bfcaca8ab0e3e151"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaneto-shindo#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《오니바바》의 절정, 귀신 가면 아래에서 드러나는 그 끔찍하게 문드러진 얼굴. 전통 설화에서 온 것이 아니다. 신도가 히로시마 생존자들에게서 본 켈로이드 화상 흉터를 그대로 옮긴 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6b51a833084c07f114ce5e92157151eb040f54736d009b1778454b51dfb5b107"
+ }
+]

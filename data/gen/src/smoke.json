@@ -1,0 +1,56 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "smoke-thin-record",
+  "field": "lead",
+  "film_id": "00000000-0000-0000-0000-000000000001",
+  "sha256": "smoke0001",
+  "facts": {
+   "title": "The Quarry",
+   "year": 1998,
+   "director": "Marion Hänsel",
+   "runtime": 111,
+   "genres": ["Drama"],
+   "country": "BE",
+   "language": "af",
+   "synopsis": "A drifter kills a preacher on a deserted South African road, takes his clothes and his car, and arrives at a poor rural parish where the congregation is waiting for a minister they have never met."
+  }
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "smoke-rich-record",
+  "field": "lead",
+  "film_id": "00000000-0000-0000-0000-000000000002",
+  "sha256": "smoke0002",
+  "facts": {
+   "title": "Ceddo",
+   "year": 1977,
+   "director": "Ousmane Sembène",
+   "runtime": 120,
+   "genres": ["Drama", "History"],
+   "country": "SN",
+   "language": "wo",
+   "synopsis": "In a Wolof village, the ceddo — the commoners who hold to their own beliefs — resist conversion by an imam who is consolidating power, and abduct the king's daughter as a bargaining piece.",
+   "curator_note": "Sembène was banned at home for eight years over the spelling of the title. The film argues that Islam, Christianity and the slave trade arrived in West Africa as one weather system, and it says so in Wolof.",
+   "curator_verdict": "Required viewing",
+   "movement": "African cinema of the 1970s",
+   "national": "Senegal",
+   "canon_lists": ["Sight & Sound: African cinema", "TSPDT 1000"],
+   "critical_fragment": "A political fable staged with the patience of ritual.",
+   "imdb_rating": 7.0,
+   "imdb_votes": 1400
+  }
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "smoke-bare-record",
+  "field": "lead",
+  "film_id": "00000000-0000-0000-0000-000000000003",
+  "sha256": "smoke0003",
+  "facts": {
+   "title": "Untitled Regional Feature",
+   "year": 1974,
+   "director": "Unknown"
+  }
+ }
+]

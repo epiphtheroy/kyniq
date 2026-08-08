@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-formula-calibrated-to-a-new-market",
+  "field": "title",
+  "lang": "ko",
+  "text": "새 시장에 맞춰 손본 공식",
+  "model": "claude-opus-5",
+  "source_sha256": "1c27de1a1752fa8ab02baf93f897faca9ccec84b3c0411647dec8b88f3edaa5d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-founding-crime-sovereignty-must-disavow",
+  "field": "title",
+  "lang": "ko",
+  "text": "주권이 부인해야만 하는 최초의 범죄",
+  "model": "claude-opus-5",
+  "source_sha256": "e73e85256fb9e89d5f19025b8a5c61b34eb9d0d5435f53c78530f3968687cc9c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-founding-lie-that-builds-a-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "자아를 떠받치는 최초의 거짓말",
+  "model": "claude-opus-5",
+  "source_sha256": "0242b9b39f3a8ecb1e7f1385747d6bcdea0c62884e2b327d2bb4b5c02a9df7f3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-founding-murder-beneath-every-order",
+  "field": "title",
+  "lang": "ko",
+  "text": "모든 질서 밑에 깔린 살해",
+  "model": "claude-opus-5",
+  "source_sha256": "1944e1cf700c66c5ded229cfaec6a6c437b3024199572360856be7ccf8af1a64"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-founding-murder-that-births-the-group",
+  "field": "title",
+  "lang": "ko",
+  "text": "집단을 낳은 최초의 살해",
+  "model": "claude-opus-5",
+  "source_sha256": "1c930c974c0b87038a7d3e18c2de9094e352221473def7a931e961f0949c0c9a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-founding-truth-withheld-from-view",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 보여주지 않는 근원의 진실",
+  "model": "claude-opus-5",
+  "source_sha256": "a19722825ec3fc12ba418c44bcceb6b3b7e806cbedbe58f82736d58df15d4a39"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-composed-as-a-bruegel-panel",
+  "field": "title",
+  "lang": "ko",
+  "text": "브뤼헐의 화폭이 된 프레임",
+  "model": "claude-opus-5",
+  "source_sha256": "511c006e592fda75caa2921583afe23d8b7b06e05c44f317a69d03cc8d42cd59"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-composed-as-ink-brush-scroll",
+  "field": "title",
+  "lang": "ko",
+  "text": "수묵 두루마리로 짠 화면",
+  "model": "claude-opus-5",
+  "source_sha256": "e2653418c1757a02615e0de4c9047a335490b977bd5e7f1d856e603992160e5b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-composed-as-sacred-painting",
+  "field": "title",
+  "lang": "ko",
+  "text": "성화(聖畵)의 구도로 짠 화면",
+  "model": "claude-opus-5",
+  "source_sha256": "69697ac8bb4017b49e27569d16274bbf505021609a946ef20bd0eae8c203c4f1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-composed-as-wyeth-s-spare-plain",
+  "field": "title",
+  "lang": "ko",
+  "text": "와이어스의 헐벗은 들판이 된 화면",
+  "model": "claude-opus-5",
+  "source_sha256": "2dd5ce2a8099f3a343a5c1462e1735057185af9d9852f8b455c8e00355cee660"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-confesses-the-tale-is-a-eulogy",
+  "field": "title",
+  "lang": "ko",
+  "text": "이 이야기가 추도사임을 실토하는 액자",
+  "model": "claude-opus-5",
+  "source_sha256": "027269108d8023a79ba8e8a61b3c9f712c222d4c4b1a753eb80ffa1d6b3d67cf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-held-like-c-zanne-s-mountain",
+  "field": "title",
+  "lang": "ko",
+  "text": "세잔의 산처럼 버티는 프레임",
+  "model": "claude-opus-5",
+  "source_sha256": "df41be90e71deaa6af39d039a44c104495c6f3ecafc84c3f2b1825b7486a8ef1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-itself-is-the-sender",
+  "field": "title",
+  "lang": "ko",
+  "text": "프레임이 곧 발신자다",
+  "model": "claude-opus-5",
+  "source_sha256": "d1839540aa5f4e233b058d149681e9eb570ddc43742099a68f56abbf96c16f40"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-painted-after-goya-s-black",
+  "field": "title",
+  "lang": "ko",
+  "text": "고야의 검은 그림을 따라 칠한 화면",
+  "model": "claude-opus-5",
+  "source_sha256": "6eff5677fd78032f990ad3a77b32040819ef1078e56e96298d45a2103a693be2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-painted-as-a-rothko-field",
+  "field": "title",
+  "lang": "ko",
+  "text": "로스코의 색면이 된 화면",
+  "model": "claude-opus-5",
+  "source_sha256": "01ca128046ba84490fb2faa65c99896f6a220d6589842a1e4b75ff4e7749f874"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-painted-as-munch-canvas",
+  "field": "title",
+  "lang": "ko",
+  "text": "뭉크의 캔버스로 칠한 프레임",
+  "model": "claude-opus-5",
+  "source_sha256": "d232530baf963831340bab6cc6ea145970e35da2d52bdec47fa1b7b15194e12d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-rate-is-the-argument",
+  "field": "title",
+  "lang": "ko",
+  "text": "프레임 레이트가 곧 주장이다",
+  "model": "claude-opus-5",
+  "source_sha256": "4e8d1c652f1d1414803ae87f5d1ec76032b3b8bfe8c96ed02c9a419f8f0df0b3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-s-aspect-ratio-as-argument",
+  "field": "title",
+  "lang": "ko",
+  "text": "주장으로서의 화면비",
+  "model": "claude-opus-5",
+  "source_sha256": "6254cc2fbe7147ce0cad4bb46e3f5a9dd6525e8edb6c7dc3ef72b838fa5ab88e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-s-edge-as-accusing-eye",
+  "field": "title",
+  "lang": "ko",
+  "text": "고발하는 눈이 된 화면의 가장자리",
+  "model": "claude-opus-5",
+  "source_sha256": "51644effc66f8559c207bef14ae8d233b5be5fa1c7894630ce8fdfbe1ebecda5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-swollen-with-partition-s-refugees",
+  "field": "title",
+  "lang": "ko",
+  "text": "분단 난민으로 터질 듯한 프레임",
+  "model": "claude-opus-5",
+  "source_sha256": "a813335718f1bf019f66db07dd02a0a18153f3135e7494bab36c33cc6c21a5bd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-that-cannot-contain",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 담아내지 못하는 프레임",
+  "model": "claude-opus-5",
+  "source_sha256": "a0d2940303cfa4855d2592efa5540aef562f87bce585092d611a940e5b144bbf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-that-confesses-its-own-fiction",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 허구임을 실토하는 프레임",
+  "model": "claude-opus-5",
+  "source_sha256": "c7cc130a224b0d614f6386acfd281559763add09abcfca75f584361093e7eeac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-that-constitutes-ethics-by-exclusion",
+  "field": "title",
+  "lang": "ko",
+  "text": "배제로 윤리를 세우는 프레임",
+  "model": "claude-opus-5",
+  "source_sha256": "788653d0220bd8f37359c0d4a42e9f8b3eecfdc2cd0eda6467f414046083a319"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-that-exposes-its-own-cut",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 잘린 자리를 드러내는 프레임",
+  "model": "claude-opus-5",
+  "source_sha256": "83dd2d94c7766b2e981b8d98d7eefc024479c43aa3b77b967661733875ba657d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-that-withdraws-to-reveal-its-teller",
+  "field": "title",
+  "lang": "ko",
+  "text": "물러서면서 화자를 드러내는 프레임",
+  "model": "claude-opus-5",
+  "source_sha256": "3daba94f508fe15ad33e269b786be951556c5ea1da0eb375872735cd28dc206c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frame-where-karma-replaces-fate",
+  "field": "title",
+  "lang": "ko",
+  "text": "운명 자리에 업(業)이 들어선 틀",
+  "model": "claude-opus-5",
+  "source_sha256": "1a60c3058a07fbf70879021bf95d85795d80d8fb66527cc92bde728c075e9e2b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-franchise-auditing-and-branding-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "스스로를 결산하고 상표로 삼는 프랜차이즈",
+  "model": "claude-opus-5",
+  "source_sha256": "f3a91b130bac3f993521cbf5518080e66916825f4690bf978b9101d5403ad876"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-franchise-that-cannot-permit-an-ending",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝을 허락하지 못하는 프랜차이즈",
+  "model": "claude-opus-5",
+  "source_sha256": "311664d7be2f2f25ddf5f485f085bb947489fda6b85e98af174eb688a0c2eb19"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-freeze-frame-as-unrendered-verdict",
+  "field": "title",
+  "lang": "ko",
+  "text": "아직 내려지지 않은 판결로서의 정지화면",
+  "model": "claude-opus-5",
+  "source_sha256": "cde2411719541b2312f3055411e4cc4a93345b48ff8a17c6c298da726bdee568"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-freeze-frame-is-death-caught-in-stillness",
+  "field": "title",
+  "lang": "ko",
+  "text": "정지화면, 멈춤에 붙들린 죽음",
+  "model": "claude-opus-5",
+  "source_sha256": "11bdaa96698c9f33bc3be804f30e3db254df255f4d5a714ba6bfc6e444e93fef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-french-coast-as-threshold-of-mortality",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽음의 문턱이 된 프랑스 해안",
+  "model": "claude-opus-5",
+  "source_sha256": "3c6d0989808a6580372f842816134a0dff929823ec3df33cfc53d3f086dc8bdc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-french-mask-on-hollywood-genre",
+  "field": "title",
+  "lang": "ko",
+  "text": "할리우드 장르에 씌운 프랑스 가면",
+  "model": "claude-opus-5",
+  "source_sha256": "85e448c4972b071cb13f5fe06e86f379725f39d0d161519d3734693c273c7898"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-friend-across-the-enemy-line",
+  "field": "title",
+  "lang": "ko",
+  "text": "적진 건너편의 친구",
+  "model": "claude-opus-5",
+  "source_sha256": "4824fdb2cf2935718cbfeeac78ca122009b9dc67f00e5bed68ee46093291d166"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-friend-as-means-not-end",
+  "field": "title",
+  "lang": "ko",
+  "text": "목적이 아니라 수단인 친구",
+  "model": "claude-opus-5",
+  "source_sha256": "e177a99933439bf318a79c39b6be5c9eda01e420f651e41aa92f88283bf38d0f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-friend-one-cannot-mourn",
+  "field": "title",
+  "lang": "ko",
+  "text": "애도할 수 없는 친구",
+  "model": "claude-opus-5",
+  "source_sha256": "4b146ee0b9426ebcde8a5910295c9976dfc17eacbaa6be8440fb1c30d4a9d999"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frontier-as-enclosure-of-the-commons",
+  "field": "title",
+  "lang": "ko",
+  "text": "공유지를 울타리로 두른 프런티어",
+  "model": "claude-opus-5",
+  "source_sha256": "e7dc0b350008ff337c0cd4100defda2f1518f37cdc2f8f9d83983e18e5dc9581"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frontier-dissolved-into-the-feed",
+  "field": "title",
+  "lang": "ko",
+  "text": "피드로 녹아버린 프런티어",
+  "model": "claude-opus-5",
+  "source_sha256": "2bada3c32bd7b4c22a7dca8b2ff30d04369df9226d9df92466033c245a3be73c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frontier-myth-and-its-last-free-man",
+  "field": "title",
+  "lang": "ko",
+  "text": "변경의 신화와 마지막 자유인",
+  "model": "claude-opus-5",
+  "source_sha256": "a0a6f4158ef8973bb104f7ea180d13cadc8a38a935d551e7f8f090d3aca7e7d5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frontier-promise-turned-to-rot",
+  "field": "title",
+  "lang": "ko",
+  "text": "썩어버린 개척지의 약속",
+  "model": "claude-opus-5",
+  "source_sha256": "ef4bdef9248a581722dd9c9363333e8cd090d78a362efdec22c9eb14d85751a2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frontier-that-has-already-closed",
+  "field": "title",
+  "lang": "ko",
+  "text": "이미 닫힌 프런티어",
+  "model": "claude-opus-5",
+  "source_sha256": "48e05be1c78795b6f68e549880806674c64905bb1f9fb88b60289383c1fe73aa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frontier-was-always-a-ledger",
+  "field": "title",
+  "lang": "ko",
+  "text": "변경은 처음부터 장부였다",
+  "model": "claude-opus-5",
+  "source_sha256": "c67a6307b34a8894b6629270880e9d34c822d6e125a02e0a2f4812db87dedd0f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frozen-face-as-buried-affect",
+  "field": "title",
+  "lang": "ko",
+  "text": "파묻힌 정동(affect)을 덮은 굳은 얼굴",
+  "model": "claude-opus-5",
+  "source_sha256": "3365c0251e2af7e14ee7ba5abff6894ff7bb99b494b0a2397d0cf7ac552209a3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frozen-frame-of-muybridge-s-motion-study",
+  "field": "title",
+  "lang": "ko",
+  "text": "머이브리지 운동 연구의 멈춘 한 장",
+  "model": "claude-opus-5",
+  "source_sha256": "482828b683dab574f80edbfb48b58d6c2419703ae1464f997ef1cf0ee4f91a7e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frozen-frame-smuggled-into-motion",
+  "field": "title",
+  "lang": "ko",
+  "text": "움직임 속에 밀반입한 정지화면",
+  "model": "claude-opus-5",
+  "source_sha256": "e9aff5122dce0195db7b8fde2e68db30a5878697d4e3b5ab2e643354402ff429"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frozen-frame-that-indicts-cinema",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화를 고발하는 정지화면",
+  "model": "claude-opus-5",
+  "source_sha256": "21557b580f47b401f4b254932cdaecf0b641f3b40b0f43a23479b491b5ec8832"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frozen-or-crushed-drive-toward-the-inorganic",
+  "field": "title",
+  "lang": "ko",
+  "text": "얼어붙거나 으스러진, 무기물을 향한 충동",
+  "model": "claude-opus-5",
+  "source_sha256": "c13df14f94139325dbb1e04d8486080cf7f5ada8ac02f5ccda722300a6f88e5f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frozen-surface-that-won-t-release",
+  "field": "title",
+  "lang": "ko",
+  "text": "놓아주지 않는 얼음의 표면",
+  "model": "claude-opus-5",
+  "source_sha256": "a1f232667e03ef62162ec3873287581b88ebce82d6c9abd5d185faca4e8ec0b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frozen-wastes-faked-in-temperate-soundstages",
+  "field": "title",
+  "lang": "ko",
+  "text": "온화한 세트장에서 만들어낸 얼음 황무지",
+  "model": "claude-opus-5",
+  "source_sha256": "781f2a36e46fa89d6bc2c246696e319d5ddc6ce52db7a93ca09433c1999754c5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-frozen-world-as-externalized-interior",
+  "field": "title",
+  "lang": "ko",
+  "text": "바깥으로 내걸린 내면, 얼어붙은 세계",
+  "model": "claude-opus-5",
+  "source_sha256": "e188fcf64b243d3139c49302edc053e6043c91c9e39cb40b1deeda50bb9c5b3f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-functionary-who-pleads-mere-procedure",
+  "field": "title",
+  "lang": "ko",
+  "text": "절차였을 뿐이라고 항변하는 관리",
+  "model": "claude-opus-5",
+  "source_sha256": "c28d2f9d85925a9ecb50998ba72e239d90a0a86ed95fc1259207be40cd3afbf2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-functionary-who-refused-the-order",
+  "field": "title",
+  "lang": "ko",
+  "text": "명령을 거부한 말단 관리",
+  "model": "claude-opus-5",
+  "source_sha256": "560d8cabb91c94026e7dfaee5ec3c9a041d043e8d32bed24e2127868162a8fb7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-funeral-as-engine-not-grief",
+  "field": "title",
+  "lang": "ko",
+  "text": "슬픔이 아니라 동력이 되는 장례",
+  "model": "claude-opus-5",
+  "source_sha256": "f7d13f11874a812d6771b5528d077a1d96b49b2959d4d51db51d5f8c124e21ef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-future-as-contested-property",
+  "field": "title",
+  "lang": "ko",
+  "text": "서로 다투는 재산이 된 미래",
+  "model": "claude-opus-5",
+  "source_sha256": "1fb4270ae33b68c946cb1624b147e27e4ca98396e63d8cc1d12bee60a5a906c1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-future-held-forever-out-of-reach",
+  "field": "title",
+  "lang": "ko",
+  "text": "영영 손에 닿지 않는 미래",
+  "model": "claude-opus-5",
+  "source_sha256": "e77d9f36796e93dcd9448039f7d25f90aeeb1e8347f87532fb2fe5147dd05417"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-future-that-cannot-be-survived",
+  "field": "title",
+  "lang": "ko",
+  "text": "살아남을 수 없는 미래",
+  "model": "claude-opus-5",
+  "source_sha256": "0aa02c902afda600cf408da24b3019c614a5d6f3afd0ead55c77a00906cedbaa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-galaxy-s-spent-frontier-as-desert-ruin",
+  "field": "title",
+  "lang": "ko",
+  "text": "사막 폐허가 된 은하의 소진된 변경",
+  "model": "claude-opus-5",
+  "source_sha256": "ca37c153f06919e566b7a1c7a78ab02f52e6b4d04134509a954bef682ab92abd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gallery-artist-smuggles-the-white-cube-in",
+  "field": "title",
+  "lang": "ko",
+  "text": "화이트 큐브를 몰래 들여오는 갤러리 작가",
+  "model": "claude-opus-5",
+  "source_sha256": "dae3f0695b58864111f8788de367f3fecfe69bc9b56a356e3344ce508db69662"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gambler-who-bets-his-salvation",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 구원을 판돈으로 거는 도박꾼",
+  "model": "claude-opus-5",
+  "source_sha256": "e8167953690b9ac933cff3c2c71408e5c5942d102b2079008b25ea39b511c84a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gambler-who-mistook-math-for-grace",
+  "field": "title",
+  "lang": "ko",
+  "text": "확률을 은총으로 착각한 도박꾼",
+  "model": "claude-opus-5",
+  "source_sha256": "14cc0d2dec5e6e2d261adbbd8a018aea4f8ce3b6ee1ce0156eddb1b96a6d4131"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-game-whose-ending-solves-it",
+  "field": "title",
+  "lang": "ko",
+  "text": "결말이 곧 해답인 게임",
+  "model": "claude-opus-5",
+  "source_sha256": "3d01a47382ae3fca14e75bea5e3cdd7787f1dad6bc95fe5150a9c8233408a78d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-game-whose-rules-you-cannot-read",
+  "field": "title",
+  "lang": "ko",
+  "text": "규칙을 읽을 수 없는 게임",
+  "model": "claude-opus-5",
+  "source_sha256": "38a7c1b40e23146e49dfd510ab620846304d62e0ba6ca939dd49eb802f12d047"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gamesman-who-mistook-board-for-world",
+  "field": "title",
+  "lang": "ko",
+  "text": "판을 세계로 착각한 승부사",
+  "model": "claude-opus-5",
+  "source_sha256": "24c91107b83379e273423c5226350d19951582a63100abcecce44ab145a571c7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gang-as-counterfeit-state",
+  "field": "title",
+  "lang": "ko",
+  "text": "가짜 국가 노릇을 하는 갱단",
+  "model": "claude-opus-5",
+  "source_sha256": "d2c7cee4d2a30208d46233703fc7ed572d18e02eeb06dbf422cb5d8bacbc5c8e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-garment-as-class-disavowal",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 계급을 부인하려 걸치는 옷",
+  "model": "claude-opus-5",
+  "source_sha256": "cde2869460cdcbc971938d96578813eb3e09b98ce8612c5cdf171bf243be53dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-garment-as-contested-algerian-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "알제리의 몸을 두고 다투는 옷",
+  "model": "claude-opus-5",
+  "source_sha256": "52a50c04717d55b014854e7e9cd531bf16760b1b6c7616001c8064bd88c8b703"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-garment-that-refuses-to-assimilate",
+  "field": "title",
+  "lang": "ko",
+  "text": "동화되기를 거부하는 옷",
+  "model": "claude-opus-5",
+  "source_sha256": "cf7fd8de705b2eff5b109c217d69ac1e4ffc0f5e5d51463b996c7f715a7b601f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-garment-worn-as-borrowed-selfhood",
+  "field": "title",
+  "lang": "ko",
+  "text": "빌려 입은 자아로서의 옷",
+  "model": "claude-opus-5",
+  "source_sha256": "03e795cf6bba0bb81987d93753d34059df212e90c8acd78f8bc6d24e76f67067"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gate-where-moral-order-collapses",
+  "field": "title",
+  "lang": "ko",
+  "text": "도덕이 무너지는 문(門)",
+  "model": "claude-opus-5",
+  "source_sha256": "2aff608331c8220e54e179a4f0e068ef321c55dcf0b35b5fc3658744185b1042"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gaze-that-implicates-its-watchers",
+  "field": "title",
+  "lang": "ko",
+  "text": "보는 자를 공범으로 만드는 시선",
+  "model": "claude-opus-5",
+  "source_sha256": "c8fc447293059a71048d5d90314ef3f4f09ccd6d01abb7095056f30b080e9ab9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gaze-that-turns-on-its-master",
+  "field": "title",
+  "lang": "ko",
+  "text": "주인에게 되돌아오는 시선",
+  "model": "claude-opus-5",
+  "source_sha256": "240617fb71570d99657cfdc8b19770fa264508bf4cd94f30c0a5a66338f9ad5b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-genitive-that-cannot-choose-a-father",
+  "field": "title",
+  "lang": "ko",
+  "text": "아버지를 정하지 못하는 속격",
+  "model": "claude-opus-5",
+  "source_sha256": "6e4074049eb02bc069c98f985380339e5823c4bb9a0eebae09c1969f910c20ee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-genius-who-fled-the-stage",
+  "field": "title",
+  "lang": "ko",
+  "text": "무대에서 달아난 천재",
+  "model": "claude-opus-5",
+  "source_sha256": "9466eb7c77f55ebfa0e5df2a43d150d5f9588db8b2797f00d2e2bbeaf8ad0af9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-genius-who-wrote-faster-drunk",
+  "field": "title",
+  "lang": "ko",
+  "text": "취해야 더 빨리 쓴 천재",
+  "model": "claude-opus-5",
+  "source_sha256": "1cbc7a41afb45f7d2a6876ce384fed81ce977026daac33877fe83aae80c23d36"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-genocidal-sentimentalist-who-did-the-math",
+  "field": "title",
+  "lang": "ko",
+  "text": "계산까지 끝낸 학살자, 감상에 젖은 채",
+  "model": "claude-opus-5",
+  "source_sha256": "d7574da2fa7f91b1e128f8069b8951631a5b235d0b1424be5a25630248faa7b1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-genre-apologizing-for-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 존재를 변명하는 장르",
+  "model": "claude-opus-5",
+  "source_sha256": "718cd44ee5732a605aa90c7f31cc399e6cfbfb21fe2ab8b760c5c600ac71d8b4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-genre-knows-it-is-a-genre",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 장르임을 아는 장르",
+  "model": "claude-opus-5",
+  "source_sha256": "47ea1d28eb533bff450b6b1fb22e8b2ed92611bb14abfb0f416417b7c8f0a727"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-genre-mask-that-launders-the-story",
+  "field": "title",
+  "lang": "ko",
+  "text": "이야기를 세탁하는 장르의 가면",
+  "model": "claude-opus-5",
+  "source_sha256": "5092b6a417ec97ef841397f39a3b4f3d915c754fd5d30681f326d8d090a52f1f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-genre-taxonomy-that-couldn-t-hold-it",
+  "field": "title",
+  "lang": "ko",
+  "text": "이 영화를 담지 못한 장르 분류",
+  "model": "claude-opus-5",
+  "source_sha256": "29c3df48c69a7ab41964fe38fc94b712a6e0898fe964de8edb40546a11c15d28"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-genre-that-backdated-its-own-birth",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 탄생일을 앞당겨 적은 장르",
+  "model": "claude-opus-5",
+  "source_sha256": "5eddb8565070da14fbb7b3e5c4985f0eb087119319511f4810803c4cc0cee120"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-genre-that-survives-only-as-its-own-elegy",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 만가로만 살아남은 장르",
+  "model": "claude-opus-5",
+  "source_sha256": "cdb0d4d9353532b9b735d998dfce70c8ac10587b9851d55a3f2e7cbe4b396451"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-genre-wearing-another-genre-s-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "다른 장르의 몸을 입은 장르",
+  "model": "claude-opus-5",
+  "source_sha256": "db011bae1c709760364dad5ea1bce7dc732f226e9cfe07031be21f2aa13b5b24"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-genteel-thief-as-class-acquittal",
+  "field": "title",
+  "lang": "ko",
+  "text": "계급에 내리는 무죄판결, 점잖은 도둑",
+  "model": "claude-opus-5",
+  "source_sha256": "80bf95d6e4e6e0be0db1449c670be7bb0dd4325165dace917cf08730e2c46402"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gentle-killer-without-cruelty",
+  "field": "title",
+  "lang": "ko",
+  "text": "잔혹함이 빠진 온순한 살인자",
+  "model": "claude-opus-5",
+  "source_sha256": "9b20319603d8244a768daa59b66a75d57a0c02dff5176f2480eeb52c041505a0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gentle-mask-over-sovereign-power",
+  "field": "title",
+  "lang": "ko",
+  "text": "주권 권력에 씌운 온화한 가면",
+  "model": "claude-opus-5",
+  "source_sha256": "e9f58b732a9987efe8a685302947e4dbf9195819735b20b34e00814cf11663e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-geometric-prison-with-no-exit",
+  "field": "title",
+  "lang": "ko",
+  "text": "출구 없는 기하학의 감옥",
+  "model": "claude-opus-5",
+  "source_sha256": "1c7660008cfa5b7eca17d8609be96d05d271ab1ab15633b49e4468cdac8f85f2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-german-landscape-as-suppressed-historical-symptom",
+  "field": "title",
+  "lang": "ko",
+  "text": "억눌린 역사가 증상으로 드러난 독일 풍경",
+  "model": "claude-opus-5",
+  "source_sha256": "b716b8b129ec750adc7dcc9f03a9c3a31969f9dc13e75a61e25adb6d5b389e0e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-german-nation-read-through-its-wounded-body",
+  "field": "title",
+  "lang": "ko",
+  "text": "상처 난 몸으로 읽는 독일",
+  "model": "claude-opus-5",
+  "source_sha256": "d0341a41ac78000f5cc95d138b2da8862e30cf5df6eac11bf022dc928066e727"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-german-past-smuggled-into-every-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "프레임마다 몰래 들어앉은 독일의 과거",
+  "model": "claude-opus-5",
+  "source_sha256": "c4e8e27053219fd563d765a0bbb4def7a612afdaef22f8147df0baa1542bdf06"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ghost-as-return-of-the-repressed",
+  "field": "title",
+  "lang": "ko",
+  "text": "억압된 것이 돌아온 자리, 유령",
+  "model": "claude-opus-5",
+  "source_sha256": "219ae950a944bf62328d7100219c549a26b9d32a79a14907131b46261c292c27"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ghost-is-grief-wearing-a-title",
+  "field": "title",
+  "lang": "ko",
+  "text": "유령은 이름을 얻은 슬픔이다",
+  "model": "claude-opus-5",
+  "source_sha256": "80d893e3b07c4c83eb85897adcc33947abeec953ac0ce794522f4656f288352f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gift-economy-hidden-inside-the-cash-economy",
+  "field": "title",
+  "lang": "ko",
+  "text": "현금 경제 안에 숨은 증여 경제",
+  "model": "claude-opus-5",
+  "source_sha256": "104d945e7270e51947a04711ea88c71b2fa49c359a306afb5af779108cc845fe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gift-outside-the-logic-of-trade",
+  "field": "title",
+  "lang": "ko",
+  "text": "거래의 셈법 바깥에 있는 선물",
+  "model": "claude-opus-5",
+  "source_sha256": "91b8bb34aef7768ba5704fa7b18b2d46acf0527d2262464c83375b83e10776f5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gift-that-annihilates-its-giver",
+  "field": "title",
+  "lang": "ko",
+  "text": "준 사람을 지워버리는 선물",
+  "model": "claude-opus-5",
+  "source_sha256": "c5201bd648e313a0b4de694b862a776704dec1771ca3ac3e19d54cebe348bd20"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gift-that-cannot-be-repaid",
+  "field": "title",
+  "lang": "ko",
+  "text": "갚을 길 없는 선물",
+  "model": "claude-opus-5",
+  "source_sha256": "78214413aa8ca461a010160e166235fe6fa11d7eaaa741828da4180a0b0689a5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gift-that-is-secretly-an-affliction",
+  "field": "title",
+  "lang": "ko",
+  "text": "실은 형벌인 재능",
+  "model": "claude-opus-5",
+  "source_sha256": "dc168901265fe4e7533cdcc327548e5d967df69d0d2374d3358786baf3f651c3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gift-that-sustains-the-settled",
+  "field": "title",
+  "lang": "ko",
+  "text": "정착한 자들을 먹여 살리는 선물",
+  "model": "claude-opus-5",
+  "source_sha256": "7945352347d9f78222927688d18c22e9d71e7a017de28e312d4399ed604c59bb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gilded-cage-for-caged-daughters",
+  "field": "title",
+  "lang": "ko",
+  "text": "갇힌 딸들의 금빛 새장",
+  "model": "claude-opus-5",
+  "source_sha256": "ed5fd4ce89d9be2e23fd6158a49d77a871dde5c16a6e58ec9f4955bff05e4d13"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-gilded-past-as-screen-memory",
+  "field": "title",
+  "lang": "ko",
+  "text": "덮어씌운 기억이 된 도금한 과거",
+  "model": "claude-opus-5",
+  "source_sha256": "fa75e1e676cfb3acb350223f5891dbcf118be8d58b376b63f1dadf38460cd379"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-girl-as-simone-weil-mystic-of-absence",
+  "field": "title",
+  "lang": "ko",
+  "text": "부재의 신비가 시몬 베유가 된 소녀",
+  "model": "claude-opus-5",
+  "source_sha256": "5f3c4f02e162999cfa87e053fea6721fdec3fcdad3d0572b3ca5c96224ba9f30"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-girl-curated-into-an-icon",
+  "field": "title",
+  "lang": "ko",
+  "text": "아이콘으로 다듬어진 소녀",
+  "model": "claude-opus-5",
+  "source_sha256": "6a6d31d9bc5d0f2487237590172fe991a88de551ddd77bac2790641c21fe2334"
+ }
+]

@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-boarder-1954",
+  "field": "lead",
+  "film_id": "8235c51b-ad33-464f-87da-42f56863cb5f",
+  "lang": "en",
+  "text": "The black dress reads as mourning, and nobody at the seaside hotel asks a second question. She is on holiday with her daughter, who is being brought up by nuns, and for a stretch the misunderstanding holds: deference in the dining room, cordiality on the sand, a widow's quiet taken for good breeding. Lattuada plays it as comedy first, which is the harder choice, since the joke belongs to the guests and they do not know they are telling it. A resort is a place where everyone is temporarily someone else; she has only used the rule correctly. What the film keeps noticing is how little machinery respectability actually requires. One garment. One incurious town. Then a man who knew her in another city takes a room, and the week starts costing something it did not cost on Monday.",
+  "model": "claude-opus-5",
+  "source_sha256": "85913ae978e8b954da7937d5abddabf372d221438cefc727df7622c227f87e61"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-stolen-death-1938",
+  "field": "lead",
+  "film_id": "d290c717-0d10-45e7-ab51-c245331ee583",
+  "lang": "en",
+  "text": "The man bankrolling this underground war is a young aristocrat, and nobody would think to search him. Robert Hedman is idealistic and well born, and Tapiovaara leaves the combination unresolved rather than settling it in his favor. A Finnish thriller from 1938 about clandestine Finland, which means the pleasures are procedural: the passed parcel, the borrowed room, the friend whose loyalty has to be treated as a working assumption. A hundred and one minutes is a long stretch of suspense, and it goes to waiting rather than chasing. The ordinary business of insurrection is what holds it together. Somebody has to carry the thing, somebody has to hide it, and every person involved has a face that is known in a small city.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f8849d671b86cf8312a768da936104569734bd9365da2c59e7216ac116e567f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "abandoned-1955",
+  "field": "lead",
+  "film_id": "543f6468-e61f-4fc8-aa75-284053a8c015",
+  "lang": "en",
+  "text": "The young men in the villa were playing at partisans until people who had actually been in the war turned up at the gate. Maselli's group is rich, educated and comfortably out of the way; disbanded soldiers ask for shelter, refugees arrive behind them, and the house becomes a place where a decision costs somebody other than the person who makes it. Andrea takes up with Lucia, a peasant girl, and the film is honest about what the attachment is made of: proximity, boredom, and a difference in class neither of them can put down. Made in 1955, a decade on, it looks at the war from inside the one class that could afford to wait it out. Then Germans come through the district asking after partisans, and a word the young men have been using loosely acquires a definition.",
+  "model": "claude-opus-5",
+  "source_sha256": "42513c0ec8b7c218b738c773b7a73acfea60a326d60484f956aacdb492772906"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "neapolitan-carousel-1954",
+  "field": "lead",
+  "film_id": "d8490f6e-c5cb-427a-9aee-a2da609037d6",
+  "lang": "en",
+  "text": "Two hours of song, ballet, folk dance and mime, tied together by one family's wanderings: the Espositos turn up, a number begins, and Naples supplies the rest. Giannini is staging centuries rather than a plot, which spares him the difficulty that sinks most long musicals, since nobody in this arrangement needs a reason to sing. Costume, gesture and painted backdrop do the period work. The comedy handles the stitching between one age and the next. At 123 minutes it is a generous run for material with no argument to win, and the length is exactly what makes the conceit legible; anything shorter would collapse into a medley. The city arrives as a repertory rather than an address — tunes, masks, walks, jokes that outlived whoever first told them — and the Espositos are less characters than the thread between numbers.",
+  "model": "claude-opus-5",
+  "source_sha256": "70eea8971c20a909bbf3513e8c8d5385cb1a8738fe1ecf7862d63e9d7a8cf6e7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "empty-eyes-1953",
+  "field": "lead",
+  "film_id": "aea40c8f-765d-4c3d-a111-b2ee0521a85b",
+  "lang": "en",
+  "text": "She changes households the way other people change streets, and every move is a demotion dressed as a fresh start. Celestina arrives in Rome from a village to work as a maid, and Pietrangeli builds the film out of kitchens, back stairs and errands, the geography available to a young woman whose bed belongs to her employer. The other maids are the real institution: they know which families pay, which households to leave, how fast a reputation travels between apartments. Against that practical intelligence, a handsome plumber is a weakness she cannot afford, and the film declines to make her ridiculous for having it. The tempo is the tempo of service work. Nothing happens for weeks. Then one conversation ends a job, and a girl with a suitcase is on a staircase again, looking for the next door.",
+  "model": "claude-opus-5",
+  "source_sha256": "3a5e8c422df14daba353782166ab92ef0dfc94e5e66c9ececd0680f1890ae313"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "who-works-is-lost-1963",
+  "field": "lead",
+  "film_id": "a6e7e600-fd31-4777-8e33-19d80618de47",
+  "lang": "en",
+  "text": "There is a job on offer, and Bonifacio has spent the day walking Venice rather than answering. He is twenty-seven. At 77 minutes Brass has no room to pad the premise, so the walking becomes the method: the route pulls in Gabriella, and Claudio who always believed in work, and the war, and the partisans, all of it arriving in the order a mind supplies rather than the order it happened. Venice is a hard city to film casually, every alley being a picture already, and the wager is that a man dawdling through it can carry the weight of a refusal. The refusal is the interesting part. Employment here is not a wage but a set of terms, put forward by people who consider themselves generous, and the hesitation it produces is legible to nobody standing nearby.",
+  "model": "claude-opus-5",
+  "source_sha256": "367f05ada9bd8c2d3671377bd71d9696d34e8f83ee56fe79f87a842813e6b37a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "first-communion-1950",
+  "field": "lead",
+  "film_id": "50ca1c1c-0c6c-4bc7-b2c8-390de8aca255",
+  "lang": "en",
+  "text": "The dressmaker is behind schedule, and a sacrament will not wait. Blasetti builds ninety minutes of comedy out of one father's morning coming apart around a single unfinished frock: the daughter takes her first communion at a fixed hour, and everything funny here lives in the distance between that hour and a man's capacity to influence anything at all. Signor Carloni is not a fool, which is what makes it work. He has standing, he is in a hurry, and his standing is worth very little at a counter. The city supplies the rest, shops and traffic and other people's appointments, all of it in the way of a man who needs one thing and needs it by morning. Farce of this sort is a clock problem, and here the clock belongs to the Church.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3dce0f455f93b519cd7204e49044b079046aab700f16a1d9bd9ebe5c860124e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "heaven-over-the-marshes-1949",
+  "field": "lead",
+  "film_id": "488a09fa-c4b1-4304-b097-9b3b326890bd",
+  "lang": "en",
+  "text": "Disease-ridden ground on the outskirts of Rome: the Pontine Marshes, worked by families with nowhere better to go, and home to a devout girl named Maria Goretti. Genina had been blacklisted after the war for the pro-fascist pictures he made before it, and this was the film that brought him back — 111 minutes among peasants, Ines Orsini in the central role, a premiere in Venice rather than Rome. The interest is in the register. Devotional subjects tend to soften whatever they touch; the marshes do not soften, and the daily arithmetic of the place, the heat and the standing water and the labor asked of children, keeps pressing against the shape a saint's life wants to take. A director rebuilding a reputation chose the least worldly story available to him. That is not a neutral decision.",
+  "model": "claude-opus-5",
+  "source_sha256": "9f3eee5621f9cdff4a9dfc096ad493a984833a7d81de094feac05a21369fcf3c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "daphnis-and-chloe-1931",
+  "field": "lead",
+  "film_id": "64659cab-9292-4492-b198-020813cd1a81",
+  "lang": "en",
+  "text": "Two shepherds on Lesvos each pick up an abandoned infant, and sixty-eight minutes later those children have reached the age where the trouble starts. Laskos shoots the pastoral where it can actually be shot, outdoors and in daylight and among animals, and the decision does more than save money: the sexual education at the center of the film arrives with the plainness of weather rather than the smirk of a scenario. Daphnis learns from a woman who wants him. Chloe learns from Daphnis. The question of who left the two of them out there hangs over everything, unhurried, because the countryside has its own pace and the film keeps to it. Sixty-eight minutes, and most of them are spent watching two people find out what everybody around them already knows.",
+  "model": "claude-opus-5",
+  "source_sha256": "12990b8301bb2ddf879c2a3567e4989062f55ca8e82fafb6f7519b670fe8bf1c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-women-of-niskavuori-1938",
+  "field": "lead",
+  "film_id": "84695a9e-64a9-423a-9ab7-3e331559737f",
+  "lang": "en",
+  "text": "His mother chose the wife, and the farm set the terms she chose by. Aarne is the eldest son of Niskavuori and married Martta because a wealthy match was what the house required; then a schoolteacher named Ilona takes a post in the village. The pressure in this story is female and distributed: the mother who set the terms, the wife who accepted them, the teacher who stands outside them and draws her own salary, which in 1938 is the whole difference between the three. Eighty-four minutes leaves no room for a subplot, so Vaala keeps to rooms in which property is the third party to every conversation. Nobody is a villain. The mother is defending a farm that will outlast every feeling in the house, and she is not wrong about what becomes of farms whose heirs marry as they please.",
+  "model": "claude-opus-5",
+  "source_sha256": "183466d897a0fe19248f029f0e7882e214a82a28e2c95ea79ee9f6f000c49257"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "juha-1937",
+  "field": "lead",
+  "film_id": "b445fc30-68f6-4eaa-97eb-0335a88d87fc",
+  "lang": "en",
+  "text": "Juha raised the girl he later married, which is the fact the rest of the film has to live with. Eastern Finland, the eighteenth century, a farm run by two people whose bond was settled before either of them chose it — and then a Karelian trader named Shemeikka comes through with goods, talk, and the news that elsewhere exists. Tapiovaara gave the situation 101 minutes in 1937, and the seduction registers less as a plot device than as an interruption of labor. Marja's position is worth stating plainly: no family, no property, and a husband who is also the man who fed her when she was a child. What a trader offers a woman in that position is not romance. It is an exit, and she has no way to check the price.",
+  "model": "claude-opus-5",
+  "source_sha256": "830851b063b5f0fc9d15d50bda365cdb870b0f969e05af1c825e1541ea43bf3d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-free-woman-1954",
+  "field": "lead",
+  "film_id": "64b81c7a-4d3c-4740-943f-5e1edfffd326",
+  "lang": "en",
+  "text": "She has a degree in architecture and a fiancé she barely knows, and only one of the two is expected to matter after the wedding. Liana does not go through with it. What Cottafavi follows from there is what a trained woman without a husband could actually do in 1954: meet people, be looked at, be advised, and find that freedom is a word more easily said than arranged. Every encounter comes with a room, a means of support, somebody else's schedule. The edge comes from the architecture — a qualification she holds and that none of these encounters has any place for — sitting behind scenes in which her worth is calculated on entirely other terms. The men are not monsters. They simply have no use for the part of her that took years to build.",
+  "model": "claude-opus-5",
+  "source_sha256": "3fc6192d3984cbe549e352c62929ab926dba8cc3a69d1d618455d6e01f9fdde5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "city-of-pain-1949",
+  "field": "lead",
+  "film_id": "ed27ca68-817e-4b30-a589-e5cc4cd43677",
+  "lang": "en",
+  "text": "A peace conference in 1947 assigned Pola to Tito's Yugoslavia, and the city began to empty. Furniture, workshops, whole streets carried out by people who had decided the border had moved onto them. Bonnard starts from the man who stays. He is neither a fool nor a hero, and his reasoning is ordinary enough to follow — a new state might treat a working man better than the old one did — which is what makes the ninety-nine minutes that follow so uneasy. Consequence arrives in the kitchen: what work is available, what can be said aloud at home, how quickly a household notices that a decision taken on principle is being paid for in ordinary things. Made in 1949, two years after the decision it describes.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ab787346914a5a35c4ffff57c4f2c5e4175bee3353f8ad9880bd1e26a4bc991"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "diary-of-a-teacher-1973",
+  "field": "lead",
+  "film_id": "283e0269-8e77-4358-b59f-e3fa386b8d5d",
+  "lang": "en",
+  "text": "The classroom is half empty, so the teacher leaves it and goes looking for the children who are not there. That search is the method of the film and, at 135 minutes, its structure as well: De Seta follows the walk out to the far edge of Rome, into the yards and rooms and worksites where a child is already doing something more urgent than long division. The length is not indulgence. Absence from school is a slow problem, made of a hundred small refusals and one economy, and a shorter film would have to argue where this one can watch. The premise is not that the children are hostile to learning. It is that the school as currently arranged is the least useful hour of their day, and that this is not within the power of one adult with a register to repair.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d0f5a50f0ff54d50328b894f88e7b28f794eb65730dd5327f5443fc50460e00"
+ }
+]

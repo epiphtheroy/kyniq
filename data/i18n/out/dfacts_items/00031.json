@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "j-j-abrams#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "세라 로렌스 4학년 시절, 에이브럼스는 질 마주르스키와 함께 시나리오를 썼다. 그 각본을 터치스톤 픽처스가 사들였고, 1990년 짐 벨루시 주연의 코미디 《Taking Care of Business》로 만들어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b8caa36cae73d67491dfce658d5a8124f498944443eca7b4378c75f0add6268b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "j-j-abrams#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "십 대의 에이브럼스가 전설적인 특수분장 아티스트 딕 스미스에게 팬레터를 보낸 적이 있다. 놀랍게도 스미스는 답장 대신 물건을 부쳤다. 《엑소시스트》 촬영에 실제로 쓰인 혀 소품이었다. 영화감독을 꿈꾸던 소년은 그것을 침실 상자에 고이 보관했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8fc9cd0b86388e07e888a04a256bfdadf5d6d5c2de1927960e47fea97f850351"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "j-j-abrams#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "어린 시절 친구 그렉 그런버그는 그의 거의 모든 작품에 얼굴을 내민다. 《앨리어스》에서는 CIA 요원, 《로스트》에서는 비운의 조종사, 《스타워즈: 깨어난 포스》에서는 X-윙 파일럿이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f75d2446ff9de58593470915edc3b21bb0653e46007307c4b5d17a3a0fc8bc7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "j-j-abrams#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "프레드 스케피시의 1993년작 《Six Degrees of Separation》에서 에이브럼스는 드물게 배우로 나섰다. 윌 스미스가 연기한 인물에게 속아 넘어가는 더그라는 청년 역이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b5d1c729e4a0aec9349d850f729c70f0bddd94ba7b6bbdf15e8315d323812c94"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "j-j-abrams#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "톰 크루즈는 에이브럼스의 스파이 시리즈 《앨리어스》 시즌 1, 2를 DVD로 몰아 본 뒤 직접 그를 찾아갔다. 그렇게 《미션 임파서블 3》가 에이브럼스의 장편 데뷔작이 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d9e86335739c01c263924aab0c1069bf5a16c2e199f8f7839e9f9bebd6b33ccc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "j-j-abrams#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "힙합 그룹 비스티 보이스의 열렬한 팬인 그는 《스타워즈: 깨어난 포스》에 나오는 외계인 X-윙 파일럿에게 '엘로 애스티(Ello Asty)'라는 이름을 붙였다. 이들의 1998년 앨범 《Hello Nasty》에서 따온 것이다. 헬멧에는 가공의 문자 오레베시로 'Born to Ill'이라는 문구까지 새겨 넣었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f48e2e1a718c4f25dab2d672ac5113576ea174ebe518e3b0ab60835a1543737"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "j-j-abrams#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2013년 에이브럼스는 작가 더그 도스트와 함께 실험적 소설 《S.》를 구상하고 공동 창작했다. 책은 낡은 도서관 장서처럼 만들어졌다. 손글씨 여백 메모가 빼곡하고, 엽서와 냅킨과 지도가 페이지 사이에 끼워진 채로.",
+  "model": "claude-opus-5",
+  "source_sha256": "7493c038c276b4a630b8d8742ca3fa63e0ab615a337aaae3485d3d2bff53b6e2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "j-j-abrams#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "캐슬린 케네디가 《스타워즈: 깨어난 포스》 연출을 처음 제안했을 때 에이브럼스는 딱 잘라 거절했다. 오리지널 기획에 집중하고 싶었기 때문이다. 마음이 바뀐 건 케네디가 그의 사무실로 찾아와 던진 질문 하나 때문이었다. \"루크 스카이워커는 누구인가?\"",
+  "model": "claude-opus-5",
+  "source_sha256": "bb07177bd6d16690cee5c8057abf43b3339ac6d62c715b1e1d7bfe0369f07188"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "j-j-abrams#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《스타워즈: 깨어난 포스》의 칸티나 음악 'Jabba Flow'는 에이브럼스와 린-마누엘 미란다가 가공의 언어 허티즈로 함께 쓴 곡이다. 에이브럼스는 백보컬로 참여했다. 훗날 두 사람은 뉴욕 리처드 로저스 극장 앞에서 이 노래를 라이브로 불렀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8deb143c32102d8a9c6a9e809ed5e082c98c0ec7fe7de75489cabf9aa240050a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "j-j-abrams#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《펠리시티》 시즌 2에서 케리 러셀의 그 유명한 곱슬머리를 돌연 잘라버리기로 한 결정. 에이브럼스와 공동 창작자 맷 리브스는 방송사의 거센 반발에 부딪혔다. 시청률은 곤두박질쳤고, WB는 소속 스타들에게 '머리를 자르지 말 것'이라는 엄격한 방침을 세웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "200f129d0441884886e288cd650c9d41fbf549eeb725b22417f8a33fe494b0dd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "j-j-abrams#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마이클 베이의 《아마겟돈》에 각본가로 참여했을 때 그가 맡은 일은 구체적이었다. 브루스 윌리스가 소행성에서 핵폭탄을 터뜨리기 직전 딸에게 건네는 작별 인사, 그 대사를 쓰는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "a4bb51201b4d56e44d4d77059737db678bb24ac19754c3252d2ce5f5a0e52057"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "j-j-abrams#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "무대 마술에 평생 빠져 살았던 그는 할리우드의 회원제 클럽 매직 캐슬의 주요 회원이다. 시선 돌리기(misdirection) 같은 손기술의 원리를 시나리오 구조에 자주 끌어들인다.",
+  "model": "claude-opus-5",
+  "source_sha256": "76f89d48c7fb77c9a9fc54344342cb94cd5316cb2ca77bf6e9567a8d17666466"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "j-j-abrams#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2002년 에이브럼스는 슈퍼맨 리부트 각본 《Superman: Flyby》를 썼다. 제작되지 않았지만 논란은 컸다. 크립톤은 실은 파괴된 적이 없고, 렉스 루터는 UFO에 집착하는 CIA 요원이라는 설정. 히어로의 기원 자체를 뒤엎는 각색이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "16019676ac23435eb6210d457235d23f8d0d967712609b91c6042814f5b49afd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "j-j-abrams#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2009년 《스타트렉》 리부트를 연출해 큰 성공을 거뒀지만, 정작 그는 자라면서 이 시리즈의 팬인 적이 없었다고 공공연히 인정했다. 취향은 압도적으로 《스타워즈》 쪽이었고, 오리지널 《스타트렉》 시리즈는 너무 철학적이고 겉돈다고 느꼈다는 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ad3c7ddbb20ef6f7f322d1815015146f469c39d2c5cb5fb0fc5922d11dce8ca"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "j-j-abrams#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "비밀에 부쳐진 괴수영화 《클로버필드》를 알리는 방식은 이랬다. 《트랜스포머》 상영 전에 티저를 걸되 제목은 없이 개봉일만 띄운다. 인터넷에서는 거대한 대체현실게임이 벌어졌고, 그가 판을 짰다. 정작 괴물은 끝까지 보여주지 않은 채로.",
+  "model": "claude-opus-5",
+  "source_sha256": "4480a84c79e84b5c04085f6f244e5a8f6318839dbb5ff48b2d628bcbdf6dc2e6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "j-j-abrams#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2007년 그는 존 오티즈와 크리스 메시나가 출연한 HBO 의학 드라마 《The Anatomy of Hope》의 파일럿을 연출했다. 그런데 방송사가 시리즈 편성을 거부했다. 전성기 한복판에서 겪은, 몇 안 되는 명백한 텔레비전 실패였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9482a18aa5bf919a0df55912e65ae8562131c24c282fc54c81e623a918cdaadd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-audiard#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자크 오디아르의 아버지는 프랑스 영화계의 거인 미셸 오디아르다. 재치와 속어가 넘치는 대사로 이름을 떨친 전설적 시나리오 작가. 그 그림자가 너무 커서, 자크는 처음엔 영화판 근처에도 가지 않으려 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3ee9262556f56feff721cc9af62eb2f8cfbf8e94816a01a184750ad811c291fb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-audiard#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아버지의 영역에서 멀리 떨어진 길을 찾아 소르본에 들어가 문학과 철학을 공부했다. 교사가 될 생각이었다. 학업은 끝맺지 못했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "efea76144f450303ffd90be109a06140b6d9dd6896c05454d7629fd4e800b347"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-audiard#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "청년기를 결정지은 비극은 1975년에 닥쳤다. 형 프랑수아가 스물여섯에 교통사고로 목숨을 잃었다. 가족은 그 상실로 깊이 갈라졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "566793907a20ccee2e47356517e7c9a32294f5ea3d7eef60a8d61c84f54837fc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-audiard#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화계에 발을 들인 자리는 각본도 연출도 아닌 편집실이었다. 1976년 로만 폴란스키의 심리 스릴러 《테넌트》에서 편집 조수로 일했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c30dc61db02d66c3fd5d196de7f32d6b72704d8b74cb2f8de8a287a7a86b7fa8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-audiard#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아버지의 길을 따르기를 그토록 꺼렸던 그가 결국 미셸 오디아르와 손을 잡는다. 1983년 네오누아르 스릴러 《Mortelle Randonnée》의 각본을 함께 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc053e95bb3149839e01cfaad0c8ae5e599be90a9060f7c95cab055ccf9182c9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-audiard#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "연출자로서는 전형적인 대기만성형. 첫 장편 《Regarde les hommes tomber》를 내놓은 것은 1994년, 마흔둘이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ad47403aac8e8b4420bcb1a6daa8f9db217f0f457d870d4e15a43b01b3b70ae"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-audiard#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "알랭 바슝의 히트곡 'La nuit je mens' 뮤직비디오를 연출해 1999년 빅투아르 드 라 뮈지크를 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "25999dc1774c3f1af31a44559c350204c6432b06290b3c2636b27f2ed92ca063"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-audiard#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오디아르는 스페인어를 한마디도 못 한다. 그런데도 2024년 카르텔 뮤지컬 《에밀리아 페레스》를 전편 스페인어로 찍기로 했다. 통역에 기대고, 입 밖으로 나온 대사의 음악성에 기대어 연출했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "75ab8f2436cccd29cbda910d1dff3dbb810e979143f4c91d6507b2325cbae565"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-audiard#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2015년 칸에서 《디판》이 황금종려상을 받자 비평가들은 이변으로 받아들였다. 조엘 코엔과 이선 코엔 심사위원장에게서 상을 건네받는 오디아르 본인의 얼굴에도 당혹이 그대로 드러났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3a782437a61d3664f126bbdc9ca952cf27393cfef4ca9532c84143ec2ee68619"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-audiard#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《디판》의 고된 주연, 타밀 타이거 출신 난민 역에 오디아르가 고른 사람은 안토니타산 제수타산이었다. 실제로 스리랑카에서 소년병이었다가 프랑스로 망명해 미등록 신분으로 활동가이자 소설가로 살던 인물이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "33e758a581a9b223b5ef0d22dcda6fa6f24c5df98b225fbab6fe1f99fa6818cd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-audiard#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "문학 쪽 감각을 엿볼 수 있는 대목. 《러스트 앤 본》은 캐나다 작가 크레이그 데이비슨의 동명 단편집에서 서로 아무 상관 없는 두 편을 하나로 엮어 만든 영화다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9679555f9679f7410b5e374590fae1d11a7b792bb71b9fbe1f3a907d292fafad"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-audiard#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2024년작 《에밀리아 페레스》의 출발점은 보리스 라종의 소설 《Écoute》를 스쳐 지나가는 한 챕터였다. 오디아르는 처음에 이것을 오페라 대본으로 구상했다가, 영화 뮤지컬로 옮겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "13ec6b40ef6f198c2e6bfd1996df574971399ebd9d7631598d2b0db90228dcd2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-audiard#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "첫 영어 영화인 서부극 《시스터스 브라더스》(2018)를 찍으면서 그는 미국 서부로 가지 않았다. 1850년대의 오리건과 캘리포니아는 루마니아와 스페인의 산에서 통째로 재현됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f41186cf50348d9667bdb50d4177fe921abc918b71346dc29e034e5fd186444b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-audiard#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《에밀리아 페레스》의 과감한 캐스팅. 쉰두 살 트랜스 배우 카를라 소피아 가스콘에게 두려움의 대상인 멕시코 카르텔 두목 '마니타스'와 성전환 이후의 정체성을 함께 맡겼다. 그 결과가 칸 여우주연상 공동 수상이라는 역사적 장면이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7fdc3f065c243835c6daccacae6196d3dac779df0e042daeeb7050d61962899d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-tati#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "본명은 자크 타티셰프. 할아버지 드미트리 타티셰프 백작은 러시아 장군이자 파리 주재 러시아 대사관 무관이었다. 어머니는 프랑스-네덜란드계였는데, 그 아버지 마르크-루이 판 호프는 이름난 액자 장인으로 빈센트 반 고흐와 앙리 드 툴루즈-로트레크를 고객으로 두었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5619326320f968e97c9a25e80394cbb1bff73eea3895bd215bd6cffc6fcd40f6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-tati#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "학업 성적이 형편없기로 유명했던 타티를 아버지는 가업으로 보냈다. 명망 높은 액자 공방 카드르 판 호프. 이 돈 되는 사업을 물려받는 것이 그에게 정해진 앞날이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5ffadbf4ee2c9d1e5e396beff4c6b942c71de09d93c8c7ff26618d0eb98c2eec"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-tati#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "코미디로 가는 길은 럭비장에서 열렸다. 라싱 클뢰브 드 프랑스에서 뛰던 시절, 라커룸에서 동료들 앞에 선수와 심판을 말없이 흉내 내 웃겼고, 거기서 자기 재능을 발견했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "465b0b03e7ef3a8843d9d44468bd9293df043addb595c3ebe41874023d4fa7e8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-tati#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아버지의 분노를 뒤로하고 타티는 1931년 가업을 버렸다. 파리의 뮤직홀에서 '스포츠 인상기'를 공연했고, 소설가 콜레트가 열광했다. 1936년 그녀는 이렇게 썼다. 그가 \"춤과 스포츠와 풍자와 연기가 뒤섞인 무언가\"를 발명했다고.",
+  "model": "claude-opus-5",
+  "source_sha256": "a802ce12a8925607762233ceb146645ef4bef08c1d1eb87d3d2baa6fb71e801f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-tati#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2차 대전 중 타티는 기병 부대인 제16용기병연대에 징집됐다. 프랑스가 함락된 뒤에는 생세베르쉬르앵드르라는 마을로 물러났다. 훗날 그 마을이 감독 데뷔작 《축제일》의 실제 촬영지가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d1bc155d45474a41e891621c351ad6d6671bf1b30236318a93bb83f912d44a0a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-tati#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1942년 ABC 카바레에서 공연하던 무렵, 타티는 오스트리아-체코계 무용수 헤르타 실과 짧게 사랑에 빠졌고 딸 헬가 마리-잔 실이 태어났다. 그러나 그는 아이를 법적으로 인정하지 않았다. 군림하던 누이 나탈리의 압박이 있었다. 온화한 공적 이미지에 그늘을 드리운, 뼈아픈 개인적 실패다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f93b4ae30cced14c45e196d47cf8ad8c09990895a0942664c0fb6f78b6e8f42d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-tati#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《축제일》은 표준 흑백 필름과 톰슨컬러라는 실험적 신공정으로 동시에 촬영됐다. 문제는 컬러 회사가 현상 전에 파산했다는 것. 타티는 흑백판으로 개봉할 수밖에 없었다. 컬러 릴이 되살아난 것은 1995년, 그의 적녀 소피 타티셰프가 공들여 복원하면서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f3d3991a0ae891b650fdc0ff9574c024e027320051f40ebabb7568513f5dd254"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-tati#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "소리에 관한 한 타티는 광적인 완벽주의자였다. 영화 대부분을 동시녹음 없이 찍은 뒤, 후반작업에 몇 달을 쏟아 과장된 소음을 하나하나 폴리로 만들어 넣었다. 《플레이타임》의 그 요란하게 푹신거리는 가죽 의자 소리가 그렇게 나왔다. 여러 인물의 목소리를 직접 더빙하는 일도 잦았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f8cc43747eca23d57b782e6b08a50e02c5c5b7208426ad6fb0d23d61085e6374"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-tati#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1958년의 걸작 《나의 아저씨》를 위해 타티는 니스 빅토린 스튜디오 세트에 초현대식 빌라 아르펠을 지어 올렸다. 기계장치로 가득한 집. 정원의 물고기 분수는 중요한 손님이 왔을 때만 물을 뿜었는데, 터무니없이 시끄러운 실제 기계 펌프가 그 장치였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c89e90e7982452dc34af70931910349bbf8b1a2f5315b2c923c2d4265c1249dc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-tati#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《나의 아저씨》로 아카데미 외국어영화상을 받고도 타티는 할리우드행 제안을 마다했다. 조건은 좋았다. 다만 스튜디오 시스템이 자기 손에서 전권을 앗아갈 것이 두려웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "247f8bf92af04d0817dbe26a71f700ae5ace1e3983f98e4647204b471412198b"
+ }
+]

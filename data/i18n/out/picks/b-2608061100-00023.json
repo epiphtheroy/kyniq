@@ -1,0 +1,322 @@
+[
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sylvester-stallone#rocky-iii-1982",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《록키 3》(1982)는 스탤론의 연출이 가장 팽팽하게 조여진 작품이다. 클러버 랭이라는 위협에 아폴로의 훈련 대목과 'Eye of the Tiger'를 붙여, 추진력과 감정의 판돈을 동시에 최대치로 끌어올린다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "sylvester-stallone#rocky-iv-1985",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《록키 4》(1985)는 대사를 거의 지우고 몽타주로 밀어붙이는 실험, 그리고 냉전 스펙터클로 기운다. 그의 리듬에 이미 빠진 관객이라면 이 양식화된 기이함이 값을 한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "taika-waititi#what-we-do-in-the-shadows-2014",
+  "field": "reason",
+  "lang": "ko",
+  "text": "와이티티 특유의 무표정한 모큐멘터리 코미디를 가장 순수한 농도로 맛보려면 《우리가 어둠 속에서 하는 일》이다. 집안일을 두고 티격태격하는 뱀파이어 룸메이트들. 즉흥에 기댄 헐거운 리듬과 좀스러운 낙오자들을 향한 애정이 한 편에 다 들어 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "taika-waititi#jojo-rabbit-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "그가 왜 중요한 감독인지는 《조조 래빗》이 말해준다. 상상 속 히틀러라는 소극과 전시의 진짜 다정함을 저울에 올려놓고도 균형을 잃지 않는다. 그의 코미디가 변덕스러운 매력을 버리지 않은 채 도덕적 무게를 감당할 수 있다는 증명이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "taika-waititi#thor-ragnarok-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "변칙 카드는 《토르: 라그나로크》. 불경하고 색이 넘치는 즉흥을 마블 블록버스터 안으로 밀반입해, 뻣뻣하던 프랜차이즈를 버디 코미디로 갈아치웠다. 그의 목소리가 규모를 키우면 어떻게 되는지 궁금한 사람에게.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "takeshi-kitano#hana-bi-1997",
+  "field": "reason",
+  "lang": "ko",
+  "text": "기타노 다케시의 대비법이 가장 진하게 응축된 것은 《하나비》다. 불쑥 터지는 폭력 옆에 놓인 다정한 정적, 무표정한 형사로 나선 그 자신, 회화 같은 화면. 그의 리듬과 감정의 핵으로 들어가는 가장 선명한 입구다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "takeshi-kitano#sonatine-1993",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《소나티네》는 야쿠자 영화를 실존적 고요까지 벗겨낸다. 죽음이 터지는 사이사이, 지루해진 건달들이 바닷가에서 유치한 놀이를 한다. 그 무심한 숙명론과 미니멀한 화법이 여기서 결정(結晶)이 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "takeshi-kitano#kikujiro-1999",
+  "field": "reason",
+  "lang": "ko",
+  "text": "조폭 대신 무뚝뚝한 건달이 소년을 데리고 여름 길을 떠나는 이야기, 《기쿠지로의 여름》. 그의 감상적이고 장난기 어린 얼굴이 드러난다. 좀 더 부드러운 음역을 들을 준비가 된 관객용.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "terrence-malick#badlands-1974",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《황무지》는 맬릭의 목소리를 군더더기 없는 범죄 로드무비 안에 눌러 담았다. 시시 스페이섹의 평평하고 몽롱한 내레이션이 평원 위 폭력에 겹친다. 그의 시(詩)는 이미 여기 있고, 아직 이야기를 버리지 않았다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "terrence-malick#days-of-heaven-1978",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《천국의 나날들》은 이야기를 내주고 이미지를 택했다. 텍사스 밀밭 위로 흐르는 네스토르 알멘드로스의 황금빛 촬영. 서사에서 원초적 아름다움 쪽으로 돌아서는 순간이 여기 찍혀 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "terrence-malick#the-tree-of-life-2011",
+  "field": "reason",
+  "lang": "ko",
+  "text": "1950년대 텍사스의 소년 시절과 우주의 탄생을 한데 녹인 《트리 오브 라이프》. 속삭이는 기도, 떠도는 카메라, 형이상학을 향한 큰 손짓 — 맬릭이 가장 온전하게 펼쳐진 자리다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "terrence-malick#the-thin-red-line-1998",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《씬 레드 라인》은 과달카날의 내면 독백들을 합창으로 엮어 전쟁영화를 다시 짰다. 전투와 전투 사이에서 병사들은 자연을 생각하고 공포를 곱씹는다. 맬릭의 후기 문법이 굳어진 지점이 바로 여기다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "terrence-malick#a-hidden-life-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "히틀러에게 충성을 맹세하지 않은 오스트리아 농부, 《히든 라이프》. 양심을 세 시간 동안 참을성 있게 들여다본다. 그의 리듬에 이미 익숙한 관객에게 값을 하는 영화다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "terry-gilliam#twelve-monkeys-1995",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《12 몽키즈》가 가장 문턱이 낮다. 밀고 나가는 플롯과 스타 배우라는 닻을 갖춘 시간여행 스릴러라, 썩어가는 편집증의 세계로 처음 들어서는 사람도 압도당하지 않는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "terry-gilliam#monty-python-and-the-holy-grail-1975",
+  "field": "reason",
+  "lang": "ko",
+  "text": "길리엄이 어디서 출발했는지는 《몬티 파이튼과 성배》가 보여준다. 부조리 코미디, 그리고 손으로 오려 붙인 애니메이션. 이후 모든 작품을 굴리는 무정부적 감각의 원형이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "terry-gilliam#brazil-1985",
+  "field": "reason",
+  "lang": "ko",
+  "text": "관료제 디스토피아를 다룬 그의 대표작 《브라질》. 복고미래주의 프로덕션 디자인에 어두운 풍자와 치솟는 판타지 도피가 결합한다. 그가 왜 중요한 감독인지를 정의하는 한 편.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "terry-gilliam#time-bandits-1981",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《브라질》의 상상력 넘치는 혼돈을 아이 눈높이로 옮기면 《시간 도둑들》이 된다. 난쟁이들이 시간을 가로지르며 벌이는 도둑질. 엉뚱함과 뜻밖의 서늘함이 나란히 간다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "terry-gilliam#fear-and-loathing-in-las-vegas-1998",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《라스베가스의 공포와 혐오》에 이르면 그 일그러진 화면이 약물에 절어 극단까지 간다. 헌터 S. 톰프슨을 충실하게, 그래서 완전히 미쳐버린 방식으로 옮겼다. 이미 걸려든 관객용.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "theo-angelopoulos#landscape-in-the-mist-1988",
+  "field": "reason",
+  "lang": "ko",
+  "text": "아버지를 찾아 그리스를 가로지르는 두 아이의 이야기, 《안개 속의 풍경》. 느리고 비에 젖은 롱테이크가 감정적으로 가장 직접적인 여정 속에 녹아 있다. 그 엄격한 문법으로 들어서는 가장 부드러운 입구다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "theo-angelopoulos#eternity-and-a-day-1998",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《영원과 하루》는 죽어가는 시인과 난민 소년을 하루 동안 붙여놓는다. 떠도는 구조 위에 언어와 기억, 시간에 관한 사유가 겹겹이 쌓인다. 접근하기 쉽고, 서정적이며, 황금종려상을 받았다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "theo-angelopoulos#ulysses-gaze-1995",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《율리시즈의 시선》은 잃어버린 필름 릴을 좇는 영화감독을 전쟁으로 찢긴 발칸으로 보낸다. 앙겔로풀로스의 가장 길고 가장 사무치는 테이크가 여기 있다. 한 숏 안에서 수십 년이 무너져 내리는 대목까지 포함해, 결국 응시(gaze) 그 자체에 대한 사유가 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "theo-angelopoulos#the-travelling-players-1975",
+  "field": "reason",
+  "lang": "ko",
+  "text": "순회 극단을 통해 1939–52년 그리스사를 다시 무대에 올린 《유랑 극단》. 끊지 않은 놀라운 테이크들이 한 숏 안에 몇 해를 접어 넣는다. 네 시간에 가까운 이 버거운 영화가 그의 방법론 전체의 초석이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "thomas-vinterberg#another-round-2020",
+  "field": "reason",
+  "lang": "ko",
+  "text": "빈터베르그가 가장 다가가기 쉽고 가장 인간적인 자리에 선 작품은 《어나더 라운드》(2020)다. 알코올에 관한 가설을 몸으로 실험하는 네 교사. 매즈 미켈센이 붙드는, 들뜨면서도 씁쓸한 중년 갈망의 기록이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "thomas-vinterberg#the-celebration-1998",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《셀레브레이션》(1998)은 도그마 95의 출발점이다. 핸드헬드로 찍은 가족 만찬 자리에서 묻어둔 비밀이 터진다. 거칠고 숨 막히며, 사회적 파열을 감당하는 그의 담대함이 가장 뚜렷하게 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "thomas-vinterberg#the-hunt-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《더 헌트》(2012)는 고발이라는 주제를 안쪽으로 뒤집는다. 아동학대 누명을 쓴 유치원 교사를 따라가며, 공동체가 등을 돌리는 과정을 조용히 무너뜨리듯 그린다. 여기서도 미켈센이 동력이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ti-west#x-2022",
+  "field": "reason",
+  "lang": "ko",
+  "text": "타이 웨스트의 솜씨를 가장 단정하게 압축한 것은 《X》다. 1970년대, 외딴 농장에서 포르노를 찍던 팀이 겪는 일. 참을성 있게 긴장을 쌓아 올리는 방식과 그라인드하우스 질감이 가장 반가운 입구를 만든다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ti-west#pearl-2022",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《펄》은 같은 공식을 테크니컬러 기원담으로 뒤집는다. 맹렬한 주연 연기와 끊지 않은 긴 독백 하나. 웨스트가 장르 기계장치만이 아니라 인물 연구도 해낸다는 증거다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ti-west#maxxxine-2024",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《맥신》은 이 연작을 1980년대의 추잡한 할리우드와 나이트 스토커의 시대로 끌고 간다. 네온과 VHS로 양식화된 결산이라, 삼부작의 야심에 이미 마음을 준 관객에게 값을 한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "tim-burton#beetlejuice-1988",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《비틀쥬스》는 버튼의 감각을 광기 어린 저강도 유령의 집 코미디로 응축한다. 손으로 만든 스톱모션 기괴물, 사탕 색깔로 칠한 저승의 관료제, 그리고 마이클 키튼의 무정부적 유령. 고딕 만화 같은 그의 상상력으로 들어가는 가장 환대에 가까운 입구다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "tim-burton#edward-scissorhands-1990",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《가위손》은 동화의 우울과 파스텔빛 교외 풍자를 붙여놓는다. 손 대신 칼날을 단 순한 외부인을, 볼거리로 소비하지 않고 진짜 다정함으로 그려낸다. 그가 왜 중요한지가 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "tim-burton#batman-1989",
+  "field": "reason",
+  "lang": "ko",
+  "text": "블록버스터 규모에서도 그의 비전이 버틴다는 증거가 《배트맨》이다. 엉뚱함을 내려놓은 자리에 앤톤 퍼스트가 세운 음울한 고딕 고담과 잭 니컬슨의 신난 조커가 들어섰다. 스튜디오 텐트폴 안에서 외부인이라는 주제가 어떻게 살아남는지 보라.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "tim-burton#mars-attacks-1996",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《화성인 침공》은 신나게 짓궂은 B급 영화 헌사다. 레이 해리하우젠식 비행접시에, 킬킬대는 초록 화성인. 그의 얼빠지고 파괴적인 기질까지 끌어안을 준비가 된 관객을 위한 변칙 카드.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "todd-haynes#carol-2015",
+  "field": "reason",
+  "lang": "ko",
+  "text": "헤인즈에게 가장 쉽게 다가서려면 《캐롤》이다. 1950년대, 백화점 점원과 연상의 여자 사이의 사랑을 시선과 장갑 낀 손으로 말한다. 에드워드 라흐만의 풍성한 16mm가 욕망을 그리움의 형태로 붙잡는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "todd-haynes#far-from-heaven-2002",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《파 프롬 헤븐》은 더글러스 서크의 멜로드라마를 인종과 섹슈얼리티의 교외 비극으로 흘려보낸다. 포화된 색 하나, 부풀어 오르는 음악 한 소절까지 수술하듯 통제한다. 패스티시가 어떻게 감정의 진실이 되는지를 보여주는 솜씨다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "todd-haynes#safe-1995",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《세이프》는 원인 모를 화학물질 과민증에 걸린 주부를 따라간다. 소독된 듯한 화면 안에서 줄리앤 무어가 점점 작아진다. 질병과 자기계발 문화를 서늘하고 모호하게 파고드는, 이미 걸려든 관객에게 보답하는 영화.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "todd-haynes#may-december-2023",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《메이 디셈버》는 타블로이드 스캔들을 연기(演技)에 관한 거울의 방으로 바꾼다. 나탈리 포트만이 줄리앤 무어를 연구한다. 캠프와 불안이 정면충돌하는, 최근작 중 가장 손에 잡히지 않는 작품.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "todd-haynes#velvet-goldmine-1998",
+  "field": "reason",
+  "lang": "ko",
+  "text": "글리터와 양성애적 방종, 그리고 《시민 케인》의 구조까지 뒤섞은 글램록 열병의 꿈이 《벨벳 골드마인》이다. 고삐 풀린 맥시멀리스트 헤인즈. 의상과 팝 신화 만들기의 폭동이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "todd-haynes#i-m-not-there-2007",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《아임 낫 데어》는 밥 딜런을 여섯 배우와 계속 바뀌는 영화 문법으로 굴절시키며 전기영화의 관습을 통째로 거부한다. 허구로서의 정체성을 형식의 한계까지 밀어붙인 결과다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "todd-haynes#dark-waters-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《다크 워터스》의 헤인즈는 꾸밈을 걷어낸다. 기업 오염을 다투는 법정 절차극이 가라앉은 회색으로 흐르고, 마크 러팔로는 서류 더미를 갈아치운다. 자신의 양식적 본능을 눌러 담고 담담한 리얼리즘을 택할 수 있다는 증거다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "todd-phillips#the-hangover-2009",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《행오버》는 필립스라는 코미디 엔진이 터진 지점이다. 베가스에서 벌어진 미스터리 구조를 혼돈으로 굴리며, 사건을 점점 키우는 감각과 무리의 역학을 다루는 솜씨를 드러낸다. 그의 감각으로 들어가는 가장 쉬운 문.",
+  "model": "claude-opus-5"
+ }
+]

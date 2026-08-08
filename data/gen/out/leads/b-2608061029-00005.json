@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-pawnbroker-1964",
+  "field": "lead",
+  "film_id": "97472e73-cf45-403f-bf49-18e76e6a99d6",
+  "lang": "en",
+  "text": "In a pawnshop, everything carried through the door is given a price, and the man setting it survived Nazi persecution. That exchange is the film's whole method: a stranger arrives with an object and a story, and the broker takes the object and declines the story. Lumet keeps to the shop and to the hours of a working day, and the 116 minutes go on what the refusal costs, to the man holding the ledger and to everyone standing on the other side of the counter. Faith in other people is what is at stake here, not money. A Silver Bear went to the central performance, and the film was later taken into the National Film Registry. What stays is smaller than either: a face that has decided in advance that nothing said across the counter can be true.",
+  "model": "claude-opus-5",
+  "source_sha256": "c17c5eb6254ed87ec77ae9743c82f25dc8a8757cf7cb1bd4b03c4155da99f6e6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "detective-story-1951",
+  "field": "lead",
+  "film_id": "a8342078-7341-42b5-a384-722e08d20823",
+  "lang": "en",
+  "text": "Everything happens in one precinct room over a single working day: a shoplifter, a pair of burglars, a young man who took money that was not his, and the detective processing them all. Wyler treats the room as a pressure vessel, and Academy recognition followed for the direction and for two of the performances. The traffic is constant and mostly petty. What the film watches is Det. Jim McLeod, whose certainty about who deserves what has hardened into something he cannot set down at the end of a shift, and the day keeps testing that hardness with cases too small to carry it. Crime pictures usually promise motion; these 103 minutes go on talk, proximity, and the difficulty of standing close to people one has already decided to despise.",
+  "model": "claude-opus-5",
+  "source_sha256": "59be5bdd2b8850875f485a273cf335316a386bb7ccd645f4ebc945ee1fc258b4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-snake-pit-1948",
+  "field": "lead",
+  "film_id": "906f7b31-cc5b-450d-9aec-7114f8f206ca",
+  "lang": "en",
+  "text": "Virginia Cunningham cannot remember arriving at the hospital, and cannot recognize the man who says he is her husband. The film takes that confusion as its vantage rather than its subject: not a case observed from the corridor, but the ward as it appears to someone inside it, with admission, treatment, and the long reach of flashback toward a cause. Dr. Mark Kik works the problem from the outside. She cannot. Litvak holds 108 minutes inside a narrow set of rooms, which puts nearly all the weight on one face and one voice; a Volpi Cup went to that performance, and the Academy recognized the direction and the score as well. The National Board of Review placed it among the ten best of 1948. The mystery it is filed under is not a crime but a cause.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb13b74633c77ffb1d6cd14854f92e2f38e21b5fdef5bfe1ddad62b4943e3d01"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "an-unmarried-woman-1978",
+  "field": "lead",
+  "film_id": "54189afb-c36d-4441-b0d0-51479363a054",
+  "lang": "en",
+  "text": "Sixteen years of marriage end, and the film begins where most divorce stories close the file. The husband leaves for a younger woman; that takes almost no screen time. What takes 124 minutes is everything afterward, an Upper East Side apartment that now belongs to one person, an identity assembled out of somebody else's routine, and the awkward work of wanting anything again. Mazursky lets the comedy and the injury occupy the same scene instead of alternating them, which is why the picture keeps sliding out of whichever genre it appears to be in. The screenplay and the central performance both drew Academy recognition, and the National Board of Review listed it among the year's ten. Money changes what she can afford. It does not change what she has to do.",
+  "model": "claude-opus-5",
+  "source_sha256": "41fad3515c072bd571ab525af602aee14df2fd26ba4c78a33f8b798e43893dbb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-dresser-1983",
+  "field": "lead",
+  "film_id": "46249203-6b6d-4ea4-a9c7-d7a0ce577dfa",
+  "lang": "en",
+  "text": "Backstage in a city under bombardment, one man's entire job is getting another man into costume and out into the light. The company tours England through the Blitz; the star is deteriorating and the schedule is not, and the dresser holds the apparatus together with flattery, bullying, and timing. Onstage they are playing Lear and the Fool, a parallel Yates leaves in the room without pointing at it. The tyranny is real and so is the devotion, and 118 minutes pass without the film deciding which of the two is doing more damage. Academy recognition came for the picture, the direction and the lead; a Silver Bear went to a leading performance. Most of it takes place in corridors and dressing rooms, two people talking, with a war outside and a curtain about to go up.",
+  "model": "claude-opus-5",
+  "source_sha256": "8fd3441aeb18c734883d32067edcb47118be9329701aa9eb32312c91e92eeef7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-late-show-1977",
+  "field": "lead",
+  "film_id": "185f75ec-8a41-4446-be06-9b1f9e9f3ece",
+  "lang": "en",
+  "text": "Stolen stamps, a nickel-plated handgun, a kidnapped cat: the case is as small as it sounds, and the detective who takes it is too old for it. Benton runs the private-eye plot straight, a dead colleague to avenge, a murdered woman, a deceit or two, while asking what the job looks like once the body has stopped cooperating. The patter survives from an earlier kind of picture; the city that patter described does not. 93 minutes, tightly wound, funnier than the plot summary and sadder than the jokes. The screenplay drew Academy recognition and the National Board of Review put the film in its ten. Under the wisecracks it is about pride in a skill nobody is hiring for anymore, and about the cost of being the last one who can still do it.",
+  "model": "claude-opus-5",
+  "source_sha256": "ef4804d60ed6ac08b940a3797fff53cabde4a831c01e9655fd53c23c21773747"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-effect-of-gamma-rays-on-man-in-the-moon-marigolds-1973",
+  "field": "lead",
+  "film_id": "3e4d471f-31e9-4bee-a450-be7083130ca4",
+  "lang": "en",
+  "text": "Marigold seeds exposed to small amounts of radium: that is the school project, and it is the steadiest thing in the house. It belongs to Matilda, the shy one. Around her, Beatrice keeps describing the elegant tea room she has no means to open, and Ruth, who has epilepsy and no patience, breaks whatever is nearest. Newman, directing, keeps all of it indoors and inside 100 minutes, three women and not much room. The experiment becomes the film's measuring instrument: how much of a poisoned environment a growing thing can take and still come up, and what the ones that come up look like afterward. Nobody in the house says this aloud. The National Board of Review counted the film among the ten best of 1973. What remains is a child keeping careful records in a house where nothing else is being kept.",
+  "model": "claude-opus-5",
+  "source_sha256": "ce5ae1758f22751029a182dc857e265cb43bd9a0c25a1502c5e95b4ed9370b98"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-hatful-of-rain-1957",
+  "field": "lead",
+  "film_id": "40478c5e-61ec-42d2-b1f3-d26872acbe42",
+  "lang": "en",
+  "text": "Morphine came back from Korea with him, and it has been running the household ever since. Zinnemann builds the film out of the people adjacent to the habit, the ones who cover for it, the ones who ask questions, the ones who pay, so that the addiction is described almost entirely by the shape of the damage around it. The film keeps to the household; 109 minutes is time enough for a family to admit what it already knows. Nothing is stylized: money goes missing, appointments are broken, and an explanation that worked twice gets offered a third time. The leading performance took a Volpi Cup and drew Academy recognition, and the National Board of Review named the film to its top ten. The veteran's war is over on paper only.",
+  "model": "claude-opus-5",
+  "source_sha256": "03336720be7e9081f7dd5a3fd9cd2339501616849da19a3bc4dbb33fb992bc77"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "viva-villa-1934",
+  "field": "lead",
+  "film_id": "b7c795c0-2417-47f0-9c42-08dacfb26f67",
+  "lang": "en",
+  "text": "Hollywood took the Mexican Revolution in 1934 and shot it as a Western. That decision explains most of what follows: a boy kills the overseer responsible for his father's death, goes into the hills, and comes back as a force the picture would rather watch than explain. It calls itself a fictionalized biography and makes no secret of the fiction, which turns the interesting question away from Pancho Villa and toward the studio, what an American producer wanted a revolution to mean and how much of it could be sold as adventure. 115 minutes, mostly crowds, horses and dust. Academy recognition came for the picture, the sound work and the adapted screenplay, and the National Board of Review put it in its ten. Scale is what survives; the politics belonged to somebody else.",
+  "model": "claude-opus-5",
+  "source_sha256": "eca038da4d0420e49241f059af580f01d74c5bf8c680de8ea5cf1d7ef0c6c78a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-whisperers-1967",
+  "field": "lead",
+  "film_id": "cbf458e5-18bf-44a5-952f-4bf31393720b",
+  "lang": "en",
+  "text": "The money is real, and it is in her rooms, hidden there by her son, after years in which she has been living on an inheritance that was never coming. Margaret Ross is old, poor and alone, and Forbes films the poverty as routine rather than event: a seedy flat, a day with nothing in it, an imaginary fortune for company. Then the facts confirm the fantasy, which is where the thriller begins and where she has no equipment at all. 105 minutes stay close to one face. The performance drew Academy and Golden Globe recognition, the Globes also naming this the best English-language foreign film; a Silver Bear followed, and the National Board of Review listed it among the year's ten. The dread is not that she is deluded. It is that she is alone with what happens when she is not.",
+  "model": "claude-opus-5",
+  "source_sha256": "f030904b5ee8e281c7aeae628f51ad426c9f9832a1e5e8b5ab76895f4c903c89"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "death-of-a-salesman-1951",
+  "field": "lead",
+  "film_id": "d22a4304-2d56-404c-8fb6-881c678bc525",
+  "lang": "en",
+  "text": "Nothing has sold in a while, and the next call is always the one that is going to fix it. Willy Loman's trouble is not a crisis but an accumulation: what he earns, what he owes, and what he has been telling people about himself for years, all coming due at once. László Benedek's problem as a director is how to show a man losing his hold on the present without ever leaving it, and the black-and-white photography carries much of that; the Academy recognized it, along with the score. 115 minutes, mostly domestic, mostly talk. The film declines to make him simply wrong, and he is right about small things constantly, which is what makes the large error hard to watch him keep. A Volpi Cup went to the lead performance, and the National Board of Review counted it among the year's ten.",
+  "model": "claude-opus-5",
+  "source_sha256": "0447c8aaa0a77fd78f89ac597d9dca8e313eecaff82a48e0b394391de5e0e352"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "shakespeare-wallah-1965",
+  "field": "lead",
+  "film_id": "e5bf7c08-69b3-4e6d-8e3f-3436093239b3",
+  "lang": "en",
+  "text": "The tour goes on: another town, another hall, another night of Shakespeare played to a house that keeps getting smaller. Ivory films the touring as work, sets in and out, bookings, a Maharaja who now runs a hotel, a cinema down the road showing what people would rather see. The troupe's repertoire is inherited and so is its confidence, and neither one transfers to the country it is crossing. The material comes from the travels of Geoffrey Kendal and his daughter Felicity Kendal, which accounts for the texture: the backstage business is exact because somebody actually did it. A romance runs through the 120 minutes and has to negotiate all of the above. The National Board of Review put the film in its ten. What it watches is a trade discovering it has become a curiosity.",
+  "model": "claude-opus-5",
+  "source_sha256": "9031829a735eb6f22a2e36ed9ccdb3eb69e8dda7cca62861155b483d8e7cad68"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-surrogate-womb-1986",
+  "field": "lead",
+  "film_id": "ffbaa6ea-af74-440c-98b3-5937b54595b6",
+  "lang": "en",
+  "text": "The arrangement has a name and a procedure: a peasant girl is brought into a noble household to produce the son the wife cannot. Im Kwon-taek gives 94 minutes to how such a thing is actually conducted, who proposes it, who agrees, who is fed and watched, and how everyone maintains the manners that make it bearable to look at. The class line does the deciding throughout, and the two women have entirely different amounts of future. The film argues nothing directly. It records a system in which a body is an instrument of lineage, and treats the record as sufficient. A Volpi Cup went to the leading performance, and the film sits on KOFA's list of 100 Korean films. What holds the attention is the household's calm, correct conduct all the way down.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc9dc563aba400ae0af01e9151fb74757ae39ea7f39fcb1e36f282b362d49a25"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-man-standing-next-2020",
+  "field": "lead",
+  "film_id": "b6809408-4b3e-411d-8bc7-74a7dca15e63",
+  "lang": "en",
+  "text": "The intelligence chief who knew everything left the country, and the men who stayed behind had to guess what he would say. Koreagate is the occasion; the substance is corridor politics inside the KCIA, who is trusted this month, who is being measured for a fall, and how loyalty gets expressed by people who cannot say anything plainly. Woo Min-ho keeps the film closer to procedure than to action, and the 114 minutes go by in offices, cars and closed rooms. Park Yong-gak's exile is a move in the game rather than an exit from it. The Blue Dragon award for best film went to it, and Korea sent it to the Academy Awards as its international entry. The pressure comes from something small: two men who once served the same purpose, watching each other.",
+  "model": "claude-opus-5",
+  "source_sha256": "cae0f0203cd4c7bbd0922719b9fa4858fc8e53d80f021f6fddadc94c8b6cd070"
+ }
+]

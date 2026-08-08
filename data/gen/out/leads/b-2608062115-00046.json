@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "full-spead-ahead-1951",
+  "field": "lead",
+  "film_id": "bcb2a79e-0f0a-4367-ba21-e01a193ca662",
+  "lang": "en",
+  "text": "Two motorcycle patrolmen spend the working day in formation and the evening competing for the same women. The drifter at the centre of A.T.M. ¡A toda máquina! has no trade and no prospects; he talks his way into México City's motorcycle police unit and then into the home of the colleague whose girlfriend keeps him in a state of permanent jealous accounting. It sits on the Somos hundred of Mexican cinema among much graver company, which says something about how a country decides what it keeps. Ismael Rodríguez runs everything at drill speed - songs, stunts, formation riding, courtship - and lets the acrobatics serve as police work and showing-off at once. Two hours is a long time for a joke about vanity. He spends it watching a friendship curdle while both men insist nothing is the matter.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6d19c6efbb44840cf3ce07b7c800e2fdaae477891b74b0405d7dfac9e8e5a61"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "kuhle-wampe-or-who-owns-the-world-1932",
+  "field": "lead",
+  "film_id": "547eced8-e366-4c87-849b-fa84d7fb1b04",
+  "lang": "en",
+  "text": "Before anyone speaks, a stack of newspaper headlines counts Berlin's unemployed upward, month by month. Slatan Dudow made the film in 1932, in the city it describes, and that opening sets the method: private trouble presented as arithmetic anyone can check. A young man rides from firm to firm looking for work and comes back with nothing. At the kitchen table the family goes over rent that has not been paid and will not be. Then the flat is gone, and what they can carry goes with them to a settlement of tents and shacks at the city's edge, where the allotments have a name - Kuhle Wampe - and the name becomes the film's. Seventy-four minutes, with no cushioning anywhere in them. Dudow is less interested in whether this family earns sympathy than in whether the sequence that put them there can be followed.",
+  "model": "claude-opus-5",
+  "source_sha256": "97ab35b16531881e51bc32fd43e401ca758fbed14ec23309786232c34117696c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "let-s-go-with-pancho-villa-1936",
+  "field": "lead",
+  "film_id": "75597118-c2ff-4cb7-93d3-510ee6aab3eb",
+  "lang": "en",
+  "text": "Six men from one village ride out to join Pancho Villa, and the film never lets the number out of sight. They call themselves Los Leones de San Pablo, farmers who take up rifles with a plain idea: end the suffering at home by helping to win the war. Fernando de Fuentes shot this in 1936, twenty-six years after the rising it depicts, and he declines nearly every consolation the material offers. The adventure furniture is all present - horses, troop trains, cold nights in camp, men proving themselves to one another - and it is set against a civil war with no interest in individual courage and no machinery for rewarding it. Ninety-two minutes, and the scale stays deliberately small. No panorama of a nation in arms; only what the fighting does to a handful of neighbours who volunteered together.",
+  "model": "claude-opus-5",
+  "source_sha256": "08e8bc9c1b9ee3f61c2227a3472c3cc79dcbda78f54836ede1176776691b5f35"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "not-reconciled-1965",
+  "field": "lead",
+  "film_id": "7a72a175-6fe9-44d4-bdb7-c092d4863d96",
+  "lang": "en",
+  "text": "Fifty-five minutes carry three generations of one German family, and almost nothing in them is explained. Jean-Marie Straub takes Heinrich Böll's Billiards at Half-Past Nine and refuses to lay it flat: the story arrives in blocks and breaks, a line spoken in one decade set hard against an image from another, with no dissolve to ease the join. What the film circles is continuity - the offices that stayed occupied, the loyalties and betrayals nobody settled, the pressure to declare the matter closed. Straub treats reconciliation as something imposed rather than reached, and builds the picture so that it cannot be quietly performed in the watching either. The actors speak in a flattened register. The cuts land where another film would fade. Assembly is left to the audience, out of pieces made not to fit, and the labour of it is the point.",
+  "model": "claude-opus-5",
+  "source_sha256": "b03dd8d7172652a6c0cea1f5588427c0d5945ceb6addcb2a561cd3eb432d6590"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "los-tres-huastecos-1948",
+  "field": "lead",
+  "film_id": "66ab803c-c850-4002-bfc5-474d7cf13d83",
+  "lang": "en",
+  "text": "A priest, a soldier and a bandit turn out to be brothers, separated as infants and raised by three different godfathers. Ismael Rodríguez sets two of them down in towns near the third, and geography does the rest: everything in Los tres huastecos turns on who recognises whom, and how late. Two hours gives each brother's world time to establish its own rules - the parish, the garrison, the stretch of country where a wanted man is safest - before the film starts pressing them together. The comedy comes first and comes broad, the kind that trusts an audience to enjoy a coincidence. Underneath it sits the mother, dead before any of this begins, whose absence arranged three lives and is never argued about. Rodríguez plays the farce loudly and the grief almost under his breath, and the two hours hold because he never mistakes one for the other.",
+  "model": "claude-opus-5",
+  "source_sha256": "53b86f87176728c2cc42f2e604ed00cfb8d219761331e0d1b33ce0caff9b0c10"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "berlin-alexanderplatz-the-story-of-franz-biberkopf-1931",
+  "field": "lead",
+  "film_id": "0e9e01e8-961a-4990-b8d3-cca7e60b5076",
+  "lang": "en",
+  "text": "A man comes out of prison after four years and intends, seriously, to stay decent. That intention is the engine of Berlin-Alexanderplatz: Franz Biberkopf is less a criminal by temperament than a man with few options and a large capacity for being talked into things. The square he returns to is a crossroads of trams, hoardings, hawkers and people with hours to fill, and Phil Jutzi keeps the crowd in the frame rather than behind it. Ninety minutes go to the distance between what Biberkopf resolves and what the city will pay him for. The film is unsentimental about which of the two tends to decide. It also declines to treat his difficulty as a private flaw; the square is crowded with people working the same narrow margins.",
+  "model": "claude-opus-5",
+  "source_sha256": "127fa24a6bc13c3192387a4d50b695d672c12fb78832cf4596ac39c14badb56c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hunting-scenes-from-bavaria-1968",
+  "field": "lead",
+  "film_id": "d10f0a20-051e-460a-a86c-5c79da29ade1",
+  "lang": "en",
+  "text": "The village needs his hands and cannot bring itself to leave him alone. Abram comes back to a small place in Lower Bavaria where things are always breaking and few people can fix them, which ought to settle his position; what he gets instead is a running commentary on who he might be sleeping with. Peter Fleischmann made this in 1968, and the year shows in the direction the pressure comes from: not the state, not the pulpit, but neighbours, in kitchens and at the tables of the local pub, gradually agreeing with one another. Eighty-two minutes, close to the ground, more overheard than staged. It went to the Academy Awards as an international submission, a strange errand for a picture whose subject is a community's talent for turning on one of its own. The talk in it is not exclusively Bavarian.",
+  "model": "claude-opus-5",
+  "source_sha256": "b72f69f967c1305f3abfbd84f73ec0093f8aad9a4162a52abae77685b9b97233"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "school-for-tramps-1954",
+  "field": "lead",
+  "film_id": "d0a3d53d-95d3-4766-b40e-051a4e6c7aea",
+  "lang": "en",
+  "text": "A composer's car dies on the road, and the house he walks to belongs to a woman who collects strays. Emilia, the mother of the Valverde household, takes in tramps as a matter of policy, and Alberto Medina - well known, well paid, temporarily on foot - is admitted under that heading and does little to correct the impression. Rogelio A. González builds the comedy on the delay: everything funny in Escuela de vagabundos happens in the gap between what the family believes about its guest and what he actually is. Songs come with the territory, the man's trade being music. Ninety-nine minutes, mostly indoors, mostly at conversational volume. What keeps it from going thin is Emilia herself, whose generosity is neither a joke nor a lesson but the fixed condition everyone else has to work around.",
+  "model": "claude-opus-5",
+  "source_sha256": "5166efa291fd9de803d42b1b46e06d236dd488a68145970612a2c573b335f027"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "emil-and-the-detectives-1931",
+  "field": "lead",
+  "film_id": "dcc1304d-d108-4fc0-acc0-d9208d06e70a",
+  "lang": "en",
+  "text": "The bribe is chocolate, and the money it buys is not the boy's to give away. Emil works out soon enough that he has been handled, and instead of reporting it to any adult he assembles a response from the only resource within reach: other children, in numbers. Gerhard Lamprecht shoots the city at a boy's eye level - pavements, tram stops, stairwells, the backs of hurrying grown-ups - and keeps the whole thing to seventy-five minutes. The pleasure is procedural. Exits are covered, signals passed, and a man walks around unaware that he is being followed by a small standing army with a chain of command. Made in 1931, it takes children seriously as organisers and never stops to reassure anyone that the chase is only a game.",
+  "model": "claude-opus-5",
+  "source_sha256": "634d26b23b86425583f7ded620651dceedb50b120f8f12721a52b9555169e3c4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-three-garcias-1946",
+  "field": "lead",
+  "film_id": "8ec545d1-77e1-40b9-898a-3b354e6a1705",
+  "lang": "en",
+  "text": "The head of the household is the grandmother, and nobody in the film argues with her twice. Her three grandsons are charros, cousins, and alike in exactly the way that makes trouble: they compete by habit, and when Lupita arrives - born on the American side - they compete over her. Ismael Rodríguez gives the rivalry a hundred and eight minutes, which is generous for a courtship comedy and about right for a family this loud. Lupita is the second engine: she has manners the cousins have no procedure for, and they keep a code she is entitled to read as theatre. The charro world here is played for pleasure rather than reverence, all horses and singing and escalating dares. Every escalation ends where the grandmother decides it ends, which is the one rule the picture never bends.",
+  "model": "claude-opus-5",
+  "source_sha256": "4784ab4cc02a2ac18539dccd457e15e181305d84f38c93f99daf67cfb986d9d1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-other-1946",
+  "field": "lead",
+  "film_id": "02329b0d-0f56-4e25-ac38-aa92ffdeaff7",
+  "lang": "en",
+  "text": "A manicurist spends her days tending the hands of women with money, and goes home to none of it. Her twin sister married into the other kind of life, and the difference between them is not talent or effort in any form either could name - it is simply where each of them ended up. Roberto Gavaldón lets the resentment build without comment, giving the poorer sister's hours, clients and rent enough screen time that the idea of trading places stops sounding like fantasy and starts sounding like a schedule. Ninety-eight minutes, shadowed, patient, more curious about the logistics of a switch than about its morality. The small things carry it: a signature, a way of holding a cigarette, the vocabulary of a woman who has never had to ask what something costs.",
+  "model": "claude-opus-5",
+  "source_sha256": "25e2691cabe20faa4d781e8bd79bf7beff123196b871375cafecf730bd4e02cb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "danzon-1991",
+  "field": "lead",
+  "film_id": "0687e199-f3ed-4aa5-a4ea-e863e12771b0",
+  "lang": "en",
+  "text": "The danzon is danced upright and at arm's length, with the feet doing all the negotiating. A telephone operator in Mexico City keeps that appointment while carrying a household on a switchboard wage, and María Novaro builds the film from the friction between the two - the shift that has to be worked, the evening that has to be defended. A hundred and two minutes, patient, with the dance filmed as a discipline rather than a release: fixed steps, held posture, a partner whose name may never be required. Novaro treats a grown woman's pleasure as a subject in itself, not as a symptom of something missing at home. The film is quiet about money and exact about time, which turns out to be one argument rather than two: the hours a person can claim for herself are the measure of what her life contains.",
+  "model": "claude-opus-5",
+  "source_sha256": "92926089ce8f1d7161228a05cda8fd03840a025c9825bf4e0c9189fc27aebbc8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "two-monks-1934",
+  "field": "lead",
+  "film_id": "c274e821-1202-4fb5-be9f-6719a8f0df1f",
+  "lang": "en",
+  "text": "A monk swings a crucifix at another monk's head, and then the film stops to explain itself twice. Juan Bustillo Oro builds the monastery of Dos monjes out of tilted walls, deep shadow and staircases that go wherever the composition needs them, then hands the story to the two men in turn. Javier's account and Juan's cover the same woman, the same friendship, the same rooms, and they agree on almost nothing. Eighty-five minutes is space enough to run both at full length instead of in summary, which is what makes the disagreement land. The film never indicates which man is lying. It lights the same rooms differently and lets that stand as testimony. The billing says drama, romance, mystery; what it plays like is a duel conducted in flashback. Grief in it looks like architecture.",
+  "model": "claude-opus-5",
+  "source_sha256": "deacac05183f37499fd939526d54cdb720e9b120a6ac75b5ef9547efef747e26"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-outsiders-1966",
+  "field": "lead",
+  "film_id": "d1514751-8364-420c-bd64-5b64db13bdb6",
+  "lang": "en",
+  "text": "Two people with a wedding to plan get into a car with strangers who have no plans at all. The couple in Los caifanes come from money; the men they fall in with move through Mexico City after dark on nerve and small theft, and the tour they run - club to club, street to street - is the film's entire structure. Juan Ibáñez leaves the class difference unannotated. It shows up instead in what each side finds funny, what each counts as a risk, and which of them can be home by morning with nothing damaged. Ninety-five minutes, almost all of it after dark, carried by slang the wealthy pair have to work to follow. Nobody is being taught a lesson here; they are simply out much later than they meant to be, in company they cannot place.",
+  "model": "claude-opus-5",
+  "source_sha256": "7b023b27c1fb2514550c717aaa67da0092cffa7ebf170319a403684c1985bb79"
+ }
+]

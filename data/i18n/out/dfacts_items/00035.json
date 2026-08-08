@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-dardenne#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "태어난 곳은 엔지스였지만, 장피에르가 자란 곳은 공장이 빼곡한 노동자 도시 세랭이었다. 훗날 그의 영화 거의 전부가 이 거칠고 남루한 배경 위에서 찍힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1793cd8aa1bae41bcd9d7b9d661644f7cf91d67a77841fd259d5f78eea67854c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-dardenne#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "동생 뤽이 철학을 파고드는 동안, 장피에르는 브뤼셀로 가 IAD(Institut des Arts de Diffusion)에서 연기와 연출을 배웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "68715e9745d46728291e73e2aa491b19f622217e90b038496c162713c211f806"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-dardenne#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1970년대 초 브뤼셀 유학 시절, 장피에르는 프랑스의 급진적 시인이자 극작가인 아르망 가티를 만난다. 형제는 그의 연극 작업을 도왔고, 사회를 향한 예술이라는 평생의 방향은 여기서 시작됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c97fd9482fab7c84ae8cae631e7f6308e8a290c0fdd21a63be1738a574f1ea5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-dardenne#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1970년대 후반, 장피에르는 가벼운 비디오 장비를 싣고 왈로니아 곳곳을 돌았다. 도시의 파업, 폴란드 이민자, 반나치 레지스탕스를 찍은 전투적인 다큐멘터리들이 그렇게 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "76f5a75d22985de5b2b5411ade58df38a7171cbf7e9287e46bca2ec7283eabc5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-dardenne#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "거친 다큐멘터리에 대한 통제권을 온전히 쥐기 위해 장피에르는 1975년 제작사 Dérives를 공동 설립했다. 극영화를 만들 무렵에는 Les Films du Fleuve가 뒤를 이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c2093acc7d7d6eee54f1801fef9018ce7c80e536a29a4aa6417855ac0762822"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-dardenne#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1992년의 혹독한 비평적 실패가 장피에르를 바꿨다. 그는 《La Promesse》(1996)에서 영화적 기교를 전부 걷어냈고, 그 자리에 다큐멘터리처럼 살아 움직이는 화면이 들어섰다. 그를 규정하게 될 미학이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bdb29c5ffe9736e7b7f0b209dc214ada27d67741e6c16a6d99cb2f23d6b17b87"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-dardenne#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "카메라 앞에 선 노동자의 얼굴을 있는 그대로 남기려고, 장피에르는 배우에게 분장을 일절 허락하지 않는다. 오스카 수상자 마리옹 코티야르 같은 국제적 스타에게도 예외는 없었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d0646f05744eb7a53e4f9949dc4732da10629dcf88e7579a5d1e6fa3dae0a73"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-dardenne#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "감정을 조종하는 일을 거부한 장피에르는 전성기 내내 영화 밖 음악을 쓰지 않았다. 차 소리, 숨소리, 기계 돌아가는 소리. 그 거친 현장음이 사운드트랙의 전부였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd159d3a77f4a53d978ddb0980018eee28f982d665b0fc710c02fb6d9e05b3e7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-dardenne#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "촬영감독 알랭 마르쾽, 카메라 오퍼레이터 브누아 데르보와 함께 장피에르가 벼려낸 것은 잠시도 가만있지 못하는 핸드헬드였다. 카메라는 주인공의 뒷목을 집요하게 따라붙는다. 관객은 그 인물의 몸이 놓인 지금 여기에 함께 갇힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7bbe9a438d6d01bd719cbf9ce092398c2ba2f608c1f85e6aada3cb441776abf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-dardenne#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장피에르는 훈련받지 않은 동네 얼굴을 알아보는 눈으로 유명하다. 십 대였던 제레미 레니에와 에밀리 드켄을 주연으로 세워 국제적 경력을 열어준 일화가 대표적이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d981fd4816198231f2ca2706409658b8b8020bf9a79c43ce35408076a0ccc43c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-dardenne#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1999년 걸작 《로제타》가 벨기에에 남긴 파장은 영화 바깥까지 갔다. 정부가 청년 실업에 대응하는 연방법 '로제타 플랜'을 통과시킨 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "72e84dcf9322ea4af367e9e4bea3436f14324e637e2a1fbe4c0e37fd4e3cb3c4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-dardenne#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "칸영화제 황금종려상을 두 번 받은 감독은 극소수다. 장피에르도 그 명단에 있다. 《로제타》(1999)와 《L'Enfant》(2005).",
+  "model": "claude-opus-5",
+  "source_sha256": "56a439818dd5f55ffcef75689a185b5415027dcfd3c86d831195478c50c88b32"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-dardenne#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "Les Films du Fleuve를 통해 장피에르는 사회를 향한 다른 작가들의 주요작에도 공동제작자로 이름을 올렸다. 황금종려상을 받은 켄 로치의 《나, 다니엘 블레이크》, 크리스티안 문지우의 《Beyond the Hills》가 그 목록에 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "55e8d3567106bf6db100e32f2257e131aea68cc7e8834fda7aa3c58f78245f69"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-dardenne#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "철학을 정식으로 공부한 쪽은 뤽이다. 그러나 인물을 화면에 담는 장피에르의 방식에는 에마뉘엘 레비나스의 '타자의 얼굴'이 깊이 배어 있다. 그 얼굴은 보는 사람에게 윤리적 응답을 요구한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a63bf42e80c38be8868a90a7576fce16cf3cdfe42c45be00b5df2407635621fd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-dardenne#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오랜 동료 마리엘렌 도조와의 편집실은 가혹하다. 설명처럼 들리거나 감상으로 기우는 장면은 장피에르가 가차 없이 잘라낸다. 관객을 사건 한복판(in media res)에 던져 넣는 편을 택하는 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3c5b837736c0a3bd419f75b202dbaf13d7d301f20b1706735ebcd0e823391d9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-dardenne#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2020년, 장피에르와 동생은 프랑스 리옹에서 뤼미에르 상을 받았다. 티에리 프레모가 만든 이 상은 한 영화인의 생애 전체를 기린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a7eb1ec492684a611b2e4519eab055db894bb8ef516a12a42e30ac22217bd57e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-dardenne#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장피에르가 뿌리로 꼽는 이름은 로베르 브레송이다. 감상을 배제한 그 엄격한 화면, 특히 인간의 손이 반복하는 노동에 집요하게 머무는 시선을 그는 가져왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd56d629cc803d83a948678da67df065419aa232b0ae458b38b70f327ff46857"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-dardenne#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《자전거 탄 소년》(2011)에서 장피에르는 평생 지켜온 원칙을 스스로 깼다. 영화 밖 음악을 쓰지 않는다는 원칙. 짧게 툭툭 끊어 넣은 베토벤의 화음이 이 영화를 현대의 동화로 끌어올린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "09473cf0202a5ea6f79a4f15738ec64824f0064821db9f4588b22d052a8b749c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-melville#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "파리에서 알자스 출신 유대인 부모에게서 태어난 본명은 장피에르 그룸바크. '멜빌'은 프랑스 레지스탕스 시절 쓰던 가명이었고, 그는 그 이름을 평생 지고 갔다. 가장 아끼던 작가 허먼 멜빌에게 바친 이름이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "56452a79d37c85942695f0af8c731a56d6fdd47e3eb6aee5f44b9b10aeae727b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-melville#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화에 대한 평생의 집착은 1923년에 불붙었다. 여섯 번째 생일에 부모가 손으로 돌리는 소형 파테 베이비 영사기를 사줬다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b671733762952b3e8b8e9a74404836e8c713862ac922672bdda048a7374b532c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-melville#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2차대전 중 그는 프랑스 기병대에 복무했고 프랑스의 함락에서 살아남았다. 이후 런던에서 자유프랑스군에 합류해 1944년 8월 남프랑스 드라군 작전 상륙에 참가했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "94fef6041bcf0879fb43f2476dc56f3b9773a05abddab0a55a01e5554b9bf07b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-melville#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "전후 프랑스 기술자 조합은 그에게 감독 자격증을 주지 않았다. 정규 도제 과정을 건너뛰었다는 이유였다. 그는 자기 독립 제작사를 차려 맞섰고, 그렇게 1949년 데뷔작 《Le Silence de la mer》를 찍었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c521dba765b1ed2d44c360956afced45b059206922d5fa0373bbef8fd534a1e9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-melville#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "프랑스 스튜디오 시스템 바깥에서 완전한 자율을 지키려고, 그는 파리 13구 제네르 가의 다 쓰러져가는 창고를 사들였다. 그것이 자기만의 제작 거점 Studios Jenner가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "31f5b5257f3662f32d8dc63800b339010e695866b5fb4fb03365a99600d49fe3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-melville#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 미국풍으로 공들여 다듬은 자기 신화를 두르고 살았다. 현장에서는 늘 스테트슨 모자, 검은 레이밴 에비에이터, 트렌치코트 차림이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1fc96ba50c9fc294f724376791d5c3cba8042df5f169a3ac3f2199ff4e7f22c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-melville#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장뤽 고다르의 1960년 누벨바그 이정표 《네 멋대로 해라》에서 그는 잘난 척하는 소��가 파르뷜레스코를 연기했다. 가장 큰 야망이 무엇이냐는 질문에 돌아온 그 유명한 대사, \"불멸이 되는 것… 그리고 죽는 것\"은 즉흥이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "81833ceed3456fb8f634add1233ac875f2570ccbd2ab7d66a1b8dd84feacf890"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-melville#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1950년 《무서운 아이들》 각색을 두고 시인 장 콕토와 벌인 협업은 싸움에 가까웠다. 자기 현장에 대한 소유욕이 유별났던 멜빌은 원작자가 배우들에게 간섭하지 못하도록 콕토를 제 영화 세트에서 여러 차례 쫓아냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ebcc730fc904764a9f7d0a730136adc253cd8d8d60c9790c353455da70fc736"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-melville#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1967년 6월, 큰불이 아끼던 Studios Jenner의 내부를 통째로 태웠다. 《사무라이》를 한창 찍던 중이었다. 제작진은 급히 다른 곳으로 옮겨야 했고, 그 상심은 끝내 아물지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a38087aaf75b81760ebb8533b3314a0dce5d3f7ba99b3d19e955f586a67d107"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-melville#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "무뚝뚝한 겉모습과 과묵한 갱스터에 대한 집착 뒤에는 지독한 동물 애호가가 있었다. Studios Jenner에는 고양이와 개들이 마음대로 돌아다녔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ce9a093ca49825e93aba6401e1468416022858f6761307cd9f8c1f192a95c52"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-melville#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "쉰다섯에 그는 대규모 심장마비로 세상을 떴다. 파리 오텔 PLM 생자크의 식당에서 저널리스트 필리프 라브로와 식사하던 중이었다. 국제적 명성이 정점에 오른 그때, 경력은 그렇게 끊겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f53949411c327c9a9e54a97d94c62b307a6a216a3958a12638c71acb74c995fe"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장 르누아르의 어린 시절은 파리 몽마르트르의 보헤미안 동네에서 흘러갔다. 그는 아버지 앞에 자주 모델로 앉았다. 인상파의 거장 피에르오귀스트 르누아르는 아들이 넘어져 다치지 않게 머리를 길게 기르라고 고집했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dccebda19e4d0cd0ea18692309af903edbe43e16f0ab3b3bc92bdf50deee27c5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화를 향한 평생의 애정에 불을 붙인 사람은 유모이자 사촌 누나였던 가브리엘 르나르다. 그는 어린 장을 동네 극장에 몰래 데려가 막스 랭데르가 나오는 초기 무성 단편들을 보여주곤 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9090e822fd39653732fe61e28af350400fe8a48bd05e11dba6bfd450944d86c3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1차대전 때 그는 프랑스 기병대 용기병으로 싸우다 1915년 바이에른 저격수의 총에 다리를 맞았다. 평생 절뚝이게 된 다리. 절단 직전까지 갔지만 어머니 알린 샤리고가 나서서 막았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "19e441d20279c6b9499c283d32b104d13f9de301d8cf9f366760547a9781f511"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "박살난 다리를 파리에서 추스르는 동안 그는 하루에 미국 영화를 세 편까지 봤다. 특히 그를 붙잡아둔 것은 찰리 채플린이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d72089d031a513f95d2670f0d2f791b666c972ca79e34449ee7e5d22215a3f1d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "부상에도 불구하고 1916년 전선으로 돌아간 그는 프랑스 공군에 정찰 조종사로 들어갔다. 적진 상공을 날며 사진을 찍는 위험한 임무였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d674ceb785ec1661b7b679a740e8de68de23387cd3db85f47d023fbda85e9129"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "공중 촬영 임무에서 보인 용기로 그는 무공십자훈장을 받았다. 이 전쟁 경험은 훗날 반전 걸작 《위대한 환상》(1937)에 깊이 스며든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "37590088694fe1fb7aa3e8a52ac5d82adfe834331fbeb9dbfdbfe10910353d72"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 아버지의 마지막이자 가장 아끼던 모델 앙드레 외슐링과 결혼했다. 카트린 에슬링이라는 예명을 쓴 그 여자를 스크린의 스타로 만들겠다는 것, 1920년대에 그가 연출을 시작한 이유는 오직 그것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "47ff87a19c386e96a86fda90a752d723357298075b98b52067d75122e29953ad"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "에밀 졸라 각색작 《나나》(1926)처럼 돈이 많이 든 초기 무성영화들을 찍느라, 르누아르는 아버지가 남긴 값비싼 인상파 그림들을 한 점씩 팔아치웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "00e32f6df0414b13c879c6ba6aa45fbeb892f70d3457411312e17959e256b27d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "에리히 폰 슈트로하임의 《어리석은 아내들》(1922)을 내리 열 번 본 뒤, 르누아르는 도예가의 길을 완전히 접었다. 영화를 만들겠다고 마음먹은 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "55b4294019dc28498991b1bfd519f133841072f4915b7f76839531927fc28bd4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "르누아르의 첫 유성영화 《On purge bébé》(1931)는 대놓고 상업적인 소극이었다. 촬영은 나흘. 빠르고 싸게 찍을 수 있다는 것을 미심쩍어하는 제작자들에게 증명하려는 작업이었다. 새 녹음 기술을 과시하려고 변기 물 내리는 소리를 실제로 담은 것으로 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ebecd9c0f53127af68d30b6b26aee97a502c195f15d6f47854898086188604fd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "부르주아 집안에서 자랐지만 1930년대의 르누아르는 좌파 인민전선에 깊이 발을 담갔다. 노동조합이 자금을 댄 프랑스 공산당의 선전영화 《La Vie est à nous》(1936)를 그가 연출했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7c64c7c053b1bd8f7e196b79aab9b11e19c21e79221dcffab86a8122b48bc6c"
+ }
+]

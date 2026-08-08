@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-soderbergh#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2013년 그는 장편영화에서 은퇴한다고 선언해 화제를 모았다. 이제부터는 그림과 텔레비전에만 매달리겠다는 것이었다. 그러나 스스로 택한 유배는 4년 만에 끝났고, 그는 강도 코미디 《로건 럭키》로 돌아왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f98ad476eed43ce628d24e459be140a80db069637f3bb230adba5e3a161f9c29"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-soderbergh#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 기존과 다른 제작 방식을 밀어붙이는 데 거침이 없었다. 2005년 살인 미스터리 《버블》은 오하이오의 작은 마을 주민들, 그것도 연기 경험이 전무한 이들로만 배역을 채우고 제작비까지 직접 댄 작품이다. 정식 각본도 없이 찍었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6f13f5b8bdb7db9d14e5e0de4af70b299e320cf475894175f310451f42f471ba"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-soderbergh#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "디지털 촬영의 한계를 시험하는 일에도 나섰다. 2018년 심리 스릴러 《언세인》과 2019년 스포츠 드라마 《하이 플라잉 버드》는 둘 다 애플 아이폰과 FiLMiC Pro 앱만으로 촬영됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4e04888a71d5ff179c81fd6c13d2cf363f126a18f78e1cd346fec10d523eb12e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-soderbergh#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《로건 럭키》 홍보 기간에 그는 할리우드에 자그마한 수수께끼를 남겼다. 각본을 '레베카 블런트'라는 신인 작가의 것으로 소개한 것이다. 이 인물은 촬영장에 한 번도 나타나지 않았고, 그의 아내이자 E! 채널 진행자 출신인 줄스 애스너의 필명이라는 추측이 널리 퍼졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d0c5d1ed27f55095ae28dc7312f5a5d2a544460da847a89bd87c4e341051b316"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-soderbergh#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2014년부터 그는 해마다 12월 31일에 '미디어 다이어트'를 공개해왔다. 지난 365일 동안 본 영화와 드라마, 읽은 책과 단편소설을 하나도 빠짐없이 적어 내려간 목록이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2e9029ec8e5ab2eadeb94f96c83bdc36bca544d67674e2080121d173a9f2c857"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-soderbergh#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "카메라를 잠시 떠나 무대로 간 적도 있다. 2014년 오프브로드웨이 연극 《The Library》를 연출했는데, 학교 총격 사건을 다룬 이 드라마는 클로이 그레이스 모레츠가 주연하고 그의 단골 협업자 스콧 Z. 번스가 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "95dee3b015c7e40c7258340147db4b5ee0055c1550c581e0937ee3074eb53d11"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-soderbergh#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "코로나19 팬데믹 시기, 미국 감독조합은 그에게 현장 복귀 대책반을 맡겼다. 2011년 바이러스 확산 스릴러 《컨테이젼》을 준비하며 쌓아둔 역학 지식이 그렇게 쓰였다. 영화는 예언이 되었고, 자료 조사는 실무가 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb5521a0dcbfa0a02a70b5ff0c85f625bc55f3e5b4b8964735d21ce5e8f8d860"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-soderbergh#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2011년 야구 영화 《머니볼》의 연출자는 원래 그였다. 촬영 개시를 며칠 앞두고 소니 픽처스 공동회장 에이미 파스칼이 그를 해고했다. 각본 장면 사이사이에 실제 선수들의 다큐멘터리 인터뷰를 끼워 넣겠다는 그의 파격적인 구상을 파스칼이 받아들이지 못한 탓이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "58f9c3761d5d2f64be273f6d828ba97f986218772d4407397fa32d2c051dae1d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-spielberg#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그의 유년을 결정지은 상처는 부모의 이혼이었다. 수십 년 동안 그는 일에만 파묻혀 살던 아버지 아널드를 탓했다. 어머니 리아가 아널드의 가장 친한 친구 버니 애들러와 남몰래 사랑에 빠져 있었다는 사실은 한참 뒤에야 알았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c8bfa5aee7ee2c6aae9efc4de0fd277298e57225d6a02daaba36c37131318fac"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-spielberg#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "보이스카우트 사진 배지는 9분짜리 8mm 서부극 《The Last Gunfight》을 연출해서 땄다. 아버지의 사진기가 고장 나 있었고, 대장이 정지 사진 대신 움직이는 영화를 인정해준 덕분이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "47c3a164c1124e74c6ea09afde4e894281ed24cb7846223f86e449c80129add9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-spielberg#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "열여섯에 그는 140분짜리 SF 장편 《Firelight》의 각본을 쓰고 연출했다. 아버지가 피닉스 리틀 시어터를 하룻밤 빌려 상영했고, 그날의 순이익은 정확히 1달러였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "281a3534a5cc7048988526d7468873ffd04e3d33458d3e5373c4b336cf0c7e9a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-spielberg#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "캘리포니아 사라토가 고등학교 시절 그는 지독한 반유대 괴롭힘에 시달렸다. 자신감이라고는 없던 십대의 그는 밤마다 스카치테이프로 코를 눌러 붙였다. 조금이라도 덜 유대인처럼 보이려는 헛된 시도였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6fe98f5929a3da5c924ad16d01cf025597813339f0e05bd5be7af03a6cfffc0d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-spielberg#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평점 C의 성적 때문에 명문 서던캘리포니아대학교(USC) 영화학교에 세 번 지원해 세 번 다 떨어졌다. 결국 그가 입학한 곳은 캘리포니아주립대 롱비치였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d37026e2b8e7a31cfeac41618f014b41dc2b8fb35a2cfca26352d855686c8db4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-spielberg#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "대학생 시절 유니버설 스튜디오 경비를 뚫고 들어간 일화는 유명하다. 짙은 색 정장을 입고 아버지의 서류가방을 들고 들어가서는, 빈 사무실 하나를 뻔뻔하게 차지하고 건물 안내판에 제 이름까지 올려놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3dac0ee9f77aac0f4b0b808d5d5b14c85432d16a4936ae3d1c068b3b905697bf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-spielberg#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1969년 《Night Gallery》의 한 에피소드를 맡았을 때 그는 스물두 살이었다. 할리우드의 여왕 조앤 크로퍼드는 이 풋내기를 대놓고 의심했고 처음에는 교체를 요구했다. 그를 인정하게 만든 것은 붉은 장미 한 송이였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e73cc0d030863793020299f1198f3f4816dbc3e597bc861e7a614e99c96aaaac"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-spielberg#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《죠스》 촬영장에서 걸핏하면 고장 나던 기계 상어의 이름은 '브루스'였다. 그의 만만찮은 연예 전문 변호사 브루스 레이머를 향한 빈정거림 섞인 헌사였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc30cacfee42bd9e9c7fb0f85c6a6e70c5495c8cbfba9e179c47fb6873467391"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-spielberg#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《죠스》가 크게 성공한 뒤 그는 제작자 앨버트 R. '커비' 브로콜리에게 제임스 본드 영화를 맡겨달라고 매달렸다. 두 번 거절당했다. 그 사정을 들은 조지 루카스가 하와이 해변에서 대안으로 내민 기획이 《레이더스》였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e2abd98731d9771d7ea97dd2d1c2891dc7e716e0fa418ff32040e2b0b31f836c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-spielberg#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1989년 배우 에이미 어빙과의 이혼으로 그는 1억 달러가량을 잃은 것으로 추정된다. 캘리포니아의 판사가 두 사람의 혼전 계약을 무효로 봤기 때문이다. 그 계약서는 술집 냅킨에 급히 갈겨쓴 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "818ea71f543fd0121e4486a55b7c74a2db32862774b0ba1ef1448ff101ceea4b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-spielberg#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "경력을 통틀어 가장 어두웠던 시기가 있다. 낮에는 폴란드에서 《쉰들러 리스트》의 참혹한 홀로코스트 장면을 찍고, 밤에는 위성 회선으로 《쥬라기 공원》의 CG 공룡을 편집했다. 그 두 겹의 시간을 그는 견뎌냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "25cde15bb59c8b1a6b40ffaeaf4444da7c40bfa3ecaca2b1d36c115f12ac3d48"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-spielberg#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "크라쿠프에서 《쉰들러 리스트》를 찍는 동안 감정의 부담이 감당하기 어려울 만큼 커지자, 그는 로빈 윌리엄스에게 부탁해 매주 한 번 전화를 받았다. 스피커폰 너머로 15분짜리 스탠드업 코미디가 흘러나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c2ca4d651f3b8370edcbf655b06624aea43030dac42139170e7dacdcabe9baf3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-spielberg#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《쉰들러 리스트》로는 단 1달러도 받지 않았다. \"피 묻은 돈\"이라는 이유였다. 대신 그 막대한 수익으로 USC 쇼아 재단을 세워 홀로코스트 생존자들의 증언을 기록하고 보관했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e5512008b107327b7cbbb3d61b6745099722e825e8c573734bfc1a5cf55758b7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-spielberg#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1982년 소더비 경매에서 그는 이름을 밝히지 않은 채 6만 500달러를 써냈다. 오슨 웰스의 걸작 《시민 케인》에 나온 그 썰매, '로즈버드' 원본이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "73604e04eb80eb797c0d348caec6810311381eba70bd4382ae8f89532a1be81e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-spielberg#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "클라크 게이블과 베티 데이비스가 받은 남녀 주연상 오스카 트로피를 여러 경매에서 사들이는 데 130만 달러 넘게 썼다. 목적은 하나, 상품처럼 거래되는 일을 막기 위해 트로피를 미국 영화예술과학아카데미에 돌려주는 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b6974c8966c2c1dcbee943bc654e2e940c65681b9307a5b49c97a8d27ad43c4d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-spielberg#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1970년대에 퐁을 해본 이래 그는 지독한 비디오게임 애호가였다. 1999년 2차 세계대전 슈팅 게임 시리즈 《메달 오브 아너》를 구상하고 공동 제작한 것도 그래서다. 젊은 세대에게 그 전쟁을 가르치겠다는 뜻이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2cde52b89430b36abd81fe8d022864954c213629ec81f789b279d91b96558172"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-spielberg#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1968년 대학을 중퇴한 그는 34년이 지나 캘리포니아주립대 롱비치로 돌아가 학위를 마쳤다. 부모를 기쁘게 해드리고 싶어서였다. 고급 영화제작 수업의 과제로는 《쉰들러 리스트》를 제출했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "33abc2c076d8640b9da0db1e957f1c7e72c4d02e132ac680d10abe19ff2fbe3f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-spielberg#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "절친한 벗 조지 루카스와 그는 노먼 록웰 그림을 집요하게, 그것도 어마어마한 규모로 모아왔다. 2010년에는 두 사람의 소장품을 스미소니언 미국미술관에서 함께 전시하기도 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "18ef727361f52a920aeec4cb8c1c1edeb28b67c83f49f18548547aa31f5e2d28"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-spielberg#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 두 배우의 대부다. 《E.T.》에서 직접 연출한 드루 배리모어, 그리고 그를 \"모티 삼촌\"이라 다정하게 부르는 기네스 팰트로.",
+  "model": "claude-opus-5",
+  "source_sha256": "91def71b8dd0aba97086010b33e26b6f946ac0f3b05596c481e5fb1baf3f414c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-spielberg#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "두 번째 아내 케이트 캡쇼를 처음 만난 자리는 《인디아나 존스: 마궁의 사원》 오디션장이었다. 훗날 그는 이 영화를 시리즈에서 가장 마음에 들지 않는 편으로 꼽으면서도, 아내를 만나게 해준 작품이라는 점만은 예외로 두었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fa24647c124a9b90de2c5f85d3cfe70597455b35dd5e9467eda5cb170cc2c92e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-spielberg#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "메건 폭스가 한 잡지 인터뷰에서 마이클 베이의 폭군 같은 현장 태도를 아돌프 히틀러에 빗대자, 그가 베이에게 폭스를 《트랜스포머》 시리즈에서 하차시키라고 지시했다고 전해진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aaa41a7b01895d2c4cb79080b973e62e5674515b226ddb444c453d1eb5026bcb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "steven-spielberg#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "극장에서 처음 본 영화는 1952년 세실 B. 데밀의 《지상 최대의 쇼》였다. 어린 그에게는 무서운 경험이었다. 그 속에 나온 굉장한 열차 충돌 장면이, 평생 이어질 충돌 연출에 대한 집착의 시작이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ad0bfc43d1d8e9ebfcd8820efee7ec4627858f34782006ae3c24278fc9e3544"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sylvester-stallone#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "헬스 키친의 자선병원에서 태어난 그의 출산은 순조롭지 않았다. 의사들이 겸자를 두 벌이나 쓰는 과정에서 안면 신경이 끊겼고, 왼쪽 아래 얼굴은 영구히 마비됐다. 그를 대표하는 비뚤어진 표정과 뭉개진 발음이 거기서 왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b6170e1922ae46f5e945112864778f9f565b5ad089766346140e6d5fdefd280c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sylvester-stallone#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1970년 뉴욕의 아파트에서 쫓겨난 뒤 그는 3주 동안 포트 오소리티 버스 터미널에서 잤다. 살아남으려고 소프트코어 성인영화 《The Party at Kitty and Stud's》에 출연해 200달러를 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "668eadd43692f472e309674caec58ba9ede298caaa5473aaae9e6339939c7ea7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sylvester-stallone#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "할리우드가 그를 부르기 전, 그는 월터 리드 극장에서 안내원으로 일했다. 《겨울의 라이온》 표를 웃돈 받고 되팔다 해고당했다. 센트럴파크 동물원에서 사자 우리를 청소하기도 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ebd2b6bd3fd338aadbd5bca6cc02042a75350dc0d77871acb0003bab0d79f9a3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sylvester-stallone#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "개 사료 살 돈조차 없던 시절, 그는 아끼던 불마스티프 벗커스를 세븐일레븐 앞에서 낯선 사람에게 50달러를 받고 넘겼다. 《록키》 각본이 팔린 뒤 3,000달러를 주고 개를 되사왔고, 사갔던 이에게는 영화의 단역을 하나 내주었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2021de8504f596d5afa16ec91df03c2bbd97e6c508053d25d15e3c3256dd4963"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sylvester-stallone#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1975년 3월, 아무도 이길 거라 여기지 않던 척 웨프너가 무하마드 알리를 상대로 15라운드를 버텨내는 것을 보고 그는 자리에 앉았다. 손으로 쓴 《록키》 초고가 사흘 반 만에 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "99ce99b2d5ee4927ae9a4083033b08e4a12e46d081618420bcce45782158215f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sylvester-stallone#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "통장에 106달러가 전부였고 아내는 임신 중이었다. 그런 처지에서도 그는 제작자 어윈 윙클러와 로버트 차토프가 《록키》 각본에 제시한 36만 달러를 거절했다. 조건은 하나, 주인공을 자기가 맡는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb0cd6eef9dcd3a05aba110fc5a3ca6fad1bed3273b3dbe2aac937d00ee60c5f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sylvester-stallone#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "연출 데뷔작은 1978년 레슬링 드라마 《파라다이스 앨리》다. 《록키》가 그를 세계적 스타로 만들기 몇 해 전, 소설로 먼저 써두었던 오랜 숙원이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b2bfc0ef278ebbb5757866ba9960d6449d6f50b5af2fd3e55a9b324d27d14c09"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sylvester-stallone#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "액션 바깥으로 나간 적도 있다. 1983년 댄스 뮤지컬 《스테잉 얼라이브》, 《토요일 밤의 열기》의 속편을 그가 연출했다. 존 트라볼타에게는 아폴로 크리드에 버금가는 근육질 몸을 만들라며 혹독한 훈련을 시켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6796c2903e25df3ad9e90fe9c99d76755136109a2de88cdfd636fedfb0e4495f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sylvester-stallone#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1974년작 《The Lords of Flatbush》에서 리처드 기어가 잘린 데는 그의 손이 있었다. 점심시간에 도요타 뒷좌석에서 기어가 머스터드 범벅의 기름진 치킨 조각을 스탤론의 바지에 일부러 떨어뜨린 것이 발단이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb654b805d4522b8a336e036a10c0131e8b0bb0e6d3f27c1d4a5401a674cd4bc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "sylvester-stallone#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1980년대의 살벌한 경쟁 시절, 아널드 슈워제네거는 형편없는 각본 《스톱! 안 그러면 엄마가 쏜다》에 무척 관심 있는 척했다. 승부욕에 불타던 스탤론이 그 주연 자리를 달라고 나서게 만들려는 속임수였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bd26421730975902bffd3d54007de196fd582b32c0ff1d659b11e1f4bffd5d6c"
+ }
+]

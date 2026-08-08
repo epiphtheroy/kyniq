@@ -1,0 +1,272 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-renoir",
+  "field": "intro",
+  "lang": "ko",
+  "text": "시적 리얼리즘과 휴머니즘 영화의 대가. 장 르누아르는 예술가 집안에서 자란 유복한 유년과 1차 대전에서 입은 상처를 재료로 삼았다. 《게임의 규칙》과 《위대한 환상》의 깊고 너그러운 시선은 거기서 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d92a3de15a0380bec173e457324506ac14fe74228d48933e5baa1aa0ebe6e4b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jeremy-saulnier",
+  "field": "intro",
+  "lang": "ko",
+  "text": "제레미 솔니에는 타협을 모르는 미국 독립영화 감독이다. 돈 없는 기업 홍보영상 촬영감독으로 시작해 현대 스릴러의 장인이 됐다. 지독하게 사실적인 폭력, 견디기 힘든 긴장. 어릴 적 친구들과 거듭 손잡고 거칠고 발 붙은 영화를 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "90cd29ac39f737def36be67434fb82e43d59db08f4bb8595a7016c4ac7d4bacf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jia-zhangke",
+  "field": "intro",
+  "lang": "ko",
+  "text": "21세기 중국을 대표하는 영화적 목소리. 자장커는 자본주의로 급변하는 나라를 지방 도시의 떠도는 인물들을 통해 붙잡는다. 상영 금지를 당하던 지하 영화 작가에서 세계가 주목하는 작가주의(auteurism) 감독이 됐지만, 고향 산시(山西)를 향한 애착만은 조금도 놓지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "288828d7f868b54c56b7a8aaaa3524140ab7b097cb9d3efaa13e0ef07666c1fd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jim-jarmusch",
+  "field": "intro",
+  "lang": "ko",
+  "text": "짐 자무시는 미국 독립영화의 길을 연 사람이다. 무표정한 유머, 최소한으로 덜어낸 화면, 아방가르드 음악 신과의 깊은 인연. 누구의 간섭도 받지 않고 만든 그의 영화들은 떠돌이와 이방인, 그리고 시시한 일상 속 시적인 아름다움의 편에 선다.",
+  "model": "claude-opus-5",
+  "source_sha256": "371f0fa45cabd55e35f3549e709d6585bd87fe4c52e04859cb755365a6d114d7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joachim-trier",
+  "field": "intro",
+  "lang": "ko",
+  "text": "오늘의 북유럽 영화를 이야기할 때 요아킴 트리에는 빠지지 않는다. 우울하고 문학적인 '오슬로 3부작'이 그를 알렸다. 프랑스 누벨바그의 형식 감각에 펑크록의 에너지를 섞은 그의 영화는 기억과 정체성, 그리고 쉬지 않고 흘러가는 시간에 대한 깊은 사색이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9f5f44a97130bef70c69abdfead794fd8b7d8734f6c480f14cdadbb962f6e765"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "joel-coen",
+  "field": "intro",
+  "lang": "ko",
+  "text": "조엘 코엔은 동생 이선과 함께 현대 독립영화의 지형을 다시 그렸다. 어두운 코미디와 하드보일드 범죄물, 기괴한 아메리카나가 능란하게 뒤섞인다. 콘티 한 컷까지 따져 만든 《파고》와 《노인을 위한 나라는 없다》가 그 결실이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "469b9e7354645acbf152e5500203ef0044097740c7b032c75b41220a98707830"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carney",
+  "field": "intro",
+  "lang": "ko",
+  "text": "존 카니는 아일랜드 감독이다. 음악이 화면 안에서 실제로 연주되는 그만의 방식이 현대 뮤지컬 영화를 바꿔놓았다. 한때 록 밴드 베이시스트였던 그는 더블린에서 자란 기억을 자주 꺼내 쓴다. 그 결과가 가난한 예술가들을 가까이서 들여다보는 반(半)자전적 초상들이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca0feeda281f31809b2c8f54075d23456e732f989039081c2130b13dedd9b902"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-carpenter",
+  "field": "intro",
+  "lang": "ko",
+  "text": "불안한 공기를 만드는 데 그를 따를 사람이 없다. 존 카펜터는 실물 특수효과, 최소한의 신시사이저 스코어, 권위를 향한 반감으로 현대 호러와 SF를 다시 정의했다. 20세기 후반 독립영화 감독 가운데 그만큼 널리 영향을 끼친 이도 드물다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ef6877209d7ca540bb155764e3adaa0a874f919d4f163fb14be0b5b65749caa9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-ford",
+  "field": "intro",
+  "lang": "ko",
+  "text": "미국 영화의 거인. 존 포드는 웨스턴이라는 장르를 열었고, 동시에 폭군처럼 굴며 지독하게 남성적인 인물로 자신을 연출했다. 그 상징적인 안대 뒤에는 감상적이기 그지없는, 아일랜드계라는 뿌리를 한 번도 놓지 않은 애국자가 있었다. 그가 지어낸 신화가 서부에 대한 세계의 상(像)을 영영 결정했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aef0ddc8d7deb217488deb7d11f386701357893dbc69ae232de2fa9bdad0a25e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-hughes",
+  "field": "intro",
+  "lang": "ko",
+  "text": "미국 10대 영화를 대표하는 작가. 존 휴즈는 교외에서 자란 아이들의 불안을 그 이전 누구도 보여주지 못한 공감으로 담아냈다. 그러다 명성이 가장 높던 시절에 할리우드를 떠났고, 중서부 농장에서 은둔하다 갑자기 세상을 떠났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc29ef2aad7963838979ab0e028b4fe604fba9867346fa37ab6b54d86358f784"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-huston",
+  "field": "intro",
+  "lang": "ko",
+  "text": "고전 할리우드의 거인 존 휴스턴. 그가 살아낸 삶은 그의 영화만큼이나 넓고 모험적이었다. 권투 선수였고 기병이었고 화가였고 도박꾼이었다. 그 과장된 사내다움과 반항심이 영화사에서 손꼽히는 실존적 걸작들로 옮겨 갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c07644c76c7ba1b9e09d51bb5aee51a2b3181a99ba8c28467a6dc2acb89d24e0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-mctiernan",
+  "field": "intro",
+  "lang": "ko",
+  "text": "존 맥티어넌은 살아 움직이는 카메라와 정확한 공간 감각으로 현대 액션영화의 문법을 다시 썼다. 《다이 하드》와 《프레데터》로 한 시대를 규정했지만, 도청 사건 하나가 그 거대한 경력을 단숨에 무너뜨렸고 그는 연방 교도소에 갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5f862b3b20940e35e22cd98389ff951cd7c216bd00af9082c12cbef726028103"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-woo",
+  "field": "intro",
+  "lang": "ko",
+  "text": "홍콩 빈민가를 삼킨 화재의 잿더미에서 오우삼은 목사가 되겠다던 어린 시절의 꿈을 접었다. 대신 총알이 쏟아지는, 극도로 양식화된 영화적 무용을 지휘했다. 세계의 액션영화와 '영웅본색(英雄本色)'류 비장극이 그 손에서 다시 만들어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d7aa7f1afab0bcd99b714137e10ed7d43e3399408983889695b7c0fc18898edb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jon-watts",
+  "field": "intro",
+  "lang": "ko",
+  "text": "존 왓츠는 가짜 호러 예고편 하나를 인터넷에서 터뜨려 할리우드로 직행한 미국 감독이다. MCU 스파이더맨 3부작이라는 대형 흥행작을 지휘했고, 그 뒤로는 오리지널 스릴러와 스타워즈 세계로 방향을 틀었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e300ec0c7bf43474a0096d91ed74907b398d8c2d7ebe96aad827b37ccfabc056"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jordan-peele",
+  "field": "intro",
+  "lang": "ko",
+  "text": "에미상을 받은 스케치 코미디언에서 현대 호러를 대표하는 작가로. 조던 필의 전환은 그렇게 이뤄졌다. 코미디의 작동 원리를 무기 삼아 사회를 찌르는 악몽을 만들어냈고, 오바마 이후의 미국에서 심리 스릴러를 혼자 힘으로 되살렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c5389dc4e01e5dd3e01ca3fc6b860612d5cb8ba7d12df82c60aa93ca4f13ef9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "justin-kurzel",
+  "field": "intro",
+  "lang": "ko",
+  "text": "저스틴 커즐은 폭력과 남성성을 정면으로, 물러서지 않고 파고드는 호주 감독이다. 무대 미술에서 출발해 세계 영화로 올라섰다. 작곡가인 동생 제드와 자주 협업하며 숨 막히는 심리의 풍경을 짓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1675e3673b0a7d05849716e1a15cdadec2962da91d9dce2254ca3c3ead964e50"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaneto-shindo",
+  "field": "intro",
+  "lang": "ko",
+  "text": "신도 가네토는 일본 영화의 고집스러운 독립군이었다. 가난한 유년, 히로시마 원폭, 전쟁에서 살아남았다는 죄책감. 그 상처들을 200편이 넘는 각본으로 쏟아냈고, 백 년에 가까운 생애를 날것 그대로의 인간적인 영화 만들기로 채웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b76cdf1c43b6af3e9c9ab2c31a3e1aea9e7c0a925696aaf7ffaaf9574a781a85"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaouther-ben-hania",
+  "field": "intro",
+  "lang": "ko",
+  "text": "카우테르 벤 하니아는 튀니지 영화의 길을 새로 내는 감독이다. 그의 작품은 장르에 갇히지 않고, 다큐멘터리와 픽션의 경계를 끊임없이 흐린다. 세상을 떠들썩하게 한 실제 사건에서 자주 출발한 그는 튀니지 최초의 아카데미상 후보라는 기록을 남겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f85ce4d258de56d4c75ba465ca2d59efd69bd19f8bc49fe5cb9c35e3a531d2e3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kathryn-bigelow",
+  "field": "intro",
+  "lang": "ko",
+  "text": "캐스린 비글로는 액션과 심리적 긴장을 살갗으로 느끼게 만드는 미국 감독이다. 1970년대 뉴욕 아방가르드 미술 신에서 할리우드로 건너왔고, 여성 최초로 아카데미 감독상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c914b4e8f9074a8f73ec36a71f2aaf95a321051d6d02c0e995dad020ceea2305"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kelly-reichardt",
+  "field": "intro",
+  "lang": "ko",
+  "text": "켈리 라이카트는 미국 독립영화의 완고한 이름이다. 12년간 작품을 만들지 못한 공백을 뚫고 나와 태평양 북서부를 기록하는 사람이 됐다. 노동계급 바깥사람들을 오래 들여다보는 시선, 그리고 인색한 땅과 풍경이 그의 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ab54804bb6fa01bc1b40429ff93f681689fc8904cde9cf9e4cdc6c265bab1ae7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ken-loach",
+  "field": "intro",
+  "lang": "ko",
+  "text": "영국 사회적 리얼리즘의 큰 산. 켄 로치는 60년을 노동계급 편에 서서 찍었다. 마르크스주의라는 신념, 비직업 배우, 끝까지 자연스러움을 밀어붙이는 방식. 평범한 사람들의 분투가 그의 손에서 황금종려상을 받는 영화가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d66099454fdf7d8dc5f837ae4b12431139e6e1df188513cc12f661223301923"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kenji-mizoguchi",
+  "field": "intro",
+  "lang": "ko",
+  "text": "누이가 게이샤로 팔려 간 기억에 평생 시달린 폭군 같은 완벽주의자. 미조구치 겐지는 일본 영화에 롱테이크 미학을 심었다. 몰락한 여자들을 참혹하게, 그러나 더없이 깊은 연민으로 그려낸 그의 영화들은 베네치아 영화제에서 전설적인 연승으로 이어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f68309883500dd4ba8417113fbf595b8a4b6a793893efb8d52f79806ff349eb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-jee-woon",
+  "field": "intro",
+  "lang": "ko",
+  "text": "장르를 자유롭게 건너다니는 김지운은 한국 뉴웨이브의 한복판에 있다. 극단적인 폭력의 네오누아르에서 엉뚱한 블랙코미디까지. 꼼꼼히 양식화된 그의 화면에서는 새카만 유머와 숨 멎을 듯한 육체적 안무가 함께 굴러간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd6ac8a1239c02c872faa0f53adacf3216a74131da4d1e54033d054032d0022e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kim-ki-duk",
+  "field": "intro",
+  "lang": "ko",
+  "text": "독학으로 영화를 배운 도발자. 공장 노동자에서 국제 영화제의 총아로 올라선 김기덕은 잔혹한 화면, 속도전 같은 제작, 그리고 미투로 인한 파국적 몰락으로 기억된다. 한국 영화에서 가장 의견이 갈리는 감독으로 남아 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d0bcf18c66a995747e735dd46e44087fe99a20e440aea545afeeb8c0b4927437"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kiyoshi-kurosawa",
+  "field": "intro",
+  "lang": "ko",
+  "text": "J호러에 짙은 공기를 불어넣은 일본 영화의 장인. 구로사와 기요시의 영화는 실존적 공포와 도시의 부패, 그리고 현대인의 지독한 소외감으로 이뤄져 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eea43bd47a68717c3dceaab76da8b02566892dac739c7b64734065ef2a21cf4e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kon-ichikawa",
+  "field": "intro",
+  "lang": "ko",
+  "text": "어두운 아이러니와 날카로운 화면 기하학. 이치카와 곤은 애니메이션에서 출발해 실사로 넘어왔고, 살을 에는 반전 드라마와 양식화된 미스터리를 만들었다. 영화사상 가장 논쟁적인 스포츠 다큐멘터리 한 편도 그의 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "36fc3500c7883f706e9961103696382cc3cc06cdda264bcb2a9fcc8f6c11cebd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kie-lowski",
+  "field": "intro",
+  "lang": "ko",
+  "text": "크시슈토프 키에슬로프스키는 담배를 손에서 놓지 않는, 뿌리 깊은 비관주의자였다. 공산 시절의 건조한 다큐멘터리에서 형이상학적으로 복잡한 국제적 걸작들로 건너갔다. 그리고 경력의 정점에서 은퇴했다. 이유는 그저 조용히 앉아 담배를 피우고 싶어서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d41907d4d942e05a318a41b7ca51dc8dde103359ee4e8e0bfa70bd7ca7cc1121"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "krzysztof-kieslowski",
+  "field": "intro",
+  "lang": "ko",
+  "text": "폴란드 작가 크시슈토프 키에슬로프스키는 공산 치하의 삶을 거칠게 담은 다큐멘터리에서 출발해 《데칼로그》와 '세 가지 색' 3부작 같은 형이상학적 픽션으로 세계의 인정을 받았다. 비관주의자로 유명했던 그는 명성이 절정에 이른 순간 돌연 은퇴했고, 얼마 지나지 않아 세상을 떠났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f83a919ff2e213e6a8f83abc0c04ff6069955288b957fb1201d7e9bc2fd474cf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lana-wachowski",
+  "field": "intro",
+  "lang": "ko",
+  "text": "라나 워쇼스키는 동생 릴리와 함께 《매트릭스》로 SF 영화를 뒤집어놓은 미국 감독이다. 이후 할리우드 최초의 주요 트랜스젠더 감독이 됐고, 성소수자의 가시성을 위해 목소리를 내왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f5ef83639e4bbf4ad3c113b15d94cec2e8fb80671646c778cc4febbef0cc4942"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "lars-von-trier",
+  "field": "intro",
+  "lang": "ko",
+  "text": "라스 폰 트리에는 도발을 멈추지 않는 덴마크 작가이자 도그마 95의 공동 창시자다. 그를 옥죄는 공포증, 반복되는 우울, 현장에서의 험한 관계들. 경계를 밀어붙인 그의 경력에는 황금종려상의 영광과 요란한 공개 스캔들이 나란히 놓여 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7afb32e12f92678e7728be84cb864589424006366bf1a3075f082298685131f6"
+ }
+]

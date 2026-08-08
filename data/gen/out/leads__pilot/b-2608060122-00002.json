@@ -1,0 +1,82 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tobruk-2008",
+  "field": "lead",
+  "film_id": "0c33f6fc-d3a8-4e61-8a84-b128af7ec985",
+  "lang": "en",
+  "text": "Two Czech volunteers fight their war in Libyan sand, thousands of kilometres from the country they are fighting for. Jiri Pospichal is eighteen when he signs up, and Václav Marhoul is careful about what happens next to the ideas he brought with him: a unit whose relationships are complicated, a heat that does a share of the enemy's work, danger that keeps no schedule. Ninety-nine minutes, a small cast, a horizon with nothing standing in it. The scale of the war gets conveyed by how little of it can be seen from a hole in the ground. What holds the film is not the siege but the boy inside it, who chose this once and then has to keep choosing it every morning, and whose heroism, if he arrives at any, will look nothing like the version he packed.",
+  "model": "claude-opus-5",
+  "source_sha256": "15f3e866ac1c3676e88887065b017442283918c2c5dfdfb41fd4493717eae794"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "wadjda-2012",
+  "field": "lead",
+  "film_id": "e3c3049b-becc-4f4b-8406-8f886538cc31",
+  "lang": "en",
+  "text": "The bicycle is green, it costs money, and the school's Quran recitation competition happens to pay a prize. Wadjda works out what follows from those three facts. Haifaa al-Mansour builds the film on that small piece of scheming and lets it carry the weight: memorising scripture becomes a means to an end scripture never had in mind, and a girl learns her surroundings well enough to run them in her own favour. Everything stays at that scale - a sum of money, a route through a neighbourhood, an adult who has to be got around - because at that scale the pressure is legible. It came out of a German production, went forward as an international submission to the Academy Awards, and later joined the BBC's hundred greatest films directed by women. Its manner never rises above eye level with the child doing the arithmetic.",
+  "model": "claude-opus-5",
+  "source_sha256": "086763464d333df00183caf00bcfb2af956058eee6e55c5ed537084ce1cf8486"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-mystery-of-picasso-1956",
+  "field": "lead",
+  "film_id": "7a15c64b-890d-41a3-abc4-697578c1c01c",
+  "lang": "en",
+  "text": "The camera sits behind the canvas, so the marks arrive with no hand attached to them. Picasso paints on a transparent sheet and Henri-Georges Clouzot films it from the other side, which turns making into something that can be watched the way a wager is watched. The first pieces resolve in a stroke or two. Then they get longer, and the anxiety changes shape: a figure that was working gets painted over, a background swallows the thing that had been holding the eye. A good picture can be lost to the next confident stroke, and the only person in the room untroubled by this is the one holding the brush. The film's whole subject is what an arm decides in the next thirty seconds. Seventy-eight minutes, a jury prize, and one process refusing to hold still.",
+  "model": "claude-opus-5",
+  "source_sha256": "a2827455e36ed3e95db4bbf8a1d918b81605536d081c3b4f609e287a293a38f6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "killer-s-kiss-1959",
+  "field": "lead",
+  "film_id": "312a08bf-565c-4c78-93f7-9f2a7d06333e",
+  "lang": "en",
+  "text": "A boxer, a dancer, and the man who employs her - the plot is a pretext, and the film hardly pretends otherwise. Davey Gordon has whatever is left of a career, Gloria Price works for Vincent Rapallo, who is violent and has decided she is his, and sixty-eight minutes is not enough running time for any of it to acquire manners. So Stanley Kubrick spends the film on looking. Faces are held past the point where they still give information. Rooms look lit before anyone walked into them. The city keeps interrupting - stairwells, back lots, the squalid corners the search runs through - photographed by someone more interested in a surface than in a line of dialogue. It took a Golden Leopard. A thin story attended to this closely stops being thin.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ccc99d514a7cde65b187b4d7dcf9e50f84ffc87e38cfaca0cca30957a9fcc4f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "villain-2010",
+  "field": "lead",
+  "film_id": "8e05d7b4-8ba1-4b6d-a5ee-413edc5d4fa6",
+  "lang": "en",
+  "text": "Shimizu Yuichi hires himself out by the day and meets women through a telephone dating service, an arrangement in which both sides are paying for something. Sang-il Lee gives him two hours and twenty minutes, which is the tell: the length is not for the crime but for everything the crime redistributes. A killing happens, Yuichi is inside it, and the attention goes to the sorting that follows - who gets called cruel and who gets called unlucky, which families are granted grief and which are handed a bill, how fast a quiet man becomes a type in other people's accounts. Japan gave the film a broad sweep of prizes: best picture from Hōchi, director and lead actor at the Japan Academy Prize, film of the year from Kinema Junpo. None of it resolves into one person to blame.",
+  "model": "claude-opus-5",
+  "source_sha256": "31d16aaaa9f384482cf7ac7daf4067eb7a91c3c9d79f07fd3f1ab1bd515605c1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "westfront-1918-1930",
+  "field": "lead",
+  "film_id": "092d26f9-eed5-4e05-ae90-81419980204b",
+  "lang": "en",
+  "text": "Halfway through, one of the men is granted leave, and the film goes home with him. What Karl finds there is the war continued by other means: a household worn down by shortage, arrangements made because there was nothing else to make. Georg Wilhelm Pabst keeps the rest of it in the trenches in France, with a village behind the lines where relief can be had in small purchasable amounts. Attacks come and recede; the men stay. Ninety-seven minutes, made twelve years after the war it depicts, and the fear in it is administrative: a matter of duration, of routine, of nobody being able to see far. It sits on the German list of the films that matter most, Die wichtigsten deutschen Filme. The trench here is less a setting than a timetable, and the leave in the middle exists to show that the timetable reaches the kitchen table at home.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d311ae94c5248d4b617525a231409e7eeafb7529e09d4100c91b77b38247e8b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "traveller-1999",
+  "field": "lead",
+  "film_id": "b13652a9-8067-45ca-9d44-0da69ff072d0",
+  "lang": "en",
+  "text": "A small town in the interior of Minas Gerais is keeping its patron saint's day when a man named Rafael appears at the party. Paulo César Saraceni films what follows in a register nearer to a ballad than to a report: Ana de Lara, a widow with money and pride, a girl still young enough to be called a child, and Juca do Vale, a criminal whom passion renders briefly and inconveniently human. Passion and crime arrive together, which the film treats as mechanism rather than moral. The hundred and fourteen minutes are less about the visitor than about what a town does with the feeling he brings into it. It appears on Abraccine's list of the hundred best Brazilian films. The interest is in what devotion and desire do to a place organised around ceremony, and in how little separates them once the music starts.",
+  "model": "claude-opus-5",
+  "source_sha256": "6b2a8d5d5be9d05a217cc7d1681f66399c4286cd1740191e370e97660ee66f66"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "chronicle-of-the-years-of-fire-1975",
+  "field": "lead",
+  "film_id": "de04253e-3b1d-49e7-bcf4-50a890d05429",
+  "lang": "en",
+  "text": "Three hours, and the argument inside them is that the war which broke out on 1 November 1954 had been under way since 1830. Mohammed Lakhdar-Hamina starts in 1939 and moves forward through suffering and repeated revolt, holding the whole span to the scale of one man: Ahmed, who comes to political consciousness slowly and late, watched by his son and shadowed by Miloud, who talks like a prophet and is taken by everyone for a madman. The chronicle form costs the film something - accumulation instead of crisis, no single event to organise around - and that cost is the thesis, since a single event is precisely what it denies exists. It took the Palme d'Or and a best director prize, and went forward as an international submission to the Academy Awards. An Algerian film, in Arabic, about the long preparation that a date conceals.",
+  "model": "claude-opus-5",
+  "source_sha256": "ff1f4a7303ec19d5d34f00fdf7533eaaa3e3af333f9951f8cd6b2c3ac75f2d63"
+ }
+]

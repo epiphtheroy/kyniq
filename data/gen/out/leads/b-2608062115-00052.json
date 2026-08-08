@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "get-off-at-the-next-corner-1948",
+  "field": "lead",
+  "film_id": "544a46f2-250c-4a29-8884-f22e6cfa0d7d",
+  "lang": "en",
+  "text": "A bus route is a contract: fixed stops, fixed hours, a driver paid not to improvise. Gregorio del Prado and his fare collector Regalito break it anyway, swinging off the line to impress a young woman named Cholita, and the suspension that follows is what Alejandro Galindo actually wants to film. He gives it 106 minutes — generous for a prank, about right for a job. Somos later put the picture among the hundred best Mexican films, a canon place won with no grand subject anywhere in it: a timetable, a fare box, passengers with somewhere to be, and wages that depend on two men staying where the map says. The comedy runs close enough to the payroll that it never floats off. Two workers, one detour, and everybody above them holding the schedule.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b597da96c0526adc8e4838e78efece039a8fcdb37a307d2416e5ccfdc61dc55"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-letter-of-love-1943",
+  "field": "lead",
+  "film_id": "fb872442-fbcf-4afd-9e4b-db42c0fd4695",
+  "lang": "en",
+  "text": "Nothing in this film arrives in the order it happened to the man remembering it. Miguel Zacarías starts with a liberal leader condemned by the French Intervention Army and a letter from the woman he loves open in his hands, then lets the present drop away: what follows is built from what the reading calls up, arranged as pictures rather than testimony. One hundred and seventeen minutes for a few minutes of a man's time. The disproportion is the design — a war held at the edge of the frame while a courtship takes the middle of it. Made in 1943, in Spanish, and committed throughout to images over explanation. It is grave, unhurried and entirely unembarrassed by feeling, which is harder to sustain across two hours than the mode's reputation suggests.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b36b7565831ae975e931cba666410662048d5023d4c50a99b0d83f499a2d437"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "santa-1943",
+  "field": "lead",
+  "film_id": "83f51e3e-22d8-4ad5-b62d-450405c2d03b",
+  "lang": "en",
+  "text": "Chimalistac is small enough that one opinion can cross the whole village by evening. Santa lives there, beautiful and unassuming, until a soldier named Marcelino makes a promise he does not keep and her family and her friends shut the same door in the same motion. Norman Foster's 1943 film is less interested in the seduction than in the arithmetic after it: what a woman without a household is worth in the city she is pushed toward, and how quickly the price gets fixed. One hundred and eleven minutes, spent mostly in rooms — the house she leaves, the house that takes her in, the room where a blind pianist named Hipolito loves her without ever saying so. The melodrama is unashamed of itself. The cruelty in it is ordinary, social, and carried out by people who consider themselves decent.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d2656201de424ff650637faa9e9cc8996d2fa65244950c4655ad398d9cb9143"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "los-confines-1992",
+  "field": "lead",
+  "film_id": "28dafb08-3b91-44fa-a462-cb6cee7fecba",
+  "lang": "en",
+  "text": "Mitl Valdez does not adapt Juan Rulfo one story at a time; he braids three of them and lets the strands interrupt each other. Juan Preciado arrives in Pedro Paramo. A brother and sister travel the road in Talpa carrying something they cannot name in front of one another. Juvencio Nava runs from the men who want him for the killing of Colonel Terrones. Seventy-nine minutes is short for three fictions, and the shortage does useful work: nothing stops to be explained, and the flat, unsurprised voice of the prose survives the crossing. Horror, fantasy, mystery and thriller are all filed against the 1992 title, which reads less like a hedge than like an accurate inventory. The magic in Rulfo was never decoration, and Valdez keeps it inseparable from the guilt and the pursuit.",
+  "model": "claude-opus-5",
+  "source_sha256": "2330e1a5b18f0897e4e8a5be0eb10a85090c3144f2b5b1d4530d739948b68b16"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "knock-out-1983",
+  "field": "lead",
+  "film_id": "c214051f-cb42-4104-9646-72fa266d91b5",
+  "lang": "en",
+  "text": "A fighter is being chased, and the film keeps stopping to remember why he was ever worth chasing. Rodrigo Zaracho had a future in the ring once; by the time José Luis García Agraz picks him up in 1983, that future is the problem, since the people around him still hold a version of him that stopped paying out years ago. Nocaut takes the shape of the sport it comes from — rounds of pursuit with long recollections in the gaps, 109 minutes of a man who cannot reach a corner and sit down. It is filed as crime, and there is a gang in it, but the debt doing real damage is the one a man owes his own earlier promise. Boxing pictures tend to build toward a fight. This one is built out of the years of taking hits.",
+  "model": "claude-opus-5",
+  "source_sha256": "9902c23d1c6b26e3c2b0da5383147f014827f20027866e53f161b4b21c063738"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "janitzio-1934",
+  "field": "lead",
+  "film_id": "ba01ba1f-97fc-4203-a4e8-fee10699d153",
+  "lang": "en",
+  "text": "The fisherfolk of Janitzio had their customs a long time before anyone arrived to put a price on them. Carlos Navarro's 1934 film sets the two things against each other without pretending the collision is a misunderstanding: legend and daily work on one side, agents dispatched from the cities on behalf of business on the other. It was billed as the first all-Mexican sound film, which gives the choice of subject some weight — the new equipment was pointed first at a community the screen had not been able to hear. Sixty-two minutes, barely a feature and exactly enough. The camera stays with the people who fish. What comes from outside is money, and it comes with men attached who have been sent.",
+  "model": "claude-opus-5",
+  "source_sha256": "f13f0c8a3f7d69a6e5e1f50904ec8451b20dd562621a851a76c6e65d2406d4c2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "gangsters-versus-cowboys-1947",
+  "field": "lead",
+  "film_id": "9cffa8a1-1346-43c2-808d-464882a691ed",
+  "lang": "en",
+  "text": "Two costumes that have no business in one frame: a gangster's suit and a charro's outfit, both claiming the same streets. Juan Orol sets Johnny Carmenta against Pancho Domínguez, the Charro of the Slums who already runs the city, and gives the rumba dancer Rosa the only position with any freedom in it, since she is friendly with both men and beholden to neither. Seventy-nine minutes, 1947, an American underworld grammar spoken in a thick Mexican accent. Orol does not hide the seam; the mismatch is the pleasure, and a dance number and a rivalry share the same floor without apology. The plotting is blunt to the point of being a diagram. The costumes carry the argument; Rosa is the complication neither man planned for.",
+  "model": "claude-opus-5",
+  "source_sha256": "49dede7aed19ad2adaa6b04490557bc42c57d0b2478613a257bbdb2b72d84dff"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lebenslaufe-die-geschichte-der-kinder-von-golzow-in-einzelnen-portraits-1981",
+  "field": "lead",
+  "film_id": "cfc1f191-508a-48f6-a189-5950f80d95c8",
+  "lang": "en",
+  "text": "Golzow is a village that one filmmaker has kept returning to, camera running, across a span long enough to turn children into adults. Winfried Junge's 1981 documentary breaks that long record into nine separate portraits, with a prologue and an epilogue that account for the method itself: these people as they are now, held up against the footage of who they were. The arithmetic is unusual — four hours and seventeen minutes, roughly half an hour each. That is time enough for a person to contradict the child the camera filmed years earlier, and enough for the gap between two visits to become legible as a life. Made in East Germany, where a decades-long study of ordinary citizens was never a purely private undertaking. Junge wants the distance between a file and a person.",
+  "model": "claude-opus-5",
+  "source_sha256": "e0442995fe0bc0c10ea6c4dd0471ad7e52a7ef2168263bb4cdd01184e20ee7b8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "luponini-el-terror-de-chicago-1935",
+  "field": "lead",
+  "film_id": "b5f94036-8559-4f0d-9533-2e23114f232b",
+  "lang": "en",
+  "text": "The motive is a broken heart, which is not usually what costs a bank its money. Luponini works in one until a woman ends things; after that he starts taking what he used to count, and for a while he is good at it. José Bohr's 1935 picture is unsentimental about how quickly a careful man learns the other trade. The subtitle drags Chicago into a Mexican production, and the seam is the interesting part: an imported vocabulary of accomplices and betrayal wrapped around a story whose real pressure is domestic. Luisa, his ex-wife, holds him in contempt, and her contempt costs him more than any accomplice does. Seventy minutes with nothing spare in them. A man who turns criminal in order to be looked at differently has already handed the verdict to someone else.",
+  "model": "claude-opus-5",
+  "source_sha256": "0c582fa54da9494bc26bca9eba60131052f69fcb325eaad311d3e5c1bd5f564f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "juego-de-mentiras-1967",
+  "field": "lead",
+  "film_id": "3b56071b-3745-40a9-a290-de312702da63",
+  "lang": "en",
+  "text": "A woman who used to clean these rooms is sitting in them as a guest, for one night. Archibaldo Burns builds the whole of it out of that evening: Luisa talks, Marta listens, and the confession that unspools keeps folding invention into fact until the two cannot be pulled apart, and the film declines to sort them. Eighty-four minutes, almost entirely indoors. Servant and mistress, seated as equals for the length of a visit, every courtesy intact and nothing behind the courtesies intact at all — one of them owns the furniture, the other knows what is under it. Horror sits among the genres listed, which looks at first like a filing error and then stops looking like one, because the film is two people being extremely polite while something else is being decided.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f6fc5167173df825c2da73f1cfd466cff97083db0473df568707b402f3d5a7e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "matinee-3-15-1976",
+  "field": "lead",
+  "film_id": "0f3ecf5a-1245-48f5-a881-ec01bcad40fe",
+  "lang": "en",
+  "text": "Twenty-five minutes, and the film it keeps promising never begins. Carlos Castillo assembles the parts that surround a screening instead of the screening itself: the commercials, a trailer with the logic of a dream, a line-up of characters for a story that is then withheld. None of these materials are unfamiliar to anyone who has sat through an afternoon show. The joke is that they turn out to be the whole programme. Castillo addresses the audience directly, which in 1976 was a way of asking what the seat is for — whether the pleasure of following a detective can be told apart from the pleasure of being sold something. The mockery cuts both ways. Consumer society takes it, and so do the radicals who believe a wall and a can of paint constitute a reply.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ed4757649c22902b38ef52bc74a620c5df2b64686080d89a700b3012a8c7985"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "santa-lucia-district-1931",
+  "field": "lead",
+  "film_id": "458441ec-5169-438e-adde-9c257856aa5d",
+  "lang": "en",
+  "text": "The father wants to go back to Naples; that wish sits underneath everything else in the house. The picture runs an hour, was made in 1931, and is spoken in Italian by a family that emigrated to America and has had to keep living with the decision. A household holds as long as the mother holds it. When she dies, what she had been doing becomes visible all at once — the money, the deference, the reasons anyone had for staying — and one of the sons decides the money is the part he wants for himself. Harold Godsoe shoots small: sixty minutes, no spectacle, a story whose largest event is somebody's wish to leave. Emigration on film is usually the harbour and the first winter. This one starts long after that, where the original arithmetic has stopped working and everyone who agreed to it is still in the room.",
+  "model": "claude-opus-5",
+  "source_sha256": "d6285172e5bae6b993859d27c78202b52a0e5871d06af3266ec94fea40cf88ed"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "last-tango-in-paris-1972",
+  "field": "lead",
+  "film_id": "571accce-94e0-4446-877e-cd98f593048c",
+  "lang": "en",
+  "text": "The arrangement the two of them make is that no names will be exchanged. A recently widowed American and a young Parisian woman agree to know nothing else about one another, and Bernardo Bertolucci films that agreement as though anonymity were a structure that could take weight. It cannot. What comes through the gaps is the death the man will not discuss, so the real business of the film turns out to be grief conducted by someone with no language for it, who improvises cruelty instead. Most of what has been written since 1972 concerns the scandal, which is the least interesting thing in it. A French production carrying an Italian title, 129 minutes, two people and a set of terms neither can hold to. Bertolucci's subject is the contract: who proposes it, and what pretending a person has no history costs.",
+  "model": "claude-opus-5",
+  "source_sha256": "c60540bd9b4ebc21adbde0df38cc189568e7ec6e5ff5499baf500d5d5733889b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "heaven-s-gate-1980",
+  "field": "lead",
+  "film_id": "cdd71fdb-a1f3-4128-b6c8-7e24db4ea00e",
+  "lang": "en",
+  "text": "James Averill went to Harvard and came back to pin on a sheriff's badge in Jackson County, Wyoming, which makes him legible to both sides of a land war and trusted by neither. On one side, immigrants with nothing. On the other, cattlemen with money and the political connections to spend it, who hire a mercenary named Nathan Champion — a man courting the same woman Averill is, Ella Watson, who runs a house of her own. Michael Cimino gives this three hours and thirty-seven minutes, most of it crowds: dances, meetings, rooms with several things happening at once. The film took a Golden Raspberry for worst director, a verdict that has aged into a curiosity next to what is on the screen. The scale is not decoration. The scale is the argument.",
+  "model": "claude-opus-5",
+  "source_sha256": "10fb01ada0c1969a039c6cef20f4ef265bcef87ee02841b6eab27ced046c9013"
+ }
+]

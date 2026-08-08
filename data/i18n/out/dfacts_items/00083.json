@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tim-burton#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "남부 캘리포니아의 화창한 현실과 그는 그만큼 겉돌았다. 동네 버뱅크 상점에 플라스틱 명절 장식이 걸리기 전까지는 지금이 무슨 계절인지도 몰랐다고 그는 말한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "61860aa8ebda31408fbba447a76e22daa79d34688d1e3ba3acb6357c76101f30"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-haynes#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "세 살 때 헤인즈는 월트 디즈니의 《메리 포핀스》(1964)에 완전히 빠져 있었다. 캐릭터를 쉬지 않고 그렸고, 거실에서 영화 전체를 혼자 연기하며 가족들에게 억지로 보게 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d30c623e6604a75f4b9b850d2e691e1ba86b5b268f410318573b18aca89233f2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-haynes#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1978년, 십대였던 헤인즈가 첫 단편 《The Suicide》를 연출한다. 게이 고등학생이 겪는 괴롭힘을 다룬 작품으로, 수십 년간 행방이 묘연했다는 사실이 나중에 밝혀졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6d504a9020af9932347206d695c9b7f0f4db18521c84d405b7e2a76dc3a81cd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-haynes#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1980년대 초 브라운대에서 그는 예술과 기호학(semiotics)을 전공했다. 페미니즘 영화이론가 메리 앤 도앤의 영향이 컸는데, '여성 영화'에 관한 그의 가르침은 헤인즈의 영화적 집착을 영영 결정지었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4abac3381e3fc32b0cc1ab890da2bc844c14ca33b72c5d8e1f998ba4dec95bdf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-haynes#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "브라운대 동기 크리스틴 바숀과의 만남이 그곳에서 이루어진다. 바숀은 자신이 세운 독립영화사 Killer Films를 통해 헤인즈의 장편을 한 편도 빠짐없이 제작하게 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e8223e11ece84983d062ab3d30d94d461fb6e073c0b20917f43e374a45ed0493"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-haynes#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "대학을 마친 뒤 뉴욕으로 건너간 그는 Apparatus Productions를 공동 설립한다. 할리우드에 반하는 실험적 단편에 제작비를 대고 배급하는 비영리 조직이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a08625e572587a455801e3b3237a04b6376c5e85b2ff5fd70299897d5f91e0fc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-haynes#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1987년 그를 알린 단편 《Superstar: The Karen Carpenter Story》는 개조한 바비 인형으로 만들어졌다. 거식증과 싸우다 끝내 목숨을 잃은 한 가수의 이야기를, 인형이 대신 연기한 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5472a34d0dfcee3c7d75afeb76db1ace3e02e420f97b8d3b35ec1936b020ad0c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-haynes#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "카펜터스의 노래를 허락 없이 쓴 것이 화근이었다. 1990년 리처드 카펜터가 저작권 침해로 소송을 걸어 이겼고, 법원은 《Superstar》의 공개 상영을 금지했다. 그 덕에 이 영화는 영화사에서 가장 유명한 해적판 중 하나가 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "68b20b95545277adc118ea428dde6f6e6ad9f7ae591e8a27621500ce4a848653"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-haynes#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편 데뷔작 《Poison》(1991)은 국립예술기금(NEA)에서 3만 1,500달러를 받았다. 이를 두고 도널드 와일드먼 목사와 제시 헬름스 상원의원 같은 보수 인사들이 납세자 돈으로 만든 '포르노 예술'이라며 공개적으로 공격했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "94d46f17ac815f260cf2827128de12f511bf596b577e92b73742ffa62652fa6f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-haynes#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "보수 진영의 맹공에도 《Poison》은 1991년 선댄스영화제 심사위원대상을 받았다. 비평가 B. 루비 리치가 '뉴 퀴어 시네마'라 이름 붙인 흐름에서 헤인즈는 그렇게 초석 하나가 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eadb580f97766e3b581ff540f0824d2b8dca443e1950b3c9d09c3a2d5904f81e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-haynes#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Poison》의 중심을 이루는 '히어로' 삽화는 프랑스 시인 장 주네의 글에 깊이 빚지고 있다. 특히 1943년 감옥 소설 《꽃피는 노트르담》의 전복적이고 에로틱한 어조를 옮겨 왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3feebb3f0d5268243ef98166d7c5c7296532cde12ce7b1ce86e77a9bff4e70b7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-haynes#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "병(病)을 사회의 은유로 읽는 데 헤인즈는 깊이 매혹돼 있다. 《Superstar》의 거식증, 《Safe》의 정체불명 환경성 알레르기, 《Poison》의 '동성애자-범죄자'라는 에이즈 알레고리가 모두 그 계열이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5efedc90ba2518923e56643a6e9bcdde868fd25791454fc2e264b7755d8d934c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-haynes#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Safe》를 찍으며 그는 촬영감독에게 스탠리 큐브릭 《2001: 스페이스 오디세이》의 무균질한 광각 공포를 그대로 가져오라고 못박았다. 줄리앤 무어가 연기하는 인물을 제 집, 제 교외에서 이방인으로 보이게 만들려는 화면이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2e989d7dd1d421f65190c01610d5f15e55cb35ef13427b8a3759bc833242f008"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-haynes#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2000년, 뉴욕 독립영화판의 끝없는 인맥 관리에 지친 그는 돌연 오리건주 포틀랜드로 옮겨 간다. 누이 그위네스 곁에서 살기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "05939f291e6be4416b863a412ca1ef2d8acce3d640135a2e934a370af6de2d99"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-haynes#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "라이너 베르너 파스빈더의 《불안은 영혼을 잠식한다》가 그에게 남긴 자국은 깊다. 1950년대 더글러스 서크에 바친 헌사 《Far From Heaven》(2002)에서 다룬 인종과 계급의 긴장이 곧장 거기서 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "acf2771ee4a5d6e44b06469cfac601466a4481b1af71d23656ac5583ca4f94d3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-haynes#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "작가로 높이 평가받는 것과 별개로, 헤인즈가 아카데미 후보에 오른 것은 평생 단 한 번뿐이다. 2003년 《Far From Heaven》으로 받은 각본상 후보 지명.",
+  "model": "claude-opus-5",
+  "source_sha256": "abb4dba0e8afec3346a67e5d3697990b35f5038c1838cb93fa697bfc39ca4d13"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-haynes#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2011년 HBO 미니시리즈 《밀드레드 피어스》에서 그는 제임스 M. 케인의 1941년 대공황기 소설을 거칠기까지 그대로 옮기는 쪽을 택했다. 조앤 크로퍼드 주연으로 유명한 1945년 영화판의 화려한 누아르 스타일은 의도적으로 물리쳤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e847406fef05ef2e975155a6e8eaa3a311bcb42252675929225ddc36f1c6cebb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-haynes#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《캐롤》(2015) 프리프로덕션 기간에 헤인즈가 스태프에게 건넨 것은 솔 라이터와 루스 오킨의 컬러 사진이었다. 1950년대 뉴욕의 탁하고 지저분한, 유리창에 한 번 걸러진 질감을 그대로 재현하라는 뜻이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3ebb867cdc9836b323b5e92bb0253eadd5da89f561ef41d38cf99ac2a55da03c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-haynes#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《원더스트럭》(2017)에서 1927년 대목은 통째로 무성영화로 연출됐다. 청각장애 배우 밀리센트 시먼즈를 캐스팅했고, 현장 소통을 위해 스태프들이 미국 수어를 배웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e1ce6f4cacc4870da0a097a37905209259a5412b60873cbda310bf263ba9fd9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-haynes#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2021년 다큐멘터리 《The Velvet Underground》를 그는 아방가르드 영화의 개척자 요나스 메카스에게 바쳤다. 1960년대 메카스의 실험적 미학이 이 영화의 최면적인 분할 화면 구조를 만들다시피 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f3f0e518ff87c71a5b91353d2d98e10bc907dd9c8f3106105c6af170895e19e4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-haynes#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《메이 디셈버》(2023)의 불편한 통속극 공기는 빌려 온 음악에서 나왔다. 1971년 조지프 로지의 《The Go-Between》에 미셸 르그랑이 붙인 피아노 중심의 극적인 스코어를 헤인즈가 다시 썼고, 배우들의 정서를 잡아 주려 촬영장에서 직접 틀었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a1d3cd06308b36d641be6ec841710a474b1d885b71bc42e0c0794a074bd25a0d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-haynes#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "멜랑콜리한 재즈 보컬 페기 리를 그는 평생 흠모했다. 젊은 시절 넘치는 팬레터를 보낸 적도 있고, 시대극을 만들 때마다 그의 보컬 편곡을 정서의 본보기로 꼽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "be65f623f4fd88e8dcf9cdbf720c5c6d3b443c82d4dc1f762eb7ca6c72628cab"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-phillips#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "브루클린에서 토드 번즐이라는 이름으로 태어났다. 유년의 일부는 롱아일랜드에서 보냈고, 성은 나중에 필립스로 바꿨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "78f96a86a3931ceb06148357bdaf8ad78a97ff5bfa660d858524477119dd3a6a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-phillips#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "뉴욕대 티시예술대학에 들어갔으나 학위를 마치지 못하고 중퇴했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a1f2463ea1d0520c2a8f77fa4eda7ed798277b00ad4abcb34689a447aaf9b9dd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-phillips#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "학생 시절 만든 다큐멘터리 《Hated: GG Allin and the Murder Junkies》(1993)는 자기파괴로 악명 높던 펑크 퍼포머 GG 앨린을 담았다. 뉴욕대 학생 영화 중 최고 흥행작에 꼽히며 그의 경력을 열어 준 작품이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "97497a48d4aa02cd797f94604e280aece6049437209893710bc234e96172b47b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-phillips#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "필립스가 편집을 마무리하던 1993년, GG 앨린은 헤로인 과용으로 숨졌다. 다큐멘터리는 그 아수라장 같던 마지막 공연 언저리를 결말로 붙잡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "015c44b03f8e5cd4cc7dfec43408c3c48f04f9b0f64d3e53376f9f9f1ca1453f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-phillips#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "앤드루 걸랜드와 함께 만든 다음 다큐멘터리 《Frat House》(1998)는 선댄스영화제 심사위원대상을 받았다. 그러나 신고식 장면을 어떻게 연출했느냐를 두고 논란이 일면서 HBO가 방영을 접었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6777cd2384c3e472d0ce319f65be7dc996360cf2dd70bd3c565bd4ea77a5558e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-phillips#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "극영화 데뷔는 《로드 트립》(2000). 《애니멀 하우스》를 거친 이반 라이트먼의 회사가 제작을 맡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5404f2c71152f31f6b0f4149e9f7748e96efcee8f232382e503eb6f1459511b9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-phillips#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《행오버》(2009)는 넉넉지 않은 예산으로 만들어 전 세계에서 4억 6,700만 달러 넘게 벌었다. 당시 기준으로 역대 최고 흥행 R등급 코미디 중 하나였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb4f925a35f833bae9a8ebeecd31663918318da1dd9013682d558fe8950950fb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-phillips#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《행오버》의 상당 부분은 실제 라스베이거스 현장에서 찍었다. 시저스 팰리스도 그중 하나인데, 호텔 측은 각본 속 방탕한 묘사를 보고 처음엔 난색을 표했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6c14fab311b37a37a6dc40157955f7f494cdb97182fe99a26a60ee304cdcb40"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-phillips#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "앨런 역에는 아직 무명이던 잭 갈리피아나키스를 앉혔다. 그의 유별난 스탠드업을 보고 내린 결정이었고, 스튜디오는 반대했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ef08542902892975b8cff4b344121067d0061eb67a037382f72e354cba75d87"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-phillips#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2019년 무렵 그는 '코미디는 이제 끝'이라고 공개 선언했다. '워크 문화' 탓에 웃기기가 어려워졌다는 인터뷰 발언이었는데, 상당한 역풍이 뒤따랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b99c7eb20f276a6711341859954ee434090adc04210adf512fca5912db1e5031"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-phillips#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《조커》를 워너브러더스에 들고 갔을 때 그가 내세운 것은 1970년대 영화를 본뜬 거친 인물 연구라는 기획이었다. 마틴 스코세이지의 《택시 드라이버》와 《코미디의 왕》을 대놓고 준거로 들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "85093110f32a91899d5ad56c235dd7e65784ff25479a3e136f74e003c7bf8c71"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-phillips#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "기획 초기 《조커》에는 마틴 스코세이지가 제작자로 이름을 올렸다가 물러났다. 그럼에도 이 영화의 미감(美感) 한복판에는 여전히 그의 영향이 남아 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3a2ee2240339687c97e7b49d38a0057c6b6f02d4091aee139f7e258c114ac663"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-phillips#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《조커》(2019)는 전 세계 극장 수입 10억 달러를 넘긴 최초의 R등급 영화가 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "26a99af070d721b01d3469ddc2414f467728c9357e962ac143363b6b93788a26"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-phillips#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2019년 제76회 베네치아국제영화제에서 《조커》가 처음 공개됐고, 최고상인 황금사자상을 가져갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "089ab78e8647855600f1a7686838d25c3c9a6e5241008d31507232e9e3ef692b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-phillips#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《조커》로 그는 아카데미 감독상 후보에, 스콧 실버와 함께 각색상 후보에 올랐다. 이 영화는 오스카 2개 부문을 수상했고 그중 하나가 호아킨 피닉스의 남우주연상이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d6b2e343cf93f048a020b0a4e0d977e096615c14e16fa578f8f5a9ad96017a5f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-phillips#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《보랏》(2006)의 공동 각본으로 아카데미 각색상 후보에 올랐다. 다만 촬영에 들어가기 전 그는 이미 연출에서 손을 뗀 뒤였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "32c56db44aed3f8d821661d6eda55b5a8370d1738d2470ee2ae2529899c8a611"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-phillips#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《보랏》 초기 작업 중 사샤 배런 코언과 사이가 틀어졌다. 즉흥으로 밀어붙이는 위험천만한 게릴라식 촬영 방식을 두고 부딪쳤다고 전해진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d0e3fdf7f38c7ff154828e3deb8802ddc3ccf450318547f96e2017eebe25079f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-phillips#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "속편 《조커: 폴리 아 되》(2024)에서는 레이디 가가가 할리 퀸을 맡았다. 시리즈를 주크박스 뮤지컬 쪽으로 절반쯤 다시 상상한 작품이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8f369b124fb61fbc630000b788b7ba51feaf1d8403234e2b18b166127770fb7c"
+ }
+]

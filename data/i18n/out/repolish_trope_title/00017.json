@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-constraint-that-forged-the-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화를 벼려낸 제약",
+  "model": "claude-opus-5",
+  "source_sha256": "6c29df17618e68b96c76e1eeacba3939bb393169e5cdd1f174bdcc39126db622"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-contagion-filmed-as-fog-and-shadow",
+  "field": "title",
+  "lang": "ko",
+  "text": "안개와 그림자로 찍은 전염",
+  "model": "claude-opus-5",
+  "source_sha256": "ecc248ebf45c26f70a6523b4ca2f7eb106ebb4581d025648fe23281b2a41df08"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-contaminated-body-as-national-bloodline",
+  "field": "title",
+  "lang": "ko",
+  "text": "오염된 몸, 곧 국가의 혈통",
+  "model": "claude-opus-5",
+  "source_sha256": "5ed381618d42dee56959aba505e8f297d86c9422a9d554923c9c52849af2944a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-convent-as-forced-birth-apparatus",
+  "field": "title",
+  "lang": "ko",
+  "text": "강제 출산 장치가 된 수녀원",
+  "model": "claude-opus-5",
+  "source_sha256": "88362089f1d45b0b4e580578cfed167bea5cf373dd6cc455fc65b35408d6384f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-convent-as-reproductive-factory",
+  "field": "title",
+  "lang": "ko",
+  "text": "생식 공장으로서의 수녀원",
+  "model": "claude-opus-5",
+  "source_sha256": "ab60dc52fe6d0148b0288a7e754a8a16334102a8a7d68b458291e68c6ee7fe8d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-convent-as-total-institution-of-discipline",
+  "field": "title",
+  "lang": "ko",
+  "text": "규율의 총체적 기관, 수녀원",
+  "model": "claude-opus-5",
+  "source_sha256": "6c66d36b7462e355dfbc2aab9ebf9957ffaf84383e3d7642708ab3df31660936"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cool-label-as-critical-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "'쿨'이라는 딱지에 담긴 비평의 자백",
+  "model": "claude-opus-5",
+  "source_sha256": "941ce0913e8d1dddeaedbaee248ea4bd8cf66df630b9da92362542b893d58eac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-copy-that-has-no-original",
+  "field": "title",
+  "lang": "ko",
+  "text": "원본이 없는 복제",
+  "model": "claude-opus-5",
+  "source_sha256": "9f0612d83bc4497f77300669a75a547da6ecc3566f5d1893332736bdf88fccf8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-copy-that-outruns-its-original",
+  "field": "title",
+  "lang": "ko",
+  "text": "원본을 앞질러 달아난 복제",
+  "model": "claude-opus-5",
+  "source_sha256": "fe3ae8eff28a0b40b25a774f6cae07af25839bf5f81712e9da5430648ea1e572"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-copy-with-no-original",
+  "field": "title",
+  "lang": "ko",
+  "text": "원본 없는 사본",
+  "model": "claude-opus-5",
+  "source_sha256": "455671cb5d5fb616602d20c96a02181cf43356bbb413877d3ac55ce2c8514191"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-copy-with-no-original-behind-it",
+  "field": "title",
+  "lang": "ko",
+  "text": "뒤에 원본이 서 있지 않은 복제",
+  "model": "claude-opus-5",
+  "source_sha256": "ee6619a5ee275691a0cb1cf587c68d5abbb4d88099d14b4d133ed243c60ad7f9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-corpse-son-as-mourner-s-surrogate-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "애도하는 자의 분신이 된 아들의 주검",
+  "model": "claude-opus-5",
+  "source_sha256": "3b593ed0ad62b0c8d470ac90691819a72c240f9cd42750a1383df8690c143850"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-corpse-that-refuses-its-grave",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 무덤을 마다하는 주검",
+  "model": "claude-opus-5",
+  "source_sha256": "84281424a04d686408688367604cf699d2688a39dd487794aec39990bbca408d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-corpse-that-was-always-watching",
+  "field": "title",
+  "lang": "ko",
+  "text": "내내 지켜보고 있던 시체",
+  "model": "claude-opus-5",
+  "source_sha256": "d6675d556777d7b00a9f375f772208097f00c6e05678127b80cb8ae6495a265f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmetic-as-the-repressed-that-speaks",
+  "field": "title",
+  "lang": "ko",
+  "text": "입을 여는 억압, 화장",
+  "model": "claude-opus-5",
+  "source_sha256": "71bf1fd4c8ceb5f316e9db160d9640a81eafcbcd4b3e6097cc0165123e187e6e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmetic-face-is-the-commodity-form",
+  "field": "title",
+  "lang": "ko",
+  "text": "화장한 얼굴이 곧 상품 형식이다",
+  "model": "claude-opus-5",
+  "source_sha256": "0ec7d5798df869c3206d83d97169af4ec9e126805004b302b006f8628badb2d6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmology-that-procreation-refuses",
+  "field": "title",
+  "lang": "ko",
+  "text": "생식이 등을 돌린 우주론",
+  "model": "claude-opus-5",
+  "source_sha256": "d2546d33348d4c010636f23af603cf1cf19d6077ba28dcb6368ef3df2afc706e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmos-as-endless-tribunal",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝나지 않는 법정으로서의 우주",
+  "model": "claude-opus-5",
+  "source_sha256": "03a61f47c49b465ccdc7cf4dfc49f07af29f6ae5855cccf178600fa1252022dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmos-as-engineered-artifact",
+  "field": "title",
+  "lang": "ko",
+  "text": "설계된 인공물, 우주",
+  "model": "claude-opus-5",
+  "source_sha256": "9cd0288e3bd057f357f84d7d8cd4d612ac4a9377d9b7a0bd8923db02fab2521d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmos-audited-as-ledger",
+  "field": "title",
+  "lang": "ko",
+  "text": "장부처럼 감사받는 우주",
+  "model": "claude-opus-5",
+  "source_sha256": "21a453052ce22528225889c1ec4e6c9d4ff7ccfcbbd9691db95e2a324c4e571f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmos-faked-from-earthbound-stuff",
+  "field": "title",
+  "lang": "ko",
+  "text": "지상의 재료로 꾸며낸 우주",
+  "model": "claude-opus-5",
+  "source_sha256": "f2d0b428fd5e1f6b2b3adecbfa55db1031e5c9f94abda64e072b76ba713b5a06"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmos-pursuing-its-own-awareness",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 자각을 좇는 우주",
+  "model": "claude-opus-5",
+  "source_sha256": "bb0cedafef2e17a2b3a4e20de27c3e3faa5720cc068ef843271d4939f9295f14"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmos-that-demands-its-blood-price",
+  "field": "title",
+  "lang": "ko",
+  "text": "피의 값을 요구하는 우주",
+  "model": "claude-opus-5",
+  "source_sha256": "d0a26549e94f933c90e8b27d00ff40dab45898cce687729287daacd92fe1aab3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmos-that-withholds-its-reasons",
+  "field": "title",
+  "lang": "ko",
+  "text": "이유를 끝내 감추는 우주",
+  "model": "claude-opus-5",
+  "source_sha256": "cf45b3b970fbffe184ad0074bc8e369287d284f114575c20d0f1b93a62e665bd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmos-was-built-in-an-english-shed",
+  "field": "title",
+  "lang": "ko",
+  "text": "우주는 영국의 헛간에서 만들어졌다",
+  "model": "claude-opus-5",
+  "source_sha256": "758ec0daeb3348e191ee3f3848f4a4b9c753379400587ed67c9ebf25dbd6365a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmos-wired-by-coincidence-not-cause",
+  "field": "title",
+  "lang": "ko",
+  "text": "인과가 아니라 우연으로 배선된 우주",
+  "model": "claude-opus-5",
+  "source_sha256": "70153c45fe4381c1f510791bc4ecbb5067e3cc3147829a79e9e596d68e99312f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cosmos-with-no-highest-good-or-telos",
+  "field": "title",
+  "lang": "ko",
+  "text": "최고선도 목적(telos)도 없는 우주",
+  "model": "claude-opus-5",
+  "source_sha256": "b7088eb5787852c9335fe2e9448ffb91682c8c93904a71212f623fb45941a84b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-costume-as-defense-against-collapse",
+  "field": "title",
+  "lang": "ko",
+  "text": "무너짐을 막는 갑옷, 의상",
+  "model": "claude-opus-5",
+  "source_sha256": "97f0ff0ad13466135ae513db7bf1b5b10358f3860ca8e51b10400b6104780712"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-costume-of-a-doomed-leisure-class",
+  "field": "title",
+  "lang": "ko",
+  "text": "몰락을 앞둔 유한계급의 의상",
+  "model": "claude-opus-5",
+  "source_sha256": "7757db93fa9e706da27cb52277a28941d7262e863576d7dac3ae5c2d3b41de7f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-costume-stripped-to-reveal-the-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "자아를 드러내려 벗겨내는 의상",
+  "model": "claude-opus-5",
+  "source_sha256": "5b5e8330b86b8a73a1f8657694cf5ed6615b35c9ad255ea7340ba922157290a4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-costume-that-becomes-the-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 자아가 된 의상",
+  "model": "claude-opus-5",
+  "source_sha256": "15d8c5e3626458e47798a582df302b76edd1bfcf0c162c18215b8a6dbc51431e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-costume-that-speaks-what-the-self-cannot",
+  "field": "title",
+  "lang": "ko",
+  "text": "자아가 못 하는 말을 대신하는 의상",
+  "model": "claude-opus-5",
+  "source_sha256": "6851814e5f1ed0ba2ec472d6547871637853ee79d4d0b1eb45fbd49859ea8aa9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-counter-where-cash-buys-public-death",
+  "field": "title",
+  "lang": "ko",
+  "text": "현금으로 공개 처형을 사는 계산대",
+  "model": "claude-opus-5",
+  "source_sha256": "072ab26341ababc7fd594d0fae95c27849d4b759c155be801111b4749e6e9624"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-counterfactual-life-as-grief-work",
+  "field": "title",
+  "lang": "ko",
+  "text": "애도의 노동이 된 가정법의 삶",
+  "model": "claude-opus-5",
+  "source_sha256": "4005322c94c4c483393c3df8accee3d25483d55d1a10dffd8cdf24a436211cf7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-counterfeit-reveals-money-s-original-forgery",
+  "field": "title",
+  "lang": "ko",
+  "text": "위조지폐가 돈의 태생적 위조를 들춘다",
+  "model": "claude-opus-5",
+  "source_sha256": "0235a4a26aa6058ef335ba5ae9bda945e500b137c7ca61c6438d1734f5585c7b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-counterfeiter-who-steals-authorship",
+  "field": "title",
+  "lang": "ko",
+  "text": "저자의 자리를 훔치는 위조범",
+  "model": "claude-opus-5",
+  "source_sha256": "e62d62b9823808a48b8ca479fb11732108a1d9605f1b0f07871276493fd3b26e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-counting-that-refuses-its-sum",
+  "field": "title",
+  "lang": "ko",
+  "text": "합을 내기를 거부하는 셈",
+  "model": "claude-opus-5",
+  "source_sha256": "ee0798d723357a905c0d610a7b7a0eac15112a4178f31935f9a13d7a5243c9a9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-country-club-pretending-to-be-bloodlines",
+  "field": "title",
+  "lang": "ko",
+  "text": "혈통 행세를 하는 컨트리클럽",
+  "model": "claude-opus-5",
+  "source_sha256": "92238c69279157e71ff89b8e5d2f30cbe4d9a9909c2b93db5d454671045b38ef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-countryside-as-the-pastoral-s-undoing",
+  "field": "title",
+  "lang": "ko",
+  "text": "전원시를 무너뜨리는 시골",
+  "model": "claude-opus-5",
+  "source_sha256": "5e4f50f6ab99667e1d7162a2918adf801a2e5910d03bfa6e88dcb1025929f8c5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-coup-already-won-before-the-coup",
+  "field": "title",
+  "lang": "ko",
+  "text": "일어나기도 전에 끝나 있던 쿠데타",
+  "model": "claude-opus-5",
+  "source_sha256": "36eecea57b43881c48beab5e605c9a5ba2fd56a7f1699ea8cf33f3088b324945"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-court-scored-by-anachronism",
+  "field": "title",
+  "lang": "ko",
+  "text": "시대착오의 음악이 깔린 궁정",
+  "model": "claude-opus-5",
+  "source_sha256": "c207726b003ce46b1b640ba52446701e9da93cc5d0c29b42a48802ee435a7944"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-courtesan-who-claims-her-own-terms",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 조건을 스스로 내거는 기녀",
+  "model": "claude-opus-5",
+  "source_sha256": "c6669df29f4fff1e0344019549d5428a2f7670bdf2f34e952fc0220fc6c713e2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-couturier-as-unacknowledged-sovereign",
+  "field": "title",
+  "lang": "ko",
+  "text": "아무도 인정하지 않는 군주, 쿠튀리에",
+  "model": "claude-opus-5",
+  "source_sha256": "0b1710e334bf6436649496f70159198372b3023828a7d4b37b47c0db2b19b50d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-couturier-who-tyrannizes-through-function",
+  "field": "title",
+  "lang": "ko",
+  "text": "기능을 무기로 군림하는 쿠튀리에",
+  "model": "claude-opus-5",
+  "source_sha256": "f549fe996a2b660563b4dd072133f451fdfb6377deb7650e629c59cc2a9f0513"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-coveted-object-that-stands-for-desire",
+  "field": "title",
+  "lang": "ko",
+  "text": "욕망을 대신 떠맡은 탐나는 물건",
+  "model": "claude-opus-5",
+  "source_sha256": "3411e1342bac9d60668c5fd6b897e13e4a294e67743a729cf911635761c9c968"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-cow-as-captured-economic-lifeblood",
+  "field": "title",
+  "lang": "ko",
+  "text": "붙들린 소, 경제의 목숨줄",
+  "model": "claude-opus-5",
+  "source_sha256": "c86d1d203725461e4b5156503b43cacfb7794677183508aabf07e84471fb4f98"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-coward-as-the-truer-moralist",
+  "field": "title",
+  "lang": "ko",
+  "text": "겁쟁이야말로 더 참된 도덕가",
+  "model": "claude-opus-5",
+  "source_sha256": "c0422553576fcfca6fe524fb55a3d05d96fff060bfe830aa39ec69fb7709a3e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-crash-as-self-s-symbolic-death",
+  "field": "title",
+  "lang": "ko",
+  "text": "자아의 상징적 죽음이 된 충돌",
+  "model": "claude-opus-5",
+  "source_sha256": "391416e0dc09e5bd3eb37f970a441432dd18db60c12a0e4205bc149a246a775d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-created-woman-poisons-her-maker",
+  "field": "title",
+  "lang": "ko",
+  "text": "만들어진 여자가 만든 자를 독살한다",
+  "model": "claude-opus-5",
+  "source_sha256": "cc15e9f294f69cc46a62781778ce90507ca83e228e969bf6af1ccdbcdd2e9ae4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-creature-built-wrong-on-purpose",
+  "field": "title",
+  "lang": "ko",
+  "text": "일부러 어긋나게 빚은 피조물",
+  "model": "claude-opus-5",
+  "source_sha256": "927ae3aa48f7ea55c04c0b3b88b341f99ca55c47e10591df8549b2e43803819f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-creature-that-refuses-its-category",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 범주에 들어앉기를 거부하는 피조물",
+  "model": "claude-opus-5",
+  "source_sha256": "203c50f1d9eb797d1530e7b18aa5d6e855795b2a0980d7cef9f0acaa413d9497"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-credit-that-confers-co-authorship",
+  "field": "title",
+  "lang": "ko",
+  "text": "공동 저자의 자격을 주는 크레딧",
+  "model": "claude-opus-5",
+  "source_sha256": "e862ddb7c67163e4f1d9bbe709976a1f5a57710c30850fc251808b21f39ab0e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-credit-war-as-the-film-s-true-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화의 진짜 주제는 크레딧 전쟁이었다",
+  "model": "claude-opus-5",
+  "source_sha256": "a9f7574f46e9dc45aa778d0151448bb12e58224f2d5d0786bd50e993d733cd46"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-credits-run-backward-as-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "거꾸로 흐르는 크레딧, 하나의 고백",
+  "model": "claude-opus-5",
+  "source_sha256": "5303ee89e3e3c0e762283809a01501dd32ed30455d6fb72d43c9736f4a986ea0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-creed-that-curdles-into-bad-faith",
+  "field": "title",
+  "lang": "ko",
+  "text": "자기기만으로 굳어버린 신조",
+  "model": "claude-opus-5",
+  "source_sha256": "0075ad35ab0eadc647d3e7c8e2c7aef5bddf35bb93f26edb02eb5ad8ab6d6101"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-crew-towed-toward-a-mythic-mariner-s-doom",
+  "field": "title",
+  "lang": "ko",
+  "text": "신화 속 뱃사람의 파멸로 끌려가는 선원들",
+  "model": "claude-opus-5",
+  "source_sha256": "f4d53a4c1837310b177e6d59c50daf4f4f5d365effa94ac57c0c81cc9a096872"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-crime-plot-was-capital-all-along",
+  "field": "title",
+  "lang": "ko",
+  "text": "범죄 플롯은 처음부터 자본이었다",
+  "model": "claude-opus-5",
+  "source_sha256": "d901b46572accad7951931974fdf1a486a9505689884ab31d98c6ad111272012"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-crime-restaged-on-its-own-soil",
+  "field": "title",
+  "lang": "ko",
+  "text": "범죄가 벌어진 그 땅에서 다시 상연되다",
+  "model": "claude-opus-5",
+  "source_sha256": "94c94f5d3d1ab5d017b126e283117032ff3b17873f29975d968bf92d7151f186"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-crime-retold-until-truth-dissolves",
+  "field": "title",
+  "lang": "ko",
+  "text": "진실이 흩어질 때까지 되풀이되는 범죄",
+  "model": "claude-opus-5",
+  "source_sha256": "460ee75d6b4f03cb40b9acbddd6fa29890ff27ef15d578c8e4ff1886c667671c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-crime-shown-first-then-dissected",
+  "field": "title",
+  "lang": "ko",
+  "text": "범죄를 먼저 보여주고, 그다음 해부한다",
+  "model": "claude-opus-5",
+  "source_sha256": "d25016e3b377ad5512a64fc49d2486abc7de277c7a93912acb1dad49eb1d14e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-crime-that-is-only-intention",
+  "field": "title",
+  "lang": "ko",
+  "text": "의도로만 존재하는 범죄",
+  "model": "claude-opus-5",
+  "source_sha256": "4ee16cecc446dfaf7ecbe33d715bffc668d594713b23eac18d255524487a95a8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-crime-world-stripped-of-myth",
+  "field": "title",
+  "lang": "ko",
+  "text": "신화를 벗겨낸 범죄의 세계",
+  "model": "claude-opus-5",
+  "source_sha256": "f8bb4d20cb2e728b2c37f23ed4b2b9356899fefc307087f5f0dbdc2e10fbb1f0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critic-caught-in-the-film-s-trap",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화가 놓은 덫에 걸린 비평가",
+  "model": "claude-opus-5",
+  "source_sha256": "283b27985087d9c510e6cff37d1e046709aec5e44a21f6b5718cd3bb2b86c38a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critic-mistook-the-diagnosis-for-the-disease",
+  "field": "title",
+  "lang": "ko",
+  "text": "진단을 병으로 착각한 비평가",
+  "model": "claude-opus-5",
+  "source_sha256": "9a76618a55dfbc51af9f99cb1b21fb9f3b3fe09ce8b1484a3bac25704bf0e859"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critic-s-alibi-for-discomfort",
+  "field": "title",
+  "lang": "ko",
+  "text": "불편함을 감추는 비평가의 알리바이",
+  "model": "claude-opus-5",
+  "source_sha256": "6e8f760851bdd6f1a4ce085c65a04482e8550ee9a3ffb3e85aa94028c10dda74"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critic-s-allegory-hunt-as-self-defense",
+  "field": "title",
+  "lang": "ko",
+  "text": "알레고리 사냥, 비평가의 자기방어",
+  "model": "claude-opus-5",
+  "source_sha256": "ad657c19c8e8eeb537422c8d28122d154cba6a4a2118e97e1f5cf93d17f30b53"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critic-s-anxious-rush-to-name-desire",
+  "field": "title",
+  "lang": "ko",
+  "text": "욕망에 이름을 붙이려는 비평가의 조바심",
+  "model": "claude-opus-5",
+  "source_sha256": "a09f59257d24ff4b673818fa9727ad37de6ed25b031f284b84ffa33f28f4183a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critic-s-charge-as-confession-of-anxiety",
+  "field": "title",
+  "lang": "ko",
+  "text": "비평가의 혐의 제기는 불안의 자백이었다",
+  "model": "claude-opus-5",
+  "source_sha256": "c2ff835f1185f3e4a45c3426cda6ce481f6fde9948f6c2062ccc9d94bdf7e1f0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critic-s-charge-as-self-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "고발하면서 스스로를 실토한 비평가",
+  "model": "claude-opus-5",
+  "source_sha256": "31a35697a32c63b739e61d80054e2d8cd6ab03b06354e3dc087079983aeb21d9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critic-s-complaint-as-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "불평이라 쓰고 고백이라 읽는다",
+  "model": "claude-opus-5",
+  "source_sha256": "dbd4cffa97680e418cfe9a738fb360c562a82c3d318d46d6901d125dbbaabb48"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critic-s-contempt-as-panic-over-female-pleasure",
+  "field": "title",
+  "lang": "ko",
+  "text": "여성의 쾌락 앞에서 공황이 된 비평가의 경멸",
+  "model": "claude-opus-5",
+  "source_sha256": "fdb05578b9293cac3b8b7f524a261d8243b8c8eaf504800d8376b9cdcda79d04"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critic-s-cult-as-self-portrait",
+  "field": "title",
+  "lang": "ko",
+  "text": "비평가가 떠받든 컬트, 그 자화상",
+  "model": "claude-opus-5",
+  "source_sha256": "54d0dcfb12ce155085cc3d1ce3b6ff6f17d04251115464c92e2ef5211b901c6c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critic-s-flinch-mistaken-for-the-film-s-flaw",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화의 흠으로 오인된 비평가의 움찔함",
+  "model": "claude-opus-5",
+  "source_sha256": "782bb69aef7ef120f6e5223190854099c77fa36d630e6db9b85bf00fa1076356"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critic-s-hunger-to-solve-is-the-trap",
+  "field": "title",
+  "lang": "ko",
+  "text": "풀어내고 싶은 허기, 그것이 덫이다",
+  "model": "claude-opus-5",
+  "source_sha256": "8948b61ba7abccf86fba82726592b3d2900a0d99f0dd929d381201a78ce44ddf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critic-s-praise-exposing-their-own-class-tourism",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 계급 관광을 들켜버린 비평가의 상찬",
+  "model": "claude-opus-5",
+  "source_sha256": "4c0d5deadb89864e54da288f966e07d31122ec33598c9a16be9355cd9e3420d0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critic-s-recoil-as-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "움츠러듦으로 자백한 비평가",
+  "model": "claude-opus-5",
+  "source_sha256": "64cca7590a7ef70cce62b90125814ee71152b56e10124ce5acd506b6a0eac37a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critic-s-relief-as-genre-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "안도하는 순간 드러난 비평가의 장르 취향",
+  "model": "claude-opus-5",
+  "source_sha256": "b2fb40296a7e9c87822aaa5ea0ea1240d4bbd753d3d91a897ac754e35849a7ad"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critic-s-sandler-anxiety-made-visible",
+  "field": "title",
+  "lang": "ko",
+  "text": "눈에 보이게 된 비평가의 샌들러 불안",
+  "model": "claude-opus-5",
+  "source_sha256": "73db3c4c491f2dc584aad242fe42ae369f91979c9b18dca1a897224007b1cd50"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critic-s-verdict-as-unwitting-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "저도 모르게 고백이 되어버린 평결",
+  "model": "claude-opus-5",
+  "source_sha256": "de0082086d9d29009508e0fa8d4872113734a8298e605d94ecc0e979533dba16"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critic-who-claims-to-own-creation",
+  "field": "title",
+  "lang": "ko",
+  "text": "창작을 제 것이라 주장하는 비평가",
+  "model": "claude-opus-5",
+  "source_sha256": "916270056006c0da68d1a8e750f84943b582dfa6f794e284a990eb52df9a8a54"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critic-who-confessed-by-diagnosing",
+  "field": "title",
+  "lang": "ko",
+  "text": "진단하면서 자백한 비평가",
+  "model": "claude-opus-5",
+  "source_sha256": "1a61beb078f00e7a3ccc627bbd64aa0871a01666848a9bf85d70d6284e1b3929"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critic-who-demanded-to-be-spared",
+  "field": "title",
+  "lang": "ko",
+  "text": "자기만은 봐달라고 요구한 비평가",
+  "model": "claude-opus-5",
+  "source_sha256": "cd806d34b5dfffc2c584c9dd16b48f0e17afa5ddb9a471b452d59d59de528844"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critic-who-misread-the-gangster-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "갱스터 영화를 잘못 읽은 비평가",
+  "model": "claude-opus-5",
+  "source_sha256": "515f36bb84090aafede6757c63832cdc67f21efad290fa169ada5c86c313474a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critic-who-mistook-the-form",
+  "field": "title",
+  "lang": "ko",
+  "text": "형식을 오해한 비평가",
+  "model": "claude-opus-5",
+  "source_sha256": "77719cf1548016782d422b991db26364c7c178af251ea97cc4b15b34f24845b4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critic-who-penalized-the-pleasure",
+  "field": "title",
+  "lang": "ko",
+  "text": "재미에 감점을 준 비평가",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbcaf1a0f31b2f1a25c2ead7b3588f4501151ec08e6094ec2cbcb3d975d1151"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critical-demotion-that-missed-the-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "진실을 비껴간 비평의 격하",
+  "model": "claude-opus-5",
+  "source_sha256": "b3d86348a0e5fa3c5521f0c535f0e98e17091cae6b0b00f03ab7e8f71f1f69bd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critical-dismissal-that-confirmed-the-thesis",
+  "field": "title",
+  "lang": "ko",
+  "text": "묵살이 오히려 논지를 증명했다",
+  "model": "claude-opus-5",
+  "source_sha256": "cf51147cebcaeb3ee6e83c4e26835db2a7b75895af483c82e58e44914d33e5a5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critical-fetish-for-absence-as-medium-anxiety",
+  "field": "title",
+  "lang": "ko",
+  "text": "부재를 향한 비평의 물신, 매체 불안의 다른 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "57a49d46ace88e5a639296536299f7ab84ea98c2facdfeb6fcdb3606f3ad0e90"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critical-halo-as-cultural-alibi",
+  "field": "title",
+  "lang": "ko",
+  "text": "문화적 알리바이가 된 비평의 후광",
+  "model": "claude-opus-5",
+  "source_sha256": "fea0a3c2cadd7ef6b24cd4a2b2feba378dc811b3d2927eaaf9d99e1e1b23036b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critical-label-that-tames-the-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화를 길들이는 비평의 딱지",
+  "model": "claude-opus-5",
+  "source_sha256": "bcece0472645b4da101d039a0fc95d85342d4583d8d64cd75417a2ebf8ba4d69"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critical-reaction-as-proof-of-concept",
+  "field": "title",
+  "lang": "ko",
+  "text": "비평의 반응이 곧 개념 증명",
+  "model": "claude-opus-5",
+  "source_sha256": "003d35b16762658a1bc5dbef2a22d538389cf1c4d2feecb0ed72ef400ac792d8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critical-split-as-class-fault-line",
+  "field": "title",
+  "lang": "ko",
+  "text": "비평의 분열이 그린 계급의 단층선",
+  "model": "claude-opus-5",
+  "source_sha256": "05e0507a1b843b4a0572a40a9e1f26ee73cfafa779da1c39a2ffd27792bb958c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critical-verdict-as-class-anxiety",
+  "field": "title",
+  "lang": "ko",
+  "text": "계급 불안으로 읽는 비평의 평결",
+  "model": "claude-opus-5",
+  "source_sha256": "84fa1e1592388b993a0f6c7c2b4ef153286f5a56c16a67ba485fdf432e469fd7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critical-verdict-as-cultural-symptom",
+  "field": "title",
+  "lang": "ko",
+  "text": "문화적 증상으로서의 비평적 평결",
+  "model": "claude-opus-5",
+  "source_sha256": "5b38832deb43a422037635b0f6ed6e35f6888f95613e1cb54ad5811841ff4cf3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critics-who-convicted-themselves",
+  "field": "title",
+  "lang": "ko",
+  "text": "스스로에게 유죄를 선고한 비평가들",
+  "model": "claude-opus-5",
+  "source_sha256": "9eb9468bcec5f7b1de4ba2cd2ccf3ac77391e55571114a22cf636639ded5a7ed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-critics-who-misread-the-genre",
+  "field": "title",
+  "lang": "ko",
+  "text": "장르를 잘못 읽은 비평가들",
+  "model": "claude-opus-5",
+  "source_sha256": "20daabda5788ff42a0616e2b80238cc32f570ea12e3bd59619452a513561f50d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-crowd-as-the-true-protagonist",
+  "field": "title",
+  "lang": "ko",
+  "text": "진짜 주인공은 군중이다",
+  "model": "claude-opus-5",
+  "source_sha256": "553257651087e46d0e913a018389849204f605bedea7c6ff166f54ef8d7dc1e2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-crowd-owns-the-star-it-adores",
+  "field": "title",
+  "lang": "ko",
+  "text": "흠모하는 스타를 소유해 버리는 군중",
+  "model": "claude-opus-5",
+  "source_sha256": "6d7fa76e852816edc5f716ae9f72e9d01a54580a74e72c5f5b1ee500159ea140"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-crowd-pleaser-the-avant-garde-disowned",
+  "field": "title",
+  "lang": "ko",
+  "text": "아방가르드가 내친 대중적 성공작",
+  "model": "claude-opus-5",
+  "source_sha256": "e3ccf42c4ccb781794e4a031760ab85d325b4c890dd6b0431002dfb4131af609"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-crowd-s-conversion-as-spectacle-s-self-consumption",
+  "field": "title",
+  "lang": "ko",
+  "text": "군중의 개종, 스펙터클이 제 몸을 먹는 방식",
+  "model": "claude-opus-5",
+  "source_sha256": "15dcd5652f64a69d30d58049456aa2f60ce1c4af56599b828cbc990d021aba6f"
+ }
+]

@@ -1,0 +1,92 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-late-quartet-2012",
+  "field": "lead",
+  "film_id": "1e6697e8-52c0-478b-8019-6d967fd839f2",
+  "lang": "en",
+  "text": "Four musicians have spent twenty-five years agreeing on tempo; the cellist's diagnosis is the first thing they cannot rehearse. Yaron Zilberman takes the ordinary machinery of a working ensemble — who sits where, who shapes a phrase, whose reading wins — and treats it as law and precedent in a household of four. Illness reopens what habit had settled rather than resolved: rank, deference, old attractions, the difference between being indispensable and being replaceable. A concert sits on the calendar, the twenty-fifth anniversary, and every conversation gets measured against that date. Rehearsal rooms, apartments, 106 minutes. What the film understands is that people who have made one sound together for that long can wound each other in the technical vocabulary of music, and will generally prefer to.",
+  "model": "claude-opus-5",
+  "source_sha256": "9f2c3ed8fbc7514c66c200eb267887b370c4f5a5e9040b29bfae19095f1e411f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "destiny-turns-on-the-radio-1995",
+  "field": "lead",
+  "film_id": "1e796f8f-bbfd-4d0b-abd5-8d8d63b39bf9",
+  "lang": "en",
+  "text": "A Plymouth RoadRunner comes off the desert into Las Vegas, and the town's wiring starts misbehaving. Jack Baran files this at once under crime, comedy and fantasy, which is less a hedge than a description: a man fresh out of prison arrives with a short, practical list — the money from an old bank job, the woman he lost while doing it — and finds the list rearranged by something with a will of its own and, apparently, a driver's licence. The joke is a pun given a body and a car. Whether it holds for 103 minutes depends on how much pleasure there is in Las Vegas as a place where causality is already a house game, and in a film that keeps its supernatural business down at the level of bad reception and flickering current rather than spectacle.",
+  "model": "claude-opus-5",
+  "source_sha256": "b1adb348e2da1e529a7e63785b2a85aac1a6e0bbeb4f74248477f6ab158338e6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-pack-2022",
+  "field": "lead",
+  "film_id": "1ed48c5d-a256-47f8-a810-11fc67868e68",
+  "lang": "en",
+  "text": "In a clearing in the Colombian forest, boys who have done something spend the day at heavy labour and the evening in a circle, being asked to speak about it. Eliú is one of them, and the arrangement holds as long as nobody from before turns up. Then El Mono is transferred in. Andrés Ramírez Pulido sets the centre's two disciplines against each other — work that leaves no breath for talking, therapy that wants nothing else — and lets the forest do the job of walls, being distance rather than architecture. Eighty-six minutes, and nearly all the pressure comes from proximity: a boy who remembers everything, sleeping a few metres off, carrying a version of Eliú that Eliú has been trying to leave in the past tense.",
+  "model": "claude-opus-5",
+  "source_sha256": "c95a168cc9885d0c43cad62a7ae1eac31baac8e96ce0c250a35a5649c4c40a94"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bridget-jones-the-edge-of-reason-2004",
+  "field": "lead",
+  "film_id": "20cc5a77-e88b-48e8-983a-4a6e55ca2e94",
+  "lang": "en",
+  "text": "The sequel opens six weeks after the happy ending, which is the hardest problem it sets itself. Romantic comedy runs on wanting, and Bridget already has the barrister, so Beeban Kidron must manufacture doubt where the first film had appetite: an assignment in Thailand, and Daniel Cleaver back in the frame announcing his own reform. A hundred and eight minutes of a film doing the arithmetic of its predecessor's success. What survives is the small register — the particular awkwardness of standing on the inside of a relationship one spent an entire film trying to get into, and finding it comes with furniture, habits and an etiquette. What sags is everything invented to keep two men in circulation. Comedy of appetite converted, not always willingly, into comedy of possession.",
+  "model": "claude-opus-5",
+  "source_sha256": "508c478bb75899d942ce9ac404c87a0c2b491397087acf53a66d8fb8eea87d7d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "blindness-2008",
+  "field": "lead",
+  "film_id": "20d32a58-a0bb-4640-9b47-beb0b29c51f0",
+  "lang": "en",
+  "text": "The blindness arrives without explanation, takes a whole city, and the state's answer is a locked building. Fernando Meirelles spends most of 121 minutes inside it, where the science fiction premise becomes something more mundane and much harder to solve: several hundred people, no staff, no use for light, and the immediate questions of food and order. The film's technical dare is the obvious one. An audience that can see is looking at people who cannot, and every choice of framing turns into a question of whether the camera is a witness or a trespasser. A small group bands together early. What the film attends to is how much daily organising that takes, in a place built to hold people rather than to keep them.",
+  "model": "claude-opus-5",
+  "source_sha256": "a5bb3568d38e297d784ac74bc7f885dfa161347b8145e4763bf4637f91f6c6dd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tmdb-1025169",
+  "field": "lead",
+  "film_id": "21a31219-a6f2-4515-b927-a10872b98f19",
+  "lang": "en",
+  "text": "Thirteen people came out of a flooded cave in Thailand, and the title gives that away before anything begins. What it withholds is the inside of the wait. The first person plural — how we survived — is a promise about whose account this will be: not the rescue's, not the newsroom's, but the people who were underground while everything urgent was happening somewhere they could not see. Pailin Wedel's film arrived in 2022, at a distance from the news cycle that carried the story first, and that distance decides its shape. An audience already holding the outcome has nothing to learn from suspense, so what is left is duration: the hours a bulletin compresses into a clause, and the difficulty of describing them afterwards to anyone who was not there.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d435577f105fa311bf6ea55dac4be709df1c3a928b4c664753ddff9732a0252"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "nobody-s-daughter-haewon-2013",
+  "field": "lead",
+  "film_id": "22a036c3-a9fd-467b-b2f3-f8bd437e03ab",
+  "lang": "en",
+  "text": "Haewon's mother is emigrating, and that departure is close to the last unambiguous fact in the film. Hong Sang-soo gives his student an affair with her professor and a run of encounters she has not arranged, then declines to keep the ledger straight, so that a meal, a chance meeting, a walk and a dream all arrive in the same flat daylight and at the same weight. Ninety-one minutes. None of it is offered as a trick with a solution; it sits closer to the ordinary condition of someone who has nobody left to report to and whose feelings show up out of order. What remains is a series of conversations in which two people say courteous things and mean a demand, with one administrative problem underneath: who there is to telephone, and what being seen with him costs.",
+  "model": "claude-opus-5",
+  "source_sha256": "60191bd9657a18e56a5aff6ef10fc054aeaa719be050139921be761957f9b5d2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "how-much-do-you-love-me-2005",
+  "field": "lead",
+  "film_id": "237bd984-2855-4522-a4cd-1def71eca65a",
+  "lang": "en",
+  "text": "A hundred thousand euros a month, for exactly as long as the winnings last: the deal is on the table early and the rest is arithmetic. François has bought a wife by the month; Daniela, who accepts in a Pigalle bar, is being paid to produce on schedule the one thing that cannot be produced on schedule. Bertrand Blier keeps the comedy cruel and the premise literal — nobody in these ninety-five minutes pretends the arrangement is anything other than an arrangement, and the two of them go on renegotiating the terms of an affection whose price is already printed. The deadline is what lifts it past the dirty joke. Money runs out at a rate both parties can calculate, and both know the date, so every tender moment doubles as a subtraction.",
+  "model": "claude-opus-5",
+  "source_sha256": "953e8529bbebf155cf72d9f223ba380a9b6fdae2db45442ee16b4281e1676e4e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "blackbird-blackbird-blackberry-2023",
+  "field": "lead",
+  "film_id": "26abf9fa-fcde-44fb-9dae-f8804566a858",
+  "lang": "en",
+  "text": "Etero has a shop, a serious appetite for cake, and a plan to reach retirement without giving the village anything to discuss. She is forty-eight and unmarried by preference, in a Georgian village where that condition is a standing topic, and she has paid enough for her quiet to guard it closely. Then the man who delivers her stock stays longer than the delivery requires. Elene Naveriani gives 112 minutes to a forty-eight-year-old body most romances keep somewhere in the background: what Etero eats, what she carries, how she fills an afternoon, how a person conducts an affair where discretion is the entire point. Early on, the pleasure is her practicality about desire, handled much like the stock order — a matter of timing, and of who might notice.",
+  "model": "claude-opus-5",
+  "source_sha256": "066df209254b26de4c6dd91aac427f827134e5dcf6cfad90cdce802385192f7d"
+ }
+]

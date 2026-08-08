@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-ruination-of-men-2000",
+  "field": "lead",
+  "film_id": "27371985-987c-4d7e-8f29-dcc7d6212c6e",
+  "lang": "en",
+  "text": "A corpse needs moving, and the only man with time to help is one of the men who made it a corpse. Arturo Ripstein films that arrangement as farce and as bookkeeping at once: a widow of sorts, a killer of sorts, a body that belonged legally to more than one household. The comedy is in the practicalities — who lifts which end, what is owed, what gets said over the load — while the crime sits in the room, unpaid for. Bigamy is the engine rather than the punchline; the dead man's arithmetic outlives him, and the woman hauling him home is settling an account no court would recognise. It runs 106 minutes in Spanish and carries the Golden Shell. Nothing is played for shock, and nothing is forgiven either, which is a harder tone to hold than either one alone.",
+  "model": "claude-opus-5",
+  "source_sha256": "e1d3e31628ef106fa9d53783d213a380c4bab067266e9064aa0c14e0454c4c77"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "demons-in-the-garden-1982",
+  "field": "lead",
+  "film_id": "9d5d990f-2739-4ab0-b721-ab79303fd79e",
+  "lang": "en",
+  "text": "The family business is the black market, and the woman running it is the mother. Manuel Gutiérrez Aragón builds the film around a household where affection and commerce keep the same ledger: a favoured second son, an older brother who does the work and takes the wife, a poor cousin left with a child and no standing. Then it jumps ten years and hands the story to the boy, who is ill enough that three women agree to spoil him and old enough to notice what they are protecting him from. Under Franco, service to the regime is one of the exits available to a young man impatient with provincial arithmetic. Ninety-seven minutes, and the pressure stays domestic throughout. The interest is less in what this family did than in what it agreed never to name.",
+  "model": "claude-opus-5",
+  "source_sha256": "4840c7406d1a479085277de1caf4420a6be2ead6bddd7186ae689bd8b9f0aa07"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "arturo-s-island-1962",
+  "field": "lead",
+  "film_id": "d388f7bd-3b4c-43df-8b00-e621d1ac8899",
+  "lang": "en",
+  "text": "An island small enough that a boy's whole education comes from whoever happens to be standing on it. Damiano Damiani sets a teenager alone with an idea of his father — absent, admired, never tested — then lets the man come home with two people attached: a young wife, and a criminal just out. The house stops being a shrine and becomes a place with occupants. What follows is a private mythology getting crowded out by actual bodies in actual rooms, and the cruelty is that nobody in it intends harm. Ninety minutes leaves no room for explanation, so the film stays close to the boy's proximity to people he cannot read. It carries the Golden Shell. What lasts is structural rather than dramatic: three adults on an island, and a boy inventing what each of them is for.",
+  "model": "claude-opus-5",
+  "source_sha256": "1d0f9d34e85b65cb441953f4e4e434f28d5cfdaff830f2876ddc86bcf6d836e3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "days-of-love-1955",
+  "field": "lead",
+  "film_id": "077b1ec4-4b8a-4775-b142-d20d3813e7f0",
+  "lang": "en",
+  "text": "The obstacle is money, and the exact sum is the price of a proper wedding. Giuseppe De Santis takes a rural Italian couple who want the ceremony their families expect, cannot pay for it, and decide to skip to the marriage without the sacrament, which means going off to the countryside to live in what everyone around them will call sin. The comedy runs on how much the neighbours and relatives will tolerate and for how long. The drama runs on the fact that the two of them are right and it costs them anyway. Ninety-eight minutes, and the attention stays on the negotiation rather than the romance: dowry, land, pride, who will be shamed and in front of whom. Poverty is not atmosphere here. It is a schedule two people are trying to get out ahead of.",
+  "model": "claude-opus-5",
+  "source_sha256": "083515e1a3f3fb35a51150cf064e44d58543eaa16b6b580103b329ba12bce8b4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "letters-from-alou-1990",
+  "field": "lead",
+  "film_id": "8c8b9983-d2f8-4871-a404-334a17e51ab4",
+  "lang": "en",
+  "text": "He writes home, and the letters are the only place where the trip sounds like an adventure. Montxo Armendáriz follows Alou, twenty-eight, Senegalese, who comes ashore on the southern Spanish coast in the dark and is robbed of everything he brought before he has a chance to use it. Street vending is what is left. The film treats that as work — hours, weather, police, the price of a cloth to lay goods on — rather than as a condition to be pitied, and it is exact about how a man calibrates what his family gets told. A Spanish drama from 1990 built on a clandestine arrival is working in the present tense of its own country. A hundred minutes, and the tension is never whether Alou will be found out, but how long the gap between his two accounts of himself can hold.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd5cceb43ab7171b8f3f267776519561f1ab95451f071db56f31782ff7af7d85"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "yesterday-1985",
+  "field": "lead",
+  "film_id": "97fcf762-ab3f-4f06-9555-0398b44eedfe",
+  "lang": "en",
+  "text": "Graduation is coming and none of the four boys cares, because the only news that matters to them arrives on records pressed somewhere else. Radosław Piwowarski puts this in a provincial Polish town in the sixties, which gives Beatles worship a particular weight: the songs are not a hobby but the available evidence that another kind of life is running in parallel. Eighty-seven minutes, comic for most of them, with school and town supplying the resistance any obsession needs in order to stay interesting. Poland sent it out as its submission to the Academy Awards. Under the jokes sits the distance between a song and the room it gets played in, which for these four is also the distance between now and whatever they mean to become.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d1940da61abac53a3170bd4010cbcfbb639f6dde279760ec438d141a3b5e56a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "oh-sabella-1957",
+  "field": "lead",
+  "film_id": "8f94f802-851a-4ae4-b801-817fb63aa45e",
+  "lang": "en",
+  "text": "Word arrives that Sabella is dying, and her grandson leaves his studies to go and sit with her. Dino Risi plays the errand as comedy, which in practice turns a deathbed into a room where a family's arrangements are read aloud: who came, who came quickly, what the village will decide about it. Raffaele is a student from Naples arriving in Pollena, close enough to belong and far enough to see the machinery. Sabella herself is the fixed point, and everyone else stands in relation to her. Eighty-five minutes is a comic runtime with no room for a subplot; every scene either advances the situation or lands a joke. A French production performed in Italian, and it took the Golden Shell. The pleasure is watching grief and self-interest occupy the same chairs without either one being named.",
+  "model": "claude-opus-5",
+  "source_sha256": "b762d050e76df0fb605cf62018302cb5838f20ecdf6b3326b8736a4b87b14cda"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "i-was-happy-here-1966",
+  "field": "lead",
+  "film_id": "a5a6d70d-e0ff-4ab2-8cd0-51afe3dd0d69",
+  "lang": "en",
+  "text": "She left a town by the sea for London, and the town went on existing while she was gone. Desmond Davis builds the film on that arithmetic: Cass married a doctor in the city, found the life smaller than it had been advertised, and turns back toward the coast and the man she knew before any of it. The direction of travel is the unusual part, since it reverses the trip she made in the first place and puts the bright lights behind her. Ninety-one minutes, and the film is honest about what a return can and cannot recover; a place keeps its shape, a person does not. Nobody in it is a fool, which is where the ache comes from. Cass chose well by the standards she had been given, and the standards were wrong.",
+  "model": "claude-opus-5",
+  "source_sha256": "f439259be563ab42d112cb2189a601d106190dcfc210ce9e23929c24721c1d2a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-secret-nation-1989",
+  "field": "lead",
+  "film_id": "82554c09-4473-477f-964f-52f8319ebca6",
+  "lang": "en",
+  "text": "A man walks back toward a village that threw him out, carrying a mask he means to dance in. Jorge Sanjinés gives that walk two hours, long enough for it to be a walk and for the Aymara community at the end of it to be a community rather than a backdrop for one penitent. Expulsion here means something exact, and so does the decision to ask for readmission through a ritual instead of an apology. What Sebastian Mamani wants is not forgiveness but restoration, the right to be somebody's relative again, and the film treats that as the heavier thing. Bolivia, 1989, in Spanish, 122 minutes. The measure of it is patience: the camera holds distances another film would cut across, and the return is made to cost what returns cost.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b1cd2f43ec8f511ce117c667a03d6e82feceabc6cc1dad17761e4902dbaba01"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "on-the-black-hill-1988",
+  "field": "lead",
+  "film_id": "2678dba8-3666-4c74-97c1-1308d5e2390a",
+  "lang": "en",
+  "text": "Eighty years pass, and the two men living through them are twins who never quite separate. Andrew Grieve compresses that span into 117 minutes on a Welsh hill farm, which enforces a particular discipline: wars arrive as absences at a table, love affairs register mainly in what changes afterward, and boundary quarrels with neighbours outlast everyone who started them. The bond between the brothers is the fixed point and also the problem, a closeness that makes each of them legible to one exact person and slightly unavailable to everyone else. A British film from 1988 taking rural Wales at its own pace rather than as regional colour. The manner is unemphatic almost to the point of stubbornness. Nothing declares itself a turning point until the decades make it one.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ed5b8dde0cc2f33283887c5e5807a40243cd76b88e1ff94518a84bed71e03c8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-double-steps-2011",
+  "field": "lead",
+  "film_id": "bcc9efcc-e4bc-4e15-9e8c-b852b49a7048",
+  "lang": "en",
+  "text": "A bunker in the desert, painted over on every inside surface, then buried on purpose so that nobody would find it. Isaki Lacuesta starts there and builds a fiction around Francois Augiéras, whose life came down through a biography already half novel: legionnaire, painter, writer, thief, according to whoever is doing the telling. The film declines to settle which, and that refusal is the reason it is fiction and not a documentary. Eighty-six minutes in desert country, where the hunt for the buried work operates less as a plot than as a way to hold several incompatible versions of one man inside the same frame. It took the Golden Shell. What it commits to is unprovable: that a work made to be hidden can be the truest thing its maker did.",
+  "model": "claude-opus-5",
+  "source_sha256": "002ca7228dae759255d7689e427477fc0fb8298b5dfb50ab899fdcdf7cfc1ef8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "what-s-happening-the-beatles-in-the-usa-1964",
+  "field": "lead",
+  "film_id": "594ea42a-d913-45fb-9dc0-6cccb63b0fb9",
+  "lang": "en",
+  "text": "February 1964: five days in New York, and a camera that stays in the hotel room after the press has been shown out. Albert Maysles is close enough to the four of them that most of the material is waiting — sandwiches, a radio, a disc jockey talking, the tuning of a joke before it gets used on television. Seventy minutes covers the airport, the press conferences, the Plaza, the backstage at the Ed Sullivan Show, the flight home, and weighs them about equally, which is a decision about what a phenomenon actually consists of. The screaming is documented but never solicited. These four had already worked out how to be looked at, and the camera catches them practising it between rooms. What survives is the ordinary tempo underneath a week everyone outside was living as an event.",
+  "model": "claude-opus-5",
+  "source_sha256": "09ee4bf1158526b76a2ca3b6d0bb1cfd721f8abc7688bb8f7601a6bfcdd90d43"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dead-of-summer-1970",
+  "field": "lead",
+  "film_id": "fcb486f1-e238-4736-98b3-4c085c034390",
+  "lang": "en",
+  "text": "Nothing happens, and that is the condition the film is built on: a woman alone in Morocco, a husband whose work keeps him elsewhere, an afternoon that will not end. Nelo Risi gives it eighty-nine minutes and no rescue. Ondata di calore puts heat in the title, and heat takes on the job plot usually does, the one element that keeps rising while everything else holds still. The husband is an architect, a fact the film sets beside a house she did not choose and hours she cannot fill. A French production in Italian, 1970. The interest is not whether she comes apart but the exactness of the order: boredom first, then attention to small things, then attention to small things that will not switch off.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b4a143636ae252bc7eba29eaaedc4dd8a05199a11edc79141f130058bdf572b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "i-was-a-parish-priest-1953",
+  "field": "lead",
+  "film_id": "7077e201-96ee-47fd-9b02-f351550af521",
+  "lang": "en",
+  "text": "The new priest arrives with a vocation and finds a parish already sorted by income. Rafael Gil stages the trouble not as doubt or temptation but as class: a young man authorised to address everyone, in a place where addressing one side is read as joining it. Ninety-six minutes, and the pressure on him is administrative as much as spiritual — where he lodges, whose hospitality he accepts, which funerals he is seen at. The diocese is the entire world of the picture; the argument never leaves it, and never needs to. A Spanish film from 1953 that puts parish hatred down to money rather than to weak faith is doing something more pointed than its premise suggests. His difficulty is that both sides want him, and each of them only on its own terms.",
+  "model": "claude-opus-5",
+  "source_sha256": "6289832ac897dd6d5de82dee340a8df00618476d835acf66d55198eab9368656"
+ }
+]

@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "serbis-2008",
+  "field": "lead",
+  "film_id": "8e97a040-3da4-4a96-8c6f-444d66752df1",
+  "lang": "en",
+  "text": "The theater is the family's living room and its ledger, and neither function grants the other any privacy. Brillante Ma Mendoza spends ninety minutes on the premises of a Filipino cinema that screens pornography while prostitutes conduct their own trade among the seats, and the family that owns the building lives inside it. Nobody there is scandalised. The screenings are a service, the customers are traffic, the takings have to cover the repairs, and the relatives argue the way relatives argue in any failing business. Tagalog dialogue, French production money, one address: the film binds itself to whatever can be observed in a single building in the course of ordinary business. What emerges is less an expose than a study of upkeep: who sweeps, who collects, who is owed, and how long a place can go on being both a home and a trade.",
+  "model": "claude-opus-5",
+  "source_sha256": "34dc114aabbdb8003a3da966440b1c9fc3d7f43e81457648058401952dc85771"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "harvest-2024",
+  "field": "lead",
+  "film_id": "199bb327-5659-4232-91d2-f02f525a366a",
+  "lang": "en",
+  "text": "Seven days, a village with no name, no century to anchor it. Athina Rachel Tsangari withholds the coordinates a period drama normally fixes in its first minute, then runs 131 minutes without them. What is left is ground, weather, labour, and the close politics of people who cannot avoid one another. The count of days supplies the only scaffolding, and it holds. Hallucination is promised, and the length lets it arrive by accumulation rather than by effect. English dialogue, no dated caption, no throne room, no card telling anyone which war is on. Made in 2024, when historical drama mostly sells itself on the accuracy of its buttons and the fame of its dead, this one asks for a different sort of attention: staying in a place that will not say where it is, long enough for the ground itself to start reading as information.",
+  "model": "claude-opus-5",
+  "source_sha256": "61a2dca4b5d5211b138b33b0ba2a6a88812cae5f146a1b5ad41e3e3d8499c447"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "casablanca-beats-2021",
+  "field": "lead",
+  "film_id": "6792f082-2986-4480-9c62-d35647a0bd55",
+  "lang": "en",
+  "text": "Hip-hop arrives at the community centre as coursework: a teacher, a room, corrections. He rapped before he taught, which is why the teenagers in this poor district of Casablanca take the hard notes instead of walking out. Nabil Ayouch keeps his 101 minutes close to the workshop, to drafting and argument and rehearsal and the business of standing behind a line in front of people who know exactly whom it is about. The friction is that a verse written in that room does not stay in it. The neighbourhood is an audience, so is the household, and both have views on what a young Moroccan ought to say out loud. Arabic written to be performed rather than spoken. It went forward as an international submission to the Academy Awards, though the real subject is smaller: whether a teacher can make a room secure enough that someone will risk a sentence in it.",
+  "model": "claude-opus-5",
+  "source_sha256": "79fcf566c2956b965e9ff7610d1330495f7245113f0780a422ec255291d9597a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "yellow-cat-2020",
+  "field": "lead",
+  "film_id": "f3bb0908-a21e-4950-84e5-c26f9411978e",
+  "lang": "en",
+  "text": "Alain Delon is the model, the Kazakh steppe is the location, and the plan is to build a cinema in the mountains. Kermek has just come out of prison, Eva intends to leave the same life he does, and neither of them has the money, the permission, or the distance from the local mafia that the plan requires. Adilkhan Yerzhanov plays this at a slight angle to the crime film it might have been: ninety minutes of deadpan in which borrowed cool keeps running into a landscape that does not care. The steppe is an honest antagonist. Nothing hides on it. An approach is visible from a long way off, an escape is a matter of walking in a straight line across open ground, and a man whose manners are copied from a French movie star stands out everywhere he goes. The joke and the danger share a source.",
+  "model": "claude-opus-5",
+  "source_sha256": "e8397aca32dbcfdc3376c3b6636fce5dff7a5963e2381eec447dfa67608479c3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mami-wata-2023",
+  "field": "lead",
+  "film_id": "74cdba60-a07c-4d59-966a-994f93cd60f1",
+  "lang": "en",
+  "text": "Iyi sits on the ocean, and everything the village asks of the water passes through one woman. Mama Efe speaks for Mami Wata, and the arrangement has held long enough that nobody has needed to test it. Then a virus reaches the village. The question of what an intermediary is actually for gets asked aloud: first by her daughter Zinwe, devoted and mutinous at once, then by Prisca, trained in the work and unconvinced by it, and finally by Jasper, a deserter who walks in from somebody else's war carrying his own notions of power. C.J. 'Fiery' Obasi shoots it as a thriller as much as a fable, 107 minutes in which a theology becomes a matter of who runs the place. Belief here is also an office, and offices can be taken. Nothing in Iyi is decided far from the water.",
+  "model": "claude-opus-5",
+  "source_sha256": "b94cca307c7e680a560232ef15a987770fc29e7447b4f33ed52630be54f47c01"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-dark-dark-man-2019",
+  "field": "lead",
+  "film_id": "85dc8f6f-dc18-4cd9-b487-1080313a93f1",
+  "lang": "en",
+  "text": "The case is closed before the film opens: a boy is dead in a Kazakh village, and the local police already have a man for it. Detective Bekzat's job is the paperwork, and he is good at paperwork. Then a journalist comes out from the city, and the file has to be rebuilt as an actual investigation, conducted according to procedure, which is something Bekzat has never once done. Adilkhan Yerzhanov takes 130 minutes over it, and the length is doing work: doing it properly means going back to people who already gave their answers and were never expected to give them twice. The country is wide and flat and offers nowhere discreet to stand. What accumulates is exposure rather than suspense, a man following rules inside an arrangement built on not following them, watched by colleagues he will still have to work with afterwards.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb2e5ba0f2aa6687db9797ce4ab5440714eb3033a346cb62a2e4d09cc9cbb1c4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "soul-2013",
+  "field": "lead",
+  "film_id": "3f9bdbc0-0dd2-4f19-8cb3-69306bf309f3",
+  "lang": "en",
+  "text": "A quiet chef of thirty collapses at work, and what comes back does not behave like him. His colleagues do the practical thing and send him up to his father in the mountains, which is where Chung Mong-hong keeps most of his 111 minutes: an isolated house, an ageing man, and a son who will not speak, eat, or move without help. The mystery and thriller labels are accurate and slow-acting. For long stretches this is a study of care, of a father lifting and cleaning and feeding an adult who may or may not still be his child. Then the son speaks, calmly, in a voice that is not his, and explains himself in terms of vacancy: he found the body empty and moved in. Taiwan's submission to the Academy Awards that year, and it gives the supernatural nothing to hide behind but daylight, a mountain house, and two men.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d349852ac62a93931cdda76e23fdaf0da30a0a04159f4cfcf3bda28109b10dd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-fourth-portrait-2010",
+  "field": "lead",
+  "film_id": "581135da-1fb3-472d-8f45-a17183b177cd",
+  "lang": "en",
+  "text": "Xiang is ten, and every adult who takes him in wants something slightly different out of the arrangement. His mother, gone for years, turns up to claim him; her husband is not pleased; the new house is cold in the ways that matter. Chung Mong-hong builds 105 minutes out of that cramped domestic arithmetic, and gives the boy two people who speak to him as a person: a school janitor slow with his kindness, and a talkative man carrying bad dreams about his brother. Xiang draws. What he puts on paper is the only channel in the film through which anything is said plainly, because nobody in the household says what they mean and the boy has learned not to ask. It refuses the softening a child usually brings, and watches him work out, at ten, which subject the adults have agreed to leave alone.",
+  "model": "claude-opus-5",
+  "source_sha256": "69421870fc534755f82e9bdcab44baac5f8ee906e634d19e028ea1a9309e594c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-owners-2014",
+  "field": "lead",
+  "film_id": "2efe3725-9df2-4485-9362-7bf9c00c023d",
+  "lang": "en",
+  "text": "When the family that owns the estate is away, the people who work it move into the main house and live as though it were theirs: the good rooms, the manners, the whole imitation. Then Pia arrives. She is the owner's eldest daughter, she means to stay a few days before her father's wedding, and her presence turns a private game into a negotiation that nobody involved can afford to name. Ezequiel Radusky keeps it to ninety-five minutes in Argentina's northern countryside, where the estate is a long way from anywhere either side might retreat to. Much of it is funny in the way class comedy is funny, right up to the point where it stops. The house does the work a courtroom would do elsewhere: everyone inside knows precisely what they are entitled to, and the furniture keeps score.",
+  "model": "claude-opus-5",
+  "source_sha256": "643a80093294d9c836d82cca7e2f1c988d69f1c8257992ab17cff7cc3a36a4ce"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "farewell-friend-1971",
+  "field": "lead",
+  "film_id": "80894585-0eaa-400e-82d8-3bf278112b20",
+  "lang": "en",
+  "text": "A high-security safe, a building emptied for the holiday weekend, and two ex-legionnaires shut in with both. One is a mercenary, the other a doctor; they served together in the Foreign Legion, went their separate ways, and are brought back into contact by the millions sitting behind a combination neither of them has. Jean Herman gives most of his 115 minutes to the confinement rather than to the getaway a 1971 crime picture would normally hurry toward: the dial, the arithmetic, the hours that will not pass, two men obliged to share a small space and a single task. It sits on TSPDT's list of the thousand greatest films, which is not usually where safecracking pictures end up. What keeps it upright is plain and mechanical. The weekend has a limit, and the numbers have to be tried one at a time, by hand.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b744dbe4aed8b8736724c9b61f12b6b7786ef7b0aeb6724f6e66a7d97df27af"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sami-blood-2016",
+  "field": "lead",
+  "film_id": "adb00475-6b46-4805-8418-e98aeee40c7a",
+  "lang": "en",
+  "text": "The school photographs the children and measures their skulls, and the numbers go into a file. Elle Marja is fourteen and herds reindeer with her family; the education available to her in 1930s Sweden arrives bundled with race science and a ceiling she can already see from underneath. Amanda Kernell films the arithmetic of the girl's decision without softening it: the other life is purchasable, and the price is a language, a family, and everyone who would recognise her on the street. Swedish is a second tongue here, acquired under pressure, and it sounds like it. The film took the grand jury prize at Sundance, but its scale stays domestic, a dormitory and an examination room and the ground her family works, and its interest is in the small deniable choices by which a person edits herself.",
+  "model": "claude-opus-5",
+  "source_sha256": "99fb457eb4aa3d357873f4fd763eac713577422fc5c9fa5984c4929cdc0dca3f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "raven-s-end-1963",
+  "field": "lead",
+  "film_id": "ed2a2d36-a0ef-406e-94eb-cb25152e1551",
+  "lang": "en",
+  "text": "In 1936 the father has no work, the mother launders other people's clothes, and the son writes a novel at the kitchen table. Anders wants out of the block he grew up in, and the manuscript posted to a publisher is the only door he can see; his friend Sixten is company for the waiting, which is most of what the quarter offers a young man. Bo Widerberg made the film in 1963 about 1936, close enough that the poverty is still remembered, far enough that it can be looked at steadily. Then a pregnancy changes the arithmetic of escape. Ninety-seven minutes, and the crisis stays domestic and financial throughout: rent, drink, three rooms in which everyone hears everything. What the film watches hardest is how much of a life gets settled by what a household can afford in a given week.",
+  "model": "claude-opus-5",
+  "source_sha256": "59ce1b6d09282551f139b766997439d91e7db33c4404bb17687ca70e1e1d4be1"
+ }
+]

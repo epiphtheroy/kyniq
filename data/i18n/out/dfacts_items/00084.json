@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-phillips#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《조커: 폴리 아 되》는 흥행과 비평 양쪽에서 악명 높은 실패작이 됐다. 알려진 제작비만 1억 9천만 달러가 넘었지만, 전작이 받았던 반응의 극히 일부밖에 회수하지 못했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "826ec94df63a5050b51771e71867e240be590fca44527de20045b930478c70e3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-phillips#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2016년 액션 영화 《War Dogs》를 연출했다. 마이애미의 젊은 무기 밀매상들을 다룬 《롤링 스톤》 실화 기사가 원작이고, 조나 힐과 마일스 텔러가 그 둘을 맡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "074d5a6a584c7571fbe2751b53d94ab039870c7f1ddddb42cb93958efd99e612"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "todd-phillips#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "저질 코미디에서 프레스티지 악당 드라마로 방향을 튼 이 전환은 오늘날 할리우드에서 손꼽히게 놀라운 변신이다. 《로드 트립》에서 황금사자상까지, 걸린 시간은 20년이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "70dc514a8c1fcde992f9dff294e94ca5beb29bebd2b91f3db706ea9ca3f5645b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "보르네오섬 사라왁의 주도 쿠칭, 지금의 말레이시아 땅에서 태어났다. 부모는 국수 노점을 하던 중국계 이민자였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2017d74a568e9182c8798907dd38022d8c50ba21a251656dd0e96f84560e1ee8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "어린 시절 그를 키운 것은 주로 외조부모였다. 영화라면 사족을 못 쓰는 사람들이어서, 쿠칭의 낡은 극장으로 그를 데려가 하루에 몇 편씩 보여주기도 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c48e489904e8e9beab5aca367bfc78798d19d312f9b71ba92a33e74c8a68e6a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "쿠칭의 싸구려 극장, 그 어둠 속에서 보낸 유년. 외할아버지 옆에서 홍콩과 대만의 멜로드라마를 보던 시간이 그의 평생을 따라다닌 향수의 원천이 됐다. 극장에 간다는 의식(儀式)이 죽어가는 것에 대한 향수다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ff0af061d91e46d4b6e8dec652a72d5194c463bb3d9e03768b42ba9ce08c14b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1977년 스무 살에 보르네오를 떠나 타이베이의 중국문화대학(文化大學)으로 갔다. 전공은 연극영화과였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd1cc199c60a197aed02f96e1f717f4e3b418c992d392b413875b39d797264a7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화를 찍기 전 그의 자리는 대만 텔레비전이었다. 1980년대 내내 TV 드라마와 무대극을 쓰고 연출했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c2c1f5a66c699fba7a2722402f2d578c498b215d1396d063f18bb291b0f3385"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1991년의 우연한 마주침 하나가 그의 경력 전체를 돌려놓았다. 타이베이의 오락실에서 서성이던 리캉성(李康生)이라는 십 대를 발견하고 그 자리에서 캐스팅한 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5edea0a25c1d27930bfd18ebc9dea37995a1c119ba91c1de0881bef2188015b2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "리캉성은 그의 장편 거의 전부에 나온다. 30년을 훌쩍 넘긴, 영화사에서 가장 오래 이어진 감독-배우 협업 중 하나다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d5764b13dab940129d4780c8611c2505b2b0a6a877f743d52c74b1fffa5e2419"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "데뷔작 《청소년 나타》(1992)는 그 오락실에서의 발견과 갈 곳 없는 타이베이 청춘들의 세계에서 곧장 자라 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "61819e6d61f78ed14fe9c09a8ae7dd51197c3d6942728a79769fbea8c18cffca"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1994년작 《애정만세》로 베네치아 영화제 황금사자상을 받았다. 밀초 만체프스키의 《비포 더 레인》과 공동 수상이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6df6ec1c25597c57d23709cf0578df7498b8511dbf5e55964032063a05090340"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "리캉성이 실제로 앓던 만성 목 통증에서 《하류》(1997) 한 편이 통째로 나왔다. 극 중 그의 인물도 원인 모를 극심한 목 통증에 시달린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f2638f550684195f02897a842283dc8346dd6aa0d7bc05c7261556fb374dc6d7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "새는 천장, 홍수, 비, 물 떨어지는 배관, 눈물. 물은 그의 필모그래피를 관통하는 강박적 모티프이며, 천천히 무너져가는 몸과 아파트를 가리키는 시각적 서명이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "36f74e10be84af51f90e76dabdf4686cdf586da504368b18e2dc027de6d15a0d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《구멍》(1998)은 밀레니엄을 앞두고 기획된 프랑스 텔레비전 시리즈의 의뢰작이었다. 그는 그 황량한 무대에 그레이스 창(葛蘭)의 노래를 얹은 초현실적 뮤지컬 장면을 끼워 넣었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3479a28465a346b927ba50c79638677f8222448e4a76f9e7db93d32a921344b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "길고 고정된 쇼트, 최소한의 대사, 지속을 견디게 하는 시간. 그가 개척한 극단적 '슬로 시네마'는 컷 없이 몇 분씩 이어지는 화면 위에 서 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a804f3ec15f6acaf85255d5df1234dccb0fd551189713231384d135c84231bfe"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2003년작 《안녕, 용문객잔》은 문 닫기 전 마지막 밤을 맞은 실재하는 타이베이의 낡은 대극장에 바치는 만가(輓歌)다. 텅 빈 객석을 향해 호금전의 《용문객잔》이 걸린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ec86c39a0e99356b17251faa417a5d2a5ccdab7a5f327d3c051dad3a3b1321f6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《흔들리는 구름》(2005)에서는 뮤지컬 막간과 포르노그래피적 이미지를 뒤섞어 관객을 경악시켰다. 가뭄이 든 타이베이에서 수박이 에로틱한 소품 노릇을 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "571be01b16efda45876ff7ddddb1937afd1e9a7a1f703a7f06ef3b8c1be94bd6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "베네치아 심사위원대상을 받은 2013년작 《떠돌이 개》 이후, 그는 통상적인 장편 연출에서 물러나겠다고 공개 선언했다. 상업영화 시스템에 지쳤다는 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "883ac325433924f6517fbffc24fb7a84c9252e9e642a1d6afd559b0285cf8f4e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이후 '행자(Walker)' 연작을 시작했다. 붉은 승복 차림의 리캉성이 도무지 불가능해 보일 만큼 느린 걸음으로 도시를 가로지른다. 홍콩, 마르세유, 타이베이가 그 무대였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1da675169e345af4d3d8e1be2e407631ab7d030a95e187ec4478297194331ecf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그의 무대는 미술관과 갤러리로 확실히 옮겨갔다. 슬로 시네마 작업을 설치미술로 전시했고, 국립고궁박물원과 프랑스의 미술관들에서 개인전을 열기도 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7869ada6d36b730de07d0d7b6eaa62d885f1288b235abb3c7c387be77c852b76"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2017년 VR 작품 《기묘한 집》을 연출했다. 작가감독이 VR로 넘어간 이른 사례로, 베네치아 영화제 VR 경쟁부문에서 처음 공개됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e103014bbf710aec6cdc1127272c8a2d076d291ced772862717ec860bba00eb5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 커밍아웃한 게이다. 억눌리고 모호한 퀴어 욕망, 크루징, 고립은 중화권 영화에서 그런 개방성이 흔해지기 한참 전부터 그의 영화 곳곳에 배어 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9076c329400a7ceb53d0aba8f1abb9e302711b248045c68a451bbe14c955e2d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "몇 해 동안 그는 대만의 거리와 대학 캠퍼스에서 자기 영화 표를 직접 팔았다. 손으로 좌석을 파는 일이었다. 기존 배급을 믿지 않았고, 극장에 간다는 행위는 누군가 지켜야 한다고 여겼기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b032e81a2fb97141865246e5a59edea18d3fdca9e5c3b71424aff341c20affde"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "타이베이 인근 산자락의 낡은 집을 사서 손봤고, 그곳에서 리캉성과 함께 살며 땅을 일궜다. 후기작의 시골 질감은 이 은거에서 왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8014b586c836f5f701421a0349c5b132987d78bb589204a75793caee342082e0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#23",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자기 영화가 무엇에 관한 것인지 그는 거듭 말해왔다. 외로움, 그리고 아파트 블록으로 채워진 현대 도시에서 사람과 사람이 이어지기 어렵다는 것. 스스로의 고독한 기질에서 온 주제라고 그는 짚는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3b84e623da56627cb2911af7bcf9e4f842435af6419248a85fd6f9fde89971cb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#24",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《거기는 지금 몇 시니?》(2001)는 일부를 파리에서 찍었고 프랑수아 트뤼포에게 바치는 헌사를 담았다. 누벨바그의 아이콘 장피에르 레오까지 얼굴을 비친다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f06979348ed37a615b415a8efdd5e66e2c245d0450d8fbcc5520468ea52ad5c5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#25",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그 자신이 꼽는 형성기의 영���으로는 이탈리아 네오리얼리즘, 그리고 미켈란젤로 안토니오니와 라이너 베르너 파스빈더의 영화가 있다. 그의 금욕적인 스타일은 거기서 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "780e844dd52d94949bcd49d2aecb3a16510a34de32c0906d0c61c66be882ddea"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#26",
+  "field": "fact",
+  "lang": "ko",
+  "text": "리캉성 곁에는 늘 같은 얼굴들이 선다. 양구이메이(楊貴媚), 천샹치(陳湘琪) 같은 소수의 배우들을 반복해 기용하면서 여러 영화에 걸친 가족 같은 극단이 만들어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d93c8568c2fede171b09e0eb009f9170f4b8a1f1e7b7e30b94dd08b200eb5a6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#27",
+  "field": "fact",
+  "lang": "ko",
+  "text": "은퇴를 선언한 뒤에 만든 장편 《데이즈》(2020)로 그는 베를린에 돌아왔다. 대사가 거의 없는 영화이고, 자막 또한 의도적으로 붙이지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a1881cecde6c0c08d0f0a0696ffe6e17cdd21e9c3f6046330c2defed13956dc2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#28",
+  "field": "fact",
+  "lang": "ko",
+  "text": "주요 영화제의 심사위원을 맡았고 그의 회고전은 세계 각지의 기관을 순회했다. 에드워드 양, 허우샤오셴과 더불어 이른바 대만 영화 제2 뉴웨이브의 중심 인물이라는 자리가 그렇게 굳어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f41606c22880b495b9c330a29bb46d1534a1924f99e8ea71d895e3dbc04f33dc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "tsai-ming-liang#29",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 이따금 말레이시아로 돌아간다는 이야기를, 그리고 대만에서 가장 이름난 감독이 된 말레이시아 화인이라는 복잡한 정체성을 말해왔다. 어느 한 나라에도 온전히 속한 적이 없다는 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "77a8bd1fb0ad11d4d1ecd124b1919b2cbc9a5d5272bdc610f004548f870deceb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "victor-erice#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "에리세는 스페인 내전이 끝나고 불과 몇 달 뒤, 바스크 지방의 시골 마을 카란차에서 태어났다. 검열이 짓누르고 상처가 아물지 않은 사회에서 자랐고, 훗날 그의 걸작들이 보여주는 낮고 생략적인 화법은 거기서 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "75168266a21a9f8c6d66fd5fa4804a766d22f3918992ffe03e1922a2dbf21746"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "victor-erice#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "갓난아기 때 해안 도시 산세바스티안으로 옮겨간 그는 여섯 살에 영화에 눈을 떴다. 쿠르살 카지노에서 본 로이 윌리엄 닐의 셜록 홈즈 영화 《The Scarlet Claw》였다. 그 순간은 훗날 자전적 단편 《La Morte Rouge》에 영원히 새겨진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2bce79ecea95b18e8063e953a63b2fff63f26abbacd9f34fcc3c2ebe7f82ca81"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "victor-erice#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화에 전념하기 전, 1957년 마드리드로 가 마드리드 대학에서 정치학과 법학을 공부했다. 하지만 결국 그 반듯한 길을 버리고 국립영화학교(EOC)에 들어갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a8d975f2520748203946032b9fed10d34d94a412cac5ccf68e4a66b38bf1e7f1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "victor-erice#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1969년 옴니버스 영화 《Los desafíos》의 세 번째 에피소드로 상업 데뷔했다. 딘 셀미어가 주연한 팽팽한 드라마였고, 이 작품은 산세바스티안 국제영화제에서 은조개상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "836516f9c74975cd104b4b1caf862eed61a67b736e901bc4266eb678d99d0331"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "victor-erice#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "단독 장편 데뷔작 《벌집의 정령》(1973)의 씨앗은 그 자신의 유년 기억이었다. 시골 마을 회관에서 제임스 웨일의 《프랑켄슈타인》을 보던 기억. 아이에게 영화가 어떻게 현실과 신화의 경계를 지워버리는지, 그 영화는 바로 그것을 붙잡는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c030eb50c1d55f45ac91cc5c12ce1e969d992c7baee49f8727781f89e3893d8d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "victor-erice#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《벌집의 정령》에서 에리세와 함께한 촬영감독은 루이스 쿠아드라도였다. 그는 촬영 도중 시력을 잃어가고 있었다. 조수들의 눈과 빛에 대한 자신의 수학적 감각에 기대어 그 유명한 황금빛, 꿀색 화면의 노출을 잡아냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6338b0d0679479eec4f3fcd7083c2f397fe8caf5876636ae04798cc5023cc650"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "victor-erice#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《벌집의 정령》은 반프랑코 알레고리를 국가 검열관의 눈앞으로 밀어 넣기 위해 시적이고 고도로 상징적인 어조를 택했다. 그렇게 해서 산세바스티안 황금조개상을 받은 최초의 스페인 영화가 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fcabad98eb8529d8e146116f17df9680e4d2f25c2335eeea8f7e1c561ecdad08"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "victor-erice#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "두 번째 장편 《남쪽》(1983)은 사실 미완성작이다. 제작자 엘리아스 케레헤타가 예산을 이유로 촬영을 중단시켰고, 세 시간 분량으로 계획했던 아델라이다 가르시아 모랄레스 중편소설의 각색은 앞의 90분만 세상에 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a1c563979adda3775e6ee6359b2dd3e9cce1f3667982d516f921f80bf6062988"
+ }
+]

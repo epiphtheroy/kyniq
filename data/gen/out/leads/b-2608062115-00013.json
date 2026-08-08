@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "footlight-parade-1933",
+  "field": "lead",
+  "film_id": "d12d80bd-40c8-4096-b6e8-91eb681d9135",
+  "lang": "en",
+  "text": "The product is a live stage show, made to fill the minutes before a feature starts, and somebody has to pay for the costumes. Lloyd Bacon's comedy keeps its accounting in view: a producer with ideas he cannot finance, dancers who want wages, backers who want figures, an ex-wife holding out for her share. Much of the running time is rehearsal and argument, the arithmetic of getting bodies onto a stage by a date already promised to someone else. That labor changes how the numbers land when they finally arrive; they read less as escape than as delivery, the thing the contract said would exist. The National Film Registry keeps it, though a 1933 musical whose antagonists are creditors and a payroll is a stranger object than the genre usually allows.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f8322f0efffaaab49037fc6196a019335fa6c63d214cc319d89754e17963edc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-docks-of-new-york-1928",
+  "field": "lead",
+  "film_id": "6060346c-42f6-4f54-885d-bf3742c75101",
+  "lang": "en",
+  "text": "Two strangers meet at the lowest hour of one of their lives, and the film gives them seventy-six minutes to decide what that obliges them to. The setting is a New York waterfront where work is short and nobody's plans reach past morning. The rescue comes early, which leaves the harder business for everything after: two people with no money and no standing, working out whether an accident of timing amounts to a claim on each other. Josef von Sternberg keeps the scale small, one stretch of dock and a few interiors and a handful of people who have known each other too long, and lets the pressure come from what neither of them can afford. It is a romance in which the practical question, who feeds whom tomorrow, never stops being the romantic one.",
+  "model": "claude-opus-5",
+  "source_sha256": "0027606a905dbced50b9f56b0f373caff2a5bb1ddade8713cc362289a933735c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "within-our-gates-1920",
+  "field": "lead",
+  "film_id": "92da3f99-e40d-494d-8a8c-9c1670d1e88c",
+  "lang": "en",
+  "text": "Everything turns on a sum of money that a school for poor Black children does not have, and on the woman who decides to go and find it. She is educated, lately abandoned by the man she was to marry, and carrying a history the film keeps at her back rather than on display. Oscar Micheaux made this in 1920 and packed it well past the capacity of any single plot: courtship, fraud, charity, an old injury that has not finished doing damage. What holds is her interiority. She is the subject, not the occasion for somebody else's improvement. Melodrama was the available form and he uses all of it, including the parts that let a story about raising money for a schoolhouse carry considerably more than that. Seventy-four minutes, and the weight sits in unexpected places.",
+  "model": "claude-opus-5",
+  "source_sha256": "e2a488d5f70abea925414c1c7230f7e5f7f6daf460c5b25e4c0a40b6bb033035"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dance-girl-dance-1940",
+  "field": "lead",
+  "film_id": "a0cf3d3b-66fb-4637-ba8d-9278a0545c62",
+  "lang": "en",
+  "text": "Judy's paid work is to hold the stage until the audience gets what it came for, which is Bubbles. They started in the same struggling troupe; one of them left for burlesque and money, and when the company folded the other took a job as her stooge. Dorothy Arzner films the arrangement without pity: two women, one paying crowd, wildly different prices for the same hour of labor. The rivalry over a man arrives on schedule and is the least interesting thing in the picture; it is treated as an obligation to be got through. What stays is the daily fact of being looked at for wages, the ballet training that earns nothing against the vulgarity that earns plenty, and the strain of standing in front of people who decided in advance which of the two they wanted.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8688a669e7462d503e3ff665ebe6eb1b12cd3cce48e3dec09d2336e5349a011"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-long-goodbye-1973",
+  "field": "lead",
+  "film_id": "98fbf94b-19ca-4c5e-8dd4-e947ccf2ef12",
+  "lang": "en",
+  "text": "A private detective still keeping the manners of an older decade goes to work in a Los Angeles that has stopped paying for them. Robert Altman's Marlowe runs errands, drives around at night, and takes almost nothing seriously except the friend who asked for his help and now stands accused of killing his wife. The case is there, but the film's attention keeps sliding off it toward the texture of a city where everyone is relaxed, nobody is straight with anyone, and effort of any kind reads as bad manners. A hundred and twelve minutes, loose on purpose. Loyalty is the only rule this man has left, and 1973 has no further use for it, which is where the picture finds its friction and most of its jokes.",
+  "model": "claude-opus-5",
+  "source_sha256": "9d264534a9c4774e5684861bfa7a7ffad0405cdd1f7eabb6edebeb53a968a1ce"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "beauty-and-the-beast-1946",
+  "field": "lead",
+  "film_id": "ef142f75-517e-4d3c-adbf-31f1cff47176",
+  "lang": "en",
+  "text": "Everyone arrives at this story already knowing it, which Jean Cocteau treats as the problem to solve rather than a convenience to spend. His Beast is repellent and hard to look away from, and he governs by conditions: an object handed over, a test of fidelity, a deadline that will cost him if it passes. The girl is drawn in anyway. The strangeness is that enchantment is played here as a household arrangement, with hours and courtesies observed by two parties who are not equals and both know it. France, 1946, and every marvel in it is handmade; nothing pretends to be effortless. It took the Louis Delluc Prize. Ninety-six minutes, and the residue is less spectacle than awkwardness, the difficulty of being looked at by someone whose opinion has begun to matter.",
+  "model": "claude-opus-5",
+  "source_sha256": "10bfeffa764c8ea7585ffc94874651fa7ac98dc22fafd8b594550b6bd8ea994a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "madchen-in-uniform-1931",
+  "field": "lead",
+  "film_id": "f9e2f926-8dd6-44c8-8a68-913ac4f99cd3",
+  "lang": "en",
+  "text": "The school runs on rationed affection, and one teacher holds very nearly all of it. A sensitive girl arrives, homesick, and attaches herself to that teacher with an intensity for which the institution has no vocabulary except punishment. Leontine Sagan directs the attachment as a fact rather than a scandal and spends her attention on the machinery around it: timetables, uniforms, the small permissions that can be granted or withheld to keep a dormitory in order. Germany, 1931. What she attends to is smaller and worse than a forbidden romance: a place short of warmth learns to use warmth as leverage. Eighty-eight minutes in which the opposition is not a villain but an arrangement of rules that everyone in the building, including those most injured by them, has agreed to keep.",
+  "model": "claude-opus-5",
+  "source_sha256": "8712e6ec97146f687e30d693f6362d237fab7afd85d9c49c9aeed22b2dfc02be"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sexy-beast-2000",
+  "field": "lead",
+  "film_id": "d7c49cff-7308-4bfd-a222-e507c707356d",
+  "lang": "en",
+  "text": "Gal Dove did the hard thing already: he stopped, and the retirement took, which almost never happens. Villa, pool, a wife he adores, a body slowly cooking in the Spanish sun, no intention of being useful to anyone in London ever again. Then a visitor arrives who will not accept a refusal, will not leave, and will not stop talking. Jonathan Glazer's crime picture spends long stretches with no crime in it at all; the suspense is social, built on the awful English difficulty of putting a guest out of the house. Eighty-nine minutes, most of them spent in rooms that have too few exits and one voice too many. Its real subject is that a man who got out is never entirely out, because the people he left behind still count him as one of theirs.",
+  "model": "claude-opus-5",
+  "source_sha256": "667416965728db88d448ad90a2476a23171d68d155e9d8d6d30688e5cb478d8f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "caramel-2007",
+  "field": "lead",
+  "film_id": "80655410-f56c-4e95-8127-6dfbddf4ade1",
+  "lang": "en",
+  "text": "Five women, one salon in Beirut, and a working day that keeps being interrupted by their own lives. Clients come and go; the staff hold the room, and the room holds the confidences, since a great deal gets said while somebody else's hands are busy. Nadine Labaki keeps the scale deliberately domestic, and the smallness is the argument: appointments, hopes said out loud for the first time, fears handled sideways because sideways is how they get handled. Ninety-six minutes, warm without going soft, and precise about how much of what passes between these women is carried in what none of them says. Lebanon sent it out as its submission to the Academy Awards that year, which is one way of saying a country picked a beauty salon to speak for it.",
+  "model": "claude-opus-5",
+  "source_sha256": "f45bf17d6dfa54dc3d34c67389fd03396dcba320e6805eea3071140b5729aae7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "big-deal-on-madonna-street-1958",
+  "field": "lead",
+  "film_id": "cb9b15b0-cbb9-4a4b-96b8-1316262d6406",
+  "lang": "en",
+  "text": "The plan requires a tunnel, and nobody in the room has ever dug one. That is not even the first obstacle facing Peppe, Mario and the friends they recruit for a robbery whose target sits on the other side of an apartment wall, in a pawnshop safe. Mario Monicelli's joke is patient and without malice: these men are not stupid so much as unqualified, and since the job is the only work available they plan it with all the gravity of employment. Italy, 1958, and the comedy lives in the gap between how professionals are supposed to behave and what people with nothing can actually manage. A hundred and six minutes, and the meetings, the rehearsals, the recruitment of specialists who are not specialists, are funnier than anything the safe could hold.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b9eb551af2bf1a67e17af78abfe862a82062e2ada118b94568c9177ee307f18"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "some-came-running-1958",
+  "field": "lead",
+  "film_id": "f63b980c-8c54-43a3-a571-0dad13881c06",
+  "lang": "en",
+  "text": "The brother's objection is not moral, it is positional: he is climbing, and the man who has come home from the army keeps company that can be seen. Vincente Minnelli gives the returned novelist two hours and change to fail at settling down: a gambler for a friend, two women who stand for two futures the town has already priced, and a war he is not writing about. The pressure is proximity. Small place, fixed opinions, no room in which a conversation stays private, and a family name somebody else is trying to raise. The melodrama is thick and knows exactly how thick it is. Cahiers du Cinéma later placed it among the hundred most beautiful films in the world, an odd fate for a story about a man nobody in his hometown will vouch for.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc38842d49c016104405c1a7bed77beea494d4f793fc2bc32d99efd2da0772ce"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "donbass-2018",
+  "field": "lead",
+  "film_id": "6cb7ec87-321e-4321-b429-bb8c14ca19a1",
+  "lang": "en",
+  "text": "The war in this film had not ended when the film was made, and showed no sign of ending. Sergei Loznitsa is working in eastern Ukraine in 2018, four years into the fighting between self-declared republics and the government they broke from, and his subject is not combat but the performance around it: the staged scene, the official announcement, the word peace applied to something that is not peace. Everyone in it is either producing that show or caught inside it, and the camera is markedly more curious about the producers. There is nobody here to root for, and that is a decision rather than an oversight. A hundred and twenty-two minutes, a French production spoken in Ukrainian, about a place being described, constantly and loudly, by people other than the ones living in it.",
+  "model": "claude-opus-5",
+  "source_sha256": "8a43590940b1030c3ee871be941040474024672f802ee1e57ab3e53c0c418a01"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "in-the-fog-2012",
+  "field": "lead",
+  "film_id": "fe6edd48-02b4-4b0c-9997-442479cbe1f0",
+  "lang": "en",
+  "text": "1942, on the occupied western edge of the Soviet Union: a man is accused of collaborating, and innocence turns out to be no help at all. There is no authority to appeal to, no procedure that clears anyone, and the people best placed to judge him arrived at their verdict for reasons of their own. Sergei Loznitsa takes two hours and seven minutes over this, and the slowness is the method; the accusation cannot be answered by action, only carried. What the film is after is narrower and harder: the moment a man works out what he would be willing to do in order to be believed. Belarus, 2012, and the war is handled less as history than as weather, a condition nobody in the frame expects to outlast.",
+  "model": "claude-opus-5",
+  "source_sha256": "5c028c02b4f8bdd7e671d0dc7d237d12f882784c3ede595bf5890df8917eb587"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "my-joy-2010",
+  "field": "lead",
+  "film_id": "3bab7883-f4f5-4e72-bb32-bb06d3078790",
+  "lang": "en",
+  "text": "A driver takes a load of freight toward Russia, has a bad encounter with police at the border, and afterwards leaves the main road. The detour is the entire film. Sergei Loznitsa gives him passengers, an old man whose stories about his army years do not sit comfortably and a young woman working the roadside, and each encounter pulls the trip further from anything resembling a delivery. What accumulates is not plot but country: roads, settlements, weather, strangers with no particular reason to help him and none to hold back. Two hours and eight minutes of a place that people go into and are not observed coming out. Georgy's job at the start is simple, and the cruelty of the thing is how fast the job stops mattering to anyone, himself included.",
+  "model": "claude-opus-5",
+  "source_sha256": "57f3344e35db938189bc9fe8fd271b28b66a515e51b00663c2b273704f6cd15a"
+ }
+]

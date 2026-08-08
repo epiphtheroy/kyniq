@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-mctiernan#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "양크턴 교도소에 있는 동안 맥티어난은 1999년 강탈 영화 흥행작 《토마스 크라운 어페어》의 속편 각본을 썼다고 전해진다. 그 각본은 아직 영화가 되지 못했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "da6917876bbf6e0ea8c5e5f86e0e716020f019629ebccfbe5ee707ca50c8328a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-mctiernan#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "수감 기간에 유럽에서는 \"Free John McTiernan\" 운동이 뜨겁게 번졌다. 프랑스의 이름난 영화 비평가와 영화계 인사들이 앞장섰고, 그들 눈에 맥티어난은 미국 사법제도에 부당하게 표적이 된 작가(auteur)였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5f0bc20fa5266ad50180e0b8b8b72ea798708d2d217a401fb8a75f8eb90d9330"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-mctiernan#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2014년 2월 연방 교도소에서 풀려난 뒤에도 형기는 남아 있었다. 발목에 전자장치를 찬 채 집 안에서 나머지를 채웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a32a3e166895086babcc9b8239d93c712458b2e31c81732d6d0fe7572c4f50f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-mctiernan#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "중범죄 유죄 판결 이후 할리우드 장편의 자금을 구하지 못한 맥티어난이 다시 연출 의자에 앉은 것은 2017년, 유비소프트의 게임 《Ghost Recon Wildlands》 실사 홍보 트레일러 촬영이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3cbf27b2639a7acb280cb8587408101a56dde43e141b3dad38fd0eeebf6e8c1e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-woo#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "국공내전의 한복판, 광저우에서 태어났다. 다섯 살이던 1951년 가족은 홍콩으로 피난했고, 재산을 모두 잃은 채 빈민가 스텍킵메이에 자리를 잡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b3a9a4da9ee84a85b7d67fdb1a0bcfeb1116e20d2b8e200ea7845815b2f7226"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-woo#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1953년 스텍킵메이 대화재가 판잣집을 삼켰다. 가족은 갈 곳을 완전히 잃었고, 일 년 넘게 거리에서 살았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "93d58cb1dc35d69920c31681bd589ed86314310c0bcdd41e6d4d6e105a128ec6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-woo#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아버지가 결핵에 걸려 일을 놓자 가난한 식구들을 먹인 것은 동네 루터교회의 구호와 미국인 후원 가정이 보내온 돈이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e98ffc4f4ebce45bf5c3c28ab0a2a9b7042aba930b3458aacc7ead5902136aa7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-woo#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "삼합회의 손길을 피하려고 소년 오우삼이 숨어든 곳은 동네 극장이었다. 프랑스 누벨바그 범죄영화와 미국 서부극이 품고 있던 협(俠)의 윤리를 그는 거기서 통째로 빨아들였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3743d6cbe3ca303fbcd1c9a9947aca638714df3e66a980b36204845754d440e9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-woo#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1971년 전설적인 쇼브라더스 스튜디오에 조감독으로 들어가, 무협의 거장 장철 밑에서 배웠다. 액션을 리듬과 감정으로 이루어진 춤처럼 찍는 법이 그 가르침이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "651327ee0697f9f7dcf18d7d1a801adf296e3840b8b89de983c1635c0a592069"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-woo#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "훗날 극한의 폭력으로 이름을 얻지만, 감독 경력의 첫 십 년 동안 골든하베스트에서 그가 찍어낸 것은 주로 슬랩스틱 코미디였다. 《The Pilferer's Progress》나 《Money Crazy》 같은 영화들.",
+  "model": "claude-opus-5",
+  "source_sha256": "16f242c5d05076faec492f658ad01e1c614f9298a1191d945c51b658c9a5363f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-woo#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1980년대 초 흥행 실패가 잇따르자 그에게는 흥행 독약이라는 낙인이 붙었다. 골든하베스트는 사실상 그를 대만으로 유배 보내 이름 없는 코미디나 찍게 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5966002a3afdf9597bb2643c2ca38ba346bdc32447c056317272a872e30b5210"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-woo#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "대만에서 침체에 빠진 그를 건져낸 사람은 제작자 서극이었다. 몇 해 전 오우삼이 직접 이끌어준 후배가 이번엔 그의 숙원 기획 《영웅본색》을 밀어준 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "319a26b6a9321024da023a9a37bdcba13cbca8b49a6fa257bd59058c625c4556"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-woo#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《영웅본색》(1986)은 문화 현상이 되었다. 이 한 편이 '영웅본색류(heroic bloodshed)'라는 장르를 만들어냈고, 홍콩 젊은이들은 주인공이 쓴 알랭 들롱 선글라스와 롱코트를 따라 걸쳤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d87e5490dba35052e4e67d14e3ea23827a537625a3f73fcee2b155873107c041"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-woo#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "슬로모션으로 날아오르는 흰 비둘기가 처음 등장한 작품은 《첩혈쌍웅》(1989)이다. 순결과 영혼을 뜻하는 기독교의 상징을, 살수들이 뿌리는 잔혹한 피와 맞붙여 놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7a534fe5ec01e5d3826cf65ae5d84be437fc6046edb2e2c24536189b2bcfe9b0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-woo#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 총격전을 뮤지컬 넘버처럼 짠다. 쌍권총이 흐르듯 이어지는 그 액션의 원천으로 감독 본인이 늘 꼽는 것은 진 켈리와 프레드 아스테어가 춤추던 할리우드 고전 뮤지컬이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b63b51eb988db91a568a38f230644d3a3bc36b1b1204e7af009845a8a4867fba"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-woo#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "베트남전이 갈라놓은 친구들을 그린 처참한 서사시 《첩혈가두》(1990)는 촬영 도중 대폭 고쳐 썼다. 1989년 톈안먼 학살이 남긴 깊은 고통과 정치적 절망이 그 개작에 스며들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2d6dfb41f9e6f992d3464058290abc8e1c28acbb715f28bc3ca6b5b7663eeabb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-woo#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《첩혈속집》(1992)을 찍던 중, 오우삼은 영아 살해범 이야기였던 원래 각본이 도무지 마음에 들지 않았다. 결국 촬영 도중 전부 폐기하고, 양조위가 연기하는 잠입 경찰 쪽으로 이야기 전체를 돌려버렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d8f43af46ae059ad4a095a4ff742b5571a344ab12907621339215694fd2c1d0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-woo#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《하드 타겟》(1993)으로 그는 할리우드 주류 스튜디오 영화를 연출한 최초의 아시아 감독이 되었다. 다만 등급과 호흡을 두고 유니버설과 격하게 부딪쳤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a4cff5df854382447d9bc74806c532f8153ee56cebfd03dc4d8a4da462c4228"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-woo#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "할리우드 시절의 대표작 《페이스 오프》(1997)에서 그가 파라마운트를 설득한 지점은 이랬다. 얼굴을 맞바꾸는 미래적 설정은 남기되 원안의 SF 배경은 걷어내자는 것. 초점은 오직 존 트라볼타와 니콜라스 케이지의 심리적 이중성에 있어야 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "edc58ff0c3ef492d7da08b46b3340604e321a3c230d7595a555e61d3d7966815"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-woo#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "톰 크루즈가 직접 그를 데려와 만든 《미션 임파서블 2》(2000)는 그해 전 세계 흥행 1위에 올랐고, 오우삼을 할리우드 블록버스터의 일급 작가 반열에 올려놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b29677fe1c10742cec3106736fa8763cd0e4e6527e4bb275d8719d1586d79b08"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-woo#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자기 몫의 '건 푸' 스타일을 인터랙티브 매체로 넓히려 했다. 2003년 게임 개발사 타이거 힐 엔터테인먼트를 세우고, 《첩혈속집》의 직계 속편인 3인칭 슈터 히트작 《Stranglehold》를 진두지휘한 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "196f9549eec27572284c804e676c0f3f17404df37fc359518213a421e5f3fa90"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-woo#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2008년 아시아 영화로 돌아온 그가 내놓은 것은 역사 대작 《적벽대전》이었다. 제작비 8천만 달러. 당시로서는 아시아 자본으로 만든 가장 비싼 영화였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "06644a9b00d9c247e4e847078a36f2ded6da2694bcd020528f667e7cafe2e5a8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-woo#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2010년 베네치아 영화제가 그에게 평생공로 황금사자상을 수여했다. 이 상을 받은 중국계 감독은 그가 처음이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5e9fcff07d1a5710935074bacfd9545e4e59b43c0ef2bd2c4e120727816be095"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-woo#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2012년 인두암 3기 진단을 받았다. 종양 제거를 포함한 혹독한 치료가 이어졌고, 한동안은 말하는 것도 삼키는 것도 불가능했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "55da7052de2e255edebcdefa65bfb8bbe4e75ef7cb571c23892a8b4b83d7c094"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-woo#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화는 근본적으로 보는 매체다. 2023년 할리우드 액션 스릴러 《사일런트 나이트》에서 그는 이 믿음을 밀어붙였다. 대사가 단 한 마디도 없는 복수극이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "66a7d1804fdaf1d7721993ebc392c9a3c3f516a32309a8123e93b9f40ab3d7a2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-woo#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장피에르 멜빌의 《Le Samouraï》를 평생 흠모해온 그는 2024년 영어 영화 《더 킬러》로 마침내 그 프랑스 킬러 영화의 정신적 리메이크를 완성했다. 무대는 파리로 옮겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a5ec0fb540f4d8c699e24aeac1bb153efeb885cb0cbdced3071031c80e52b207"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "john-woo#23",
+  "field": "fact",
+  "lang": "ko",
+  "text": "히치콕이 그랬듯 그도 자기 영화��� 자주 얼굴을 내민다. 가장 널리 알려진 것은 《영웅본색》에서 주윤발의 인물을 이끌어주는 대만 경찰 반장 역이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd0112a72276cc5e592ca40d1cf420f28de6c523e540cd0d8f8a4a878737b5d9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jon-watts#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "콜로라도주 파운틴에서 나고 자랐다. 인근 포트카슨 육군기지에서 나온 군인 가족들이 동네를 가득 채우고 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6b6f0a909aa4e9fa45d628e6061ea17ec22a95c8929430d8347d7e345ae27f56"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jon-watts#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "뉴욕대에서 영화를 공부하며 자주 함께 각본을 쓰게 될 크리스토퍼 포드와 코미디 집단 웨이벌리 필름스를 만들었다. 둘이 같이 살던 지하 아파트가 스케치 영상의 촬영장이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1447019134aa6a433fc569d805868f002ad960144692ce9a09db14c008ed3331"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jon-watts#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편으로 넘어오기 전 그가 손을 익힌 곳은 뮤직비디오였다. 데스 캡 포 큐티의 'Soul Meets Body', TV 온 더 라디오의 'Wolf Like Me' 같은 인디 밴드의 대표곡들.",
+  "model": "claude-opus-5",
+  "source_sha256": "005fef89ddd08c17825e56bd91a2e0878b5303548accbe4a4880b4e6823df635"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jon-watts#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편 데뷔는 순전히 우연이었다. 그와 포드가 《Clown》이라는 호러 영화의 가짜 예고편을 만들어 유튜브에 올리면서, 만난 적도 없는 '공포의 거장 일라이 로스'를 제작자로 넉살 좋게 박아 넣은 것이 시작이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e4cd22199fb884ea2e52cec8f04bc7fc7da0da2ae8d909a4872d5c4a8558c86a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jon-watts#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이름을 도용당한 일라이 로스는 내용증명 대신 다른 것을 보냈다. 가짜 예고편에 감탄한 그가 직접 와츠에게 연락해, 《Clown》을 진짜 장편으로 제작하자고 제안한 것이다. 영화는 2014년에 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc8c494072ba0c3aad7d18c18e956359f47563dc1a41e9eaf1a3c5d5b401343c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jon-watts#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "군더더기를 걷어낸 팽팽한 연출의 《캅 카》가 선댄스에서 공개되자, 마블 스튜디오의 케빈 파이기와 에이미 파스칼이 곧장 주목했다. 스파이더맨을 새로 시작할 새로운 목소리를 찾던 참이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f6c53e59d691d99e224ea3bf0b6a07149fdd34a9585ecdc83bc6fd5f4838deaf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jon-watts#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그 혹독한 피칭 과정에서 와츠는 무드보드를 만들었다. 《조찬 클럽》이나 《Say Anything...》 같은 존 휴즈 십대 코미디의 장면을 액션 푸티지와 이어 붙여, 피터 파커를 고등학교에 붙들어 두겠다는 구상을 증명해 보인 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b5c51ce2d749d302cd705cde3f9f7b567f6ba2c4c6c787b5a10576f0630d7a9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jon-watts#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이후 《스파이더맨: 홈커밍》의 어린 배우들에게는 촬영 전 1980년대 존 휴즈 영화를 몰아 보라는 지시가 떨어졌다. 십대 특유의 어설픈 공기를 진짜로 잡아내기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "06ce7ca96774b1c6e520936bdfb7199a6a0c6046a4de333fb93c7aa8cb1c413b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jon-watts#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아내는 매니저이자 프로듀서인 다이앤 맥거니글이다. 그의 출세작 《캅 카》를 총괄 제작했고, 도널드 글로버의 FX 시리즈 《애틀랜타》도 그의 손을 거쳤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "461a253a0899ca943c7720bb8f1b09882bae31f7e70f1aa7738aba5b840befa0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jon-watts#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《스파이더맨: 노 웨이 홈》을 전 세계 20억 달러 가까운 흥행으로 이끌고도, 2022년 마블이 잔뜩 기대를 걸던 판타스틱 4 리부트 연출에서 그는 스스로 물러났다. 슈퍼히어로에 지쳤고, 오리지널 영화로 돌아가고 싶다는 이유였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "786a310f1807973848a30eaf7abcadc0e2ce44f4ae6689db661f8a1021cb8178"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jon-watts#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마블 유니버스에서 스타워즈 은하로 갈아타는 일은 무리 없이 풀렸다. 루카스필름에 그가 내민 기획 《스켈레톤 크루》는 우주를 무대로 한 앰블린풍, 《구니스》식 성장담이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e653e1b9de028fad0513192adf62a01ddfe52aa4d142fb1732482a9c28fab9a3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jon-watts#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2024년 애플 TV+ 액션 코미디 《울프스》에서 그는 조지 클루니와 브래드 피트를 다시 한 화면에 세웠다. 두 배우가 라이벌 '해결사'로 맞붙게 하려고 애초에 그렇게 각본을 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7780a5fbb0134a1a2293c4f664c60aff2ce4d720fd8a404a4ca089bbba5c2964"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jon-watts#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "뉴욕대 동기 크리스토퍼 포드와의 공동 작업은 오래 이어지고 있다. 《Clown》, 《캅 카》, 《스파이더맨: 홈커밍》의 공동 각본을 썼고, 스타워즈 시리즈도 둘이 함께 만들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4c89c20b1c9a800863d23a07a4fff42cb76ba19c43704ef7714718fa0c8e31b7"
+ }
+]

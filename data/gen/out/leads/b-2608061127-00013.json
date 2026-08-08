@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bread-and-tulips-1999",
+  "field": "lead",
+  "film_id": "a92e0f9b-8b01-402f-8ca8-7e453b8ec1c9",
+  "lang": "en",
+  "text": "A woman is left behind by her own family on a trip, and instead of hurrying after them she goes to Venice and stays. Silvio Soldini builds the comedy out of small irreversible decisions — a room, a job, an acquaintance who becomes a friend — so that the pleasure accumulates rather than arrives. Venice is an address here, not a view: people work there, keep unglamorous hours, and have neighbors. Its David di Donatello came for both direction and best film, the profile of a picture that works by proportion rather than by set piece. What is actually at stake is whether a middle-aged woman's absence registers at home, and what she owes anyone if it turns out that it does not. Light in touch, and in no hurry: 114 minutes to make a second life look earned rather than granted.",
+  "model": "claude-opus-5",
+  "source_sha256": "5e23030fa6641e2291cfff2b8f0ef5ce89fc13149f1b51a0e1c074939cb2444f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "indochine-1992",
+  "field": "lead",
+  "film_id": "4ab05d9e-b142-47b7-9a94-338e9eb97300",
+  "lang": "en",
+  "text": "The plantation is French, the daughter is Vietnamese and adopted, and for a while the arrangement passes for family. Régis Wargnier gives it 159 minutes, long enough for the private story and the political one to stop being separable: Éliane Devries loves the girl she raised, and the country her land sits in is turning against everything her house depends on. A French naval captain completes the triangle. The romance is not decoration — it is the instrument the film uses to ask what an empire does to people who believe they are being kind inside it, and how long affection survives the arrangement that produced it. The Academy's best-actress award and its international feature prize both came here, as did the BAFTA for a film not in English.",
+  "model": "claude-opus-5",
+  "source_sha256": "1078125017e8c35d912984ec2fa062775c4237cbf46c2b67b77064d40482b739"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "yesterday-today-and-tomorrow-1964",
+  "field": "lead",
+  "film_id": "02a02e64-3c9f-41d8-8ae0-bbb2a82a0685",
+  "lang": "en",
+  "text": "Three stories, three women, roughly forty minutes apiece — an anthology leaves Vittorio De Sica no room to explain anyone. Each of them wants something the ordinary channels will not hand over, and each uses the leverage actually available to her, which keeps the comedy circling back to money and to law. Sexuality is the instrument they have, and the film is unsentimental about why it is the only one. That makes this less a picture about desire than about the terms on offer in 1964 for getting anything at all. The register stays light. The arithmetic underneath does not. It took the Academy's award for an international feature, and the episodic shape is what lets it stay funny about a subject that would curdle if stretched across two straight hours in one woman's life.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b77b7716dead62bc63b88c57421de28b5708df669e4d6f91a73c5c0b30ed056"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-prime-of-miss-jean-brodie-1969",
+  "field": "lead",
+  "film_id": "f125b32e-4349-436b-adb6-2842453aecb0",
+  "lang": "en",
+  "text": "The pupils are twelve years old, and their teacher has decided the curriculum is beneath her. What she offers instead is her own romantic conviction, delivered to children young enough to receive it as fact — and the film is unusually clear that charisma in a classroom is a form of power rather than a gift. The setting stays close: school rooms, lodgings, conversations, so that 1930s Edinburgh arrives as talk and manners rather than as period spectacle. The girls are being formed and cannot tell. The Academy's best-actress award came here, and what the performance builds is less a portrait of a woman than a demonstration of her method — how a room is won, how devotion is collected, and what it costs the people who supply it.",
+  "model": "claude-opus-5",
+  "source_sha256": "72335bdc5aeb0c16834d54e814e307bda74a54b70871952123e617d0f6ed3314"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "like-crazy-2016",
+  "field": "lead",
+  "film_id": "ccde9319-ae0e-47c9-8fd5-e37099dc51d5",
+  "lang": "en",
+  "text": "Two patients walk out of a Tuscan psychiatric hospital, and the film goes with them rather than waiting at the gate. Paolo Virzì takes an old comic chassis, opposite temperaments loose in the same afternoon, and refuses to soften what surrounds it. The landscape is indifferent. Nobody they meet has been briefed. Because the humor comes from character and timing rather than from diagnosis, the two of them stay people instead of conditions, and the drama arrives on its own schedule, whenever freedom starts to cost something. The David di Donatello went to it for direction and for best film, and European audiences voted it their choice. It runs 116 minutes, and the length is what lets the mood turn without any announcement that it has.",
+  "model": "claude-opus-5",
+  "source_sha256": "9645ea878b5b9edfcdeb85f02e2ee318ab8e1b25361927f10efc99eea1af3613"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-shop-on-main-street-1965",
+  "field": "lead",
+  "film_id": "0cf7a82e-3f2a-4811-9bdf-f856b76aa24e",
+  "lang": "en",
+  "text": "A button shop, an elderly Jewish widow who owns it, and a mild carpenter handed the paperwork that makes him her supervisor. Ján Kadár lets that arrangement run long — most of 128 minutes goes to ordinary business between two people — because that is how the thing being described actually arrived: as a salary, as standing in a corrupt little hierarchy, as a favor from men who could take it back. Tono is neither a monster nor brave. He is someone who benefits and would rather not examine it, and the friendship that grows between him and Rozalie is genuine, which is exactly what makes it a trap. The Academy's international prize and its best-actress award both landed here. The scale is a shop counter; the pressure is everything outside it.",
+  "model": "claude-opus-5",
+  "source_sha256": "d5de8783fe8a92cda290c62c192af2960eab6689dcee9ce1e4bf8366d7da65ad"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-tall-blond-man-with-one-black-shoe-1972",
+  "field": "lead",
+  "film_id": "1f5dabb9-5098-465f-b788-4dfebf82d971",
+  "lang": "en",
+  "text": "Two factions inside the French secret service are working against each other, and the weapon one of them reaches for is a stranger picked at random. He plays in an orchestra. He knows nothing, and for ninety minutes everything he does is read as tradecraft by professionals who cannot afford to consider that he might be exactly what he appears to be. The comedy is structural rather than verbal: Yves Robert assembles a machine that manufactures suspicion out of ordinary behavior, then keeps the musician's life ordinary while the reading of it goes berserk. Ninety minutes is the right size for that, since the joke is a system and systems get tedious once explained. What keeps it from cruelty is that the watchers are competent. Their competence is the problem.",
+  "model": "claude-opus-5",
+  "source_sha256": "f692b136c4ce3d894452c3f2928c59cf523bd006644f46bc9246a86fdd87a127"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-general-1998",
+  "field": "lead",
+  "film_id": "d7d5a81e-1b72-4f2c-9454-4ebc2fea43b6",
+  "lang": "en",
+  "text": "Martin Cahill robbed his way through Dublin and was loved for it, and John Boorman declines to settle which of those facts should win. Two large jobs bring attention, and the attention is the real subject: police, the I.R.A., the U.V.F., and men on his own crew all end up with reasons to want him accounted for. Ireland in this telling has more than one authority, and none of them is only the law. Boorman keeps the tone level, which is the harder choice — there is comedy in Cahill's nerve, and the film never asks anyone to be charmed by it, treating that charm instead as a local resource, something a neighborhood decides to keep spending. The 124 minutes go to that arithmetic rather than to the robberies.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb7f037d92f40245066cd53a66fe90751cee3794ef0f2956a56b729041a56f60"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-three-faces-of-eve-1957",
+  "field": "lead",
+  "film_id": "8a130a04-8f9c-4526-ba17-7dd3bb16c99b",
+  "lang": "en",
+  "text": "The case is the plot: a doctor, a patient, and a condition that gives one woman more than one self. At 91 minutes there is no room for subplot, so the weight falls on the consulting room and on a performance asked to do the work a plot would normally do — the Academy's best-actress award went here. 1957 shapes the rest. Psychiatry appears as authority rather than as a subject, the doctor is the calm center, and the woman is the thing to be explained, which makes the film at once a serious attempt at a disorder and a record of who was permitted to speak for whom. Everything she knows about herself has to be confirmed by someone else before it counts. What is at stake is smaller and worse than a mystery: whether a person gets counted as one.",
+  "model": "claude-opus-5",
+  "source_sha256": "829f3ff3da5ebef8106a0c7fccbb067d04a42d7703e7f6ef4bbf0ef79bcf035e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "war-and-peace-1968",
+  "field": "lead",
+  "film_id": "a7392e10-dba5-4331-a854-feb20fe8a6ce",
+  "lang": "en",
+  "text": "Seven hours, and the 1812 campaign accounts for only part of them. Sergey Bondarchuk gives the drawing rooms as much attention as the field, so the war arrives as an interruption to people the film has already shown at length being bored, in love, and wrong about themselves. Natasha Rostova and Pierre Bezukhov hold that center. The Soviet production put its resources where the camera could see them — the Academy's production design award says as much, and the international feature prize followed — but the scale is making an argument rather than a display: an army is composed of individual men, and the only honest way to show it is to count them. Whether a private story stays legible across 422 minutes is the risk taken from the first hour onward.",
+  "model": "claude-opus-5",
+  "source_sha256": "67c5c2d0de40c8421818d26e892a8ad98af8883aaebc4b73b320d2ec20a8b820"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "blue-sky-1994",
+  "field": "lead",
+  "film_id": "8f5b073f-2d30-4f23-ab5d-2d41850633f0",
+  "lang": "en",
+  "text": "An Army engineer objects to atmospheric nuclear testing, and his superiors discover that the easier problem is his wife. Blue Sky puts both pressures inside one set of base housing and lets them contaminate each other: what Hank knows makes him inconvenient, what Carly does at each new posting makes him vulnerable, and the service has procedures for the second that would conveniently dispose of the first. The marriage stays in the foreground. Tony Richardson holds to 101 minutes and mostly to the domestic side, so the weapons plot presses inward from offstage. The Academy's best-actress award went to Carly, a part written to be unmanageable, and the film is at its sharpest where it refuses to decide whether she is an illness or a symptom of the place she has been posted to.",
+  "model": "claude-opus-5",
+  "source_sha256": "274e4303a08fe0ead67d692016b6f05b6ed2d688bf2d832686c6d88ee8790cb5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "butterfield-8-1960",
+  "field": "lead",
+  "film_id": "54760f9c-0895-4198-887d-f6dfbeeb21cc",
+  "lang": "en",
+  "text": "A man's drinking is called temperament; a woman's appetite is called a defect. BUtterfield 8 sets a fashion model against the drinking son of a working-class family who married into money, and the affair is the whole of its business — which leaves the actual subject visible in the gap between how the two of them are judged. The Academy gave it best actress and an award for color cinematography, and those prizes describe Daniel Mann's picture exactly: an unrespectable life dressed in good clothes and better light, half scandalized by what it shows and half in love with it. Gloria Wandrous is written to be looked at. The interest lies in how much of that looking the film is willing to admit belongs to itself.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e3633831f5514c13d63c332383e5fac6fde1947376cd2258d31b8809dabc100"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "i-want-to-live-1958",
+  "field": "lead",
+  "film_id": "b54deb22-bec6-4a6d-ab0d-21524ac2992b",
+  "lang": "en",
+  "text": "Barbara Graham is a repeat offender trying to go straight when a murder attaches itself to her name. Robert Wise spends the early stretch making the harder case for her: she is brash, unapologetic about her record, and no use at all to anyone who needs a defendant to be gentle first. Sympathy has to be earned against that resistance. Then the process takes over, and the subject stops being guilt and becomes the distance between what a system has concluded and what can actually be known. Academy recognition came for the lead performance, for the black-and-white photography, and for the direction — three departments that have to agree before a film built on a condemned woman can stay a film rather than a pamphlet.",
+  "model": "claude-opus-5",
+  "source_sha256": "2147cafd77a3747c30b8beab19cf87464d64b60941232ef65b28106320c37e96"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "and-the-ship-sails-on-1983",
+  "field": "lead",
+  "film_id": "a8912b43-fae9-43d3-b1cb-0f80c2ed5012",
+  "lang": "en",
+  "text": "A ship leaves Naples in 1914 carrying an opera singer's ashes and a passenger list of people who claim to have loved her. Federico Fellini treats the voyage as a performance that never quite stops: the mourners sing at one another, rank one another, and keep the rituals of a class that assumes the century is theirs. Then Serbian refugees are found aboard, and the floating society has to decide what to do with people who were not invited. The date supplies the rest. Everything agreeable about the first hour — the ceremonies, the manners, the competitive grief — is being staged at the precise moment that arrangement is running out, and the comedy cannot be separated from the timing. It took the David di Donatello for direction and for best film.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7122e0881713491631ca60bede872e6317675137baeb102fc0b84d7c391ec49"
+ }
+]

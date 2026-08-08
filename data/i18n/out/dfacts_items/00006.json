@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "barry-jenkins#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "플로리다 주립대에 들어갈 때만 해도 그의 전공은 영문학과 문예창작이었다. 그런데 도크 캠벨 스타디움 밖에 걸린 영화 프로그램 안내판을 보고는 충동적으로 전공을 바꿨다. 영화를 만들어본 경험은 그때까지 전혀 없었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "640576178956f702f2d914b35a6e8bda92c70f9dd98bc8f76e9ce7ded0ad63b9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "barry-jenkins#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "세계 영화를 처음 만난 곳이 FSU였다. 클레르 드니의 《Beau Travail》과 왕가위의 《중경삼림》이 그에게 깊은 예술적 각성을 안겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d37438a2c25fcafe4b758a741773a2684580abce9282965612419de03094861"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "barry-jenkins#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생을 함께할 창작 동료들도 FSU 영화학교에서 만났다. 촬영감독 제임스 랙스턴, 프로듀서 아델 로만스키, 편집자 조이 맥밀런과 냇 샌더스.",
+  "model": "claude-opus-5",
+  "source_sha256": "095c07af325229bf7ed60d924f3c414487c20f580db6326d8b1668bb353accf1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "barry-jenkins#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "대학을 마치고 로스앤젤레스로 건너간 초기, 그는 오프라 윈프리의 하포 필름스에서 감독 어시스턴트로 일했다. 결국 그만뒀다. 기업 조직의 공기가 실제 연출과 너무 멀었기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "833d6c9274be98407cea6a6326b084aea8959b88e6d3e9850be48cb1d44ed13f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "barry-jenkins#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2008년 데뷔작 《Medicine for Melancholy》의 제작비는 친구 저스틴 바버에게 빌린 1만 5천 달러였다. 마침 그에게 뜻밖의 목돈이 들어왔던 참이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "00f17278f25351c3960b2eb65de31e0e238e5a6af7d83294acee8655cbeb14f3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "barry-jenkins#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "데뷔 후 젠킨스는 8년이라는 지독한 공백을 견딘다. 장편을 찍지 못하는 동안 목수로 생계를 꾸렸고, Strike Anywhere라는 광고 제작사를 공동 설립했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ded5bc07212c76426b5f44c9a8e28c6f9bb20b4016b04542d4dadd11552aad98"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "barry-jenkins#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그 공백기에도 눈을 사로잡는 영화적 이미지를 여전히 만들어낼 수 있음을 그는 증명했다. 2011년 단편 《Chlorophyl》. 마이애미에서, 소비자용 캐논 7D DSLR 한 대로만 찍은 작품이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1f17446a4bbf8e3728620831acb0112d6de0f2f0fd0c4a7998903274c97e431b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "barry-jenkins#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《문라이트》의 원작을 그에게 물어다 준 것은 마이애미의 예술 집단 Borscht였다. 타렐 앨빈 매크레이니가 예일 드라마스쿨 시절 쓴, 무대에 오른 적 없는 희곡 《In Moonlight Black Boys Look Blue》.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f92f6ec4f1f8f73eb2199249dce80783cdecf4f729ab5b8b924f47eefa0ecef"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "barry-jenkins#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마이애미를 무대로 한 그 무겁고 사적인 이야기와 감정적 거리를 두기 위해, 젠킨스는 벨기에 브뤼셀에서 6주를 머물며 《문라이트》 시나리오를 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0a5e17fbb87eb576a19e0b128c483ca2362eb4659cb04c26ebb5142eb34aa122"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "barry-jenkins#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《문라이트》 촬영 내내 그는 주인공 샤이론을 연기한 세 배우, 알렉스 히버트와 애슈턴 샌더스와 트레반테 로즈를 철저히 떼어놓았다. 서로의 몸짓을 무의식중에 따라 하는 일만은 막아야 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c89a17cbc39192161e3cfdb92cf714e0ec2fb6fe9192d41292aa8b0d902b5d72"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "barry-jenkins#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "휴스턴 힙합의 '촙트 앤드 스크루드' 기법은 그의 영화 음악에 자주 등장한다. 작곡가 니컬러스 브리텔과 함께 클래식 관현악을 늦추고 음정을 끌어내려, 흐릿하고 주관적인 청각의 세계를 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "307c9431bbc1045d173f02aeb791b6b68fb1dab889788455ecad1297793093b7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "barry-jenkins#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2017년 《문라이트》의 작품상 수상은 영화사에 남을 사건이었지만, 그 발표는 악명 높은 방식으로 이뤄졌다. PwC 회계사들의 전례 없는 봉투 실수로 《라라랜드》가 먼저 수상작으로 호명된 뒤였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f5b441c188dd4c75bb0d966fd2e7abc9836b301392bd7f64e6200a91692000bc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "barry-jenkins#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《문라이트》로 젠킨스는 흑인만으로 이뤄진 출연진의 영화, 그리고 LGBTQ를 다룬 영화로서는 처음으로 아카데미 작품상을 받은 작품을 연출한 감독이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c3a05c9718919249ee2eac62362905b069a4b9814020a7f0c926960dd375cb1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "barry-jenkins#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "제임스 볼드윈의 《If Beale Street Could Talk》 각색본을 그는 2013년, 《문라이트》를 쓰던 바로 그 브뤼셀 체류 중에 완성했다. 보호막이 두껍기로 유명한 볼드윈 재단으로부터 판권을 얻어내기 한참 전의 일이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f2f657bc303693d959d04284fcf828eba0c36bb0bd40e73b5e8f94e21b7ab1d3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "barry-jenkins#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "볼드윈 재단을 설득하기 위해 젠킨스는 진심을 눌러 담은 편지와 직접 만든 비주얼 룩북, 그리고 청탁받지 않은 시나리오를 함께 보냈다. 볼드윈의 여동생 글로리아 카레파스마트가 판권을 내주었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d0d4529f2eec6d30d345eb38b996656d69e78f10420087b6f33bbb9848ebd39f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "barry-jenkins#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2021년 아마존 리미티드 시리즈 《The Underground Railroad》를 연출하며 그는 현장에 상담 인력을 두자고 고집했다. 미국 노예제를 재현하는 일이 배우와 스태프에게 남기는 심리적 외상이 그만큼 심각했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e6f4db95108a8ceebe84d2ad195b7b66f4614010fb52c3167119437b997f41a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "barry-jenkins#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "연인인 룰루 왕 감독, 《페어웰》을 만든 그 사람을 젠킨스는 영화제를 돌다가 만났다. 지금 두 감독은 작업 공간을 함께 쓰며 서로의 시나리오를 사정없이 비평한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb55e03bd7362f1e397cffaa641d50c086175e776f093ed1c2f3ed359c84b6ec"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "barry-jenkins#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "디즈니의 CG 블록버스터 프리퀄 《무파사: 라이온 킹》을 맡겠다고 했을 때 인디 영화계는 충격에 빠졌다. 그가 든 이유는 시나리오가 다루는 형제애와 고아라는 주제에 자신이 깊이 닿아 있었다는 것.",
+  "model": "claude-opus-5",
+  "source_sha256": "56c33ff69dee7825c60d356ed2f51ad550fe0fe22111ccd7c85b2df06843a138"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "barry-jenkins#23",
+  "field": "fact",
+  "lang": "ko",
+  "text": "FSU 동기 조이 맥밀런이 《문라이트》 편집으로 오스카 후보에 올랐을 때, 젠킨스는 그 사건을 자랑스럽게 알렸다. 흑인 여성이 편집상 후보에 오른 것은 그때가 처음이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de708f1ed4fb9fddd8295953f43c65037af46d54c2b3c0b5c548f2471c406905"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-affleck#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아버지 티머시 애플렉은 자동차 정비공이었고 목수였고 사설 도박업자였다. 그리고 하버드대 청소부였다. 마지막 그 직업이 벤 애플렉의 출세작 《굿 윌 헌팅》의 발상을 그대로 낳았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "90a74922e719fb5622a8d954971df7ab665707719567d8090293b54aaddb4999"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-affleck#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "열세 살에 그는 PBS 교육 시리즈 《The Voyage of the Mimi》에 출연하며 1년간 멕시코 전역을 돌았다. 그 시간이 남긴 것은 완벽한 스페인어였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "836d7ce4a8ec987a1cd4a856bee7b92a6c16eeeafa169570fdbe04fbd48badeb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-affleck#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "할리우드에서 성공하기 전, 애플렉은 로스앤젤레스 옥시덴탈 칼리지에서 중동학을 전공했다. 길지 않았던 그 공부가 훗날 《아르고》에서 1979년 이란 인질 사태를 꼼꼼히 되살리는 데 밑거름이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "94b6e9bef6aaf62792d430256aff57ab80642ac4e3bc20b58935159a1ee20f6e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-affleck#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "케임브리지 린지 앤드 라틴 스쿨의 전설적인 연극 교사 게리 스페카. 그 엄격한 지도 아래 애플렉은 연기를 다듬었다. 1998년 아카데미 수상 소감에서 그와 데이먼은 나란히 스승의 이름을 불렀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4c33f26fbf80a4a7b916aed218ac4b6546260070cecad6d6b5cbdd2e7ffe56fd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-affleck#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스무 살 무렵, 애플렉과 데이먼과 애플렉의 동생 케이시는 로스앤젤레스 이글록의 셋집에서 함께 살았다. 낮에는 《굿 윌 헌팅》을 썼고, 밤에는 거대한 파티를 열었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f4796325e8b0f895fa500d43b22686020ae807114c18a2e447d14a3cd2bfda41"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-affleck#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스물다섯. 애플렉은 아카데미 각본상을 받은 역대 최연��� 인물이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6aaf438667f3beaa0dbf407c63f20aeb3a3d28d18efb570acf4bb45cb99b3d70"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-affleck#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1998년 블록버스터 《아마겟돈》 촬영에 앞서 감독 마이클 베이와 제작자 제리 브룩하이머는 애플렉에게 2만 달러짜리 치과 치료를 받게 했다. 고르지 않은 치아를 씌워야 영웅적인 주인공으로 보인다는 이유였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1f4860a660ce77296d68481b1ca057e4b69c86cb28702a6d1e3bd2495863c2b2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-affleck#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "카드 실력이 만만치 않다. 2004년 캘리포니아 주 포커 챔피언십에서 토비 매과이어를 비롯한 유명인들을 꺾고 우승, 상금 35만 6,400달러를 챙겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1df449bf4dbb4fc8b3e4f9f6b06bdafcc3bfeb6ef72a36aa0e25118c8da161d9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-affleck#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2014년 라스베이거스 하드록 호텔 앤드 카지노에서 카드 카운팅을 하다 적발돼 보안 요원에게 붙들렸고, 블랙잭 테이블에서 영구 퇴출됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9b238065b2df8a27d6850cf46d67d4075b0fa76cc10a3a75383ff8dd268d8c5e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-affleck#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2007년 연출 데뷔작 《가라, 아이야, 가라》에서 그는 동생 케이시 애플렉을 주연으로 세웠다. 촬영 대부분은 보스턴의 실제 싸구려 술집에서 이뤄졌고, 전문 보조 출연자 대신 그 동네 단골들이 화면에 담겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "265d6b975eb74cb8493ae3aa4d1d77e8f44316685cc71a0fe844ed865390564e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-affleck#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《아르고》로 2013년 아카데미 작품상을 거머쥐고도 애플렉의 이름은 감독상 후보에 없었다. 그리하여 《아르고》는 《드라이빙 미스 데이지》 이후 감독상 후보 없이 최고상을 받은 첫 영화가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a6ff513f735f3914bcb69264026e81c7a9bc72efb4dd154b55fbf86bb715709"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-affleck#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "유명인의 흔한 자선과는 다른 길이었다. 2010년 그는 동콩고 이니셔티브를 세웠고, 콩고민주공화국을 열 번 넘게 오가며 지역 공동체를 일구는 단체들에 직접 지원금을 연결했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b28b1e091e8de927bbcecaf5a600448e7d537205d9b8e803b6c0de7e367d7ab"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-affleck#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "애플렉은 집안 내력인 알코올 중독과의 싸움을 숨기지 않았다. 2001년, 2017년, 2018년 여러 차례 재활 시설에 들어갔다. 마지막 그날 그를 차에 태워 데려다준 사람은 전처 제니퍼 가너였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "145388861550cda08aa8fc6ca960760890716f84335c83555bead90ad4222bb1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-affleck#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2014년 소니 이메일 해킹으로 유출된 서신에서 드러난 사실. 애플렉은 PBS 족보 프로그램 《Finding Your Roots》를 압박해, 외가 조상 한 명이 조지아에서 노예를 소유했다는 내용을 걷어내게 만들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c9e0aa585afd61a393f928f4db1dde3810450a51ffafaef1b756dc14a25f9e21"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-affleck#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생 매사추세츠 사람으로 살아온 그는 던킨 아이스커피에 매일 매달렸고, 파파라치 사진마다 그 컵이 찍혔다. 결국 2023년 슈퍼볼 대형 광고를 직접 연출하고 출연했다. 아내 제니퍼 로페즈와 함께.",
+  "model": "claude-opus-5",
+  "source_sha256": "4be4e1b93c85f6e79abd81332c4252316f5ab41bd2f02f2181a56db960c2e342"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-affleck#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2000년대 초 제니퍼 로페즈와의 연애는 온 매체의 관심사였고, 그 과정에서 \"베니퍼\"라는 말이 태어났다. 현대 연예 타블로이드 시대의 첫 본격 합성 애칭으로 꼽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "192eb8be703791db4408e514070cf7183aed23e49352b3c375a74331a605076f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-affleck#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "보스턴 범죄 스릴러 《타운》을 준비하며 그는 찰스타운 출신의 전직 은행 강도들을 직접 만나 이야기를 들었다. 최고 보안 등급 교도소도 찾았다. 대사와 수법에 한 치의 틈도 두지 않기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "44b24f29908bed74a097130d4f13ff8449c4bf5caa0d78ea2b0ee2da727c0de8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-affleck#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2003년작 《지글리》가 비평과 흥행 양쪽에서 참패하자 애플렉은 깊은 우울에 빠졌다. 이후 몇 해 동안 대형 블록버스터 연기를 사실상 접고, 카메라 뒤의 진지한 영화인으로 자신을 다시 만들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0ba6f1e5f4f9cd04c0c4e8c78c4b3e5b35c8a9d76a0c603e7b35205dd91b9e20"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-affleck#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2003년 그는 조지아주 햄프턴 아일랜드에 87에이커짜리 저택을 사들였다. 본채는 그리스 리바이벌 양식의 남부 플랜테이션을 본떠 지은 건물이었다. 남북전쟁 이전의 그 외양을 두고 여론이 불편해하면서, 그는 몇 년을 매각에 애먹었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a535a6db4462fbf11d95257e8265b86b6d7c74defafa44f6eebb71cf56bf30b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-affleck#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2022년 애플렉과 맷 데이먼은 독립 제작사 Artists Equity를 설립했다. 수익을 스태프 전원과 나누도록 설계된 회사다. 첫 작품은 애플렉이 연출한 《에어》, 에어 조던 운동화가 탄생하는 이야기였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a0af8a2dcfbd5b5f89fd69cad2836dfaa0c17f893d2040fa6e0f8b239a9e694c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ben-affleck#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "케빈 스미스의 이른바 \"뷰 애스큐 유니버스\" 시리즈에 거의 빠짐없이 얼굴을 내민 배우는 그가 유일하다. 매번 다른 인물을 연기했는데, 가장 널리 기억되는 것은 《체이싱 에이미》의 만화가 홀든 맥닐이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bc5c94bf512944da46ddc842e59586b367715f9a540d3c2853b35e3beafe5e1"
+ }
+]

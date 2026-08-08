@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sara-1993",
+  "field": "lead",
+  "film_id": "4a45e45b-07ec-4114-96d5-d614aff0d02e",
+  "lang": "en",
+  "text": "For three years a wife keeps a second set of hours that no one in her house is told about: the work, the lender, the sums going out on a schedule she alone tracks. The money paid for her husband's operation abroad, and the arrangement that produced it belongs to her. Dariush Mehrjui stays with the daily management of it rather than with any crisis. Iran in 1993 gives the situation its teeth: the loan is off the books, the man behind it has no reason to be patient, and the secrecy is not a whim but a condition of the whole scheme working. A hundred and two minutes, mostly in rooms, a household and a workplace and the short distance between them. What is at stake is not the debt. It is what a marriage is worth when only one person is paying for it, and how long that can be carried alone.",
+  "model": "claude-opus-5",
+  "source_sha256": "32ae6d2488f4e9ad64ec11f1786f8f9932e3e9d123cd0cb285c2aae5e21fdc0e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "wind-with-the-gone-1998",
+  "field": "lead",
+  "film_id": "fb05d045-4ce0-45ca-84c2-007706cc1f4f",
+  "lang": "en",
+  "text": "A village in Patagonia takes its picture of the outside world from one cinema, and the cinema runs only old films. Alejandro Agresti aims his comedy straight into that gap. Soledad has had enough of driving a taxi in Buenos Aires and points her car south, stopping in the place where the road and the projector between them constitute the news. What follows is less about isolation than about conviction: people with all the information they require and none of it current, explaining their own lives to a stranger who has no authority to correct them. Ninety minutes, 1998, a landscape wide enough to swallow a plot, which Agresti seems content to let it do. Her car is the one thing in the village that has recently been somewhere else. The jokes are dry and local and arrive at the speed of a place where nothing is scheduled.",
+  "model": "claude-opus-5",
+  "source_sha256": "f61c384f3cd48ad03b099ed1581f5bb8f5fa444d37bc4336b855eb132565f71b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "gun-shy-2003",
+  "field": "lead",
+  "film_id": "65c5ec56-446e-4604-b7ab-e99f172ff306",
+  "lang": "en",
+  "text": "The job is carrying hot meals to strangers' doors, and Lukas has it because he chose it over the army. Alternative service organises his week and supplies almost nothing else, until Isabella turns up and the rounds acquire a point. She becomes his best friend before she becomes his cause. Dito Tsintsadze treats the friendship as the real thing it is, then lets it deliver its own poison: what Lukas learns about her stepfather he cannot set down again. A hundred and five minutes is long enough for a thriller to stop being comfortable, and the film stays close to a young man whose instinct for rescue swells past all proportion while nobody ever confirms he is right to have it. The disquieting part is not that something terrible gets imagined. It is how reasonable the imagining sounds, said aloud, over food going cold.",
+  "model": "claude-opus-5",
+  "source_sha256": "db92c289a825d538d80240fb4f9e651c939f7053102e2d6bf4f5759e63c8df26"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-rye-horn-2023",
+  "field": "lead",
+  "film_id": "d21653b0-e116-4b5a-a8a4-734ff521932c",
+  "lang": "en",
+  "text": "Two trades, both learned by hand: taking shellfish off the flats at low tide, and attending women in labour. Maria does both on the Illa de Arousa in the 1970s, and Jaione Camborda films the second the way films usually film the first, as work with its own tools, timing and risk. The language spoken is Galician, which matters, since this is a rural Spain filmed from inside its own tongue rather than reported on from elsewhere. Then something happens that puts Maria on the road to Portugal, and a film rooted in one island becomes a matter of distance, border and who will take her in. It runs a hundred and five minutes and carries the Golden Shell along with two Mestre Mateo prizes, for best film and for direction. The body at its centre is a working body, and the film never forgets that it tires.",
+  "model": "claude-opus-5",
+  "source_sha256": "6082007b15502ee159b8607da30359edb8346b3916cab734a85348f060fa6de5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-long-day-s-dying-1968",
+  "field": "lead",
+  "film_id": "523a6272-039f-4b35-a1d1-23d7bde1b51a",
+  "lang": "en",
+  "text": "Four men cross open country, and one of them is a prisoner of the other three. That is nearly the whole situation: three British soldiers, a German captive, ninety-five minutes of hedge and field and weather in which the guard duty never lapses and the destination stays somewhere ahead. The war film usually promises scale. Peter Collinson offers custody instead, and the reduction is what makes it work. With no formation to disappear into, each of the three has to keep deciding what a prisoner is owed and which of them is answerable for deciding it. Three guards make a majority possible, and a majority is what turns an opinion into an act. The countryside is European and unmarked, so geography settles nothing. Made in 1968 and paced at walking speed, it keeps the enemy near enough that he has to be fed.",
+  "model": "claude-opus-5",
+  "source_sha256": "bec06dcceb1a3bd0b7ae409a5545b2456afdaab7a84f629ec4b0510436081d4d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "ewa-wants-to-sleep-1958",
+  "field": "lead",
+  "film_id": "95292452-b409-4dca-ab5f-77b04c2c9583",
+  "lang": "en",
+  "text": "All Ewa needs is a bed for the night, and the town declines to provide one. From that refusal Tadeusz Chmielewski builds ninety-five minutes of nocturnal comedy: a women's hotel that turns her away, streets thick with thieves who are more nuisance than menace, and a policeman called Piotr who takes her predicament on as though it were a case. Ewa's tiredness is the engine; everything else is an excuse for another street. Poland in 1958 is worth holding in mind during a farce where the police are helpful and the criminals are mostly incompetent, since the film is doing a quiet amount of arranging with the world it shows. It runs on invention rather than gags, each attempt to lie down producing a fresh obstacle, and it took the Golden Shell for its trouble.",
+  "model": "claude-opus-5",
+  "source_sha256": "ee74131ccd770cbb8713971da8e2309d7083dbcd3bb75ce2c62d484bd543e313"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "wedding-in-galilee-1987",
+  "field": "lead",
+  "film_id": "e3c27ea0-6c0e-4d77-8bd0-935e2f1143aa",
+  "lang": "en",
+  "text": "A father asks the military governor to lift the curfew for one night so that his son can be married properly. The permission comes with a condition: the governor and his officers will attend. Michel Khleifi builds the whole film out of that clause, and it carried the Golden Shell and the Tanit d'or. Preparations proceed on both sides of the house, women with the bride and men with the groom, guests gather, the day assembles itself in its correct order, and seated among the guests are uniforms nobody wanted, at a celebration whose scale was the entire point. The son sees what his father has traded and says so, early and in public. A hundred and twelve minutes in Arabic, the politics lodged inside hospitality, where a host is obliged to be gracious to men he would rather not seat.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ff75ab42f105c6b6a773bbe68d3f2729b3214ce9ab9b751ac71bcbcbc13568c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "romeo-juliet-and-darkness-1960",
+  "field": "lead",
+  "film_id": "da4e1dd0-2ed5-4806-bf4a-6f307c431763",
+  "lang": "en",
+  "text": "Prague, 1942: a student climbs to an attic with food for a girl he has hidden there, and that climb is the architecture of the film. Jiří Weiss keeps Hana in the one room and makes Pavel her only traffic with the street, so everything outside, a curfew, a rumour, an army going about its administration, reaches her secondhand, in his voice, edited by whatever he is willing to say. Ninety-two minutes, made in Czechoslovakia in 1960, near enough to the occupation that a stairwell of neighbours was still a countable thing with names in it. Food, news and company all arrive by the same staircase and stop when he does. The love that grows upstairs is not relief. It is added pressure, because someone in love talks, lingers and comes back too often, and each of those is a mark on a tally being kept below.",
+  "model": "claude-opus-5",
+  "source_sha256": "370408faa441570fd0f9cd2790f70063ac628512deca1c71baab2a15e96409a3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "c-est-quoi-la-vie-1999",
+  "field": "lead",
+  "film_id": "48388610-a23f-4924-83b9-1410f2b8e290",
+  "lang": "en",
+  "text": "Noel is proud of having worked the same land nearly all his life; his son Marc is the one working it now, together with the debts. François Dupeyron films rural France in 1999 as a going concern rather than a view: calving, accounts, the daily arithmetic of animals that have to be kept alive in order to be worth anything. A hundred and fifteen minutes leaves room for the third generation as well, Nicolas, who has no appetite for the farm and no alternative he can name, and who spends the film in the vicinity of a decision. Then something settled far from the property arrives on it, of a kind no amount of husbandry can argue with. The subject is inheritance as an obligation that cannot be declined politely: one holding, three men, three incompatible ideas of what it is for.",
+  "model": "claude-opus-5",
+  "source_sha256": "aea4e7dee3c2cea727b6638d7f7fe4ef9f41f7ad5a0629e1c3d78e5ee24faa23"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "half-of-heaven-1986",
+  "field": "lead",
+  "film_id": "914fe437-c7f8-41ec-acfe-ba196d09933e",
+  "lang": "en",
+  "text": "Whoever decides what a country eats after a war holds a kind of power that never has to be stated. Manuel Gutiérrez Aragón moves Rosa toward it by stages: a village in the years following the civil war, a marriage to a knife sharpener whose actual trade is persuasion, then Madrid with a daughter and nothing behind her, then a nurse's place in the household of Don Pedro, who is influential in the food business. A hundred and twenty-seven minutes give the climb its proper slowness. What accumulates is not romance but competence, the particular skill of a woman who learned to obtain things in a time when there was nothing to obtain, put to use in rooms that were not built to admit her. Spain sent it forward as its submission to the Academy Awards.",
+  "model": "claude-opus-5",
+  "source_sha256": "92e30334e1c2b3e36ba8916c80dc4006973f17648cf3c5c0e20ad07b65c20441"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bwana-1996",
+  "field": "lead",
+  "film_id": "9bd1ebed-aae8-42ea-a5af-826a61400598",
+  "lang": "en",
+  "text": "A family drives out to an empty beach to look for shells and finds two men who came ashore with nothing. Imanol Uribe keeps all of it on one stretch of sand across a single turn of the clock, afternoon, evening, night, the morning after, with a taxi, two children and nobody to refer the matter to. The comedy is of the bad sort: Antonio is no monster, he is a man on a day out trying to calculate what he owes Ombasi and Yambo, and every calculation is performed in front of his wife and his kids. Ninety minutes, Spain, 1996, and an arrival that is not footage from somewhere else but two people standing on the same sand. As the light goes, other figures turn up on the beach, and the question shifts from what the family will do to what will be allowed.",
+  "model": "claude-opus-5",
+  "source_sha256": "d505367b6c497ea6a519ee69c7a668566573f4dab37ed29340e4692a426dd5d2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "blue-moon-2021",
+  "field": "lead",
+  "film_id": "c908b0ce-8b9c-4e08-8bd3-0d57e2fba878",
+  "lang": "en",
+  "text": "Irina's plan is an ordinary one: finish school, take the degree, get out. Inside her family it registers as desertion. Alina Grigore gives the opposing case a body in Liviu, a cousin who does business in the village and thinks little of what a degree is for, then holds the two of them in the rooms where relatives actually conduct arguments, over meals, in front of others, with nobody's position ever formally stated. Eighty-two minutes is a short run for a family drama, and the brevity works as pressure: no subplot to duck into, no wider Romania to cut away to. Nobody here is arguing about education, exactly; they are arguing about who gets to leave. It took the Golden Shell. What is at issue is permission, whether a person can want what her people did not want and go on living among them.",
+  "model": "claude-opus-5",
+  "source_sha256": "00fc8cc0c8b2c1bc2b0c13a7e893d0983952625794c4ac7a6b114816b5b9777c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "pacified-2019",
+  "field": "lead",
+  "film_id": "c9019444-2cfa-4f28-9af5-a6473196b1f4",
+  "lang": "en",
+  "text": "The Rio Olympics are over and the police are still in the favelas. Paxton Winters sets his film in that wake, in neighbourhoods held under something called pacification that behaves more like a stalemate, and puts at the centre of it a thirteen-year-old with more immediate business: her father is out of prison, and neither of them knows how to occupy a room with the other. Tati watches everything, which here is a survival skill and a temperament at once. Jaca comes back to a place that reorganised itself around his absence. He has been away long enough that his daughter has to learn him from scratch. Their negotiation runs on ordinary logistics, where he sleeps, whose money, whose word counts, across a hundred minutes that carry the Golden Shell. The tension is domestic first and structural second, the harder order to get right.",
+  "model": "claude-opus-5",
+  "source_sha256": "39a13bac380a5ba9ecb9ca092ef1540fb7e729bbc6ed35bcceb39a7058021538"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "trojan-eddie-1996",
+  "field": "lead",
+  "film_id": "bff15bba-1095-4d14-bb9e-8e769c3e8357",
+  "lang": "en",
+  "text": "Eddie went to jail rather than name his partner, and what the silence bought him was a job. He shifts stolen goods for John Power, who is old, owed by everyone, and about to marry a woman much younger. Gillies MacKinnon films an Irish traveler community from inside its obligations, debts, dowries, standing, the precise weight of a promise made in front of witnesses, with Eddie near the bottom of that ledger and two daughters to raise by himself. When the marriage comes apart and the dowry leaves with it, the job of putting things right lands where such jobs always land. A hundred and five minutes in which the crime is small and the humiliation is not. What the film keeps in view is that a man with no leverage can still be trusted, and that being trusted is a different thing from being safe.",
+  "model": "claude-opus-5",
+  "source_sha256": "07c0d75f55c7bde3d2641fca1e594073ea7a6f93c5b56b09f44643585f58cd3d"
+ }
+]

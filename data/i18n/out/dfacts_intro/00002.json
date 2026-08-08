@@ -1,0 +1,272 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "fran-ois-ozon",
+  "field": "intro",
+  "lang": "ko",
+  "text": "프랑수아 오종은 놀랄 만큼 다작하는 프랑스 영화의 도발자다. 부르주아의 위선, 유동하는 섹슈얼리티, 상실을 어두운 유머로 갈라 본다. 거의 매년 한 편씩 찍으면서 요란한 뮤지컬에서 메마른 비극으로 아무렇지 않게 건너뛴다. 영화 위를 끝없이 옮겨 다니는 변신술사.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a2b0e3a22640ba963f2e53bc65637686b78afc12557805b090a27d19db803b4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francis-ford-coppola",
+  "field": "intro",
+  "lang": "ko",
+  "text": "프랜시스 포드 코폴라는 미국의 감독이자 제작자, 각본가로 뉴 할리우드 시대를 만든 사람이다. 파산과 전설로 남은 제작 참사가 늘 그를 따라다녔다. 그럼에도 자기 재산을 걸고 또 걸어, 타협 없는 오페라적 승리를 끝내 손에 넣었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1bd02b0adab6c1d05cac5ce87d1029462ab278a3ab5c642188788d15e15b50be"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-ozon",
+  "field": "intro",
+  "lang": "ko",
+  "text": "다작하는 프랑스의 작가 감독. 프랑수아 오종의 이름을 알린 것은 신랄한 부르주아 풍자와 통념을 뒤엎는 퀴어 영화, 그리고 단순하지 않은 여성 주인공들이다. 1년에 한 편꼴로 찍는 그의 영화는 세련되고 어디로 튈지 모른다. 섹슈얼리티와 슬픔, 사회의 위선을 끊임없이 해부한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d3c9b5262b5913bcf687d96fe1527b204f7a11119fd782426c5503fd1dcd6f49"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "francois-truffaut",
+  "field": "intro",
+  "lang": "ko",
+  "text": "깊이 상처 입은 아이, 책에 빠진 가출 소년. 프랑수아 트뤼포는 그 자리에서 누벨바그의 선두로 나섰다. 비행으로 얼룩진 청춘을 영화로 바꿔냈고, 가장 가까운 동료들과 험하게 갈라섰으며, 작가주의(auteurism)를 옹호했다. 그리고 쉰둘에 너무 일찍 떠났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9d3aa0cec9458b88cc7f9748cd7529422a6b09fda1b023aeea44e663b8d7a3b1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "frank-capra",
+  "field": "intro",
+  "lang": "ko",
+  "text": "로스앤젤레스 빈민가에서 할리우드 정상까지 기어 올라간 이민자. 프랭크 카프라는 미국 영화의 이상주의를 정의했다. 그러나 'Capracorn'이라는 말을 낳은 그 낙천 뒤에는 불안에 시달리는 보수주의자가 있었다. 대중을 위한 우화가 개인의 모순과 정치적 모순을 함께 덮고 있었던 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1412fc5ba2bd3e0efcb29c91d5efb299da1a0de22ef0fcec787adbee0c9cdcc7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "fritz-lang",
+  "field": "intro",
+  "lang": "ko",
+  "text": "외눈 안경을 낀 독재자. 독일 표현주의의 거인 프리츠 랑은 나치를 피해 할리우드로 건너가 SF와 필름 누아르의 길을 열었다. 범죄와 운명에 사로잡힌 사람이었다. 폭군 같은 완벽주의 탓에 배우들 몸에는 멍이 남았지만, 그 손에서 영화사의 걸작들이 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "465fd1082d57c05c8069d6b88d44a946d31197e22a762ad6e5a022f2eb6c7509"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "gaspar-noe",
+  "field": "intro",
+  "lang": "ko",
+  "text": "아르헨티나에서 태어난 가스파 노에는 오늘날 프랑스 영화에서 가장 타협을 모르는 도발자다. 그가 만드는 것은 네온에 절은 환각의 악몽. 어지러운 카메라와 극단적인 감각 공격으로 이름이 났다. 폭력과 섹스, 그리고 죽음이라는 몸의 현실을 관객이 정면으로 보게 만든다.",
+  "model": "claude-opus-5",
+  "source_sha256": "74714877bc680c5fc0c91a5f0d053f291147e9bdee8e2a15d58ca1750642b0df"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-lucas",
+  "field": "intro",
+  "lang": "ko",
+  "text": "조지 루커스는 신화적인 스페이스 오페라로 할리우드를 바꿔놓았다. 그러나 정작 그 자신은 지독하게 독립적인 사람이었고, 자기가 새로 정의한 스튜디오 시스템에서 벗어나려 평생을 썼다. 북캘리포니아에 자기 왕국을 세운 것도 창작의 통제권을 온전히 쥐기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "44d15b95ed87fa34a429daa61e969e7d93a9a6e321bc293539b3c37103f217e3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "george-miller",
+  "field": "intro",
+  "lang": "ko",
+  "text": "조지 밀러는 시드니의 응급실 의사였다. 참혹한 교통사고 환자들을 받던 그 손이 《매드 맥스》 시리즈를 만들어냈다. 이력은 종잡을 수가 없다. 디스토피아의 자동차 살육, 의학 드라마, 그리고 오스카를 받은 탭댄스 추는 펭귄까지.",
+  "model": "claude-opus-5",
+  "source_sha256": "95573346b386402960ecf07606b26dd6a956343bfe64605e0c6b15fd9ae755c3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "greta-gerwig",
+  "field": "intro",
+  "lang": "ko",
+  "text": "그레타 거윅은 지금 미국 영화를 대표하는 목소리 가운데 하나다. 저예산 멈블코어의 궁핍한 현장에서 출발해 흥행 기록을 갈아치우는 대작을 연출하는 자리까지 왔다. 블록버스터에 깊은 진심과 페미니즘의 질문, 그리고 유난히 연극적인 감각을 불어넣는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "affedfaf25a2824a984491284154a974a584972a88dd7dff13545136cc8d6de8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "guillermo-del-toro",
+  "field": "intro",
+  "lang": "ko",
+  "text": "괴물을 다루는 멕시코의 장인. 기예르모 델 토로는 어린 시절의 상처와 엄격한 가톨릭 학교의 기억을 어둡고 다정한 동화로 바꿔놓는다. 유령이 나올 법한 자기 저택 'Bleak House'에서 작업하며, 오해받는 그로테스크한 것들 편에 선다. 아카데미상까지 안긴 그 집요한 시선으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "18e505a4e7c17c61ba7d8f213d336629cfb635bbdcea838600d75effbee36079"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "gus-van-sant",
+  "field": "intro",
+  "lang": "ko",
+  "text": "구스 반 산트는 뉴 퀴어 시네마의 개척자이면서 종잡기 어려운 작가다. 할리우드 상업 대작과 극단적인 미니멀 실험 사이를 계속 오간다. 태평양 북서부의 풍경, 비트 문학, 그리고 청춘의 벌거벗은 위태로움이 그를 만들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd3712323c5763e5aa1f90f38d9d7293ab2bf15db020113ed3aeff76a93389b4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hayao-miyazaki",
+  "field": "intro",
+  "lang": "ko",
+  "text": "미야자키 하야오는 세계 애니메이션의 거인이다. 스튜디오 지브리를 함께 세웠고, 손으로 그린 고집스러운 걸작들로 이 매체의 정의를 다시 썼다. 생태를 향한 깊은 불안, 반전(反戰)의 신념, 아이의 경이가 한데 섞인다. 그 대가로 얻은 것이 세계의 찬사, 그리고 누구의 간섭도 받지 않는 창작의 자유다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d9a2048e896cd19b020e8e4be3627c142c60ccaa1e0edf48c9ff8f833c3b0f33"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hirokazu-kore-eda",
+  "field": "intro",
+  "lang": "ko",
+  "text": "고레에다 히로카즈는 황금종려상을 받은 일본의 작가 감독이다. 부서진 가족과 상실, 사회의 가장자리를 다큐멘터리에 가까운 시선으로 조용히 들여다본다. 아역 배우에게는 대본을 쥐어주지 않는다. 짜인 연기보다 자연스러움과 감정의 진실이 먼저이기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e51eda73468b72b1ee07b086d8d27169bd3dfe1869fec3193714e4b79816d26f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hong-sang-soo",
+  "field": "intro",
+  "lang": "ko",
+  "text": "한국 뉴웨이브의 선구자 홍상수. 소주가 흐르는 미니멀한 희비극을 지치지 않고 찍어낸다. 스태프는 최소한으로 꾸리고, 대본은 촬영 몇 시간 전에 쓴다. 그렇게 나오는 것이 사람의 어색함을 자조하듯 들여다보는, 지극히 사적인 초상이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb5eab9f9f8dbd154c4604a099a40af9da893b99f17b857d2bcf866312c63557"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "hou-hsiao-hsien",
+  "field": "intro",
+  "lang": "ko",
+  "text": "허우샤오셴은 대만 뉴웨이브를 연 사람이다. 긴 호흡의 롱테이크, 그리고 역사를 파고드는 발굴 작업으로 알려져 있다. 거리를 떠돌던 소년이 끝내 세계 예술영화의 지형을 바꿨다. 철저히 관찰하는, 그리고 깊이 자전적인 그 시선으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "841e7e0bf7825ceaf42a202ce745345153fa0fb1a8b07090a42479c8b5a05061"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "howard-hawks",
+  "field": "intro",
+  "lang": "ko",
+  "text": "하워드 혹스는 할리우드 최고의 카멜레온이었다. 스크루볼 코미디부터 서부극까지, 손대지 않은 장르가 없다. 냉담하고 귀족적인 비행사 출신에, 자기 이름을 내세우지 않는 작가. 빠르게 말하는 여자들과 말수 적은 남자들, 그리고 보이지 않는 연출로 그는 미국 영화의 황금기를 규정했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "64cb8d3d2ec322fbaefa88f7cb82cbdbf030e6814d7f937d1019b4d32c772f82"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ingmar-bergman",
+  "field": "intro",
+  "lang": "ko",
+  "text": "잉마르 베리만은 세계 영화와 스웨덴 연극 양쪽의 거장이었다. 엄격한 루터교 가정에서 자���고, 심한 신경증을 앓았으며, 연애사는 늘 엉켜 있었다. 그 모든 것이 믿음과 죽음, 그리고 인간관계의 참혹한 복잡함을 파고드는 화면이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ce9b18630a37889235b201f66ad514ed82aaeecd7cf0f3637f053d3597aec01"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "isao-takahata",
+  "field": "intro",
+  "lang": "ko",
+  "text": "스튜디오 지브리의 공동 창립자 다카하타 이사오는 단 한 장의 그림도 직접 그리지 않은 애니메이션의 거장이다. 완고한 평화주의자이자 지식인이었던 그는 어른을 위한 애니메이션의 길을 열었다. 《반딧불이의 묘》처럼 빈틈없이 사실적이고, 보고 나면 마음이 무너지는 작품들로.",
+  "model": "claude-opus-5",
+  "source_sha256": "71e1613e662e1ee4af30d585e6fe4bfbaa8bf46bb61574c82a22174595e61959"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "j-j-abrams",
+  "field": "intro",
+  "lang": "ko",
+  "text": "TV에서 연속 미스터리의 문법을 새로 쓴 뒤, J.J. 에이브럼스는 할리우드가 식어버린 프랜차이즈를 되살릴 때 찾는 이름이 되었다. 숨 돌릴 틈 없는 속도에 짙은 향수를 섞는다. 비밀주의 마케팅과 렌즈 플레어라는 서명으로 그는 21세기 프랜차이즈 영화의 모양을 바꿔놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3006876763cb2e4a258394a8ae7d188e4cf7b55f2cf43948e2689b02136540a3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-audiard",
+  "field": "intro",
+  "lang": "ko",
+  "text": "자크 오디아르는 오늘날 프랑스 영화의 거목이다. 장르를 뒤섞은 그의 영화는 남성성과 범죄, 부서지기 쉬운 몸을 다룬다. 뒤늦게 출발해 전설적인 아버지의 그늘에서 빠져나온 사람. 예상 밖의 배우들에게서 날것 그대로의 연기를 번번이 끌어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c5705cf9985e10b248bed1783dfec7a53ccc01c6bdeb97eb68adcdc774176d95"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-tati",
+  "field": "intro",
+  "lang": "ko",
+  "text": "프랑스와 러시아 귀족의 피를 이어받은 자크 타티는 돈 잘 벌던 집안의 액자 사업을 버리고 뮤직홀의 마임 배우가 되었다. 파이프를 문 분신 윌로 씨를 통해, 그는 현대의 부조리와 소리를 가장 정밀하게 안무한 사람이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "285e448841139aca4bb7bf9aa12a7a12b4c427d5c4c85b3ed2056fd3474ec643"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jafar-panahi",
+  "field": "intro",
+  "lang": "ko",
+  "text": "이란 영화의 거장이자 굽히지 않는 반체제 인사. 자파르 파나히는 20년 영화 제작 금지라는 가혹한 형벌을 오히려 창작의 시기로 바꿔놓았다. 에빈 교도소를 여러 차례 드나들면서도, 깊이 인간적인 비밀 영화들을 조국 밖으로 몰래 실어 보냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6a5a5a0dc96a0ece7a04c6817fc60cac3c11b24423b77428043b94e3803bfda6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-cameron",
+  "field": "intro",
+  "lang": "ko",
+  "text": "제임스 캐머런은 영화감독이자 심해 탐험가다. 기술 혁신을 끝까지 밀어붙이는 집념으로 할리우드를 바꿔놓았다. 현장에서는 독재자로 통했고, 만드는 작품마다 기념비적인 흥행작이 되었다. 그의 이력은 스크린의 스펙터클과 해양 공학 사이에 놓인 다리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f51adbd77d683e38f03c3db065e6afc4b0bd54973d4b96a5c46bb6bba06e51fa"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gray",
+  "field": "intro",
+  "lang": "ko",
+  "text": "미국 감독 제임스 그레이는 오페라처럼 크고 감정이 두꺼운 드라마로 알려져 있다. 가족과 계급, 그리고 뉴욕 외곽 자치구가 그 재료다. 완고한 전통주의자인 그는 요즘 할리우드의 유행 대신 35mm 필름과 고전적인 서사 구조를 택한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7902a74d0177054d4e151b2ad524931e1276ec38135e2b223749a835467505a4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gunn",
+  "field": "intro",
+  "lang": "ko",
+  "text": "제임스 건은 미국의 감독이자 스튜디오 경영자다. 트로마 엔터테인먼트에서 저예산 컬트 호러의 각본을 쓰던 사람이, 수십억 달러짜리 슈퍼히어로 세계를 설계하는 자리에 앉았다. 지금은 DC 스튜디오의 공동 회장 겸 공동 CEO다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d5d381470e6e326d9db0a50e1cb2f5ad78959dd70b7d866938cc79d8573f32ad"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-wan",
+  "field": "intro",
+  "lang": "ko",
+  "text": "말레이시아에서 태어나 호주에서 자란 제임스 완은 《쏘우》와 《인시디어스》, 《컨저링》을 잇달아 시작하며 현대 호러의 판을 다시 짰다. 살아 움직이는 카메라와 실물로 만든 공포가 그의 무기. 이후 《아쿠아맨》과 《분노의 질주: 더 세븐》 같은 10억 달러급 액션 대작으로 매끄럽게 건너갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ece9851d072778a0617d34478ad5c3c5ed05d2afc10a7797525ab8ba965c0e33"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-luc-godard",
+  "field": "intro",
+  "lang": "ko",
+  "text": "누벨바그의 우상 파괴자 장뤼크 고다르. 점프컷과 실존적 거리 두기로 영화의 문법을 뒤집어놓았고, 이후에는 급진적인 마르크스주의 비디오 에세이로 방향을 틀었다. 타협을 모르고 싸우던 그 지성이 움직이는 이미지의 가능성을 영영 바꿔놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "452f31665eb2b10927e87bb25d1d10cbc74496cc59d0776a15f31e9500029895"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-dardenne",
+  "field": "intro",
+  "lang": "ko",
+  "text": "장피에르 다르덴은 벨기에 감독이다. 형제 뤼크와 함께 극도로 사실적이면서 사회를 향해 열린 영화 언어를 만들어냈다. 그 뿌리는 고향 왈로니의 무너진 공업지대다. 엄격하면서도 사람 편에 서는 그들의 작업은 칸에서 두 차례 황금종려상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7a2283ae8a6e2742cfdd913c7fbe4d703e10a85836372ab9c488f4d78196fb96"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-pierre-melville",
+  "field": "intro",
+  "lang": "ko",
+  "text": "누벨바그의 대부이자 실존적 범죄영화의 대가. 장피에르 멜빌은 미국 갱스터의 도상(圖像) 위에 유럽식 메마른 숙명론을 겹쳤다. 지독한 독립주의자여서, 파리에 자기 스튜디오를 차려놓고 그 안에서만 작업한 일화로 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f82273b52e591f38942fa33206bd0e8f148e4cc23ef8101722a42ec12d0d8c2d"
+ }
+]

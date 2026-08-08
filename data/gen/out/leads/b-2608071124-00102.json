@@ -1,0 +1,72 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "loving-2016",
+  "field": "lead",
+  "film_id": "5961f20d-75aa-44a3-b28f-87777cce8111",
+  "lang": "en",
+  "text": "In 1958 Virginia, a marriage certificate was enough to put two people in jail. Richard and Mildred already knew the looks and the talk; what changed with the wedding was that the state itself took an interest, and an arrest followed. Jeff Nichols gives the case its two hours but spends much of them away from any courtroom, on rented rooms, on driving, on the years of waiting a lawsuit imposes on a household. The Supreme Court is the destination. The daily business of staying married while the law says the marriage does not exist is the subject. The film's Academy Award went to its lead actress, which reads as an accurate verdict on where the weight sits: not in argument but in two people keeping house under a statute written to stop exactly that.",
+  "model": "claude-opus-5",
+  "source_sha256": "a71232396f7d9f41eed2ed909923b4bd2bc2bb8ca70242a752e3faf6ba679a01"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-day-after-2009",
+  "field": "lead",
+  "film_id": "59aa7757-7c4b-42b9-9f45-92b5e328545b",
+  "lang": "en",
+  "text": "Eighty-eight minutes, two women, one thing in common that neither went looking for. A divorce is behind each of them, and the meeting is a matter of chance rather than arrangement, the sort of encounter that ends after ten minutes in most lives and, here, does not. Lee Suk-gyung builds from that: recognition between strangers who can skip the explanations, and the reassessment that follows once someone with the same history is sitting across the table. The economy is the method. At this length there is no second plot to escape into, so the pressure stays in conversation, in timing, in the small decisions a woman makes about work and rooms and evenings once the paperwork is finished. Nothing in the premise promises repair; the meeting is itself the event.",
+  "model": "claude-opus-5",
+  "source_sha256": "8cc8b9455718647a7eefeb139e1099335d32086a40bdf6868216f3b6f7cf4b7a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mamma-mia-2008",
+  "field": "lead",
+  "film_id": "5dab0250-f3e5-46e3-b476-e93687df1fb4",
+  "lang": "en",
+  "text": "Three men are invited to a wedding on a Greek island by someone who has not told the bride's mother. That is the whole engine: a young woman wants a father to walk her down the aisle and, rather than raise it with her mother, she narrows the field to three and lets all three arrive. Phyllida Lloyd runs the mechanics of farce at 108 minutes, overlapping arrivals, rooms with the wrong people in them, an island that works like a locked door. The comedy depends on the mother knowing nothing and the daughter knowing almost as little. What the bride is really after is not a man to hold her arm in a church but an account of her mother's twenties, a decade that has reached her so far as three names and no explanation.",
+  "model": "claude-opus-5",
+  "source_sha256": "da563a9488d1198879204e5b71ac0c6a51a7a76b3c446600623b85611ea849d3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "each-2020",
+  "field": "lead",
+  "film_id": "5f1ae292-3efa-46a3-9166-1ddeb09eb3f9",
+  "lang": "en",
+  "text": "A bar table, four people, and only one of them has stopped making films. Ranhee works in an office now; the actress who starred in her independent feature is still acting, still being cast, and it is she who suggests they all sit together, so Ranhee spends the evening next to the career she left. With them is a director and producer who takes crudeness for a sign of seriousness, and who eventually gets around to her film. Thirty-seven minutes is the right size for this. Kang Jeong-in wants no second location: the design is simply that a person who has decided not to discuss something must sit still while other people discuss it. What is on trial is composure rather than talent, in front of witnesses who believe they are being kind.",
+  "model": "claude-opus-5",
+  "source_sha256": "e3d1ba591f3e33fda8702c131bf1a08905036c4809fe478190ae9f29f2c98199"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-butler-2013",
+  "field": "lead",
+  "film_id": "5fffdbf8-cfab-461a-a249-4d987bb09f11",
+  "lang": "en",
+  "text": "The job description is to be in the room and to register as furniture. Cecil Gaines learns it as a sharecropper's son, working in the house of the white family that casually ruins his own, and then refines it into a trade: hotel valet, then butler in the White House, where discretion is the entire professional standard. Lee Daniels runs 132 minutes across administrations, and the arrangement he keeps returning to is a hard one, a man paid to hear everything and repeat none of it while beyond the service door the argument over his own rights grows louder by the year. Home is where the arrangement fails. Gloria drinks. Louis refuses his father's method and says so out loud. The presidents come and go; the film is more interested in what a household pays when the man at the head of it has trained himself, professionally, to hold no opinion.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e3f9e5c71f50fc6ca027e69ea8ef942c15a90898335ad4489b4da28d1183ab2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-most-beautiful-boy-in-the-world-2021",
+  "field": "lead",
+  "film_id": "61113a9d-61a7-4688-8d10-73d56a7f0d51",
+  "lang": "en",
+  "text": "One phrase, said out loud at a premiere in 1971, attached itself to a boy and would not come off. Visconti had cast him as Tadzio in Death in Venice and introduced him with a superlative that reads, at this distance, like the description of an object. Bjorn Andresen has spent fifty years as the answer to a question nobody asked him, and Kristian Petri's ninety-three minutes are far less curious about 1971 than about the decades after it, in which a face assigned to somebody else's idea kept being called back to work. The phrase asked nothing of him but presence, which is the cruelty in it: a description with no duty attached, and no way either to fail at it or to be finished with it.",
+  "model": "claude-opus-5",
+  "source_sha256": "9bde937853a22e8c7b3c002e50ef7316a5e4f77ed81ffbe1b746c4b75d1587b0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "our-house-2017",
+  "field": "lead",
+  "film_id": "622a65f6-485c-4d5c-9b21-878537e9eb52",
+  "lang": "en",
+  "text": "The same rooms are occupied twice over, by two households that do not know about each other. A mother and her daughter keep one version of the house; two women keep the other; the film moves between them without announcing which is which. Yui Kiyohara stays at domestic scale for eighty minutes, where the available material is meals, corridors, stairs and the ordinary noise of a place being lived in. It is filed as mystery, though nobody in it is investigating anything. The disquiet comes from housekeeping carried out in a building with twice as many people in it as anyone can see, and from the two arrangements starting to leak into each other. Whatever is going wrong is going wrong to the house first and to its tenants afterwards.",
+  "model": "claude-opus-5",
+  "source_sha256": "12b05051b0dac1568e2e89c1c4b2aa352511f08e2a7c4e7661229d1a05cdc660"
+ }
+]

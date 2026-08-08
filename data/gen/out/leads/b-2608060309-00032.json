@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "small-faces-1996",
+  "field": "lead",
+  "film_id": "8a7920a2-a68e-482c-ab34-3bca0e695081",
+  "lang": "en",
+  "text": "Three brothers in one Glasgow household, each running a different experiment in how to survive the same streets. The year is 1968 and the district is poor, and Gillies MacKinnon divides his attention unevenly: Bobby is already inside a gang, Alan is folded in on himself and his mother, and the film follows Lex, who is quick, funny and convinced that nerve will cover the rest. It is not a picture about boys being wild. It is about the moment bravado produces a result, and about how long a teenager can go on treating consequence as somebody else's problem. Edinburgh's festival honoured it and the BFI's hundred British films kept it. What stays afterwards is the arithmetic of a small territory: how few streets separate a joke from a debt, and how many people who took no part in either end up settling it.",
+  "model": "claude-opus-5",
+  "source_sha256": "a428640f21d34e3b668610ad954d27ffc74709c7c1edfa73ee258eff622f09bb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "boys-don-t-cry-1999",
+  "field": "lead",
+  "film_id": "822cfb00-0b01-444e-8e8b-e7607bccea9c",
+  "lang": "en",
+  "text": "Rural Nebraska is small enough that a new arrival is known before he has finished unpacking, and being known is precisely what is at stake. Kimberly Peirce's 1999 film follows a young transgender man building a life and looking for love in that kind of place, and the crime listing hangs over the search from the start like weather that has not broken. The attention stays low and close, on the ordinary business of being liked in a town where liking comes with conditions, and it never converts its subject into a lesson. Two acting awards came out of it, the National Film Registry took it in, and the BBC's hundred greatest films directed by women holds it. It is approachable in that nothing about the telling is difficult, and demanding in that the telling offers nowhere to stand outside the fear.",
+  "model": "claude-opus-5",
+  "source_sha256": "b8d6a6fd8e8a8ebe5236d1ebe3d0ee705d40ada2a0a740b93b438bec9ae3c39c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-pearl-1946",
+  "field": "lead",
+  "film_id": "a8f5fbaa-b774-43e5-a6ec-644ec624af55",
+  "lang": "en",
+  "text": "The doctor refuses to treat the child before any pearl is found, and that refusal explains everything the pearl will later be asked to do. Emilio Fernández made it in Mexico in 1946: 86 minutes, filed as adventure, built as a domestic argument. Quino sees what the find can buy, Juana wants it back in the water, and the film declines to mark either position as the naive one. The fishing village is less a setting than a set of terms, a measure of how much a poor family can hold before holding it becomes the danger. Ariel awards went to the picture, to its direction and to its lead performance, and it sits on Somos' hundred best Mexican films as well as in the National Film Registry. Juana's certainty arrives well ahead of any evidence for it, and the film treats that as knowledge rather than superstition.",
+  "model": "claude-opus-5",
+  "source_sha256": "c5bbbef2940a277dc1913ba8bb82424e7ecf4784d22df4d41c8312a990522e0a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-little-world-of-don-camillo-1952",
+  "field": "lead",
+  "film_id": "f8879b9c-f0c6-4be9-a3d1-733fc9d4a53c",
+  "lang": "en",
+  "text": "A French production, shot in Italian, about a priest and a Communist mayor who run the same Po valley village by opposing each other daily. In 1952 that quarrel was not yet history, and Julien Duvivier's method is to keep it local: a people's hall against a garden for the poor, a hard stretch of land, a population that divides into rich and poor, devout and unbelieving, and sometimes down the middle of a couple. The two men are evenly matched in stubbornness, which is what lets the comedy hold instead of curdling into satire at one side's expense. Italy later placed it among the hundred films it means to preserve. The pleasure is procedural: two officials with real authority over the same parishioners working out, in public and at volume, how much of it they are willing to spend.",
+  "model": "claude-opus-5",
+  "source_sha256": "abcfa2dfb29d724a897dabef01f2c8fa6b85dc8baae85775f977181f3f78c12d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "china-is-near-1967",
+  "field": "lead",
+  "film_id": "b549e6c1-26a1-440c-9db1-6a41f559edfa",
+  "lang": "en",
+  "text": "Marriage here is a career move, and the couple planning it are not planning it with each other. A secretary and an accountant, neither of whom owns anything, set their sights on a landed family, and Marco Bellocchio's 1967 film follows the manoeuvre with the patience of someone who has seen the opening before. The discomfort is arithmetical rather than moral: affection has an exchange rate, everyone involved knows the figure, and nobody is scandalised. Venice gave it a Grand Jury Prize and Italy put it forward to the Academy, a fair measure of how seriously it was taken at home. Bellocchio is unhurried with the class he is describing, which is the sharp part; the gentry are not caricatured, only shown to have money enough to be careless around people who have none.",
+  "model": "claude-opus-5",
+  "source_sha256": "c0ad53205f7de9ad7938f4cf02364208f9c07c110943982a0ac69784391a40ce"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "one-eyed-jacks-1961",
+  "field": "lead",
+  "film_id": "6ed56f25-c995-4c5d-872f-e5758c6c1247",
+  "lang": "en",
+  "text": "A revenge western that runs 141 minutes, which is far longer than revenge usually requires. The extra time is the whole point. Rio comes out of prison to find the partner who left him there installed as a sheriff in California, respectable, settled and living in expectation of exactly this visit, and Marlon Brando, directing, cares less about gunfire than about the civility that has to be maintained first: two men shaking hands in daylight while both keep count. The Academy cited its colour cinematography. The National Film Registry keeps it. What makes it odd for the genre is patience and cruelty in equal measure, and a willingness to let a grudge be something men live inside for years rather than a matter to be closed out in an afternoon.",
+  "model": "claude-opus-5",
+  "source_sha256": "751f70c6f29667734dc20e848e33246c8b6e90ce5bf784f937fef31543ee004c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "how-the-west-was-won-1963",
+  "field": "lead",
+  "film_id": "698842b4-5388-429d-ba62-4b27921fd242",
+  "lang": "en",
+  "text": "Sixty-odd years of westward expansion, 164 minutes of film, and one pioneer family asked to carry the entire account. That ratio is the production's central problem and also its method: the story is handed down through generations, so rivers, plains and a civil war are all scaled against people who visibly age between segments. Henry Hathaway's 1963 picture took Academy Awards for colour cinematography, art direction and costume, an honest map of where the effort went; the images were built to be enormous before they were built to be intimate. The National Board of Review put it in its ten and the National Film Registry holds it. Half the interest now lies in the shape of the claim itself, in what a large studio in 1963 took a national story to be, and how much labour it spent making that story look like the only one available.",
+  "model": "claude-opus-5",
+  "source_sha256": "e340f7e6c54293a417cffcc1cde7f2a9f451f58b2291e3971f3ed065ffcf3acd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "thesis-1995",
+  "field": "lead",
+  "film_id": "9c996b0d-d0da-4d38-9f52-1b8af8d74a19",
+  "lang": "en",
+  "text": "Ángela is writing a thesis on violence in moving images when she finds a tape in which the violence was not performed. Alejandro Amenábar keeps her inside the institution where she found it, a university full of people she must go on greeting in corridors, which generates more dread than any remote house could. The premise implicates its own audience by construction: a student who set out to study why people watch is now watching. It runs 125 minutes and spends them on procedure, on tapes and formats and catalogue numbers, the dull machinery of looking at something a second time. Spain's Goya for best film went to it, and Caimán's hundred best Spanish films holds it. As horror it is unusually quiet, and the fear is a matter of proximity: whoever made the tape is somewhere in the same directory as everyone else.",
+  "model": "claude-opus-5",
+  "source_sha256": "d92b28ad3570e8d11c23f11558e5a4a42b457ee05b4bbeb453598555cde7f9d2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "marshland-2013",
+  "field": "lead",
+  "film_id": "45d84a9e-cfe6-4f68-8a60-d7a4e2d5ff7b",
+  "lang": "en",
+  "text": "Adolescent girls are being killed in a town too small to keep the fact quiet. The year is 1980, the place is the Spanish south, and the two homicide detectives sent to work the case have little in common beyond the assignment, a difference Alberto Rodríguez treats as historical rather than temperamental, since the country's recent past did not leave everyone standing on the same side of it. The marsh country does real work: flat, water-cut and enormous, it slows every journey while keeping everyone in the case within sight of everyone else. Audiences at the European Film Awards voted it their film of the year, the Goya for best film followed, and Caimán's hundred best Spanish films keeps it. The procedure itself is patient and physical, all heat and mud and the slow labour of asking a village to say what it already knows.",
+  "model": "claude-opus-5",
+  "source_sha256": "86ad25c4df38b4f32e65e825f8fb04082cf89f710bdc741a7df7cb0e0a4b2d33"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "blancanieves-2011",
+  "field": "lead",
+  "film_id": "a2067b8b-8a3e-47d3-bc0b-74fa41ea06ad",
+  "lang": "en",
+  "text": "Made in 2011 in black and white, without dialogue, and not as a stunt about old cinema. Pablo Berger sets the Snow White story in a 1920s Seville of bullrings and dressing rooms and gives the girl a matador's career, which turns a tale about waiting to be rescued into one about walking into a ring on purpose. Silence changes the arithmetic: faces and score carry everything, cruelty has to register as expression, and the thin figures of a fairy tale acquire a physical cost they never carry on the page. European Film Awards went to the film, to Berger and to its costume design, which is no minor credit in a story where what a body wears is armour. Spain's Goya for best film followed. At 104 minutes it explains nothing and shows everything.",
+  "model": "claude-opus-5",
+  "source_sha256": "e5ae4a863d6e70420402733d40c841cead521dd34412fc773ca744f9f8064e79"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "take-my-eyes-2002",
+  "field": "lead",
+  "film_id": "3c328000-4fe9-4f4a-9a9b-9674608d06a2",
+  "lang": "en",
+  "text": "A woman leaves her house on a winter night with her son and whatever she can carry, and the film opens with her already gone. Icíar Bollaín then gives comparable time to the man who comes looking for her. Antonio speaks about Pilar in the vocabulary of devotion, she is his sunshine, she gave him her eyes, and the film lets those phrases sit until their weight changes. That patience is the entire method: 103 minutes on how a marriage keeps explaining itself to itself, on what Pilar is asked to weigh, on the distance between being adored and being safe. Bollaín took the Goya for direction, European audiences voted her their director, and the score was honoured too. Nothing is raised to the pitch of melodrama, which is exactly why the ordinary rooms stay so hard to sit in.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e75ae0a9c03486db5598b14d9e10274bbcc3d90c27b995245b0d61598ba529c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-hunt-1966",
+  "field": "lead",
+  "film_id": "5eaff45a-0b13-43f8-bda8-ab37609dbb35",
+  "lang": "en",
+  "text": "Three shotguns, one dry afternoon, a hillside where the only quarry is rabbits. The men carrying them fought in the same civil war, and Carlos Saura builds his 87 minutes so that the day has nowhere to go but inward: heat, waiting, drink, old debts that are partly money and partly something else. The politics are spoken through hunting protocol rather than argument, in who fires first, who claims the kill, who is expected to carry the bag, and the rules of the sport turn out to be the rules these men already live by. It carries a Silver Bear for direction, and Caimán's hundred best Spanish films holds it. Saura's achievement is spatial: open ground under full sun that closes around the afternoon until it has the feel of a room with the door shut and no clock in it.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e782f035a23cbc4a959545612f4afb59304bd9f80c4df16db65202f1278c506"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "voyage-to-nowhere-1985",
+  "field": "lead",
+  "film_id": "c3fa7f83-def3-4720-8235-da9b8cbc49b4",
+  "lang": "en",
+  "text": "The Iniesta-Galván company is a family and a theatre troupe at once, moving from village to village and playing for whoever turns up. Fernando Fernán Gómez, directing, gives 134 minutes to that trade at the point where it stops paying: audiences go elsewhere, the towns are not what they were, and the players have to decide whether the only work they know is still work. Comedy and drama are not alternating registers here but one predicament at two distances, since a performer's dignity reads as funny from across a room and not at all funny up close. Partway through, a son Carlos Galván fathered somewhere on the road arrives, and a practical question acquires a domestic one. A Goya for best film; a place on Caimán's hundred best Spanish films. Underneath sits a plain question about what a person does when the one skill he has is the skill nobody is booking.",
+  "model": "claude-opus-5",
+  "source_sha256": "04dcfd3c028da04fde2dfa3a1980b45ef233791e702a67276db1f3803454cfe1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "sophie-s-choice-1982",
+  "field": "lead",
+  "film_id": "951e8361-e344-412d-9c4a-b4f5ba2c1465",
+  "lang": "en",
+  "text": "The story belongs to a woman; the vantage belongs to a young novelist with almost nothing at stake. Brooklyn, 1947: Stingo arrives to write his first book, falls in with Sophie and Nathan, and learns that she came out of Auschwitz. Alan J. Pakula uses his 151 minutes to run two time signatures at once, the present and the life she had before and inside the camp, so that the past keeps arriving in rooms where people are trying to get through an ordinary evening. The film is careful about how much it lets its narrator understand, and the gap is where the pressure collects. The performance at the centre took the Academy's award for best actress, cinematography and costume were honoured too, and AFI's hundred films holds it. It is an easy film to enter and a hard one to sit through, because everything difficult in it is carried at close range, on faces.",
+  "model": "claude-opus-5",
+  "source_sha256": "c225343eaf9442db55674a6714b0e6f6b7027c192277d56e903727f5422f69e1"
+ }
+]

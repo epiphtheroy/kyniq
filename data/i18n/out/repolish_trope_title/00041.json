@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-is-the-verb-to-return",
+  "field": "title",
+  "lang": "ko",
+  "text": "제목이 곧 '돌아오다'라는 동사",
+  "model": "claude-opus-5",
+  "source_sha256": "19f7b0cdcb46cf23945003969b1e39b1974aafa3922b43c0138dafcd55e216d6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-name-encodes-its-bearer-s-fate",
+  "field": "title",
+  "lang": "ko",
+  "text": "이름 속에 새겨진 그 사람의 운명",
+  "model": "claude-opus-5",
+  "source_sha256": "800aae8e406c134f0d48c010213a0d2d56f94499c69ea55369a2c5827545e1be"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-a-crime-of-knowing",
+  "field": "title",
+  "lang": "ko",
+  "text": "알아버린 죄에 붙은 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "a0ba81f18a4ee0381b9c2a5ca0f0847ca588dccc6a954339cb2eda4e11adc84f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-a-debt-of-mourning",
+  "field": "title",
+  "lang": "ko",
+  "text": "애도라는 빚을 부르는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "a735a4f453698be08ea22742d3cd379b3612ebf0e261d6934ef5b89a6b87392e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-a-finality-the-film-resists",
+  "field": "title",
+  "lang": "ko",
+  "text": "제목은 끝을 말하고, 영화는 버틴다",
+  "model": "claude-opus-5",
+  "source_sha256": "b09053a1300be8324f9f40469645fdf26da6c9e266859538131ccd69167ea257"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-a-force-by-its-absence",
+  "field": "title",
+  "lang": "ko",
+  "text": "없음으로 어떤 힘을 부르는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "3000d94ddacdbe7f14b5a128256996e5c2aa49ce0af821289af1b94ae03d7c39"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-a-kinship-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "핏줄에 난 상처를 부르는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "378b3275fed5bce467069f338f6c4c5a9fdcd82728b2a940e06d2f792b95537c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-a-line-one-crosses",
+  "field": "title",
+  "lang": "ko",
+  "text": "넘고 마는 선에 붙은 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "71f829477c3fa02490aae4c9b2d80057ddeaad20f0f69a7c0a6d970f0873bfde"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-a-prison-that-holds-everyone",
+  "field": "title",
+  "lang": "ko",
+  "text": "모두를 가둔 감옥의 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "1a11c67618c84588aaf448a8a1a70c49c2f02bb380cff023f273a01ed36ec1f0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-a-state-not-a-place",
+  "field": "title",
+  "lang": "ko",
+  "text": "장소가 아니라 상태를 부르는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "7fe8d3270f494d43a7c0899267279068628806e40bd1dcd3790e24e462e75a85"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-a-vacancy-not-a-man",
+  "field": "title",
+  "lang": "ko",
+  "text": "사람이 아니라 빈자리를 부르는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "822f5766fc9971940341da3b12ec5301d7bd94df6a10d29ea390c9d5fe5c62cc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-a-wiring-diagram-not-kinship",
+  "field": "title",
+  "lang": "ko",
+  "text": "핏줄이 아니라 배선도를 가리키는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "85b063ac99d18593fdc0f115206dd888df89515381c5ca31f29c5a30ab832ffb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-grief-s-belated-warmth",
+  "field": "title",
+  "lang": "ko",
+  "text": "슬픔에 뒤늦게 도착한 온기의 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "2944934b1d2824d939a314baec4028503464ba7bafb32254cbd5433166134867"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-its-own-thesis",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 논지를 그대로 내건 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "c9fe074d4dfdcd116fcc2b8eeb4619d605c6bdb9170bdd735eb6ac10cd45413a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-love-as-a-made-object",
+  "field": "title",
+  "lang": "ko",
+  "text": "사랑을 만들어진 물건으로 부르는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "8049cdd3a2529aa094bf373d0d6967ebb8ce4ea4e38fc0c75e26a444aa8ad2ec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-apparatus-not-the-man",
+  "field": "title",
+  "lang": "ko",
+  "text": "사람이 아니라 장치(apparatus)에 붙은 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "6071f23946c156ad6cfec6e73861f3e9de4cad12f7571619ec0c761713a6f2cb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-body-not-the-threat",
+  "field": "title",
+  "lang": "ko",
+  "text": "위협이 아니라 몸을 부르는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "bec42787ed7bbf47c6e9b10ceda602827ca455560c8614f40b76ea65fbbec1a2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-container-not-the-creature",
+  "field": "title",
+  "lang": "ko",
+  "text": "괴물이 아니라 그것을 담은 그릇",
+  "model": "claude-opus-5",
+  "source_sha256": "57dcb8d2d0fa61463ac0fa61d85ee0468fad5ff0a01632e6968b0af650ad5ec3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-culture-not-the-killer",
+  "field": "title",
+  "lang": "ko",
+  "text": "살인자 대신 문화를 지목하는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "f6bacc794830ed1210514b43d341a8bf8fd63c2d2405da6a4fabc71664f872ad"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-distance-within-love",
+  "field": "title",
+  "lang": "ko",
+  "text": "사랑 안에 남은 거리의 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "3d86e3355027b3e93809049fc47ae692c6b6f1af0d97de29d9d40d4a801674df"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-onlooker-not-the-woman",
+  "field": "title",
+  "lang": "ko",
+  "text": "여자가 아니라 지켜보는 자에 붙은 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "9b74b0f8b7d97fcbf4d5e1a6e22c6ed175a8b3fc7dd2581f7dd2c0ed30fef392"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-parasite-not-the-host",
+  "field": "title",
+  "lang": "ko",
+  "text": "숙주가 아니라 기생충을 부르는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "dac18d316c1bfe77942feca708306b95c9095c40b0ac8415b71f661a2b5707ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-self-it-erases",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 지울 자아를 먼저 부르는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "eb587d0eba0a4ab33ac71b56b8ff600143e72f3a566a13f2b47fd96410b701bc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-sickness-it-cures",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 고칠 병을 먼저 부르는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "d569afd4f6fe17a0125e8887f1b27601bf6c588ce28d13e00a560b9ce9b6ead2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-soul-not-the-place",
+  "field": "title",
+  "lang": "ko",
+  "text": "장소가 아니라 영혼에 붙은 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "ec278c084f4ea2faf241940891884f75ff7dc6b52534ad049379a7ba5427e649"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-summoning",
+  "field": "title",
+  "lang": "ko",
+  "text": "불러냄 그 자체가 된 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "05879d1c6e38293513c1647999b0eb2c8f3455e0b41d753a20e27e4bca12aae4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-wager-not-the-player",
+  "field": "title",
+  "lang": "ko",
+  "text": "도박꾼이 아니라 판돈을 부르는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "5bea78ddfe23a4ab328c49e35d5f22d93adddddd0327f82a73313c2d231a175a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-witness-not-the-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "당사자가 아니라 목격자를 부르는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "bdf0cd048ce14ff9fb2f0e42e88fee5092c10d56598d1d7683e30f9fb1107710"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-the-wrong-faculty",
+  "field": "title",
+  "lang": "ko",
+  "text": "엉뚱한 감각을 부르는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "31c90a9dc3a397440e5426826ba198b643d030a5e3e8f655ea5a31c72b9d928b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-names-whose-story-it-is",
+  "field": "title",
+  "lang": "ko",
+  "text": "누구의 이야기인지 못박는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "c6dba8b6c8a831daf214ae22de7ff33f70a719aac39ffc960183c45f7cab6493"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-naming-who-s-erased",
+  "field": "title",
+  "lang": "ko",
+  "text": "지워진 자를 호명하는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "85467b1cb7be76bcbd28797bffe9e308569696ad56cf5cf31a12075701c289e1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-numeral-as-mortality-clock",
+  "field": "title",
+  "lang": "ko",
+  "text": "제목의 숫자가 곧 죽음의 시계",
+  "model": "claude-opus-5",
+  "source_sha256": "baad4caa1bbcf50f80977c1939019ce0dad462497b941362c8106537548e6084"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-read-as-wounded-grammar",
+  "field": "title",
+  "lang": "ko",
+  "text": "상한 문법으로 읽히는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "6367818cf172b8c9139588f7e639bbb33290b7225c5ec595ff19b73124c6de74"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-s-bigness-names-a-moral-disproportion",
+  "field": "title",
+  "lang": "ko",
+  "text": "제목의 거대함이 곧 도덕의 불균형",
+  "model": "claude-opus-5",
+  "source_sha256": "4c46c799c91d697959cae31a4e268aa4c1107cabc7a82b3b8ed26065a42194ab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-s-happening-holds-the-unspeakable",
+  "field": "title",
+  "lang": "ko",
+  "text": "'일어난 일'이라는 말이 품은 말 못할 것",
+  "model": "claude-opus-5",
+  "source_sha256": "448c602aa60120e9984a5a290ea16beb93dbc49c7d26c2606b01e190c4d9c776"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-s-heat-names-a-lethal-threshold",
+  "field": "title",
+  "lang": "ko",
+  "text": "제목의 열기가 가리키는 치명의 문턱",
+  "model": "claude-opus-5",
+  "source_sha256": "f3219c3c9695f5b00380ffbe5b5068d055e14bdf83bf44769fe955d73a3b73da"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-s-night-names-darkness-not-an-hour",
+  "field": "title",
+  "lang": "ko",
+  "text": "제목의 밤은 시각이 아니라 어둠",
+  "model": "claude-opus-5",
+  "source_sha256": "3e7dc0c71b70af243e59108d30e73bc683ccfdcaaec3a7af423a4b1d0f8c1cf5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-s-possessive-names-a-captivity",
+  "field": "title",
+  "lang": "ko",
+  "text": "제목의 소유격이 곧 감금",
+  "model": "claude-opus-5",
+  "source_sha256": "f4dbbf5628a52eaf3b892973b2d81d691927dfad52488dac1232eed46da058d0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-s-praise-is-a-trap",
+  "field": "title",
+  "lang": "ko",
+  "text": "덫으로 놓인 제목의 찬사",
+  "model": "claude-opus-5",
+  "source_sha256": "563d979f00ec74bdeb63130d681f3e56edc67e0e35167976f30e2ef56f484e17"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-s-pronoun-is-the-indictment",
+  "field": "title",
+  "lang": "ko",
+  "text": "제목의 대명사가 곧 고발장",
+  "model": "claude-opus-5",
+  "source_sha256": "a4381a26d42cdb3999ad2c5cfb356ccaa3d6a551ee0f039fde193d2589aefa9e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-s-word-turned-against-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 뜻에 등을 돌린 제목의 단어",
+  "model": "claude-opus-5",
+  "source_sha256": "6585a57af8ff312c925c231289a4beec6c1682ed8d37143283d5ef56ec226444"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-sweet-as-decoder-ring",
+  "field": "title",
+  "lang": "ko",
+  "text": "제목 속 과자가 해독의 열쇠",
+  "model": "claude-opus-5",
+  "source_sha256": "ad07d8fa7b77439396121514381194fd25f0108c27b613f77741031fef9e4b70"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-confesses-its-own-brevity",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 짧음을 먼저 고백하는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "d0587ab48586c4f5601d649876c5dbcee65ec8aca1cb789831d5fce0e9873527"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-confesses-itself-a-fable",
+  "field": "title",
+  "lang": "ko",
+  "text": "스스로 우화임을 밝히는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "5105ca370e992788559a2791ff5597a7e73759dc67536f369b7bc5d18b6d1539"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-convicts-by-naming",
+  "field": "title",
+  "lang": "ko",
+  "text": "부르는 것만으로 유죄를 선고하는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "c8789005cdd8c596e1e85d575461bdd1c7c1a28e9940b12deeb8e84448c42624"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-counts-the-years",
+  "field": "title",
+  "lang": "ko",
+  "text": "세월을 헤아리는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "c24390eb1a3ae2ef5e26a0bd0fdfbd1716370a075574b44af206f506ae39dd4a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-domesticates-the-sublime",
+  "field": "title",
+  "lang": "ko",
+  "text": "숭고(崇高)를 길들이는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "8047b3f112fd1654fb7ef2cda66f9a1c310b895086cca5a897417df76d4a8d5b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-indicts-its-own-genre",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 장르를 고발하는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "a49114f5a796817be0ab31f895e7b791e19049017f8af3df1779d9f7f726e833"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-indicts-its-own-grammar",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 문법을 고발하는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "926b49f7a5541794e89dae729425c5c9a7ff32497d079e7485669e84a0fd8a0b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-is-a-blood-prophecy",
+  "field": "title",
+  "lang": "ko",
+  "text": "피로 쓴 예언인 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "ecc6c4fb25f496876d7e628224b4b7c90d03e0db3975011ee437cef868721196"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-is-a-verdict-on-its-bearer",
+  "field": "title",
+  "lang": "ko",
+  "text": "그 이름을 진 자에게 내려진 판결",
+  "model": "claude-opus-5",
+  "source_sha256": "24686ee5f16fb89686550c26b31a1805a8f3dc3ad9907de29fc37edba96bc95b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-is-memory-s-own-name",
+  "field": "title",
+  "lang": "ko",
+  "text": "기억이 스스로 부르는 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "6cca2608e20cb98f444818ba5574a97e5d98fa46b40055640e5512210336b484"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-means-motion-not-cargo",
+  "field": "title",
+  "lang": "ko",
+  "text": "짐이 아니라 움직임을 뜻하는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "66b9b34a9154a1601099556acbe41bb7bb2faeefcd4d81963ef9013985b237f8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-names-a-tense",
+  "field": "title",
+  "lang": "ko",
+  "text": "시제를 부르는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "4adace029dac303f4386ae16b35b43067c47f5e532fe9d54df975c461c860448"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-names-an-absence",
+  "field": "title",
+  "lang": "ko",
+  "text": "없는 것에 이름을 붙이는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "09759fcb6ad8c69794cc5b44f80cb2cb8236bc0c911537461dd791b11aa882c0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-names-by-misdirection",
+  "field": "title",
+  "lang": "ko",
+  "text": "딴 데를 가리키며 이름 붙이는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "a78d3115bbde5159a4d3d9d0c20368cb9de3adf887eb95f962d73043414425c9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-names-crime-and-cure-at-once",
+  "field": "title",
+  "lang": "ko",
+  "text": "죄와 치유를 한 단어로 부르는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "f6f2acc5c8b01f0daad79557996eeed354f2a385ea192c2312ffd8fcae3fbe48"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-names-eden-s-forbidden-fruit",
+  "field": "title",
+  "lang": "ko",
+  "text": "에덴의 금단의 열매를 부르는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "064d75aaca9e8216da3df22ce9596c7ddbd6e31a4ca25a27ef1e4d7551315dbd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-names-its-effect",
+  "field": "title",
+  "lang": "ko",
+  "text": "원인 대신 결과를 부르는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "172be9dd1703835b87aee40fbfe988d0be9a3ef17970268157a51caeb663d9cf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-names-its-own-failure",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 실패를 미리 부르는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "8832f33f92904448f0299a60828a014f1e3c9c99d0437868b97a9f2a6cad554f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-names-men-as-dogs",
+  "field": "title",
+  "lang": "ko",
+  "text": "사람을 개라 부르는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "a8b4935b3da0019fec10678a9e0d1ec5b50b6998b0993a601abc19e97dcc7d70"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-names-our-anonymity",
+  "field": "title",
+  "lang": "ko",
+  "text": "우리의 익명을 호명하는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "7f5e3661c6b94c981954776d764c940110a342a468fdca1606839240b5ecb185"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-names-the-body-s-betrayal",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸의 배신에 붙은 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "165d5369a13dfd0aaab292c19365e625427938d49c129b1101882337e859db8f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-names-the-hunter-not-the-hunt",
+  "field": "title",
+  "lang": "ko",
+  "text": "사냥이 아니라 사냥꾼을 부르는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "7a2c3c7e2ccba0f38baa081ce0b88136e31d02f2ec5989379dc1556b10de9a3f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-names-the-looking-not-the-looked-at",
+  "field": "title",
+  "lang": "ko",
+  "text": "보이는 것이 아니라 보는 일에 붙은 이름",
+  "model": "claude-opus-5",
+  "source_sha256": "92ab3de2e40276c70adb4e1b1c59df1abcf7cf6eb0c1e14d0b372d015d50c8c1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-names-the-wrong-person",
+  "field": "title",
+  "lang": "ko",
+  "text": "엉뚱한 사람을 부르는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "f796d44d0eacaea4beca782c00d81d9136e7da7e8d590b33052a2fbfa2735e37"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-promises-resurrection",
+  "field": "title",
+  "lang": "ko",
+  "text": "부활을 약속하는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "b5789204fda6f4b1ce9f2ebcdf0541ad98465a6204517074feafe597063a19c0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-speaks-the-unspeakable",
+  "field": "title",
+  "lang": "ko",
+  "text": "말 못할 것을 끝내 말하는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "8876b094d3600760aade02395d133e11bfcaa8cb2d72f9110667e06e2ee59778"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-stays-a-verb",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝까지 동사로 남는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "529d6342e9b1535dba308acc8649385d40f0b3d5d2fe9c957c47986bfb36ba48"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-that-weaponizes-the-word-time",
+  "field": "title",
+  "lang": "ko",
+  "text": "'시간'이라는 말을 무기로 쓰는 제목",
+  "model": "claude-opus-5",
+  "source_sha256": "e499314ac0c33056338f2ce2d1f6ed5026adc11692c67c4cab0ccb6ce1008bda"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-word-read-as-a-verdict",
+  "field": "title",
+  "lang": "ko",
+  "text": "판결로 읽히는 제목의 한 단어",
+  "model": "claude-opus-5",
+  "source_sha256": "279f6c2a69f5acd6067781baff926e5f1ff29d2476530c2373fee3b5673d49e6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-word-renamed-as-its-opposite",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 반대말로 다시 불리는 제목의 단어",
+  "model": "claude-opus-5",
+  "source_sha256": "2c7a6f27b4d181503e5f8a7c2bef08b94750bfa088bf2921f1fbef34a314fd7a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-word-that-convicts-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "스스로에게 유죄를 내리는 제목의 단어",
+  "model": "claude-opus-5",
+  "source_sha256": "a4b2e2e15c72cf11575c979eae3f9fb76baa9d174959c255734c2e67e961a40c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-word-that-reads-the-hero",
+  "field": "title",
+  "lang": "ko",
+  "text": "주인공을 꿰뚫어 보는 제목의 한 단어",
+  "model": "claude-opus-5",
+  "source_sha256": "034ecc3a30bcb786bb69771c9292a2b4b4a92a59522e894a045fa901b71de6ae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-title-word-that-turns-on-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 자신에게 칼을 겨누는 제목의 단어",
+  "model": "claude-opus-5",
+  "source_sha256": "5e9df6c7e3a558b480538783189893353db840993a12860da316eedfd375d518"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tone-that-indicts-its-watcher",
+  "field": "title",
+  "lang": "ko",
+  "text": "보는 이를 고발하는 어조",
+  "model": "claude-opus-5",
+  "source_sha256": "d5316360cd2846f09d2238ec8f69cc8fdfaf759f0a95387084baefdcd69d68c7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tourist-paradise-as-stage-of-loss",
+  "field": "title",
+  "lang": "ko",
+  "text": "상실이 상연되는 관광 낙원",
+  "model": "claude-opus-5",
+  "source_sha256": "e8ae75e6911c388e61ac71c2d07fb08d424e00734f672d4723b67098fda331b7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tower-that-was-never-built",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 세워지지 않은 탑",
+  "model": "claude-opus-5",
+  "source_sha256": "38eee02a89affec581e6b0d121fc2c7157aef3983383db0e9e9d5cd6dd64da9b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-towers-haunting-films-that-never-name-them",
+  "field": "title",
+  "lang": "ko",
+  "text": "이름 없이 떠도는 쌍둥이 빌딩",
+  "model": "claude-opus-5",
+  "source_sha256": "a9888508e66e092fac1797a9e79335f32c354ae8cc86c98b218bea1935ca8485"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-town-as-ideology-s-naked-skeleton",
+  "field": "title",
+  "lang": "ko",
+  "text": "이데올로기의 벌거벗은 뼈대가 된 마을",
+  "model": "claude-opus-5",
+  "source_sha256": "1a02c13e382443268cadfadc8079882ef05e28b01b9b6c9e50a47f4f93544183"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-town-composed-as-a-painter-s-grid",
+  "field": "title",
+  "lang": "ko",
+  "text": "화가의 격자로 짜인 마을",
+  "model": "claude-opus-5",
+  "source_sha256": "ef27e70bf1b0341cfc627a8415f8f165d39654a9e7840c9451e7075f91517861"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-town-itself-as-a-mode-of-production",
+  "field": "title",
+  "lang": "ko",
+  "text": "마을 자체가 하나의 생산양식",
+  "model": "claude-opus-5",
+  "source_sha256": "be9b5ebcd569cc257b30875955c2c7c568dc4e3d9cbd09c1504aca9e53b8292a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-town-spoken-only-in-past-tense",
+  "field": "title",
+  "lang": "ko",
+  "text": "과거형으로만 말해지는 마을",
+  "model": "claude-opus-5",
+  "source_sha256": "509e3704a04817dc3b84a60b222746c2cd2098ba53340962ace7593fc94ee4a0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-town-that-denounces-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "스스로를 고발하는 마을",
+  "model": "claude-opus-5",
+  "source_sha256": "4c1586d52e6241b429d611a725683dfd9c5b46490fdaae3a02c54e66c9f81f76"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-town-that-digests-its-own-fear",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 공포를 삼켜 소화하는 마을",
+  "model": "claude-opus-5",
+  "source_sha256": "758fb5f63642abcaf8763cb34855771276fbdb6a9fe269dd3fa3230d5c0ac1c4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tragedy-of-two-incommensurable-goods",
+  "field": "title",
+  "lang": "ko",
+  "text": "견줄 수 없는 두 선(善)이 부딪는 비극",
+  "model": "claude-opus-5",
+  "source_sha256": "674780951b0b6c77d2d8ec1d17e38c0ec2a40a2601389b3484ae744ba1ccd80e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tragedy-smuggled-inside-the-genre-picture",
+  "field": "title",
+  "lang": "ko",
+  "text": "장르 영화에 몰래 실려 온 비극",
+  "model": "claude-opus-5",
+  "source_sha256": "16674ac050683fb2a4f054c3b9f046164bd01fdcd3fad386b000fc8aa112bb49"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tragedy-wearing-another-genre-s-mask",
+  "field": "title",
+  "lang": "ko",
+  "text": "남의 장르 가면을 쓴 비극",
+  "model": "claude-opus-5",
+  "source_sha256": "0061bac8a60e3fc4ae86017dfcf6a313c2c2190ba8ac79ebee5158d66de2fe02"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-tragic-refutation-of-redemptive-violence",
+  "field": "title",
+  "lang": "ko",
+  "text": "구원의 폭력을 무너뜨리는 비극",
+  "model": "claude-opus-5",
+  "source_sha256": "ee141cee8ea2117eb5dfbdbfe7a867c78953d189e1ad672bf29a5527207623f9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-trailer-lied-and-that-s-the-text",
+  "field": "title",
+  "lang": "ko",
+  "text": "예고편의 거짓말이 곧 텍스트",
+  "model": "claude-opus-5",
+  "source_sha256": "1ff3e1292a93c1bf4044b08713f17afa6e02e3e2480470a5e450d8a9548f39df"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-train-as-india-s-modernity-in-motion",
+  "field": "title",
+  "lang": "ko",
+  "text": "달리는 기차로 온 인도의 근대",
+  "model": "claude-opus-5",
+  "source_sha256": "51685f65f275292aeaadcb421644167d5ed380dec9f8756c44151f187c0ed1de"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-train-as-nation-in-transit",
+  "field": "title",
+  "lang": "ko",
+  "text": "이동 중인 국가로서의 열차",
+  "model": "claude-opus-5",
+  "source_sha256": "4370613dcd777db0d301670bd79852edd1c3656155d3a2f3aa48504dc298b8fe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-train-as-the-order-that-claims-you",
+  "field": "title",
+  "lang": "ko",
+  "text": "사람을 데려가는 질서, 기차",
+  "model": "claude-opus-5",
+  "source_sha256": "c160cb295f0e64a842dd1e6c9573fd82cd13b2779d70581f9bbef20dd3938246"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-train-that-stood-still-to-move",
+  "field": "title",
+  "lang": "ko",
+  "text": "멈춘 채 달리는 기차",
+  "model": "claude-opus-5",
+  "source_sha256": "1bd7d85696e059660cedf14eba4103dab1f4fc143c7b8335b536a852c84b2cf5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-transgression-read-as-displaced-patricide",
+  "field": "title",
+  "lang": "ko",
+  "text": "자리를 옮긴 아버지 살해로 읽는 위반",
+  "model": "claude-opus-5",
+  "source_sha256": "74fc951d008d8f9aaad97188074ec7a2848182b34dcad52ae42964009ca7e120"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-transit-tunnel-as-mythic-underworld",
+  "field": "title",
+  "lang": "ko",
+  "text": "신화의 저승이 된 지하철 터널",
+  "model": "claude-opus-5",
+  "source_sha256": "1fc0d380edb26ecc4ced0de782009cb5138da0e9bb1b885e6d4da576ec5b90f6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-translator-trapped-inside-the-atrocity",
+  "field": "title",
+  "lang": "ko",
+  "text": "참극 한가운데 갇힌 통역자",
+  "model": "claude-opus-5",
+  "source_sha256": "1d49581a41bc216fb8bd0542638a6ecf72a5211139364fef9cd869b5ab18b1b9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-trauma-that-must-be-relearned-sideways",
+  "field": "title",
+  "lang": "ko",
+  "text": "비스듬히 다시 배워야 하는 트라우마",
+  "model": "claude-opus-5",
+  "source_sha256": "63bf214d383ac1dcde792d9c4c46b555b72746c56705582cc59166a548841f03"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-trauma-that-resists-representation",
+  "field": "title",
+  "lang": "ko",
+  "text": "재현을 거부하는 트라우마",
+  "model": "claude-opus-5",
+  "source_sha256": "db3c175ec84092102bb844fdacaf13d6d3207f57d5a0e33fa9a960ff586c8a7b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-treasure-that-damns-who-carries-it",
+  "field": "title",
+  "lang": "ko",
+  "text": "지닌 자를 파멸시키는 보물",
+  "model": "claude-opus-5",
+  "source_sha256": "fded3c533072d319603eabe5fc32bd76fb9f452c3bac9fe949f41a21601a9449"
+ }
+]

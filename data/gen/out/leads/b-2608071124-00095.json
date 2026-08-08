@@ -1,0 +1,82 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "in-our-day-2023",
+  "field": "lead",
+  "film_id": "271b0a40-7b03-457f-b050-b0a439fb1142",
+  "lang": "en",
+  "text": "Two cats set the terms: one alive in a borrowed apartment, one dead and still mourned. The living one belongs to the friend putting up an actress in her forties, recently back in South Korea; the dead one belonged to an aging poet in poor health who lives by himself. Hong Sang-soo keeps the two households apart and alternates between them across eighty-four minutes, short enough that the pattern reads as rhyme rather than scheme. Into each comes a young visitor with questions - about a career, about how a life should be conducted - and both hosts, cornered by admiration, are obliged to answer. Questions that size are hard to field in a small room with a guest waiting. The film is funny the way being asked for wisdom is funny: what gets said hardens into a maxim, then gets qualified, then contradicted.",
+  "model": "claude-opus-5",
+  "source_sha256": "6618e691ba1e0cb3af60b8b1c021af30fe9f99b41fa3753574eb46f1a854ee4f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "blue-bayou-2021",
+  "field": "lead",
+  "film_id": "291247db-4754-4a2a-a8d2-f3095afb0b26",
+  "lang": "en",
+  "text": "The threat here arrives as paperwork - a fact about a man's status that can remove him from the only country he has lived in. He is Korean American, raised in the Louisiana bayou, working long hours to keep a family going, and now confronted with a past he had not settled. Justin Chon gives the situation 117 minutes, which leaves room for the ordinary texture of the weeks before the legal machinery acquires teeth. The bayou is not backdrop: it is a place with a long local sense of who counts as from here, and that question follows him down every road in it. Chon is less interested in argument before a judge than in what a man does with his evenings while people elsewhere, on their own schedule, decide whether he gets to stay.",
+  "model": "claude-opus-5",
+  "source_sha256": "06e09c0b4b640c774cb81065bd7a83552833663d87254ace181ea4a22b571fe5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "obsessed-2014",
+  "field": "lead",
+  "film_id": "2a8c7488-bcbf-4dab-9de8-9babf4ceaeaa",
+  "lang": "en",
+  "text": "Summer 1969, in a Korean military community where rank arranges the housing and, by extension, the marriages. Colonel Jin Pyeong is bound to Soo Jin in a marriage without affection. Jong Ga Heun, Chinese-Korean, is married to Captain Kyung Woo Jin. Kim Dae-woo takes 132 minutes over the affair that follows, and the length is doing something: this is a film built out of waiting, of thresholds and postponement, of the small permissions people extend themselves in hot weather. Ga Heun's background sits inside it as a second exposure - in a closed community, being not quite Korean is already a matter of comment. Nothing stays private for long in such a place. Discovery would be counted in rank, in quarters, in the exact address on the gatepost.",
+  "model": "claude-opus-5",
+  "source_sha256": "ad021b34fb78fbec1e83c8d810d10b7341a5040ab6aeff5b9f8e58e0221059e8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "love-mercy-2015",
+  "field": "lead",
+  "film_id": "2b2cc1c5-7e83-4be6-ab3b-a7580a24ea2b",
+  "lang": "en",
+  "text": "It begins with a refusal: Brian Wilson stops touring, stays behind in the studio, and lets the band go out without him. Bill Pohlad runs two clocks across two hours. In the late sixties, Wilson is assembling Pet Sounds while the sounds arriving in his head stop taking instruction. In the eighties, he lives under a therapist who controls his hours and his company, and a woman named Melinda Ledbetter appears at the edge of that arrangement. The cutting between the two asks a viewer to hold one man against himself rather than follow a line of cause and effect. The studio passages are the engine: session musicians taking direction they do not follow, an arrangement built one indefensible decision at a time, and the man conducting it running short of quiet.",
+  "model": "claude-opus-5",
+  "source_sha256": "962804bc7a4d7e1a1ac937723c9fd53e267c3d9859eeec8f412a91fc6b46b983"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "our-sunhi-2013",
+  "field": "lead",
+  "film_id": "2b804e9f-856d-4a5f-ba40-2404091a8faa",
+  "lang": "en",
+  "text": "Everyone agrees about Sunhi, which is a sign that nobody is looking at her. She returns to her film school to ask Professor Choi for a recommendation letter that would get her to the United States, and within a few days she also runs into Munsu, an ex-boyfriend, and Jaehak, a director who studied in the same department. Each man supplies advice on life. The striking thing is the vocabulary: the same two or three descriptions of her pass from mouth to mouth, arriving each time with more confidence and less bearing on her. Hong Sang-soo needs eighty-nine minutes and almost no incident - meetings, a subject reopened, a favour to be granted. The letter is the joke that holds it, since writing one means stating plainly what a person is.",
+  "model": "claude-opus-5",
+  "source_sha256": "03aa90d5a348442b409bcc3168426104b2d46dd8e7b8222ad84c35e9aa009fef"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dream-2008",
+  "field": "lead",
+  "film_id": "2bc4f32b-4b7d-4f93-90b6-a45bfdfd8a39",
+  "lang": "en",
+  "text": "A man dreams, and across the city a woman he has never met gets out of bed and does what he dreamed. The connection surfaces after a car crash, so the premise comes with consequences someone will be required to answer for. Kim Ki-duk gives it ninety-five minutes and treats the conceit less as a puzzle than as an unbearable practical problem: if sleep is where the offence occurs, staying awake becomes an obligation, and two strangers are tied to an arrangement neither of them chose. Drama, mystery, fantasy, romance - the labels all apply and none governs. What holds the thing together is exhaustion as a physical fact, the visible decline of people denied the one thing nobody can go without, and the odd tenderness available to two people whose only shared property is the night.",
+  "model": "claude-opus-5",
+  "source_sha256": "66447015a94c514014fa869244a76c9e45731e2a5f60bbeb62992b00bebb63bc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "beautiful-2008",
+  "field": "lead",
+  "film_id": "2d762a7a-a73d-4f38-98a4-ed53dcfb6bdb",
+  "lang": "en",
+  "text": "Eun-young is looked at everywhere she goes, and the film treats that as a condition with physical consequences rather than a compliment. Men she has not met behave as though something is owed to them; women she has not met settle in advance on what she must be like. Then one of the men who has been following her comes inside her home. Juhn Jai-hong works in eighty-eight minutes, and the compression keeps anyone from being excused: there is no room for apology, and none for the story to grow sentimental about her. The thriller and mystery billing is accurate and slightly misleading, since the disturbing material is not the intrusion but the ordinary conduct that preceded it. The break-in is the part with a name. The rest had been going on in daylight, in front of witnesses, for years.",
+  "model": "claude-opus-5",
+  "source_sha256": "fd974e657e90da9ee3e56ccb0bc08c36cd4da290e7b8cecae96512bf517b3793"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "basilicata-coast-to-coast-2010",
+  "field": "lead",
+  "film_id": "2d8e4582-fc45-490d-9a77-ea64f22a5cf3",
+  "lang": "en",
+  "text": "Basilicata is narrow enough to cross on foot, and a group of musicians sets out to do exactly that. The route runs from the Tyrrhenian to the Ionian, ending at a song-and-theatre festival in Scanzano Jonico, and the premise is simply a walk with instruments. Rocco Papaleo takes 105 minutes over it, close to the pace of the country being crossed: roads that climb, encounters that happen once and are not repeated, songs that turn up because someone is carrying a guitar and the afternoon calls for one. The comedy is mild and the drama is not decoration; men with days of walking ahead and nothing to do but talk end up saying the things they have built their routines to avoid. The land is not scenery here. It is distance, counted in hours on the road and days left before the festival opens.",
+  "model": "claude-opus-5",
+  "source_sha256": "22ed0c76865fecd1068360f09988153f121dd523ed053feb421cc10f9a462ce4"
+ }
+]

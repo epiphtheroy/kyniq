@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-murderers-are-among-us-1946",
+  "field": "lead",
+  "film_id": "a4d59856-b3ea-4763-9a94-fe0326d925dc",
+  "lang": "en",
+  "text": "Berlin, 1946: the building is still standing, and someone else is asleep in the rooms. Susanne comes back from a camp to find an ex-soldier occupying her apartment, a man who cannot get through an evening without the war arriving in it. Wolfgang Staudte made the film a year out from the fighting, so it keeps no distance from its material and claims none. What the genre labels split into romance and thriller is really one situation: two people obliged to share a flat, and something the man has not said. Eighty-one minutes, most of them indoors, the city visible through the window as a condition rather than a backdrop. It has stayed on German lists of essential films. The pressure is domestic — who cooks, who sleeps where, who asks a question — and it is never only domestic.",
+  "model": "claude-opus-5",
+  "source_sha256": "9f0abfb184394c374806f47028fc64aa42bce45ac83578a4f3f66e4710310006"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "waxworks-1924",
+  "field": "lead",
+  "film_id": "d374b166-f7a9-4dc4-b40b-3f155e707823",
+  "lang": "en",
+  "text": "A wax museum in a circus needs stories for its figures, so the owner hires a poet. The commission covers three: Harun al Raschid, Ivan the Terrible, Jack the Ripper — a caliph, a tsar, and a name that is only a name. Putting those three inside one 83-minute film means changing manner between them, and the changes are the interest; the frame keeps snapping back to the booth, the wax, and Eva, the owner's daughter, whom the poet writes into everything he is being paid to invent. Leo Birinski treats invention as piecework and then lets the piecework get away from the man doing it. The figures are sculptures of dead men before a scene has begun, which is a peculiar advantage: the dread is already standing on the floor, rented by the hour, waiting to be supplied with a plot.",
+  "model": "claude-opus-5",
+  "source_sha256": "d561b0b75a8ace6a80be7fc1cc0e94fd9b21fbd5bc08146ed256d27ae2d012b7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-skeleton-of-mrs-morales-1959",
+  "field": "lead",
+  "film_id": "6c4d2d3c-7dac-4c7e-8c07-5b979ddc17cf",
+  "lang": "en",
+  "text": "He preserves dead animals for a living and has been married for twenty years. Rogelio A. González films the second fact the way he films the first: as a question of arrangement, of what a house keeps and where. Comedy, crime and horror get listed separately here, but they are not modes taking turns — it is one steady tone, which is why the laughs come out sideways and the menace never announces itself. Mexico, 1959, eighty-four minutes, most of them in rooms where a marriage has worn grooves into the floor: who speaks first at the table, which door stays shut. The film is patient about how an unthinkable idea becomes thinkable, then practical, then a matter of scheduling. The taxidermy is not a metaphor. It is the man's trade, and it has given him a long professional acquaintance with things that used to be alive.",
+  "model": "claude-opus-5",
+  "source_sha256": "c58b71393097fae7f4ed57103da8cfa3f20a49afcd3433d2f5c0aea25eb1a3ce"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "susana-1950",
+  "field": "lead",
+  "film_id": "b1376975-7df6-4d3d-b0ef-58c7c32dc30c",
+  "lang": "en",
+  "text": "She gets over the wall, and the next house she reaches is one that runs on early mornings and settled roles. Susana arrives at a working plantation out of confinement, and Luis Buñuel is far less curious about her history than about the family whose routine she enters — about how quickly people who consider themselves decent discover what they want. The film is built exactly like the melodramas being made around it in Mexico in 1950, eighty-six minutes, the shape intact and something inside the shape gone wrong. Attention stays on the household: meals, work, the order of who is obeyed. Somos' hundred best Mexican films kept it. What unsettles is not the young woman's conduct but the speed at which everyone else's dignity turns out to have been a matter of nobody having tested it.",
+  "model": "claude-opus-5",
+  "source_sha256": "32a584d479fce04fe5b1795bb635677c585c5ef1b1846f6bdc258ae82304c7cc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "munchhausen-1943",
+  "field": "lead",
+  "film_id": "345e394c-d355-404b-847b-98d848fc03f1",
+  "lang": "en",
+  "text": "In 1943 a German studio put a hundred and sixteen minutes into a nobleman who cannot die and will not stop talking. Baron Munchausen has a single listener, a woman already in love with him, and every impossible episode he offers is a bid to keep her sitting a little longer — the tall tale as courtship, immortality as the reason he has so much material. Josef von Báky keeps the frame close by; someone is always being told this. A fantasy at that length has to keep outbidding itself, and much of the pleasure is watching a production meet each escalation calmly, as a practical problem to be solved. Von Báky directs without irony toward his liar, which is stranger than mockery would have been. The date on the film and the buoyancy in it do not match, and the mismatch is the most interesting thing about it.",
+  "model": "claude-opus-5",
+  "source_sha256": "2395e41c1700bdbb98509fe817354fd05a9168be55993f80765622958f858f32"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "comradeship-1931",
+  "field": "lead",
+  "film_id": "778b1440-228d-4304-8269-2747ebea2e1a",
+  "lang": "en",
+  "text": "The tunnel the rescuers use was dug for a war and left to rot afterwards. A mine straddles the French-German border; an explosion traps men on the French side, and two German miners, Wittkopp and Kasper, go down through that old passage because it is the shortest way in — and because their own management would rather the rescue did not happen. Georg Wilhelm Pabst argues almost entirely through labour: helmets, cages, timber, the sound of a wall being struck. Ninety-three minutes, 1931, most of it underground, where nobody has the leisure to be persuaded of anything. The men who need each other cannot follow each other's words, which turns out to matter less than the men in offices assume. What the film refuses is the consoling version in which good will is free. Here it is paid for in shifts, in air, in standing with the bosses.",
+  "model": "claude-opus-5",
+  "source_sha256": "922d0adaa26eda88ee230a48f64d8d98bb1ab41e3939e902a7b232fdcb12bcbd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "asphalt-1929",
+  "field": "lead",
+  "film_id": "691f59ab-3c6c-4b6b-abc5-8ee28be1071d",
+  "lang": "en",
+  "text": "A street that busy is a machine for putting strangers into contact. Joe May had a studio's full resources and spent them on Berlin traffic — lanes, crowds, headlamps, a flow that never quiets under the drama and never comments on it either. Betty Amann takes the central role, and the Expressionist habits the production is built from, light arriving at an angle and rooms that press inward, are used less for nightmare than for the ordinary business of two people in a small space deciding what to admit and what to keep back. Ninety-three minutes, 1929. The interest now is textural: the density of a city assembled to order, the exactness with which the pavement behaves like real pavement, and the way one encounter on it hardens into an obligation neither party chose.",
+  "model": "claude-opus-5",
+  "source_sha256": "ddb75b363eafe4402ac0ace6d96d5fb636ba7f48b2eb0fa4d335e3f4e5466071"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "joyless-street-1925",
+  "field": "lead",
+  "film_id": "13212eca-164f-460c-a4b2-26be63fad54f",
+  "lang": "en",
+  "text": "A wage in Vienna in 1921 could be worth less by evening than it had been at breakfast. Marie and Grete live on the same poor street and try, separately, to get their families clear of it, and Georg Wilhelm Pabst cuts between them for 155 minutes without ever making the comparison explicit. The length is the method. Attrition takes time to show honestly: the same door tried again, the same sum counted out and found short, the steady transfer of leverage to whoever still holds bread or a room or a job. Nothing is heightened. By the second hour the plainness begins to feel like a decision taken against the comfort of the people watching, and the two lives have diverged less through character than through what each woman was offered on a particular afternoon.",
+  "model": "claude-opus-5",
+  "source_sha256": "939452343a99f9fe236f9863b29c89bdd77a0d858011844f81f719afd772f1d9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "illusion-travels-by-streetcar-1953",
+  "field": "lead",
+  "film_id": "9ed5cf79-9119-411d-82ec-db5a852b817a",
+  "lang": "en",
+  "text": "Nobody in this film steals the streetcar for money, which is exactly what makes giving it back so hard. Two transit workers learn that car no. 133 is to be scrapped, drink to it, and take it out for a last run; the rest is ninety minutes of trying to return a tram that keeps being mistaken for a tram in service, since on its own rails that is precisely what it looks like. Luis Buñuel made it in Mexico in 1953, and the comedy runs on a civic joke: the city cannot tell a private act from a public one, and neither, after a while, can the men performing it. They are not rebels. They are employees with an attachment to a machine and a poor idea about how to honour it, and everything goes wrong through the ordinary channels of a route, a fare, a passenger waiting at a stop.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ba47f3f6b4a970eb74e50ce0ef103fbb74ee340e17a8bca6a003ca6305d6e74"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "youre-missing-the-point-1940",
+  "field": "lead",
+  "film_id": "4c846738-5aea-4d1d-8032-50b18036aa7b",
+  "lang": "en",
+  "text": "There is a mad dog in the house, which is the only reason he is let in at all. Cantinflas plays the servant's boyfriend; found where he has no business being, he is passed off as Leonardo, the brother of the lady of the house, missing for years. Then the industrialist who owns the place works out that the lie pays — a will settles nothing until every brother is present — and from there the imposture is defended most fiercely by the people it was practised on. That reversal is the design, and 112 minutes is a long stretch to keep a lie inflated. Juan Bustillo Oro lets scenes run well past the moment the joke has landed, on the theory that a man talking his way across a room gets funnier the longer the room lasts. What holds is not the inheritance but the conspiracy of belief around it.",
+  "model": "claude-opus-5",
+  "source_sha256": "03e69f55a3dc31e807875c0ddec3680ec5b626618e39bad134cac27fc32fb4b4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "liebelei-1933",
+  "field": "lead",
+  "film_id": "22422d87-2e9a-4575-a4f5-2e8339f187d6",
+  "lang": "en",
+  "text": "An affair here is not private property; other people keep records of it. Fritz Lobheimer, a cavalry lieutenant, is trying to end one liaison with a baroness when he meets Christine, whose father plays violin in an opera orchestra, which places her a long way below the rooms Fritz has been moving through. Max Ophüls films that distance as architecture: who may come in, who waits at the door, whose name can be spoken aloud and where. The young pair are not naive, and their tenderness is not offered as innocence; they know what the arrangement around them costs and proceed anyway. Eighty-eight minutes, Vienna at the turn of the century, made in Germany in 1933. The husband, meanwhile, has heard something, and the machinery that exists to handle such news needs nobody's consent to start.",
+  "model": "claude-opus-5",
+  "source_sha256": "c1d8e650003ec98a4fe1406c403658143bf033e7835e1c1e14e1aace614cadc1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "germany-in-autumn-1978",
+  "field": "lead",
+  "film_id": "4d83699f-b0ca-42dd-9697-7ba4807e2cbf",
+  "lang": "en",
+  "text": "Nine pieces, made within months of the events they are about, and none of them agreeing on a method. In the autumn of 1977 a businessman was taken by the Red Army Faction, which wanted the group's imprisoned founders released, and the country spent two months in a condition its filmmakers chose to record rather than explain. Some of this is documentary. Some is staged and then handed over in documentary's clothes, which under the circumstances was the more honest of the two. The parts do not reconcile: an argument made in one is undercut by the tone of the next, and no editor arrives to arbitrate. A hundred and twenty-three minutes, which is not an epic's length but a dossier's. What it registers is how fast a private household becomes a political fact once a state is frightened.",
+  "model": "claude-opus-5",
+  "source_sha256": "d8293f2a049dfd6f8ef483410e4dabce06b0505d8ad48dde5e4e2253265427f9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "variety-1925",
+  "field": "lead",
+  "film_id": "f0e5b517-f96f-486a-92fb-7af6b3575792",
+  "lang": "en",
+  "text": "For ten years the convict says nothing about what he did, and then he tells the warden. Everything after that is his telling, which builds a witness problem into the picture: events reach us already arranged by a man explaining himself to the person who holds his file. E.A. Dupont works from inside that arrangement — 104 minutes, 1925, no dialogue to lean on, so motive has to be made legible by placement, by what a face is turned toward, by who stands where when a door opens. Whether Boss Huller did it is settled in the first line. The interest is in what a man includes when the account is the only property he has left, and in the daylight that keeps showing between what he says was done to him and what the images will confirm.",
+  "model": "claude-opus-5",
+  "source_sha256": "e3f60af580b5a321edb3adf8b820fe71bdd5754c4c93328cf3ecbd72fdc55b0d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-legend-of-paul-and-paula-1973",
+  "field": "lead",
+  "film_id": "bf331152-913a-4d26-95c7-ef8f4b71f5e5",
+  "lang": "en",
+  "text": "Paula raises two children by herself; Paul has the salary, the flat, and a wife he stopped seeing years ago. When the two of them collide, Heiner Carow declines the convenient obstacle — no villain keeps them apart, only Paul's entire arrangement, the whole of what he would have to hand back — and the film returns again and again to that inventory with very little sympathy for the man maintaining it. Their hours together are staged closer to reverie than to romance, and then a door shuts and it is a weekday again. A hundred and five minutes, 1973. The part that has aged least is Paula herself: given appetite, given a life that was already hers, and never once asked by the film to stand for a lesson.",
+  "model": "claude-opus-5",
+  "source_sha256": "e0ff7e8ce600258b2d70a90d6f481ccc1ebb45907d52da0927c2c1b279d2bdec"
+ }
+]

@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-le-de-france-in-mythic-disguise",
+  "field": "title",
+  "lang": "ko",
+  "text": "신화의 옷을 걸친 일드프랑스",
+  "model": "claude-opus-5",
+  "source_sha256": "0f17ecd79d752b17450d564c3304f789633b915774012315a85ddae8446a1e1f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-leap-taken-before-the-ground-appears",
+  "field": "title",
+  "lang": "ko",
+  "text": "땅이 보이기 전에 뛴다",
+  "model": "claude-opus-5",
+  "source_sha256": "e511a87ff6595b7a554ed17b440895e881e4c6188422e8253190e0d38cfe4236"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lecture-as-philosophical-alibi",
+  "field": "title",
+  "lang": "ko",
+  "text": "강의라는 이름의 철학적 알리바이",
+  "model": "claude-opus-5",
+  "source_sha256": "e65068389d4b5eae8284734d573c2eec93bc08f96eea6be5002567c0cc1f19c5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ledger-that-demands-settlement",
+  "field": "title",
+  "lang": "ko",
+  "text": "청산을 요구하는 장부",
+  "model": "claude-opus-5",
+  "source_sha256": "db479027f14c0d3486710e9d23e990800c431761bfd0cedeb590355dfdf7676c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ledger-that-sums-what-love-cannot",
+  "field": "title",
+  "lang": "ko",
+  "text": "사랑이 못 하는 셈을 대신하는 장부",
+  "model": "claude-opus-5",
+  "source_sha256": "00c44462eb44cbd178ba48ba5f3cdcd90b017efbd81fc1348bf0f0b04c49a7ba"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ledger-where-bare-life-is-counted",
+  "field": "title",
+  "lang": "ko",
+  "text": "벌거벗은 생명을 세는 장부",
+  "model": "claude-opus-5",
+  "source_sha256": "cf3bf4b85eee3f4e4d490fd4a484c4616e430835db0029b44ac407e789f5eb63"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-leisure-that-is-already-the-massacre",
+  "field": "title",
+  "lang": "ko",
+  "text": "여가가 곧 학살이다",
+  "model": "claude-opus-5",
+  "source_sha256": "721a120f410c4791d4545b23fc0f7caf1c17b2fc62c8cf6c0ee9c5548a9fe148"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lens-as-the-eye-of-empire",
+  "field": "title",
+  "lang": "ko",
+  "text": "제국의 눈이 된 렌즈",
+  "model": "claude-opus-5",
+  "source_sha256": "aa888440891f4e3a1d27126f1ddbeb0e581aabbd38ec6241191ba9d624290bf0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lens-as-witness-to-suffering",
+  "field": "title",
+  "lang": "ko",
+  "text": "고통 앞에 선 증인, 렌즈",
+  "model": "claude-opus-5",
+  "source_sha256": "6558ea7b4de0bb80c47f5aefeb9d5c47f1808b61d07ce27102a4257c210d2433"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lens-lowered-to-a-child-s-eyes",
+  "field": "title",
+  "lang": "ko",
+  "text": "아이 눈높이까지 내려온 렌즈",
+  "model": "claude-opus-5",
+  "source_sha256": "35e06511492a3c1bc05c7aa62b65125af897b1170ac2961d9ddf3b7b23d631ed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lens-made-a-witness-at-the-siege",
+  "field": "title",
+  "lang": "ko",
+  "text": "포위된 도시에서 증언하는 렌즈",
+  "model": "claude-opus-5",
+  "source_sha256": "a4543c894dd948083f2e6ffe5da15d253c786a661f9b7b65342aff1918044d16"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lens-that-becomes-a-gaze",
+  "field": "title",
+  "lang": "ko",
+  "text": "응시(gaze)가 되어버린 렌즈",
+  "model": "claude-opus-5",
+  "source_sha256": "202271076760a743df88674de73b8de1f741e84e119765887e2336bca62b26f9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lens-that-confesses-its-own-guilt",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 죄를 고백하는 렌즈",
+  "model": "claude-opus-5",
+  "source_sha256": "2e0336bc4e50cce1e1ba6544c5afe8abaa573524470b713425b384e77819cf25"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lens-that-dethrones-its-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "피사체를 왕좌에서 끌어내리는 렌즈",
+  "model": "claude-opus-5",
+  "source_sha256": "55425d9beb1c599665b782ad1babd0739b523d9bc2a32a3fca3f5b82195766e5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lens-that-distorts-to-tell-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "진실을 말하려고 일부러 일그러뜨린다",
+  "model": "claude-opus-5",
+  "source_sha256": "b93f1a8cb2abf649e7308f2070e410e94831c7d4b1103336136d37dfbe536b37"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lens-that-indicts-the-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "프레임을 고발하는 렌즈",
+  "model": "claude-opus-5",
+  "source_sha256": "58d1abbd1cdf66253a88ad8f80c6d5910cb5c680a103997838ee2fd78ab52cb1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lens-that-is-a-character-s-eye",
+  "field": "title",
+  "lang": "ko",
+  "text": "한 인물의 눈이 된 렌즈",
+  "model": "claude-opus-5",
+  "source_sha256": "613289ea68bb3f808aaa3c4a1d7956933619e8b8edb5f1ac16336f43c81b07ad"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lens-worn-as-armour-against-the-gaze",
+  "field": "title",
+  "lang": "ko",
+  "text": "시선을 막는 갑옷으로 쓰인 렌즈",
+  "model": "claude-opus-5",
+  "source_sha256": "ea515a4e806e65564f627755f8dcd2bf9d02f8fc65d47ba7c425f5922285d25f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-letdown-was-the-genre-speaking",
+  "field": "title",
+  "lang": "ko",
+  "text": "그 실망은 장르가 낸 목소리였다",
+  "model": "claude-opus-5",
+  "source_sha256": "213354f06583f8de4550d00e795d65f3251b71b26e94db34d58d06ef1e6b6f9b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lethal-real-inside-the-fiction",
+  "field": "title",
+  "lang": "ko",
+  "text": "허구 속에 박힌 치명적 실재",
+  "model": "claude-opus-5",
+  "source_sha256": "2b7618b111e04156e449f55b884f2e91e797235b5113ad7c4713800e3fa0a0e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-letter-as-archive-of-the-silenced",
+  "field": "title",
+  "lang": "ko",
+  "text": "입 막힌 자들의 기록보관소, 편지",
+  "model": "claude-opus-5",
+  "source_sha256": "5fc9439dd5b3e8e6c84f86902d0436b2b316687b20094790895f58773e05f5e4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-letter-as-civic-infrastructure",
+  "field": "title",
+  "lang": "ko",
+  "text": "편지라는 시민 인프라",
+  "model": "claude-opus-5",
+  "source_sha256": "d6b609ec02013361c496745639f83f61e8b7faf52b8ac7f0ffd68859a8edf4e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-letter-as-ontology-of-the-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "편지로 성립하는 자아",
+  "model": "claude-opus-5",
+  "source_sha256": "69ffe66fadbf76fb2645fcceb10b53f96d5219f78d984d2fc7005102754c9d1d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-letter-as-refusal-of-the-instantaneous",
+  "field": "title",
+  "lang": "ko",
+  "text": "즉시성을 거부하는 편지",
+  "model": "claude-opus-5",
+  "source_sha256": "f88732301aabaffb7c0438b37d5f2d353df7eaeaeb620708e575b7838d4b8a0e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-levitating-body-as-wish-reality-forbids",
+  "field": "title",
+  "lang": "ko",
+  "text": "떠오르는 몸, 현실이 금한 소원",
+  "model": "claude-opus-5",
+  "source_sha256": "b5c70e59113d53a7a4709f67539a12c5a8502cb11dd481dee93479b7b6cf5ac3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-liar-bound-by-his-own-law",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 만든 법에 묶인 거짓말쟁이",
+  "model": "claude-opus-5",
+  "source_sha256": "b9789d9d4fa5126053d33e32c258fc44d197b06573bec1d277dbadc795ba166c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-liar-whose-lies-become-a-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "거짓말이 곧 자기가 된 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "f80c01607be2a16045f73af184da5883a7f6afff94e708afbfc07cec980b1145"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-liberal-verdict-as-self-absolution",
+  "field": "title",
+  "lang": "ko",
+  "text": "자기면죄로 끝나는 진보적 평결",
+  "model": "claude-opus-5",
+  "source_sha256": "33a797deb224cf62bbc1a35f76bc69bf4a49ac81850eee0b01007021ba2bfbf7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-liberation-that-liberated-no-one",
+  "field": "title",
+  "lang": "ko",
+  "text": "아무도 해방시키지 못한 해방",
+  "model": "claude-opus-5",
+  "source_sha256": "dfe56f0b0e511b6091a45ad663687d1a8deb918f1f961b6908d923728baa2e6e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lie-that-constitutes-the-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "진실을 떠받치는 거짓",
+  "model": "claude-opus-5",
+  "source_sha256": "1ebd657c799be310f88d4f322e20e08b3d4c1fdc242f0f7950acc0c73987f0bc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lie-that-refuses-to-stay-buried",
+  "field": "title",
+  "lang": "ko",
+  "text": "묻어둬도 기어이 올라오는 거짓",
+  "model": "claude-opus-5",
+  "source_sha256": "a47316fc77ed117fd0c0503730a1e8e30f0af2ef6e6184353c62a15e8d2038b2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lie-the-critics-needed-to-believe",
+  "field": "title",
+  "lang": "ko",
+  "text": "평론가들에게 필요했던 거짓말",
+  "model": "claude-opus-5",
+  "source_sha256": "6d93d7fad65c6f6a0f6d855544785450a12e61503903cc6e728453dd3c9d8882"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-life-authored-by-others",
+  "field": "title",
+  "lang": "ko",
+  "text": "남이 써준 생애",
+  "model": "claude-opus-5",
+  "source_sha256": "3f39675d5963e48b5d4e0f645ea3bd6967a7d7782e18f351bcba5e6e4d8966c6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-life-rewritten-as-inscription",
+  "field": "title",
+  "lang": "ko",
+  "text": "기입으로 고쳐 쓰인 삶",
+  "model": "claude-opus-5",
+  "source_sha256": "8a895d4b73f452a34abb5adc5944faafcafa64cb9e572fed2c5322618ec4fda9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-light-that-sustains-and-destroys-desire",
+  "field": "title",
+  "lang": "ko",
+  "text": "욕망을 살리고 또 죽이는 빛",
+  "model": "claude-opus-5",
+  "source_sha256": "acaaeb92b9b020947fb1ab4aca690d9e8d8e5c65b4fc23c424ed2de153d049e5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-light-under-which-hidden-selves-appear",
+  "field": "title",
+  "lang": "ko",
+  "text": "숨은 자아가 드러나는 빛",
+  "model": "claude-opus-5",
+  "source_sha256": "0f5670c42db4a338bb3ac4c57c46ae6e144f5f15f8f9c5924541d5c6dce8bd17"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lighter-that-incriminates-its-owner",
+  "field": "title",
+  "lang": "ko",
+  "text": "주인을 옭아매는 라이터",
+  "model": "claude-opus-5",
+  "source_sha256": "95bb1687a16a6d07946a819c7529b50a1989079a907c1001b1f7015cedab1eb3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-limitation-that-bought-honesty",
+  "field": "title",
+  "lang": "ko",
+  "text": "정직을 얻어낸 결핍",
+  "model": "claude-opus-5",
+  "source_sha256": "0abb0ff9335593633e624460405ca05f77e5e159d5a502e13dbeb6603b51f477"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lip-reader-as-surveillance-apparatus",
+  "field": "title",
+  "lang": "ko",
+  "text": "감시 장치가 된 독순술사",
+  "model": "claude-opus-5",
+  "source_sha256": "0c96fe7168c235fff5b14a702f844bf8497af9a15443fd2a94e076212a5d8c08"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-listener-who-cannot-be-automated",
+  "field": "title",
+  "lang": "ko",
+  "text": "자동화되지 않는 듣는 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "2a002fc83ce2de6324897b5a0c475c1eda33eed4b10350779de2ac81b9f19c5f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-living-are-the-haunting",
+  "field": "title",
+  "lang": "ko",
+  "text": "유령은 산 자들이다",
+  "model": "claude-opus-5",
+  "source_sha256": "fa2e9282002dd0d5c92994b809b0d4cf62dd4d44e560a64854140e347d89242f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-living-body-drawn-from-flesh-not-cartoon",
+  "field": "title",
+  "lang": "ko",
+  "text": "만화가 아니라 살에서 나온 몸",
+  "model": "claude-opus-5",
+  "source_sha256": "818c855d1ad7185f9f9946607fe24a406a1a0928cbd4d811c2283c1dde3a93ea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-living-body-enthroned-as-monument",
+  "field": "title",
+  "lang": "ko",
+  "text": "기념비 자리에 오른 산 몸",
+  "model": "claude-opus-5",
+  "source_sha256": "2030b5e3b7d04f20e02b2ad3ba73daf99814822d54c3f35b4d21795080a3f3ed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-living-line-as-argument",
+  "field": "title",
+  "lang": "ko",
+  "text": "살아 있는 선이 곧 논증",
+  "model": "claude-opus-5",
+  "source_sha256": "c37bf96f83abe80a1e5b7b2afc87c0735caa271118db9b2998178047f2f38489"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-living-who-visit-their-lost-childhood",
+  "field": "title",
+  "lang": "ko",
+  "text": "잃어버린 유년을 찾아가는 산 자들",
+  "model": "claude-opus-5",
+  "source_sha256": "d44c404616aa2f710ffebc0d4ccc21f1f924f8a1b046b3931c79ec1adcf54708"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-local-landscape-cast-as-apocalypse",
+  "field": "title",
+  "lang": "ko",
+  "text": "종말 역을 맡은 동네 풍경",
+  "model": "claude-opus-5",
+  "source_sha256": "374084291b0b6d6af18ae6138e379dca5333f522cae4169da6607663448e82bc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-location-standing-in-for-the-forbidden-place",
+  "field": "title",
+  "lang": "ko",
+  "text": "금지된 땅을 대신 연기하는 로케이션",
+  "model": "claude-opus-5",
+  "source_sha256": "698902a2159e065b893b24d55905cb7fb913b66315d9b3919c86e2de825b989c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-location-that-killed-its-filmmakers",
+  "field": "title",
+  "lang": "ko",
+  "text": "제작진을 죽인 촬영지",
+  "model": "claude-opus-5",
+  "source_sha256": "df0060fd647157b70978e74fca1313f2300156566bba6a9cb2369c78f3ec8bb3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lockdown-encoded-as-domestic-interior",
+  "field": "title",
+  "lang": "ko",
+  "text": "집 안 풍경으로 옮겨 적은 봉쇄",
+  "model": "claude-opus-5",
+  "source_sha256": "8f6d71a7ca049e02635515e70aa22a6226095a0fc0f270923170f4f0f3bbf5c4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lockdown-shot-through-our-own-screens",
+  "field": "title",
+  "lang": "ko",
+  "text": "우리 화면 너머로 찍힌 봉쇄",
+  "model": "claude-opus-5",
+  "source_sha256": "97ba411383668607dd6c64b0c491c642663187d4f9d25edeebde6a4aab24774f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-locked-threshold-as-domestic-sovereignty",
+  "field": "title",
+  "lang": "ko",
+  "text": "잠긴 문턱, 가정의 주권",
+  "model": "claude-opus-5",
+  "source_sha256": "51a20c4820a6b50d90db6519f833d573b5c840b9da5d62e7b1f0060be56a4f78"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lone-red-against-the-drained-world",
+  "field": "title",
+  "lang": "ko",
+  "text": "색이 빠진 세계에 홀로 남은 빨강",
+  "model": "claude-opus-5",
+  "source_sha256": "74e7143459aae985bbcda4923e0d3516717e21fa1d2de359c6a9dcb0a3b135c1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lone-woman-reading-the-institution-s-case",
+  "field": "title",
+  "lang": "ko",
+  "text": "제도의 서류를 홀로 읽는 여자",
+  "model": "claude-opus-5",
+  "source_sha256": "3366352e213c2016852564e68e424cea8f8ae5857b30c6b2844a866f76417e5c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-long-odds-bet-on-a-doomed-life",
+  "field": "title",
+  "lang": "ko",
+  "text": "이미 진 인생에 건 승산 없는 판돈",
+  "model": "claude-opus-5",
+  "source_sha256": "512e0e24a4740112c0d79f8d99e76000beea3a06728a805552bf6b86a100aca9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-long-take-as-a-withheld-cut",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 내주지 않은 컷, 롱테이크",
+  "model": "claude-opus-5",
+  "source_sha256": "d708805e53c9f2e0ffcbb44f52d21502ebc124d36a0913c7f8c21e3a5d5fbee8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-long-take-as-congealed-time",
+  "field": "title",
+  "lang": "ko",
+  "text": "굳어버린 시간으로서의 롱테이크",
+  "model": "claude-opus-5",
+  "source_sha256": "9f647d45b51b6c7b43a9d276d3bb4480a430cc8cfd29c01df25fd858c5ce74b4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-long-take-as-director-s-calling-card",
+  "field": "title",
+  "lang": "ko",
+  "text": "감독의 명함이 된 롱테이크",
+  "model": "claude-opus-5",
+  "source_sha256": "74d3c4d08c22405dd61aec5ff533a6826bd37b8ab480849b1060e18ebd81a1a5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-long-take-as-disciplined-labor",
+  "field": "title",
+  "lang": "ko",
+  "text": "규율로 다져진 노동, 롱테이크",
+  "model": "claude-opus-5",
+  "source_sha256": "1d06019c456942cc7124ea52b2246ea1cf4213519400eb5794bbf2c86a7f8c9d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-long-take-as-honest-duration",
+  "field": "title",
+  "lang": "ko",
+  "text": "정직하게 흐르는 시간, 롱테이크",
+  "model": "claude-opus-5",
+  "source_sha256": "8ba79896c115725cfe4257fbb0f1319c5f8a67cae0cf92c94ff614df99bd7530"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-long-take-as-inherited-tarr-bequest",
+  "field": "title",
+  "lang": "ko",
+  "text": "타르에게서 물려받은 롱테이크",
+  "model": "claude-opus-5",
+  "source_sha256": "57b1d821823fbd18c9a71dd33fa839df6e8cdb8d030723ac25b990dbfb5e951e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-long-take-that-outlasts-death",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽음보다 오래 버티는 롱테이크",
+  "model": "claude-opus-5",
+  "source_sha256": "822e7c4cf2b172f320e7ea943f49bf3b466b22b1f2c32ad7a91c4d9fdf74372a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-long-take-that-refuses-to-cut",
+  "field": "title",
+  "lang": "ko",
+  "text": "끊기를 거부하는 롱테이크",
+  "model": "claude-opus-5",
+  "source_sha256": "c06ba393edc9da5a4f1275b404adf8bca420d8b0857aff999f975819817b1397"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-look-as-contested-sovereignty",
+  "field": "title",
+  "lang": "ko",
+  "text": "주권을 다투는 시선",
+  "model": "claude-opus-5",
+  "source_sha256": "9980dab5f505d248644aba3cd9ec776b1f51791703a57c42434bf38de40b0949"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-look-that-must-not-be-returned",
+  "field": "title",
+  "lang": "ko",
+  "text": "되받아서는 안 되는 시선",
+  "model": "claude-opus-5",
+  "source_sha256": "2220c14abd787aeaec14787f55a0a9684668672de9cc413047502ef2904206ae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-loop-broken-by-a-single-gesture",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸짓 하나가 끊어낸 순환",
+  "model": "claude-opus-5",
+  "source_sha256": "cc305cb0a7dc5c71095d893d3eb3c460ca72535d3d7ee1ea74084893ecaa41db"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-looted-patrimony-of-a-dead-class",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽은 계급에서 털어간 세습 재산",
+  "model": "claude-opus-5",
+  "source_sha256": "fc48873deabf3a97d282edcf550e99b8c89ecaede60462f31dff24833ac20b7e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-los-angeles-that-is-a-soundstage",
+  "field": "title",
+  "lang": "ko",
+  "text": "세트장으로서의 로스앤젤레스",
+  "model": "claude-opus-5",
+  "source_sha256": "61ff2c133cb8eb70e9df4fa3d2480b426a53e2e62ac41dc93fbcd52b37e6c685"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lost-child-as-the-title-he-cannot-surrender",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 내려놓지 못한 이름, 잃어버린 아이",
+  "model": "claude-opus-5",
+  "source_sha256": "30c8e2ca162ab3145394b23af0bc1870a66a953c66d9eb92a41836ba7449473c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lost-decade-as-abandoned-children",
+  "field": "title",
+  "lang": "ko",
+  "text": "버려진 아이들로 나타난 잃어버린 10년",
+  "model": "claude-opus-5",
+  "source_sha256": "c5d8ee9cba05a409dade98cd0d835acc63341338bb60f8295c682efa1b661772"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lost-decade-reading-itself-as-drifting-youth",
+  "field": "title",
+  "lang": "ko",
+  "text": "표류하는 청춘으로 제 시대를 읽는 잃어버린 10년",
+  "model": "claude-opus-5",
+  "source_sha256": "102039c863d422f66836c6654e9c84bac1fb65ffce9575d8cc9c4ebaad8c3c2e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lost-limb-as-insurgent-remainder",
+  "field": "title",
+  "lang": "ko",
+  "text": "잘려나간 팔다리, 반란하는 잔여",
+  "model": "claude-opus-5",
+  "source_sha256": "4c15675797c45d08614c0f556879e122a54aaf0c8dc5557232cc72a88b1010a5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lost-object-that-becomes-relic",
+  "field": "title",
+  "lang": "ko",
+  "text": "잃어버린 물건이 성물이 될 때",
+  "model": "claude-opus-5",
+  "source_sha256": "6747e87e12655cdf07d4bedd21f62f0f3fb4b59f4effb2b8ae82e13366a4d55e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-love-story-as-smuggled-class-audit",
+  "field": "title",
+  "lang": "ko",
+  "text": "러브 스토리로 밀반입한 계급 감사",
+  "model": "claude-opus-5",
+  "source_sha256": "698bbc3c43e6111d8f8f7c6994eb0bc9eb1e5c022b6b5794ee4cff8b6dcf54a1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-love-story-is-really-the-border-regime",
+  "field": "title",
+  "lang": "ko",
+  "text": "러브 스토리인 줄 알았던 국경 체제",
+  "model": "claude-opus-5",
+  "source_sha256": "12f0182841d3e304251df0a18451ca5d8eefece95d3725cd3ad45f65da97fef5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lover-consumed-by-her-painter-s-eye",
+  "field": "title",
+  "lang": "ko",
+  "text": "화가의 눈에 잡아먹힌 연인",
+  "model": "claude-opus-5",
+  "source_sha256": "f063f6abffe964268482637e7a81242f42a829e78d1fe0aba4cf2a73b3118d72"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lover-who-became-his-own-novel",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 소설이 되어버린 연인",
+  "model": "claude-opus-5",
+  "source_sha256": "61635d53fea499da08b15b850e2dd25f949c89a867b80e7333fb8e668b761282"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lover-who-consumes-the-beloved",
+  "field": "title",
+  "lang": "ko",
+  "text": "사랑하는 이를 먹어치우는 사랑",
+  "model": "claude-opus-5",
+  "source_sha256": "4016806e37dec496a2e05c37dbaabb2367651bf3488bdf46e4dea7d29d3be44a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lowly-courier-who-becomes-a-conscience",
+  "field": "title",
+  "lang": "ko",
+  "text": "양심이 된 하찮은 심부름꾼",
+  "model": "claude-opus-5",
+  "source_sha256": "21cc14f6177e68d43856cc98cf58da43460d5f878c66613cd0211b47f91b1482"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-loyal-blade-that-cannot-disobey",
+  "field": "title",
+  "lang": "ko",
+  "text": "거역할 줄 모르는 충직한 칼",
+  "model": "claude-opus-5",
+  "source_sha256": "5b1fa36953341ef002cf04c22b047072fdf134997f8201979924af31a5ce0ec2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lucid-madman-who-out-reasoned-the-system",
+  "field": "title",
+  "lang": "ko",
+  "text": "체제보다 조리 있게 따진 광인",
+  "model": "claude-opus-5",
+  "source_sha256": "0a230579b2bd9cbe3731b34ff16b5597cdd9ef92b43e87e01736cc81d00320f1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-luminous-beckoning-that-withholds-its-meaning",
+  "field": "title",
+  "lang": "ko",
+  "text": "뜻은 숨긴 채 빛으로만 부르는 손짓",
+  "model": "claude-opus-5",
+  "source_sha256": "e9903320df898fafdec5243d1e4365dc9a8a1ee2602a189b247a8f89495fabf0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-lush-land-filming-a-spiritual-drought",
+  "field": "title",
+  "lang": "ko",
+  "text": "영혼의 가뭄을 찍는 무성한 땅",
+  "model": "claude-opus-5",
+  "source_sha256": "1883d8ffc8c6c5725a7e2357e06488e49d31f3a9b8046e8654fa3e9603ac4487"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-macguffin-that-refuses-to-stay-empty",
+  "field": "title",
+  "lang": "ko",
+  "text": "빈칸으로 남기를 거부하는 맥거핀",
+  "model": "claude-opus-5",
+  "source_sha256": "67d1028c03bdf4c66cd91c0757adc08731f8e361243bc8e22d91393ebedd82ab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-as-ancient-sacrifice-not-progress",
+  "field": "title",
+  "lang": "ko",
+  "text": "진보가 아니라 태고의 제물인 기계",
+  "model": "claude-opus-5",
+  "source_sha256": "85673aeb9a31b5d052b166e923feb2f9941b74b4acf285251878b7e558e7d2e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-as-devouring-modernity",
+  "field": "title",
+  "lang": "ko",
+  "text": "집어삼키는 근대, 그 이름이 기계",
+  "model": "claude-opus-5",
+  "source_sha256": "46ede11bda5d102b3c21cbf589a77d97073856e6524ca88f328c7e99b08a4983"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-as-disavowed-castration",
+  "field": "title",
+  "lang": "ko",
+  "text": "부인된 거세로서의 기계",
+  "model": "claude-opus-5",
+  "source_sha256": "a2ccf2b33f41643aa0477f223119e98b2d5380d20c38d7da5717b024df340d4f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-as-hulot-s-stuttering-speech",
+  "field": "title",
+  "lang": "ko",
+  "text": "윌로 씨의 더듬는 말이 된 기계",
+  "model": "claude-opus-5",
+  "source_sha256": "13481e66ad174eacdd927f357ea20cb131bf7524abd8ad392641c0d5c22a34e7"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-as-ideological-idol",
+  "field": "title",
+  "lang": "ko",
+  "text": "이데올로기의 우상이 된 기계",
+  "model": "claude-opus-5",
+  "source_sha256": "3f5d5d7b9abe4c8cdc41fac05e6ede091d7eb04c2c04de40fe45814012b4d43c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-reasoning-from-an-imperative",
+  "field": "title",
+  "lang": "ko",
+  "text": "명령 하나에서 추론을 시작하는 기계",
+  "model": "claude-opus-5",
+  "source_sha256": "be4f80b4aa00ffc4455a29f0673ad305d2a16c1f27683acfbcd67c6513fa72bf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-that-discovers-it-has-a-soul",
+  "field": "title",
+  "lang": "ko",
+  "text": "제게 영혼이 있음을 알아차린 기계",
+  "model": "claude-opus-5",
+  "source_sha256": "123ff1453c8ff12842712244449d8eed3ff561b110946389b887f4b5907c8f23"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-that-embodies-capital-s-logic",
+  "field": "title",
+  "lang": "ko",
+  "text": "자본의 논리를 몸으로 구현한 기계",
+  "model": "claude-opus-5",
+  "source_sha256": "bb07a70d275e7d0f34a3d7cac8afd9470b530dfa02d1e45b19ebd55678367222"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-that-holds-the-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "고백을 품고 있는 기계",
+  "model": "claude-opus-5",
+  "source_sha256": "af1bfc7f7621f986dc4ee5a139e53d0079cbf505ab0a02a8ec2d8dd45a0fdbbe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-that-learns-to-govern",
+  "field": "title",
+  "lang": "ko",
+  "text": "통치를 배우는 기계",
+  "model": "claude-opus-5",
+  "source_sha256": "b491c4cda5222d86f8e94e201dd08c88352e2da56f503c7fcb2a1e3567acba07"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-that-manufactures-confession",
+  "field": "title",
+  "lang": "ko",
+  "text": "고백을 찍어내는 기계",
+  "model": "claude-opus-5",
+  "source_sha256": "de31e336336a1644adecade30404f8ab6607296f945ea6a00ecf5dd8280405f5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-that-mourns-us",
+  "field": "title",
+  "lang": "ko",
+  "text": "우리를 애도하는 기계",
+  "model": "claude-opus-5",
+  "source_sha256": "e8b53d2ebf52e1ad75561df58f8adeac48eb07491c8fe2d6c0184fe7c15d4eb6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-that-sings-its-own-symphony",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 교향곡을 부르는 기계",
+  "model": "claude-opus-5",
+  "source_sha256": "aa0c89d486b124448124bad0bd35a5dc212681d19b38a42d437019cfcf82ee10"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machine-undone-by-its-own-imperative",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 명령에 스스로 무너지는 기계",
+  "model": "claude-opus-5",
+  "source_sha256": "dd3a3aaa8550c54c3d0ee91105c510d69cfd3c88094993ebb1b99eda7ea0b3ad"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-machines-speak-where-the-men-fall-silent",
+  "field": "title",
+  "lang": "ko",
+  "text": "사람이 입을 다문 자리에서 기계가 말한다",
+  "model": "claude-opus-5",
+  "source_sha256": "f0ca111098f8057b30512dad481a1adff6f3c882c861b3833c1841e5a68cde08"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mad-quest-to-drag-a-dream-through-the-jungle",
+  "field": "title",
+  "lang": "ko",
+  "text": "꿈 하나를 정글로 끌고 간 미친 여정",
+  "model": "claude-opus-5",
+  "source_sha256": "73b74e4540a490da31467790bae299b5f186616c8e6f92606ebe0603836ef52a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-madeleine-that-triggers-involuntary-memory",
+  "field": "title",
+  "lang": "ko",
+  "text": "비자발적 기억(mémoire involontaire)을 깨우는 마들렌",
+  "model": "claude-opus-5",
+  "source_sha256": "025ff5ce69c09daf9bde0a9f6833e5796da72817feea5d0cf07a81dc31e6d99b"
+ }
+]

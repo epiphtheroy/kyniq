@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-social-contract-caught-mid-negotiation",
+  "field": "title",
+  "lang": "ko",
+  "text": "협상 한복판에서 붙잡힌 사회계약",
+  "model": "claude-opus-5",
+  "source_sha256": "ab4a566964e73a7637a07b73698cdc208c3be63f51a6cae80ae239880d0f8fa1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-social-pact-of-not-seeing",
+  "field": "title",
+  "lang": "ko",
+  "text": "보지 않기로 한 사회적 약속",
+  "model": "claude-opus-5",
+  "source_sha256": "c3039534f7ffcf6b21e526a124f6883019d79883a4eeca3c3c2b1d0c02cf3652"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-socialist-body-sold-by-its-own-forgers",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 주조자 손에 팔려나간 사회주의의 몸",
+  "model": "claude-opus-5",
+  "source_sha256": "bbf02a18e050968dc9f9c902b2d8c3e9919ba6c1ee51b504509cf1bbc0621f83"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-society-that-builds-the-monster-it-damns",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 저주할 괴물을 제 손으로 빚는 사회",
+  "model": "claude-opus-5",
+  "source_sha256": "2702040065fec06852f35f5b0242539bc24d05acfb3fe1810037d5ce2e54f529"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-society-that-disposes-of-its-own",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 식구를 내다 버리는 사회",
+  "model": "claude-opus-5",
+  "source_sha256": "79dff81c7244abf4c4f58d301cd1e4621782aaf5eb9b7f20601b26d818f82999"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soft-clinic-and-the-engineer-of-quiet-death",
+  "field": "title",
+  "lang": "ko",
+  "text": "부드러운 진료소, 조용한 죽음의 설계자",
+  "model": "claude-opus-5",
+  "source_sha256": "853720ee0ecaa7821cecebf9525a4cebb98011bd2df2bc0abafb1d4b2dc57319"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soil-that-records-exploitation",
+  "field": "title",
+  "lang": "ko",
+  "text": "착취를 기록하는 땅",
+  "model": "claude-opus-5",
+  "source_sha256": "b9068f0595064d53451898ea696b54a2afb68cc20e00768afcb391e18dc65981"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soldier-as-fungible-industrial-stock",
+  "field": "title",
+  "lang": "ko",
+  "text": "갈아 끼우는 산업 재고가 된 병사",
+  "model": "claude-opus-5",
+  "source_sha256": "e171ea076c5c7bcc52ec90d91e73d72d7f0870bdbd82d034b347a02c4b64d4b5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soldier-who-fights-a-war-already-lost",
+  "field": "title",
+  "lang": "ko",
+  "text": "이미 진 전쟁을 계속 싸우는 병사",
+  "model": "claude-opus-5",
+  "source_sha256": "d5752a06c75337197aaccbc6062d334cf0f8220e95142173a583190f8ffe6519"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soldier-who-turns-on-the-state",
+  "field": "title",
+  "lang": "ko",
+  "text": "총구를 국가로 돌리는 병사",
+  "model": "claude-opus-5",
+  "source_sha256": "6cb47871ea1e911f48a8059f6aadcea7fa3bebbc877d80f4f073f1a19d7453cb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-solitary-dance-as-defiant-survival",
+  "field": "title",
+  "lang": "ko",
+  "text": "혼자 추는 춤, 버티는 저항",
+  "model": "claude-opus-5",
+  "source_sha256": "05936c8ced98262e2a6dacfb4ff4b5705b1132d0b0329c495ff93428206d63b2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-solo-as-bleeding-capitulation",
+  "field": "title",
+  "lang": "ko",
+  "text": "피 흘리며 무릎 꿇는 솔로",
+  "model": "claude-opus-5",
+  "source_sha256": "f9e67e99395ee53bf243254f95e6ae19acfc724c6e0ea4a151375e2cc20229a2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-solution-named-but-never-enacted",
+  "field": "title",
+  "lang": "ko",
+  "text": "입에 오르되 끝내 실행되지 않는 해법",
+  "model": "claude-opus-5",
+  "source_sha256": "093e2f0313f3dcfb1dde2af6b75c1db54e84899635e0788e8755ed3f4df6f536"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-solution-that-dissolves-the-question",
+  "field": "title",
+  "lang": "ko",
+  "text": "질문 자체를 지워버리는 해답",
+  "model": "claude-opus-5",
+  "source_sha256": "29d67832c885b8b29b1ef70a96e920e25d3e1252d92350f10accb26289d0295d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-son-doomed-to-repeat-the-father-s-death",
+  "field": "title",
+  "lang": "ko",
+  "text": "아버지의 죽음을 되풀이할 운명의 아들",
+  "model": "claude-opus-5",
+  "source_sha256": "2fb7b85eccc647369a6404d0d7052ecc2693bd5f191afe27c4a91bd33556c475"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-son-painting-over-his-father",
+  "field": "title",
+  "lang": "ko",
+  "text": "아버지 위에 덧칠하는 아들",
+  "model": "claude-opus-5",
+  "source_sha256": "3d41a68334f008237ded5a50fc1ba115d8ff0b07a164f21cdfb4972ba80bc756"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-son-repeats-the-father-he-despises",
+  "field": "title",
+  "lang": "ko",
+  "text": "경멸하던 아버지를 그대로 반복하는 아들",
+  "model": "claude-opus-5",
+  "source_sha256": "f5e328406f58c4eabcab3d3c5aa0d2ea38bc8bdd77f8eadfc86c6c61f0b7463d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-son-s-violence-as-speech-denied",
+  "field": "title",
+  "lang": "ko",
+  "text": "말을 빼앗긴 자리에 들어선 아들의 폭력",
+  "model": "claude-opus-5",
+  "source_sha256": "ba5246cf10566fa35f39d14cfe13a5dfeaf2caa8d3748c3890e6c2ee37b8aabe"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-son-sacrificed-to-the-father-s-quest",
+  "field": "title",
+  "lang": "ko",
+  "text": "아버지의 여정에 제물이 된 아들",
+  "model": "claude-opus-5",
+  "source_sha256": "0ddba70aa8f4462247c15ed55403221a0eefa9d7ca019c326a6301467d674248"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-son-who-becomes-the-father-he-indicts",
+  "field": "title",
+  "lang": "ko",
+  "text": "고발하던 아버지가 되고 마는 아들",
+  "model": "claude-opus-5",
+  "source_sha256": "2d7858007f324a6f0c9a4052baa2c1f3118c28a89c59e89b4d521c9979b6ac1f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-son-who-inherits-the-father-s-name",
+  "field": "title",
+  "lang": "ko",
+  "text": "아버지의 이름을 물려받는 아들",
+  "model": "claude-opus-5",
+  "source_sha256": "767b9fd266787c71db7e58b6db97e02aeade109bd6e9d005445002150cabc1ec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-song-as-defense-against-the-real",
+  "field": "title",
+  "lang": "ko",
+  "text": "실재(the Real)를 막아서는 방패로서의 노래",
+  "model": "claude-opus-5",
+  "source_sha256": "c22119addd512006eabaec0e048944140749f0161dc0c7de9bbc868ff3d61302"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-song-as-map-of-exile-and-home",
+  "field": "title",
+  "lang": "ko",
+  "text": "망명과 고향을 함께 그린 노래 한 곡",
+  "model": "claude-opus-5",
+  "source_sha256": "43a4333933068c4eefdda401e9a365e00d6a5f307016ed3962935cb3a1800a64"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-song-as-return-of-the-repressed",
+  "field": "title",
+  "lang": "ko",
+  "text": "억압된 것이 노래로 돌아오다",
+  "model": "claude-opus-5",
+  "source_sha256": "1ae97926e4ace4d0753c03f21a086c38e391a30b2756b14ad90bf54b802c990a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-song-as-the-plot-s-buried-heart",
+  "field": "title",
+  "lang": "ko",
+  "text": "플롯 밑에 묻힌 심장, 그 노래",
+  "model": "claude-opus-5",
+  "source_sha256": "20e98717b51f08bc4200072f80d784ccb855fc72be1404fab3099ac315b976d9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-song-reveals-the-film-was-always-memory",
+  "field": "title",
+  "lang": "ko",
+  "text": "노래가 밝히는 것, 이 영화는 처음부터 기억이었다",
+  "model": "claude-opus-5",
+  "source_sha256": "35e65214e3a3c1b8edda2e63740cd4d4c74110983cfde730017aceca53a5170f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-song-that-misreads-its-own-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 실린 영화를 오독하는 노래",
+  "model": "claude-opus-5",
+  "source_sha256": "2ee3775290a247f9678f895f50bd1ff096ea52253ff4d30526f27302199c9217"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-song-that-voices-its-own-undoing",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 무너짐을 스스로 부르는 노래",
+  "model": "claude-opus-5",
+  "source_sha256": "384aef6d8e3276cea47ecd548ff4579d457ded9a76ed026ea5f85fbf9af467b9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sophist-for-whom-truth-is-irrelevant",
+  "field": "title",
+  "lang": "ko",
+  "text": "진실 따위 상관없는 소피스트",
+  "model": "claude-opus-5",
+  "source_sha256": "09fc84bc80406e7c66d49e02a2d567f772545c8218a9c96845fd05697c425766"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soul-caught-in-the-voice",
+  "field": "title",
+  "lang": "ko",
+  "text": "목소리에 붙들린 영혼",
+  "model": "claude-opus-5",
+  "source_sha256": "af5171e9ef08dc1dbc0da5f41a42a14004e8bed61f25d55dd0431ecd9f98f0c0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soul-conferred-or-outsourced-by-another",
+  "field": "title",
+  "lang": "ko",
+  "text": "남이 내려주거나 대신 떠맡은 영혼",
+  "model": "claude-opus-5",
+  "source_sha256": "91d71ea681161234aadc5cc3a761d642d0073c9295279c8ea6f55d343e67bb62"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soul-filmed-in-tarkovskian-time",
+  "field": "title",
+  "lang": "ko",
+  "text": "타르콥스키의 시간으로 찍은 영혼",
+  "model": "claude-opus-5",
+  "source_sha256": "6a6b2ea84ecbb006148b5ffcd563977b736bee2963efe3f6ece50e8c674b3e56"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soul-located-by-refusing-to-render-it",
+  "field": "title",
+  "lang": "ko",
+  "text": "그리기를 거부해야 비로소 보이는 영혼",
+  "model": "claude-opus-5",
+  "source_sha256": "470b9e8c3e2e5031503435b04b332c21b68fdc270a85a6140f1794a9208fd4bd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soul-stored-in-an-object",
+  "field": "title",
+  "lang": "ko",
+  "text": "사물 속에 넣어둔 영혼",
+  "model": "claude-opus-5",
+  "source_sha256": "442a13594477e8f2abde732d1d7d3808eb0c3b765ab6cb8e49a75469e815792e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soul-that-chose-its-own-ruin",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 파멸을 스스로 고른 영혼",
+  "model": "claude-opus-5",
+  "source_sha256": "a0fd2421c1856cc15833cc7d512f0037d31c63ec392ca8113fadae47dc5565e8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sound-bleeds-what-the-image-withholds",
+  "field": "title",
+  "lang": "ko",
+  "text": "화면이 감춘 것을 소리가 흘린다",
+  "model": "claude-opus-5",
+  "source_sha256": "c8c80990ea6bff907d02448dca114ce336b40e23ab5fdc5a3dbad82110dfa0c3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sound-machine-that-buries-tradition",
+  "field": "title",
+  "lang": "ko",
+  "text": "전통을 묻어버리는 소리 기계",
+  "model": "claude-opus-5",
+  "source_sha256": "5d59c8795a72b7a45d6456802a2dff8ac00c094daae29437593b4f1e217ffe4f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sound-mix-as-aggressive-authorship",
+  "field": "title",
+  "lang": "ko",
+  "text": "공격이 된 사운드 믹스, 그 작가성",
+  "model": "claude-opus-5",
+  "source_sha256": "a4903807ec914f56ee1441dca6ef607c30ddaf5294d26ba3da76598779b5908d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sound-of-a-stolen-or-disintegrating-tongue",
+  "field": "title",
+  "lang": "ko",
+  "text": "빼앗기거나 부서져가는 모국어의 소리",
+  "model": "claude-opus-5",
+  "source_sha256": "3a6344a6bb39fd38389a4fdee5d6178c5da25793d13aaa5865d3599c22f1f222"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sound-stage-as-confessional-box",
+  "field": "title",
+  "lang": "ko",
+  "text": "고해소가 된 사운드 스테이지",
+  "model": "claude-opus-5",
+  "source_sha256": "11d56db993794e9444d6523bdae1d82c9ae6123fd38d45a9bda9d6639fb6c512"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sound-that-cannot-be-faked",
+  "field": "title",
+  "lang": "ko",
+  "text": "꾸며낼 수 없는 소리",
+  "model": "claude-opus-5",
+  "source_sha256": "186854ad930ca171030299baad0e03ba2fc40e66eaf613f549ac6ef0db8a8ff0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sound-that-is-the-dead-s-persistence",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽은 자가 남아 있는 방식, 소리",
+  "model": "claude-opus-5",
+  "source_sha256": "95960ef2a15e6d53ca33d0cd3300d2842071143f9cb08e20706ec3fd1706c969"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sound-that-is-the-wound",
+  "field": "title",
+  "lang": "ko",
+  "text": "소리가 곧 상처다",
+  "model": "claude-opus-5",
+  "source_sha256": "80963fe40478eb4a198efd3ba82fee7853d3005d948849be26da0b18e057a109"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundstage-as-a-diorama-of-sweden",
+  "field": "title",
+  "lang": "ko",
+  "text": "스웨덴을 담은 디오라마, 그 세트장",
+  "model": "claude-opus-5",
+  "source_sha256": "247583503e15f6f0db803a795c0058d9fb7365ffd1f8223e6b03b9e43c2881ae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundstage-as-interior-mind-not-map",
+  "field": "title",
+  "lang": "ko",
+  "text": "지도가 아니라 내면, 그 사운드스테이지",
+  "model": "claude-opus-5",
+  "source_sha256": "544b3f434a1214b2cc166a1d9cec0bc7310ccf81240a18eac4fe9eb21e2b95da"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundstage-as-sealed-world",
+  "field": "title",
+  "lang": "ko",
+  "text": "밀봉된 세계로서의 사운드스테이지",
+  "model": "claude-opus-5",
+  "source_sha256": "47b5a50c16212a1459e60f985207110f7d36f5417bfaebda99c9825894af7268"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundstage-china-that-never-was",
+  "field": "title",
+  "lang": "ko",
+  "text": "세트장에만 있던 적 없는 중국",
+  "model": "claude-opus-5",
+  "source_sha256": "57e1b33ad0b4dc0f439ed98fbc862ad36dd4f2ee2499a73efae37906db579426"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundstage-confessing-its-own-falseness",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 가짜임을 실토하는 세트장",
+  "model": "claude-opus-5",
+  "source_sha256": "b37fca8c2511eb57e3a4846fa84ded0e9c32077c90e51c7db9d6f67e2dc1e002"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundstage-confessing-its-own-walls",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 벽을 스스로 드러내는 사운드스테이지",
+  "model": "claude-opus-5",
+  "source_sha256": "47efb24cc63f5b25de15ca61c14607dc4d11d9e6429f4035e7a7b8ae8dfc08d5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundstage-that-rebuilds-feudal-japan",
+  "field": "title",
+  "lang": "ko",
+  "text": "봉건 일본을 다시 세운 사운드스테이지",
+  "model": "claude-opus-5",
+  "source_sha256": "340ce195bf88bd616139ebff1fb45759581c71240573ba9337af674ac9dea12d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundstage-that-seals-the-world",
+  "field": "title",
+  "lang": "ko",
+  "text": "세계를 봉인해버리는 세트장",
+  "model": "claude-opus-5",
+  "source_sha256": "078b29dbf7095af569c86eabf855e2fed49f1b843df05a1c1c2918c59abc1298"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundstage-wearing-the-world-s-vastness",
+  "field": "title",
+  "lang": "ko",
+  "text": "세계의 광활함을 걸쳐 입은 세트장",
+  "model": "claude-opus-5",
+  "source_sha256": "36bf824a67687ade6710229eebb936d1c3ca96d9793916950c145477ddb09c62"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundtrack-as-diegetic-murderer",
+  "field": "title",
+  "lang": "ko",
+  "text": "화면 안으로 들어와 사람을 죽이는 사운드트랙",
+  "model": "claude-opus-5",
+  "source_sha256": "0621ab28611a7f93ca6160838ccfe40c14f77e61b4f1396d8971db47781a8189"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundtrack-as-the-true-narrator",
+  "field": "title",
+  "lang": "ko",
+  "text": "진짜 화자는 사운드트랙이다",
+  "model": "claude-opus-5",
+  "source_sha256": "a58481bb83397b824245bde9ccc569b2bb6056704561a99d2a4d574e7d1c46a9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundtrack-assembled-never-composed",
+  "field": "title",
+  "lang": "ko",
+  "text": "작곡한 게 아니라 주워 모은 사운드트랙",
+  "model": "claude-opus-5",
+  "source_sha256": "5d5ee0bb2ecee602365ff76622c49eb97036a228744364a58ac8f82652f6a950"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundtrack-built-to-contradict-the-image",
+  "field": "title",
+  "lang": "ko",
+  "text": "화면에 딴지를 걸도록 설계된 사운드트랙",
+  "model": "claude-opus-5",
+  "source_sha256": "f06f97101b59d72892046c4ee19f83ab5fc0b4ea8269925ad77625c64ba0686a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundtrack-engineered-to-outsell-the-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화보다 많이 팔리도록 계산된 사운드트랙",
+  "model": "claude-opus-5",
+  "source_sha256": "5cd37e4f43b9ffbc962f6973aaefd38f2711158191137d1b2180f7659a2e9cfa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soundtrack-that-devoured-its-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 영화를 삼켜버린 사운드트랙",
+  "model": "claude-opus-5",
+  "source_sha256": "dd02ba938aaa9f20d218ed681a75598a03b45e3408fbfde5c640c0a9bcf8474c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-soup-can-emptied-of-its-name",
+  "field": "title",
+  "lang": "ko",
+  "text": "이름을 비워낸 수프 깡통",
+  "model": "claude-opus-5",
+  "source_sha256": "992c2f8f5dd03f111c546d9d01b733af17c4fc1fdcc5f8a7c538cf0deb99bbd5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-source-withheld-the-sound-made-monster",
+  "field": "title",
+  "lang": "ko",
+  "text": "근원은 감추고 소리만 괴물로",
+  "model": "claude-opus-5",
+  "source_sha256": "8b6c68665899f4c800603bf2f642da354d1e6bfe364f2245215e3d2dd4e157d3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sovereign-state-of-exception",
+  "field": "title",
+  "lang": "ko",
+  "text": "주권이 선포한 예외상태(Ausnahmezustand)",
+  "model": "claude-opus-5",
+  "source_sha256": "e54e720f3db221d8c9e2387e5a01d8391c0c88f8fa33fde2d1edc04d3e3ebaca"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sovereign-void-beyond-the-law",
+  "field": "title",
+  "lang": "ko",
+  "text": "법 바깥에 뚫린 주권의 공백",
+  "model": "claude-opus-5",
+  "source_sha256": "795e611dafcd489de605958c2966a27f8df20785a45dc10e8e9588be65c686e0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sovereign-who-confuses-the-ritual-for-the-right",
+  "field": "title",
+  "lang": "ko",
+  "text": "의례를 곧 권리로 착각한 군주",
+  "model": "claude-opus-5",
+  "source_sha256": "5eafc934d059d31a8a21a9403cbaf5c8fa0c9fb31274cc97a098b8fc3c8ec844"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-space-that-will-not-let-you-leave",
+  "field": "title",
+  "lang": "ko",
+  "text": "나가지 못하게 붙드는 공간",
+  "model": "claude-opus-5",
+  "source_sha256": "22c39eb9c81c39031ce87870ec6e5fb672b5c7e342257d7977fa706a33e42350"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spanish-desert-as-buried-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "묻힌 진실이 된 스페인의 황야",
+  "model": "claude-opus-5",
+  "source_sha256": "d16dbb4763332f4b4c2593c305173bb4b32ef759ce26278ffff888cbf569481c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-speaker-whose-words-refuse-to-land",
+  "field": "title",
+  "lang": "ko",
+  "text": "말이 끝내 가닿지 않는 화자",
+  "model": "claude-opus-5",
+  "source_sha256": "61c163cc4c5ef5edf409538b9f75b167759ea2a53bd0e8a2dbd04339c764754a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-species-that-earns-its-extinction",
+  "field": "title",
+  "lang": "ko",
+  "text": "멸종을 제 손으로 벌어들인 종",
+  "model": "claude-opus-5",
+  "source_sha256": "7ca43d0f22b8cc59f7aabd11e0a0151994105819a968103c36590d224e8775ed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-specimen-in-suspended-judgment",
+  "field": "title",
+  "lang": "ko",
+  "text": "판단이 유예된 채 놓인 표본",
+  "model": "claude-opus-5",
+  "source_sha256": "76ec8c660d31dba40b534ecbff4175fe22efd30ab0d396c75841cbed2c8ee548"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spectacle-as-total-social-order",
+  "field": "title",
+  "lang": "ko",
+  "text": "사회 전체를 뒤덮은 질서로서의 스펙터클",
+  "model": "claude-opus-5",
+  "source_sha256": "a35b487672e4c9178d7f083c3380a0ffed66334fb2e11b68912f6a1eef4a6835"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spectacle-deliberately-withheld",
+  "field": "title",
+  "lang": "ko",
+  "text": "일부러 보여주지 않는 스펙터클",
+  "model": "claude-opus-5",
+  "source_sha256": "3e6d6ccefaedcef8d3bfdb5941945471f71a2862e39c5c7d480b2dd8f2a1a641"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spectacle-devours-its-own-critique",
+  "field": "title",
+  "lang": "ko",
+  "text": "제게 겨눈 비판마저 삼키는 스펙터클",
+  "model": "claude-opus-5",
+  "source_sha256": "c8548e36da114175cb2466bb5323f5a6f869012f81451702a955da7c033d6877"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spectacle-devours-its-own-maker",
+  "field": "title",
+  "lang": "ko",
+  "text": "만든 자를 집어삼키는 스펙터클",
+  "model": "claude-opus-5",
+  "source_sha256": "eb10a9edb3937a74898ecf57574a49d8a857e00ae548c50210be55c76f4fbe34"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spectacle-dismissed-is-the-argument",
+  "field": "title",
+  "lang": "ko",
+  "text": "내쳐진 스펙터클, 그게 곧 논지다",
+  "model": "claude-opus-5",
+  "source_sha256": "74eb0c39daec3c3534077d85bc17733c5108f013cf7017f83547825986ca9bd4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spectacle-staged-as-the-theatre-of-cruelty",
+  "field": "title",
+  "lang": "ko",
+  "text": "잔혹극으로 올린 스펙터클",
+  "model": "claude-opus-5",
+  "source_sha256": "46ec3d7b4aafdf8f271ce8d6bef8615f75df39af7f2b329f7199f5e9f7e9cdf2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spectacle-that-critiques-its-own-allure",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 매혹을 스스로 비평하는 스펙터클",
+  "model": "claude-opus-5",
+  "source_sha256": "49cffcb50e0ec3caa612e22329ef27323f762d8bfaef2d5c06ea904d8ced652a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spectacle-that-devours-its-real",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 실재를 삼켜버린 스펙터클",
+  "model": "claude-opus-5",
+  "source_sha256": "9097d507d660fa880681ab9097ffc053743d9a63db03dfd493ebbb24c854b0aa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spectacle-that-devours-its-women",
+  "field": "title",
+  "lang": "ko",
+  "text": "여자들을 먹어치우는 스펙터클",
+  "model": "claude-opus-5",
+  "source_sha256": "01eecd9ffa1e1db19069a78b4a967ceb34a4ad98f9b727aa02f583012950ce30"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spectacle-that-theorizes-its-own-empire",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 제국을 이론으로 짜는 스펙터클",
+  "model": "claude-opus-5",
+  "source_sha256": "ded0370f222d8d6dbba9512b83371af2be61943f461108780ae92160b0c18a74"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spectacularist-who-renounces-spectacle-under-state-pressure",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가의 압력 앞에 스펙터클을 접은 스펙터클의 대가",
+  "model": "claude-opus-5",
+  "source_sha256": "322ba79d57b82d9c6b88315d6d15edc6b02ad839494b0da844b16ca73bd76df2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spectator-hidden-inside-the-survivor",
+  "field": "title",
+  "lang": "ko",
+  "text": "생존자 안에 숨어 있는 관객",
+  "model": "claude-opus-5",
+  "source_sha256": "fae89d6f21567b61ddb115a8f9c101b34576a961714a011d4c8b1b96aab97278"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-speech-act-that-misfires",
+  "field": "title",
+  "lang": "ko",
+  "text": "불발로 끝나는 발화 행위",
+  "model": "claude-opus-5",
+  "source_sha256": "52f2c43e052a8377fa4a0a3d006317173f090b1aae406a688ab6239b5f135007"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spider-as-the-devouring-feminine",
+  "field": "title",
+  "lang": "ko",
+  "text": "집어삼키는 여성성, 그 거미",
+  "model": "claude-opus-5",
+  "source_sha256": "6045f243623d6349cbd325c7db24ff7ec7147c24bd4bcd396cbcfbfa63857a76"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spielberg-reappraised-against-his-reputation",
+  "field": "title",
+  "lang": "ko",
+  "text": "명성을 거슬러 다시 읽는 스필버그",
+  "model": "claude-opus-5",
+  "source_sha256": "2eb5fda38da0a35f06ea32ac45e39d18a36c09682300e4905f98cd48e674b696"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-splatter-auteur-as-ritual-body-artist",
+  "field": "title",
+  "lang": "ko",
+  "text": "의례적 신체예술가로 읽는 스플래터 작가",
+  "model": "claude-opus-5",
+  "source_sha256": "fc989bc04a06fbb9bf3554edd10000af8f7b3befe0065799fa974987f39a2b41"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spoiled-self-against-the-neoliberal-order",
+  "field": "title",
+  "lang": "ko",
+  "text": "망가진 자아, 신자유주의 질서와 맞서다",
+  "model": "claude-opus-5",
+  "source_sha256": "b88e780ac9c21625583fc7ad485f1c8b8d1ccdd77df06c7176c9910b6f77116f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-sport-that-eats-its-disposable-bodies",
+  "field": "title",
+  "lang": "ko",
+  "text": "쓰고 버릴 몸을 먹어치우는 스포츠",
+  "model": "claude-opus-5",
+  "source_sha256": "ce9c909675a12ae161c3b3b9a8dfebff742a8fc93c57e3f6e354cec30668a848"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spouse-who-curated-the-genius",
+  "field": "title",
+  "lang": "ko",
+  "text": "천재를 만들어 진열한 배우자",
+  "model": "claude-opus-5",
+  "source_sha256": "be8d5faed0d28661119658f39e73ab30881cd43052d07e6858ebbd77903231a4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spy-dissolved-into-his-own-cover",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 위장 속으로 녹아 사라진 스파이",
+  "model": "claude-opus-5",
+  "source_sha256": "8efc8abb9a9c8a6a1086d06d90fa4359f730f4889ca418ff5c9b26b26a1c42e4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spy-made-obsolete-by-his-apparatus",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 속한 기구에 밀려 쓸모없어진 스파이",
+  "model": "claude-opus-5",
+  "source_sha256": "d20e8b4dcdff456db84c4fdb3f9364a8c988a43793b1b0dcf493e9f902b7ac2b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-spy-who-no-longer-knows-his-side",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 편이 어디인지 잊어버린 첩자",
+  "model": "claude-opus-5",
+  "source_sha256": "2cb6a97126e22d59c6d524ac533df91ca9a7757fabbef0a27b6ddb221e5424e1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stabbing-that-speaks-a-grief-no-mouth-can",
+  "field": "title",
+  "lang": "ko",
+  "text": "입으로는 못 할 슬픔을 대신하는 칼질",
+  "model": "claude-opus-5",
+  "source_sha256": "71433b3c39d70828b992529739924c18acba4952b2d323058dace2ee037d0aa5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stage-devoured-by-the-camera",
+  "field": "title",
+  "lang": "ko",
+  "text": "카메라에 삼켜진 무대",
+  "model": "claude-opus-5",
+  "source_sha256": "be450dd4ce0fcb164ddc68ad8edbc52fc8077fdc66222d786591054e995985bf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stage-is-the-realer-world",
+  "field": "title",
+  "lang": "ko",
+  "text": "무대 쪽이 더 진짜인 세계",
+  "model": "claude-opus-5",
+  "source_sha256": "8da71d8856dffe018ea1a641ac9b287df32e48fbd71fb7e0bf313a71840cb514"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stage-that-refused-to-leave-the-screen",
+  "field": "title",
+  "lang": "ko",
+  "text": "스크린을 떠나지 않은 무대",
+  "model": "claude-opus-5",
+  "source_sha256": "8320734e3e9b6d979ecb0fc5875dbbdbc3fce428207f859b7958e39ae27b4d78"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stage-that-restages-reality",
+  "field": "title",
+  "lang": "ko",
+  "text": "현실을 다시 올리는 무대",
+  "model": "claude-opus-5",
+  "source_sha256": "c967e2f915caa0beb5fcab565fb9e1fd5a56c723933a311b0b9724f3c730900a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-staged-lie-that-tells-the-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "연출된 거짓이 말하는 진실",
+  "model": "claude-opus-5",
+  "source_sha256": "b2f59d6d41cb151cac8543ab0523e6337b3c319c80ae47ed2d044b32d5cf4627"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stain-is-the-map-of-a-people",
+  "field": "title",
+  "lang": "ko",
+  "text": "얼룩, 한 민족의 지도",
+  "model": "claude-opus-5",
+  "source_sha256": "71b5b5a31c68d4d2c4b497c927aa27d19c73bebbf387e4c463fc6e6fee781021"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stain-is-the-return-of-the-repressed",
+  "field": "title",
+  "lang": "ko",
+  "text": "얼룩으로 돌아오는 억압된 것",
+  "model": "claude-opus-5",
+  "source_sha256": "bb4727a1a2c8a9d479a65afb6f7c919ec71f507ab011a2b8684e3455aad04971"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stain-that-resists-all-meaning",
+  "field": "title",
+  "lang": "ko",
+  "text": "어떤 의미도 받아들이지 않는 얼룩",
+  "model": "claude-opus-5",
+  "source_sha256": "8159691ffd13b2fe732c31e84ad40a6d69f25fc49a1a6d39dce192e5e993632e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-stair-as-climb-without-destination",
+  "field": "title",
+  "lang": "ko",
+  "text": "닿을 곳 없는 오르막, 그 계단",
+  "model": "claude-opus-5",
+  "source_sha256": "b6e262740e9908d72057ebd07bf353f5823e6c9807638ad198269d5004c89d72"
+ }
+]

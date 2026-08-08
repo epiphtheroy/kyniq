@@ -1,0 +1,322 @@
+[
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ari-aster#beau-is-afraid-2023",
+  "field": "reason",
+  "lang": "ko",
+  "text": "이미 발을 들인 관객이라면 《Beau Is Afraid》. 세 시간짜리 불안의 오디세이다. 장르라는 뼈대를 걷어내고 아스터의 이드(id)를 여과 없이 쏟아낸, 산만하고 초현실적인 프로이트적 악몽.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ari-aster#eddington-2025",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《Eddington》에서 그는 팬데믹 시대의 서부극 풍자로 방향을 튼다. 아스터의 편집증이 미국 자체를 겨눌 수 있음을 증명하는 작품. 여기서는 사회의 균열과 음모론이 새로운 공포다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "asghar-farhadi#a-separation-2011",
+  "field": "reason",
+  "lang": "ko",
+  "text": "파르하디에게 가장 먼저 손을 뻗어야 할 작품은 《씨민과 나데르의 별거》다. 이혼과 간병인의 사고가 얽히며 도덕적·법적 실타래가 되는데, 등장인물 누구에게나 변호할 만한 진실이 있다. 그를 어떻게 봐야 하는지 이 영화가 가르쳐준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "asghar-farhadi#about-elly-2009",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《엘리에 관하여》는 바닷가에서의 주말을 서스펜스 기계로 바꿔놓는다. 작은 거짓말들과 집단의 죄책감이 연료다. 평범한 사회적 압력을 견딜 수 없게 만드는 재능, 그것이 여기 있다. 구성으로 치면 그의 가장 단단한 작품.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "asghar-farhadi#the-salesman-2016",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《세일즈맨》은 아마추어 극단이 올리는 〈세일즈맨의 죽음〉과 집에 침입한 사건을 나란히 놓는다. 이야기는 복수냐 존엄이냐의 물음으로 치닫는다. 연극이라는 틀이 도덕적 압박을 한층 조인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "asghar-farhadi#a-hero-2021",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《히어로》의 주인공은 휴가를 나온 수감자다. 그의 정직한 행동이 언론과 관료제를 거치며 다른 물건으로 포장된다. 파르하디의 윤리학이 평판과 이미지가 바이럴로 소비되는 시대까지 뻗은 셈이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "asghar-farhadi#the-past-2013",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《아무도 머물지 않았다》는 무대를 파리 교외로 옮긴다. 이혼 서류를 정리하러 온 방문이 묻어둔 가족의 상처를 파낸다. 도덕을 해부하듯 밀고 나가는 화법은 그대로, 프랑스의 빛과 언어로 옮겨 심었을 뿐이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "asghar-farhadi#fireworks-wednesday-2006",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《불꽃놀이 수요일》은 축제날 젊은 가사도우미를 의심으로 오염된 부부의 아파트로 들여보낸다. 이후 파르하디가 반복할 모든 패턴의 초기 설계도다. 외부인 하나, 비밀 하나, 그리고 무너지는 한 가정.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "barry-jenkins#moonlight-2016",
+  "field": "reason",
+  "lang": "ko",
+  "text": "젠킨스로 들어가는 문은 《문라이트》다. 세 장으로 나뉜 성장담을 채도 높은 색과 밀착된 클로즈업으로 찍었다. 그의 다정한 시선과 생략의 구조가 여기서 처음 모습을 드러낸다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "barry-jenkins#if-beale-street-could-talk-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《비프 스트리트가 말할 수 있다면》은 젠킨스의 기예가 가장 풍요롭게 응축된 지점이다. 볼드윈의 문장, 제임스 랙스턴의 황금빛 촬영, 니콜라스 브리텔의 음악이 한 편의 사랑 이야기를 애틋한 온기와 조용한 분노로 감싼다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "barry-jenkins#medicine-for-melancholy-2009",
+  "field": "reason",
+  "lang": "ko",
+  "text": "저예산 데뷔작 《멜랑콜리를 위한 약》은 거의 흑백에 가까운 샌프란시스코 2인극이다. 큰 예산이 오기 전, 로맨스와 인종과 좀처럼 끝나지 않는 대화를 향한 젠킨스의 초기 본능이 고스란히 보인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ben-affleck#the-town-2010",
+  "field": "reason",
+  "lang": "ko",
+  "text": "연출자 애플렉으로 들어가는 가장 쉬운 입구는 《타운》이다. 보스턴을 무대로 밀어붙이는 강도 스릴러. 강탈 시퀀스는 팽팽하고 감정선은 분명하다. 긴장과 장소를 다루는 그의 자신감이 여기 다 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ben-affleck#argo-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《아르고》는 테헤란 인질 구출의 긴장과 할리우드 풍자를 한데 붙였다. 손에 땀을 쥐게 하는 서스펜스와 블랙 코미디가 균형을 잡는다. 촘촘한 교차편집과 시대 재현, 연출자로서 애플렉의 정점.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ben-affleck#gone-baby-gone-2007",
+  "field": "reason",
+  "lang": "ko",
+  "text": "데뷔작 《가라, 아이야, 가라》는 노동계급 보스턴을 배경으로 한 실종 아동 미스터리다. 답이 쉽게 나오지 않는 윤리적 물음과 그 공기가, 이후 그의 영화들을 떠받치는 토대였음을 알게 해준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ben-stiller#zoolander-2001",
+  "field": "reason",
+  "lang": "ko",
+  "text": "스틸러의 코미디 감각으로 들어가려면 《쥬랜더》부터다. 인용하고 싶어지는 대사, 패션계를 겨눈 부조리 풍자, 무표정한 허영과 시각 개그. 스스로를 찔러대는 셀러브리티 코미디라는 그의 서명이 여기서 완성된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ben-stiller#tropic-thunder-2008",
+  "field": "reason",
+  "lang": "ko",
+  "text": "연출자로서의 야심은 《트로픽 썬더》에서 다 드러난다. 영화 속 전쟁영화라는 구조로 할리우드의 자아, 메소드 연기의 허세, 블록버스터의 과잉을 한꺼번에 벤다. 기술도 규모도 그의 다른 작품보다 한 단계 위다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "ben-stiller#reality-bites-1994",
+  "field": "reason",
+  "lang": "ko",
+  "text": "연출 데뷔작 《청춘 스케치》는 이후의 코미디와 한참 떨어진 자리에 있다. 진심 어린 X세대 관계 드라마. 그의 영화 만들기가 어디서 출발했는지, 그리고 그가 얼마나 진지해질 수 있는지 궁금한 사람에게 주는 보상이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "benny-safdie#good-time-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "사프디 특유의 압력솥 스타일로 가장 간결하게 들어가는 길은 《굿 타임》(2017)이다. 뉴욕의 절박한 하룻밤, 네온에 잠긴 채 멈추지 않는다. 불안과 추진력의 문법을 이 한 편이 가르쳐준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "benny-safdie#uncut-gems-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《언컷 젬스》(2019)는 대사가 겹치고 뒤엉키는 형제의 방식이 가장 온전히 터진 작품이다. 보석상의 도박 나락을 끊이지 않는 공포로 바꿔놓는다. 이 연출 감각이 왜 중요한지 증명하는 영화.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "benny-safdie#the-smashing-machine-2025",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《The Smashing Machine》(2025)은 베니의 첫 단독 연출이다. 광기 어린 범죄물의 에너지를 내려놓고 한 MMA 파이터의 내밀한 초상으로 향한다. 형과 떨어진 그의 스타일이 어디로 가는지 궁금한 이들을 위한 보상.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "bernardo-bertolucci#the-conformist-1971",
+  "field": "reason",
+  "lang": "ko",
+  "text": "베르톨루치로 들어가는 가장 쉬운 문은 《순응자》다. 비토리오 스토라로의 표현주의적 조명과 미끄러지는 카메라가 파시스트 하급 관리의 이야기를 순전한 시각적 유혹으로 바꿔놓는다. 그의 스타일이 가장 또렷하게 보이는 자리.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "bernardo-bertolucci#the-last-emperor-1987",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《마지막 황제》는 그 내밀함을 서사시의 규모로 키운다. 자금성에서 감방까지 이어지는 푸이의 생애를, 압도적인 프로���션 디자인과 색채로 따라간다. 오스카를 휩쓴 작품이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "bernardo-bertolucci#before-the-revolution-1964",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《혁명 전야》의 베르톨루치는 아직 안절부절못한다. 마르크스주의와 부르주아의 안락 사이에서 찢긴 청년, 누벨바그의 에너지, 그리고 정치와 개인의 긴장. 그의 이력 전체를 규정할 것들이 여기 이미 넘친다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "bernardo-bertolucci#the-spider-s-stratagem-1970",
+  "field": "reason",
+  "lang": "ko",
+  "text": "숨은 보상은 《거미의 계략》이다. 반파시스트였던 아버지의 죽음을 파헤치는 아들의 이야기가 보르헤스풍 퍼즐이 된다. 시간이 접히는 몽환적 구조는, 그의 강박에 이미 익숙해진 관객에게 특히 값지다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "bi-gan#kaili-blues-2016",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《카일리 블루스》는 비간의 세계를 축소판으로 보여준다. 안개 낀 구이저우의 소읍, 유령 같은 기억, 그리고 40분간 끊기지 않고 배회하는 저 유명한 롱테이크. 더 큰 도약을 보기 전에 그의 꿈의 논리에 몸을 맡기는 법을 익히게 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "bi-gan#long-day-s-journey-into-night-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "정점은 《지구 최후의 밤》이다. 사라진 여자를 찾는 느와르적 여정이 어느 순간 한 시간짜리 3D 원테이크로 넘어간다. 깨어 있는 꿈을 짓는 사람으로서 비간이 왜 중요한지, 이보다 분명한 답은 없다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "bi-gan#resurrection-2025",
+  "field": "reason",
+  "lang": "ko",
+  "text": "이미 넘어온 사람에게 《Resurrection》. 영화를 꿈의 상태 그 자체로 밀어붙인 최근작이자 가장 야심 찬 시도다. 앞선 영화들이 실험한 시간의 뒤틀림을 더 멀리 가져간다. 그의 리듬에 이미 맞춰진 관객을 위한 것.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "billy-wilder#some-like-it-hot-1959",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《뜨거운 것이 좋아》가 와일더로 가는 가장 즐거운 입구다. 갱스터, 변장, 그리고 마릴린 먼로. 면도날처럼 빠른 대사와 금기를 신나게 무시하는 태도가 관객을 흡족하게 하는 형태로 나온다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "billy-wilder#sunset-boulevard-1950",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《선셋 대로》는 할리우드의 시선을 할리우드 자신에게 돌린다. 한물간 무성영화 스타와 궁지에 몰린 시나리오 작가. 신랄한 재치와 고딕적 부패가 뒤엉킨, 와일더의 가장 어둡고 가장 자주 인용되는 승리.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "billy-wilder#double-indemnity-1944",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《이중배상》은 느와르의 설계도다. 블라인드 사이로 떨어지는 그림자, 스탠윅의 발찌. 다음 걸음으로 딱 좋다. 짧게 끊어치는 숙명론적 범죄 서사, 와일더의 뿌리가 거기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "bong-joon-ho#the-host-2006",
+  "field": "reason",
+  "lang": "ko",
+  "text": "봉준호의 배합을 가장 편하게 맛보려면 《괴물》이다. 괴수영화이면서 가족 코미디이고, 동시에 무능한 정부를 향한 통렬한 비판이다. 사전 정보 없이도 그의 톤 저글링을 그대로 볼 수 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "bong-joon-ho#parasite-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《기생충》은 그의 계급에 대한 집착을 완벽하게 설계된 스릴러로 응축한다. 코미디에서 공포로 미끄러지는 과정이 건축처럼 정밀하다. 그의 이력에 왕관을 씌운 작품이자, 그가 왜 중요한지에 대한 가장 분명한 증거.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "bong-joon-ho#memories-of-murder-2003",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《살인의 추억》은 연쇄살인 수사물을 1980년대 한국 사회의 초상으로 다시 짠다. 허둥대고 잔혹한 사회. 그의 사회적 분노와 톤의 급변이 처음으로 온전히 맞물린 초기작이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "bong-joon-ho#snowpiercer-2013",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《설국열차》는 그 계급 전쟁을 실제 열차로 지어 올린다. 칸 하나가 사회의 한 층이다. 영어권으로 건너간 도약이지만 풍자도 스펙터클도 무엇 하나 잃지 않았다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "bong-joon-ho#okja-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《옥자》는 소녀와 생명체의 애틋한 모험에서 기업형 축산업을 향한 사나운 공격으로 휘청거리며 넘어간다. 가장 어수선하고, 가장 직설적으로 봉준호의 마음과 분노를 드러낸 영화.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "bong-joon-ho#barking-dogs-never-bite-2000",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《플란다스의 개》는 거칠고 남루한 데뷔작이다. 그의 블랙 코미디와 아파트 단지에 깃든 계급 불안이 처음 형태를 갖춘다. 이미 빠져든 관객이 되짚어야 할 출발점.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "brad-bird#the-incredibles-2004",
+  "field": "reason",
+  "lang": "ko",
+  "text": "버드의 논지가 가장 또렷한 작품은 《인크레더블》이다. 슈퍼히어로 가족 코미디의 얼굴을 하고 있지만, 실은 억눌린 비범한 재능에 관한 이야기다. 실버 에이지의 경쾌함과 날카로운 가정극이 붙어 있다. 친절하고, 빠르고, 누가 봐도 그의 것.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "brad-bird#ratatouille-2007",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《라따뚜이》에서 주제와 기예가 가장 풍성하게 맞물린다. 요리하는 쥐 한 마리가 뜻밖의 자리에서 천재가 나온다는 그의 강박을 그대로 극화한다. 파리의 빛과 감각을 담아낸 애니메이션이 이를 받친다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "brad-bird#the-iron-giant-1999",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《아이언 자이언트》는 개봉 당시 실패했지만 버드의 뿌리를 보여준다. 냉전기 소년과 로봇의 우화. 절제된 2D 애니메이션 안에서 어떤 사람이 될지 스스로 고른다는 도덕적 심장이 뛰고 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "brad-bird#mission-impossible-ghost-protocol-2011",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《미션 임파서블: 고스트 프로토콜》은 그 운동감의 명료함이 실사에서도 통한다는 증거다. 부르즈 할리파를 오르는 장면은 그가 애니메이션에서 쓰던 공간 감각 그대로 설계됐다.",
+  "model": "claude-opus-5"
+ }
+]

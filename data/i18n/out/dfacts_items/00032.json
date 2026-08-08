@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-tati#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스케일에 대한 집착은 《플레이타임》(1967)에서 정점을 찍었다. 그는 이 영화를 위해 '타티빌'을 지었다. 뱅센의 황무지 위에 세운 1만 5천 제곱미터짜리 유리와 강철의 현대 파리, 자체 발전소와 포장도로, 실제로 작동하는 신호등까지 갖춘 도시였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "40f04dd947a3d9ef1a1202325fa97f753567f163e720c82d3f1baae9ca40f0a2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-tati#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "타티빌을 채울 사람을 구할 때 타티는 통상적인 영화 엑스트라를 거부했다. 대신 수백 명의 비전문가를 직접 면접해 뽑았는데, 프랑스에 주둔 중이던 비번의 미군 병사들도 그중에 있었다. 그리고 억압적인 모더니즘 건축에 맞춰 그들이 걸을 동선을 하나하나 짰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e1aa77c537b46b17eba071da9e6831d000858bdcb004b75cefb1714059fa5ad"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-tati#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《플레이타임》을 값비싼 70mm 필름으로 찍겠다는 고집, 그리고 험한 폭풍우를 견디며 타티빌을 유지하느라 불어난 비용이 그를 파산으로 몰았다. 채권자들을 달래려고 그는 자기 옛 영화들의 권리와 가족이 살던 집까지 팔아야 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "71feabb7eedc91d2f74951c871aace8d13cd38138d7efbb098c2459cb9719025"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-tati#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "기념비적인 세트의 최후는 참담했다. 타티는 타티빌을 살려보려고 프랑스 문화부 장관 앙드레 말로에게 젊은 영화인을 위한 교육 시설로 쓰라며 내놓았다. 결국 A4 고속도로를 내느라 불도저에 밀렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e17621609929146c5c360ca99d836f70ac68fd4078830e7a87b6af5c857f266"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-tati#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1970년대에 타티는 《Confusion》이라는 시나리오를 썼다. 막 떠오르던 텔레비전 산업을 겨눈 비판이었고, 미국 팝록 듀오 스파크스가 주연으로 예정돼 있었다. 하지만 타티의 건강이 무너지면서 기획은 영영 궤도를 벗어났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fe0e834d42eaee20b2fd0608caee8657968d0c6595f7e972465bf183ccf5129c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-tati#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "또 하나의 미완성 시나리오 《The Illusionist》는 반쯤 자전적인 글이었다. 인정하지 않고 멀리했던 딸 헬가에게 보내는, 죄책감에 찬 사과문. 이 원고는 2010년 스코틀랜드 감독 실뱅 쇼메의 손을 거쳐 마침내 애니메이션으로 만들어졌고, 오스카 후보에 올랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d47d45214165f2f9df590ef3b9db4d43d75b0c21728ca3755c0340444b226dc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-tati#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1977년 프랑스 영화 아카데미가 그에게 명예 세자르를 안겼다. 프랑스 영화계가 그를 재정적으로 내버린 지 한참 지난 뒤에야 도착한 뒤늦은 인정이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4cb0051aea3a32f6284f0e6f324de499b691839a81ca315bb00f25b37981dde8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-tati#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "타티는 심한 폐색전증을 앓다가 1982년 파리 라에네크 병원에서 숨을 거뒀다. 남긴 장편은 여섯 편뿐. 성기지만 기념비적인 필모그래피다.",
+  "model": "claude-opus-5",
+  "source_sha256": "94d1210341c42775e2cd8e51d9b35ff46492176e3ec04327a78aac8f1293a880"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jacques-tati#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그의 영향력이 얼마나 오래 가는지는 후배들이 증언한다. 데이비드 린치는 타티의 집요한 사운드 디자인과 공간을 쓰는 코미디를 큰 영감으로 여러 차례 꼽았고, 웨스 앤더슨은 《프렌치 디스패치》에서 타티 특유의 정밀한 프레이밍에 직접 시각적 경의를 표했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1ebd2ea34400f0a74a2e7f20234aefea053a37240e15f27118c2eabd17ef8ee4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jafar-panahi#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미아네에서 태어나 테헤란의 노동자 동네에서 자랐다. 페인트공이던 아버지는 아들이 극장에 가는 것을 엄하게 금했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6446e81f76e2886ef3c4d4b2e6d3bc0ce78eee91872de54aaf2cdfe6120cf35d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jafar-panahi#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "의무 복무는 참혹한 이란-이라크 전쟁 한복판이었다. 그는 종군 사진병으로 일했고, 1980년에는 쿠르드 반군에게 붙잡혀 76일을 포로로 지냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aecd298089bd808f82a694df0f1dd03c5aad58d8f0ba63be390f73927a2ebbd7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jafar-panahi#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1988년 학생 시절 만든 다큐멘터리 《The Wounded Heads》는 아슈라 기간에 단검으로 머리를 치는 시아파의 금지된 애도 관습을 담았다. 이란 당국은 곧바로 상영을 금지했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a5a847e46979652f1f2e844e69329bbb64a3090f0de981946af14cea2f5d179"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jafar-panahi#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "경력의 물꼬는 무작정 건 전화에서 트였다. 거장 압바스 키아로스타미에게 끈질기게 연락해 일자리를 구걸했고, 그렇게 1994년 걸작 《올리브 나무 사이로》의 조감독이 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "11029ce16a1ffd5c50f5e081a9b0c21f061e151af2fa626b88538587895eb430"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jafar-panahi#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "데뷔작 《하얀 풍선》이 1995년 칸영화제에서 황금카메라상을 받았다. 이란 영화가 칸에서 거둔 첫 주요 수상이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "73d3d96a25e5a0addcfbc710505869ea8a1ccd1485c53b25ac23e362e48ac10b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jafar-panahi#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2001년 4월, 남미로 가는 길에 뉴욕 JFK 공항을 경유하던 파나히는 열 시간 동안 억류됐다. 미국 이민국 직원의 지문 채취와 사진 촬영을 거부했다는 이유로 벤치에 쇠사슬로 묶인 채였고, 끝내 홍콩으로 추방됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "817d5bda8f6451cdc8bec8fd92c828f4138ca5e0e4f77774bb8953eece178edc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jafar-panahi#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생의 축구 사랑이 영화가 됐다. 2006년작 《오프사이드》는 테헤란 아자디 스타디움에서 실제로 벌어진 이란 대 바레인의 월드컵 예선 경기 도중, 디지털 카메라를 들고 게릴라식으로 찍은 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cfdc311faf8063f9e0ee3e764629d7bb73142a62ea5b4b5f1dcc0f7c7be5a26d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jafar-panahi#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2009년 이란 대선의 부정 논란 뒤, 그는 네다 아그하 솔탄의 무덤에 꽃을 놓다가 처음으로 체포됐다. 총에 맞아 숨진 이 젊은 학생은 녹색운동의 세계적 상징이 되어 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "27215fb77a43007d2cf5fb65ae766a2e41b93de30cf127e217024d4848dce40c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jafar-panahi#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2010년 5월 악명 높은 에빈 교도소에 갇혀 있을 때, 심문관들은 가족 전원을 잡아넣겠다며 그를 심리적으로 고문했다. 그는 단식에 들어갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "afdaf13e2c270f5c6a339d7ae3be4726663d23809afe80a08c3b7bc6e6ac4362"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jafar-panahi#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2010년 칸영화제 심사위원석에는 빈 의자 하나가 놓였다. 감옥에 있는 감독을 기리는 자리였다. 기자회견에서 그의 단식 소식을 전해 들은 배우 쥘리에트 비노슈는 사람들 앞에서 눈물을 쏟았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ee27ceecaa02fcbfe7dc0af553903145815f2cc0e21cfa708740fe702f355f6a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jafar-panahi#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2010년 12월, 이란 정부는 그에게 징역 6년을 선고했다. 여기에 20년간 영화 연출도, 각본 집필도, 언론 인터뷰도, 출국도 금지한다는 가혹한 조치가 따라붙었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a678178c15677ca43b62ec24057e08f962aa8a337422e7b2d7a1c9ef50bdb1f5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jafar-panahi#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2011년 그는 금지령을 정면으로 어겼다. 항소를 기다리며 가택연금 상태이던 아파트 안에서만, 모즈타바 미르타흐마스브와 함께 비디오 일기 《이것은 영화가 아니다》를 공동 연출한 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "729b1d46c2ad6dba35a1e069c73bad59c486fbfb12c2f8bd00bf4c2d6e90ace5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jafar-panahi#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《이것은 영화가 아니다》가 칸영화제까지 간 경로는 유명하다. USB 드라이브를 케이크 속에 구워 넣어 이란 밖으로 빼돌렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "db9d7837d151c4be9a93cb41da080118ebf0c52fd61d8f195ce1cc95cbac0874"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jafar-panahi#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "제작은 은밀해질 수밖에 없었다. 2013년작 《닫힌 커튼》은 카스피해에 면한 자신의 별장 안에서만, 작은 디지털 카메라 한 대로 철저히 비밀리에 촬영했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3c24ece7fd38c7509ed575d2dff08031d255ac7135061b76bfe74114cee19d14"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jafar-panahi#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2015년 다큐픽션 《택시》에서 파나히는 노란 택시 대시보드에 카메라를 달고 진짜 승객을 태운 채 직접 테헤란을 돌았다. 이 불온한 행위는 베를린국제영화제 황금곰상을 안겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "71958b2e53665150c83b597fc0798c0b4f5e210ffa4effa87c28f28e29359d09"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jafar-panahi#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "황금곰상을 받으러 베를린에 갈 수 없었다. 이란 정부가 출국을 막았기 때문이다. 대신 《택시》에도 출연했던 어린 조카 하나 사에이디가 삼촌을 대신해 눈물을 흘리며 최고상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9642cfa74adbe57887b1029301eb869d08cf2e89bb7c8a8e88527119e3affbb9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jafar-panahi#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이란을 떠날 수는 없어도 일은 멈출 수 없었다. 2018년작 《3개의 얼굴》은 북서부 산간 오지 마을에서 찍었다. 배우는 마을 사람들이었고, 험한 비포장길은 자기 SUV를 몰아 다녔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "097f8704c4902d6835884c514ef7a33ccb180db84f02f20b0d79ac2132b17b42"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jafar-panahi#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2022년 7월, 파나히는 동료 모하마드 라술로프가 체포됐다는 소식에 테헤란 검찰청을 찾아갔다. 그저 사정을 물으러 간 길이었다. 그 자리에서 체포됐고, 2010년에 선고받고 잠들어 있던 6년 형을 마저 살라는 명령이 떨어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4171a0d4449e6969b8a288d6b0985fa206a677e84bacf4ed0a6aa561b7a851d4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jafar-panahi#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2022년작 《노 베어스》는 그가 처한 현실을 서늘하게 되비춘다. 극 중의 파나히는 이란 국경 마을에 숨은 채 끊기는 화상통화로 터키에서 진행되는 촬영을 지휘한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "58768d6ad6c13b9ef4f8ea0f1de61dcb5027a58ef703eb07651bc425d3854521"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jafar-panahi#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "에빈 교도소에서 일곱 달을 보낸 2023년 2월, 파나히는 물도 약도 음식도 전부 거부하는 건식 단식을 선언했다. 국제적 항의가 거세지자 이틀 만에 돌연 보석으로 풀려났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0bbf0bb3b1b530866ab07859cc60db2cbc3038bbc9fda062a2b97b4811da1ebe"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jafar-panahi#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2023년 4월, 그는 14년째 묶여 있던 출국 금지를 잠시 어기고 처음으로 이란을 벗어나 프랑스에 있는 딸을 만나러 갔다. 그러고는 고국으로 돌아가는 쪽을 택했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c915a1e4c241fcaa6786e10758d9a8e3d9990be9ccc94a9e2f635187a872c5e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-cameron#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "나이아가라 폭포 인근인 온타리오주 치파와에서 자란 어린 캐머런은 해양 탐험가 자크 쿠스토에 푹 빠져 있었다. 페인트 통과 유리병, 모형 비행기 엔진을 붙여 소형 잠수정을 만들었고, 그것을 동네 개울 바닥으로 내려보냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7211dbec5348d0269e4c789b136da752a192bf01be48dc8c659aa647c561002b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-cameron#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아버지가 가족을 캘리포니아주 브레아로 옮긴 뒤, 십대의 캐머런은 풀러턴 칼리지를 중퇴했다. 트럭을 몰고 고등학교 청소부로 일하며 제 밥벌이를 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c2049b2caae8aef89dab8809cde920519aef1f810314fa984db5394f48dca1c7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-cameron#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "트럭 운전을 하면서 주말이면 남캘리포니아대 도서관에 처박혔다. 광학 프린팅, 감광도 측정, 염료 전사 공정을 다룬 대학원 논문을 복사해 시각효과의 원리를 독학으로 익혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1257fe22d11db36c3e1a0d38d8c1083b1596089dd1da2fc7d229b69e1f8f173b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-cameron#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1977년 조지 루카스의 《스타워즈》를 본 순간 캐머런은 분노와 자극을 동시에 받았다. 곧장 트럭 운전을 그만두고 동네 치과의사들을 모아 돈을 빌렸다. 그렇게 첫 SF 단편 《Xenogenesis》를 찍었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e2afe7b4e55d2614067b91248a5c915d29967f9700e673ed142d821963b94705"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-cameron#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "연출 데뷔작 《피라냐 2》에서 그는 고압적인 이탈리아 제작자 오비디오 G. 아소니티스에게 해고당했다. 빈털터리가 된 그가 로마에서 버틴 방법은 호텔 룸서비스 쟁반에서 빵을 훔치는 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5a926b23170b3a91fd24efcf73b6a2c9098e8377e4689be5df31183e5c012f9d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-cameron#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "로마에 발이 묶여 식중독으로 앓던 중, 고열 속에서 그는 폭발 속을 기어 나오는 크롬 해골을 봤다. 그 악몽이 곧장 《터미네이터》가 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f3dbdfc324e6582bf265df0cbd9ae679de803cafdbb6e5d35641b95b099a1310"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-cameron#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "엉망이 된 《피라냐 2》의 편집을 바로잡겠다는 일념으로, 캐머런은 밤중에 신용카드로 자물쇠를 따고 아소니티스의 로마 편집실에 몰래 들어갔다. 들키기 전까지 혼자 필름을 다시 잘랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "52386daf40ffaa7e4d993f40fd406e6956c16082c64f50aa0b59d7f616a37348"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-cameron#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "업계에서 아무 힘도 없던 그가 《터미네이터》 연출권을 확실히 쥐는 방법은 하나였다. 자기가 쓴 시나리오를 제작자 게일 앤 허드에게 정확히 1달러에 넘겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "888f21c214e7dfded3f5b313f0e1e7f713a1cd127f18ed789041a25bd283dfca"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-cameron#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《람보 2》의 초고를 쓴 사람은 캐머런이었지만, 실베스터 스탤론이 그 원고를 대폭 뜯어고쳤다. 캐머런은 완성된 영화의 우파적 메시지를 공개적으로 부인하며 액션 장면만 자기 몫이라고 못 박았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "37007b00b8c75c032d0f9072a996de6bc5f387019a62010d418bb873951a476d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-cameron#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《어비스》의 혹독한 수중 촬영 도중 캐머런은 익사할 뻔했다. 헬멧의 공기가 떨어졌는데 안전 다이버가 하필 고장 난 레귤레이터를 건넸다. 다급해진 그는 다이버의 얼굴을 주먹으로 쳐서 몸을 빼내고 수면으로 올라왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "275cf85a3e25b0d40509ce5bbed47eed9ae7aa29a1a644c6f8d11cfe4bfc8988"
+ }
+]

@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-belles-of-st-trinian-s-1954",
+  "field": "lead",
+  "film_id": "5b6e2313-205e-4bbd-b86c-91be798c61af",
+  "lang": "en",
+  "text": "Homework and hockey come a distant second at St Trinian's, and the staff have stopped pretending otherwise. Frank Launder's 1954 comedy builds its farce inside the full apparatus of the English girls' boarding school — uniform, dormitory, visiting dignitary — and then hands the running of it to the pupils. The plot is a collision: Princess Fatima of Makyad arrives as an honoured guest at the same moment Arabella Fritton comes back from expulsion with a racehorse in mind. It sits on the BFI's list of a hundred British films, which is a fair measure of how much of the national character this kind of joke was carrying in 1954. Ninety-one minutes, no sentiment about childhood, and the flattest possible playing: nobody treats the mayhem as remarkable, least of all the girls, who conduct their schemes with the patience of an institution protecting its interests.",
+  "model": "claude-opus-5",
+  "source_sha256": "69645a4a29fb37393b03e43340e73b9eb55b572ab97e1f41f1832477111bbab6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "days-of-the-bagnold-summer-2019",
+  "field": "lead",
+  "film_id": "bfbda59b-2c8a-48d0-8405-44091e773bf2",
+  "lang": "en",
+  "text": "Six weeks of the summer were meant to happen in Florida, with a father and a new stepmother, and then they were not. What Simon Bird's film has instead is a librarian and her teenage son at home in an English town with nothing arranged and nowhere to be. Eighty-six minutes is the right measure for a stretch of time that mainly has to be got through. The humour is a matter of proximity: two people who are fond of each other and cannot locate a register in which to say so, sharing a kitchen, a car, a television, long gaps. Nothing escalates. Daniel has Metallica and a bag of crisps as a way of holding his position; Sue has her shifts at the library. Whether the two of them can sustain a conversation past four exchanges is treated as a genuinely open question.",
+  "model": "claude-opus-5",
+  "source_sha256": "c62aa94887e8667ecff82d01c96054c6c167131b760531eb2c5ba51de076f7d5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "voice-of-silence-2020",
+  "field": "lead",
+  "film_id": "e42ade46-5fb0-439e-a7aa-1364f237ca5d",
+  "lang": "en",
+  "text": "The men who dispose of the bodies are employees, and the work has a procedure: transport, tools, ground. Hong Eui-jeong gives two such contractors an eleven-year-old girl to mind, taken for ransom and now their responsibility, and then removes the supervisor who issued the order. The chain above them goes quiet. What follows across ninety-nine minutes is less a thriller than a study of occupational thinking: men who have never had to decide anything are obliged to decide several things, with a child watching them do it. Her presence is the pressure. Feeding her, keeping her, answering her — none of that belongs to the job they know how to perform. The film stays quiet in the way people are quiet at work, and its discomfort comes from how ordinary cruelty looks once it has been assigned to somebody as a task.",
+  "model": "claude-opus-5",
+  "source_sha256": "f7d0790b3a7f6b3db7942bcd1c356b3e726f7e94c5901a200b76ef8ce3d6680e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "fires-were-started-1943",
+  "field": "lead",
+  "film_id": "2247e070-3e63-4f53-a513-2414f225b593",
+  "lang": "en",
+  "text": "Made in 1943, about firemen, in a country still being bombed. Humphrey Jennings filmed Fires Were Started in the manner of documentary and gave it the obligations of drama, which means the men on screen behave like men at work rather than like characters waiting for their speeches. Seventy minutes, and the subject is labour: equipment hauled, hoses run out, orders relayed, waiting done. Because the raids were current rather than remembered, nothing in it is commemorative — no retrospect, no elegy, only a shift that has to be got through and a building alight while the shift lasts. Jennings gives much of his attention to the intervals, the flat hours in which a crew sits together and nothing is burning. The emergency, when it arrives, is treated as a change in the working day, which is the hardest thing for a wartime film to do.",
+  "model": "claude-opus-5",
+  "source_sha256": "d27cccd21c1f89ef1edeb5740eb49a7a2f802e920d8f8e907864839636f73084"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "moving-on-2019",
+  "field": "lead",
+  "film_id": "9f2d7713-3697-4446-8c05-052b6ddcd809",
+  "lang": "en",
+  "text": "The grandfather's house takes in more people than it was arranged for: two children for the summer, then an aunt whose marriage is ending. Yoon Dan-bi measures the season by occupancy. Ok-ju, the elder of the siblings, arrives resenting the move and does not settle; her younger brother takes to the place readily, which is its own small insult. There is no crisis to be solved. The adults made their decisions elsewhere — about money, about marriages — and the film stays at the eye level of those who were not consulted, in rooms shared with a man old enough to be a stranger. Habit accumulates where plot would be: meals, heat, the traffic of a full house, an afternoon with nothing in it. A hundred and five minutes, few raised voices, and a great deal riding on who does the cooking.",
+  "model": "claude-opus-5",
+  "source_sha256": "7015984e01912599f79917d84c3392e40e12a3ec16f85cde5dba0de7be6737f5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hush-2001",
+  "field": "lead",
+  "film_id": "137da1b2-157d-4726-965f-0735cd547638",
+  "lang": "en",
+  "text": "A woman asks a man to give her a child, and the man has a boyfriend he has told almost nobody about. Ryosuke Hashiguchi spends two and a quarter hours on what a brisker film would settle in a single argument, and the running time is the point: three people trying to assemble a family with no template to work from, in a place and a year that offer them no help with it. Naoya is easy about himself, Katsuhiro is careful, Asako arrives with a past she declines to apologise for. Much of the film is practical, and in its way funny — whose flat, whose parents, what gets said at dinner and what does not. The rest is the pressure of being asked to decide something enormous in a small room. Hashiguchi keeps all three in the frame and refuses to rank their claims on one another.",
+  "model": "claude-opus-5",
+  "source_sha256": "533592fd44d6cf8654abb12d513b67f4cb047ebcb1b5228a55485d00e1ff00ef"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lucky-chan-sil-2019",
+  "field": "lead",
+  "film_id": "0b45a349-8eb5-4eef-a3ec-925ecd6fa220",
+  "lang": "en",
+  "text": "A producer's career ends with somebody else's death, which is one way to find out how much of it was ever hers. Kim Cho-hee moves Chan-sil from film work to a cleaning job in an actress's house, and the demotion is total: no title, no project, no plausible answer to what she does now. Attraction to a younger man arrives at the least convenient moment and reopens everything she had filed away — the years spent, the work chosen, the love not managed. Ninety-six minutes, and the tone stays dry rather than rueful. It is a fantasy as well as a drama, and it earns the first word without raising its voice; something enters the apartment that ought not to be there and is handled with the same practicality as the laundry. Kim's interest is in what a person does on the mornings after a vocation stops.",
+  "model": "claude-opus-5",
+  "source_sha256": "48c47c609e9a3e3e57e4f6caf03e3190c933aa5e76ccd454b5dc4c6fcccf95bd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "madame-de-1953",
+  "field": "lead",
+  "film_id": "982fdb2a-d107-41d4-a973-599c2965cbc5",
+  "lang": "en",
+  "text": "A pair of earrings, a gift from a husband, sold quietly to cover debts he knows nothing about. Everything else follows from that transaction. Paris in the nineteen-thirties, a countess whose expenses have outrun her means, and a piece of jewellery that leaves the house while remaining, officially, inside it. The difficulty is not money. It is that a woman in Louise's position cannot report a shortfall without reporting a great deal more, and discretion of that kind requires maintenance. Eighty-seven minutes in a world where objects carry obligations and a present is also a record of who owes what to whom. Cahiers du Cinéma's list of the hundred most beautiful films in the world found room for it, which indicates how much can be constructed out of good manners: politeness as an accounting system, interest accruing off the books.",
+  "model": "claude-opus-5",
+  "source_sha256": "b7bf908fbe9eec928268c0b39dc1cc6f3604e8d09fa42b5d4a8fff08af5c7375"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-little-light-2018",
+  "field": "lead",
+  "film_id": "b319babb-c90d-4c12-b364-96243dfbd3d3",
+  "lang": "en",
+  "text": "Eight minutes, one errand: the fire in the hearth has gone out, and a boy takes a lantern and goes looking for light. Vladislav Bayramgulov animates that sentence and declines to enlarge it, which is the discipline the length imposes — nothing to develop except cold, distance, and the small carried glow that has to survive both. The premise belongs to folk telling, where warmth is a substance one can go and fetch, and the film treats it literally rather than as a figure of speech. Everything therefore rests on the drawing: how black a winter is allowed to be, how far a lantern reaches, what the dark does at the edge of it. A short this brief either finds an image or it does not. The situation is old enough that a child would recognise it without being told anything at all.",
+  "model": "claude-opus-5",
+  "source_sha256": "b262a2568c4149ffb07d66c801a0cc44e17a004d447d43f3f597cf7c984073a3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bring-me-the-head-of-alfredo-garcia-1974",
+  "field": "lead",
+  "film_id": "3b5975f9-90e7-4286-b162-436caa170e25",
+  "lang": "en",
+  "text": "The man is already dead, and the million dollars is for his head, which makes the job not murder but excavation. An American bartender in Mexico hears the figure and works out, correctly, that he stands nearer to it than the men who set it, and he takes his girlfriend along for the drive. Sam Peckinpah shot it in 1974 and kept no code in reserve: no honour among the parties, no gunmen with a philosophy, only heat, road, drink, and a transaction that degrades everyone who touches it. The violence is quick and almost clerical. The courtship going on alongside it is the stranger thing — two people talking about a life together in the middle of an errand that has already told them what they are. A hundred and thirteen minutes, and the bounty is the least of what it costs.",
+  "model": "claude-opus-5",
+  "source_sha256": "4d8691c557f952667ac15026054ce7711e0f53635c06c80e002f07d63eaec7a2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "wake-in-fright-1971",
+  "field": "lead",
+  "film_id": "523825e2-d52c-468d-a547-43656828129b",
+  "lang": "en",
+  "text": "A schoolteacher means to pass through the town and discovers, by stages, that he is not leaving. Ted Kotcheff's 1971 film gives him a stay in an outback settlement where hospitality operates as pressure: every offer carries an obligation, refusal reads as insult, and the education he has been relying on to mark him out as different is worth nothing at all at the bar. A hundred and nine minutes of heat, drink and agreement. What makes it genuinely unpleasant is that nobody assaults him. He is welcomed. The degradation is participatory, and the film attends to the exact sequence of small consents by which a man of standards learns he holds none that survive being liked. The country around him is enormous and offers no exit that does not require somebody's help.",
+  "model": "claude-opus-5",
+  "source_sha256": "fa1fc34b26ab982d927c802fafc5fc1390a513da849b980534dc0d9ee4c91635"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "they-live-by-night-1948",
+  "field": "lead",
+  "film_id": "c8a69560-c395-4c5d-a85a-a630e02f6cc1",
+  "lang": "en",
+  "text": "Two very young people set about arranging an ordinary life — a rented room, a ring, a car that runs — inside the timetable of a manhunt. He broke out of prison and was hurt during a robbery; she looked after him until he could walk, and then went with him, which the film never mistakes for a plan. Nicholas Ray shoots them at the height of their inexperience. They have no criminal style and no worldliness, only a shared conviction that a marriage can be assembled out of whatever is to hand, and the men they depend on know exactly how useful that is. Ninety-six minutes. The doom is announced early rather than withheld, and the effect is not suspense but attention: we watch two people furnish a future they have been told, from the first reel, they will not get.",
+  "model": "claude-opus-5",
+  "source_sha256": "53547fa0d842cd5ff005ddecfbb675523a239568e6a404ec1232d2d6cbb9a741"
+ }
+]

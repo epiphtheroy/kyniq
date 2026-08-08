@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "makoto-shinkai#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "극사실적인 배경은 그가 직접 찍은 사진 수천 장에서 나온다. 로케이션 헌팅에 집착적으로 매달려 모은 것들이다. 요쓰야 스가 신사의 붉은 계단이 대표적인데, 《너의 이름은.》 개봉 뒤 이곳은 손꼽히는 관광 명소가 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c307005aa6d5ff51cc6eb88521cf066131c7b9c7c7426ddce8fb31e582290bda"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "makoto-shinkai#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《너의 이름은.》의 핵심 설정인 몸 바뀜은 9세기 여성 시인 오노노 고마치의 와카 한 수에서 왔다. 연인의 꿈에서 깨어나 슬픔에 잠기는 노래다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c2638ee088f6ec6e2972c4bc4e9daa82425429dc53121d20e999c1b7fa1a0b8e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "makoto-shinkai#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "'제2의 미야자키 하야오'라는 딱지를 그는 몹시 싫어한다. 디지털로 만들고, 십대를 향하고, 극사실을 좇는 자신의 미학은 손으로 그린 미야자키의 환상 세계와 근본적으로 반대편에 있다는 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "80a00b474be63b09fa64f2529bd06e7e4c0c89eba6efb3224b8771b25d04aeef"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "makoto-shinkai#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "지진을 다룬 2022년 로드무비 《스즈메의 문단속》에 나오는 폐허를 취재하려고, 신카이는 쇠락해 가는 일본의 지방 소도시들을 오래 돌아다녔다. 인구가 급격히 빠져나간 자리에 나라의 넓은 면적이 텅 비어 가고 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "888f54d2950fc54bc33b72628865758da6f645f458d0edeb0c0d357224de979d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "makoto-shinkai#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "일본 대중문화에서 '세카이계(セカイ系)'를 대표하는 얼굴로 통한다. 십대 두 사람의 밀착된 연애가 세계의 종말적 위기와 곧장 이어지는 이야기 형식이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "950ec43c75ef66b32d7cc7bfbf2e7f0a2a4f01bbc8b757e6da7ecbd52e4aab9c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "makoto-shinkai#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아버지의 건설 회사를 물려받기를 거부했던 그가, 2007년 다이세이건설의 텔레비전 광고를 연출했다. 새 도하 국제공항이 세워지는 과정을 극도로 세밀하고 웅장하게 낭만화한 영상이었다. 아이러니한 일이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "773cb0ea269dae95b997d33ed935b32ae98b43f2fc3cd268a64ceaee490274c7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-hosoda#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "가나자와미술공예대학에서 유화를 전공하고 졸업한 뒤 호소다는 스튜디오 지브리에 지원했다. 돌아온 것은 미야자키 하야오가 손으로 쓴 불합격 통지였다. \"당신을 채용하면 그 재능이 닳아 없어질 테니, 채용하지 않겠다.\"",
+  "model": "claude-opus-5",
+  "source_sha256": "e15e2d72f0a162d9c6fa2287b4e33c8d0750de39bcff8979cfe2596ac0304e9f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-hosoda#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "주저앉는 대신 그는 그 불합격 편지를 일종의 훈장처럼 간직했다. 그리고 1991년, 경쟁사 도에이 애니메이션에 애니메이터로 들어간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c4be981ec2e108171b9c9196994d4ac340d92291b916aa0290a7d267ed62f921"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-hosoda#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "업계가 그를 주목한 계기는 2000년 단편 《디지몬 어드벤처: 우리들의 워 게임!》이었다. 인터넷을 희고 황량한, 허공에 떠 있는 가상 도시로 그리는 그의 평생에 걸친 시각적 집착이 여기서 시작됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ee87941840040598a564d0bb1beb90ee087cd44f0ee80afb6c497ed9b444f375"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-hosoda#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "운명의 얄궂은 반전이 2001년에 찾아온다. 지브리가 그를 데려가 《하울의 움직이는 성》 연출을 맡긴 것이다. 그러나 베테랑 스태프들과 충돌은 파국으로 치달았고, 콘티는 끝내 확정되지 못했다. 그는 예우도 없이 해고됐고, 자리는 미야자키가 이어받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a5f29b6c19dae5630fedff9b0b14bc59100e4b30869170ca9335b4bda4dabd20"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-hosoda#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "지브리에서 쫓겨난 굴욕은 깊은 우울로 남았다. 애니메이션 업계를 아예 떠날 생각까지 했을 정도였다. 결국 순전히 먹고사는 문제 때문에 도에이로 돌아가, 말단 콘티맨 자리에 앉았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "51deae5fe4ec3e6784cd82191f308ddf47ddd9065e098aa624d82fab8f2d71a1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-hosoda#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "일본 팝아티스트 무라카미 다카시와 손잡고 〈Superflat Monogram〉을 연출했다. 프랑스 명품 브랜드 루이 비통을 위한 2003년 초현실적 홍보 단편이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c4aa2d7d55af21733817f4334e87f98372ead596c9d3bb85f335f91966b0d470"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-hosoda#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그를 무명의 늪에서 건져낸 사람은 매드하우스 공동창업자 마루야마 마사오였다. 2006년 SF 로맨스 《시간을 달리는 소녀》의 연출자로 그를 불러들였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9a168b660d18334fa8971717b4d6b35551506a20ab549fd2e85a6a75d855e7c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-hosoda#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2009년 흥행작 《썸머 워즈》의 그 거대하고 소란스러운 진노우치 가문에는 분명한 출처가 있다. 결혼 직후 나가노현 우에다에서 처가의 방대한 친척들과 만난 경험. 호소다는 그 압도적인 기억을 그대로 옮겼다고 밝혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f7d8b1290e3bcbd50ec95ae2c11c365fdb99a31f2ef9027e2a567f04b1715620"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-hosoda#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "점점 더 사적으로 향하는 작품들의 창작 통제권을 온전히 쥐기 위해, 호소다는 2011년 프로듀서 사이토 유이치로와 함께 자신의 제작사 스튜디오 지즈를 세웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "adcdff310bf95805def601e73ae9cb98f56bea886c3f3ff22b1623051d4585fa"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-hosoda#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2012년의 걸작 《늑대아이》의 무대는 그가 실제로 태어난 도야마현 가미이치다. 이 지역의 짙푸른 산악 풍경과 오래된 시골집들을 그는 하나하나 되살려 놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "724f8dc6121901b0575807d60dbadb3f67fcb0dee2dc211ce901fcf9e126d892"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-hosoda#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "한때 미야자키를 우상으로 삼았던 그가 2021년 칸영화제에서 공개적으로 이 지브리의 거장을 비판했다. 미야자키가 어린 여성 캐릭터를 결함 있는 실제 인간이 아니라 이상화된 순수한 '분신'으로 쓴다는 지적이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fb435c5298102b3c5738ff5dba700ba32d0ab368c681c03c57751f3adf8d084c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-hosoda#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "첫아들이 태어난 뒤 그는 2015년 액션 판타지 《괴물의 아이》를 썼다. 아버지가 된다는 것에 대한 사유였고, 아이를 만드는 것이 생물학적 부모만이 아니라 여러 스승으로 이루어진 더 넓은 공동체라는 이야기였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b3cc11621d5d47a7fdd779701d628196daa77ac3f7e5816e29dd5b97c78828d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-hosoda#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2018년작 《미래의 미라이》는 네 살배기 아들이 갓 태어난 여동생에게 품은 격렬한 질투에서 곧바로 나왔다. 그 동생의 이름을 호소다는 실제로 미라이라고 지었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1911bf49de1247cec4a642dc4cae9aa2c5e96a9c460c4d48a661677c34cad0eb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-hosoda#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《미래의 미라이》는 제91회 아카데미 시상식에서 기록을 하나 세웠다. 스튜디오 지브리 작품이 아닌 일본 애니메이션으로는 처음으로 장편애니메이션상 후보에 오른 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "afd602802855f7d574331a370c9d9bb96da57f37ba41172f6e6b37082c0dfcdf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-hosoda#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2021년 사이버 동화 《용과 주근깨 공주》에서 광대한 가상도시 \"U\"의 설계를 맡긴 상대는 영국의 실제 건축가 에릭 웡이었다. 판타지풍 겉모습이 아니라 진짜 구조적 논리를 갖춘 디지털 공간을 원했기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3c0867b27a5c92793b551024710dda99247c098e70e2f908fdff0af2aa60426e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-hosoda#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "일본 애니메이션 업계의 폐쇄성을 깨고, 호소다는 디즈니의 베테랑 캐릭터 디자이너 김상진을 직접 영입했다. 《라푼젤》과 《겨울왕국》으로 알려진 그가 《용과 주근깨 공주》의 주인공 팝스타 아바타를 그렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e821dbbb6796eacffac7ba02bd72f5775ad0a1b377544206e2006640fe3d36e2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-hosoda#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "같은 성우진을 여러 작품에 되풀이해 쓰는 편이다. 특히 야쿠쇼 고지가 그렇다. 《괴물의 아이》 《미래의 미라이》 《용과 주근깨 공주》에서 그는 이야기의 축이 되는 멘���를 연기했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8bddbf04f615dcccf1f8045952bf781d2df348a8f677363a1ac88ec908fe2710"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-hosoda#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "콘티를 짜는 혹독한 기간이면 호소다는 패밀리 레스토랑에 틀어박힌다. 대개는 데니스다. 밤새 앉아 작업하는데, 웅성거리는 소음과 무한 리필 커피가 조용한 작업실보다 집중에 낫다고 한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6ea4417b8f98b051f724aad97b7f7bc9255cdec374ea74a5b41a7387c0b99e0e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-hosoda#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마법소녀 시리즈 《꼬마마법사 레미 두캉》 40화를 연출해 높은 평가를 받았다. 어린 시절의 상처를 다룬 우울하고 전위적인 에피소드로, 뛰어난 시각적 화술 덕에 지금도 일본 애니메이션 전공생들의 교재가 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "89d4baa00632a671c9e2348ff9428a6dbc13caac54931eb1cded7b45459962df"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-hosoda#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2021년 로카르노영화제는 그에게 첫 로카르노 키즈 어워드 라 모빌리아레를 안겼다. 유럽의 주요 작가주의(auteurism) 영화제가 한 애니메이터가 다음 세대에 남긴 영향을 두고 공로상 회고전을 여는 일은 흔치 않다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aaa26a8bcc662501c574cf2dfb6647f76f35a3146227dc37ab9589897f4735c1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-oshii#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1960년대 후반 도쿄가쿠게이대학 시절, 오시이는 격렬했던 안보 투쟁의 한복판에 있었다. 그때 겪은 정치적 환멸이 훗날 《인랑》과 《패트레이버》 연작의 사상적 골격이 된다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dba96f4ef0a795a0f0dae3dfd527c08ffceeb73597f5e083c03bdff41e126527"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-oshii#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "경력의 출발은 1977년 다쓰노코 프로덕션. 그가 맡은 것은 슬랩스틱 코미디 《야타맨》의 에피소드 연출이었다. 훗날의 음울하고 사변적인 걸작들과는 딴판인 자리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "58563a790cc85a4bdb4ec04f4aef71bec998cb310be0672c103e38ad58624c9a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-oshii#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "출세작 《우루세이 야츠라 2: 뷰티풀 드리머》(1984)는 원작자 다카하시 루미코를 격노하게 했다. 오시이가 그녀의 로맨틱 코미디라는 전제를 내던지고, 초현실적인 시간 루프의 사변극으로 갈아치웠기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a23bdc793496c6e85890699cc3f3db1c8e42db497e7a6151fcc4470fb1fe701a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-oshii#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1985년 미야자키 하야오는 오시이에게 《루팡 3세》 극장판 연출을 맡겼다. 그런데 올라온 각본이 문제였다. 액션은 없고, 루팡이 초현실적인 도시를 헤매며 자신이 존재하기는 하는지를 곱씹는 이야기. 기획은 그대로 엎어졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e08f507a00150e0fd5d12fd52c971575d4ffc58216341b098c76aeb61567250"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-oshii#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스튜디오의 통제를 피하려고 오시이는 1987년 친구 넷과 창작 집단 헤드기어를 만들었다. 각본가 이토 가즈노리와 디자이너 이즈부치 유타카가 거기 있었다. 덕분에 《기동경찰 패트레이버》의 알짜배기 판권은 그들 손에 남았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "805982f132cfbd8738a2eb64a5a665308908515ae0a8fba67fddb97b86bbe5d5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-oshii#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "다치구이, 그러니까 무허가 서서 먹는 국수 노점에 대한 오시이의 집착은 평생 간다. SF 애니메이션 한복판에 인물들이 패스트푸드를 게걸스럽게 먹는 장면이 불쑥 끼어들고, 2006년에는 전설적인 국수 노점 사기꾼들을 다룬 페이크 다큐멘터리 《다치구이시 열전》까지 만들었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "99dc758c00236dd2cc5bc74dd07729b5a7107485ecadb8c03efeeeee1e5b972e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-oshii#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "이름난 애견인인 그에게는 가브리엘이라는 바셋하운드가 있었다. 오시이는 이 개의 모습을 자기 영화 거의 전부에 넣는다는 조건을 계약에 명시했다. 《공각기동대》도, 《아발론》도 그렇다. 개인적인 수호천사인 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5c3ed224ce84fd13c0b8e8a8a2cc7499020eb739b3228458b4ca45edea8dde68"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-oshii#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "소문난 밀리터리 오타쿠라, 애니메이션 스태프를 이끌고 괌과 하와이의 사격장을 자주 찾는다. 영화에 나올 총기의 반동과 소리, 작동 방식을 정확히 익히기 위해서다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7e09dcd7dbc98069745fe10b44e9797c810f2a19da1bac4f19c42b6c99bb6721"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-oshii#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "지브리 공동창업자 미야자키 하야오와의 우정은 험하기로 유명하다. 오시이는 언론에서 미야자키를 스태프를 소모시키는 '독재자'라 몰아붙였고, 미야자키는 오시이의 영화를 '그냥 비디오게임'이라며 공개적으로 일축했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "88e8f47aadbcfecbc4d5dfe8ec1d972947070fb562e6ae3b6ecbe5f7372d4983"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-oshii#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1990년대 후반 오시이는 도쿄를 떠나 시즈오카의 해안 온천 마을 아타미로 옮겼다. 이유는 분명했다. 개들이 마음껏 뛰어다닐 만큼 넓은 마당이 딸린 집이 필요했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b19f7a630608fd4f22f124118752f32d6e71263e878644e1537be92d96ad9931"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-oshii#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2001년 실사 SF 《아발론》은 전부 폴란드 현지에서 찍었다. 우울이 밴 유럽인의 얼굴을 원했던 것이 하나. 다른 하나는 폴란드 군이 진짜 T-72 전차와 힌드 헬리콥터를 할리우드 값의 몇 분의 일에 빌려준다는 사실이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ff9b94e740d036ece8af30bbafadc25a456975aa0c088a0f64513d8f3299eb65"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-oshii#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1996년 첫 《공각기동대》가 미국 빌보드 비디오 판매 차트 1위에 뜻밖에 오른 순간, 정작 오시이는 아무것도 모르고 있었다. 미국 프로듀서가 축하 전화를 걸어올 때까지 그는 사무실에서 비디오게임을 하는 중이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ff1e73a66f1d85c563f1cc01ae768b2d67a5352de9fe3c9ad66c877069f19a08"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-oshii#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《버추어 파이터》와 《위저드리》에 수천 시간을 쏟아부은 게임광이기도 하다. 인터뷰마다 그는 스트레스로 가득한 영화 연출보다 게임하는 쪽이 훨씬 만족스럽다고 털어놓는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b8c16d7af31c1b78fa8f9b52c6242db4f139a0bb23d907f967ffb407c13f21f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "mamoru-oshii#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《블러드: 더 라스트 뱀파이어》(2000)의 컨셉을 함께 짜면서 오시이가 고집한 것이 있다. 주인공은 반드시 세일러복을 입고 카타나를 든, 어딘가 침울한 소녀여야 한다는 것. 이 이미지는 이후 전 세계 대중문화로 퍼져나갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3ba7aef7f7c1856363f3cccdcf9dc51d22c5037fd139b36b151f9bbc0597687d"
+ }
+]

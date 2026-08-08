@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-eye-that-wounds-itself-for-looking",
+  "field": "title",
+  "lang": "ko",
+  "text": "본 죄로 제 눈을 찌르다",
+  "model": "claude-opus-5",
+  "source_sha256": "8f70ba4877d9c03e342b41f208ff1544c5dcbfbee53edb540170e1f9f1f7c7d2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-eyewear-that-encodes-ideology",
+  "field": "title",
+  "lang": "ko",
+  "text": "이데올로기가 새겨진 안경",
+  "model": "claude-opus-5",
+  "source_sha256": "6cd70997aa72245458bcde82f9c0cefff6dff9540e88e524d81ca692241c0d0a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-face-as-aging-manuscript",
+  "field": "title",
+  "lang": "ko",
+  "text": "늙어가는 필사본, 얼굴",
+  "model": "claude-opus-5",
+  "source_sha256": "cf42cc85a3dc3a82c9e171c1f25cc0b248a7f1f87f66bd1e696a0660fb69d202"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-face-as-detachable-lie",
+  "field": "title",
+  "lang": "ko",
+  "text": "떼었다 붙였다 하는 거짓말, 얼굴",
+  "model": "claude-opus-5",
+  "source_sha256": "5f927329ed0745d5c066be3983e382f15cac764f861a54c325f61c6dc9bf86a0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-face-as-infinite-ethical-summons",
+  "field": "title",
+  "lang": "ko",
+  "text": "무한히 부르는 얼굴, 윤리의 소환장",
+  "model": "claude-opus-5",
+  "source_sha256": "e494d80c6b7f2e51168cb0d2a0caa892c3ba9a8344c8aa6b904032ff0cc4207d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-face-detached-from-its-owner",
+  "field": "title",
+  "lang": "ko",
+  "text": "주인을 잃은 얼굴",
+  "model": "claude-opus-5",
+  "source_sha256": "4880b74d6fdb9a8cda87f2830b9a70a86145eab877827c01d3d4179d21190529"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-face-freed-from-its-disguise",
+  "field": "title",
+  "lang": "ko",
+  "text": "변장을 벗은 얼굴",
+  "model": "claude-opus-5",
+  "source_sha256": "130f20cfa67096018465ef3d14db1d1dec1ecaa075d09858dcb50d6d45cd89a9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-face-one-cannot-bring-oneself-to-kill",
+  "field": "title",
+  "lang": "ko",
+  "text": "차마 죽이지 못하는 얼굴",
+  "model": "claude-opus-5",
+  "source_sha256": "6e62a14956fefa40f2237b2e74cf2e5d9d7c80c9c556daf471c9e6383ede20e2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-face-that-disarms-judgment",
+  "field": "title",
+  "lang": "ko",
+  "text": "심판을 무너뜨리는 얼굴",
+  "model": "claude-opus-5",
+  "source_sha256": "a09e9196d78d538b896b6dd5fdd1542ff20b1bfcc5cfa520ea10de62be21db20"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-face-that-forbids-the-kill",
+  "field": "title",
+  "lang": "ko",
+  "text": "살인을 금하는 얼굴",
+  "model": "claude-opus-5",
+  "source_sha256": "ec618196f6bea81398268a019ef4835dda03890b629fb1f2181d31395493c528"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-face-that-foretells-its-own-death",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 죽음을 미리 알리는 얼굴",
+  "model": "claude-opus-5",
+  "source_sha256": "0d6d61640e3118c82504191ab232991d8af8b9b49c20d22eb523a4ae53c1c805"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-face-withheld-to-make-conscience-visible",
+  "field": "title",
+  "lang": "ko",
+  "text": "양심을 보이려 감춘 얼굴",
+  "model": "claude-opus-5",
+  "source_sha256": "9af43548fdeb2a70571d09de90c5e9e95b184461722671154a343d12120e8277"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-faces-turned-away-in-northern-hush",
+  "field": "title",
+  "lang": "ko",
+  "text": "북방의 정적, 돌아선 얼굴들",
+  "model": "claude-opus-5",
+  "source_sha256": "c0ecab4661e3e280891d4cde4aee82b8db7579c9d8b9fb7f4ccc90817ad03ef5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-factory-as-capital-s-hidden-abode",
+  "field": "title",
+  "lang": "ko",
+  "text": "자본이 숨어 사는 곳, 공장",
+  "model": "claude-opus-5",
+  "source_sha256": "e5e62b6b82f0432aa2a6b3da009ff3ac72ded4570c45f5768150d93d34246cea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-faculty-beauty-outlives-ethics",
+  "field": "title",
+  "lang": "ko",
+  "text": "윤리보다 오래 사는 아름다움",
+  "model": "claude-opus-5",
+  "source_sha256": "667bfad3c96434d8558b97b8bd53a7896db80c82a739af6e712a9b1565d7394a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fade-to-black-as-mortal-punctuation",
+  "field": "title",
+  "lang": "ko",
+  "text": "암전, 죽음이 찍는 마침표",
+  "model": "claude-opus-5",
+  "source_sha256": "42d5cfeaae5e250c204b5b76383a4bd60a843db48eb55d8fd43d39b72b2fceba"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-failure-that-was-audience-refusing-its-mirror",
+  "field": "title",
+  "lang": "ko",
+  "text": "거울을 거부한 관객, 그래서 실패",
+  "model": "claude-opus-5",
+  "source_sha256": "ce1650957ef2ccc9fbd0764bc83160e3def2c4274bfd354fff4fd4e0a2be219b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fairy-tale-imposed-as-fate",
+  "field": "title",
+  "lang": "ko",
+  "text": "운명으로 떠안긴 동화",
+  "model": "claude-opus-5",
+  "source_sha256": "2dccb3146647178b9e08daa111a843ee2d8547c7a71a53c905fe187e951b4a8a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fairy-tale-priced-and-notarized",
+  "field": "title",
+  "lang": "ko",
+  "text": "값 매기고 공증한 동화",
+  "model": "claude-opus-5",
+  "source_sha256": "44680cd134ddff9a1b0e8cf21141c4266cc5b4b58ab90ca92ff154997c744bef"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-faith-imposed-by-terror-and-ledger",
+  "field": "title",
+  "lang": "ko",
+  "text": "공포와 장부가 세운 믿음",
+  "model": "claude-opus-5",
+  "source_sha256": "d4148d1b86311f2d5503db0f3cb50c581a0d0ddad3d9cafa662c29122a796586"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-faith-institution-as-the-state-s-instrument",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가의 연장이 된 교단",
+  "model": "claude-opus-5",
+  "source_sha256": "f3dab55756bd775c51f987cc05a0e5c27dc6972a5c3b9063a74ceaf634802e25"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-faith-that-was-quietly-engineered",
+  "field": "title",
+  "lang": "ko",
+  "text": "조용히 설계된 믿음",
+  "model": "claude-opus-5",
+  "source_sha256": "7575b80ad9380ef9a86d87ba647023b9efa66802979cc61d0cde1d2baab6ab3f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fake-footage-more-real-than-the-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화보다 진짜 같은 가짜 영상",
+  "model": "claude-opus-5",
+  "source_sha256": "df90ccff63672023390dbbd91937888658275b9eb8eaa42a2d229da3c016188a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fake-is-the-honest-one",
+  "field": "title",
+  "lang": "ko",
+  "text": "가짜가 제일 정직하다",
+  "model": "claude-opus-5",
+  "source_sha256": "e011adcf69b5c43c9d1e7d1f85f68692a7c5df26fe093c2ad0c188c6f66f0123"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-faked-death-that-kills-the-persona",
+  "field": "title",
+  "lang": "ko",
+  "text": "위장한 죽음이 페르소나를 죽이다",
+  "model": "claude-opus-5",
+  "source_sha256": "fb04d7ac3ea8655d742bc9d74cf7fc14fc67dc0ec00bf40bedc557673674c475"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-faked-symptom-that-forges-a-bond",
+  "field": "title",
+  "lang": "ko",
+  "text": "꾸며낸 증상이 맺어준 사이",
+  "model": "claude-opus-5",
+  "source_sha256": "7e81818bad5b04f252cce90d4bdf80a33b5301e471e71d45845a3cc9bfcb60e8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fall-as-death-drive-made-literal",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽음충동이 그대로 추락이 될 때",
+  "model": "claude-opus-5",
+  "source_sha256": "7782b1f7ba50f6838d175649a0b36327c37a7e12a564716380292be39e60d90c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fall-withheld-only-the-falling-filmed",
+  "field": "title",
+  "lang": "ko",
+  "text": "추락은 감추고 떨어지는 순간만",
+  "model": "claude-opus-5",
+  "source_sha256": "c4d24534126506faa6eca8a52858c05517286b1c92449010c6dcc9c448048b4a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fallen-who-cannot-feel-the-fall",
+  "field": "title",
+  "lang": "ko",
+  "text": "떨어진 줄 모르는 타락",
+  "model": "claude-opus-5",
+  "source_sha256": "61833b40d504e37a8cf2ba87f86e6577fd66456ba28596cf6caa6ed6fdb29b5e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-falling-garment-that-confesses-everything",
+  "field": "title",
+  "lang": "ko",
+  "text": "흘러내린 옷이 다 말한다",
+  "model": "claude-opus-5",
+  "source_sha256": "5ed932ade154aa8a7f4f63852b44582b60498c12bf95f8ba983b784ca53c2c00"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-family-as-engine-of-female-extraction",
+  "field": "title",
+  "lang": "ko",
+  "text": "여자를 갈아 넣는 기계, 가족",
+  "model": "claude-opus-5",
+  "source_sha256": "b2626f65a4fbbcabe834e7c6d8c26c34c7aff21a0c2ede301d0137dc98fa90e9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-family-as-firm-with-a-faceless-master",
+  "field": "title",
+  "lang": "ko",
+  "text": "얼굴 없는 주인이 다스리는 회사, 가족",
+  "model": "claude-opus-5",
+  "source_sha256": "f55fb2dae9bc5a705462129e7c5379ae7450bf1025448aaca8889572a1f7e545"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-family-as-performance-in-bad-faith",
+  "field": "title",
+  "lang": "ko",
+  "text": "자기기만으로 올리는 연극, 가족",
+  "model": "claude-opus-5",
+  "source_sha256": "01b313a6e7203524a5d6c4ce5f4f7fe92b978c669b4a3932846cab81b4e3c632"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-family-as-republic-in-cross-section",
+  "field": "title",
+  "lang": "ko",
+  "text": "가족을 갈라 보면 공화국",
+  "model": "claude-opus-5",
+  "source_sha256": "281f73c98dbfc63ab3909a1a02af7b3137b862dad6e109a08b0d5259d2b23147"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-family-as-the-return-of-the-buried",
+  "field": "title",
+  "lang": "ko",
+  "text": "묻은 것이 가족으로 돌아온다",
+  "model": "claude-opus-5",
+  "source_sha256": "f3a8e63f7ad66a177a1f6a9ef2fdd1cefa36808a395d0d6b16dd7d214ba58d20"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-family-assembled-from-abandonment-s-wreckage",
+  "field": "title",
+  "lang": "ko",
+  "text": "버려진 잔해로 짜맞춘 가족",
+  "model": "claude-opus-5",
+  "source_sha256": "1a40f6c3749eef9c8ab65c1ccd03b977f3fc811cd34bbc0622d3bc9d646ee1cf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-family-film-contract-renegotiated",
+  "field": "title",
+  "lang": "ko",
+  "text": "가족영화, 계약을 다시 쓰다",
+  "model": "claude-opus-5",
+  "source_sha256": "7c25761d99c579d110586243f6e289a7396fbcc11e8945181a60e9929d056f1e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-as-absent-law-programming-the-son",
+  "field": "title",
+  "lang": "ko",
+  "text": "부재하는 법이 아들을 프로그래밍한다",
+  "model": "claude-opus-5",
+  "source_sha256": "79f7e19ef45e03562b5c8e1505641703458eddfe4b8452ec4d37f3e379671d65"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-as-superego-that-must-die",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽어야 할 초자아, 아버지",
+  "model": "claude-opus-5",
+  "source_sha256": "f52360c9679e98243bf3256a8150f0582005ef3bc3842795c09acab0e942a380"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-as-total-architect-of-his-children-s-world",
+  "field": "title",
+  "lang": "ko",
+  "text": "자식의 세계를 통째로 설계한 아버지",
+  "model": "claude-opus-5",
+  "source_sha256": "aac5109c447d69eaecf12494c70f891767f250ca53134df3c52b5a1b4a30d998"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-devoured-by-his-own-sons-betrayal",
+  "field": "title",
+  "lang": "ko",
+  "text": "아들들의 배신이 아버지를 삼키다",
+  "model": "claude-opus-5",
+  "source_sha256": "274cd3ef4dcef1dec1dc187a336f648f15a290578e004d6f9cb2a9b6a1511e9c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-inherited-as-wound-not-gift",
+  "field": "title",
+  "lang": "ko",
+  "text": "선물이 아니라 상처로 물려받은 아버지",
+  "model": "claude-opus-5",
+  "source_sha256": "d03b638a58641506b747145716d7f6538e6ca5043433c838a7ffdaa332d3b84e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-one-cannot-mourn",
+  "field": "title",
+  "lang": "ko",
+  "text": "애도가 되지 않는 아버지",
+  "model": "claude-opus-5",
+  "source_sha256": "fb1a64bdb748caec2e0b3925ec8d0431d971ba23a7f3912d644be585edb47285"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-one-must-kill-to-become",
+  "field": "title",
+  "lang": "ko",
+  "text": "그가 되려면 그를 죽여야 한다",
+  "model": "claude-opus-5",
+  "source_sha256": "4ca57f94cd0f451a666df6c50fc1b0eace6426b122ca91db4c2d27f218dc72b6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-reconstituted-from-found-matter",
+  "field": "title",
+  "lang": "ko",
+  "text": "주워 모은 것들로 되살린 아버지",
+  "model": "claude-opus-5",
+  "source_sha256": "84a5344a2e1f9e94fb3273f6ba27f23cde9be53a856e26693e4ab53f4b0fbf10"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-reconstructed-from-absence",
+  "field": "title",
+  "lang": "ko",
+  "text": "부재를 재료로 지은 아버지",
+  "model": "claude-opus-5",
+  "source_sha256": "d23e312c4311e1efe643d0f0ff98c986b54cba7348edec533eaf7798c65f4ed4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-returning-as-the-repressed",
+  "field": "title",
+  "lang": "ko",
+  "text": "억압된 것이 되어 돌아온 아버지",
+  "model": "claude-opus-5",
+  "source_sha256": "c98ffe005eea4966cb822a7f09ff6518851f39017a9d35bd4197b501b98b8e60"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-s-death-as-an-order-expiring",
+  "field": "title",
+  "lang": "ko",
+  "text": "아버지의 죽음, 한 질서의 만료",
+  "model": "claude-opus-5",
+  "source_sha256": "f602e5e3c89f9db665a99e9bb71ac084883374d154ba00715a52857efe9a8e7e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-s-grip-that-will-not-release",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 놓지 않는 아버지의 손",
+  "model": "claude-opus-5",
+  "source_sha256": "700a9012dd808a8c3296a1007c46dd92370b98e824cf3ca5b051090fb232fc04"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-s-name-refused-or-foreclosed",
+  "field": "title",
+  "lang": "ko",
+  "text": "아버지의 이름, 거부되거나 폐제되거나",
+  "model": "claude-opus-5",
+  "source_sha256": "2686854d9d16300014506b7c8b6025eb0fcf0d68a758566a9a2c58d55763085d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-s-sins-run-in-the-pines",
+  "field": "title",
+  "lang": "ko",
+  "text": "솔숲을 타고 흐르는 아버지의 죄",
+  "model": "claude-opus-5",
+  "source_sha256": "b56f671847026eb343a51f92cf9994a109634358a6cb7f7c3a132f1025e350b2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-s-war-refused-mid-combat",
+  "field": "title",
+  "lang": "ko",
+  "text": "전투 한복판에서 거부한 아버지의 전쟁",
+  "model": "claude-opus-5",
+  "source_sha256": "1f3d37140de7a727bcb64dc6d7630f5f9f25d89045717fbf2e47a5e4fa197779"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-who-cannot-answer-back",
+  "field": "title",
+  "lang": "ko",
+  "text": "대답하지 못하는 아버지",
+  "model": "claude-opus-5",
+  "source_sha256": "4f15e94ad510fd548c6146256f22b0e82a8d19b2363f00e44e9f1234dcd29b61"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-who-cannot-bless-the-son",
+  "field": "title",
+  "lang": "ko",
+  "text": "아들을 축복할 줄 모르는 아버지",
+  "model": "claude-opus-5",
+  "source_sha256": "c0f67a1735ba2918263bb7c9b254f6b123b7e404397c92f05dbdba9d4c0ecbb9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-who-cannot-bury-the-child",
+  "field": "title",
+  "lang": "ko",
+  "text": "아이를 묻지 못한 아버지",
+  "model": "claude-opus-5",
+  "source_sha256": "51dc389be09fab3b94a28ddb8d2e67a5e210ca7c0ac83b36cf45dc91fff22e93"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-who-devours-the-daughter-he-loves",
+  "field": "title",
+  "lang": "ko",
+  "text": "사랑하는 딸을 삼키는 아버지",
+  "model": "claude-opus-5",
+  "source_sha256": "09c52bd5e46729bb9f9060f7716fd0feb8ab9948e1719ce7f8f78fa8e791d3de"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-who-is-never-faced",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 마주치지 않는 아버지",
+  "model": "claude-opus-5",
+  "source_sha256": "929f13ad4c2d3570a2985c1022c24716d710bf2574ade272e8c9715930594ebc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-who-is-the-state-in-miniature",
+  "field": "title",
+  "lang": "ko",
+  "text": "아버지라는 작은 국가",
+  "model": "claude-opus-5",
+  "source_sha256": "4d634e20de5369c60237369118e8f698f1b664b185b364431ae24ce148ebd3a4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-who-loves-by-withdrawing",
+  "field": "title",
+  "lang": "ko",
+  "text": "물러나는 것이 사랑인 아버지",
+  "model": "claude-opus-5",
+  "source_sha256": "afde4775d51aea2e4c6e1f8ded48a8565cae1bd54fee6a9ac4e4086e353995fa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-who-must-be-slain-to-found-the-law",
+  "field": "title",
+  "lang": "ko",
+  "text": "법은 아버지를 죽인 자리에 선다",
+  "model": "claude-opus-5",
+  "source_sha256": "cb80241adf253580c1454dcd1bc729510044511cf902c771d8e14da77579a23a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-who-must-betray-his-saving-virtue",
+  "field": "title",
+  "lang": "ko",
+  "text": "자기를 구한 미덕을 배신해야 하는 아버지",
+  "model": "claude-opus-5",
+  "source_sha256": "9cec0c80ef23dff3dbcda4ca1d4a89848c31b528a9c5477f55da066fa35d114a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-who-postpones-his-own-abandonment",
+  "field": "title",
+  "lang": "ko",
+  "text": "버리기를 자꾸 미루는 아버지",
+  "model": "claude-opus-5",
+  "source_sha256": "ddffcbf37a158f6bc0ddd5822956be1add44bba5f7b393d9d8340a1cb1845ed1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-who-uses-the-child-as-means",
+  "field": "title",
+  "lang": "ko",
+  "text": "아이를 수단으로 쓰는 아버지",
+  "model": "claude-opus-5",
+  "source_sha256": "ba624968daaecde77881558728a7802a971e6a18885554ed5e3e563f8938c3dd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-who-writes-the-unsaveable-son",
+  "field": "title",
+  "lang": "ko",
+  "text": "구할 수 없는 아들을 써 내려가는 아버지",
+  "model": "claude-opus-5",
+  "source_sha256": "aab0f44bb0678225465ca99a694047a98dce5b26fbff1eb01a5cdcff5d337722"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-father-worn-as-inherited-armor",
+  "field": "title",
+  "lang": "ko",
+  "text": "물려받은 갑옷처럼 걸친 아버지",
+  "model": "claude-opus-5",
+  "source_sha256": "0a5c40d5f8ebfdf321a6bc793a29c24e68571c7f865b8c72939c2fafdcb8bc96"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-favela-s-verit-grammar-as-argument",
+  "field": "title",
+  "lang": "ko",
+  "text": "파벨라의 시네마 베리테, 문법이 곧 주장",
+  "model": "claude-opus-5",
+  "source_sha256": "89ad8c9169fea287502e132ecc8f6a1206859050afb48876ec71ba412243c217"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-feast-as-sacrificial-tribunal",
+  "field": "title",
+  "lang": "ko",
+  "text": "제물을 심판하는 만찬",
+  "model": "claude-opus-5",
+  "source_sha256": "ee1469b32ee47d9bf32e69d80a1a169ad40034e1015c992521a98f487d8408f9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fellowship-doomed-to-carry-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "서로를 짊어질 운명의 원정대",
+  "model": "claude-opus-5",
+  "source_sha256": "3286b02749fdf313b95a55473bfce44bd0ab1c12b25f73c4983be731a00722fa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-felony-as-the-only-grammar-of-love",
+  "field": "title",
+  "lang": "ko",
+  "text": "범죄만이 사랑의 문법일 때",
+  "model": "claude-opus-5",
+  "source_sha256": "e9daf89292e4b7d36ac0a43f6b29f8f86c2e4d30359268905ae3d6bc8fc872cc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-female-body-as-the-polity-s-hidden-constitution",
+  "field": "title",
+  "lang": "ko",
+  "text": "여자의 몸에 적힌 나라의 숨은 헌법",
+  "model": "claude-opus-5",
+  "source_sha256": "cdcf3ace76ad83419ae1bb632974809e2bef8f0af2a04aed6ed8899b240912ee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-female-mask-as-the-truer-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "여성이라는 가면이 더 참된 나",
+  "model": "claude-opus-5",
+  "source_sha256": "579bf715bcdd26940fb5396b66de8bc29163c1d73470ed025bcd539735f360a4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-feminist-acclaim-that-indicts-its-praisers",
+  "field": "title",
+  "lang": "ko",
+  "text": "찬사를 보낸 자를 고발하는 페미니즘 갈채",
+  "model": "claude-opus-5",
+  "source_sha256": "b358f23c0929bc68557731ccaa0d15da920d0ac2c5c198705c01b1623dd35e35"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-feminist-verdict-as-critical-self-portrait",
+  "field": "title",
+  "lang": "ko",
+  "text": "페미니즘 판정이 그린 비평계의 자화상",
+  "model": "claude-opus-5",
+  "source_sha256": "5c138192dbd77fb7bf0343bca28dad287445468ec4fe3c19ee7acb1a352ff26f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-ferry-as-trolley-problem-made-flesh",
+  "field": "title",
+  "lang": "ko",
+  "text": "살과 피로 옮긴 트롤리 문제, 여객선",
+  "model": "claude-opus-5",
+  "source_sha256": "98ed49201cd6e8f13efa1194bec3fad7713d5e3530fdd09a91c97d5d2b3a8ce4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-festival-canonizes-its-own-boredom",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화제가 제 지루함을 정전으로 만든다",
+  "model": "claude-opus-5",
+  "source_sha256": "a980fa48f12cc549f0a48ec24e661babb8dc071a9d7404b40069efa9250d2b08"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-festival-crowns-a-national-anxiety",
+  "field": "title",
+  "lang": "ko",
+  "text": "한 나라의 불안에 씌워준 왕관",
+  "model": "claude-opus-5",
+  "source_sha256": "336a5b67a0536e6caaefbf94204fa7c2fef33df408acf54bff74e371b6b1072f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-festival-embrace-as-colonial-comfort",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화제의 포옹, 식민의 위안",
+  "model": "claude-opus-5",
+  "source_sha256": "92c1a71e6bd539ac447ad2f4c045d85fb5495bc65ba5130bf3bbedd1cf877bc9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-festival-embrace-as-symptom-of-western-hunger",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화제의 포옹에 드러난 서구의 허기",
+  "model": "claude-opus-5",
+  "source_sha256": "173e623686adf3305ca02fa2d690af6b64a69c83c7ce9c6b09ae2c87f836d8f5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-festival-embrace-as-western-self-absolution",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화제의 포옹으로 서구가 제 죄를 사한다",
+  "model": "claude-opus-5",
+  "source_sha256": "a06ef93fb23beddb5c29d16d1eff5a667442970a8a8688556794146418008964"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-festival-s-appetite-for-beautiful-suffering",
+  "field": "title",
+  "lang": "ko",
+  "text": "아름다운 고통을 탐하는 영화제",
+  "model": "claude-opus-5",
+  "source_sha256": "32a6bf2fae2613846d73ed1ae07dfb09b044776c863be0ed2393d297cac3e352"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-festival-s-taste-for-beautiful-atrocity",
+  "field": "title",
+  "lang": "ko",
+  "text": "참극도 아름다우면 된다는 영화제의 입맛",
+  "model": "claude-opus-5",
+  "source_sha256": "4344a75a4fed1287e0a73608926a4795e8344b8c7a82ad71eee6548d45d80dc5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-festival-that-frees-what-order-suppressed",
+  "field": "title",
+  "lang": "ko",
+  "text": "질서가 눌러둔 것을 풀어놓는 축제",
+  "model": "claude-opus-5",
+  "source_sha256": "53757b103d9a689caf3152b84e22b8999662c586003e4e06f16bee9cab84f91c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fetish-object-that-disavows-an-unmournable-loss",
+  "field": "title",
+  "lang": "ko",
+  "text": "애도 못 할 상실을 부인하는 물신(fetish)",
+  "model": "claude-opus-5",
+  "source_sha256": "66d7e192a8c5394027bc7e888ffec95965028a7f8ec565af466a64fd8db7c520"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fiction-that-becomes-real-threat",
+  "field": "title",
+  "lang": "ko",
+  "text": "허구가 진짜 위협이 되다",
+  "model": "claude-opus-5",
+  "source_sha256": "6aadb68a7c1d786b61d410adf674c323b51c851d218d63ed6979431e9444e926"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fiction-that-claims-to-be-fact",
+  "field": "title",
+  "lang": "ko",
+  "text": "사실을 자처하는 허구",
+  "model": "claude-opus-5",
+  "source_sha256": "a967febc7dbb9e9b04bf9e301ae0bd779b44eaf1d20b4490c2d91325ea8e8ff1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fictional-place-pinned-to-real-soil",
+  "field": "title",
+  "lang": "ko",
+  "text": "실제 땅에 박아 넣은 허구의 장소",
+  "model": "claude-opus-5",
+  "source_sha256": "a151c273a2921e66301889f5f073e9eb032baad1af49a14f8b9e89146545417b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-field-read-through-van-gogh",
+  "field": "title",
+  "lang": "ko",
+  "text": "반 고흐를 거쳐 읽는 들판",
+  "model": "claude-opus-5",
+  "source_sha256": "9bca199b82ce9f35e049487843381d909f37bd325af142b41d01e075909f7fb6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fight-engineered-not-merely-filmed",
+  "field": "title",
+  "lang": "ko",
+  "text": "찍은 싸움이 아니라 설계한 싸움",
+  "model": "claude-opus-5",
+  "source_sha256": "e5e3a540221a9b03f14c4e7e153c480ecda2f19f4133f2163646f226400fd2b0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-fighter-s-posture-read-off-the-ring",
+  "field": "title",
+  "lang": "ko",
+  "text": "링 밖에서 읽어내는 파이터의 자세",
+  "model": "claude-opus-5",
+  "source_sha256": "e0a7484d60c9740e37472dc4bea51c28c70c072266b7a47fef35bf96f37f8243"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-figure-of-speech-taken-literally",
+  "field": "title",
+  "lang": "ko",
+  "text": "비유를 곧이곧대로 받아들일 때",
+  "model": "claude-opus-5",
+  "source_sha256": "2b3df43a76b64670ad997dc932310308edf00890dcbf23a8299e7665f9f2bfe3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-file-is-the-real-body-politic",
+  "field": "title",
+  "lang": "ko",
+  "text": "서류가 곧 정치체(政治體)다",
+  "model": "claude-opus-5",
+  "source_sha256": "d527cf1bef8755825644855c219e83fd213b0619779556898523db46e06fad75"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-as-a-single-devouring-organism",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화 한 편이 통째로 삼키는 생물",
+  "model": "claude-opus-5",
+  "source_sha256": "e7fadc78547f77054877552e2d741e4b06959ceb70566f9893996c42fe416eb9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-as-autopsy-of-the-present",
+  "field": "title",
+  "lang": "ko",
+  "text": "현재를 해부하는 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "0a73c7ffc9fa5cfb6f6ef32949aadd07af4f056495321264ad52118605be6bdd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-as-confession-not-conversation",
+  "field": "title",
+  "lang": "ko",
+  "text": "대화가 아니라 고백인 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "75be78a90abfeedeb946bb199b2912e97b6b8d46960d5b61a09aa09d7106366e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-as-forensic-indictment-of-real-death",
+  "field": "title",
+  "lang": "ko",
+  "text": "실제 죽음을 법의학으로 고발하는 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "ccc954d1b86f1e862c227f4f14ade9e8b485cbbe87ace62dbe9902e222f7d901"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-born-from-its-own-score",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 음악에서 태어난 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "ea3ab56169daed4f02634beda6b9b290fbd09f46a82c0811cdc19a0324625158"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-built-around-an-absence",
+  "field": "title",
+  "lang": "ko",
+  "text": "부재를 한복판에 두고 지은 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "65419167732e1e02ddc0e54520719bdca75bd87984f7a1e6ad4f146134e3383c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-built-backward-from-its-sound",
+  "field": "title",
+  "lang": "ko",
+  "text": "소리에서 거꾸로 지어 올린 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "46c51f73a2a79b1e387c4932c73ca432ea97860bdf737ab5fe1ce63eb96b91c3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-built-by-the-attention-economy-it-indicts",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 고발하는 주목 경제로 만들어진 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "dcb2a0da4d9a38e61151ebb4ca47c58b578d873b2ebd12e42e52599e7b9a540f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-film-built-on-descartes-evil-demon",
+  "field": "title",
+  "lang": "ko",
+  "text": "데카르트의 악령 위에 세운 영화",
+  "model": "claude-opus-5",
+  "source_sha256": "8924bfb0b3d4b56100a3f88f1519e1f22eebe438eaf49f06d77f5d246e6da1d1"
+ }
+]

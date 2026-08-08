@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-mcquarrie#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "연출 데뷔작은 2000년의 잔혹한 범죄 스릴러 《The Way of the Gun》이었다. 평단에서도 흥행에서도 실패했고, 그는 그 뒤로 십 년 넘게 \"무비 제일(movie jail)\"에 갇힌 신세가 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "927809629a6a83c0a468988acd19f29b9b1319fa56b2f15f516bfd323f18216e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-mcquarrie#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "연출에서 물러나 있던 십이 년, 그는 각본 수리공으로 할리우드에서 버텼다. 브라이언 싱어의 《엑스맨》을 비롯한 대형 블록버스터에 이름 없이 손을 댔고, 보수는 높았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "01ecbdb70e7ea2a6f9d8e41d361e1e91984d73627bd7a53d06f22add6a8be4e4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-mcquarrie#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "경력을 통째로 되살린 것은 2008년 2차 대전 스릴러 《작전명 발키리》의 각본이었다. 이 작품에서 시작된 톰 크루즈와의 각별한 협업은 이후 십 년 넘게 이어진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c03034fe2df59ad4f5e31da60419ab08fcb1a075a45d47480cd23e744280c1d2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-mcquarrie#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2012년 액션 영화 《잭 리처》의 연출자로 맥쿼리를 앉히라고 직접 요구한 사람은 크루즈였다. 십이 년에 걸친 감독 의자로부터의 유배가 그렇게 끝났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f2fbcf2900f1de65f4a1fa7ba132ec423d44d93e90a46d00a46cc638e9a8afbf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-mcquarrie#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《미션 임파서블: 고스트 프로토콜》은 제작 도중 그를 불러들였다. 엉킨 후반부를 통째로 다시 쓰기 위해서였다. 시리즈의 현재 톤이 그때 잡혔지만, 각본 크레딧에 그의 이름은 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "20c8d96e68488a892a83fd947932acac5c3af4ce3985617253a6822d932cfe51"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-mcquarrie#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《미션 임파서블》 시리즈를 두 편 이상 연출한 감독은 그가 유일하다. 매 편 새 작가주의 감독을 부른다는 시리즈의 오랜 관행이 그에게서 깨졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "aa16a1ed9f2eb77f236e4b2c37cf8d4cc45a85d83d5b2f00008e960516c4519f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-mcquarrie#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "일본 누아르에서 영감을 얻은 《더 울버린》 각본은 극찬을 받았고, 대런 아로노프스키를 연출자로 끌어왔다. 그러나 아로노프스키가 하차하자 새로 들어온 제임스 맨골드가 맥쿼리의 초고를 완전히 갈아엎었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e789507dd53dd78008cfe04423347328f5cd4d32486dfb6e41f5a2d42e7d3a9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-mcquarrie#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "작곡가 조 크레이머와 자주 손을 잡는다. 《The Way of the Gun》에서 처음 기용한 뒤 《잭 리처》와 《미션 임파서블: 로그네이션》의 음악을 다시 맡겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "865532f208706d4e63d75ec49e30db2029f78f97ed32a168f313f49d61d2bd88"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-mcquarrie#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "당대 최고의 액션 감독으로 불리지만, 정작 본인은 액션 시퀀스 연출을 좋아하지 않는다고 말해왔다. 그가 훨씬 즐기는 쪽은 조용하고 팽팽한 대화 장면을 쓰고 찍는 일이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7640d1d8e36dffe0721a3651496d60f0de3b8b46ba8b3ee2fd8e0e06921326f4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-mcquarrie#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《탑건: 매버릭》이 나오기 한참 전, 그는 《탑건》 속편의 공동 각본가로 고용된 적이 있다. 2012년 원작 감독 토니 스콧이 세상을 떠나면서 그 초고는 폐기됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "68742e6f8341e4b5960200d844c60571fca13c61f804bb4d241051fca5a99269"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-mcquarrie#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마침내 《탑건: 매버릭》이 제작에 들어가자 맥쿼리는 각본을 대폭 다시 썼다. 크루즈의 매버릭과 발 킬머의 아이스맨이 재회하는 그 장면은 그가 직접 빚은 것이고, 스스로 가장 자랑스러워하는 집필 성과 중 하나로 꼽는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4311d5581fd5822d0a7343df99cfed918d9dd27c0122496ed51d0bd32dbfb85c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-mcquarrie#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《미션 임파서블: 폴아웃》 도입부, 자동 소각되는 지령 테이프를 읽는 정체불명 IMF 국장의 목소리가 그다.",
+  "model": "claude-opus-5",
+  "source_sha256": "837c2908e717917e445ea0ec701212dcd35596b27d59fa862185326e3d4339cd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-nolan#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "일곱 살에 이미 영화를 만들기 시작했다. 아버지의 슈퍼8 카메라와 《스타워즈》 액션 피겨들을 동원해 찍은 스톱모션 헌정작, 제목은 《Space Wars》였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a4cb4fd3e0bb7ddae3645d09a5a9cd8adf8658d38f41aa7fe058e022ebe93983"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-nolan#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "놀란에게 영화 만들기는 엄연한 직업이다. 촬영장에는 매일같이 맞춤 정장에 조끼, 두꺼운 코트 차림으로 나온다. 헤일리버리 기숙학교에서 교복을 입던 시절이 남긴 습관이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f19d2e547ff5887532a2f19703cd0bbd9575a7fffa34df5e681d0cf6e8fca3cc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-nolan#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《인터스텔라》(2014)의 거대한 황진지대 농장은 CGI가 아니었다. 캐나다 캘거리 외곽에 500에이커의 옥수수를 실제로 심었고, 촬영이 끝난 뒤에는 수확해 팔아 이익까지 남겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a7b56600749c37a037a9055de0147908a4082ac3325575312fb8fd0b2d854929"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-nolan#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《테넷》(2020)의 공항 강탈 장면을 위해 놀란은 퇴역한 보잉 747 한 대를 사들여 캘리포니아 빅터빌의 격납고에 그대로 들이받았다. 미니어처를 짓거나 디지털로 처리하는 것보다 진짜 스턴트가 싸다는 계산이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2c4f0053a6962c1c749f2e3645d009aa2fce80957ab15bb6c4bc0f8dee9f8c1f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-nolan#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "킬리언 머피는 《배트맨 비긴즈》(2005)의 브루스 웨인 스크린 테스트에서 떨어졌다. 그런데 배트슈트 안에서 빛나던 그 파란 눈에 놀란이 홀려버렸고, 곧바로 악당 스케어크로우 자리를 내줬다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e877db571cfd60b48efc9cc338bd96ea5839560028c0a49ce88a0a2c26c2cfcf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-nolan#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "20년을 함께한 워너브러더스와 놀란은 2020년 공개적으로 결별했다. 2021년 극장 개봉작 전부를 같은 날 디지털로 푼다는 발표가 나오자, 그는 분노하며 새 플랫폼 HBO Max를 '최악의 스트리밍 서비스'라 불렀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "daaaa9def85c7761e3277191e3833082f64f3fe21e54c65a9eeb183f5f4e0048"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-nolan#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그의 촬영장에서 어그 부츠는 금지다. 스태프에게 제대로 된 신발을 요구하고, 모니터 주변에 의자를 두는 것도 강하게 말린다. 모두가 몸을 세우고 붙어 있으라는 뜻이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "000210c8e380e50ace629aed23b2c8074ce82d71bbbb3c0c9b1f30257898cef8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-nolan#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "작곡가 한스 치머와의 전설적인 협업은 한 차례 끊겼다. 치머가 놀란의 《테넷》 대신 드니 빌뇌브의 《듄》(2021)을 택했기 때문이다. 그 자리를 루드비히 예란손이 채웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "84e17af7e47be1e88ebe5b36e5576ece0c847c09df6c4fe28b005cb137078572"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "christopher-nolan#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《오펜하이머》의 트리니티 실험 장면에서 원자폭탄 폭발에 CGI를 쓰는 것을 그는 거부했다. 시각효과 감독 앤드루 잭슨과 함께 마그네슘과 알루미늄 분말, 휘발유를 섞어 뉴멕시코 사막에서 실제로 거대한 폭발을 일으켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8ac456e12cafacdcc766e734e2b5f4465c48dc480d254ac3a3634c4b5530e3f6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "claire-denis#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "드니는 프랑스 식민지 아프리카를 옮겨 다니며 자랐다. 세네갈, 부르키나파소, 카메룬, 지부티. 줄어드는 제국에 파견된 프랑스 공무원이 아버지였던 탓에 두 해마다 거처가 바뀌었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4e222654056d17e35db9c27faccbda0c2bcf345ce466a71eef02e55516931024"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "claire-denis#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "식민 행정의 일원이면서도 아버지는 완강한 반식민주의자였다. 그가 열네 살 딸에게 건넨 책이 프란츠 파농의 급진적 저작 『대지의 저주받은 사람들』이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7c8811339dacf2f22beb5cbceee0415ed80f71aeffc11b8251a885514beb17d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "claire-denis#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "파리에서 처음 붙잡은 전공은 경제학이었다. 그만두고 영화학교 IDHEC에 지원해보라고 권한 사람은 남편이었고, 그렇게 합격해 정식으로 영화를 배우기 시작했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "43b66f10fb3b8bca3e2cafa9deefa11bed0d93884133eae5f17146644c6b6701"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "claire-denis#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "자기 영화를 찍기 전 그는 여러 감독의 조감독으로 오래 일했다. 특히 빔 벤더스와 가까웠다. 《파리, 텍사스》와 《베를린 천사의 시》가 그 시절의 현장이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ef017bf56a882c5e732d3a00339a741bf4e8294e4df69a84746e1d2785de2cee"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "claire-denis#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "짐 자무시의 《다운 바이 로》에서 조감독을 맡았고, 자무시는 뒷날 그 빚을 갚았다. 카메룬 음악 그룹을 담은 1989년 다큐멘터리 《Man No Run》에 카메오로 얼굴을 비친 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "581df6bee8d8617c6c2fd6ef311e6e650b3cd8c08f725c8364e23acdea7377b9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "claire-denis#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "데뷔작으로 원래 염두에 둔 것은 도리스 레싱의 로디지아 소설 『풀잎은 노래한다』였다. 판권을 얻지 못하자 그는 자기 유년의 기억을 끌어와 《초콜릿》을 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7d42ba4730f59730ee94ba15d2e77c6b2488513deeb566eddaf55ebe57f9fd7c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "claire-denis#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "IDHEC에서 촬영감독 아녜스 고다르를 만났다. 수십 년에 걸친 전설적 협업이 여기서 시작됐고, 피부에 밀착한 그 촉각적 화면이 곧 그의 영화가 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9f3857ac726faed8df90f70828bde243091c9a08114c1a85fff9d1ad939b1495"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "claire-denis#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "대표작 《아름다운 직업》은 허먼 멜빌의 『빌리 버드』를 느슨하게 옮긴 것이다. 바다의 비극이 지부티 주둔 프랑스 외인부대로 자리를 옮겼다. 어린 시절 그가 바라보던 병사들의 기억이 밑그림이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4a30c5da0c8e3c52c486155ca17c1c4910fd5750562f7e4c364b36893c102b9e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "claire-denis#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "식인 성병에 시달리는 미국인을 뱅상 갈로가 연기한 2001년작 《트러블 에브리 데이》. 극단적인 유혈 묘사에 칸영화제 상영장에서는 관객이 무더기로 나가고 실신하는 사람까지 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "923f47eddae3fe4aa1b6d3f76f12f82f84c9a9c87aa0689ed20d499496384223"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "claire-denis#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "프랑스 철학자 장뤼크 낭시와 직접 작업해 만든 것이 《침입자》(2004)다. 심장 이식 경험을 적은 그의 자전적 에세이에서 출발한, 파편적이고 꿈결 같은 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "0e5a22795a61f7bb0afed3701e8ebafcb62593b4d43bfc74a67f49162ff3f895"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "claire-denis#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그는 반복해서 부르는 배우들로 단단한 \"가족\"을 꾸린다. 알렉스 데스카와 이자크 드 방콜레가 대표적이다. 프랑스 안 흑인 디아스포라의 결을 살피는 데 이들을 거듭 세운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a5609867ce7f319c87c396369acd11a97b2a8d2a9deb3c590da1ad366606f1b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "claire-denis#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "연출자로만 남는 편이지만 친구들을 위해 드물게 카메라 앞에 서기도 했다. 토니 마셜의 1996년 코미디 《Enfants de salaud》에서 지친 어머니 역이 그런 경우다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f07e72a0598cd4ba50e426360157dfe5ba7e03d9aa70cfa0e5067e5ca5f1ce5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "claire-denis#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "프랑스 영화계에서 수십 년간 서로를 어려워하며 피해 다닌 두 사람이 마침내 만났다. 쥘리에트 비노슈와의 《렛 더 선샤인 인》(2017), 롤랑 바르트의 『사랑의 단상』을 느슨하게 깔고 만든 코미디다.",
+  "model": "claude-opus-5",
+  "source_sha256": "965b6d9cca5bf441cc442f03d79a97c122eeab706914c9d12d0cc3339cff5a37"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "claire-denis#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《35 럼 샷》은 오즈 야스지로의 《만춘》에 바치는 헌사로 구상됐다. 홀아비 아버지와 헌신적인 딸의 이야기가 파리 교외 전철 기관사들의 동네로 옮겨 왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bc3d2d2e0668d62c43013a0663765a34962d227c40099a1189309a79affa1b70"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "claire-denis#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "30년 넘게 프랑스 영화의 거인으로 불렸으나 칸영화제 주요 상과는 오래 인연이 없었다. 2022년에야 니카라과를 배경으로 한 스릴러 《스타스 앳 눈》으로 심사위원대상을 공동 수상했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d01ecde83746cca45567efa6150c91fd14c2a0921759b751064b69e6dca8feb5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "claire-denis#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "거의 모든 각본을 장폴 파르조와 함께 쓴다. 시골로 물러나 며칠씩 같이 요리하고 이야기만 나눈다. 한 줄도 쓰기 전에.",
+  "model": "claude-opus-5",
+  "source_sha256": "14632b82e6e0a53c37dc65b48a7f3efa464ad597b1b0ed6541d0d7e2295baaa9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "clint-eastwood#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "대공황 한복판, 샌프란시스코 세인트프랜시스 메모리얼 병원에서 태어났다. 몸무게가 11파운드 6온스나 나가는 바람에 산부인과 간호사들은 그를 \"샘슨\"이라 불렀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dbe6fc863ca79f3df28c7c5e0a4070e6fb92727e4a4aff051b956401d0b7699b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "clint-eastwood#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "한국전쟁 중 포트오드에서 수영 교관으로 복무하던 시절, 그가 탄 더글러스 AD 폭격기가 차가운 태평양에 추락했다. 그는 켈프 숲을 헤치고 2마일을 헤엄쳐 포인트레이스 해안에 닿았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0456acd9eea0cf4e1e3e109da8b1cb829c34a5b0741317173585633a43a4ab00"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "clint-eastwood#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "연기로 자리를 잡기 전에는 태평양 연안 북서부를 돌며 고된 육체노동을 이어갔다. 건초를 묶었고, 오리건주 스프링필드에서 벌목을 했으며, 베들레헴 스틸에서는 용광로를 지켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7d7f5707850cecf51755df5f730ca8effb641be93f355032685bd4e081dd81e"
+ }
+]

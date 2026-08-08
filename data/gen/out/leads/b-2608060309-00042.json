@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "opening-night-1977",
+  "field": "lead",
+  "film_id": "91dc7da3-6d84-4fea-b640-e9a7359484d7",
+  "lang": "en",
+  "text": "Two performances are running at once here, and only one of them has an audience. Myrtle Gordon is days from opening in a play about a woman distraught at growing older, she is drinking and still functioning, and a death outside the stage door has gotten into her in a way she cannot put down. John Cassavetes spends 144 minutes on the days before rather than the night itself: rehearsal rooms, corridors, a whole company waiting for one person to be ready. The stakes are small and absolute. A curtain rises at a fixed hour whether or not anything has been resolved, and the film understands that a deadline is the least forgiving thing that can be handed to grief. It holds a Silver Bear for Best Leading Performance and a place among the thousand films on They Shoot Pictures Don't They?",
+  "model": "claude-opus-5",
+  "source_sha256": "e0305d9989b02761a8a619a0fdd69f90dab9b8e7663d595e76cc5e25143ffa48"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "born-yesterday-1950",
+  "field": "lead",
+  "film_id": "98ec2dd2-9097-42cc-95c8-25bf2a164eb7",
+  "lang": "en",
+  "text": "Scrap metal built the fortune, and the fortune has come to Washington to buy legislators with it. Harry Brock is loud in a town that transacts quietly, and he arrives with Billie Dawn, an ex-showgirl he treats as part of the luggage. George Cukor directs the collision, 103 minutes running on the distance between what money purchases in the capital and what it cannot. The plot barely thickens after the setup, which is deliberate: the rest is talk, and the slow business of working out who in the room has been underestimated, and by whom. It won an Academy Award for Best Actress and was later taken into the National Film Registry, and the second is the odder honour, a comedy about buying a congressman preserved by the country whose congressmen were the joke.",
+  "model": "claude-opus-5",
+  "source_sha256": "a1e0d4ec8b079a8154f747cef910cb17c2dd60cd41940335d3057113c9f52357"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "anastasia-1956",
+  "field": "lead",
+  "film_id": "68ce01fb-77e5-4a4d-b208-cee9aa91c52d",
+  "lang": "en",
+  "text": "Ten million pounds sit in the Bank of England, and the only key to them is a woman who can be made convincing. The men who plan this are Russians living in Paris on very little, and the girl they pull off the street is chosen for having nothing left to lose, which is the qualification the job requires. Anatole Litvak keeps the scale domestic across 105 minutes: coaching, corrections, a biography fitted to a person like a dress. What unsettles the scheme is Bounin, who is running it and who starts to believe his own manufacture. The Academy gave awards to the performance at the centre and to the score. Neither is quite the reason to watch, which is the sight of a fraud losing confidence in its own fraudulence, a far more dangerous position than honesty.",
+  "model": "claude-opus-5",
+  "source_sha256": "544891c366ac901cce6660dc9c1ba6720f9e11acb159a233d55c7a33c4b49318"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "separate-tables-1958",
+  "field": "lead",
+  "film_id": "4f521b0c-87ca-41d2-a3ac-539e8c6304f1",
+  "lang": "en",
+  "text": "Everyone in this hotel has come to the coast for a reason they would rather not be asked about. Delbert Mann keeps all 98 minutes inside one small English establishment and lets a set of unfinished lives sit down to dinner within earshot of each other. Nothing is plotted so much as overheard. The film took Academy Awards for both its leads and a third for black-and-white photography, and that combination describes the method exactly: in a space this confined the event is a face doing arithmetic while somebody else talks, and light deciding how much of it to show. The engine is what people are prepared to say aloud in a room where they will still be sitting tomorrow, and what proximity does to an evasion that was built for open country.",
+  "model": "claude-opus-5",
+  "source_sha256": "050cf921bd334b457f25b889596623d63832f41430813522476fd5594cbd820c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "charly-1968",
+  "field": "lead",
+  "film_id": "ed44c8d6-da83-40b0-8e3f-62f4e1db79e5",
+  "lang": "en",
+  "text": "The experiment works, and that is precisely where the trouble starts. Charly Gordon is made intelligent by other people's design, and the intelligence they hand him proves more than sufficient to examine them, their methods, and whether anyone thought to ask him first. Three genres sit on this 1968 picture, drama and romance and science fiction, and the mixture is exact rather than confused: a procedure that alters what a man knows also alters what he is able to want, which makes the love story and the laboratory story a single story. Ralph Nelson keeps the speculation at the size of one case file, a subject and a treatment and a consequence, 103 minutes. The Academy gave its award for the lead performance; the Golden Globes gave that one and Best Drama.",
+  "model": "claude-opus-5",
+  "source_sha256": "095b8472ea029961f957857395730f2923b660aa9296f0e2a61427660cfeb47b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "harry-and-tonto-1974",
+  "field": "lead",
+  "film_id": "da50f83b-4796-4675-92b8-8474617ebdf3",
+  "lang": "en",
+  "text": "A parking garage is the reason for everything that happens in this film. Harry Coombes taught school, raised children and spent all of his seventy-odd years on the Upper West Side; the building comes down to make room for cars, and he leaves New York with his cat. Paul Mazursky assembles what follows out of stops rather than chapters, a child, a stranger, another leg of the country, and the shape is loose because a man with nowhere to be has no reason to hurry. The comedy is real. So is the arithmetic underneath it, since crossing a country at that age means counting how much of it went unvisited during the working years, and noticing which reunions are unlikely to come round again. Academy Awards went to the lead performance and to the screenplay.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf98acd6f05d8e16102cfe2133bf9b483a79227df4fd6bfef60e0ba007ae4403"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-good-earth-1937",
+  "field": "lead",
+  "film_id": "7c4da51d-7985-4642-bba2-53e898c2b389",
+  "lang": "en",
+  "text": "An American studio, English dialogue, and a story about farmers under the Qing dynasty. That mismatch is the first fact about this 1937 production and it conditions everything after it: Hollywood built an agricultural China on its own terms and then worked seriously inside it for 139 minutes. Wang Lung has land. O-Lan comes to him out of domestic slavery, by arrangement, and the marriage that results is measured in seasons rather than scenes. The film is sharpest on the danger of the good years, since hardship is something this household knows how to survive and money arrives with appetites nobody in it has practised resisting. Of its three Academy Awards, for the lead actress, the cinematography and the direction, the middle one is doing the heaviest work.",
+  "model": "claude-opus-5",
+  "source_sha256": "75772eee11d2a9a76f8cf01e28b9d28df3a0026348fcd5b2b72f2d946da03574"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-trip-to-bountiful-1985",
+  "field": "lead",
+  "film_id": "6e525221-bae1-45e6-b14d-c1bd284ca785",
+  "lang": "en",
+  "text": "An old woman wants to see the town she grew up in, and the household she lives in will not allow it. Carrie Watts is kept in a Houston apartment in the 1940s by a daughter-in-law who supervises her hours and a son who declines to intervene, and Peter Masterson measures her life by how little room is left inside it. The scale stays that small on purpose. What gives the 108 minutes their tension is not whether she gets where she is going but what she believes is still standing there, since Bountiful has had exactly as long to change as she has had to grow old. The Academy honoured the lead performance and the adapted screenplay together, the right pairing for a film made of talk: lines written to be spoken aloud, and someone who knew what to do with them.",
+  "model": "claude-opus-5",
+  "source_sha256": "319b55523a5d96cb5c7d2ece893bfd6990d0f3217cdd6cd826e90aa9e56b1d7f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-rose-tattoo-1955",
+  "field": "lead",
+  "film_id": "980d9d4a-ee92-4e60-9eeb-7f8d8a957d0f",
+  "lang": "en",
+  "text": "A widow's mourning is interrupted not by a suitor but by information. The husband she has organised her grief around was unfaithful, and the loss she has been living inside turns out to have been partly a fiction, which leaves her free in a way nobody would choose to become free. Daniel Mann filmed this in 1955 in black and white, and the Academy gave awards to the photography and the art direction as well as to the performance at the centre, three prizes that between them suggest a picture built as much as written. The 117 minutes go to a woman working out what she is now permitted to want. Grief and appetite are not kept in separate rooms here, which is the least respectable thing about the film and the most honest.",
+  "model": "claude-opus-5",
+  "source_sha256": "31c38835510656261bbe989dba9706ff07bb5c2a6235861044a25bfdbda95f8d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-people-vs-larry-flynt-1996",
+  "field": "lead",
+  "film_id": "0c3e5446-2940-4a08-887a-ce529d9cbfcb",
+  "lang": "en",
+  "text": "The First Amendment does not get to pick its own plaintiffs, and it did not pick this one. Larry Flynt sells a magazine most of his eventual defenders would rather not be photographed holding, and Miloš Forman's film tracks him from making a living at it to arguing, on everyone's behalf, that he is entitled to. The difficulty is designed in: to defend the principle the picture has to keep the man in frame unimproved, hedonistic and obnoxious and not asking to be liked, for 130 minutes, which is far harder to sustain than a sympathetic case would be. It carries a Golden Bear and an Academy Award for its lead performance. Constitutional argument is usually taught with the ugliness edited out; here the ugliness is the client.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a2384712c9154505720e81d732bc0cc736ca44458e927512ceb006a1b91c062"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-magdalene-sisters-2002",
+  "field": "lead",
+  "film_id": "146f3b19-889e-4cee-98c6-e35d51c7abc8",
+  "lang": "en",
+  "text": "The word for the women held in this place is inmates, and nobody inside the building finds that strange. Three young Irish women are held, worked and humiliated in a Magdalene asylum, and Peter Mullan made the picture in Ireland, about Ireland, in 2002, which is a different act from making it at a distance: the audience most implicated was the one buying tickets nearby. The 119 minutes attend less to cruelty than to the arithmetic of enduring it, what a person surrenders first, what she trades next, which part of herself she decides to keep beyond the institution's reach. What the film examines is not an outburst but an arrangement, something authorised and staffed and scheduled. It took the Golden Lion and the European Film Award for Best Film.",
+  "model": "claude-opus-5",
+  "source_sha256": "641d63dc04fdee9a1f55bedb0ba7d2be08effbd3bde6c5ed732ded8e2121d981"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bloody-sunday-2002",
+  "field": "lead",
+  "film_id": "90fccb80-0a62-43aa-b83c-6944c8ed4682",
+  "lang": "en",
+  "text": "On 30 January 1972 an Irish civil rights march set out, and the film gives itself almost nothing but the hours of that one day. Paul Greengrass cuts between the people organising the walk and the British soldiers deployed to meet it, so the day assembles itself from separate decisions taken by men who each believe they are managing a situation. Everyone watching already knows the date. The 107 minutes work by proximity rather than suspense: how close a camera can stand to something while it is still, technically, a protest march. The record holds a Golden Bear, a European Film Award for cinematography and a British Independent Film Award for its lead performance. What is withheld is commentary. The sequence of ordinary decisions is left to do that alone.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b4184a3a3c470f71f6d49b120a3eac279ce8069c5c5382e982164b489f6dbd9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "rosencrantz-guildenstern-are-dead-1990",
+  "field": "lead",
+  "film_id": "129bba77-5870-4cea-a8a6-b106a368ce3b",
+  "lang": "en",
+  "text": "Two courtiers are sent for by the King of Denmark and spend the journey trying to establish what exactly they are for. Hamlet is going on somewhere in this film, but it is going on in the next room, and Rosencrantz and Guildenstern catch only the portions that require them. Tom Stoppard directs, and the talk is in charge: 117 minutes of two men reasoning carefully from insufficient information, unable to get purchase on the plot they have been placed inside. A troupe of players arrives partway, professionals at pretending, and the contrast sharpens the problem, since actors at least know they are in a play. Comedy and drama are both listed on the file and neither is wrong; the joke and the dread run on identical machinery. It holds a Golden Lion.",
+  "model": "claude-opus-5",
+  "source_sha256": "faa52a8866b757fbdd439266773903ac3d2d2e23198be497e16671a2ed2d0d90"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "before-the-rain-1994",
+  "field": "lead",
+  "film_id": "b7e92a41-1ecd-4bbd-9f4a-a568ee52870b",
+  "lang": "en",
+  "text": "A young monk has taken a vow of silence, and the first thing that vow costs him is any way to explain the girl he is sheltering. Пред дождот was made in 1994, close to the events it circles, and it moves between a Macedonian village where men are hunting an Albanian girl and a London restaurant where a pregnant photo editor is trying to have a conversation she has been avoiding. The two places are not offered as metaphors for one another. Milcho Manchevski joins them by something more literal and less comfortable than resemblance, and builds the 113 minutes so that the shape of the telling carries what the dialogue never has to state. It took the Golden Lion. Distance from a war turns out to be a matter of geography and nothing else.",
+  "model": "claude-opus-5",
+  "source_sha256": "2fda4d4bcbcb5e9bcf9a7047fe3b0625394d2bbaa7eaf629dd82b34e36b0588b"
+ }
+]

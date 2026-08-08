@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "rossini-1997",
+  "field": "lead",
+  "film_id": "34d3dc2b-821e-4345-a7a4-3cb5ae98099f",
+  "lang": "en",
+  "text": "The film does not exist yet and the rights to it are already being fought over. One of the men attached to it is looking for the woman of his dreams and for the actress who will play the lead, and expects a single person to answer both descriptions. The producer, Oskar Reiter, intends to own the picture whatever it costs, and wants Valerie besides. Helmut Dietl runs this to nearly two hours, longer than a farce usually survives, and the length alters what it is: the scheming stops being a sequence of events and becomes a habit, renewed nightly by the same few mouths. The German Film Award for best feature went to a comedy about the trade that votes on such things. Nobody in it hides anything. The humour is in how plainly the appetites are stated, and how little that plainness costs anyone.",
+  "model": "claude-opus-5",
+  "source_sha256": "36dea739b5a70a8425fa65219cb09204148b3fd213f62dd2b23ea5b98b6c2c3f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "gundermann-2018",
+  "field": "lead",
+  "film_id": "a0abe623-852e-4eca-9dfa-5c548da4a79c",
+  "lang": "en",
+  "text": "Gerhard Gundermann dug brown coal by day and wrote songs about the men he dug it with. Andreas Dresen keeps both jobs on screen for the full two hours, because dropping either would make the third thing easier to explain away: Gundermann also had dealings with the Stasi. In the GDR a singer with an audience was worth watching, and a worker with an audience was worth using, and he was both. The film has to hold the three at once rather than let one absorb the others, and the lead performance — which took the European Film Award for Best Actor — is what makes that hold. Dresen shoots the mine as a workplace rather than an emblem: machines, shift ends, the noise a crew makes, the tiredness at the end of it. Then evening, and the songs.",
+  "model": "claude-opus-5",
+  "source_sha256": "a50a57fc740d76d298cbf180620fb05c5a7e87538c68bff0f626ae3c562f7c1d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dead-tired-1994",
+  "field": "lead",
+  "film_id": "5ee45cf8-5616-4953-a136-0af1b5eaf88c",
+  "lang": "en",
+  "text": "Fame is not a theme in this film so much as a workload, and the workload belongs to the man who made it. Michel Blanc directs Michel Blanc, a French star being ground down by the demands of being one, and Carole Bouquet plays Carole Bouquet. The conceit would curdle into vanity given time, so the film takes none: eighty-two minutes, moving at the pace of a man who cannot stop. Strange events start collecting around him; a psychiatrist prescribes the countryside, which turns out to be another place where his face is known and something is expected of it. The writing is why it holds: celebrity as a scheduling problem, a matter of appointments and faces that expect something, rather than an occasion for lament. It was the screenplay that took the prize. Comedy at this pitch usually needs a villain; this one makes do with a calendar.",
+  "model": "claude-opus-5",
+  "source_sha256": "f5862b686229a399779ebe57a92921cfc17b8854de3d3149b4559307be443a94"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "we-still-kill-the-old-way-1967",
+  "field": "lead",
+  "film_id": "542d92c2-a29c-41fd-ae1e-0558fb459434",
+  "lang": "en",
+  "text": "Two men are shot dead at a hunting party, and the only person who treats this as a question rather than a closed matter is a professor with left-wing politics and no protection. Elio Petri's 1967 film sets three obstacles in front of him — the mafia, the Church, the politicians — and declines to rank them, because ranking is not what the situation calls for: each covers for the others without having to be asked. What endangers the professor is not courage. It is visibility: everyone he questions knows who else he has questioned, and the asking is a public act in a place where he is known. Ninety-nine minutes, built like an inquiry and paced like one, though what it actually measures is how fast a curious man becomes conspicuous. Each answer he gets costs more than the one before it.",
+  "model": "claude-opus-5",
+  "source_sha256": "925a98e564ff49e6e1d8a7caf20e0ab6d4bc39fe82fce3d67c0b54f505bb04f9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "my-missing-valentine-2020",
+  "field": "lead",
+  "film_id": "3e0ef156-1291-405d-afe9-75ace0c0c592",
+  "lang": "en",
+  "text": "Xiao Chi goes to sleep on the eve of Valentine's Day and wakes to find the day already over, spent without her. Chen Yu-hsun gives two hours to those missing twenty-four hours, and the genre labels multiply — comedy, romance, fantasy, mystery — because the film keeps revising what kind of problem this is. At first it is a disappointment: she had a date. Then it is a discrepancy, since the day exists for everyone else, and a discrepancy is a matter for investigation. Keeping the tone light while the situation turns genuinely strange is harder than doing either on its own, and the Golden Horse for best feature went to a film that manages both at once. Xiao Chi has been in a hurry for years. The film's first move is to take one day away from her before she can spend it.",
+  "model": "claude-opus-5",
+  "source_sha256": "036c3c4c742b8912a491face24b223ecafe7250ebb9eacd910767a918e1f6897"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-captain-from-kopenick-1956",
+  "field": "lead",
+  "film_id": "1c7142c5-a366-472f-a2fe-427725a6e8a5",
+  "lang": "en",
+  "text": "No job without a permit, no permit without a job, and a shoemaker just out of prison standing exactly at the join. Fifteen years was the sentence for stealing a small sum, which sets out the arithmetic of the system before the story properly begins. Helmut Käutner filmed this in 1956, for a German audience with recent and varied experience of what a uniform does to the man inside it and to everyone else in the room. Ninety-three minutes, comedy and drama at once, the second growing out of the first rather than interrupting it. The Prussian officer's tunic in the second-hand shop is the hinge, and the film keeps it a garment before it becomes an idea: it fits, and fit turns out to be a kind of authority. What the shoemaker wants, still, is the permit.",
+  "model": "claude-opus-5",
+  "source_sha256": "1b95f96c6defaec6a4861aa41740d0fbfa0319cbefc2928d84098ef1c1b8f2cc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "do-ankhen-barah-haath-1956",
+  "field": "lead",
+  "film_id": "b56182c3-66f5-4b4c-bc9a-8051034c62d0",
+  "lang": "en",
+  "text": "A warden asks permission to take six convicted murderers out of prison and onto a ruined farm, and is given it. No wall, no guard but him, and work as the whole of the method. Shantaram Rajaram Vankudre gives the wager 143 minutes, long enough for it to be tested by soil and weather and the men's own patience rather than settled by speech. The farm either becomes workable or it does not, and the warden's authority rests on nothing except the fact that he came out here with them. India in 1956 was nine years into working out what it owed the people it locked up, and the film answers in the plainest currency available: hours, hands, food. The National Film Award for best feature came to it. Six is a large number for one man to stand among, and the film never lets it feel smaller.",
+  "model": "claude-opus-5",
+  "source_sha256": "cf2a183bbc9dd8a90609068818b4e95e03bcd8e83e3e2b9921fd180c00177015"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-man-2022",
+  "field": "lead",
+  "film_id": "3ab51ad4-1258-46e5-ba8d-4b1d1ad401de",
+  "lang": "en",
+  "text": "The job is an ordinary background check; the client is a widow, and the subject is her late husband. Rie asks Akira, a lawyer who has acted for her before, to find out who Daisuke was — a question that did not come up while he was alive. Kei Ishikawa keeps the machinery of the search in view: forms, registries, the interviews a professional conducts when a family's account of itself stops matching its paperwork. Japan's household records assume a person can be established on paper, and the film needs that assumption to be both dependable and insufficient. Two hours is a long time to spend establishing an identity, and the Japan Academy named it picture of the year. Akira takes the case as work, and the film is patient about the distance between work and curiosity, up to the point where that distance closes.",
+  "model": "claude-opus-5",
+  "source_sha256": "8efd489b17ad2912e09ef1152cbcec9cbbf85569902709aa3f0da07e83fa7b2c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "vanaprastham-1998",
+  "field": "lead",
+  "film_id": "1a9221a1-140f-4289-8d5c-5e915a649a97",
+  "lang": "en",
+  "text": "Kathakali puts a performer's face under paint until it is no longer his face, and the body speaks in a vocabulary set long before he was born. Kunhikuttan is famous for it. Subhadra, from an upper-caste family, falls in love with the figure he becomes and not with the man who becomes it. Two lines run alongside each other in Shaji N. Karun's film: the one between a performer and his role, the one between her family and his. Neither gets explained to anyone who does not already know it, and the film proceeds as though both are plain, which where it is set they are. Two hours in Malayalam, most of the weight on a man adored nightly under a name he did not choose. The paint comes off after every performance. That is the part of the job the film is about.",
+  "model": "claude-opus-5",
+  "source_sha256": "fffca4597c849dbe7d582539ead1bbfe3d13efea7ad2fb677f828155de367d6c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "warriors-of-the-rainbow-seediq-bale-part-2-the-rainbow-bridge-2011",
+  "field": "lead",
+  "film_id": "e8bf9c14-0ac3-43cb-ab50-f8e92b35e53d",
+  "lang": "en",
+  "text": "The uprising has already happened when this film begins; what is left is the part that comes after, when the army arrives and the fighting moves up into the mountains. Mona Rudao leads Seediq fighters against a Japanese force with far better weapons, and against Seediq clans who have taken the other side, and the second of those is the harder fact — Wei Te-sheng does not soften it. This is the second half of a four-hour work, 132 minutes that assume the first has been seen, which frees it from having to introduce anybody. Seediq Bale, real men, is used as a standard to be met and not as a boast, and the standard is expensive. The Golden Horse for best feature recognised the whole. What the two-part shape buys is time to show a guerrilla war as an argument among neighbours.",
+  "model": "claude-opus-5",
+  "source_sha256": "6f0578c4f0221a83c597fbd9edb2df1e2ca761ca99a5f8e73f60d1d785206dbd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-317th-platoon-1965",
+  "field": "lead",
+  "film_id": "fa1a77ec-ed26-4ff6-96ba-b5f62f961a7c",
+  "lang": "en",
+  "text": "Four French soldiers, forty-one Laotian combatants, a hundred and fifty kilometres of jungle, and eight days left before the war is decided somewhere else. The platoon is ordered to abandon its outpost and walk toward Diên Biên Phu, where the French army is already stuck; the order is late to the point of pointlessness and is obeyed. Command sits between two men who do not match: Torrens, a sous-lieutenant fresh from the academy with ideas about how this is done, and Willsdorf, an adjutant who fought his last war in the Wehrmacht and knows what a retreat is. Pierre Schoendoerffer holds it to a hundred minutes of rain, weight and ground covered, which is the right shape for a march. Ambush is not an event in this film. It is a property of the route.",
+  "model": "claude-opus-5",
+  "source_sha256": "4fb632fc8bcfd248d074a70efe979529ccbc8a428b4d4783a33208c0604dc164"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "antaheen-2007",
+  "field": "lead",
+  "film_id": "4808ed03-c66c-4430-9178-5e220ef9919a",
+  "lang": "en",
+  "text": "Three relationships are going badly at the same time, and none of them is promoted into the main story. Aniruddha Roy Chowdhury divides 113 Bengali minutes among six people, which comes out as a short story each rather than a novel, and the arithmetic disciplines what follows: with no central plot to lean on, a scene has to hold on what two people can and cannot say to one another. What connects the three is not incident but resemblance — a similar difficulty met at different ages and in different rooms. Three couples means three rhythms, and a film that cuts between them is betting that a viewer will carry all six at once. It holds a National Film Award for best feature. A film of this shape needs no more than two people and a room, which is more difficult to fill than it sounds.",
+  "model": "claude-opus-5",
+  "source_sha256": "27d9a4ea032bcede61262951be1c0af7f0b7d2cad7e844dd2eb22a1aa1667ff4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "deool-2010",
+  "field": "lead",
+  "film_id": "1935e239-4a00-4c5e-8ca8-78917754438c",
+  "lang": "en",
+  "text": "Nobody believes Keshya when he says god has arrived outside the village, and the disbelief does not last — though it is not faith that ends it. Umesh Vinayak Kulkarni spends 139 Marathi minutes on the distance between those two states, more interested in the mechanics than in the miracle: who signs, who benefits, who turns up once there is something to turn up for. Keshya does not move from where he started; he saw what he saw. The structure assembles itself around him at a speed nobody agreed to, and politics arrives the way it usually does, offering to help. The strange stretch is the one in which belief is still sincere and already worth money, and no one has yet been made to choose between the two.",
+  "model": "claude-opus-5",
+  "source_sha256": "87d4e3bd044b247fc41a9775a7b8fe16df112aedde778206b01fa63a49181ac8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "stopped-on-track-2011",
+  "field": "lead",
+  "film_id": "4bc70f44-ea07-4643-8417-a1340876e2cf",
+  "lang": "en",
+  "text": "A row house in the suburbs, two children, the life a couple spends ten years arriving at. Then Frank is told there is a tumour in his head and that it cannot be operated on. Andreas Dresen keeps the film in that house and in the weeks after, where the weight falls on ordinary business: who tells the children, who keeps working, who does the shopping on a day when nobody wants to. A hundred and ten minutes with a family that cannot reorganise itself around one fact, because the other facts keep arriving — school, money, appointments made months ago. Two people are inside this and only one of them is ill; Simone's position is the one such accounts usually pass over. There is no antagonist here to organise the story around, only a household that has to keep running.",
+  "model": "claude-opus-5",
+  "source_sha256": "7124a1ae8ac83cf0227ed092a3f1abc10ecce5b5d93eb19d4b7519692093c5bb"
+ }
+]

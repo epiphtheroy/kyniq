@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almod-var#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "프랑코 독재정권이 얼마 전 마드리드의 국립영화학교를 폐교한 뒤였다. 십 대의 알모도바르에게 남은 길은 하나뿐, 스페인 필모테카에 죽치고 앉아 고전영화를 보고 또 보며 혼자 영화를 익히는 것이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "327edd8c86cfab55e1a151b4a8ae0c3e7b5b5991884bbb104f9b25a138a1807e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almod-var#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "생계를 꾸리고 첫 슈퍼8 카메라를 장만하려고 그는 스페인 국영 전화회사 Telefónica에서 열두 해 동안 사무 보조로 일했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c50bf4bfe1cef4b8ade326f2ad09d0d7c0616bf55ea4b0265fcbe7390b469e5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almod-var#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "프랑코 사후의 향락적 문화 부흥기, 이른바 라 모비다 마드릴레냐 시절이었다. 그는 그물 스타킹에 짙은 화장을 하고 글램펑크 패러디 듀오 Almodóvar & McNamara로 무대에 섰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bdb15bdeaa25548f260cd146f8f7aa877bb05296a0a6f73898d0e1b214ade6e2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almod-var#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화로 이름을 얻기 전, 그는 잡지 La Luna에 고정 칼럼을 연재하며 마드리드 언더그라운드의 주요 목소리가 됐다. 필명은 패티 디푸사, 섹스에 미친 가상의 국제 포르노 스타였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4464bb6a6b041cfb180839dacf95a9271effb5188cb42c0eca0523691dd56b79"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almod-var#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "데뷔작 《Pepi, Luci, Bom》(1980)은 친구들과 스태프에게서 십시일반 모은 쥐꼬리만 한 예산으로, 오직 주말에만, 일 년에 걸쳐 찍었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "41ec3eebb0cb36f4148104b824697081bd4b8a26c852cc92e1bcd3fd9032edcb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almod-var#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1986년 그는 남동생 아구스틴 알모도바르와 독립 제작사 El Deseo를 세웠다. 이후 형의 영화는 한 편도 빠짐없이 동생이 제작했고, 동생은 관례처럼 매편 히치콕식 짧은 카메오로 얼굴을 비친다.",
+  "model": "claude-opus-5",
+  "source_sha256": "741fe195b6fa4b4e260ffe114daa988dd3a1cc4de4f9a46f0b5aa221ec0b5c1a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almod-var#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마드리드의 한 극장에서 연기하던 젊은 안토니오 반데라스를 발견하자마자 그는 《Labyrinth of Passion》에 캐스팅했다. 수십 년에 걸친 협업의 시작이었고, 그 정점이 지극히 자전적인 《Pain and Glory》다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c0d7d53fd1a25e8a3aa5eddea2e6a8f7931ffdada532c707b7abcb1fec202fa"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almod-var#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "초기의 전설적인 호흡에도 불구하고, 알모도바르는 뮤즈 카르멘 마우라와 십오 년을 등지고 살았다. 《Women on the Verge of a Nervous Breakdown》의 혹독한 촬영이 남긴 앙금이었다. 두 사람이 화해해 다시 카메라 앞에 선 것은 2006년 《Volver》에 이르러서다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6da1b2503d0a5fb06218c0dcb2c5f342d83193a1beb51dde814960119bc283c4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almod-var#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Sister Act》와 《Brokeback Mountain》의 연출 제안을 거절한 일화는 유명하다. 할리우드 스튜디오 시스템이 자신의 절대적 통제권을 앗아가고 비전을 무해하게 다듬어버릴까 두려웠던 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ea90761429aa6a35119c7a5d75108ca21df8dcc95710b661be0ecf2a6bfbb730"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almod-var#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2004년작 《Bad Education》은 그에게 가장 사적인 영화였고, 스페인에서는 격렬한 논란거리였다. 가톨릭 학교 시절 사제들에게 목격한 성적 학대와 위선을 그대로 끌어왔기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5e6d0a94563bfb9b76ec3dfa9043b839c865e3248ee337a1604311b4104af52a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almod-var#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2005년, 스페인영화아카데미가 《Bad Education》을 주요 고야상 후보에서 배제하자 그는 요란한 항의와 함께 아카데미를 박차고 나갔다. 몇 해 뒤 조용히 투표 회원으로 돌아오긴 했지만.",
+  "model": "claude-opus-5",
+  "source_sha256": "fe0f35f7a676062509120e131b9d179d0e88050c1a3f061ecfdfa8669a295b34"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almod-var#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2002년부터 함께해온 연인은 사진가이자 배우 출신인 페르난도 이글레시아스다. 그는 알모도바르의 영화에 크레딧 없이, 대사 없이 배경 인물로 종종 등장한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5c1982ae19ca24d1284a49e15c5a9552782bf099176bc223b1b1ed6d5dfa613f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almod-var#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2016년 옥스퍼드대학이 그에게 명예박사 학위를 수여했다. 젊은 시절 정규 대학 교육을 전혀 받지 못했던 이력과 견주면 선명하고도 뭉클한 대비였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b4b89617780456e80364d017ae0c1e7dfe77f457f92f455d1a9470648ece6e27"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almod-var#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1989년작 《Tie Me Up! Tie Me Down!》은 미국에서 벌어진 기념비적 검열 공방의 한복판에 있었다. 낙인이 짙게 밴 X등급을 대체할 NC-17 등급이 MPAA에서 만들어진 것은 이 싸움의 직접적 결과다.",
+  "model": "claude-opus-5",
+  "source_sha256": "14a442bd4e56ec035b67c814344381cb427d6c54f7954e743f6f9f4e9b8bf157"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almod-var#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영어 실력에 대한 뿌리 깊은 불안 탓에 그는 평생 영어 영화를 피해왔다. 그 벽을 넘은 것이 2024년, 일흔넷의 나이에 내놓은 첫 영어 장편 《The Room Next Door》다.",
+  "model": "claude-opus-5",
+  "source_sha256": "100c9984c092c59f4578f3a4de7d0319323fbe25647875d265f60ef084d3ad5c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almodovar#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "메마른 라만차의 소읍 칼사다 데 칼라트라바에서 태어났다. 이야기라는 것을 처음 배운 자리는 어머니 프란시스카 카바예로의 곁이었다. 글을 모르는 이웃들을 위해 편지를 읽어주고 대신 써주는 일이 어머니의 직업이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ba78423aadf1b6b4207d8673c115c38fe7635b35a62737b973b10694dcd9a725"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almodovar#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "프랑코 정권이 마드리드 국립영화학교의 문을 닫아건 직후였다. 갈 학교가 없던 십 대의 알모도바르는 스페인 필모테카를 제집처럼 드나들며 영화를 독학하는 수밖에 없었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bb424e009c04ae6f4a1b3bcb8056b3727c831a396b9f341e3912a1d208539f21"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almodovar#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "초기의 예술적 야심을 떠받친 것은 스페인 전화 독점기업 Telefónica의 사무 보조직이었다. 열두 해를 그곳에서 보내며 그는 스페인 중산층을 인류학자의 눈으로 관찰할 수 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2c5674e117d8051343e06b4fc7fe53b542b69530e7660f4cb304d6080f43864f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almodovar#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화계에 발을 들이기 전, 그는 마드리드의 거대한 노천 벼룩시장 엘 라스트로에서 중고 물건을 팔았다. 사기꾼과 별난 주변인들이 우글대는 도시의 뒷세계에 그렇게 몸을 담갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b6d251a6278750eaabcf6edab2acc739147d152ad6acaad51523e435dba1fe51"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almodovar#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "Telefónica에서 받은 첫 월급으로 슈퍼8 카메라를 샀다. 그렇게 찍은 무성 단편들을 마드리드 언더그라운드 술집에서 틀면서, 즉석에서 목소리를 입히고 카세트테이프를 돌려 음악을 깔았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2b035595a5484a96f49842d3057cc87a913beceb41ab034163bec9aa27e59bc1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almodovar#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "프랑코가 죽은 뒤 폭발한 향락의 문화, 모비다 마드릴레냐 한복판에서 그는 파비오 맥나마라와 글램펑크 패러디 듀오 Almodóvar & McNamara를 결성했다. 마드리드의 후줄근한 록클럽에서 자주 드랙 차림으로 무대에 올랐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "86f471cc865b63549f0e24e9ebe938d44abe9d7c7c867c8a23cfe167414931a4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almodovar#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "'패티 디푸사'라는 여성 필명으로 연재 포토노벨라를 써 인기를 끌었다. 국제적 포르노 스타를 자처하는 이 인물의 허구적 행각은 전위 잡지 La Luna에 실렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "91251a302224498420947202d03ffd81f12dc401acac8383caac0c3684636e85"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almodovar#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "데뷔 장편이자 펑크록 코미디인 《Pepi, Luci, Bom and Other Girls Like Mom》(1980)은 친구들에게 빌린 약 50만 페세타로 얼기설기 만들어졌다. 촬영은 오직 주말에만, 일 년 반에 걸쳐 이뤄졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "da5249eef3c31959e42c83ee784d35b4f5cc826005de54f7408a3c0c94492074"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almodovar#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Women on the Verge of a Nervous Breakdown》의 촬영장은 견디기 힘들 만큼 팽팽했다. 그 여파로 알모도바르와 초기의 뮤즈 카르멘 마우라는 열여덟 해를 갈라섰다. 두 사람을 다��� 붙인 것은 2006년의 걸작 《Volver》였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fdad29361dfbd05b9ff3713237b70d24ee44a8d26a9f625fc294bb2f75d79073"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almodovar#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스페인영화아카데미가 만장일치의 찬사를 받은 《Talk to Her》를 외국어영화상 출품작으로 내보내기를 대놓고 거부했을 때, 스페인은 발칵 뒤집혔다. 그는 아카데미를 아예 건너뛰었고, 대신 각본상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "16d2012a544b264d04afafeaa37cd2533ab04244f0f0267ab481f623841324f5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almodovar#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Bad Education》을 향한 스페인 영화계의 조직적 따돌림. 그렇게 판단한 그와 동생은 2005년 스페인영화아카데미에서 공개 탈퇴했다. 결국은 다시 품으로 돌아왔지만.",
+  "model": "claude-opus-5",
+  "source_sha256": "a86ff6977210642e78a72640e8410150406b8234756a33c5dcc34983623f240c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almodovar#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "엄격한 가톨릭 환경에서 자랐으나 스스로를 철저한 무신론자로 규정한다. 그러면서도 성심(聖心), 묵주, 수녀 같은 가톨릭 도상을 끊임없이 가져다 세트 디자인의 화려한 팝아트로 되쓴다.",
+  "model": "claude-opus-5",
+  "source_sha256": "44149176793eba72d083f486d553c737242f717aa6e64a248acb60955babab6c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almodovar#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "허리 수술이 그의 몸을 묶어놓았고, 깊은 우울이 뒤따랐다. 아무것도 만들지 못한 그 고통스러운 시기를, 그는 《Pain and Glory》의 안토니오 반데라스에게 세밀하게 옮겨 담았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c412d3e0cfa4b2c47504bf946ff7718cf0f6b32b02276ebefa1494d8c35e8db8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almodovar#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미드센추리 모던 가구와 기예르모 페레스 비야요타의 팝아트 원화로 가득한 마드리드 자택. 그는 이곳을 수시로 털어다가 인물들의 집 안을 손수 꾸민다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e5d8d26c925c37d1074e760c0dcffa0e89e2a6fc21626da9031656f0f724b7bb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almodovar#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2016년, 흠 없던 그의 공적 이미지에 큰 금이 갔다. 영국령 버진아일랜드의 역외 회사와 관련해 파나마 페이퍼스 유출 문서에 그와 동생의 이름이 올랐고, 페드로는 《Julieta》의 언론 일정을 전부 취소했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5e524d7978f36b991d7293c3822f2a561ccea8d2617d7d082d518b251837a3f1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almodovar#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Sister Act》와 《Brokeback Mountain》을 비롯한 할리우드 대작의 연출 제안을 거절한 일은 널리 알려져 있다. 미국 스튜디오 시스템이 창작의 절대적 자율을 빼앗아갈 것이 그는 몹시 두려웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ef0194605df5c626700f62155b0fecdc2d5ba732c82c7981033c0452f5e89717"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pedro-almodovar#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "케이트 블란쳇과 함께 준비하던 루시아 벌린 원작 《A Manual for Cleaning Women》의 영어 영화화는 소진 끝에 접었다. 그러다 2024년, 일흔넷에 마침내 영어 장편 데뷔작을 내놓는다. 틸다 스윈튼과 줄리안 무어가 나오는 《The Room Next Door》다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9857e6102d6fe3dbaa4b4de7156d745802dedacd4609fb7086bfc32368921f98"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pete-docter#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미네소타 블루밍턴에서 자란 도크터는 또래와 어울리지 못하는 껑충한 아이였다. 아이들을 피해 대부분의 시간을 플립북을 그리거나 집 뒤 개울에서 혼자 노는 데 썼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "27afeb2d888920bbc95570600681a2a226334cd7a3866532babecf90f7b9f961"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pete-docter#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "처음 들어간 곳은 미네소타대학의 철학·미술 전공이었다. 애니메이션이 직업이 될 수 있다는 사실을 깨닫고 캘리포니아예술대학(CalArts)으로 옮겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "194d0288b78f9e596e23f7220ebe18975bc5c2299fd4a19a259bd91010c9fc4f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pete-docter#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1990년 CalArts 졸업 바로 다음 날, 래시터가 그에게 일자리를 제안했다. 스물한 살의 도크터는 그 신생 컴퓨터그래픽 회사가 채용한 세 번째 애니메이터가 됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d21765049cad11bc69dd2fc95772ef738ebf6e824ff0d0df5846b7e55e8399aa"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pete-docter#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편을 연출하기 전에는 픽사의 초기 TV 광고에 애니메이션을 붙였다. 그중에는 구강청결제 병이 권투를 하는 리스테린 광고도 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d5b905cca3c1376a6eae25cd16be76a99be00c27574ab5cbb9c33680237f8983"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pete-docter#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "독실한 기독교인이지만 도크터는 영화에 종교색을 노골적으로 드러내는 일을 의식적으로 피한다. 용서, 목적, 감정의 성장처럼 누구에게나 통하는 세속적 주제로 이야기를 몰아간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "98887953b5d0ad05133b16885d0a761170ca3ead8d37413229f824512816adeb"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pete-docter#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Up》의 어린 엘리 목소리는 도크터의 어린 딸 엘리 도크터가 맡았다. 다듬어지지 않은 진짜 아이의 기운이 그대로 담겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ccb0fa1e01ba88cd1e3f31d9d662595c141feef1da4a2adc7a5f0461502e1b9d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pete-docter#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "세월이 흘러 그 딸이 열한 살에 조용히, 그러나 돌연 다른 사람처럼 변하는 것을 지켜본 일. 거기서 《Inside Out》의 심리학적 뼈대가 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "46a8e7ee893703d78c25b3bddaeaed3ee800926822888aa97ccbd7200b7b19ba"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "pete-docter#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Up》에 담을 태고의 테푸이 산군을 제대로 옮기기 위해 도크터와 핵심 제작진은 베네수엘라 로라이마산으로 헬리콥터를 동원한 고행에 가까운 답사를 떠났다. 물어뜯는 벌레와 험한 지형을 견디면서.",
+  "model": "claude-opus-5",
+  "source_sha256": "9eab9f447708410a949a0f6947f8d0c58dccbc5ea5a0e44c45a607b0939cf2ce"
+ }
+]

@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "la-roue-1923",
+  "field": "lead",
+  "film_id": "7cebdf98-6819-4cd0-8f1a-508e4a2b2fd1",
+  "lang": "en",
+  "text": "Seven hours of film, and much of the weight rests on one sentence a railwayman cannot bring himself to say. Sisif pulls a small girl out of the train crash that orphaned her, calls her Norma, and raises her beside his own son Elie; by the time she is grown, what he knows about her parentage has hardened into something he owns. France, 1923. Gance works at a length that assumes an audience will surrender an afternoon and an evening, and the scale is not padding — it is how a household secret gets stated in engines, rails, smoke and timetables instead of words. The melodrama is coarse and unembarrassed: a father, a son, a daughter who is not a daughter, one fact between them. What the film does with that fact is closer to weather than to plot.",
+  "model": "claude-opus-5",
+  "source_sha256": "6edf8b0f8cf5c53c44882526df2cf48cb309a4bdb5ba07ae167d7940a352ba87"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-scopone-game-1972",
+  "field": "lead",
+  "film_id": "0ac2c70e-e4e6-4324-8ebf-84f0a9164dda",
+  "lang": "en",
+  "text": "Every year the American woman arrives in Rome with her chauffeur, and every year Peppino and Antonia sit down to play her at scopone. They have nothing; she has money and a great deal of time; the deck is the one place the two households meet as equals, and everyone at the table knows the equality lasts exactly as long as the hand. Comencini keeps his comedy running on that arrangement — hospitality that is also a wager, charity that keeps score — and lets it sour at a rate slow enough to be mistaken for good humour. Italy in 1972, with the poor still living in sight of the city the visitor comes to enjoy. By the middle of the film the cards have stopped being a pastime and become an accounting, and the funniest lines are the ones nobody at the table can afford to laugh at.",
+  "model": "claude-opus-5",
+  "source_sha256": "40c9a4a048f8ac4f40b70938a5f646f56decb6b813ebaf88fda7658e8fa36bb2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "girl-with-a-suitcase-1961",
+  "field": "lead",
+  "film_id": "ff2dc129-2f0e-4be8-9fc1-b7b50751f3d2",
+  "lang": "en",
+  "text": "Aida has been used badly by a young man from a good family in Parma, and the person who turns up to make amends is his sixteen-year-old brother. Lorenzo has money, manners and no idea what either is worth to a showgirl travelling with one suitcase. Zurlini takes two hours over this, and the length does the arguing: what looks at first like a boy's decency turns out to be another expression of the family's confidence that matters can be settled on its own terms. Italy, 1961, where the distance between a drawing room in Parma and a touring engagement is absolute and nobody involved states it aloud. The film is patient about the gap between wanting to help and being able to. Aida's prospects are fixed by conditions a well-meaning adolescent cannot reach, and she has known it far longer than he has.",
+  "model": "claude-opus-5",
+  "source_sha256": "c27736fb99ac3b0b8c961891ce7e31778436fdb7b3f8c132e13f2cf27265d438"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "storm-over-asia-1928",
+  "field": "lead",
+  "film_id": "0f693ac2-96ed-4bb2-b86f-f544a3306baf",
+  "lang": "en",
+  "text": "One fox pelt, priced by a European trader at whatever he cares to pay, sets everything in motion. The Mongol herdsman who brought it to the post leaves without money and with a grievance; by 1920 he is in the hills with Soviet partisans while a British force on the plain requisitions cattle from the herders it is occupying. Pudovkin made this in 1928, when Soviet cinema was expected to argue, and the argument is unusually physical: fur, livestock, cash, a doorway, an officer's collar. It is also filmed among Mongol faces and rituals that the thesis cannot fully absorb, and that friction is what keeps it alive. Occupation here runs on paperwork — orders, receipts, requisition. What runs against it is a man who was cheated over a skin, which is a smaller and more durable motive than politics.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ac2fc6558129c29a60e3981100658f6da5fdd2d89b75bab4719f4f1fab14d86"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bread-love-and-dreams-1953",
+  "field": "lead",
+  "film_id": "79c9ad98-4eeb-4557-aeb6-d492882f103f",
+  "lang": "en",
+  "text": "The new marshal arrives in a mountain village where a uniform counts for a great deal and an unmarried man counts for more. He is not young, he expects the posting to be simple, and within days he is interested in the midwife and in a young woman the village calls Frisky — while the village, in turn, is interested in him. Comencini keeps to eighty-seven minutes and puts the comedy in the machinery of small-town knowledge, where everybody's business is public before it is settled. Italy in 1953 was poor in ways the film neither hides nor dwells on: the hardship is furniture, courtship is the plot. The Academy Award it took was for the story, and that is the right compliment — the pleasure is in the shape of the thing, its symmetries and swaps, rather than in any sentiment it collects on the way.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e3c2d891646653721f93ad8466794d4e5932c7014bbed72e2e31600e32e5fb8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-eagle-1925",
+  "field": "lead",
+  "film_id": "4aefc165-9af1-461a-9052-22d185929490",
+  "lang": "en",
+  "text": "Catherine II makes an offer, a lieutenant of her army declines it, and the warrant she issues for him reads dead or alive. That is the first of Vladimir Dubrouvsky's problems; the second is that his father's land has been taken by a neighbour with the local power to keep it. So he puts on a mask at night and, by day, walks into that neighbour's house as a French tutor for the man's daughter. Clarence Brown, 1925, plays it light: seventy-three minutes, revenge kept on a short leash, and suspense that is largely domestic — a man holding a false name steady across a dinner table while the household talks. The romance complicates the score he came to settle, as it was always going to. What the film is good at is poise under observation, and it knows better than to slow down for a moral.",
+  "model": "claude-opus-5",
+  "source_sha256": "c0dd865fc6c68c4be2fd0715624e192816bd13e9b3b3157c85c3d08ba9bb0337"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-difficult-life-1961",
+  "field": "lead",
+  "film_id": "3cddf25b-e876-4b79-98be-d6b48bfaecff",
+  "lang": "en",
+  "text": "Being on the right side of the war turns out to be poor preparation for the peace. Silvio refuses to fight for the fascists, joins the resistance, meets Elena there, and comes out into an Italy that has quietly agreed to move on from all of it. He keeps writing. The articles are furious and unprofitable, and eventually the state answers them. Risi tells this as comedy, which is the only register in which it is bearable — the joke is always the same distance between what Silvio believes and what a salary requires, and somewhere in the second hour it stops being a joke. 1961: close enough to the war that audiences knew which neighbours had done what. Elena is the hardest role in it, a woman married to a man whose principles do not pay rent and who will not treat that as a reason to revise them.",
+  "model": "claude-opus-5",
+  "source_sha256": "5d0de8c25d36f53511dcd2337863f1c3d8396072291dce9b03ad711e7d58ae8a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-gold-of-naples-1954",
+  "field": "lead",
+  "film_id": "eb45e519-cbc3-4573-9e40-38d44847a20f",
+  "lang": "en",
+  "text": "Six stories, none of them long enough to harden into a fate. De Sica builds Naples in 1954 out of small transactions: a pizza seller who has lost her husband's ring in the course of a working day, a card player outplayed by a child, a man who sells advice to people who cannot afford it. The episode form fits the city as the film sees it — trouble arrives loudly, in public, and is followed by more trouble before anyone has finished discussing the first. A child's funeral sits beside the comic pieces without apology or transition, and that arrangement is the argument: one street, both things. Two hours, and the pleasure is in the turns of tone rather than in any single plot. The Grolla d'oro went to the direction, which is fair; what holds six unrelated pieces together is pacing, not theme.",
+  "model": "claude-opus-5",
+  "source_sha256": "d1f5921922cef3da61730a2ad5738b35f81ce25c915962ade9245e7a392eef06"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bread-and-chocolate-1973",
+  "field": "lead",
+  "film_id": "f0ffc201-2645-4575-8ad4-e77e55d9027b",
+  "lang": "en",
+  "text": "An Italian in Switzerland takes a job, loses it, and takes a worse one. Brusati's comedy runs on the mechanics of being tolerated: a country that wants the labour and not the man, a residence that depends on good behaviour, a set of manners studied the way other men study a trade. Going home would mean conceding that the whole errand failed, so he stays, hopeful in a way that begins as charm and becomes difficult to watch. 1973, when the migration described here was current news rather than history, and filmed from inside the arrangement rather than above it. The physical comedy is exact and the timing is unkind — the film keeps setting him up to belong and then removing the chair. Whatever is left in him after two hours of this is less optimism than refusal, and the distinction is the picture.",
+  "model": "claude-opus-5",
+  "source_sha256": "dfd880aec65088056c6da3e8991ab724d1328717bbd5ccd290974135660b8187"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "much-loved-2015",
+  "field": "lead",
+  "film_id": "75f63b5b-cb47-4566-b7d4-5be9be9dd295",
+  "lang": "en",
+  "text": "Four women in Marrakech share a flat, a car and the hours between one client and the next. Ayouch spends most of the film on those hours rather than on the work: money counted out and divided, quarrels, the version of themselves each keeps ready for a family that has been told something else. The talk among them is coarse and quick and often very funny, and the real subject is the traffic between that private candour and the respectability everyone still owes somebody. Nothing is argued. It accumulates. Loyalty inside the group is practical before it is tender, which is why the tender moments land harder than a film with a thesis could manage. One of the performances took the César for Best Actress, and what that rewards is audible rather than dramatic: speech with nothing performed in it.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c13672e053ba2ddce21517f318e9aea1fdd8a124900b02c03ae74710db11760"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-death-of-louis-xiv-2016",
+  "field": "lead",
+  "film_id": "88675b68-890d-430d-ac90-b2367eb178b8",
+  "lang": "en",
+  "text": "A pain in the leg after a walk, in August 1715, and an entire court has to decide how to behave. Serra keeps the king in bed and the camera in the room, so almost everything is consultation: physicians proposing, relatives watching for a change in the face, food brought and barely touched. The old man is still the state, which makes his appetite a political fact and his sleep a matter of record. Candlelight, wigs, murmurs at the foot of the bed — the period detail is inseparable from the pacing, since ceremony is precisely what consumes time. Very little gets explained. What accumulates is the strangeness of medicine practised as etiquette, and of absolute authority reduced to the question of whether he will eat. Nearly two hours, indoors, mostly within a few feet of one piece of furniture.",
+  "model": "claude-opus-5",
+  "source_sha256": "ecbbfe24692abca245ba4d9b5ae09f8735fd539cbb0fc41edd3170dfdeb15e7a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tchaikovsky-s-wife-2022",
+  "field": "lead",
+  "film_id": "f6d10478-a091-48dd-9578-78862c632410",
+  "lang": "en",
+  "text": "Antonina Milyukova falls in love with a composer on the strength of his music, before she has any acquaintance with the man, and she never revises the feeling to fit anything that follows. Serebrennikov hands her the whole film — 144 minutes in which Tchaikovsky is largely an absence being explained to her by other people, while the camera stays with the woman who declines to accept the explanation. Nineteenth-century aristocratic Russia supplies the trap: a marriage permanent as a social fact, and a wife who cannot leave one without disgrace. Devotion and predicament become the same object. The film is long and airless on purpose, and it will not make her likeable in the usual way, which is a harder form of respect. Her insistence is humiliating to watch and entirely her own.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ad5a1b468a7fc548250c268ef9588d228335ae9b20a801c72eeba3fff4da3be"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "horses-of-god-2012",
+  "field": "lead",
+  "film_id": "f91ce404-ed5d-4031-b8e8-d6b16b38395d",
+  "lang": "en",
+  "text": "Boredom gets the first long stretch of this film. Two brothers grow up in Sidi Moumen, a Moroccan shanty district of unfinished walls and open ground, and their childhood is mostly a hunt for something to do; Ayouch then stays with them for ten years, which is the only honest span for what he is tracking. The turn towards violence is handled as erosion rather than event — work that leads nowhere, older men who have a use for young ones, a neighbourhood the city prefers not to think about. The film resists the single scene in which a boy becomes something else, and that refusal is its position. What it offers instead is duration: the same ground, the same faces a few years older, and the slow narrowing of what a day can be made to contain.",
+  "model": "claude-opus-5",
+  "source_sha256": "b055805ef345be94cbccbcac4902283590b6a2dd3282e132bc6cd0d8fc7b8369"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "beauty-2011",
+  "field": "lead",
+  "film_id": "6cc12ac8-08b4-4c7f-bd10-913b14166261",
+  "lang": "en",
+  "text": "A mid-forties Afrikaans family man has arranged his life to contain no surprises, and maintains the arrangement with effort. François van Heerden is a husband, a father, a man of standing in a conservative world, and Hermanus is in no hurry to disturb any of it — the film takes its time with the pleasantries of people who have known each other too long to look closely. Then a chance meeting puts weight on the structure. It is filed as a thriller, and the label holds in an unusual sense: the menace is internal, a question of what a respectable man will do with a desire he refuses to call his. In Afrikaans, drawn without caricature, and unwilling to let anyone watch from a safe distance. It took the Queer Palm. It is a hard sit, and not for the reasons a plot summary would suggest.",
+  "model": "claude-opus-5",
+  "source_sha256": "8195c00f9d2223dc569e57fb83392122173fee86c9ec75522d2355df733177f3"
+ }
+]

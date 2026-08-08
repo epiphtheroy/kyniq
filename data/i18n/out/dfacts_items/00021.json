@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "eric-rohmer#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《녹색 광선》으로 베니스영화제 황금사자상을 받았을 때, 그는 그 영예의 화려함에 조금도 마음이 없었다. 값싼 야간열차를 타고 영화제에 도착했고, 시상식장까지 자기 짐을 직접 들고 걸어 들어갔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e866c3b16ea34b244c56f37631dc672a54dd49a513f827adab1a57ba07d69f53"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "eric-rohmer#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2010년 여든아홉에 세상을 떠난 그는 몽파르나스 묘지에 본명 모리스 셰레르로 묻혔다. 세계가 아는 그 필명은 묘비 어디에도 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "99ae1fb9a291945a2c315ff158b0357baef40794a5bb2db626dc7707f186960e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "eric-rohmer#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "프랑스 혁명을 다룬 《The Lady and the Duke》(2001)에서 여든한 살의 로메르는 디지털을 과감하게 끌어안았다. 배우들을 그린스크린 앞에 세워 찍은 다음, 18세기 파리를 고증해 손으로 그린 화폭 위에 합성했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cdd56153cc7d242cb9292ac2c7caeb70ea5535373f8b84483b76b3ac50aead16"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ernst-lubitsch#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "베를린에서 아슈케나지 유대인 재단사 지몬 루비치의 아들로 태어났다. 처음 맡은 일은 아버지 옷가게의 장부 정리였는데, 정작 그는 장부 여백에 연극 캐리커처나 끄적이며 시간을 보냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "117664a860726b3e4d19098c4f1448f5832a91ff64bef629f173212b52d8145e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ernst-lubitsch#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "무대에 홀린 십 대 소년은 몰래 연기 수업을 받으러 다녔다. 스승은 당대의 이름난 희극배우 빅토어 아르놀트였고, 그가 훗날 루비치를 전설적 연출가 막스 라인하르트에게 데려간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "19651ff59914db6be06eb61620604233e3524db0927df0c2f16ba5e95afd2a31"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ernst-lubitsch#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "카메라 뒤에 서기 전, 그는 이미 독일 무성 희극의 대스타였다. 인기 단편 시리즈에서 맡은 배역은 굼뜨면서도 잔머리가 잘 도는 유대인 캐리커처 '마이어'.",
+  "model": "claude-opus-5",
+  "source_sha256": "35620e37541902dedbc7f75e93c71210021e71ba7c582d4a936c0d980ed4ea71"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ernst-lubitsch#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "턱시도 차림의 세련된 희극으로 이름을 얻은 것은 나중 일이다. 독일에서 그를 밀어 올린 작품들은 거대한 사극이었다. 1919년작 《Madame DuBarry》는 엑스트라를 수천 명 동원해 그리피스의 규모와 겨뤘다.",
+  "model": "claude-opus-5",
+  "source_sha256": "756cff37d61ec1312dde6dbf45fcb9a1fe80f32f06d8c88243a4aa5d60bf56ab"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ernst-lubitsch#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1922년 루비치를 미국으로 데려온 것은 할리우드 최고 스타 메리 픽퍼드였다. 《Rosita》의 연출을 맡기기 위해서였다. 그러나 두 사람의 불화는 유명했고, 픽퍼드는 훗날 그를 '문(門)의 연출가'라 비아냥거렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "64ae8bf54cd50b14ba8d4eb5dde2202cdb17ff6d88b3b6521f6586dfc8d07b1e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ernst-lubitsch#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1935년 그는 파라마운트의 제작 총책임자로 임명되며 할리우드 역사에 이름을 남긴다. 황금기를 통틀어 거대 스튜디오를 직접 운영한 주요 감독은 그가 유일했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c368b59765a78dc2fd73be3ff70a109765c23c264463b5423c7bc5723ba11295"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ernst-lubitsch#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스튜디오 수장 자리는 일 년 만에 내려놓았다. 끝없는 행정 업무에, 동료 감독 요제프 폰 스턴버그를 해고하는 일까지 떠맡다 보니, 정작 영화를 만들 시간이 없다는 것을 깨달았기 때문이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8539090b0381a5cc06f20c5b87194c381b60f1334658c61f37874172317b3d9a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ernst-lubitsch#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "가장 중요한 협업자는 각본가 샘슨 라파엘슨이었다. 루비치 영화 아홉 편을 각색하는 동안, 두 사람은 단어 하나를 두고 고함을 지르며 싸우기를 멈추지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0568caaab71083d59709a926a2ec45ed0c8c4b50fcf45c8582a3879def4912dc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ernst-lubitsch#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《To Be or Not to Be》는 개봉 당시 거센 논란을 불렀다. 2차 대전이 한창인 시점에 나치의 바르샤바 점령에서 웃음을 캐냈다는 이유로, 일부 평자는 몰취향하다고 몰아세웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f340addb68a424e782dd85526173543fb5cb61bde3ad309526c201e66166b8a7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ernst-lubitsch#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "생략과 암시로 이야기를 굴리는 그의 화법에는 '루비치 터치'라는 이름이 붙었다. 그는 관객이 대단히 영리하다고 믿었고, 농담이란 낱낱이 풀어 보여주기보다 슬쩍 흘려두는 편이 낫다고 여겼다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ffc3ce749c2952aefd44dcf9be0e94034e595754c7cd6bd2f56b23b763bab7c2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ernst-lubitsch#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "젊은 빌리 와일더의 우상이 루비치였다. 훗날 그는 할리우드 사무실에 '루비치라면 어떻게 했을까?'라는 문구를 액자에 넣어 걸어두고, 각본이 막힐 때마다 그것을 나침반으로 삼았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "98aee49c367e944e404de5d115d65fce47a45df83425fb57665bc08fadca881c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ernst-lubitsch#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1947년 3월, '영화 예술에 남긴 탁월한 공헌'으로 아카데미 명예상이 그에게 돌아갔다. 감독상 후보에 세 번 올랐으나 한 번도 받지 못했던 사람에게, 그 상은 어딘가 쓸쓸한 영예였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8a6e953bdfc8dc493cfec8c1d513c586be4f465fdff8e157a922fe3ef821c432"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ernst-lubitsch#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1947년 11월, 쉰다섯의 루비치는 갑작스러운 심장마비로 숨졌다. 뮤지컬 《That Lady in Ermine》을 한창 찍던 중이었고, 남은 작업은 오토 프레민저가 마무리했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e898fff3f4eeca5ea7c6e7771455d0dbb6ba9b35123ca240a6e80e8d99659e2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ernst-lubitsch#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장례식장에서 빌리 와일더가 윌리엄 와일러에게 침통하게 말했다. \"이제 루비치는 없군.\" 와일러의 대답은 두고두고 회자된다. \"그보다 더한 일이지. 이제 루비치의 영화가 없잖나.\"",
+  "model": "claude-opus-5",
+  "source_sha256": "87c37b40af51cce60fdd4ffbe31f50e0a2507e59737f09a0afcf415f17f5446a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "ernst-lubitsch#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그가 남긴 어린 딸 니콜라는 두 번째 아내인 영국인 에이전트 비비언 게이와의 사이에서 얻은 아이였다. 두 사람은 그가 죽기 삼 년 전에 이혼했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b91a715607c0bbf49f60af8ea1af3ca5a1d44fc7895e97a3b84388ed7cd7cbfc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "f-w-murnau#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "하이델베르크 대학에서 문헌학과 미술사를 공부하던 시절, 학생 연극 무대에 선 그를 전설적 연출가 막스 라인하르트가 알아본다. 라인하르트는 곧바로 베를린의 자기 연기학교에 학비 없이 오라고 제안했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7be42448e9fc6af81b7c8639f2db0d2b84d0880ea0a96751f2b368274918d3d7"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "f-w-murnau#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1917년 짙은 안개 속에서 길을 잃고 중립국 스위스에 비행기를 내렸다. 안더마트에 억류된 그는 남은 전쟁 기간 동안 그곳 극단의 연극을 연출하고 독일 대사관의 선전영화를 편집하며 지냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ce8233efedb4cbaedb04cbb78db15e63dc9a12a9cdc7c32225fcfca7a3c3d66b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "f-w-murnau#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1915년 전장에서 죽은 연인, 유대인 시인 한스 에렌바움데겔레. 그 상실이 무르나우의 삶과 작업에 영영 그늘을 드리웠고, 그는 평생 침잠하는 우울에서 빠져나오지 못했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f99c820301c98321d6cea478aeb1cd492d601e253e7bf7a106935e0d4f1e3e76"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "f-w-murnau#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1922년의 걸작 《노스페라투》는 브램 스토커의 『드라큘라』 판권을 확보하지 못한 채 만들어졌다. 스토커의 미망인 플로렌스는 소송에서 이겨 제작사 프라나 필름을 파산시켰고, 필름 전량을 폐기하라는 명령까지 받아냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e08b58ea539703350d84c052010608bb8fdc8a34d1279401fed8d8a13d7fce79"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "f-w-murnau#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1924년 《마지막 웃음》을 찍으며 무르나우와 촬영감독 카를 프로인트는 묘한 짓을 했다. 무거운 카메라를 프로인트의 가슴에 묶고 세트를 자전거로 돌게 한 것이다. 카메라를 사슬에서 풀어놓은 이 방식이 영화의 운동 감각을 바꿔놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "261d4763a23860f60883f2fce63e9d36435c170cf9f743338e4321d42f1800a5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "f-w-murnau#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《마지막 웃음》의 카메라 운동에 놀란 스튜디오 거물 윌리엄 폭스가 1926년 그를 미국으로 불러들였���. 계약 조건은 전례가 없었다. 완전한 예술적 통제권과 막대한 제작비. 그렇게 나온 작품이 《선라이즈》다.",
+  "model": "claude-opus-5",
+  "source_sha256": "337e40f546f61b88e73c4f98a1f3606f796437793d58676f7e9d03d8a13d019e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "f-w-murnau#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "유성영화가 들어서며 스튜디오의 간섭이 심해지자 그는 등을 돌렸다. 다큐멘터리의 개척자 로버트 플래허티와 사재를 모아 타히티에서 《타부》를 찍기로 한 것이다. 그러나 각본을 두고 충돌이 격렬했다. 플래허티는 민족지적 사실을 원했고 무르나우는 짙은 멜로드라마를 요구했다. 결국 플래허티가 손을 뗐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "43fd6a43d5c2b7f4e5d9d9665eac6ea43939a751b7117aaa139157bcf819e942"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "f-w-murnau#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "남태평양 촬영을 위해 그는 118피트짜리 호화 범선 《발리》호를 사들였다. 태평양 한복판에서 필름을 현상하려고 배에 암실까지 따로 들였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4bdd7ad37915436f411fceab85e62da42f92856ca7c7ac3a16c6315bd6b81170"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "f-w-murnau#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1931년, 《타부》의 뉴욕 시사를 꼭 일주일 앞두고 마흔둘의 무르나우가 죽었다. 산타바버라 인근 퍼시픽 코스트 하이웨이에서 그가 빌린 패커드가 콘크리트 가로등 기둥을 들이받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4e2588866d715104f018f30d7e04f74e891a2bfa8b8ee3505efaf51c3f1927c0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "f-w-murnau#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "운전대를 잡고 있던 사람은 열네 살짜리 필리핀인 하인 가르시아 스티븐슨이었다. 그는 살아남았고, 감독은 그 충돌로 머리부터 전신주에 처박혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "fe176a8ca718255dad64f2ddcbc58e8149c3d71a44663089df93209bf09059ad"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "f-w-murnau#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그가 죽고 수십 년 뒤, 언더그라운드 영화감독 케네스 앵거가 스캔들 책 『Hollywood Babylon』에 근거 없는 동성애 혐오성 소문을 실어 퍼뜨렸다. 무르나우가 십 대 운전사에게 구강성교를 해주다 사고가 났다는 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "caa76feaba81336cf63770c7eab9c33a2ebc1de94569d49fd17acce8fe6ebd7a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "f-w-murnau#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "할리우드에서 치른 장례에 온 사람은 열한 명뿐이었다. 그중에 그레타 가르보가 있었다. 가르보는 감독의 데스마스크를 제작하게 해 여러 해 동안 자기 책상 위에 두었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ae45d4ee32e5bb616a6eaab0d1bc98dade741ba02e96d2a066bb3dce1ff724f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "f-w-murnau#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "방부 처리된 시신이 독일로 돌아가 슈탄스도르프 남서 묘지에 묻힐 때, 또 한 명의 거장 프리츠 랑이 추도사를 읽었다. 무르나우의 작업이 우리 모두보다 오래 살아남으리라는 것이 그 말의 요지였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3cee46dc857f9b247c7a4659b9343910e77bcb5eb923de1cdc177197f96f6e8d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "f-w-murnau#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2015년 7월, 그의 가족 영묘에 도굴꾼이 들었다. 방부 처리된 두개골을 훔쳐 갔고, 촛농이 녹아 굳은 자국을 남겼다. 오컬트 의식의 흔적이었다. 그가 남긴 가장 유명한 공포영화가 뒤늦게 메아리친 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9448644ae90a69f436aeb2162cb154a9adcf276f534b889081410ece15c7baf4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "federico-fellini#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화로 오기 전 그는 로마의 풍자 잡지 《마르카우렐리오》에서 캐리커처를 그리고 개그를 썼다. 기사의 착상은 〈플래시 고든〉 같은 미국 만화에서 얻어 왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "925f961174154417fffb7967cdf927ce1c139213de3089a088dfc3e224bbfadd"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "federico-fellini#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1942년 라디오 연속극 〈치코와 팔리나〉를 쓰면서, 팔리나 역의 목소리에 반해버렸다. 배우의 이름은 줄리에타 마시나. 두 사람은 1943년 10월에 결혼한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b4c908082fd1bd63f8e2f5a9e4b2933586d676954e6ab6bba7af82bdc2f663d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "federico-fellini#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "부부의 유일한 아이 피에르 페데리코는 1945년 3월에 태어나 열하루 만에 뇌염으로 죽었다. 그 상처 이후 둘은 평생을 함께 작업하는 쪽으로 삶의 방향을 완전히 돌렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5b13f994a32152461f777ead2f536e005b1d1cfc8a6d37f663fcc5dceb0932fa"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "federico-fellini#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "해방이 오자 그는 비아 나치오날레에 '퍼니 페이스 숍'(Bottega del Ritratto)을 열었다. 친구들과 함께 미군 병사들의 얼굴을 그려주고 잔돈과 담배를 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2bfa30a0b732433ef514e03531abf48ac4f1933edc3c2fe6e7e885e18a99837d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "federico-fellini#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1944년 그 캐리커처 가게로 로베르토 로셀리니가 찾아왔다. 네오리얼리즘의 문을 연 걸작 《무방비 도시》의 각본을 함께 쓰자는 제안이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "151d161f002a4419dbdfa72e0a09cadf14f6d5b4f065321f3ea059cc095b2759"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "federico-fellini#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1960년 융 학파 정신분석가 에른스트 베른하르트의 권유로 그는 자기 악몽과 환상을 그림으로 기록하기 시작했다. 수십 년간 이어진 그 일기는 훗날 『꿈의 책』으로 묶여 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1c345ea218ca2cdfd571f78e96d69414441663bf1d0a0cfbe084b51683efd2be"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "federico-fellini#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1964년 정신분석가 에밀리오 세르바디오의 관리 아래 무의식을 탐사하겠다며 LSD를 복용했다. 이 경험이 《영혼의 줄리에타》의 사이키델릭한 색채 포화 미학에 짙게 스몄다.",
+  "model": "claude-opus-5",
+  "source_sha256": "661da1bc6100d4b25958f1f03665836f0d7124e6db642cc5205061220d2a9605"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "federico-fellini#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《달콤한 인생》(1960)에서 그악스럽게 달려드는 사진기자에게 그는 '파파라초'라는 이름을 붙였다. 이탈리아의 잘 알려지지 않은 여행서에서 따온 말이다. 그렇게 전 세계가 쓰는 단어 하나가 얼떨결에 태어났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "da5b6c478b474037eb4fcfa8a8e817448648af5d72e7b8231b20a7f52bd81f5d"
+ }
+]

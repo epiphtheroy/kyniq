@@ -1,0 +1,902 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maghreb-as-cinema-s-hired-elsewhere",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화가 빌려 쓰는 딴 세상, 마그레브",
+  "model": "claude-opus-5",
+  "source_sha256": "f1f2a3ee88757f51fc27972235d8ee56fcbe41a8838f8ae2d5166e7b7a835c4e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maine-that-was-filmed-elsewhere",
+  "field": "title",
+  "lang": "ko",
+  "text": "딴 데서 찍은 메인 주",
+  "model": "claude-opus-5",
+  "source_sha256": "421a999f803f39092162375fd1c0ff40c2eeadc3396f878f7ecf947d294755ce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maker-as-the-economy-made-flesh",
+  "field": "title",
+  "lang": "ko",
+  "text": "몸을 얻은 경제, 그 이름이 창작자",
+  "model": "claude-opus-5",
+  "source_sha256": "ca70128a5f26d0cfe9e1d39ef1f594ed7d695eb0a20d2e2c4b2288e67f1af6ee"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maker-consumed-by-his-creation",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 피조물에 먹힌 창조자",
+  "model": "claude-opus-5",
+  "source_sha256": "d507a9b397d96a26e7dafd310a79b6b379b1d61fea05fb7e67ee0de23ea0c119"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maker-erased-from-his-own-music",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 음악에서 지워진 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "28c0b642c57555cb622e48a4217e92c21ff103b48945ffe341a18eabc2aa6796"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maker-indicted-by-his-creature-s-name",
+  "field": "title",
+  "lang": "ko",
+  "text": "피조물의 이름이 창조자를 고발한다",
+  "model": "claude-opus-5",
+  "source_sha256": "df59594eda19f5bd8af95843c5262979247f9e6c6db231df383c2e89a57b28cb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maker-indicted-by-what-he-made",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 만든 것이 제를 고발한다",
+  "model": "claude-opus-5",
+  "source_sha256": "343c0d747763cef161508c81d9475faafbfb18f29d07f3fbc60257b4c228acd3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maker-outlived-by-his-weapon",
+  "field": "title",
+  "lang": "ko",
+  "text": "만든 이는 가고 무기는 남았다",
+  "model": "claude-opus-5",
+  "source_sha256": "a6ea1db1b290fa0339560f22900e483663703258fe6e50112d215214f02852a5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maker-outpaced-by-the-mind",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 지은 지성에 뒤처진 창조자",
+  "model": "claude-opus-5",
+  "source_sha256": "555d1c9e3aaf0954a08bf7c681d0b1a35894d84672e27e9b1c7bf12eb544fb3c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maker-s-day-job-becomes-the-method",
+  "field": "title",
+  "lang": "ko",
+  "text": "밥벌이가 곧 방법이 되다",
+  "model": "claude-opus-5",
+  "source_sha256": "dd18f3b21d185cd9e905727e07e7f33af78297fa57e11513d43fddb9ada709d5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maker-who-disowns-his-creation",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 창조물과 절연한 창조자",
+  "model": "claude-opus-5",
+  "source_sha256": "2134fd282c8ff2aa9496899875dc7f2e6e0b157d446bf079cfd059e40adecb9d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maker-who-loved-machines-over-men",
+  "field": "title",
+  "lang": "ko",
+  "text": "사람보다 기계를 사랑한 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "e43e2105255c905cef7adf360d3b093280d13b3ebc35604fee96c13eebc02ac1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maker-who-mistook-the-filthy-for-the-holy",
+  "field": "title",
+  "lang": "ko",
+  "text": "더러운 것을 거룩한 것으로 착각한 창조자",
+  "model": "claude-opus-5",
+  "source_sha256": "047fb5fe0e233c42c9f732581ac61503539f810cfe3722d3a85fe200b76ec778"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maker-working-against-his-industry",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 속한 산업과 싸우며 만드는 사람",
+  "model": "claude-opus-5",
+  "source_sha256": "2a36883ceaf47e095399fcce65730c7c3bf3eaf7367b693f6c9591830b352136"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mall-as-america-s-commons",
+  "field": "title",
+  "lang": "ko",
+  "text": "미국의 광장이 된 쇼핑몰",
+  "model": "claude-opus-5",
+  "source_sha256": "f7da2098c81d7e4365e34cea82e5e185228c574dd5ddbe11458904b5474e7388"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-man-dissolved-into-his-performance",
+  "field": "title",
+  "lang": "ko",
+  "text": "연기 속으로 녹아버린 남자",
+  "model": "claude-opus-5",
+  "source_sha256": "44bd137524a4f32356a121ae4a4c65f90fe47ab0ad8a152badb33bb1311c808a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-man-living-inside-his-own-legend",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 전설 안에 갇혀 사는 남자",
+  "model": "claude-opus-5",
+  "source_sha256": "cad4b91a5f66eb81a12d8cfc9120353e6489195542e881264ec46a0b4b4ffefd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-man-renamed-by-his-trade-or-field",
+  "field": "title",
+  "lang": "ko",
+  "text": "직업이 이름을 갈아치운 남자",
+  "model": "claude-opus-5",
+  "source_sha256": "54ac61259b48197deb989ddc89a0dff37c70388cc785c1bafc38db613660afbb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-man-who-authored-his-own-legend",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 전설을 제 손으로 쓴 남자",
+  "model": "claude-opus-5",
+  "source_sha256": "fb7a7dd285df264328f4665d236faca91c08647d7b05628451d17a5d5adc25c8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-man-who-came-back-to-collect-a-debt",
+  "field": "title",
+  "lang": "ko",
+  "text": "빚 받으러 돌아온 남자",
+  "model": "claude-opus-5",
+  "source_sha256": "0541b72bf199c63d993018b1bfee7857c2c54117968e13ec89e065831625ad47"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-man-who-cannot-be-killed",
+  "field": "title",
+  "lang": "ko",
+  "text": "죽지 않는 남자",
+  "model": "claude-opus-5",
+  "source_sha256": "f97ff0e1d0d8ac719320575105fd455f100a2fa9d5ff7caa67d435a93003f7dc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-man-who-detonates-his-own-salvation",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 구원을 제 손으로 터뜨리는 남자",
+  "model": "claude-opus-5",
+  "source_sha256": "75195a627817ab4876591ab92d84304bb84f01dbf3a004eb5a5d4172725afa91"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-man-who-never-was-solves-the-case",
+  "field": "title",
+  "lang": "ko",
+  "text": "없던 사람이 사건을 푼다",
+  "model": "claude-opus-5",
+  "source_sha256": "950ea5108a12e14996c92da9c399c98895d8c3621c45a107ba8aa0ad662f5236"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-man-who-owns-the-water-and-the-city",
+  "field": "title",
+  "lang": "ko",
+  "text": "물을 쥐고 도시를 쥔 남자",
+  "model": "claude-opus-5",
+  "source_sha256": "ad34d7f970c5873f5fb7d75cba418bfe4af91334cb8913fa5c65bc8d4ea80129"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-man-who-refuses-to-be-saved",
+  "field": "title",
+  "lang": "ko",
+  "text": "구원을 마다하는 남자",
+  "model": "claude-opus-5",
+  "source_sha256": "9671eeed18895d3b46dbe0ffca1d1480fb9d319d78e00a66133bf2cec6dd161a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-man-who-serves-the-principle-not-the-person",
+  "field": "title",
+  "lang": "ko",
+  "text": "사람이 아니라 원칙을 섬긴다",
+  "model": "claude-opus-5",
+  "source_sha256": "a44f62d8df823f3e429f1fdf01b7b11e35e56d13176f296a22a45dc9834497aa"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-man-who-survives-his-execution",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 처형에서 살아 돌아온 남자",
+  "model": "claude-opus-5",
+  "source_sha256": "a36eb7c46a70fe7993bf95825c0ac7a5f6dc47b89c936d710bee380ad7950d65"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-man-who-would-not-age-out",
+  "field": "title",
+  "lang": "ko",
+  "text": "끝내 물러나지 않은 남자",
+  "model": "claude-opus-5",
+  "source_sha256": "694f0f4510a1452ea2eb144cac2a0b9c6176319d11ad4c633cf26afba52de721"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mandate-of-heaven-in-liquidation",
+  "field": "title",
+  "lang": "ko",
+  "text": "파산 정리에 들어간 천명(天命)",
+  "model": "claude-opus-5",
+  "source_sha256": "faca0d69dd67c52e5fcc5911f7cb8192a2b37a4c398d60bee00d3ce0f6e26d43"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-manhattan-built-where-no-city-stood",
+  "field": "title",
+  "lang": "ko",
+  "text": "도시가 선 적 없는 자리에 세운 맨해튼",
+  "model": "claude-opus-5",
+  "source_sha256": "90e4836d84015942f1eee02034965da37d0ff34594f56f65387e4ed1d7edbc8a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-manic-defense-against-annihilation",
+  "field": "title",
+  "lang": "ko",
+  "text": "소멸을 막는 조증적 방어",
+  "model": "claude-opus-5",
+  "source_sha256": "62c36a0977a65042ac03727f66ab91dbd582a420419946adb046927e1a4b55e8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-manic-defense-against-unbearable-knowledge",
+  "field": "title",
+  "lang": "ko",
+  "text": "차마 못 견딜 앎을 막는 조증적 방어",
+  "model": "claude-opus-5",
+  "source_sha256": "f80dc37721e504582fc5720d0becb0fdf734682135935c08d5833a63d3e3ca22"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-manic-voice-that-masks-captivity",
+  "field": "title",
+  "lang": "ko",
+  "text": "갇힌 처지를 가리는 들뜬 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "ea440237a61cddae8a1b831df2e87e6aad93513df236666a1470be74a6ee02e8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mantra-as-self-made-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "주문을 외워 제 주체를 짓다",
+  "model": "claude-opus-5",
+  "source_sha256": "233e03ecc3897786353895cd9df3d82bc9bf40bc7e1872d5bc48674f81b342e3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-manufacture-of-consent-by-captured-signal",
+  "field": "title",
+  "lang": "ko",
+  "text": "전파를 장악해 동의를 찍어내다",
+  "model": "claude-opus-5",
+  "source_sha256": "ab3cd5f1853b9204a2fc62f7ad131660c780dda675d93dd0e0e002821099659c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-manufactured-allure-that-loathes-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 자신을 역겨워하는 만들어진 매혹",
+  "model": "claude-opus-5",
+  "source_sha256": "6aa1a90ec549c9234362ce4fc469f7e7959fe1dc534c7584243e89e37f80e354"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-manufactured-oriental-enemy-behind-the-mask",
+  "field": "title",
+  "lang": "ko",
+  "text": "가면 뒤에 지어낸 동양의 적",
+  "model": "claude-opus-5",
+  "source_sha256": "064c248aa8e4a70391451f779afc0c65359b3b3c5567d3226ae53542c98601c0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-many-voices-one-eye-cannot-hold",
+  "field": "title",
+  "lang": "ko",
+  "text": "한 눈에 담기지 않는 여러 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "735f1583d5415d5d7e9e293d54f965838ea7c20a670ec03d978eaa62bc46913c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-map-quietly-lies-to-us",
+  "field": "title",
+  "lang": "ko",
+  "text": "지도는 조용히 거짓말한다",
+  "model": "claude-opus-5",
+  "source_sha256": "50c9475a29177c7d0f1380702d8ead28d486b81cfcc0684b4875ead094713b34"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-map-sutured-from-severed-cities",
+  "field": "title",
+  "lang": "ko",
+  "text": "잘린 도시를 꿰매 만든 지도",
+  "model": "claude-opus-5",
+  "source_sha256": "c465ab4372e9f532202ee70f35a5d21a84156369cc37493e2b20fa29600db7ca"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-map-that-consumes-its-territory",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 영토를 삼켜버린 지도",
+  "model": "claude-opus-5",
+  "source_sha256": "5b3a352f752a22006b3a8ee50c0e76fa014185218045f627568ae915637bff2e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-margin-that-holds-japan-s-true-weight",
+  "field": "title",
+  "lang": "ko",
+  "text": "일본의 진짜 무게가 실린 변방",
+  "model": "claude-opus-5",
+  "source_sha256": "33ebca0af0035aa62f077abf246e21bfb86d147aacec5f75368fc2e2d4b077fd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-marionette-and-its-hidden-hand",
+  "field": "title",
+  "lang": "ko",
+  "text": "꼭두각시, 그리고 보이지 않는 손",
+  "model": "claude-opus-5",
+  "source_sha256": "299ec850a3341fc6fe65bc4d1c2772e0adf9a03d48ab693adbe0d8461a49beec"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mark-that-crosses-out-the-subject",
+  "field": "title",
+  "lang": "ko",
+  "text": "주체 위에 그어진 삭제선",
+  "model": "claude-opus-5",
+  "source_sha256": "d6be22b320670f566d16edc19f3df1758d296a4bf0f2d8efda08daf7f915895f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-market-colonizing-the-last-refuge",
+  "field": "title",
+  "lang": "ko",
+  "text": "마지막 피난처까지 밀고 들어온 시장",
+  "model": "claude-opus-5",
+  "source_sha256": "677e294b70df858a2cfacfa97d201b65e060f20d3afcebd8d21b7b8a903c3a11"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-market-that-breeds-its-predator",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 포식자를 키운 시장",
+  "model": "claude-opus-5",
+  "source_sha256": "bdbb49810881d770da9d3c96a4bb8d7622981b0f2b2a9f14b3d0e8af40cf79bc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-marksman-who-disowned-the-shot",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 총알을 부인한 명사수",
+  "model": "claude-opus-5",
+  "source_sha256": "20171ff36217ba9667c95e7299a73d25e49493729568312ea32fa2914cf732f9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-marriage-already-dead-while-living",
+  "field": "title",
+  "lang": "ko",
+  "text": "살아 있으나 이미 죽은 결혼",
+  "model": "claude-opus-5",
+  "source_sha256": "ed6eaccdd3854691b42ed54648c8d31aae7b75acc92ab8de3f209d0bea9a9536"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-marriage-anatomized-as-clinical-long-form-case",
+  "field": "title",
+  "lang": "ko",
+  "text": "긴 임상 증례로 해부한 결혼",
+  "model": "claude-opus-5",
+  "source_sha256": "b3dc5ce131ee0a1676491d7ff382ba25e14d1ab8b4f1067518437a78e8250c12"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-marriage-as-economic-symptom",
+  "field": "title",
+  "lang": "ko",
+  "text": "경제가 앓는 증상, 결혼",
+  "model": "claude-opus-5",
+  "source_sha256": "785a3277f15c94db8b4c294c06ecd64c8849a11ea625fd861bd60da2296644e6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-marriage-founded-on-a-binding-vow-not-love",
+  "field": "title",
+  "lang": "ko",
+  "text": "사랑이 아니라 서약이 떠받친 결혼",
+  "model": "claude-opus-5",
+  "source_sha256": "f3949d6ed48a64e99482ea4ce9b801df08d9e170cb7cf4122f1f37aa990a17c9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-marriage-pre-mortem-in-miniature",
+  "field": "title",
+  "lang": "ko",
+  "text": "축소판으로 미리 해본 결혼의 부검",
+  "model": "claude-opus-5",
+  "source_sha256": "d8774dbecadae68ec022636953253271f8da6b480bad1370f3b7ea7141b44182"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-marshall-plan-wears-a-costume",
+  "field": "title",
+  "lang": "ko",
+  "text": "시대극 의상을 걸친 마셜 플랜",
+  "model": "claude-opus-5",
+  "source_sha256": "cb03e0332d9b7e0c6b9f0abb9c7646854fdb6d04f4b58f52f40a67adc21e8506"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mask-that-confesses-itself",
+  "field": "title",
+  "lang": "ko",
+  "text": "제가 가면임을 실토하는 가면",
+  "model": "claude-opus-5",
+  "source_sha256": "cd089124b763b230ac3d9c5728047e6666bffaa878730fdd231b47542ae785d6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mask-that-consumes-its-wearer",
+  "field": "title",
+  "lang": "ko",
+  "text": "쓴 사람을 먹어치우는 가면",
+  "model": "claude-opus-5",
+  "source_sha256": "87ba25d7ff34ba73598eab93c5e69ac99e8bbbdbfabd16120280d31840981070"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mask-that-devours-its-wearer",
+  "field": "title",
+  "lang": "ko",
+  "text": "쓴 얼굴째 삼키는 가면",
+  "model": "claude-opus-5",
+  "source_sha256": "38b100211fa64e502c3a00df3257634e07991446d28e22256dff95f1ca3ddd47"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mask-that-devours-the-face",
+  "field": "title",
+  "lang": "ko",
+  "text": "얼굴을 집어삼킨 가면",
+  "model": "claude-opus-5",
+  "source_sha256": "eeedbab2aad64d8eec7c6fcf080929f68b2ca090dfcb3aa3348302b3f6bfcb84"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mask-that-is-the-true-face",
+  "field": "title",
+  "lang": "ko",
+  "text": "가면이 곧 진짜 얼굴",
+  "model": "claude-opus-5",
+  "source_sha256": "3e43efced9a439988c9c010304320dccd2eec132f2c3f7acf24934a1c947df1d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mass-grave-beneath-the-frame",
+  "field": "title",
+  "lang": "ko",
+  "text": "화면 밑에 묻힌 집단 무덤",
+  "model": "claude-opus-5",
+  "source_sha256": "36df32a620c16b3558a789eedf6027164eeb017ac307435238b26685672be6a5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-master-is-a-position-no-one-fills",
+  "field": "title",
+  "lang": "ko",
+  "text": "주인이란 아무도 앉지 못하는 자리",
+  "model": "claude-opus-5",
+  "source_sha256": "9cd26ddbc4cbfe932de72ba64848dec6b65c04cbfad7a8fad4ea642a542b7337"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-master-of-a-form-killed-by-the-gun",
+  "field": "title",
+  "lang": "ko",
+  "text": "총이 끝장낸 형식, 그 마지막 거장",
+  "model": "claude-opus-5",
+  "source_sha256": "87bc29141cf7b73c1f4c0000e9cad047c6965378a3b8c37541ce7da334afdfd9"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-master-s-tongue-as-inherited-constitution",
+  "field": "title",
+  "lang": "ko",
+  "text": "물려받은 헌법이 된 지배자의 말",
+  "model": "claude-opus-5",
+  "source_sha256": "d55afba104d9174ba36111244c7f51b9243ee525c737bb2a5db2891e90708e95"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-master-slave-dialectic-run-for-recognition",
+  "field": "title",
+  "lang": "ko",
+  "text": "인정을 걸고 돌리는 주인과 노예의 변증법",
+  "model": "claude-opus-5",
+  "source_sha256": "91ed64e980f7b816c5c601d5adfe917e86d4b7be1ca0a2447965c3495c20503c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-master-who-chose-the-cage",
+  "field": "title",
+  "lang": "ko",
+  "text": "스스로 우리를 고른 거장",
+  "model": "claude-opus-5",
+  "source_sha256": "b9e99b4aacdb3175fe8a3c66b784bffd50c9d0d3402d24aeb8bef4f7c44468b3"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-master-who-despises-his-own-mastery",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 솜씨를 경멸하는 명인",
+  "model": "claude-opus-5",
+  "source_sha256": "1fee20aab1eb951f952072a92591799cab61667fa6a8dc0d13104ce7c2b6cbc1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-master-who-is-secretly-the-slave",
+  "field": "title",
+  "lang": "ko",
+  "text": "실은 노예였던 주인",
+  "model": "claude-opus-5",
+  "source_sha256": "7a498e8e39f2dfe0139435dfa83c35f1eb59bfe215483fa3286e535e8eb7afce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-master-who-teaches-without-teaching",
+  "field": "title",
+  "lang": "ko",
+  "text": "가르치지 않고 가르치는 스승",
+  "model": "claude-opus-5",
+  "source_sha256": "1fc05d457768d9c8cbd7e2f4685377c380ba8da879f9a80c2869a6354026c869"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mastermind-dissolved-into-his-system",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 체계 속으로 사라진 배후",
+  "model": "claude-opus-5",
+  "source_sha256": "a9d7cb3c9274016ca782b98af5b1dc32f23a7156e623b3b7fc31896f01da5bf5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mastery-that-triumphs-by-refusing-to-act",
+  "field": "title",
+  "lang": "ko",
+  "text": "움직이지 않음으로 이기는 경지",
+  "model": "claude-opus-5",
+  "source_sha256": "dc95abffa17adcd9dafc6a09cbc26ea55f234a2fd0dae4283458786698c1e917"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-matchmaking-rite-as-economic-conscription",
+  "field": "title",
+  "lang": "ko",
+  "text": "경제적 징집이 된 혼담",
+  "model": "claude-opus-5",
+  "source_sha256": "51dcfca8cbd639bc0c7edac3d10a56998be4fe1ac66881fed2e0a5f94f91b1dd"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maternal-returning-as-the-erotic",
+  "field": "title",
+  "lang": "ko",
+  "text": "모성은 에로스로 돌아온다",
+  "model": "claude-opus-5",
+  "source_sha256": "10fe7c0a38fa4f475464573aee9f0885480024f27e96b33c9ff9424149e2f49d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maternal-voice-as-returning-signifier",
+  "field": "title",
+  "lang": "ko",
+  "text": "되돌아오는 기표, 어머니의 목소리",
+  "model": "claude-opus-5",
+  "source_sha256": "8632aa3395ee86040e34f62f97eada3fa3a4885317970085becb133bc7db9c11"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mathematician-who-starved-for-his-theorem",
+  "field": "title",
+  "lang": "ko",
+  "text": "정리 하나를 위해 굶은 수학자",
+  "model": "claude-opus-5",
+  "source_sha256": "d36b18b133e0a9666b3dec32d98b1fe8a92f1672e9470b1a1504dc0c2998a275"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-matriarch-who-seizes-the-state-s-gun",
+  "field": "title",
+  "lang": "ko",
+  "text": "국가의 총을 빼앗아 쥔 어머니",
+  "model": "claude-opus-5",
+  "source_sha256": "c60e9834600873b23997456c086dadcab79462e0b394e4be48dedad29f4a6766"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-maze-drawn-around-an-unspeakable-guilt",
+  "field": "title",
+  "lang": "ko",
+  "text": "입 밖에 못 낼 죄를 둘러 그린 미로",
+  "model": "claude-opus-5",
+  "source_sha256": "211fc9e9795b61bbd2321141cb7d96fb3b3b6885ddcc48bb9b6317c560fe92ac"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-meal-as-the-film-s-whole-argument",
+  "field": "title",
+  "lang": "ko",
+  "text": "한 끼 식사에 담긴 영화 전체의 논지",
+  "model": "claude-opus-5",
+  "source_sha256": "ae7396110e48622b802f471a198fd0f476df44503ebe1d96a121df368a2e07e6"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-meaning-forged-in-the-cut",
+  "field": "title",
+  "lang": "ko",
+  "text": "컷과 컷 사이에서 벼려지는 의미",
+  "model": "claude-opus-5",
+  "source_sha256": "0ea14ea9a9164d5ae3d032184130868972e5982c415470eb9dcc1d7f928500da"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mechanism-as-mortal-reckoning",
+  "field": "title",
+  "lang": "ko",
+  "text": "필멸을 셈하는 기계장치",
+  "model": "claude-opus-5",
+  "source_sha256": "d97cc466f0c86b33a60d527c0056c22df50945650ba5a40aea1fc2f52a9e5f6c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mediocrity-that-recognizes-genius-it-lacks",
+  "field": "title",
+  "lang": "ko",
+  "text": "제게 없는 천재를 알아보는 범재",
+  "model": "claude-opus-5",
+  "source_sha256": "89f7c3f13ecf297d5d7e705faeef1bd173156b8c26fc6d0b567c5673722828bf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mediterranean-as-ledger-of-the-drowned",
+  "field": "title",
+  "lang": "ko",
+  "text": "익사자를 적어 내려간 장부, 지중해",
+  "model": "claude-opus-5",
+  "source_sha256": "a582796cf42a77cf054bf3b3c7732f7dac7f7cc4580481811774e9eb2258a486"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-medium-as-flesh-made-signal",
+  "field": "title",
+  "lang": "ko",
+  "text": "신호가 된 살, 그것이 매체다",
+  "model": "claude-opus-5",
+  "source_sha256": "90b06d3bf252444ff930a4db776298ffddc7bf7c7952e2811226f931c2007975"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-medium-who-pays-to-see",
+  "field": "title",
+  "lang": "ko",
+  "text": "보는 값을 치르는 영매",
+  "model": "claude-opus-5",
+  "source_sha256": "cb9d0d6e5e40de9a2d13e51da60c0087b319c03e7b308b42167aee5bd95f2226"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-melodrama-reclaimed-in-critical-penance",
+  "field": "title",
+  "lang": "ko",
+  "text": "비평의 참회 끝에 복권된 멜로드라마",
+  "model": "claude-opus-5",
+  "source_sha256": "054e99f53315ba716e5427ce3fce86365b2ce5cf0dc1b288cb1c401725519715"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-meme-eats-its-host-film",
+  "field": "title",
+  "lang": "ko",
+  "text": "밈이 숙주 영화를 먹어치운다",
+  "model": "claude-opus-5",
+  "source_sha256": "54c8eb6777a49678d4a102349e0bc6b2be14546a08f4ba9b3a1e644e7cbc5a14"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-memoirist-who-authors-her-own-catastrophe",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 파국을 손수 쓴 회고록 작가",
+  "model": "claude-opus-5",
+  "source_sha256": "9a9817169bc1d5020f5ece2367bbfc7719ce0215be8c34c9b5f4d222a6e1787a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-memory-that-was-already-tampered-with",
+  "field": "title",
+  "lang": "ko",
+  "text": "누군가 이미 손댄 기억",
+  "model": "claude-opus-5",
+  "source_sha256": "be5f1efd64689ccc064ed9697a021b4ca505e50bdf3f3884316dd1e9bb8666ed"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-memory-wipe-as-civic-maintenance",
+  "field": "title",
+  "lang": "ko",
+  "text": "기억 삭제라는 도시 정비 사업",
+  "model": "claude-opus-5",
+  "source_sha256": "29a0afc1734e3a31b881073b43c65227dece7739eac8086f5a7a6441a9c1ad35"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mender-who-cannot-mend-himself",
+  "field": "title",
+  "lang": "ko",
+  "text": "남은 고치고 제 몸은 못 고치는 수선공",
+  "model": "claude-opus-5",
+  "source_sha256": "f879852d130d529f2053170e8a4fcafd2ab7db3df80594ef28915a1e46ea4131"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mentorship-that-pays-a-debt-to-the-self",
+  "field": "title",
+  "lang": "ko",
+  "text": "제 옛 자신에게 갚는 빚, 그 이름이 가르침",
+  "model": "claude-opus-5",
+  "source_sha256": "eca698281e7cbf96b47801d74efb9fccd5c90c37a49869700d8e6e73ed4aa6ae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-merciful-lie-as-higher-truth",
+  "field": "title",
+  "lang": "ko",
+  "text": "자비로운 거짓말이 더 높은 진실이다",
+  "model": "claude-opus-5",
+  "source_sha256": "5afe7a1e1fdbaf73160097f09e9969c73d7d70c983fbd22e46e156a40d89490f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-merzbau-made-of-cinematic-trash",
+  "field": "title",
+  "lang": "ko",
+  "text": "영화 쓰레기로 쌓아 올린 메르츠바우",
+  "model": "claude-opus-5",
+  "source_sha256": "318597b62b29c85d0c32cb64e22c676b8ec43bd09c9e6c73a99475448e87ae40"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mesmerist-whose-gaze-foretold-the-nation",
+  "field": "title",
+  "lang": "ko",
+  "text": "그 눈빛이 한 나라를 예언한 최면술사",
+  "model": "claude-opus-5",
+  "source_sha256": "b6434a03d35776f45b754ad076d51537d1bdeda6a11e8cf0800d12b1a59bee34"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-metamorphosis-made-from-practical-craft",
+  "field": "title",
+  "lang": "ko",
+  "text": "맨손 기술로 빚어낸 변신",
+  "model": "claude-opus-5",
+  "source_sha256": "494e15a1fbf4359f8b6a44717e4857a727e59c6550d2619240557a089804b625"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-metaphysics-authored-in-the-cutting-room",
+  "field": "title",
+  "lang": "ko",
+  "text": "편집실에서 쓴 형이상학",
+  "model": "claude-opus-5",
+  "source_sha256": "73d6cdaec2b0ccde97403c69e0a2c5c1c6c431b4edae14c2c1eb366ccf5ba35a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-method-actor-lost-inside-the-role",
+  "field": "title",
+  "lang": "ko",
+  "text": "배역 안에서 길 잃은 메소드 배우",
+  "model": "claude-opus-5",
+  "source_sha256": "e77ff7c0b900e880bbd0fb126957e9125d12bdd646166bc28693f8bf374f2046"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-method-confessed-in-miniature-early",
+  "field": "title",
+  "lang": "ko",
+  "text": "첫머리 축소판이 방법을 실토한다",
+  "model": "claude-opus-5",
+  "source_sha256": "515c1b68f579f4513f5fb979fe577bb6541c7ac4c798c41ba79add2184471611"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-mexican-house-as-cosmos-in-miniature",
+  "field": "title",
+  "lang": "ko",
+  "text": "멕시코의 집 한 채가 곧 작은 우주",
+  "model": "claude-opus-5",
+  "source_sha256": "4ee0116c00f7e7a9180aa8b336915013c022a1ceaed10bf6cb2ed981094dcdd4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-migr-filming-europe-on-the-brink",
+  "field": "title",
+  "lang": "ko",
+  "text": "벼랑 끝 유럽을 찍은 망명자",
+  "model": "claude-opus-5",
+  "source_sha256": "639a0befa6c88a954dc5977182a6eebe1225dcba3c2dd72b05e69400479f8bf1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-migr-s-roving-camera-against-hollywood-grammar",
+  "field": "title",
+  "lang": "ko",
+  "text": "할리우드 문법에 맞선 망명자의 떠도는 카메라",
+  "model": "claude-opus-5",
+  "source_sha256": "f182a19785860296f558db509407a67aa10bcfabd7525afb45352013c1638b7f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-migraine-as-the-repressed-returning",
+  "field": "title",
+  "lang": "ko",
+  "text": "억눌린 것이 편두통으로 돌아온다",
+  "model": "claude-opus-5",
+  "source_sha256": "8d26b2aa46a4275c006932fa94fdced8a69e1772d9a7a56b69138c1cc97e7074"
+ }
+]

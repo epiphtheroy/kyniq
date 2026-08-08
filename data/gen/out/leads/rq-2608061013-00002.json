@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "romeo-and-juliet-1954",
+  "field": "lead",
+  "film_id": "311d3737-e7d6-490e-8d10-051029807cd4",
+  "lang": "en",
+  "text": "The verse is English; the streets, the stone and the production money are Italian. Renato Castellani took Shakespeare's Verona back to the country the play names and gave it 141 minutes, a long sit for a story that runs on haste — messages that arrive late, vows taken inside one afternoon. The length is the argument. A feud between two households stops being a prologue's shorthand and becomes a question of who owns which corner and whose servants meet at which well; a marriage made in secret has to be credible as a plan before it can register as a risk. The Golden Lion followed in 1954. The odd thing is the address: an Italian production, at home in the place the play invents, speaking to an English ear about a quarrel it treats as local business.",
+  "model": "claude-opus-5",
+  "source_sha256": "6983ee46fdb7e651d62d73e7e4cb2c41171e10a7406ccdad7f702eb7bf445444"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "angelina-1947",
+  "field": "lead",
+  "film_id": "a1110f3d-b580-4fc6-bbd2-c66ceac2fae1",
+  "lang": "en",
+  "text": "The apartment blocks were finished, and the people who needed them were kept outside the door. Luigi Zampa builds L'onorevole Angelina on that standoff and on one woman who can out-shout her husband, the speculators, and eventually a whole quarter that did not know it was waiting for her. Ninety minutes is short for a film that travels from a locked gate to a march on the capital, and the compression is the point: the politics arrive at the speed of temper rather than of argument. Zampa's protection against the pamphlet is that he never lets Angelina become better than she is — the lungs that carry a grievance to the capital will just as readily carry a quarrel with the barmaid over a man. Italy keeps it on 100 film italiani da salvare, and its lead took the Volpi Cup for Best Actress.",
+  "model": "claude-opus-5",
+  "source_sha256": "7ce9d8be05adb6204813ffb304cd1ac53e9a90178479ff6bc41fc3c7eb749bdb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-baader-meinhof-gang-on-trial-1986",
+  "field": "lead",
+  "film_id": "07bbd3f2-50a5-40df-8b90-25dddfcac2ab",
+  "lang": "en",
+  "text": "A courtroom was built inside a maximum-security prison, and the trial held there sat for 192 days. Stammheim gives that 107 minutes, nearly all of them indoors: motions, interruptions, recesses, the machinery of a state trying four people who refuse to grant the court any authority over them. Stefan Aust wrote the screenplay out of the research behind his own book on the group, so what reaches the screen has the shape of a record rather than of an invention — which is also why the film was contested the moment it appeared. Reinhard Hauff directs it as an argument about procedure. Nothing in it moves the way the action and crime tags imply; the suspense is over whether the room can hold. It took the Golden Bear in 1986, eleven years after the first day it stages.",
+  "model": "claude-opus-5",
+  "source_sha256": "24846877d08a98e51dc65f39d894e9a85b833e656cca1fd2905a14729bbeea97"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "early-works-1969",
+  "field": "lead",
+  "film_id": "e9e3c111-07d7-48e2-9ffc-c8d5a01a9c2a",
+  "lang": "en",
+  "text": "Four young people take Das Kapital out to the villages, and one of them is named Jugoslava. Želimir Žilnik shot Рани радови in 1969, in the country whose name she carries, so every argument the group has with a farmer doubles as an argument with the place that let the film be made. Eighty-seven minutes, and no patience in any of them. The theory is immaculate; the fields are mud; the workers and peasants whose consciousness is to be raised turn out to hold views of their own, arrived at without assistance. What keeps this from being a lecture is that Žilnik is at least as curious about his four as about what they get wrong — the certainty, the tempers, the sound a slogan makes when it has to be said out loud to a stranger who is busy. It took the Golden Bear.",
+  "model": "claude-opus-5",
+  "source_sha256": "f49d253ef3d61419d10a8acc2e0e8af1021b85ca5835b447c4db2139634605d3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "women-from-the-lake-of-scented-souls-1993",
+  "field": "lead",
+  "film_id": "3aec900d-9a61-4a83-8cae-37b1b0130001",
+  "lang": "en",
+  "text": "Sesame oil, pressed and bottled in a village workshop, is what leaves Xiang with more money than anyone near her. Xie Fei builds 香魂女 around the moment outside capital arrives — Japanese investors, an expansion, a small trade turning into a real business — and then watches what the money does inside a house rather than on a ledger. She works; her husband drinks; and part of what her new standing buys is a wife for her son. Underneath it runs a steady arithmetic: what a person costs, what obedience costs, which debts can be settled in cash. Huanhuan, the daughter-in-law who arrives on those terms, is where the arithmetic fails. The Golden Bear went to it in 1993, a strange fate for a film so unwilling to make its central figure easy to like.",
+  "model": "claude-opus-5",
+  "source_sha256": "3aec3c1b30a9ac2aac8151bb4d9ba73d8bfa01dee242bc6c998b0a0911944aef"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-rats-1955",
+  "field": "lead",
+  "film_id": "216ecce5-efcd-411f-ba91-03e2975ea37c",
+  "lang": "en",
+  "text": "Two women make an arrangement about a child: one cannot keep it, the other wants it. Pauline is Polish and displaced, the war barely over, walking Berlin after a man who left her and with no standing anywhere in the city — which is how the arrangement becomes the only door open to her. Robert Siodmak stages it as a contract between two people who both have reasons and neither of whom can afford them. Ninety-seven minutes, back rooms and tenement stairs, and nobody within reach who has the authority to enforce anything on anyone. The real subject is the second clause: what happens to an agreement made under that much pressure once the pressure changes shape. Made in 1955, ten years on, for an audience that had lived the conditions it works in. It took the Golden Bear.",
+  "model": "claude-opus-5",
+  "source_sha256": "3c285d62ebddbb1a23b1aaa1a07fd6144d62744f8d92b8e91c7c00d6621cc0a2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "four-in-a-jeep-1951",
+  "field": "lead",
+  "film_id": "f4c199bf-c110-4946-98ec-f17e356e652d",
+  "lang": "en",
+  "text": "One jeep, four soldiers, four armies that had lately been on the same side. That constraint is the entire design: a Soviet, a Briton, a Frenchman and an American share a vehicle and a patrol route through occupied Vienna, and have to agree, in the smallest practical terms, about whatever they find on it. The jeep is the room — four men who would not otherwise sit together, kept moving. Leopold Lindtberg made it as a Swiss production, standing outside all four flags, and ninety-five minutes is long enough to work the idea through without inflating it into a treaty. The tension is procedural before it is political: whose jurisdiction, whose language, who signs. Die Vier im Jeep carries a German title and is catalogued in French. It took the Golden Bear in 1951.",
+  "model": "claude-opus-5",
+  "source_sha256": "6d3debd22f33ea8c1b7c5d4679db71198ce8092b9b3e8fbc7f6376d7f1aaacd9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "to-bed-or-not-to-bed-1963",
+  "field": "lead",
+  "film_id": "ef9384a6-afa2-4947-852d-01b6ea8ee217",
+  "lang": "en",
+  "text": "The Golden Bear of 1963 went to a comedy about an Italian buying pelts in Stockholm. Gian Luigi Polidoro sends his fur merchant north for the annual auctions, alone, for the first time, into a country whose rules he cannot read — and the film runs on the distance between what he believes is on offer and what is actually being said to him. It is a thin premise held across 103 minutes, and it holds because the joke points at him: the visitor is the specimen, not the place. At home the film is called Il diavolo; abroad it was given a pun about going to bed. Somewhere between those two labels is the actual picture, less interested in scandal than in the loneliness of a man doing business abroad who decided before he left how the trip would go.",
+  "model": "claude-opus-5",
+  "source_sha256": "d2870a3dcd5825355592524d835ecfe05570c342cc0c402123d522d457d94363"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tomorrow-is-my-turn-1960",
+  "field": "lead",
+  "film_id": "ede54671-e93e-4199-8db1-cd12cd46929c",
+  "lang": "en",
+  "text": "Two French soldiers are handed to a German farm and put to work, and the war carries on elsewhere without them. André Cayatte spends 125 minutes there, which sets the terms: not an escape story but a study of duration — seasons, chores, a language picked up by necessity, a household that is also a confinement. Two men are the whole apparatus. One defeat put them in the same field, and from there the film has a comparison to run, which is all the structure it needs. What stands to be lost is not survival so much as whatever each of them decides he is, with no one from home watching him decide it. Le Passage du Rhin took the Golden Lion in 1960, fifteen years after the end of the war it opens in.",
+  "model": "claude-opus-5",
+  "source_sha256": "b0c67fdf0ae6922f46743912802d4a37e19d6fc1bd5bce21ef9786938ccec680"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-house-of-smiles-1991",
+  "field": "lead",
+  "film_id": "d6c9c2f0-2dcb-4768-b7a0-cdbf9146b8aa",
+  "lang": "en",
+  "text": "A retirement home has corridors, mealtimes, a staff rota and nowhere at all designed for privacy. Marco Ferreri puts two residents in their seventies inside that plan and lets them want each other; the institution treats it as an incident to be managed, and the other residents have views they are glad to share. The affront and the tenderness come from one place — the sight of desire being supervised. At 110 minutes there is time to show how supervision actually operates, which is seldom by prohibition and usually by concern, expressed kindly, at close range, without pause. It took the Golden Bear in 1991, and at home the David di Donatello for Best Film and for a supporting performance. Ferreri's subject is bodies that everyone around them has agreed to stop seeing as bodies.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c23734bc4f647435e4c2a8c8952e233d71ed78eea77d7c3d7eefd6fe8513e1f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "palermo-or-wolfsburg-1980",
+  "field": "lead",
+  "film_id": "d0114064-d679-4cee-886e-ac15caba7de8",
+  "lang": "en",
+  "text": "Nearly three hours long, and a good share of them is spent on a train. Werner Schroeter follows a young Sicilian with no money out of Palermo, up through northern Italy, and into Wolfsburg, where the Volkswagen works are hiring; he declines to hurry any leg of it — the leaving, the transit, the shift, the rented room afterwards. The length is the argument rather than an indulgence. A journey that long takes what it takes, and a film that trimmed it would be describing a different experience of it. The Golden Bear went to it in 1980. What holds underneath is the arithmetic of the trip: one place with more workers than work, another with a plant and a shift pattern, and a man obliged to become slightly different at each end of the line.",
+  "model": "claude-opus-5",
+  "source_sha256": "1e5e93047be146e212d875ad57642e00739e9dd176bffa07d907c6f087b21415"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "el-lazarillo-de-tormes-1959",
+  "field": "lead",
+  "film_id": "3a42209c-6e27-412d-9ad7-61857595011a",
+  "lang": "en",
+  "text": "The book it comes from was printed in 1554 with no author's name on it, and its hero is a boy sold from one master to the next. César Fernández Ardavín keeps that shape, so the film arrives in episodes rather than acts: each master is a closed arrangement with its own rules, and Lazarillo's task is to learn them before hunger completes its own arithmetic. His resources are attention, timing and small thefts, and all three are treated as skills. That is where the comedy sits, and it is not a gentle kind — the joke is always at the expense of somebody with power, made by somebody with none who cannot say so aloud. 114 minutes, filmed in Spain in 1959 from a text four centuries older, and it took the Golden Bear.",
+  "model": "claude-opus-5",
+  "source_sha256": "cb2e49d8dd7ac447e23ff12f89ea2ceff5faa1a144ec0a755611726c1e236650"
+ }
+]

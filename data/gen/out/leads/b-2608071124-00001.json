@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "blackmail-1929",
+  "field": "lead",
+  "film_id": "3a7e797e-c469-4041-8894-00fdbf1ddf86",
+  "lang": "en",
+  "text": "A Scotland Yard man is too busy for his girlfriend, and a courteous stranger with a good address is not. Everything in the first stretch runs on that small grievance: Alice White is bored, Frank Webber is at work, and the invitation she accepts is flattering precisely because it costs nothing yet. London, 1929, eighty-six minutes, and the crime when it comes is less an event than a change of air — a private matter that suddenly has an official department attached to it. Hitchcock's interest is plainly in the gap between the two: a woman who cannot speak and a man whose profession is asking questions. The 1001 Movies list keeps it, and the reason is not the plot, which any studio could have filmed, but the way an ordinary room stops being ordinary while two people are still being polite in it.",
+  "model": "claude-opus-5",
+  "source_sha256": "0a5e187219e343db489406a135f6fdf8784f5f012049c14afecf8c4e116a7a18"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "things-to-come-1936",
+  "field": "lead",
+  "film_id": "b3a7bdcc-168d-42b9-823b-b60b11e1ef65",
+  "lang": "en",
+  "text": "A film from 1936 starts its second world war within a few years and then lets it run for decades. What follows is less a plot than a chronology: bombing, plague, strongmen among the ruins, then engineers with a plan and the machinery to impose it. A hundred minutes for a century means the story keeps losing people to time — anyone followed closely in the first movement is history by the third, which is either the flaw or the whole argument. The rebuilt world is filmed with admiration and with unease, and it arrives looking less like a place than like a diagram. Menzies attends to volumes and surfaces more than to anybody's marriage. The middle stretch is the exception: scarcity and disease leave the film with people instead of schemes, and those are the scenes that stay in the mind.",
+  "model": "claude-opus-5",
+  "source_sha256": "3b1ec2b9cd5f449eb6758a6bd3bd54bd6186343b7fe2b9ec869d14b5dd09cb2e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "queen-christina-1933",
+  "field": "lead",
+  "film_id": "5290be38-b8ae-4ba7-aba4-39274dc6c3d4",
+  "lang": "en",
+  "text": "The court is a payroll, and the queen at the centre of it has no private hour. Mamoulian treats the throne as a job without days off — petitions, treaties, ministers who have already selected the husband — and then sends in a Spanish envoy to ruin the arithmetic. The film advertises romance and is really about jurisdiction: which part of a monarch belongs to her, and who is entitled to an opinion about it. Ninety-nine minutes, a studio's idea of an older Sweden, and a production organised in every department around its central figure, who is asked to carry statecraft and infatuation in the same shot. Nothing in the situation requires that her choice be agonising; the picture insists that it is, and the insistence is the interesting part, because it means the queen is being written as a person with somewhere else to be.",
+  "model": "claude-opus-5",
+  "source_sha256": "348498f4ea6b0c237e1891c8780d766993a1d05d6c6acaa05e8c0bb75cb33f43"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "pepe-le-moko-1937",
+  "field": "lead",
+  "film_id": "76d8d621-f580-44f0-8b56-6dae53105c03",
+  "lang": "en",
+  "text": "Safety measured in streets: as long as Pépé stays inside the Casbah, the police can watch him and do nothing else. That arrangement is the engine of the film and also its joke, since a man who cannot leave a quarter comes to know every informer in it, and they all know him. Duvivier films Algiers as a stacked, roofed-over maze where pursuit would be pointless, and lets the pressure come from Paris instead, a city his fugitive discusses the way prisoners discuss weather. Then a woman from Paris gets lost in the alleys, and the map shrinks. What lasts here is the tone rather than the plot — the cordiality between the hunted and the men assigned to him, everyone patient, everyone waiting for the afternoon when boredom finally outweighs sense.",
+  "model": "claude-opus-5",
+  "source_sha256": "98a8fcdaf5a1691a4908b86d9398b9ffa527eed62878453e4d219f3f7d72d3a0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "fantozzi-white-collar-blues-1975",
+  "field": "lead",
+  "film_id": "2f6c31ff-a1f4-4559-aa1a-8aed602f3806",
+  "lang": "en",
+  "text": "The joke is the job: an office worker so far down the ladder that the company employing him has no clear idea he exists. Salce runs 108 minutes on that and handles the length episodically — one indignity, then the next, arriving on schedule as if timetabled — and the comedy depends entirely on the man's refusal to turn bitter. He absorbs. He apologises. He is the material and never suspects it. The register stays flat and a little cruel, which is what separates this from affectionate comedy about little men: nothing is redeemed, and the hierarchy above him is not corrupt, merely indifferent, which is worse and funnier. Italy in 1975 produced plenty of films about power at the top; this one stays in the corridor, where a manager's name works like weather and the clock is the antagonist.",
+  "model": "claude-opus-5",
+  "source_sha256": "031d82f4430058407cfaa365b43bf9a6eade110cebcc9f346e89b5f28cb15228"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-white-sheik-1952",
+  "field": "lead",
+  "film_id": "7d433f9b-4abd-4e3d-a1f8-8c6699651eae",
+  "lang": "en",
+  "text": "A photo-story magazine, the kind sold at kiosks and read on the tram, is enough to pull a bride out of her own honeymoon. Wanda has come to Rome for the relatives and the church appointments her husband has arranged; she goes looking instead for the man whose face she has been following in print. Fellini splits the day between the two of them and keeps both halves in plain daylight, which is the harder choice. Ivan is left inventing reasons in front of the family. Wanda gets as far as the place where the magazine is actually manufactured. Eighty-three minutes, no villain anywhere, and a good deal of sympathy for the crush itself alongside a cold eye for the trade that supplies it. The husband's afternoon of covering for her turns respectability into slapstick, and neither of them is spared.",
+  "model": "claude-opus-5",
+  "source_sha256": "08f9e29840ce4b0952eaaa8d2413832129c20d971ab6b9445e806d0eb8636421"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-mortal-storm-1940",
+  "field": "lead",
+  "film_id": "7c0c0975-a1b4-4be5-a9db-007f54412fdf",
+  "lang": "en",
+  "text": "The break comes at a family table, among people who have always argued pleasantly. Borzage puts the Roths in a village in the German Alps at the start of the 1930s and then lets the new order arrive the way such things arrive: as a change in what the young men are willing to say in front of their elders. A hundred minutes, and most of it interiors that keep emptying of people who used to be in them. Nothing monstrous is required. The sons are not villains, they are enthusiastic, and enthusiasm is the substance the film finds frightening. An American picture from 1940 could have made this a matter of armies and speeches; this one keeps its attention on the smallest unit of the catastrophe, which is a household that can no longer sit down to eat together.",
+  "model": "claude-opus-5",
+  "source_sha256": "e120d53ef31f815dac842a729bb39e0a4895bac9f3a948c67dff0ee58822197d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "stella-dallas-1937",
+  "field": "lead",
+  "film_id": "04b6f286-4e99-4fad-9dd7-920e142e9568",
+  "lang": "en",
+  "text": "A mother works out that the obstacle between her daughter and a good life is her own manners. Vidor films class as something audible: a dress with too much on it, a laugh at the wrong volume, a friendliness that registers as vulgarity in the rooms where the girl hopes to be admitted. The picture never settles for making Stella foolish or making her noble. She is a woman with tastes her child is learning to be embarrassed by, and the film watches that embarrassment form without picking a side, which in 1937 was a harder trick than the plot suggests. A hundred and six minutes of social pressure — invitations, addresses, other people's mothers — and it was recognised in both of the Academy's actress categories, which is fair, because the central performance is willing to be unlovely for long stretches.",
+  "model": "claude-opus-5",
+  "source_sha256": "d986e0e0cc4f7fec9ff989910ed675eea251f26bec47fbe3ec0c0bc1db567b2e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "way-down-east-1920",
+  "field": "lead",
+  "film_id": "a1eee5b8-4e17-4914-9d45-c6e672d66b5f",
+  "lang": "en",
+  "text": "Two and a half hours in 1920, most of them given to the daily arithmetic of disgrace: which household will take a girl in, what work she must do to stay, who gets told and when. The seduction and the false wedding are settled early. What fills the long middle is a young woman keeping a secret inside a farm where nothing goes unobserved, among people who are kind exactly as long as they remain ignorant. Griffith leaves the moral bookkeeping fully visible — the wealthy deceiver, the ruined girl, the strict household — and yet the surprise is how domestic the film is, how much of it is chores, kitchens, and a hired girl's uncertain standing in someone else's family. The conventions belong to the melodrama of its day. The situation is plain and hard: a child, no husband, and a community treating her circumstances as its business.",
+  "model": "claude-opus-5",
+  "source_sha256": "c268ef0ba55c1f688911ad9e72b7deb51b3baff437387e87370b538a7dc6e57a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "peter-ibbetson-1935",
+  "field": "lead",
+  "film_id": "7df4c739-46dc-4123-8aba-d02b6d73f2f0",
+  "lang": "en",
+  "text": "A boy is taken out of Paris after his mother's funeral and raised in England by an uncle with no patience for him. That is nearly all the apparatus the film needs; the rest is adult life proceeding on schedule while a childhood remains unfinished. He becomes an architect, competent and closed, with no time for women, and takes a commission from a duke and duchess. Hathaway keeps the whole thing at room temperature — eighty-eight minutes of sober 1935 studio drama, drawing rooms and correct behaviour — which is why the fantasy element, when it enters, does not announce itself as fantasy. The Academy's award went to the score, and that is a fair indication of where the picture's unreality was thought to live: not in the sets, but in what surrounds the two of them when they speak.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9a153f0c3b21add1d79f5ba045c81980614793fa3432a21cd8db35a2e6fc08a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-monsters-1963",
+  "field": "lead",
+  "film_id": "55640c07-2962-4384-b4a9-80319e8ac055",
+  "lang": "en",
+  "text": "Twenty sketches, 123 minutes, and no connective tissue whatsoever. Risi states a situation, lets it curdle, and cuts, sometimes after several minutes and sometimes as soon as a single transaction has landed; the accumulation does what a plot could not, which is to make self-interest look like a shared national habit rather than a private failing. The satire goes after what the decade was proud of, and it assumes an audience willing to recognise itself in the mirror being held up. The comedy is transactional throughout: somebody wants something small and gets it at another person's expense. Nobody is redeemed between segments, because there is nothing between them. Registered as a French production and spoken in Italian, it moves fast and stays cold, and its method carries an unpleasant implication: given twenty attempts, the film keeps finding the same man.",
+  "model": "claude-opus-5",
+  "source_sha256": "572d5c12f13b47313dff6e26bfe03a5fd60230b28a94b7fe66764818e0a78257"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "love-meetings-1964",
+  "field": "lead",
+  "film_id": "74bb23dc-0b51-4865-a2a8-65cc8e1ae09f",
+  "lang": "en",
+  "text": "A man with a microphone asks strangers in the street whether a woman's virginity still matters, and then waits. Pasolini's questions are short enough to answer in a sentence, which is what makes them difficult; the camera stays while people work out what they are permitted to say with neighbours listening. Children guess at where babies come from. Farm labourers weigh divorce. Students perform a confidence that thins under a follow-up question. Eighty-eight minutes of Italian talk in 1964, and the interviewer never hides: his prompting is audible, and so is his suspicion of the tradition he is poking at and of the modernity offered as its replacement. Class is legible in every reply, in vocabulary and in how long a person will keep facing a lens. Comizi d'amore leaves the argument open.",
+  "model": "claude-opus-5",
+  "source_sha256": "6def47b14afa532b3e6d47065d0c384d2e77d4af5821dcccafddcfd72952f5ae"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "judge-priest-1934",
+  "field": "lead",
+  "film_id": "df2b4d1e-fb00-4f3c-8672-3fd5355d4959",
+  "lang": "en",
+  "text": "A judge who fought for the Confederacy hears small cases in a Kentucky town and settles them by temperament rather than statute. Ford made it in 1934, eighty minutes, and the ease is deliberate: porch conversation, a courtroom conducted like a parlour, the law bending politely around people the judge has known all his life. What the picture is actually doing is nursing a defeat. Its warmth asks the audience to share an affection for the order the judge embodies, and a viewer who cannot will find that the good humour has a floor under it which does not bear weight. The direction is unhurried, the comedy lands, and none of that resolves the difficulty. Both the craft and the sentiment are on display within the first reel.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac8ecc7e520b092e951f291aa8f84ef1faec8c582552cd5a548066c11aa71de6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-baker-s-wife-1938",
+  "field": "lead",
+  "film_id": "694c21d3-608c-48c2-8764-a55578d7b0a9",
+  "lang": "en",
+  "text": "Bread is infrastructure, and Pagnol builds 133 minutes on that fact. A new baker settles in a village in Provence with a wife a good deal younger than he is; when she leaves with a shepherd, his ovens go cold, and a private humiliation is promoted to a municipal emergency. The men who laughed first are the ones who call the meeting. Pagnol lets the talk run at length, because talk is how this village conducts its business, and the running time is not padding but the shape of a place where nothing can be settled except in public. Aimable's misery is played straight in the middle of the farce, which is what stops the neighbours' practicality from looking simply cruel. What is on trial, in effect, is the idea that a marriage is anybody's private property.",
+  "model": "claude-opus-5",
+  "source_sha256": "dd935ff202e35def2909800d7b4491ce845576c3b0a63bc45a76c528bf5c12cf"
+ }
+]

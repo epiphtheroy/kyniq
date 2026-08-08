@@ -1,0 +1,82 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "kursk-2018",
+  "field": "lead",
+  "film_id": "f35d1848-07b0-481d-b4fc-7f430fb4b46f",
+  "lang": "en",
+  "text": "August 2000: a Russian naval exercise ends with a submarine on the floor of the Barents Sea and 118 names on a crew list. Thomas Vinterberg divides the film three ways — the compartment where a handful of men are still breathing, the families onshore pressing for a straight answer, and the offices where a British officer waits on a Russian permit to attempt a rescue. The strand onshore is the one that carries the picture. Grief there is administrative: waiting rooms, prepared statements, information rationed by rank. The technical problem of reaching a sunken hull is not obscure. What eats the hours is the number of people who must agree before anyone descends, and the speed at which such men agree; the film treats that arithmetic as its antagonist.",
+  "model": "claude-opus-5",
+  "source_sha256": "9c04d7a16bf89195475b1a161bd5c582408a76927ab04650504a47ceac333c08"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "manta-ray-2019",
+  "field": "lead",
+  "film_id": "f4617145-43b3-43b9-907f-ed57a0ad3b09",
+  "lang": "en",
+  "text": "A fisherman hauls a man out of the water, gets no word out of him, and settles the matter by giving him a name. Thongchai, he decides, and from there the two of them share a coast, a house, a boat, and a stretch of sea that delivers things nobody comes to claim. Phuttiphong Aroonpheng keeps the film inside that arrangement for 105 minutes, with almost nothing explained aloud, since one of the men cannot or will not speak and the other has stopped asking. Meaning arrives by other means: work divided, food offered, the order of a household. Hospitality is the subject, and the film keeps a hand on the harder part of it — what a host is owed, whether a name handed over can be handed back, how much of a life a stranger can be fitted into.",
+  "model": "claude-opus-5",
+  "source_sha256": "22499f75ff7af8d959a233ca0940ebc0342fe9e663cdadd656d47a1b28169087"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "twice-born-2012",
+  "field": "lead",
+  "film_id": "f4857452-1bdc-4cbc-a455-3a2ace8355f8",
+  "lang": "en",
+  "text": "Sergio Castellitto takes melodrama into Sarajevo under siege and declines to apologize for the volume. A mother brings her teenage son to the city where his father was killed in the Bosnian war, and from there the film works backwards, toward a love affair conducted as the siege closed in. Two hours and seven minutes, with the swelling and the coincidence the mode implies. What the form allows is a war looked at as consequence in a bedroom rather than as a map of the front. What it costs is that every private catastrophe risks being asked to stand in for a public one, and the picture asks that of nearly all of them. The argument starts early and is never withdrawn, which at least makes the terms plain: sentiment as a way of keeping history in the singular.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac212a06ae3d4a8f3798167c05bea2f508a7d076baa5d808a34b6e72031ad7e9"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "next-sohee-2022",
+  "field": "lead",
+  "film_id": "f4b31928-d216-4f5f-8320-2d9d29cb1bde",
+  "lang": "en",
+  "text": "A schoolgirl is dead, and the officer given the file keeps asking adults questions they consider already answered. That is the engine, and July Jung runs it for 138 minutes, a long time for a case everyone involved would prefer to call closed. The detective's work here is less pursuit than reading: statements, rooms, the order in which people were told things. Reconstructing a girl's last weeks becomes a working woman's daily job, and the resemblance between the two lives does the pressing. Nothing in the premise promises an arrest. What it promises is an account, a more awkward object, since an account can be written up and filed and nothing need follow from it. Thriller is the label; the tempo is that of a complaint moving up through an office.",
+  "model": "claude-opus-5",
+  "source_sha256": "85b8120a7eb2e879fe08b207e29e2f14255085686944011c20248b27b37c0ed1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mountain-cry-2016",
+  "field": "lead",
+  "film_id": "f4c351f0-c31a-4c32-b2c3-0aa4e16c5c7c",
+  "lang": "en",
+  "text": "The village sits high enough that everyone's business is everyone's, and the woman who does not speak has been the exception. Her husband's death ends that. A household with no man in it becomes a matter for the neighbours, and a past nobody troubled to ask about while she was somebody's wife turns into a subject of general inquiry. Larry Yang films it as a study of obligation: who feeds her, who owes her, who speaks for a person unable to give her own account. These are practical questions in a place with little to spare, and the romance the genre promises has to make its way through them. Her silence also sets the method. Information reaches the audience as it reaches the village — in fragments, secondhand, from people with reasons for the telling.",
+  "model": "claude-opus-5",
+  "source_sha256": "c2a694f3df41fcd47b889845405903ac6dec718c6afef7119c643421d1aaa784"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "caf-lumi-re-2004",
+  "field": "lead",
+  "film_id": "f6a7343d-01ce-4411-88cf-437f0c0fd35f",
+  "lang": "en",
+  "text": "Yoko has two projects: the life of a composer who worked in the 1930s, and a pregnancy she has no intention of converting into a marriage. Neither is presented as a crisis. Hou Hsiao-hsien keeps both at the level of errands — a used bookshop where research and company arrive together, a Tokyo in which the parts of the city that are going still stand beside the parts that replaced them. 103 minutes, and the real work is one of scale: a decision that would organize any other picture is here one item among the day's, raised and then left alone, while a vanished 1930s gets the attention usually reserved for a living matter. The past under research is legible. The present is not, and Hou appears to think that is simply what a present is.",
+  "model": "claude-opus-5",
+  "source_sha256": "8c12b2756c651d1f713ead7d517d466fdce58b6dcbebeaa2b1e81fb817435b51"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-hot-roof-1995",
+  "field": "lead",
+  "film_id": "f82b9ee4-8e90-4393-b9c1-d80514989a3a",
+  "lang": "en",
+  "text": "It is the hottest part of the year, and a group of women has taken the roof of their own apartment building and will not come down. Everything else follows: 108 minutes, one flat surface, direct sun, a crowd gathering at street level. The women are neighbours rather than allies, which is the point — a standoff forces talk that a nod in the stairwell never required, about whose husband, whose rent, whose turn. A film built on a siege has to hold two things at once, the absurdity of the position and the reason anyone would take it, and Lee Min-yong keeps his attention on the second. Korea in 1995, and the practical question the roof puts to the building below is who down there is prepared to be seen on the women's side.",
+  "model": "claude-opus-5",
+  "source_sha256": "80a0c87f13b002de5228feb8d8e5ebc63e16b7dc0d8259ce9ff364200b72a318"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "autobiography-2023",
+  "field": "lead",
+  "film_id": "f8789298-879c-4dca-8b00-dbd3794be83f",
+  "lang": "en",
+  "text": "The house has one occupant, and his job is to keep it ready for the man who is not in it — floors, sheets, rooms nobody uses. Then the owner comes home to run for mayor. What forms between them is not quite employment and not quite kinship: the candidate has a use for a young man who admires him, and the young man has never had anyone to be loyal to on this scale. When the campaign is vandalized, Makbul Mubarak stays cool and stays on the servant's side, so that each step taken in response looks small and reasonable at the moment of taking it, which is how the thriller machinery starts turning with no voice raised anywhere. 115 minutes in a house whose emptiness was always a form of authority: the owner never had to be present to be obeyed.",
+  "model": "claude-opus-5",
+  "source_sha256": "b3c1bac0b718e796ef34eb199861f64d20552af979425201803826950e3eb4ad"
+ }
+]

@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "girl-walk-all-day-2011",
+  "field": "lead",
+  "film_id": "87006676-5b56-4e9e-8b36-6352e8e46fb9",
+  "lang": "en",
+  "text": "A feature-length music video is close to a contradiction, and this one runs seventy-seven minutes without resolving it. Jacob Krupnick set three dancers loose across New York — sidewalks, parks, a stadium — filming entirely in public, so whatever the city happened to be doing that afternoon stays in the frame. The score is Girl Talk's mashup album All Day, one continuous churn, which leaves the film few excuses to stop moving. It was paid for by strangers online, in small amounts. That shows less in scale than in what the camera is permitted to be: unofficial, mobile, roughly the height of a passerby. IndieWire put it on its films-of-the-decade list. Rebellion and courtship get worked out at pedestrian level, among people with somewhere else to be.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a1fe3febbcffda3f151f304909f34290c1036f6e49e981483dce00ad58d8165"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "gentlemen-prefer-blondes-1953",
+  "field": "lead",
+  "film_id": "d8de86b5-3df3-473c-b430-f9a421d95fcc",
+  "lang": "en",
+  "text": "Lorelei Lee is engaged to a fortune, and the fortune's father has paid a private detective to board her ship. That premise does something unusual for a romantic comedy: it puts a woman under continuous observation and then invites the audience to enjoy the performance anyway. Everything she does on the crossing is potentially evidence. Howard Hawks keeps it to ninety-one minutes, and the engine is not the engagement but the partnership — Dorothy Shaw is no foil to be corrected, and the two of them handle the men, the ocean and the watching as shared work. Ernie Malone's assignment is to record questionable behavior. Defining it is the harder job, and he has to do it aboard a ship where everyone is idle, dressed up, and on display.",
+  "model": "claude-opus-5",
+  "source_sha256": "a2c62a752060bb9d9b04c63bd27900c8f8e74ccaf0763f4199c904155da82cdc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-devils-1971",
+  "field": "lead",
+  "film_id": "976c45ae-2c6d-42a5-8e2e-3a2a0a80ea4d",
+  "lang": "en",
+  "text": "An accusation of witchcraft was, among other things, an administrative convenience. Ken Russell's subject is that convenience: a seventeenth-century French priest with a following, a cloistered nun whose fixation on him arrives in the shape of testimony, and officials of church and state who need no persuading that the charge is useful to them. The catalogue lists this as history and horror together, and the pairing is exact — the dread is procedural, produced by men who have found a legal instrument that cannot be answered. Once the accusation exists, the priest's virtue and his guilt become the same evidence: what he built in the town, what he said from a pulpit, all of it readable against him. A hundred and twelve minutes. The film is less interested in whether the devils are real than in how many people profit by saying so.",
+  "model": "claude-opus-5",
+  "source_sha256": "481140b43f7f19c3b65782454ddf10ccf7c56f8f3b886be3f34b749b99431510"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tale-of-tales-1979",
+  "field": "lead",
+  "film_id": "31369a17-9f37-4a7e-a781-d81e1e8c97d3",
+  "lang": "en",
+  "text": "A small gray wolf wanders through someone else's childhood, and the film lets him stay. Twenty-nine minutes is the whole of Tale of Tales, which proceeds less by story than by return: worn images that come back slightly altered, the way a household remembers itself out loud. Animation is what makes that possible. A drawn courtyard can hold light the way memory holds it, and a figure can leave a room without needing a door. Yuri Norstein made it in the Soviet Union in 1979, and it claims the memory of an entire country while never widening out to the scale of one. The wolf is not handed over as a symbol to be decoded. He has the run of the place, and the decision to follow him instead of a plot is what the half hour is for.",
+  "model": "claude-opus-5",
+  "source_sha256": "a8cd71328b182c5668074351ff0857244d6be4c4fa9387a742ae1079d9e7a662"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-taking-of-power-by-louis-xiv-1966",
+  "field": "lead",
+  "film_id": "618d726f-713f-4bd8-8641-73b782519a72",
+  "lang": "en",
+  "text": "Cardinal Mazarin dies early, and the vacancy is filled by a young man the court expects to lose interest. The film that follows is about work. Rossellini renders the assumption of absolute power as a run of decisions about money and appetite: who is paid, who is fed, who is kept in debt, which merchants are left alone. Fouquet, the superintendent, has been emptying the treasury and is confident the king will tire of governing. Colbert does arithmetic and thinks otherwise. Ninety-five minutes, and the drama sits in procedure — in the distance between holding a title and running a state, which is the distance between being obeyed and arranging matters so that nobody can afford to disobey. The court here is a workplace, and the king is learning a trade.",
+  "model": "claude-opus-5",
+  "source_sha256": "02f4fb099190e485d6107b340160f22c2bb211788f1a14cdccafce6f4e2ae7b3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "west-indies-the-fugitive-slaves-of-liberty-1979",
+  "field": "lead",
+  "film_id": "5a58fa67-a52b-49e3-b408-7b44276a3620",
+  "lang": "en",
+  "text": "The whole of this film takes place aboard a slave ship built inside an abandoned Citroën factory. Med Hondo keeps that single structure for a hundred and sixteen minutes and runs several centuries of French rule through it: enslavement, the crossing, and later arrivals in Metropolitan France as labour rather than cargo. Because the vessel is also a stage, the history comes sung and danced, people stepping forward in turn to take their part of it. The choice of building does work. A car plant that has stopped making cars is no neutral shell for a story about people moved to wherever the labour was wanted, and the film never pretends it is. The ship gives way to no other set, which is the argument: by this account, the crossing has not ended.",
+  "model": "claude-opus-5",
+  "source_sha256": "f0b84c8bb9c92d10b50e5bdfc809fad2ed1d88743dd3268332c7e95a34400c43"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-barefoot-contessa-1954",
+  "field": "lead",
+  "film_id": "89720d94-5cbf-4ef7-addd-ef6ba7a7529b",
+  "lang": "en",
+  "text": "A washed-up director needs a face, and he finds one on a Madrid dance floor. From there The Barefoot Contessa belongs mostly to the men arranged around Maria Vargas: the director whose second chance depends on her, the producer whose possessiveness is treated as an occupational trait rather than a defect, and the machinery that converts a dancer into property with a release date. Mankiewicz gives it a hundred and twenty-eight minutes and no hurry. Stardom arrives as something done to Maria rather than achieved by her, which is why her search for a lover outside the arrangement reads less like romance than like an exit route. Cahiers du Cinéma later placed it among a hundred films from around the world — a magazine built on questions of authorship attending to a picture about who gets to author a life.",
+  "model": "claude-opus-5",
+  "source_sha256": "e1fd5e793ff6098740314e044f7c44c0674b908387a5504f9899239481e333bc"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-ladies-man-1961",
+  "field": "lead",
+  "film_id": "ee64b76e-77cf-4643-89ab-14d2d8c0eea0",
+  "lang": "en",
+  "text": "The house has too many rooms, too many occupants, and one new employee who fits nowhere in it. Herbert has just been left by his girl and needs work; the job he finds puts him in a building full of women, and the building is what Jerry Lewis actually directs. A comedy confined to one address has to make its jokes out of layout — rooms that keep arriving, chores that multiply, a man permanently in the wrong corridor. The advertised gag, one bachelor among dozens of women, is the least of it. What sustains ninety-five minutes is the mismatch between a household running on routine and someone who cannot finish an errand without disturbing three floors. TSPDT's thousand rarely seats slapstick, and this one is there for what Lewis built rather than for any single joke.",
+  "model": "claude-opus-5",
+  "source_sha256": "243936fb4dae43a4a9fe40fa0446045100c92f6cd2e0a2055cf80c9db21bbef4"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-round-up-1966",
+  "field": "lead",
+  "film_id": "b8257332-babd-4d21-97a2-43b52679753f",
+  "lang": "en",
+  "text": "The authorities do not know who they are looking for, and that is the method rather than the obstacle. Years after Kossuth's revolution of 1848 collapsed, suspects are held in a walled camp on open ground: peasants and detainees, men who may know where Sándor Rózsa's outlaws are. The interrogators work by procedure. A man is walked from one building to another, told something, walked back, and offered a way out that requires a name from him. Nobody is informed what would satisfy the officers, only that something would. Miklós Jancsó shoots ninety-one minutes of this on terrain so flat that everyone is visible from everywhere, which removes the last privacy the prisoners have. Guilt becomes a product of administration: hold enough people long enough and a case assembles itself out of men who only want to go home.",
+  "model": "claude-opus-5",
+  "source_sha256": "aa4cc3b42d65c45f9717a630494b6f8998720f03381c767c99a231a563c7ed34"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "my-friend-ivan-lapshin-1985",
+  "field": "lead",
+  "film_id": "cc06fdbe-8073-44f1-b0c3-399811017263",
+  "lang": "en",
+  "text": "A provincial police chief in the mid-1930s is competent, well liked and busy. Everything difficult about Aleksei German's film is packed into that sentence. The year sets Ivan Lapshin's ordinary working life inside the Great Purge, and the film refuses to step outside the day to explain it: the arrests, the paperwork, the jokes and the shared rooms all belong to the same afternoon. The title belongs to someone else — a friend, remembering — which lays fondness over material that will not take fondness. Ninety-five minutes in a small town where everyone knows what everyone else does for a living. German withholds the vantage point from which any of it might be judged and supplies instead a density of ordinary business so thick that judgment starts to look like a privilege of later people.",
+  "model": "claude-opus-5",
+  "source_sha256": "e3aba000b855b4759e96ce0fb87d60b9bd62c0be90f618efe942f03c93b6232a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "walkabout-1971",
+  "field": "lead",
+  "film_id": "aa10bf2f-360b-4400-982a-91cc1c32b1c4",
+  "lang": "en",
+  "text": "A picnic in the Australian desert turns out to have been arranged for another purpose, and two children from the city are left in country they have no way of reading. The elder is a teenage girl, the younger a boy of six, and the film keeps that difference in view: the small one has less to unlearn. An Aboriginal boy travelling alone finds them and shows them how to eat and drink out there. Nicolas Roeg treats the encounter as a matter of competence rather than sentiment — one person knows the ground, two do not — and the instruction has to pass without a shared language to carry it. Ninety-five minutes, most of it in the open. The comedy and the horror are the same fact: everything the children brought with them was designed for somewhere else.",
+  "model": "claude-opus-5",
+  "source_sha256": "c8364fa87d4234952a700d44a7d54f8967eba127c40372f505d2fb713ca7c088"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "fat-city-1972",
+  "field": "lead",
+  "film_id": "ef4b47db-c598-4c41-8c47-686668b88c9a",
+  "lang": "en",
+  "text": "Two boxers pass each other in a gym: one starting out, one already used up and still in the habit. Their careers cross at a single point and then run in opposite directions, and John Huston declines to bend that into a comeback. Ninety-seven minutes given to a sport that is mostly waiting — for a card, for a purse, for someone to return a call — and the waiting gets the same weight as the fighting. The older man's decline is not staged as tragedy. It is a question of money, sleep and small daily arrangements, reported without heat. The younger man's confidence looks like his did once, and nothing in the framing underlines the rhyme. What is left is two men budgeting the chances they have remaining.",
+  "model": "claude-opus-5",
+  "source_sha256": "e6682247e40bd1b1835c35a3e9823955747225dff6cdd133fc3975d9e6a29b97"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-fish-called-wanda-1988",
+  "field": "lead",
+  "film_id": "e7bb0a13-650b-4c30-9df1-20d57ba88af7",
+  "lang": "en",
+  "text": "Four people want the same diamonds, and each is an obstacle to the other three. Discovering that someone else is after the collection is not the twist here but the engine: alliances re-form every few minutes, everyone lies to at least two other people, and nothing anybody is told can be checked. Charles Crichton times it as farce, all doors and wrong rooms, though the material underneath is harsher than farce usually permits. Cruelty runs through the jokes — appetite, humiliation, a man mocked for the way he speaks. The film has since turned up in writing about stuttering on screen, which indicates how much of the comedy is fastened to things people cannot help. An Academy Award for supporting acting came out of it. A hundred and nine minutes, and discomfort does half the work.",
+  "model": "claude-opus-5",
+  "source_sha256": "03d070dfdcd9ade12c7448520d92445690bc859391110d04be447e62e947eea7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-italian-job-1969",
+  "field": "lead",
+  "film_id": "0b32f3f9-6856-4aed-a522-33ef38f7133c",
+  "lang": "en",
+  "text": "The plan needs three Mini Coopers, a couple of Jaguars, a bus, and a traffic jam large enough to stop Torino. Charlie is barely out of prison when the job passes to him from a friend who tried it first under the eyes of the mafia, and the pleasure of the film is preparation: recruiting, rehearsing, explaining a scheme to men who mostly nod. Peter Collinson runs it at a hundred minutes and treats organised crime as an obstacle rather than a menace, which is a very English arrangement — the caper is about competence, and Italy is a grid of traffic lights waiting to be rewired. A Golden Globe came to it as an English-language foreign film, a category that mainly records where the cameras were standing. The Minis are the whole argument: small, cheap, and able to go where the obstacles cannot.",
+  "model": "claude-opus-5",
+  "source_sha256": "d2d53e9fd6a37a3677d9ab761a0569a83585f7648134cfcce1f2cbb63061a183"
+ }
+]

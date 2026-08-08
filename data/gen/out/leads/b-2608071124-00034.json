@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "georgy-girl-1966",
+  "field": "lead",
+  "film_id": "e2b96510-a2d1-439d-aa14-98cb18050e7c",
+  "lang": "en",
+  "text": "Her father's employer is middle-aged, persistent, and entirely certain of the arrangement he keeps proposing; Georgy is the one left inventing ways not to answer. The rest of the trouble is at home, in a flat shared with Meredith, whose glamour is a working instrument and gets used indoors as well as out. London, 1966, ninety-nine minutes, black and white: close-quarters comedy built out of borrowed clothes, unearned attention and the small humiliations of being the useful friend. Silvio Narizzano lets a joke run a beat past the point where it is funny, and what sits there afterwards is a young woman with more energy than anyone has asked for, being appraised by everyone in the room. Comedy, drama, romance, says the label. None of the three accounts for how little dignity the film grants anyone on the way out of a door.",
+  "model": "claude-opus-5",
+  "source_sha256": "9f5b1bc02a49900275f4b6f9c1d99e5c1d50f827cb18662a7d5461e5e02da1a0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "hawk-the-slayer-1980",
+  "field": "lead",
+  "film_id": "c78f8c1d-d8a2-4647-9241-77f60b6f80fc",
+  "lang": "en",
+  "text": "The sword comes when it is called, and much of the film's magic works at that scale: one gesture, held a beat, then on to the next thing. Hawk's grievance against his brother Voltan is disposed of early, as information — the deaths are stated, the debt fixed — and most of the ninety-three minutes that follow are a hiring process. A giant. A dwarf. A one-armed man with a crossbow that fires faster than one arm should manage. An elf. Each arrives as a single capability, tested and added to the column, and the pleasure of this 1980 British fantasy is watching it settle its battles by arithmetic rather than scale. Voltan holds the country. Hawk assembles a list, and the picture is plainly more interested in the recruiting than in the land it keeps saying it wants to free.",
+  "model": "claude-opus-5",
+  "source_sha256": "6bae0e5fdae3606aca3a49b7c3036cecfedb2222fd9d53ce249714895f14ebdb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "joan-of-arc-1948",
+  "field": "lead",
+  "film_id": "28aba8c8-643d-48fe-af88-dc140706815d",
+  "lang": "en",
+  "text": "A fourteen-year-old farm girl intends to be believed by a court, and then by an army. Everything in these 145 minutes follows from that improbability: the voices she reports cannot be photographed, so Victor Fleming keeps the camera on the men who must decide whether to act on them, and on the equipment of belief — armour, banners, tents, the crowded colour of a court in a country that has lost a long war. The Dauphin is weak and aware of it. The film is procedural before it is devotional, tracking how a person with no rank obtains an audience, then troops, then Orleans. Academy recognition went to its colour photography, and the colour is an argument rather than decoration: it makes the court heavy, ceremonial and slow, and the girl inside it impossible to lose track of.",
+  "model": "claude-opus-5",
+  "source_sha256": "00f3fc921f5a27ca301ef306bd062a2d59c9effa70848ff8ad0afe992e6a0305"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "will-success-spoil-rock-hunter-1957",
+  "field": "lead",
+  "film_id": "15482b07-3c19-4c37-b9a3-9b609cff5f35",
+  "lang": "en",
+  "text": "A lipstick needs a mouth the public already knows, and an advertising man with a shaky job sets out to rent one. The counter-offer is symmetrical and ruinous: she will endorse the product if he will be seen, publicly and continuously, as her lover. From there Frank Tashlin's 1957 comedy runs on the logic of a campaign — deliverables, deadlines, testimonials, a private life restructured as inventory. Ninety-three minutes of taking the vocabulary of selling literally until it buckles under its own claims. The National Film Registry holds it, which is the right shelf: a record of how mid-century America talked about desire once a product was attached. The jokes are loud and constant. Underneath them is a man learning that his office has acquired a say in whom he is seen with.",
+  "model": "claude-opus-5",
+  "source_sha256": "607dc0d77f17600c106e6100a2c653f45a46a71a934d5660b4c283aef2487466"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-clock-1945",
+  "field": "lead",
+  "film_id": "3ed782af-e6b6-43f3-aca6-5188a3681071",
+  "lang": "en",
+  "text": "Two days of leave before Europe, and New York is a city that takes an hour to cross and considerably longer to find one person in. Vincente Minnelli's 1945 romance is governed entirely by that arithmetic: the courtship happens standing up, in crowds, on stairs and platforms, between other people's errands. Ninety minutes, which is roughly the tempo of the thing described. The obstacles are logistical rather than emotional — addresses, timetables, closing hours, the sheer number of strangers between two people trying to stay together in a crowd. Made while the war was still running, the film argues about none of it; the departure date simply sits in the corner of every scene. The National Board of Review put it among the year's ten best, and what earns that is patience: two people being careful, then less careful, in a city with room for neither.",
+  "model": "claude-opus-5",
+  "source_sha256": "81f9e058629257a0e77a9a7eea0159cce772b1c8fc8eefd56c133a4ca387a654"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "rachel-rachel-1968",
+  "field": "lead",
+  "film_id": "c3d42707-4a1f-46c3-814a-15502c4fbba8",
+  "lang": "en",
+  "text": "Rachel is thirty-five, teaches other people's children, and goes home to her mother. A man from the city comes back and asks her out; that is the entire incident, and the film's subject is what so small a thing can dislodge in someone who has arranged her days to be undisturbable. Paul Newman directed, and every choice runs toward scale: a hundred and one minutes, one household, one schoolroom, a woman doing private arithmetic on the years she has left while her mother goes on talking. Embarrassment and tenderness are not sorted into separate scenes. The year is 1968 and the picture looks nowhere but inward, at a life examined from the inside by the person living it — harder to film than a decision, and the reason this one holds.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f9f9b2dd7f382d1979e7b6a609a0130e15087a6e8b6e55073c8727b501443e1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "air-force-1943",
+  "field": "lead",
+  "film_id": "926d593b-a71c-4700-bd3a-3b1daa247284",
+  "lang": "en",
+  "text": "The crew lands at Pearl Harbor after the attack, into a disaster somebody else has already had, and is ordered on to Manila. Howard Hawks made the film in 1943, with no distance at all from its subject, and it takes the shape that condition suggests: a bomber, a crew, jobs distributed, every man reduced to a station and a specialism. Two hours and four minutes of fuel, damage, and orders arriving from places nobody aboard can see. The talk is clipped and functional; feeling, when it appears, comes disguised as instructions. Academy notice for the effects work points at the real labour here — models and process shots carrying combat that could not be filmed another way — and the argument is made structurally rather than in speeches: the aircraft flies only while every competence aboard holds at once.",
+  "model": "claude-opus-5",
+  "source_sha256": "25d2e1c6235c0652034babc61a557d63fdc1f69418c48690dc71a2a9732a4896"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "flowers-and-trees-1932",
+  "field": "lead",
+  "film_id": "e850f9e2-9f8f-4bdd-aecc-d96f105c00dc",
+  "lang": "en",
+  "text": "Eight minutes long, and a good part of that is a forest on fire. Before the fire there is a courtship between two trees, conducted in swaying and reaching, and a stump that resents it; the cast is timber throughout, with no person anywhere in the story. Everything in frame is animate — roots take steps, branches take offence, the ground joins in — which is the whole proposition of a 1932 cartoon set to music, where jealousy has to be legible in a posture and threat in the shape of smoke. Burt Gillett's short holds an Academy Award for animated short film, and the reason shows up in the timing rather than the plot: the gag rate is low, the weather is given room, and a stand of trees is directed as though it were a company of actors.",
+  "model": "claude-opus-5",
+  "source_sha256": "8994af392e09462efa2c142a22a054b74e71f3377045d51ec0795ede2678b866"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-southerner-1945",
+  "field": "lead",
+  "film_id": "47e50505-614a-4a3f-8d3f-e6104e1022b1",
+  "lang": "en",
+  "text": "Sam Tucker stops picking another man's cotton and puts a crop of his own in the ground. What follows is one year, and the year is the plot: sickness, a flood, and a neighbour close enough to watch and disinclined to help. Jean Renoir made it in America, in English, in 1945, and the attention stays at ground level — the state of a roof, the stretch of time between planting and harvest, what a family eats in between. Ninety-two minutes with almost no villainy in them. The difficulty is weather and arithmetic; the neighbour is only the human-sized share of it. What registers first is the respect for work: people are shown doing things at the speed those things actually take, and a season is allowed to be long. The National Board of Review placed it in that year's ten.",
+  "model": "claude-opus-5",
+  "source_sha256": "27886f64e0891afafa85efc60d20a37c1e640cf3928c187f25b45e7b0deb3f0a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "show-people-1928",
+  "field": "lead",
+  "film_id": "0fd966c3-9f2a-4355-ae3f-174deb1342a0",
+  "lang": "en",
+  "text": "Peggy Pepper arrives from Georgia with a face she is certain was made for tragedy. The studio has other plans, and King Vidor's 1928 comedy locates its joke exactly there, in casting: the distance between what an ambitious young woman believes she is and what the men behind the camera find funny about her. Seventy-nine minutes, silent, and the whole thing rests on a performer who must act badly well — grand emoting rendered precisely enough to be laughed at, without the film losing interest in the person doing it. Hollywood is both the location and the material. The affection here is not flattering; it is the affection of people who know how many takes a moment of sincerity requires, and how a face gets rearranged between the first of them and the last.",
+  "model": "claude-opus-5",
+  "source_sha256": "2ba4638902b9208d51272c0c0bd225f205c96d951d83160c3c690a6f387a63c8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dancing-at-lughnasa-1998",
+  "field": "lead",
+  "film_id": "07a70251-e11f-405d-819e-544ad9ab480d",
+  "lang": "en",
+  "text": "Five sisters share one house in rural Ireland in the 1930s, and none of them is married, which in that parish is other people's business. Pat O'Connor's film runs ninety-six minutes and declines to manufacture incident. The pressures are domestic and economic: work that comes and goes, a budget divided five ways, a hierarchy among sisters settled in childhood and still enforced at the kitchen table. Nobody is out of earshot for long. Mostly the film watches how much order a woman has to keep for a small life to sit still, and what it costs when the order slips for an afternoon. The countryside is not scenery in this account; it is an employer, a calendar, and a limited supply of futures per household. The comedy is quiet. The arithmetic is not.",
+  "model": "claude-opus-5",
+  "source_sha256": "f2b11586c93dba62f48aa89a337ca66ce3bcca98d69bb4e46a9cd746b3dc806d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "black-legion-1937",
+  "field": "lead",
+  "film_id": "f9e68684-aec9-4d0d-b5a3-36fd6d2b1bd3",
+  "lang": "en",
+  "text": "The promotion goes to a man born in Poland, and the machinist who did not get it decides a theft has occurred. What a 1937 American picture then builds out of that grievance is unusually cold: an account of recruitment. The Legion supplies meetings, secrecy, company, and a target, and the film's suggestion is that they arrive in that order — belonging first, violence as the subscription fee. Eighty-three minutes, shot as crime rather than as sermon, which is why it still bites: the man has a job, a household, and an ordinary-sounding reason for every step he takes. The people he is pointed at are neighbours, called foreigners by men who need a word. The factory floor stays in view throughout, where one job went to somebody else.",
+  "model": "claude-opus-5",
+  "source_sha256": "70a5688cb96a2a779644f28677aee98ed65d9b1a81e903940a7e10c8e898c809"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "home-from-the-hill-1960",
+  "field": "lead",
+  "film_id": "6e40fbe7-65b3-49d8-ac8b-b7b7a76ad5d2",
+  "lang": "en",
+  "text": "A father takes his son into the woods to teach him to shoot, and regards the lesson as a repair. He owns more of the county than anyone else, which means his views on how a boy becomes a man do not circulate locally as views; they circulate as weather. Vincente Minnelli gives this two and a half hours, an unusual allowance for a domestic story, and the length is the method: room for the town's memory, for what gets said about the family at a distance, for a house where people can keep to separate rooms for years. The hunt is instruction and also display, and a boy learns quickly that being taught in public is a form of exposure. Money in this town never has to raise its voice. The film spends 150 minutes on how it makes itself heard regardless.",
+  "model": "claude-opus-5",
+  "source_sha256": "75de841ba6efbdcedd10c2efbe889784db3c8775c14ad218551a8c2b4eacfbad"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "les-miserables-1935",
+  "field": "lead",
+  "film_id": "176b019f-c174-480d-bfa5-54b5964f8efa",
+  "lang": "en",
+  "text": "A man steals bread, serves years for it, and spends the rest of his life being followed by a policeman for whom the case never closed. The 1935 version keeps that single relation at the centre and lets the decades, and the widening of French history, arrange themselves around it. A hundred and eight minutes for a story covering most of a working life means ellipsis: years drop out between scenes, and each time the film returns the arrangement is unchanged while everything around it has moved. Richard Boleslawski's Javert is relentless rather than cruel, the harder and colder reading, and the tension comes from neither man being available to be talked out of anything. By the time students are in the streets, the pursuit is older than the cause they are shouting about.",
+  "model": "claude-opus-5",
+  "source_sha256": "5dd3d281c11939c148f81154146a3fc3fc2dba35cbb6dc0cd710d94101c7acf4"
+ }
+]

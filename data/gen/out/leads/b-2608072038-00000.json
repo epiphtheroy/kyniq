@@ -1,0 +1,122 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "coming-home-1978",
+  "field": "lead",
+  "film_id": "4eff7ad1-2e99-441f-930b-5c38d605ef97",
+  "lang": "en",
+  "text": "The war is offscreen and it dictates everything: one husband shipped out, one classmate shipped back unable to walk. California, 1968. Hal Ashby lets the affair develop at a domestic pace — errands, rooms, the slow business of a body learning new arrangements — instead of staging it as transgression. The lead performances took the Academy Awards for actor and actress, which here marks something real: the argument is carried in faces and hesitations rather than in speeches about Vietnam. Romance and war share the same 127 minutes and neither wins. What the film keeps returning to is physical and unremarkable — who drives, who lifts whom, whose schedule the house runs on — and the officer's wife, who begins as an accessory to someone else's career, turns out to be the person here acquiring skills.",
+  "model": "claude-opus-5",
+  "source_sha256": "e558208c71159d96f959c193f9f630c4156e24307eb30e5ea20847f4eee86caf"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "on-golden-pond-1981",
+  "field": "lead",
+  "film_id": "8bb8dd6a-4802-4e79-8af2-da258e2bb854",
+  "lang": "en",
+  "text": "A lake, a summer house, and two people who have opened it for the season more times than they can count. Norman and Ethel Thayer's routine is the structure: what gets said at meals, what gets deflected, which subjects the water is used to avoid. Their daughter Chelsea arrives and the deflections stop working. Mark Rydell keeps the film close to the house and the shoreline, and the Academy Award for cinematography went to a picture holding almost nothing but weather, water and a few rooms — accurate about where the pressure sits, since the argument between father and daughter has been running for decades and requires no new information. The performances of the older pair manage a specific difficulty: playing forgetfulness and stubbornness as two things that look identical from outside.",
+  "model": "claude-opus-5",
+  "source_sha256": "746fb0b46ec4d5f4125c9c9b7bd4dc2ab23e00357ac06e15e55b567801e17911"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "howards-end-1992",
+  "field": "lead",
+  "film_id": "d566236d-756c-4b74-babf-ba87eb8a8e6a",
+  "lang": "en",
+  "text": "Three households with unequal incomes keep colliding, and every collision costs one of them more than the others. Margaret Schlegel has money enough to hold opinions in comfort; the Wilcoxes have industry and property; Leonard Bast has a clerk's wage and appetites he cannot finance. Across 142 minutes James Ivory lets Edwardian surfaces — drawing rooms, correct forms of address, the management of invitations — do the work of concealment, so that a remark about a house or a position carries weight other films give to violence. The Academy Award for costume design is not decoration: clothing is the quickest legible statement of what a person is permitted to want. And the two sisters, who believe conversation can cross these distances, keep testing that belief on people for whom a misjudgement is not recoverable.",
+  "model": "claude-opus-5",
+  "source_sha256": "0fe95e7d1b7be2296be670167ff3843b5cbc9300041e7631050ef6adde803b43"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-way-we-laughed-1998",
+  "field": "lead",
+  "film_id": "9a1024dd-01b7-46f5-b93c-47aa7a08869d",
+  "lang": "en",
+  "text": "One brother is studying to be a teacher; the other, who cannot read, is paying for it. Giovanni takes whatever work the northern cities will hand a Sicilian in the 1950s so that Pietro can qualify — an arrangement that looks like devotion and operates like debt. Gianni Amelio films the migration years from inside a single family, where raising one member requires another to disappear into labour. Così ridevano took the Golden Lion, and what a jury could respond to is visible early: the film refuses to make the working brother noble or the studying brother grateful, and it moves in blocks of time, so the accumulation registers before the argument does. Two men in rented rooms, in a city with no use for either except as hands.",
+  "model": "claude-opus-5",
+  "source_sha256": "f31d0c78fdcddc1fef6d2bf15cf54d3187e4e69ff7a3a23579a638969c13f05f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "miss-julie-1951",
+  "field": "lead",
+  "film_id": "c74d581a-f83f-437f-8d0c-4dd01e3ea18b",
+  "lang": "en",
+  "text": "Ninety minutes, two people, and a difference in rank that neither of them can set down. Julie is a wealthy businessman's daughter; Jean serves her father and resents it with precision; what passes between them is desire and bookkeeping at once, each tallying who is condescending to whom. Alf Sjöberg took the Palme d'Or with it, and the reason is legible in the handling — Strindberg wrote dialogue as a duel, and the film has to decide, every few minutes, whether to stay in the room with that or to move, and it keeps choosing to move. The class war and the sex war run on one track here, which is why neither can be settled on its own. What holds the thing together is arithmetic: each advance obliges an answer, and the answers get more expensive.",
+  "model": "claude-opus-5",
+  "source_sha256": "f0b8622a0b1727cf3f3e91d2c2f23dc2e8bbca840de6bc51865bd1f0d4eb3f88"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-sweet-hereafter-1997",
+  "field": "lead",
+  "film_id": "416cec8e-c4b1-4fe6-913b-24f095681921",
+  "lang": "en",
+  "text": "A school bus leaves the road in a mountain town, and the film that follows is largely about paperwork. A lawyer arrives from the city to build a class action, going house to house, and his visits sort a grieving place into parties with separate interests. Atom Egoyan cuts the chronology so that before and after sit beside one another without warning; grief stops being a stage to pass through and becomes somewhere people keep arriving back at. The lawyer is not a predator. His conviction that blame can be located, and that money can register a death, does more damage than bad faith would. It is on TIFF's all-time top ten of Canadian films, which matches the experience: 112 minutes with almost no raised voices, and no two households left holding the same version of events.",
+  "model": "claude-opus-5",
+  "source_sha256": "3c8386c6f0be2c7ba81b4bbcc0ade7df11b7d4d81da0d78c122957939748fd28"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "teza-2008",
+  "field": "lead",
+  "film_id": "d63fb5e7-7a7b-4590-845d-e244405904cf",
+  "lang": "en",
+  "text": "Anberber comes home from Germany with medical training that the state intends to put to its own uses. Ethiopia under Haile Mariam Mengistu has no budget for a young physician's plans about public health; a military junta finds scientists useful in more direct ways. Haile Gerima takes 140 minutes, and the length is the method: memory keeps interrupting the present, and the countryside of Anberber's boyhood, which ought to be a refuge, is being crossed by the army and by the factions fighting it. The Grand Jury Prize at Venice came to a film in Amharic in which people argue about revolution in the language the revolution claims to speak for. What it measures, patiently, is the gap between what a man was trained to do and what his country will let him do with it.",
+  "model": "claude-opus-5",
+  "source_sha256": "15fdbd51c57b569bab8425b699b227b12d4c29a2021ca9decdf71b82fde2109a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "norma-rae-1979",
+  "field": "lead",
+  "film_id": "aae517f4-18a1-40fb-b5eb-e3efb0d5ee36",
+  "lang": "en",
+  "text": "A textile mill is a poor place to hold a conversation, which is the first practical obstacle for anyone trying to organize one. Norma Rae works the floor of a southern factory where conditions are a matter of noise, heat and hours, and her concern about them makes her the inside partner of an organizer who has come in from elsewhere. The film is honest about how much of union work is clerical: names, lists, cards, the time after a shift ends. Martin Ritt keeps the danger close and domestic — a household that resents the meetings, a supervisor who notices who talks to whom, a wage that can be interrupted. It sits in the National Film Registry, which is not the usual destination for a picture whose central drama is whether enough people will sign something.",
+  "model": "claude-opus-5",
+  "source_sha256": "77f920a3977881bace87a3777525e2b40166ecaeffe36072bc1de72acb613f0f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mountain-patrol-2004",
+  "field": "lead",
+  "film_id": "27e7617a-fc2c-4704-ab6c-d730acd5ff59",
+  "lang": "en",
+  "text": "The patrol has no legal authority, no salaries, and not enough fuel. They are volunteers going after antelope poachers across the Tibetan plateau in whatever vehicles they can keep running, and Lu Chuan works from a real case in which that shortage is most of the difficulty. Filed as action, the film means distance, cold and breakdown rather than gunfire; the poachers are hired labour with their own reasons for being out there, and the plateau is indifferent to which party is holding a rifle. Eighty-five minutes, nothing padded. It appears on the Golden Horse list of the hundred greatest Chinese-language films, and what that acknowledges is a chase in which terrain is the antagonist and the question underneath is plain: who is left to do this work, and with what.",
+  "model": "claude-opus-5",
+  "source_sha256": "61932706b0691d47853cea20ec8781ab5a32d0d8e035c8e8acb866dcc1ae9a6a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "silent-light-2007",
+  "field": "lead",
+  "film_id": "fe4d8862-e2df-44e6-a694-62d094b5cbdc",
+  "lang": "en",
+  "text": "A Mennonite farm in northern Mexico, where the day is divided by milking, meals and prayer, and a married man has fallen in love outside his marriage. Carlos Reygadas moves at the pace of the work: long takes, the family table, fields at hours when the light is doing something particular. The trouble is small and total. This world offers Johan no private life — no city to disappear into, no anonymity, and the wife, the other woman and the children all inside the same few kilometres. At 136 minutes it asks for a patience that pays in duration rather than incident, which is part of why it turns up among TSPDT's thousand greatest films. Feeling here comes with chores attached, and the chores do not pause for it.",
+  "model": "claude-opus-5",
+  "source_sha256": "e58cb3fa42af776ad0cae124606f2b135d257c9b2eab6f8effcf761b6900e591"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "all-that-jazz-1979",
+  "field": "lead",
+  "film_id": "2153a085-6b79-46f5-ad47-ba38e9f734af",
+  "lang": "en",
+  "text": "The pills come first, before the work, and the film treats them as a line in the production budget. Joe Gideon sits at the top of musical theatre as director and choreographer; his private life has been arranged, and then wrecked, around rehearsal schedules. Bob Fosse cuts the picture the way a number gets built — try it, break it down, take it again on the count — so that the unravelling keeps to the beat. Nothing here is confession in the soft sense. The contempt is aimed squarely at the figure doing the work, and the routines keep coming anyway, exact and unsentimental. The Palme d'Or sits among its honours, an odd fate for 123 minutes about maintenance: what it costs, hour by hour, to keep the numbers arriving on schedule.",
+  "model": "claude-opus-5",
+  "source_sha256": "b9b17d60c4522a141c351f589980a9e43e4361f24330019fa1b2aacc4b378835"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "nowhere-in-africa-2002",
+  "field": "lead",
+  "film_id": "d4077016-d660-4a41-b897-b97ab6cd7b11",
+  "lang": "en",
+  "text": "She packs a set of china and an evening gown for a farm in Kenya. The detail organizes the first hour: Jettel Redlich has left Nazi Germany with her daughter Regina to join her husband Walter on land he is trying to work, and she arrives dressed for a life that has ended and will not be reassembled. Caroline Link splits the experience between two people who take it in opposite directions — the mother measuring the farm against what she packed for, the child learning the place fast and attaching herself to Owuor, the cook, whose competence is the family's real security. The farm is not a consolation. Across 140 minutes a marriage is renegotiated in the open, in a climate that cancels the couple's old advantages, and exile turns out to consist of practical adjustments, one at a time.",
+  "model": "claude-opus-5",
+  "source_sha256": "150caa15191ec7e099bec21995e1a91a10cead6bef24ecf5b586b85b88608165"
+ }
+]

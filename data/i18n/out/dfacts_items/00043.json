@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaneto-shindo#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "평생 200편이 넘는 각본을 쓴, 믿기 어려울 만큼 다작한 시나리오 작가였다. 스즈키 세이준, 이치카와 곤, 마스무라 야스조 같은 감독들에게 각본을 대주며 번 돈으로 자기 연출작을 찍었다는 일화가 유명하다.",
+  "model": "claude-opus-5",
+  "source_sha256": "171d2da82a45ff01bc0c4e492f872f8903dbb9d8f3039c3a0c4f378d71d18419"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaneto-shindo#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "인간의 성(性)을 생존의 날것 그대로의 원초적 힘으로 보는 관심이 평생 그를 떠나지 않았다. 1968년 괴기영화 걸작 《쿠로네코》가 그 정점이다. 겁탈당한 여자들이 고양이 원령이 되어 사무라이의 목을 물어뜯는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5594bd5920e085c48436a63658e240ef31ec31cc619e1f69a70d67b4da7d8fde"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaneto-shindo#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1975년 신도는 다큐멘터리 《어떤 영화감독의 생애: 미조구치 겐지의 기록》을 연출했다. 폭군으로 악명 높았던 옛 스승을 겪은 사람들을 하나하나 수소문해 찾아다녔다. 늙은 배우와 기술진은 물론, 병원 간호사까지 카메라 앞에 앉혔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d52ac3231192a031e108f17e1a6a12f03c3a4cfbf8e7425c4fea95ccd633c4a3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaneto-shindo#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "오토와 노부코가 간암 말기 진단을 받자, 신도는 오직 그의 마지막 무대를 위해 《오후의 유언장》(1995)을 쓰고 연출했다. 후반 작업 중 그는 세상을 떠났고, 영화는 일본 아카데미상을 휩쓸었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a70ecc0b6a2b521e6701ee8f8b4e042d18b780068d0d92877e8a38c2818b3076"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaneto-shindo#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2000년, 여든여덟에 그는 《조연배우》를 찍었다. 먼저 떠난 벗이자 동료였던 도노야마 다이지를 다룬 전기영화인데, 그 조연배우의 심한 알코올 중독과 난잡한 여자관계를 하나도 감추지 않았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "eeb5372a0e91f810391b25c22d846375547fa83f63c77bd423d1a18abe667559"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaneto-shindo#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2002년 일본 정부가 그에게 문화훈장을 수여했다. 반항적인 독립영화 바깥사람에서 일본 영화의 어른으로, 자리가 완전히 바뀐 셈이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "32f1f278e051811e0e595fa638aa1ff6ba11ae02f68fbe37bfe73314aeaa362f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaneto-shindo#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아흔여덟, 휠체어에 앉아 거의 듣지 못하는 상태로 신도는 마지막 영화 《한 장의 엽서》(2010)를 만들었다. 각본은 전부 자기 전쟁 경험에서 나왔다. 징집된 동료들은 죽고 자신만 살아남았다는 죄책감에서.",
+  "model": "claude-opus-5",
+  "source_sha256": "1a8c2a30a993077fcd8b9e099c68afed43179299f53281dd853537beeaae977a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaneto-shindo#21",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《한 장의 엽서》는 제84회 아카데미상 외국어영화상 일본 출품작으로 뽑혔다. 아흔아홉의 신도는 그 부문에서 한 나라를 대표한 역대 최고령 감독이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "edc648c10a5e123407ecd3894a818764729c58e7505eec2249bbc70047ee58c3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaneto-shindo#22",
+  "field": "fact",
+  "lang": "ko",
+  "text": "신도는 2012년 5월 29일 도쿄 자택에서 잠든 채 조용히 눈을 감았다. 100세 생일을 맞은 지 꼭 한 달 하고 이레째 되는 날이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f5a8aa87facebaaabfa67b84cda433c7b0a482272dcde1cdf0f815ae9e5cb0ce"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaouther-ben-hania#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "그가 나고 자란 곳은 시디부지드다. 튀니지 중부의 농업 도시, 오랫동안 변방으로 밀려나 있던 이 마을은 훗날 2010년 아랍의 봄이 시작된 곳으로 세계에 알려진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4664720e52f11d302583fb6c737a4e9d20083a4235353b16233c81045488f0b5"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaouther-ben-hania#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "시디부지드에는 극장이 하나도 없었다. 그래서 어린 시절 영화라는 것은 텔레비전에서 틀어주는 이집트 멜로드라마와 빌려 본 VHS 테이프가 전부였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9216ab57fed4f87c668c957137239dc9f2b1cba1f45ee08ecfba39e2ee885967"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaouther-ben-hania#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "처음에는 튀니스의 고등상업학교에서 상업을 공부했다. 그러다 삶의 방향을 돌연 틀어 예술영화학교(EDAC)에 들어가 영화 만드는 법을 배웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f5940813b2eb5eb818b02d55e2fedf0f9a61325b03c62f08a0329570076b8b22"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaouther-ben-hania#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "남편은 튀니지 프로듀서 나딤 셰이크루하다. 파리에 둔 제작사 Tanit Films를 통해 그의 영화를 자주 제작한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4300c9b7b24ccd382a6c9c7de2ab970daae7b5e93454db5436214fccfbcc7c06"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaouther-ben-hania#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2013년 모큐멘터리 《The Challat of Tunis》는 어린 시절 들었던 무서운 도시전설에서 나왔다. 오토바이를 탄 남자가 수도를 돌아다니며 현대식 옷을 입은 여자들의 엉덩이를 면도날로 그었다는, 실제로 있었던 이야기다.",
+  "model": "claude-opus-5",
+  "source_sha256": "847e08d56c49ddf885ba40655631b8d4847e77989a4f21d4805066986739bdd1"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaouther-ben-hania#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2012년 루브르에서 벨기에 작가 빔 델보예의 전시를 보았다. 팀 슈타이너라는 살아 있는 남자가 전시물이었고, 델보예는 그의 등에 새긴 문신을 수집가에게 이미 팔아넘긴 뒤였다. 출세작 《The Man Who Sold His Skin》은 여기서 나왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1d8c4cc59378b9b7069a7a712c8be1474a4c78b99c11b494a1dfc361bc55cd2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaouther-ben-hania#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《The Man Who Sold His Skin》에는 그 도발적인 원작 사건의 당사자 빔 델보예가 직접 출연한다. 냉소적인 보험 중개인 역의 풍자적인 카메오다.",
+  "model": "claude-opus-5",
+  "source_sha256": "409223c4115e9108e37ce40857f16cdc89e060b42f3dc7666208ad0b3b0fbc6e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaouther-ben-hania#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《The Man Who Sold His Skin》의 냉혹한 화상 역에는 이탈리아 스타 모니카 벨루치를 캐스팅해냈다. 유럽의 대형 스타가 아랍 독립영화의 주연으로 서는 일은 좀처럼 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "473bae06d41097890bd6ed31ddecf62c1c3a2f6aa8dc0bdfd3e1e3a8753e0297"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaouther-ben-hania#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《The Man Who Sold His Skin》으로 그는 제93회 아카데미상 국제장편영화상 후보에 오른 최초의 튀니지 영화를 연출한 감독이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "da7ac20ca5e1f3230c3eabe7432cbde4246a59363b23885be5654563da2276fc"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaouther-ben-hania#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "다큐멘터리 《Zaineb Hates the Snow》를 찍는 데 6년이 걸렸다. 캐나다로 마지못해 떠나는 튀니지 소녀를 참을성 있게 따라다니며, 몸과 마음이 자라는 과정을 통째로 담았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "17ec335f2a6338f28b02ce72509f370d32380f51c8274b49be81330661c8d64f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaouther-ben-hania#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2016년 라디오 방송에서 올파 함루니의 이야기를 처음 들었다. 두 큰딸이 리비아의 이슬람국가로 떠나버린 튀니지 어머니. 방송이 끝나자마자 그는 이 어머니에게 연락해 다큐멘터리를 제안했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e8395241e59fb098984b8ce95e3095298dbbc366921386996d9153a455fb1d3a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaouther-ben-hania#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Four Daughters》를 찍을 때 올파의 두 큰딸은 사라진 뒤였고, 어머니는 어떤 기억 앞에서는 상처가 너무 깊어 재연을 감당하지 못했다. 벤 하니아는 브레히트적 방법을 택했다. 아랍의 대스타 헨드 사브리를 비롯한 전문 배우들을 불러, 빈자리에 들어가 카메라 앞에서 그들을 연기하게 한 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc39cb645292d02b6c8f48b508ac5849e0f9299dbeea954539c1898e9da0ec98"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaouther-ben-hania#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Four Daughters》로 그는 아카데미 장편다큐멘터리상 후보에 오른 최초의 아랍 여성이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "734edda0bb470ab3e473c866bdf7197857eb897cab898bafe9e63188654be2c3"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaouther-ben-hania#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2022년 제75회 칸영화제 비평가주간(Semaine de la Critique)의 심사위원장으로 선정되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3fbd7cb32e2555c87833e416b55c55b0923d126a542d7655ba51491266931113"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaouther-ben-hania#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2017년 스릴러 《Beauty and the Dogs》는 경찰에게 강간당한 뒤 정의를 구하려 한 튀니지 여성의 실화에서 출발한다. 끊지 않고 이어 찍은 아홉 개의 롱테이크, 그것이 영화의 전부다. 기술적으로는 엄청난 도전이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6e9513d7fe791494734326decb8663146d7ad9721e6d2da70f525aef3c2e29f0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaouther-ben-hania#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《Beauty and the Dogs》는 반드시 시간 순서대로 찍어야 한다고 그는 고집했다. 장편영화에서는 드��� 일이다. 주연 마리암 알 페르자니의 몸이 실제로 지쳐가는 과정, 그 축적을 그대로 담기 위해서였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f9067debcabf94800fae1f8ea19a5aef7512f15a2a1a8185aa30cd561dae3185"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaouther-ben-hania#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "역사적인 오스카 후보 지명 이듬해인 2021년, 미국 영화예술과학아카데미가 그를 투표권을 가진 회원으로 공식 초청했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca0656f2fd62f5bb68aebbb74e04b643d932e077d494d5beb2f44ddd7793dbb4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kaouther-ben-hania#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2023년 칸영화제 최우수 다큐멘터리상인 뢰유 도르(L'Œil d'or)는 《Four Daughters》와 아스마에 엘 무디르의 《The Mother of All Lies》가 나눠 가졌다. 아랍 여성 감독들이 이 상을 휩쓴 역사적인 해였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7a7543e08b5f30a7fa54133b8ca12e34987e940dd68a4711a9d007795f2d2d14"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kathryn-bigelow#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "캘리포니아 샌카를로스에서 자란 비글로는 외동이었다. 아버지 로널드는 페인트 공장 관리자, 어머니 거트루드는 사서였다. 두 사람은 딸에게 그림 도구가 떨어지지 않게 했고, 시각예술을 향한 어린 시절의 집착은 거기서 시작됐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4bd75254f41ba364b39d381b31ccc4d426faa2a06a262e4e6ec85927f45ec11f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kathryn-bigelow#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화라는 진로를 떠올리기도 전인 1970년, 그는 샌프란시스코 아트 인스티튜트에 들어가 추상표현주의 회화에 몰두했다. 얼마 지나지 않아 휘트니 미술관이 그를 주목하기 시작했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5678a14f78366e65c0b567475ee4a6cb221221a261df4df33b3ad186e3e94750"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kathryn-bigelow#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "스무 살에 휘트니 독립연구 프로그램 장학생으로 뽑혀 뉴욕으로 갔다. 난방도 안 되는 트라이베카의 가난한 로프트 건물, 같은 건물에는 훗날의 화가 줄리언 슈나벨이 살고 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5fa357bc9eb914d1bb4f11db9f02d48467a805d590f63028d58ca773756609ee"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kathryn-bigelow#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1970년대 맨해튼에서 작업비를 대려고 비글로는 전위 작곡가 필립 글래스와 잠깐 부동산 일을 벌였다. 다운타운의 낡은 로프트를 둘이 직접 고쳐 되파는 식이었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b8b39555393e20c0bd09d3f73fcf50a8ea96180fec339cf96467c3176c076e00"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kathryn-bigelow#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "다운타운 개념미술 판에 깊이 발을 담근 그는 영국의 급진 집단 Art & Language와 함께 작업했고, 로런스 와이너와 리처드 세라 같은 미니멀리즘의 거인들 곁에서 일했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "07d622970511b1ac40bea6331ea447a2fc9a74c4c2d40617eac962596ea8924f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kathryn-bigelow#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "리지 보든의 1983년 디스토피아 독립영화 《Born in Flames》에서 페미니스트 신문 편집자로 얼굴을 비추기도 했다. 그의 몇 안 되는 연기 크레딧이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c9f71aff46c3c40376f7e795e137388be156a0004fd465d6700f34f6d7f612c6"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kathryn-bigelow#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "영화가 갤러리 설치작업보다 훨씬 넓은 관객에게 가닿는다는 것을 깨닫고 컬럼비아대 대학원 영화과에 들어갔다. 할리우드식 실무 훈련은 건너뛰었다. 대신 수전 손택, 에드워드 사이드 같은 지성들에게 문화이론을 배웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "63093b7a4724ed03178f64f8a7d2c8ec6d8161915d2caa13af828f25595fd686"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kathryn-bigelow#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1978년 컬럼비아 졸업작품 단편 《The Set-Up》은 어두운 골목에서 두 남자가 서로를 두들겨 패는 장면이 전부다. 그 위로 기호학자 실베르 로트랭제와 마셜 블론스키의 목소리가 얹혀 그 폭력을 학술적으로 해체한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5eeead82c20bd9ba18cb6c075accc845d5742ac83b7936e87a8e381abb98f0d4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kathryn-bigelow#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "장편 데뷔작은 1981년 바이커 영화 《The Loveless》. 몬티 몽고메리와 공동연출했고 제작비는 전액 독립 투자자들에게서 나왔다. 무엇보다 이 영화가 윌럼 더포의 첫 주연작이자 그의 출발점이 되었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3d8b55c18893c4394aa0a6567444f7d4021c3aaabd1f807f42828be284979a36"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kathryn-bigelow#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《폭풍 속으로》에 키아누 리브스를 앉히기까지 비글로는 20세기 폭스 경영진과 격렬하게 싸웠다. 당시 리브스는 《엑설런트 어드벤처》의 어수룩한 십대로만 알려져 있었고, 스튜디오는 그런 배우에게 고속 스릴러를 통째로 맡기는 것이 두려웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e28895dad3794e0ebb7e724defc30b53c45df12633fcff7586766f2f8bbf95ad"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kathryn-bigelow#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1987년 뉴 오더의 \"Touched by the Hand of God\" 뮤직비디오를 연출했다. 당대의 요란한 헤어메탈 밴드들을 애정 어린 손길로 풍자한 작품이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "507c08b84c0c29cda729d98d00009ee22e30ec49cd2f1c322de12926296e47e2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kathryn-bigelow#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1989년부터 1991년까지 감독 제임스 캐머런과 짧게 결혼 생활을 했다. 관계는 이후 대단히 생산적인 협업으로 옮겨갔고, 캐머런은 1995년 사이버펑크 스릴러 《스트레인지 데이즈》의 각본을 쓰고 제작을 맡았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9f9d554b1883f5d3eeb5c7678de66ffc1f8f18d0efe010531760e813110e74f0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "kathryn-bigelow#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1998년 잔 다르크 전기영화 《Company of Angels》를 준비하며 여러 달을 쏟았다. 그러나 총괄 프로듀서 뤽 베송이 당시 아내였던 밀라 요보비치를 주연으로 앉히라고 요구하면서 기획은 요란하게 무너졌고, 베송은 그 프로젝트를 가로채 자기 손으로 《잔 다르크》를 찍었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "df7cf82f6e8b02607d8ec34a832ada737bf74b59830e8513db0781bd10e6ee20"
+ }
+]

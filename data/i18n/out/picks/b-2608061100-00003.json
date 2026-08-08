@@ -1,0 +1,322 @@
+[
+ {
+  "entity_type": "director_pick",
+  "entity_key": "brad-bird#incredibles-2-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《인크레더블 2》는 가족의 역할을 뒤집는다. 버드의 액션 안무가 가장 현란하게 터지는 자리이면서, 재능 있는 사람이 평범한 삶에 어떻게 들어맞는가라는 그의 오랜 관심도 그대로 이어진다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "brady-corbet#vox-lux-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《Vox Lux》는 한 팝스타의 부상을 21세기 스펙터클과 트라우마의 우화로 짠다. 나탈리 포트만의 뻔뻔한 연기와 고동치는 Sia의 노래 덕에, 코베이의 서늘한 야심이 처음부터 멱살을 잡는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "brady-corbet#the-brutalist-2024",
+  "field": "reason",
+  "lang": "ko",
+  "text": "세 시간 반, 비스타비전으로 찍은 서사시. 《브루탈리스트》는 이민자 건축가를 따라가는 동안 권력과 예술과 미국을 향한 코베이의 집착을 하나로 모은다. 그 결과가 이 기념비 같은 규모의 영화다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "brady-corbet#the-childhood-of-a-leader-2016",
+  "field": "reason",
+  "lang": "ko",
+  "text": "코베이의 데뷔작 《The Childhood of a Leader》. 1차대전 직후를 배경으로 한 소년이 폭군으로 굳어가는 과정을 천천히 태운다. 스콧 워커의 우레 같은 음악이 그의 형식적 담력을 먼저 알린다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "brian-de-palma#the-untouchables-1987",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 접근하기 쉬운 드 팔마. 《언터처블》은 금주법 시대 범죄 사가를 군더더기 없이 밀고 간다. 모리코네의 음악, 그리고 유니언 역 계단 시퀀스 하나에 그의 서스펜스 기술이 통째로 응축돼 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "brian-de-palma#carrie-1976",
+  "field": "reason",
+  "lang": "ko",
+  "text": "분할화면, 슬로모션, 불길함 위에 세운 졸업 무도회. 《캐리》는 십대의 잔인함을 오페라급 공포로 바꿔놓는다. 드 팔마가 왜 중요한지, 순수한 시각적 긴장을 어떻게 장악하는지가 여기서 다 보인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "brian-de-palma#mission-impossible-1996",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《미션 임파서블》은 드 팔마의 시퀀스 설계술을 블록버스터에 얹은 결과다. 소리 없는 랭글리 금고 침입 장면은 정지와 공간만으로 서스펜스를 쌓아 올리는 시범 수업이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "brian-de-palma#scarface-1983",
+  "field": "reason",
+  "lang": "ko",
+  "text": "과잉이자 호불호가 갈리는 보상. 《스카페이스》는 저열한 야심의 흥망을 세 시간 오페라로 밀어붙인다. 과장된 폭력과 파치노의 광기를, 드 팔마는 신이 나서 끝까지 몰고 간다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "carl-theodor-dreyer#the-passion-of-joan-of-arc-1928",
+  "field": "reason",
+  "lang": "ko",
+  "text": "드레이어의 서명이 첫 장면부터 나온다. 《잔 다르크의 수난》은 눈물로 얼룩진 르네 팔코네티의 얼굴을 집요하게 붙들어, 재판을 순수한 감정의 밀도로 바꿔놓는다. 그의 영화로 들어가는 가장 직접적이고 압도적인 문.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "carl-theodor-dreyer#ordet-1955",
+  "field": "reason",
+  "lang": "ko",
+  "text": "믿음과 의심이라는 주제가 덴마크 농가 안을 미끄러지는 긴 테이크로 응축된다. 그리고 《오데트》는 영화사에서 가장 대담한 믿음의 시험으로 나아간다. 드레이어의 가장 완결된 진술이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "carl-theodor-dreyer#day-of-wrath-1943",
+  "field": "reason",
+  "lang": "ko",
+  "text": "같은 금욕적 통제가 17세기 마녀사냥으로 옮겨간다. 《분노의 날》은 회화 같은 구도와 서서히 타오르는 불안 속에서 청교도들의 의심과 욕망을 들여다본다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "carl-theodor-dreyer#vampyr-1932",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《Vampyr》는 사실주의를 버리고 꿈 같은 공포의 안개를 택한다. 떠다니는 카메라, 유령처럼 겹치는 디졸브. 드레이어의 가장 기이한 영화이며, 흡혈귀 이야기라기보다 깨어 있는 채로 꾸는 악몽에 가깝다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "carl-theodor-dreyer#gertrud-1964",
+  "field": "reason",
+  "lang": "ko",
+  "text": "유작 《게르트루드》는 모든 것을 걷어내고 낮은 목소리의 대화만 남긴다. 인물들은 좀처럼 서로의 눈을 마주치지 않는다. 사랑에서 타협을 거부한 여자를 최면처럼 응시하는, 만만치 않은 영화.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "carl-theodor-dreyer#master-of-the-house-1925",
+  "field": "reason",
+  "lang": "ko",
+  "text": "초기 드레이어를 가정의 음역에서 만난다. 《Master of the House》는 꼼꼼하게 지어 올린 살림집 안에서 폭군 같은 남편을 해체한다. 훗날의 도덕적 진지함이 여기서 뿌리내렸다. 다만 더 따뜻하고, 더 가깝다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "celine-sciamma#petite-maman-2021",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 들어가기 쉬운 시아마. 《쁘띠 마망》(2021)은 짧고 부드러운 우화다. 한 소녀가 어린 시절의 엄마를 만나는 동안, 기억과 관계라는 그의 주제가 다정하고 즉각적인 무엇으로 압축된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "celine-sciamma#girlhood-2014",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《Girlhood》(2014)는 파리의 소녀 갱단에 들어간 흑인 십대를 따라간다. 리한나의 'Diamonds'에 맞춘 그 유명한 립싱크가 터지는 순간, 집단과 제약 속에서 벼려지는 정체성에 관한 시아마의 가장 생생한 관찰이 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "celine-sciamma#tomboy-2011",
+  "field": "reason",
+  "lang": "ko",
+  "text": "열 살 아이가 한여름 동안 소년으로 지낸다. 《톰보이》(2011)는 그 시간을 조용히 지켜보기만 한다. 아이들을 향한 시아마의 인내심, 판단하지 않는 눈이 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "celine-sciamma#water-lilies-2007",
+  "field": "reason",
+  "lang": "ko",
+  "text": "데뷔작 《Water Lilies》(2007)는 싱크로나이즈드 스위밍 팀 소녀들 사이의 욕망을 훑는다. 훗날 다듬어질 모든 주제의 거칠었던 초고. 이미 그의 시선에 붙들린 관객이라면 여기까지 와야 한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "chad-stahelski#john-wick-2014",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《존 윅》(2014)에서 스타헬스키의 군더더기 없는 복수 엔진이 처음 돈다. 롱테이크로 밀고 가는 깨끗한 건-푸 안무, 금화와 콘티넨탈 호텔로 지어진 암살자들의 숨은 세계도 함께. 이후의 모든 확장이 이 위에 얹힌다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "chad-stahelski#john-wick-chapter-2-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《존 윅: 리로드》(2017)는 신화를 로마와 하이 테이블까지 넓힌다. 거울 미로 총격전으로 액션의 기하학이 한 단계 올라가는 동안, 의무라는 올가미는 윅의 목을 더 조인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "chad-stahelski#john-wick-chapter-4-2023",
+  "field": "reason",
+  "lang": "ko",
+  "text": "안무의 정점은 《존 윅 4》(2023)다. 부감으로 잡은 드래곤스 브레스 시퀀스, 사크레쾨르 계단, 파리 도심의 차량 전투. 그의 연출이 가장 넓고 동시에 가장 정확해진 순간이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "chad-stahelski#john-wick-chapter-3-parabellum-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "애호가용 입구는 《존 윅 3: 파라벨룸》(2019). 칼 가게 난투, 공격견, 말 위의 격투가 이어진다. 무기와 동물을 몇 개까지 하나의 흐름에 밀어 넣을 수 있는지, 스타헬스키가 스스로를 시험한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "chris-columbus#home-alone-1990",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 접근하기 쉬운 콜럼버스. 《나 홀로 집에》(1990)는 아이가 어른을 이기는 판타지에 슬랩스틱 함정을 깔고 뜻밖의 온기까지 얹었다. 가족 코미디와 진짜 감정을 붙여���는 그의 재주가 여기서 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "chris-columbus#mrs-doubtfire-1993",
+  "field": "reason",
+  "lang": "ko",
+  "text": "로빈 윌리엄스는 마음껏 애드리브를 하고, 콜럼버스는 그 소동을 이혼과 아버지 노릇이라는 진짜 상심 위에 붙들어 맨다. 넓은 웃음과 감정의 정직함이 가장 잘 맞물린 영화가 《미세스 다웃파이어》(1993)다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "chris-columbus#harry-potter-and-the-philosopher-s-stone-2001",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《해리 포터와 마법사의 돌》(2001)은 사랑받는 세계가 맨손으로 지어지는 과정이다. 따뜻하고 원작에 충실한 톤, 아이의 눈높이에서 본 경이. 시리즈 전체가 여기서 출발했다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "chris-columbus#harry-potter-and-the-chamber-of-secrets-2002",
+  "field": "reason",
+  "lang": "ko",
+  "text": "더 어둡고 더 자신 있는 속편. 《해리 포터와 비밀의 방》(2002)에서 미스터리와 불안이 한층 깊어진다. 그의 세계 짓기가 성숙해지는 걸 보고 싶은 관객에게 돌아오는 몫이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "christian-petzold#barbara-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "페촐트로 들어가는 가장 쉬운 문. 《바바라》는 1980년대 동독의 한 의사가 탈출과 의무를 저울질하는 이야기다. 조용한 서스펜스와 억누른 채 지켜보는 니나 호스의 연기가 그의 차갑고 통제된 스타일을 소개한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "christian-petzold#phoenix-2014",
+  "field": "reason",
+  "lang": "ko",
+  "text": "얼굴이 망가진 수용소 생존자가 예전 모습으로 복원된다. 《피닉스》는 그 길 끝에서 영화사상 가장 참혹한 마지막 장면 중 하나에 도착한다. 정체성과 청산이라는 주제가 페촐트가 왜 중요한지 정확히 말해준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "christian-petzold#transit-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《트랜짓》은 2차대전 난민 이야기를 그 시대의 대사 그대로 둔 채 오늘의 마르세유에 올린다. 과거와 현재가 겹쳐 무너지고, 실향에 대한 서늘한 사유가 남는다. 그의 형식적 대담함이 드러나는 자리.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "christian-petzold#undine-2020",
+  "field": "reason",
+  "lang": "ko",
+  "text": "물의 요정 신화를 오늘의 베를린 로맨스로 고쳐 쓴 《운디네》. 사실주의와 초자연이 나란히 간다. 페촐트의 느슨한 원소 삼부작이 여기서 시작되고, 우화에 가까운 다정한 음역도 함께 열린다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "christian-petzold#afire-2023",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 느슨하고 가장 웃긴 페촐트가 《어파이어》다. 글이 안 풀리는 작가, 발트해변의 별장, 점점 다가오는 산불. 엄격함만 예상하고 온 관객은 이 가벼운 손길과 여름의 온기에 놀란다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "christian-petzold#yella-2007",
+  "field": "reason",
+  "lang": "ko",
+  "text": "초기작이 주는 보상. 《옐라》는 실패한 결혼에서 도망친 여자가 기업 금융이라는 차가운 세계로 들어가는 이야기다. 유령 기운이 도는 기묘한 드라마이며, 페촐트가 나중에 완성할 분신과 비현실의 씨앗이 여기 뿌려져 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "christopher-mcquarrie#mission-impossible-rogue-nation-2015",
+  "field": "reason",
+  "lang": "ko",
+  "text": "맥쿼리로 들어가는 가장 단단한 입구는 《미션 임파서블: 로그네이션》. 오페라하우스 시퀀스와 숨을 참는 수중 금고 장면이 깨끗하게 고조되는 세트피스 감각을 보여준다. 레베카 퍼거슨의 일사도 여기서 맞수로 합류한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "christopher-mcquarrie#mission-impossible-fallout-2018",
+  "field": "reason",
+  "lang": "ko",
+  "text": "정점은 《미션 임파서블: 폴아웃》이다. 헤일로 강하, 화장실 난투, 헬기 추격이 물러섬 없는 물리적 명료함으로 짜인다. 몸을 거는 실사 액션의 장인이 여기 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "christopher-mcquarrie#mission-impossible-dead-reckoning-part-one-2023",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《미션 임파서블: 데드 레코닝 PART ONE》은 오토바이 절벽 낙하와 폭주 기관차 클라이맥스로 규모를 다시 키운다. 동시에 시리즈의 적을 AI로 옮겨놓는다. 마지막 장을 준비하는 톤의 전환이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "christopher-mcquarrie#mission-impossible-the-final-reckoning-2025",
+  "field": "reason",
+  "lang": "ko",
+  "text": "끝까지 따라온 관객을 위한 몫이 《미션 임파서블: 파이널 레코닝》이다. 잠수함 하강과 복엽기 스턴트로 이야기를 닫으면서, 맥쿼리가 여러 해에 걸쳐 쌓은 신화와 실사에 대한 야심을 한꺼번에 회수한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "christopher-nolan#inception-2010",
+  "field": "reason",
+  "lang": "ko",
+  "text": "놀란의 가장 접근하기 쉬운 선언이 《인셉션》이다. 꿈이 층층이 겹친 하이스트 영화이면서, 그의 구조를 읽는 법을 관객에게 가르친다. 감정의 척추가 분명하고 규칙은 진행하면서 설명된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "christopher-nolan#the-dark-knight-2008",
+  "field": "reason",
+  "lang": "ko",
+  "text": "만화의 세계를 도덕적 혼돈 위에 내려놓은 《다크 나이트》. 히스 레저의 조커가 모든 인물을 불가능한 선택 앞으로 몰아붙인다. 놀란을 블록버스터의 작가주의(auteurism)로 밀어 올린 영화다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "christopher-nolan#oppenheimer-2023",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《오펜하이머》에서는 쪼개진 시간선과 밀착된 인물 연구가 맞붙는다. 한 사람의 양심이 초침처럼 째깍대는 서스펜스로 변하고, 스펙터클이 방과 얼굴과 불안만으로도 세워진다는 사실이 증명된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "christopher-nolan#memento-2000",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《메멘토》는 이야기를 거꾸로 돌려 기억을 만들지 못하는 남자 안에 관객을 가둔다. 주관적이고 부서진 시간을 향한 놀란의 집착이 시작된 초기의 퍼즐 상자.",
+  "model": "claude-opus-5"
+ }
+]

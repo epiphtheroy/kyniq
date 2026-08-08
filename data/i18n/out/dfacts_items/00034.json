@@ -1,0 +1,362 @@
+[
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gunn#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "해고 직후 《가디언즈 오브 갤럭시》 주연진 전원이 복귀를 요구하는 공개 서한에 서명했다. 데이브 바티스타가 가장 앞장서 목소리를 냈다. 결국 디즈니 회장 앨런 혼이 2019년 초 그를 조용히 다시 고용한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "912072eb141aa35b9281fb384ae52571e29ad2cffdf1e2dce74db73cb73cbd6e"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gunn#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "마블에서 해고돼 있던 짧은 기간, 워너브라더스는 원하는 DC 캐릭터를 아무거나 골라 연출해도 좋다고 제안했다. 슈퍼맨까지 포함된 제안이었다. 건이 고른 것은 아무도 주목하지 않던 단체극 《더 수어사이드 스쿼드》였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "63f4b4945249c8c238f5a47e7cd4ac3b1626ff7c03080399ea6ec82a76cccf5f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gunn#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "친동생 션 건을 자기 영화에 자주 쓴다. 마블 시네마틱 유니버스의 CGI 너구리 로켓을 위해 현장에서 기어 다니며 모션 캡처를 연기한 사람이 바로 그다.",
+  "model": "claude-opus-5",
+  "source_sha256": "672fe47d0ff98464ca2417608b53d087fef67e81824910d2b0a5f70e3aa4d1e4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gunn#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "미주리의 엄격한 아이리시 가톨릭 집안에서 자란 건은 자신이 받은 종교 교육을 해체하는 데 여러 해를 보냈다고 말한 적이 있다. 그 끝에 도달한 세속적 세계관이 그의 영화에 되풀이되는 두 주제, 찾아낸 가족과 구원을 강하게 밀어올린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "9069f02b6e24490a8c32a829ebe8b97443246c26945a7c95a3480ccbada6c425"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gunn#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2022년 워너브라더스 디스커버리 CEO 데이비드 자슬라브는 건과 프로듀서 피터 사프란을 새로 만든 DC 스튜디오의 공동 회장 겸 공동 CEO에 앉혔다. 현역 감독 한 사람이 수십억 달러 규모 영화 세계의 창작 전권을 쥔 것은 전례가 없다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0fbf68a646e49edb4be33aeeacd86e0025a45476800ea66f1e7ac497adf00278"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gunn#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "두 번째 아내인 《피스메이커》 배우 제니퍼 홀랜드를 소개해준 사람은 절친한 친구이자 《스몰빌》의 스타 마이클 로젠바움이었다. 소개팅 자리를 만든 것도 그였다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ec07a9c0c06c769d8a79ee55903eae4ff8b291a1d8a01b779d1979645c4850d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gunn#18",
+  "field": "fact",
+  "lang": "ko",
+  "text": "한쪽 눈이 없는 유기견 웨슬리 폰 스피어스를 건은 몹시 아꼈다. 2020년 그 개가 죽기 전까지, 자기 영화의 카메오와 홍보물에 자주 등장시켰다.",
+  "model": "claude-opus-5",
+  "source_sha256": "12b27d4bc0fa54537ecafac95ccb685c6c877389eef2dd75bbfc58c2e357e5d9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gunn#19",
+  "field": "fact",
+  "lang": "ko",
+  "text": "블록버스터로 성공하기 전 건은 2000년 독립 슈퍼히어로 코미디 《더 스페셜스》의 각본을 쓰고 직접 출연했다. 롭 로우와 제이미 케네디 옆에서 그가 맡은 역은 신경증에 시달리며 자신감이라곤 없는 히어로 미닛 맨.",
+  "model": "claude-opus-5",
+  "source_sha256": "388b6ac8edadb9bb389e3db29722a5259efddd2caffbe0ed1141073d98bcf9d8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-gunn#20",
+  "field": "fact",
+  "lang": "ko",
+  "text": "동물권 문제에는 물러서지 않는다. 《가디언즈 오브 갤럭시: Volume 3》에 동물 학대 반대 메시지를 강하게 심어 넣었고, 그 선택으로 PETA에서 상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "f7ef2fb6405e3775957dfe1559c724d57bec84e00df3dbea04006f46a5dbe129"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-wan#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "말레이시아 쿠칭에서 중국계 부모 사이에 태어난 완은 일곱 살에 서호주 퍼스로 이주했다. 열한 살에 토브 후퍼의 《폴터가이스트》와 스티븐 스필버그의 《죠스》를 보았고, 평생 가는 영화 집착이 그때 불붙었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "db04d24c451a3d177eef8409108af7d018ae3ffe4ea2191f04663bf15717b276"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-wan#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "로열 멜버른 공과대학교에서 미디어를 공부하던 시절 평생의 창작 동반자 리 워넬을 만난다. 잘 알려지지 않은 호러를 함께 좋아했고, 호주 영화계에 어떻게든 진입하고 싶다는 마음도 같았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8d8f676bd8c076b9277a59f281036c13407aa83a1343955805dc132a1456b2be"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-wan#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "데뷔작은 2000년 섀넌 영과 공동 연출한 거칠고 게릴라식으로 찍은 《Stygian》이다. 이 영화로 그는 제1회 멜버른 언더그라운드 영화제에서 최우수 게릴라 영화상을 받았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "30d8c98855e08018459ca26708e953bd0bc5f3c441175a75f293a9e913acaa78"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-wan#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "세발자전거를 타고 나타나는 그 유명한 인형 빌리는 완이 직접 만들었다. 《쏘우》 단편을 위해 종이죽과 점토로 몸을 뜨고, 눈에는 탁구공을 박았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "0ab8f8163bd816c653a4bf55b16172bc99e3db3092ca620de4489a8a2904b700"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-wan#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《쏘우》가 크게 성공한 뒤, 완은 유니버설 픽처스에서 스튜디오 호러 《데드 사일런스》를 연출한다. 하나부터 열까지 간섭받는 비참한 경험이었다. 자신감이 무너져 한동안은 영화계를 아예 떠날 생각까지 했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a5f6de5d5eb2ab42ffe9a3af50122755c2c7706c301f849099bd60f6a0fbde26"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-wan#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "음악을 맡은 조셉 비샤라를 자기 영화 괴물의 육체로 자주 쓴다. 《인시디어스》의 소름 끼치는 립스틱 페이스 데몬, 《컨저링》의 마녀 배스시바가 모두 비샤라다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6c7c446514ddc59c22aa8082074fb5ec4300a5f38da92fc8eaf20a024b530c0f"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-wan#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "배우 패트릭 윌슨은 완이 자신의 뮤즈이자 '행운의 부적'으로 여기는 사람이다. 《인시디어스》, 《컨저링》, 《아쿠아맨》 시리즈에서 모두 주연으로 그를 세웠다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8391f588aa1ace676037dd6cc66192859bec26a88eb77cb59807fd475741be4c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-wan#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《컨저링 2》의 그 존재는 처음에 뿔 달린 고전적 악마로 구상됐다. 완은 후반 작업에서 그것을 신성모독적인 '악마 수녀' 발락으로 갈아치웠고, 개봉을 불과 몇 달 앞두고 대규모 재촬영을 감행했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d35429435e8f126c60459d0157567ff617757bb44ef4c9a74c65c90832403194"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-wan#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "워너브라더스는 《플래시》와 《아쿠아맨》 가운데 하나를 고르라고 했다. 완은 일부러 아쿠아맨을 택했다. 대중문화의 농담거리로 여겨지던 캐릭터였기에, 밑바닥에서 히어로를 처음부터 다시 만들 자유가 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "4bf262f9943424d6ee272ebd91c41dd7e5d34f9894c0b75930af34bd54f2aa1a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-wan#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《분노의 질주: 더 세븐》 촬영이 절반쯤 진행됐을 때 주연 폴 워커가 갑작스레 세상을 떠난다. 완의 경력에서 가장 어두운 시기였다. 결말을 하나하나 다시 쓰고, 워커의 두 동생 케일럽과 코디를 Wētā FX와 함께 투입해 이 블록버스터를 끝냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "353c53a0e8239fc1152f7ac636bdeed46b0fec456c35800fe2103f54d1debd63"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-wan#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《분노의 질주: 더 세븐》과 《아쿠아맨》을 연달아 연출했다. 완전히 다른 두 시리즈에서 각각 전 세계 흥행 10억 달러를 넘긴 감독은 영화사에 몇 되지 않는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8aae081040702c65b3c09ac0b1c7541f638b79bb9151846da90f463f96bfdd7d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-wan#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2021년 컬트가 된 《말리그넌트》의 뿌리는 1970년대 이탈리아 지알로(giallo)에 대한 깊은 집착이다. 다리오 아르젠토와 마리오 바바가 만든 그 선정적이고 과잉된 살인 미스터리들.",
+  "model": "claude-opus-5",
+  "source_sha256": "6fc558df54d7f78643290535f10bcc1f80fbfa1c4602ee92ac5c268f5770a4ad"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-wan#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2014년 자신의 제작사 아토믹 몬스터를 세운다. 이후 발을 크게 넓혀 《컨저링》 스핀오프들이 촘촘히 얽힌 거대한 세계를 만들었고, 《M3GAN》 같은 독립 호러 히트작도 함께 내놓았다.",
+  "model": "claude-opus-5",
+  "source_sha256": "87538024c4f38dbfc08369fb868043a3192ccd22cb4de91a089e2ad9aca78bd2"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "james-wan#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2024년 완은 아토믹 몬스터를 제이슨 블럼의 블룸하우스와 합쳤다. 현대 호러의 권력이 한자리에 모인 셈이다. 《쏘우》, 《파라노말 액티비티》, 《컨저링》의 창작자들이 한 지붕 아래 들어왔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "761012bdcd26b40d7a4275cc5c95fc2573fc21df0ee3d412d2e27cbedeed608a"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-luc-godard#1",
+  "field": "fact",
+  "lang": "ko",
+  "text": "고다르는 엄청난 �� 속에서 태어났다. 어머니 오딜 모노는 파리바 은행 창업자의 딸이었다. 스위스 니옹의 넓은 저택에서 책을 읽으며 그는 유년을 보냈다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2a4406b5a3991a1a37d984c3a12358650671f37188a71ef3be02f20bead0cde4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-luc-godard#2",
+  "field": "fact",
+  "lang": "ko",
+  "text": "본명을 쓰기 전, 그는 '한스 루카스'라는 필명으로 《카이에 뒤 시네마》에 초기의 논쟁적인 비평을 실었다. 장뤼크를 독일어와 라틴어로 옮긴 이름이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "dc255202ded4260d24d739e49ffedbf699047a868ae19d6312a1ddb30579fb5d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-luc-godard#3",
+  "field": "fact",
+  "lang": "ko",
+  "text": "제대로 된 시나리오를 쓰지 않는 것으로 유명했다. 아침마다 종이쪼가리에 대사를 적어 현장에 나타났고, 테이크 도중 배우 귀에 대사를 속삭였다. 소리는 어차피 후반에 입힐 것이었으니까.",
+  "model": "claude-opus-5",
+  "source_sha256": "26978340c722e2a57c3d61d1aaa92d76d9024f0a65e957ebeab6c0906861cbb8"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-luc-godard#4",
+  "field": "fact",
+  "lang": "ko",
+  "text": "《네 멋대로 해라》의 그 유명한 샹젤리제 이동 촬영은 값비싼 허가나 장비 없이 찍었다. 고다르는 빌려온 우편 배달 수레에 촬영감독 라울 쿠타르를 태우고 밀었고, 카메라는 사람들 눈에 띄지 않게 가렸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "61a6420c6080afb76a308c6fd53c28dd7d7a0aa7545831ad193ad0e9d901344c"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-luc-godard#5",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1960년 프랑스 정부는 두 번째 장편 《작은 병정》을 3년간 상영 금지했다. 알제리 전쟁에서 프랑스군이 고문을 자행한 사실을 이 영화가 곧이곧대로 보여준 탓이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "21f9a9f5af1f31178bf622b659c6784984d1f48e4b3442e3ed9015156dcaaaf4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-luc-godard#6",
+  "field": "fact",
+  "lang": "ko",
+  "text": "아녜스 바르다의 1962년작 《5시부터 7시까지의 클레오》에는 그가 드물게 배우로 나온다. 영화 속에 끼워 넣은 무성 코미디 단편이었다. 트레이드마크인 검은 선글라스를 벗자 유난히 크고 표정 많은 눈이 드러난다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e689f9201087b1b88887b178c54103d5d01b9fb23ccad58201bcc8f31ea719c4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-luc-godard#7",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1968년 고다르와 프랑수아 트뤼포는 파리 학생 시위에 연대하며 칸영화제를 끝내 중단시켰다. 고다르는 참석자들을 향해 소리쳤다. \"나는 학생과 노동자와의 연대를 말하는데, 당신들은 트래킹 숏과 클로즈업을 말하고 있다!\"",
+  "model": "claude-opus-5",
+  "source_sha256": "71cac82ead478917f8b40cc9c546f775be14d12c0b0f582f8ebf333645c9cd58"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-luc-godard#8",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1968년 5월 봉기 이후, 그는 칭송받는 작가(auteur)라는 지위를 완전히 내던졌다. 장피에르 고랭과 지가 베르토프 집단을 결성해, 익명으로 공격적인 마르크스-레닌주의 영화를 만들려 했다. 자금은 그런 줄 모르는 유럽 방송사들이 댔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "868115a12d1be398d3a5a90b595f2380131dc8dd4a28803ebf691bd6c61d3fdf"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-luc-godard#9",
+  "field": "fact",
+  "lang": "ko",
+  "text": "투쟁기의 고다르는 아랍연맹의 지원을 받아 친팔레스타인 영화를 찍으려 중동으로 갔다. 그러나 주요 인물 몇 명이 1970년 검은 9월 사태에서 목숨을 잃자 기획은 버려졌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "04aa024413e7a4bfdede0bd0461e0177f481d060a6a10382d317370cc3dce60b"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-luc-godard#10",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1968년 롤링 스톤스 다큐멘터리 《Sympathy for the Devil》의 런던 시사에서 일이 터졌다. 프로듀서 이언 쿼리어가 완성된 노래를 영화 끝에 붙여놓은 것에 격분한 고다르가 무대 위에서 그의 얼굴을 주먹으로 쳤다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bb1f00b172d61234c90a198b901c611a7eea4b73b481e4584ac7ce1307815076"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-luc-godard#11",
+  "field": "fact",
+  "lang": "ko",
+  "text": "프랑수아 트뤼포와의 전설적인 우정은 1973년 영영 끝났다. 고다르가 트뤼포의 《아메리카의 밤》을 \"거짓\"이라 몰아붙이는 신랄한 편지를 보낸 것이 발단이었다. 트뤼포는 20쪽에 달하는 분노의 답장으로 응수했다. 고다르를 \"받침대 위에 놓인 똥덩어리\"라 불렀다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3e203974aab337db51aae087f8ad1fec70dbdb2319b991d2157e84a4fd6df00d"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-luc-godard#12",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1970년대 후반, 그는 파리를 아예 버리고 스위스의 조용한 마을 롤로 갔다. 남은 생을 그곳에서 시가를 문 괴팍한 은둔자로 살았다. 곁에는 동반자이자 자주 함께 작업한 안마리 미에빌이 있었다.",
+  "model": "claude-opus-5",
+  "source_sha256": "5736d7f6d743000e3f4eb4370b03165f7cc2cac107f206c44d31305c73e97eb0"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-luc-godard#13",
+  "field": "fact",
+  "lang": "ko",
+  "text": "1987년 그는 캐넌 필름스와 노먼 메일러의 《리어 왕》 각색 계약을 맺는다. 내놓은 결과물은 버제스 메러디스, 몰리 링월드, 우디 앨런이 나오는 기괴한 포스트 아포칼립스 SF였다. 스튜디오는 격노했다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7558d2f8fc615d066dd3c09aebbb21185b9a04c1cc183e231a48ffa1a34f6aa9"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-luc-godard#14",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2010년 미국 영화예술과학아카데미가 그에게 명예 오스카를 주었을 때, 고다르는 받으러 할리우드까지 날아가기를 거부했다. 스위스 기자에게 툭 던진 말이 전부였다. 그 상은 \"내게 아무 의미도 없다\"고.",
+  "model": "claude-opus-5",
+  "source_sha256": "e9eb047dd4c0360d2f3b8a2c270ca2be7d617ae7f7b8a6487169bb55403ffcc4"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-luc-godard#15",
+  "field": "fact",
+  "lang": "ko",
+  "text": "고다르가 아끼던 유기견 록시 미에빌은 2014년 3D 실험 영화 《언어와의 작별》에서 주연을 맡았다. 그 결과 칸영화제의 비공식 상 팜 도그를 거머쥔다.",
+  "model": "claude-opus-5",
+  "source_sha256": "1af3e675fbbbaf6343ee24345a715a4671f7e6dac66bb41b6aa082c8ac560b49"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-luc-godard#16",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2018년작 《이미지 북》으로 그는 칸 사상 최초의 '스페셜 팜 도르'를 받았다. 심사위원단이 아예 새로 만들어낸 상이다. 그의 급진적인 작업을 통상의 영화와 나란히 놓고 심사할 수 없다고 판단한 것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "3a32044733afdde53f527718dfd9326655941e59470988dd050145cb58dd7d88"
+ },
+ {
+  "entity_type": "director_fact",
+  "entity_key": "jean-luc-godard#17",
+  "field": "fact",
+  "lang": "ko",
+  "text": "2022년 9월, 아흔한 살의 고다르는 스위스에서 조력 자살로 생을 마감하기로 한다. 법률 대리인이 낸 성명은 이렇게 못을 박았다. 감독은 \"병들지 않았다. 그저 지쳤을 뿐이다.\"",
+  "model": "claude-opus-5",
+  "source_sha256": "e3f52965c79c2605a435d9b923ec51a327766b04e50c42f115217c84a54d9112"
+ }
+]

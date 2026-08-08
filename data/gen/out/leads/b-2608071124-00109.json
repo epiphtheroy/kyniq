@@ -1,0 +1,92 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "short-sharp-shock-1998",
+  "field": "lead",
+  "film_id": "9305dd12-fde1-4f6b-b22f-b78efd10dadc",
+  "lang": "en",
+  "text": "A man leaves prison meaning to go straight, and the trouble is that his two closest friends are exactly where he left them. Altona holds Gabriel, Bobby and Costa the way a Hamburg district does: shared corners, shared families, shared debts that nobody writes down. Akin gives them a hundred minutes and a genre with obligations to meet — mafia money, an errand that curdles, loyalty quoted in cash — and then spends his attention on something much smaller than the crime. Refusal, it turns out, is daily work. Gabriel has to keep saying no in the company of people who hear no as an insult, and in a mixed neighbourhood where obligation runs along family lines as often as along money, saying it costs him standing he cannot afford to lose. The exit is not a scene. It is a chore, repeated.",
+  "model": "claude-opus-5",
+  "source_sha256": "eb0fd35dde819c2c1fcb4513d3196cecb52912807d25331b0dea5d15683684be"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "emily-the-criminal-2022",
+  "field": "lead",
+  "film_id": "93e3b322-6b5b-4825-92fc-c932b26ca61b",
+  "lang": "en",
+  "text": "The card in Emily's hand is real, the credit on it is real, and the name embossed across the front belongs to someone else. She is short of money and takes work from a persuasive middleman named Youcef: collect goods with the card, hand them over, get paid that day. Ford builds the fraud as employment — an address, a narrow window, a clerk to get past — so the money lands as relief rather than triumph, and the second job is easier to accept than the first. Ninety-seven minutes, and the tension comes less from police than from tolerance: how much risk Emily will absorb, how far she will trust Youcef, how quickly quick cash becomes the only income there is. The escalation is not something done to her. It is proposed, and she agrees, and then she proposes.",
+  "model": "claude-opus-5",
+  "source_sha256": "a1289c3e82267983fa62438deb1001cc0e2688843cb3007e4006c23670fde49d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-pig-the-snake-and-the-pigeon-2023",
+  "field": "lead",
+  "film_id": "9418ffde-af6b-47fa-8f56-917debed0ad0",
+  "lang": "en",
+  "text": "Ranked third on Taiwan's most-wanted list, a man decides the ranking is an insult and sets out to correct it. He is also dying, which converts ambition into a timetable. Wong gives the errand 134 minutes, and the length matters: to reach the two men above him he first has to learn how they live now, and a wanted list carries photographs, not addresses. So the film keeps leaving the chase to sit inside other people's arrangements, then returns to it hard. What drives it is not money and not escape. It is vanity, and vanity is oddly patient. The list itself is only paper held by the police, but it is the nearest thing to a monument this man expects, and he means to be at the top of it before the deadline his body has set.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1a7882a21a31eca43507551f7d6acc9dc1ef78c37e21c8367af4cbbb48211a1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "world-of-glory-1991",
+  "field": "lead",
+  "film_id": "958ad431-60bd-4595-8b58-6f4f544be48a",
+  "lang": "en",
+  "text": "The man speaks directly to camera about his home, his work and the people in his life, courteously, as though someone had asked. Seventeen minutes, and Andersson spends none of them on story. Figures stand where they are placed, holding still while the sentences arrive, and the pauses run long by exactly the margin that turns a statement into a joke. Comedy and drama are both accurate labels here, and they are not taking turns. The tour proceeds room by room at his pace, one plain thing shown after another, and the manner never alters. The film is a self-presentation that keeps being helpful long past the point where what it presents can be received helpfully. Nothing is raised in volume. That is where the pressure comes from.",
+  "model": "claude-opus-5",
+  "source_sha256": "a8b3b2dc4633570de367592ff8096130f2591501d480bf0f1d39ed47ca59ea06"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mekong-hotel-2012",
+  "field": "lead",
+  "film_id": "96d68053-3f98-4ee4-99da-3e33fd8968e8",
+  "lang": "en",
+  "text": "The horror material arrives at conversational volume: two actors on a hotel balcony, rehearsing a scene about a mother and daughter who are something other than alive. Apichatpong sets 59 minutes by the Mekong and lets the seam between the film and its preparation come loose — takes, breaks, talk that could be script or could be the afternoon. Nothing is hidden, which is the unusual part. The apparatus stays visible, the performers stay themselves between lines, and the supernatural premise gets discussed the way people discuss weather or family history, as something already agreed upon. The river keeps moving through it. At an hour the piece is neither short nor feature, and it behaves accordingly: less a story than a stretch of time held open beside moving water.",
+  "model": "claude-opus-5",
+  "source_sha256": "d4218b6de70957780fba3d54ba0608964802423a166dc8749fa67ca9bb28c6b1"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "marcello-mio-2024",
+  "field": "lead",
+  "film_id": "9796b4f5-05ab-4d42-b871-93b148b24f54",
+  "lang": "en",
+  "text": "Chiara Mastroianni asks to be called Marcello, and does not withdraw the request when the people around her laugh. She dresses as her father, takes his name, and insists on being addressed as an actor rather than an actress; friends and colleagues treat it as a phase that will pass. It does not pass. Honoré runs 121 minutes on that refusal, and the comedy comes from everyone else — the awkward politeness of a set, a dinner table, a phone call, where nobody is sure whether humouring her is kindness or collaboration. The premise could have been a sketch. What keeps it from being one is that the resemblance is real, borrowed from a face she inherited rather than one she invented, so each scene is played by a daughter who cannot quite be told she is wrong. Grief here is a costume worn to work, in front of witnesses.",
+  "model": "claude-opus-5",
+  "source_sha256": "dbba06989ebf978ce2b4d33d96c041230c1aa9007a6bb41c9e6bc3f1fd56bf7d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lost-in-the-mountains-2009",
+  "field": "lead",
+  "film_id": "998d54ff-5c42-4c0c-b63f-5457613432f8",
+  "lang": "en",
+  "text": "Thirty-one minutes, three people, and a piece of information one of them has just acquired and cannot put down. Mi-sook has found out that her friend Jin-young has been sleeping with her lover, and Hong does not give the discovery a plot to be worked out in. There is no room for that. What the length allows is the encounter itself: the sitting down, the polite opening, the effort of speaking to someone whose company has become intolerable and whose company is nevertheless what the afternoon consists of. Hong's people talk their way into worse positions, and the short form suits them, since a short film can end while the situation is still in the room. Suffering at this scale is mostly manners, held at the table until somebody stands up.",
+  "model": "claude-opus-5",
+  "source_sha256": "ec2c635cc3c089a97ffcab729f5779ef64cbf86af4bb4f47b0bb9d37d127c87c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "attila-marcel-2013",
+  "field": "lead",
+  "film_id": "9aa6d9bf-678e-45cf-ab93-5c48e3d1e23b",
+  "lang": "en",
+  "text": "Paul is thirty-three, plays the piano to order, and has not spoken since he was a small child. Two aunts raised him in a Paris flat after his parents died, and their ambition for him has one shape: competitions, prizes, a career at the keyboard. He practises. Chomet keeps the household running on routine and furniture, so the comedy is spatial — corridors, doors, a staircase — and the silence at the centre of it is treated as a feature of the building rather than a condition to be cured. Then the neighbour upstairs, Madame Proust, offers him something to drink that gives pieces of his childhood back. What follows is memory as spectacle: 106 minutes in which a man who cannot speak is handed his own past in images, and discovers that the aunts' single dream was never the only one on offer.",
+  "model": "claude-opus-5",
+  "source_sha256": "d2d7cbccefe14f54f45454dad920e31ce9fa2a9fa73cee5aa0e4844d32ae6a20"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "headwinds-2011",
+  "field": "lead",
+  "film_id": "9aa9c2cb-e109-431c-8059-5c35574120d6",
+  "lang": "en",
+  "text": "Sarah tells Paul she wants out of the marriage, and the following day she is not there to discuss it. The film starts a year after that, with Paul taking the children to the town he grew up in, so the fresh start is also a return to people who knew him as a boy. Mystery is one of the labels and the missing woman earns it, but Lespert keeps her absence at domestic scale: a house to be run by one adult, a school term to be arranged, an account of their mother owed to children who require it and cannot be given anything firm. Ninety-one minutes, and the pressure is cumulative rather than sudden. What Paul carries is the last conversation, which only he heard, and which he cannot now set alongside anything that came after it.",
+  "model": "claude-opus-5",
+  "source_sha256": "25d10c8ce1ae0d309492d6da08f8f84e1458f2816954a534ad324a1472ea7cd2"
+ }
+]

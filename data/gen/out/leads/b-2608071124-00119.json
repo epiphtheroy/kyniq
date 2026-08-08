@@ -1,0 +1,82 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "martyrs-2008",
+  "field": "lead",
+  "film_id": "e35b55e3-f049-4743-bf16-a22f0facc1c2",
+  "lang": "en",
+  "text": "Revenge is the premise here rather than the plot: the woman at the centre already knows who took and hurt her as a child. Pascal Laugier front-loads that certainty instead of spending an hour on the search, and he does not send her in alone — a friend who survived her own childhood comes too, which turns a private grievance into something two people have to keep agreeing on. Ninety-nine minutes leaves no room for procedure, and the film uses none. What it has instead is a flat attention to rooms, doors and the ordinary calm of people going about their work, and that is the register in which its worst material arrives. Horror is the correct shelf; the tone is closer to a case file. Very little gets explained while it is happening, and the film's whole confidence lies in believing it does not need to be.",
+  "model": "claude-opus-5",
+  "source_sha256": "141d964032e2742b46da86ec927067d0994502d4a3e55f3e62d25953eb5576ab"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "barney-s-version-2010",
+  "field": "lead",
+  "film_id": "e491a73a-8a76-4897-8951-70f0c4dd78b9",
+  "lang": "en",
+  "text": "The only Academy Award on its shelf is for makeup and hairstyling, which names the real problem the film had to solve: one man, several decades, one face. Barney Panofsky is impulsive, coarse and indifferent to approval, and Richard J. Lewis builds 134 minutes around him without arranging a lesson. The picaresque form suits that. Marriages arrive and end, jobs come and go, friends are insulted and kept anyway, all at the pace of things remembered rather than things plotted. The comedy is in his mouth; the drama is in the bill other people pay for it, and the two run at once instead of taking turns. A life told whole has an awkward shape, too much middle and no clean act breaks, and the wager is that a man tiring enough to argue with is also a man worth the whole span.",
+  "model": "claude-opus-5",
+  "source_sha256": "78e683ebccd857a0c1a5a40c401b63de295121aca556dbdb050e08459da3d499"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "extremis-2016",
+  "field": "lead",
+  "film_id": "e56770b5-9247-4e2e-8fab-118f6b89a8bc",
+  "lang": "en",
+  "text": "Twenty-four minutes in a public hospital, most of them spent in rooms where a decision about someone's death is being discussed with that person's family. Dan Krauss shoots observationally, so nobody is on hand to interpret: doctors phrase things carefully, relatives ask the same question in different words, and the machinery keeps working underneath the conversation. The brevity is a discipline rather than a limit. A longer film would need arcs, and these exchanges do not have arcs — they have recurrences, postponements, and the moment when someone finally has to answer. What the camera catches best is professional language under strain, clinicians choosing between accuracy and mercy inside a single sentence and then choosing again. Ethical murk, in practice, sounds like polite people running out of phrasing.",
+  "model": "claude-opus-5",
+  "source_sha256": "e83718602422f113af13ea37448aef6a2c08e18b46ad8e55af50f85b33401b2c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "age-of-uprising-the-legend-of-michael-kohlhaas-2013",
+  "field": "lead",
+  "film_id": "e56de5b7-41e0-4ea0-933f-0773874796d0",
+  "lang": "en",
+  "text": "A horse dealer in the sixteenth-century Cévennes is cheated by a local lord and discovers that being demonstrably in the right is the most dangerous position he has ever occupied. Michael Kohlhaas is pious, solvent, well married, and without any sense of proportion once the courts decline to help him. Arnaud des Pallières films the escalation as labour rather than adventure: claims lodged, answers awaited, men assembled, hills crossed at walking pace. The César for cinematography suits a story conducted almost entirely out of doors, where light and weather are conditions of work instead of atmosphere. Violence, when it arrives, has the character of an administrative outcome, the predictable result of a refusal nobody withdrew. Two hours, largely quiet, about a good man who cannot be talked out of a principle.",
+  "model": "claude-opus-5",
+  "source_sha256": "996f1baaccb1ca515054830b7cd7052da3ee855b5ba918f55eb992909b153b6b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "someone-you-loved-2023",
+  "field": "lead",
+  "film_id": "e5dc7dd2-1669-40b8-a56b-b2797bbdf3d9",
+  "lang": "en",
+  "text": "The break-up has already happened when the film begins; what is left is the question of what two people are meant to be to each other afterwards. Hyung Seul-woo keeps the pair inside each other's orbit instead of parting them cleanly, so the film proceeds less by event than by adjustment: which habits survive, who speaks first, what tone of voice replaces the one they used to have. A hundred and three minutes gives the same unresolved conversation room to recur. Neither of them is written as the guilty party, which removes the engine most romantic dramas run on and leaves the smaller machinery exposed — the difference between missing a person and missing the arrangement, and the long interval in which being strangers is still an aspiration rather than a fact.",
+  "model": "claude-opus-5",
+  "source_sha256": "61b886d1121dbca5804b9965a4ece2f4d6f1f7a8e9de7b511bf46f3e187b98a6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "a-moment-of-romance-1990",
+  "field": "lead",
+  "film_id": "e76e467e-0aaa-40c6-aa46-775db734c5c1",
+  "lang": "en",
+  "text": "A jewellery heist, a getaway, and a hostage from a good family in the passenger seat: the courtship starts as a kidnapping and has ninety-two minutes to become something else. Benny Chan spends the crime economically — the robbery is a premise, not a showpiece — and lets the distance between the two of them carry what plot would otherwise have to. She has parents with plans for her. He belongs to a Triad, which in this kind of film means his time is owed elsewhere and his choices are reviewed by men he cannot refuse. Forbidden is not a mood here; it is a schedule. The romance is conducted in transit, between obligations, with somewhere else always waiting, and nothing in the film is embarrassed about wanting the tenderness and the engine noise in the same frame.",
+  "model": "claude-opus-5",
+  "source_sha256": "195a7813cf9810a50fd76f05e329f0c837c72b53067f7b6520aa3f247d85ea5b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "air-doll-2009",
+  "field": "lead",
+  "film_id": "e879242e-e1a1-4a76-ae00-82b60472d443",
+  "lang": "en",
+  "text": "One morning an inflatable doll gets up and leaves the apartment where she is kept, and the first thing Hirokazu Kore-eda attends to is logistics: streets to learn, an owner who must not notice, a shift to be worked. She takes a job at a store, falls for a man who works there, and the rota and the small talk are played entirely straight. The Asian Film Award for Best Actress went to a performance that has to begin from outside personhood and acquire it in pieces — posture first, then blinking, then the wrong-length pause before an answer. Two hours of fantasy premise handled as domestic observation. The premise cuts both ways, since a manufactured woman learning to pass keeps measuring herself against customers and neighbours who are mostly just getting through the day, and she is never the strangest thing in the frame.",
+  "model": "claude-opus-5",
+  "source_sha256": "5c31a9fdd883ca84fcd198c5d73041912defbdf704b17ff41a80d704bfdcc15b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "someone-somewhere-2019",
+  "field": "lead",
+  "film_id": "e985583f-aa06-45d2-8412-32f67100d6b0",
+  "lang": "en",
+  "text": "Two apartments in Paris share a wall, and the people inside them have never met. Cédric Klapisch builds on that near-miss and then refuses to hurry it: Rémy and Mélanie are both thirty, both scrolling, both tired in the particular way of people whose evenings are indistinguishable from one another. Each ends up in therapy, and those sessions are the film's best rooms — a stranger paid to ask what a person actually wants, and the slow embarrassment of finding out. A hundred and ten minutes of adjacent loneliness would be punishing without comedy, so the comedy stays near the surface, in the indignities of arranging one's own company. The film is less interested in the crowd than in the wall itself, and in how much ordinary life two people can conduct on either side of it while never once overlapping.",
+  "model": "claude-opus-5",
+  "source_sha256": "0090ee878f71a96b2a938cc83e75291b3ff40e828e07945393fa01197654c733"
+ }
+]

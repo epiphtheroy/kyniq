@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "strange-voyage-1964",
+  "field": "lead",
+  "film_id": "34e97cf1-0efe-4d00-887e-e3bc20a09e8b",
+  "lang": "en",
+  "text": "Two grown adults in a town outside Madrid still need their older sister's permission to leave the house. Paquita and Venancio are unmarried and remain, by the film's own account, childish; Ignacia holds the keys, the money and the temper. Fernando Fernán Gómez files the picture under comedy and thriller at once, which is not indecision. The two labels describe the same street at different hours. The appetite for gossip that supplies the jokes is the appetite that supplies the menace: in a place this size, being known is a form of pressure, and there is nowhere to go to be unknown. Caimán's hundred-title survey of Spanish cinema holds it, though what stays afterward is smaller and more domestic. Who keeps the keys, who has to ask, and what a person becomes after years of asking.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f0bfa8cadb7a844e53f04005f51e781293b9d6a36657139cc1c8754d6783939"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "main-street-1956",
+  "field": "lead",
+  "film_id": "5e99e82b-0ffa-48cb-93c4-2d5abfae693f",
+  "lang": "en",
+  "text": "October 1955, and a group of bored young men in a Spanish provincial town settle on their next joke. Isabel is thirty-five and unmarried, which here is a public fact about a person rather than a private one, and the prank takes its whole design from that. Juan Antonio Bardem is interested less in the scheme than in its social machinery: how cruelty gets organized among friends, how it requires an audience, how readily nobody objects. Spain sent the film to the Academy Awards as its international entry. A town of that size supplies the rest at no cost. Everyone is within walking distance, there is no distance to retreat into, and a woman's situation is discussed at length by people who have never once asked her about it.",
+  "model": "claude-opus-5",
+  "source_sha256": "00948ca8035b865106570287651166cc201c4cffea06f1e819f8de47a87c51f7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-wheelchair-1960",
+  "field": "lead",
+  "film_id": "dfa75319-bbad-44c9-b14d-1c29699ceebb",
+  "lang": "en",
+  "text": "The object at issue is a motorized invalid carriage, and don Anselmo's need for one is entirely social. His friends at the pensioners' table have theirs. Marco Ferreri spends eighty-six minutes in the gap between wanting a thing and being able to justify it, and the comedy sharpens because the family's refusal is reasonable: the money is real, the household has other uses for it, the answer is no. What follows belongs to an old man who must ask permission from the people he depends on, and who has concluded that asking does not work. The scale stays domestic throughout, a flat and a budget and a series of negotiations conducted at family volume, and the vehicle is never allowed to become a symbol. It remains a purchase with a price that somebody else has to authorize.",
+  "model": "claude-opus-5",
+  "source_sha256": "227a2916c682474ecec3f70114671a927e4122ba208a767421e9fd02eb4a4cc5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "robbery-at-3-o-clock-1962",
+  "field": "lead",
+  "film_id": "c8c168b5-dcab-4ad1-a940-7c989b85b4c4",
+  "lang": "en",
+  "text": "The clerks lose the manager they liked, gain a tyrant, and conclude that the vault downstairs is available. José María Forqué gives them ninety-two minutes, about the right length for a robbery that has to be argued over, rehearsed, and then carried out by men whose skills are entirely clerical. The joke is structural. A bank runs on procedure, and procedure is the one thing these men are unquestionably good at: the same deference that made them tolerate a bad superior makes them meticulous conspirators, punctual and thorough and unwilling to improvise. Everything they know about the building they learned by working in it. What holds the attention is office manners surviving contact with crime, the meetings and the assigned tasks and the habit of asking permission that will not switch off because the plan happens to be criminal.",
+  "model": "claude-opus-5",
+  "source_sha256": "4b549c3712497264e2eed2534d8daa7bd997c60a3b09e0aa14310ebbcc75510e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-way-we-are-2008",
+  "field": "lead",
+  "film_id": "87a49bd7-c478-469a-9936-d6ac0deeee63",
+  "lang": "en",
+  "text": "A woman with a job, a son to raise and an elderly neighbor who needs looking in on: that is the entire mechanism. Cheung's district is introduced by its crime figures, which turn out to be an address rather than a plot, and Ann Hui gives the hours instead to work, to meals, to the small accounting of who owes whom a favor. Hong Kong's film awards gave it their directing prize, and what that rewarded is unusual: a drama with no engine, in which the question is whether one adult's day can cover everything asked of it. Looking after the neighbor and providing for the son draw on the same limited supply of time and money. Housekeeping is the register from start to finish, and it is much harder to sustain than incident.",
+  "model": "claude-opus-5",
+  "source_sha256": "99890abb901e6430f619e60e1b106db1c40cc672a6760491ad37b0be33877b0b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-little-apartment-1958",
+  "field": "lead",
+  "film_id": "d9ff7033-6964-4996-ae1c-3b0b89e8e62a",
+  "lang": "en",
+  "text": "Spanish rent control let a spouse inherit the lease, and an entire comedy has been assembled out of that clause. Rodolfo boards in a room belonging to Doña Martina, who is old, frail, and holds the tenancy; he and Petrita want a place of their own and earn too little to get one. His workmates propose the solution, which breaks no law. It requires only that Rodolfo marry the woman whose name is on the tenancy, and be patient. Isidoro M. Ferry declines to sentimentalize the arrangement, and declines to treat the misgivings, his and Petrita's both, as sufficient to stop anything. Dilapidated Madrid is the third party at the table. Housing scarcity is why the idea is thinkable at all, and why the men proposing it consider themselves practical rather than ghoulish.",
+  "model": "claude-opus-5",
+  "source_sha256": "e94bb58ff4266438f13d4a94589ecd7d03626003aa3782771e6757dd614bd4e3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-private-eyes-1976",
+  "field": "lead",
+  "film_id": "79cf51a1-47fd-426f-a19c-182fb948d411",
+  "lang": "en",
+  "text": "The Manix Private Detective Agency has a kingpin at the top and, below him, one other detective to do the walking. Michael Hui Koon-Man builds the film around that two-man division of labor: cases arrive and get handled by whoever is free, which is always the same pair, at the pace the boss decides. The thriller half supplies deadlines. The comedy half is what happens when two men with a caseload and no reinforcements try to meet them, so the stakeout and the pratfall end up sharing a corridor. The agency is a business before it is a mystery, and the cases are jobs before they are puzzles. It sits on the Golden Horse list of a hundred Chinese-language films. The work is treated as work, which is the least sentimental thing a detective comedy can do.",
+  "model": "claude-opus-5",
+  "source_sha256": "327628d67eaae4ce6e4efb23153ce123e0d3698b5f348e6686f8ddcd59bfcb61"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "vampir-cuadecuc-1970",
+  "field": "lead",
+  "film_id": "a94d741b-a835-4a72-af75-dbe1c7a1ab56",
+  "lang": "en",
+  "text": "A Dracula picture was made in 1970, and out of it came a second film with no use for the story. Pere Portabella's sixty-seven minutes are described as an alternative version of Jess Franco's Count Dracula, which undersells the oddity of the relation: the monster is still there, and the plot that justified him has been removed. What remains is texture, classified as documentary and behaving like an essay, moving between a fiction being manufactured and the fact of its manufacture. It is short for a feature and long for an experiment, and it moves like neither. Vampire imagery by 1970 was old enough to be furniture. Detached from narrative it becomes something to look at rather than follow, and the patience of that looking is the whole proposition.",
+  "model": "claude-opus-5",
+  "source_sha256": "6cacd1ea513ca25c6e097061c88876c9f73306b33f7210b20d19a03864207099"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "la-torre-de-los-siete-jorobados-1944",
+  "field": "lead",
+  "film_id": "8a0d75cd-132b-4882-a808-a4b74163867f",
+  "lang": "en",
+  "text": "A dead professor asks a favor of the only man who can see him, and the man is too reckless to refuse. Madrid at the close of the nineteenth century; Basilio has no particular business with the spirit world; Professor Robinsón de Mantua has a niece, Inés, and a fear he cannot argue away. The danger to her is asserted rather than explained, which is a license the fantastic has always claimed. Edgar Neville runs comedy, fantasy and thriller through one picture without deciding which of them is in charge, so the ghost operates as apparition and straight man in the same breath. Period Madrid does the atmospheric labor. The supernatural arrives without ceremony and gets treated as an inconvenience, a harder tone to hold than either fright or farce, and the reason the mixture never settles into spoof.",
+  "model": "claude-opus-5",
+  "source_sha256": "48bfc127fcbf984439beebb1777d6189f542e2cef9fb6f8a63e749c7fd271f71"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "work-in-progress-2001",
+  "field": "lead",
+  "film_id": "af4b809c-2a2e-49d1-9e31-89380eb602a7",
+  "lang": "en",
+  "text": "Eighteen months of filming, one apartment block going up in Barcelona, a hundred and twenty-five minutes to show for it. José Luis Guerín takes the documentary's oldest advantage, staying longer than anyone expected, and turns it on a construction site and the street obliged to live beside it. Workers talk while they work. A building site is one of the few subjects that keeps its own schedule regardless of who is filming, and it rises at the speed buildings actually rise, which is slower than any film would like. Spain's Goya for documentary went to it. The arithmetic carries part of the meaning: a year and a half of days reduced to a single sitting means almost everything recorded was let go, and what survives was chosen by someone who watched the whole thing happen.",
+  "model": "claude-opus-5",
+  "source_sha256": "da5304ea2193c5d35b73fb263887b284c69259c8fdbaa09d26da3dd1433b6c80"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "surcos-1951",
+  "field": "lead",
+  "film_id": "c6f083a8-27d0-439a-8849-99a03780b7fd",
+  "lang": "en",
+  "text": "A farm family leaves the land and moves in with relatives in the city, where the work on offer is illegal, immoral, or both. Nineteen fifty-one, and the household is the unit that absorbs the damage: parents and children lodged inside somebody else's household, each of them arriving at a different answer to the same question about money. José Antonio Nieves Conde does not stage this as a moral test that individuals pass or fail. The city's terms are laid out first, and what the family becomes follows from the terms. Rural life is not offered as the alternative either, since the fields are behind them and nobody in the flat is discussing a return. Arrival is the subject, at a place that has already decided what its newcomers will do.",
+  "model": "claude-opus-5",
+  "source_sha256": "66795066b960901b39b0c3632596858f42b810fff882026fc615dc985a42c876"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "in-our-time-1982",
+  "field": "lead",
+  "film_id": "381e3d58-679c-497d-a66c-1a986fcd3ce1",
+  "lang": "en",
+  "text": "Four stories, four decades, the 1950s through the 1980s, with a different age of life in each. A child, then an adolescent, then someone at the start of adult life: Taiwan gets described by what shifts around people who are themselves shifting, which leaves the country and the person difficult to separate. No continuing character carries the film. Each part builds a world, uses it, and departs, so the accumulation depends on a viewer's memory of the earlier sections rather than on any plot. It sits on the Golden Horse list of a hundred Chinese-language films. Anthologies often read as a compromise between filmmakers; here the division is the argument, since a decade can only be felt as the distance between two things set side by side.",
+  "model": "claude-opus-5",
+  "source_sha256": "bc5897f5d5518be7e2307747b057d1895e0c229b70fc2d881a96ae561280e3f5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-sandwich-man-1983",
+  "field": "lead",
+  "film_id": "43b618f9-e630-430d-9c48-e21a2d3d2175",
+  "lang": "en",
+  "text": "Cold-war Taiwan built its economy with American help, and these three stories are set down inside the result. A hundred and five minutes divided three ways leaves each part at roughly the length of a short story: enough for a situation, a job, a family, and not enough for anyone to explain themselves. Hou Hsiao-hsien keeps the scale at household level, which is where national arrangements are actually felt, in what work exists, what it pays, and what a person has to carry or say in order to keep it. The connection between the parts is positional rather than narrative. They do not comment on one another; they occupy the same economy from three angles. Each looks at people whose livelihoods depend on a decision taken far above them, by parties they are never going to meet.",
+  "model": "claude-opus-5",
+  "source_sha256": "905c87960eb8252f35cc80a05a6489fb8b23f6d289f3fb09b3e43e2d6809c78d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "life-goes-on-1965",
+  "field": "lead",
+  "film_id": "c59d065b-914b-4c17-8daa-d474b8ab8a56",
+  "lang": "en",
+  "text": "The son prays, at length and daily, to atone for the sins of the rest of his family. In the Maravillas neighborhood of Madrid, Eloísa runs the household well: a violent policeman for a husband, a pious boy at his books, two daughters who want money and cannot bear each other. Fernando Fernán Gómez lets this run close to two hours, longer than a portrait would need, and the extra time is the point, since what accumulates is the sense of a marriage and a flat continuing past any moment when the terms could still have been renegotiated. Nothing is arranged as a case to be judged. The violence is ordinary and indoors, folded into meals and wages and who is permitted to speak, and the film stays with the woman doing the absorbing.",
+  "model": "claude-opus-5",
+  "source_sha256": "18fb093b9308ef6cb2214f1243d4a6994e1b2d7007fe83ed261968664c5eab5c"
+ }
+]

@@ -58,7 +58,7 @@
   "entity_key": "the-mastermind-2025",
   "field": "rationale",
   "lang": "ko",
-  "text": "작가 Kelly Reichardt의 정전화된 작업 세계가 떠받치는 작품, 어느 정도 알려진 · 국가 정전: GB. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
+  "text": "켈리 라이카트 감독의 정전화된 작품군이 떠받치는 작품이고, 어느 정도 알려져 있다 · 국가 정전: GB. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
   "model": "claude-opus-5",
   "source_sha256": "14b1c0f310892fdda3c88de36f509630b3e6de255f0543058098f9c614dec8bb"
  },
@@ -76,7 +76,7 @@
   "entity_key": "the-matrix-1999",
   "field": "rationale",
   "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 BBC: 100 Greatest Films Directed by Women에 올랐고, 일반 관객에게 대단히 유명한 · 국가 정전: US. 스스로를 시네필이라 부른다면 반드시 볼 것.",
+  "text": "정전의 핵심에 놓인 작품으로, TSPDT 1,000 Greatest Films와 BBC: 100 Greatest Films Directed by Women에 올랐고, 대중에게 대단히 유명하다 · 국가 정전: US. 스스로를 시네필이라 부른다면 반드시 볼 것.",
   "model": "claude-opus-5",
   "source_sha256": "6c8a94e8b2003373a6f3e82db2baaff027520978fd0be8bf3c047824fccb9eab"
  },
@@ -2416,7 +2416,7 @@
   "entity_key": "the-salesman-2016",
   "field": "rationale",
   "lang": "ko",
-  "text": "Best International Feature Film과 Best Screenplay에 오른 작품, 널리 알려진 · 국가 정전: IR · 사조: Iranian New Wave · 감독 아쉬가르 파르하디의 작가 계보를 통해 다시 평가된다. 출발점으로 좋다. 정전에 들면서도 다가가기 쉽다.",
+  "text": "국제장편영화상과 각본상에 이름을 올린 작품이고, 널리 알려져 있다 · 국가 정전: IR · 사조: Iranian New Wave · 감독 아쉬가르 파르하디의 작가 계보를 통해 다시 평가된다. 출발점으로 좋다. 정전에 들면서도 다가가기 쉽다.",
   "model": "claude-opus-5",
   "source_sha256": "c4c9078aa30d745b3debb718fe171c4d8aac958399f2132637f229c9945875c1"
  },
@@ -4414,7 +4414,7 @@
   "entity_key": "the-triplets-of-belleville-2003",
   "field": "rationale",
   "lang": "ko",
-  "text": "Canadian Screen Award for Best Motion Picture가 예우한 영화, 널리 알려진 · 국가 정전: FR. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "text": "캐나다 스크린 어워드 작품상을 받은 영화이고, 널리 알려져 있다 · 국가 정전: FR. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
   "model": "claude-opus-5",
   "source_sha256": "1c010c449b12717352fe2daa620e93a7c7f5ef46aeeb5209aeaff5d5412198e6"
  },

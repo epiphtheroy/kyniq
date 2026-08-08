@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "wag-the-dog-1998",
+  "field": "lead",
+  "film_id": "6e4cd646-968e-4b33-b5e1-f234404616f7",
+  "lang": "en",
+  "text": "A war gets commissioned the way a television special does: a producer, a budget, a delivery date. The accusation lands in the last weeks of a presidential race, and the remedy proposed is not a denial but a production, something louder to look at until the polls close. Barry Levinson keeps it to ninety-seven minutes and plays the premise as a job of work rather than as outrage; the comedy sits in competence, in two men solving a scheduling problem. Its record is oddly formal for a film about counterfeit: a Silver Bear Grand Jury Prize, Academy Awards for the lead performance and for the adapted screenplay. What is at stake is never whether the charge is true. It is the number of days between the story breaking and the vote, and whether anything can be built fast enough to fill them.",
+  "model": "claude-opus-5",
+  "source_sha256": "964bf129472a7bc103b9849c76162101f8158e9ce2b5bbfa768c201937337d1c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "arizona-dream-1993",
+  "field": "lead",
+  "film_id": "bf7e82c7-81ad-4eb6-96f1-502e55417263",
+  "lang": "en",
+  "text": "A family fortune rests on moving Cadillacs off a lot in Arizona, and that is the most ordinary thing in the picture. Axel comes west for an uncle's wedding, is talked into the business, and gets tangled with a woman named Elaine and her stepdaughter Grace; romance and dream logic arrive braided together and stay that way. The genre listing runs fantasy, comedy, drama, romance, and Emir Kusturica declines to rank them - at 142 minutes there is room to drift off the sales floor whenever a dream is worth more than a sale. A Silver Bear Grand Jury Prize sits on its record, a strange honor for something this shaggy. French money, English dialogue, an American desert borrowed rather than reported on, and a running time long enough to let the borrowing show.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b111d45651a2c0e8672d87f8c7c089b261df9629a7a6f1746789629f7247a65"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "an-officer-and-a-spy-2019",
+  "field": "lead",
+  "film_id": "e25b8b6a-efac-4f35-b600-fcd87773c263",
+  "lang": "en",
+  "text": "A wrongful conviction stops being a mystery once everyone knows the answer, and that is the problem this film sets for itself. In 1894 Captain Alfred Dreyfus is found guilty of treason and sent to the penal colony on Devil's Island, for life. Roman Polanski builds it as a thriller anyway, which means the tension has to move: out of the question of guilt and into the machinery that produced it, the files, the handwriting, the ranks, the exposure of anyone inside the army who might want the case reopened. It runs 132 minutes in French, under the title J'accuse. The European Film Awards named it best film and gave prizes to its director and its lead. What it puts at risk is not one man's freedom alone but the standing of the institution that took it.",
+  "model": "claude-opus-5",
+  "source_sha256": "b123084233d5313630d7b97f0d0fff2fb8f8bebc287b5c73a399904c18dee52b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-decameron-1971",
+  "field": "lead",
+  "film_id": "48f28f39-913e-455f-a5ef-3617dc2ecf20",
+  "lang": "en",
+  "text": "Nine stories in a hundred and eleven minutes leaves each one about the length of an anecdote told well, and that arithmetic is most of the method. A Sicilian is swindled twice and ends up rich. A man plays deaf and mute to get himself inside a convent; a scoundrel arranges a deathbed performance for a credulous priest; two friends make a pact about reporting back on what follows death. Pier Paolo Pasolini keeps all of it at ground level, in the currency of money, appetite, disguise and small trickery, and no tale is ranked above another. Made in 1971, spoken in Italian with French money on the ledger, it took a Silver Bear Grand Jury Prize. What binds the pieces is not a plot but an attitude to greed and lust that never hardens into contempt for the people having them.",
+  "model": "claude-opus-5",
+  "source_sha256": "fc806997bb5b569399c503fcbe64ac5fcc8718b2f6cc5d410332faf809e3d8b5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "new-order-2020",
+  "field": "lead",
+  "film_id": "ecbdbb61-1507-4b46-895c-a63a68946c08",
+  "lang": "en",
+  "text": "A wedding behind a high wall, a city in revolt outside it, and eighty-eight minutes to travel between them. Michel Franco sets it slightly ahead of now, in a Mexico City where the money has gathered in one house and the anger has reached the gate. The uprising is put down early; what interests the film is the afterwards, when the bride cannot be found and a family that has just survived a crowd turns to the army for help. That request is the hinge: protection asked for, protection granted, and the terms discovered later. It is fast and cold in the way a thriller is cold, and it carries a Grand Jury Prize. Made in Mexico, in Spanish, and set close enough to the present that none of its arrangements need explaining.",
+  "model": "claude-opus-5",
+  "source_sha256": "5a3dac38af0dbf45e5ba83945286a3a4f81df239483b72ef432a357f227eb4d2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-fire-within-1963",
+  "field": "lead",
+  "film_id": "9c0f67b9-ed6b-4d5a-b639-2eb015cbd2bd",
+  "lang": "en",
+  "text": "A man leaves the clinic where he has been dried out and spends the next days calling on people he used to know. Alain Leroy has friends, acquaintances, women who are pleased to see him; what he is short of is a reason, and Louis Malle sends him from one apartment to the next, collecting the answers other people have settled for. Each visit is a piece of evidence, and the evidence keeps coming back mixed. The film runs 108 minutes and holds its voice level throughout, which is the hardest choice available to a subject like this one. Venice gave it the Grand Jury Prize and France sent it to the Academy Awards. Whether an afternoon among the living amounts to an argument for staying among them is the whole of the suspense here, and the film is in no hurry to settle it.",
+  "model": "claude-opus-5",
+  "source_sha256": "34bd4660aa413f44f53adcaf5db45e52f4c40369ccf8ae40fb92272eaf1c8d4d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "la-collectionneuse-1967",
+  "field": "lead",
+  "film_id": "16db8d43-5bf1-43c3-bd8e-e02b99d637e3",
+  "lang": "en",
+  "text": "An art dealer and a painter take a seventeenth-century villa on the Riviera for the summer, intending to do as little as possible in it. A third guest is already installed in the house. Haydée keeps her own hours, and the word that gets attached to her, collector of men, is used far more often by the men than by anyone else. Éric Rohmer gives them 86 minutes, most of it talk, and the talk is where the damage is done: two theorists assembling a case about a young woman's character while their own conduct sits in plain view beside it. A Silver Bear Grand Jury Prize is on the record. Summer heat, the long empty middle of the day, and a moral vocabulary being spent on somebody who never asked to be studied.",
+  "model": "claude-opus-5",
+  "source_sha256": "ab90897d02a7d3d3216eee56a87450fe3b44ca2bd8498142b1972a70e3659d3b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "mifune-1999",
+  "field": "lead",
+  "film_id": "1d902661-d21f-435a-aad7-9ece0a434b68",
+  "lang": "en",
+  "text": "A man with a new wife and a place waiting at his father-in-law's firm also has a farm he has mentioned to nobody. His father's death takes him back to it: poor ground, a house left to itself, and a brother who cannot be left alone in it. Then a housekeeper arrives, with her own reason for wanting an address far from the city and work nobody will ask about. Søren Kragh-Jacobsen puts three people under one roof, each holding an edited version of their own history, and gives them 98 minutes to find out how much of the editing will hold. Both leads took European Film Awards and the film took an Amanda as best Nordic feature, which points at where the interest lies: faces and pauses rather than incident, and no sentimentality about what looking after somebody costs.",
+  "model": "claude-opus-5",
+  "source_sha256": "466354067dcc63645707a6791966a10babed8a38927d715d958e09cb856541d8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dog-days-2001",
+  "field": "lead",
+  "film_id": "296d4a83-07fc-4ae9-a15d-fe0aaa7da25c",
+  "lang": "en",
+  "text": "The heat is not scenery here; it is the only thing every person in the film has in common. Ulrich Seidl spends 122 minutes in a suburb on the edge of Vienna during a heat wave, following several households at once and declining to braid them into a story. Comedy and drama are both listed on it, and neither is a concession: the two turn up in the same scene, at the same moment, with no cue as to which reading is meant to hold. Venice gave it the Grand Jury Prize and Europe named it a discovery of its year, formal company for a film made mostly of people at home in the wrong weather. Nobody is going anywhere. The season has shut everything down and left people alone with each other and with time to fill, which is as much plot as anyone here is going to get.",
+  "model": "claude-opus-5",
+  "source_sha256": "38a4a59a2a5041678f53d407cedb8081ebedecf0ac607e83eaa720c29a2f1275"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "if-i-want-to-whistle-i-whistle-2010",
+  "field": "lead",
+  "film_id": "e16d311a-6320-47b4-a78c-8dcd89d52b56",
+  "lang": "en",
+  "text": "Two weeks left to serve, which is exactly when a young man's every impulse becomes expensive. He is a teenager in a Romanian penitentiary, nearly out, and then two things arrive at once: word that his mother has come back home, and Ana, a sociology student doing an internship inside the walls. She leaves at the end of each day. He counts. Florin Şerban keeps it to 94 minutes and to the institution itself, where the drama is not escape but arithmetic: how much a person will risk when there is so little time left to lose. Its lead took the European Film Award for best actor, the film was named a European discovery of its year, and Romania sent it to the Academy Awards under its own title, Eu când vreau să fluier, fluier.",
+  "model": "claude-opus-5",
+  "source_sha256": "5a759c8d609a3bb2b475283ee9077096aa3e01fd6c61254aa7a05832e624993b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "strawberry-and-chocolate-1994",
+  "field": "lead",
+  "film_id": "d67124df-ad71-40ad-a97e-38648920ffd6",
+  "lang": "en",
+  "text": "The friendship begins as an assignment: one of the two men is reporting on the other. Cuba, 1979. Diego is an artist, openly gay, careless with his opinions in a place where opinions are counted; David is a young communist who mistakes his own rigidity for principle. A pass is made and refused, and out of that failure comes an arrangement, in which David keeps coming back and tells the state what he hears. Tomás Gutiérrez Alea gives them 108 minutes to argue about art, expression and what a person owes a revolution, and neither of them is only a position to be knocked down. It carries a Silver Bear Grand Jury Prize, and Cuba sent it to the Academy Awards: a film made on the island, in Spanish, about a citizen watched by his own side.",
+  "model": "claude-opus-5",
+  "source_sha256": "8b16afaf395615ff1a57138a3ecba66b89de9464c13b75acad99084115084418"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "paradise-faith-2012",
+  "field": "lead",
+  "film_id": "e7c0ac59-da86-464c-b83b-5ce7ec22d573",
+  "lang": "en",
+  "text": "A marriage resumes after years apart, in an apartment that has been arranged in the meantime around one person's God. Anna Maria spends her free hours ringing the doorbells of strangers to talk with them about Jesus; the work is unpaid, methodical, and it fills a life. Her husband, an Egyptian Muslim who now uses a wheelchair, comes back into that household, and the praying gives way to fighting. Two absolute positions, one small flat, no third party to appeal to. Ulrich Seidl holds them there for 109 minutes and grants neither of them an exit. Venice gave it the Grand Jury Prize; the European Film Awards singled out its sound designer, which is the right thing to notice in a film shut into rooms where two people cannot get away from the sound of each other.",
+  "model": "claude-opus-5",
+  "source_sha256": "83dda4212c79936c3154497955ef723d1e545ee7ea59188abeb134bae3b587fe"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "standard-operating-procedure-2008",
+  "field": "lead",
+  "film_id": "d9775305-65bb-4e83-877d-a57a811ed292",
+  "lang": "en",
+  "text": "By 2008 the name of the prison had done its work in public and been filed away; the film goes back to it regardless. Errol Morris spends 117 minutes on the abuse and torture of detainees by American forces at Abu Ghraib, much longer than the news cycle that first carried it, and long enough that the burden shifts from exposure to explanation. A Silver Bear Grand Jury Prize came of it. What the length buys is room for the harder question, which is not whether the acts happened, since that was settled well before the cameras were switched on, but what a system has to be like for them to have been possible inside it. A documentary about a country's own soldiers, made in that country, has a difficulty built into its foundations: the people being addressed and the people being described are the same.",
+  "model": "claude-opus-5",
+  "source_sha256": "78f736ab41d255fc0bd3a5f327e880e9394179ab0f3430866935c50e3e752cf8"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "overlord-1975",
+  "field": "lead",
+  "film_id": "5afceee3-4b81-468e-8c90-27346c6755c8",
+  "lang": "en",
+  "text": "The training is the film; the invasion is only the date it walks toward. A young Englishman is called up and taken through the business of becoming a soldier, the lines, the instruction, the equipment, the long administrative middle of a war, while the sixth of June 1944 comes closer on a calendar the audience can already read. Stuart Cooper made it in 1975, three decades after, and kept it to 83 minutes, short enough that the preparation never turns into a montage on the way to the event. It took a Silver Bear Grand Jury Prize. What thickens across the running time is not suspense about the landings but something private: a conviction the young man forms about his own part in them, carried through the drill like a piece of kit.",
+  "model": "claude-opus-5",
+  "source_sha256": "02d168ac49f7223cf9c910dc55817503f705551426e72edcec02d4fe59914afb"
+ }
+]

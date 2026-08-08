@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tiny-snowflakes-2003",
+  "field": "lead",
+  "film_id": "c8820b50-c7ae-46f9-8164-55fa8df61c1b",
+  "lang": "en",
+  "text": "Two men are paid to be present at a mine in rural Iran, and presence is the whole of the job. Guarding is work whose success looks identical to idleness, which leaves the shift and the hours inside it. Loneliness and boredom are the stated material; those are conditions rather than events, and Alireza Amini has eighty minutes to make a condition hold a screen. The constraint does much of the work. A film this short, with this little furniture, finds its incident in the small economy of two people who did not pick each other - what gets said to fill an hour, how a day divides when nothing divides it. The mine matters less as a place than as a reason: it is remote, the post belongs to them, and the road out is the road back in.",
+  "model": "claude-opus-5",
+  "source_sha256": "0809fc5dfd5126e96632a2ccaf441cf980f73f27eb6e4674365a1019f09a71d0"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "end-of-winter-2014",
+  "field": "lead",
+  "film_id": "f2d1667e-fbf7-4b6d-afc9-aee3d9c5f8aa",
+  "lang": "en",
+  "text": "The retirement dinner is Chinese food, and the father waits until everyone is eating to say that he wants a divorce. He has taught at Cheorwon Technical High School for a career; the ceremony that morning was quiet. Then heavy snow closes the roads, the buses stop, and the family that came for a formality is shut into his rooms with an announcement nobody can take anywhere. Kim Dae-hwan runs this 102 minutes, which is a long time to keep adults polite in a small space. The mother has no answer ready. The sons and their wives face the particular difficulty of in-laws, which is that the fury belongs to someone else and the room must still be occupied. What the film works with is meals, bedding, and the order in which people leave a room and come back; the snow outside does the work a locked door would do elsewhere.",
+  "model": "claude-opus-5",
+  "source_sha256": "a79a55ee1f025a97610c9138857d9d8b7edad1b309e1a1062e9443915a43ff26"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "betelnut-2006",
+  "field": "lead",
+  "film_id": "0be4d30c-290d-49a2-b736-759f84207f63",
+  "lang": "en",
+  "text": "Ali and Xiao Yu steal motorbikes, sing karaoke, and throw punches outside the internet bar, and the river they do it beside barely moves. Jishou is a quiet town in Hunan, poor enough that the days arrive with nothing scheduled in them, and Yang Heng takes 112 minutes to let one bleed into the next. The length is the argument. Cut to ninety, this is a delinquency picture; at this pace the bullying and the karaoke begin to read less as plot than as weather, and the tenderness that turns up between the two boys and the girls they love arrives without announcement. Adolescence is filmed here as a duration rather than a phase - a stretch of hours to be filled with whatever is at hand, in a place where little is at hand. The heat and the riverbank are what the camera keeps returning to.",
+  "model": "claude-opus-5",
+  "source_sha256": "574221ce7807a0ff913f87cbacfbea59b384c85d0361ae595891ab2bd0d0b520"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "i-m-in-trouble-2009",
+  "field": "lead",
+  "film_id": "4d2eac30-9a8a-4132-b6bf-9d6f2139170e",
+  "lang": "en",
+  "text": "He is nearly forty and still studying poetry, while the friends around him have acquired the sort of obligations that make an evening hard to arrange. So Sang-min files the film under comedy as well as romance and drama, which is the correct triage: at that age the predicament is entirely legible from outside and completely opaque from within. Ninety-eight minutes. The question on the table is small and unembarrassed about being small - whether to hold on to the relationship or take the steady job, whether poetry counts as work when nobody is paying for it. Nobody has abandoned him. That is the ordinary version and the harder one to argue with, since it leaves him without a grievance to organize himself around, only a calendar that keeps clearing and a decision he can defer for as long as the film allows.",
+  "model": "claude-opus-5",
+  "source_sha256": "12be7819733c3f94f9d45f679bc9634e69100e09d11074ba158d939a0184823a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "walnut-tree-2015",
+  "field": "lead",
+  "film_id": "4f7ec688-2022-4daf-b1c8-290b8487bac3",
+  "lang": "en",
+  "text": "The couple have agreed to marry, which under local custom means the groom must now steal the bride. That is the engine: a formality that has to be performed as an abduction by people with nothing to take, staged in southern Kazakhstan, in Kazakh, across 92 minutes. Consent already exists. The ritual insists on being carried out regardless, and a rite enacted after its meaning has gone tends to reveal who is still enforcing it and who is merely going along. Families have to be assembled, roles assigned, a route worked out. Yerlan Nurmukhambetov treats the south as working country rather than scenery, so the wedding arrives as an event with logistics, and the logistics are where the trouble lives. Somewhere inside it sits a question about what a woman's agreement is worth when the accepted form requires it to look as though it was taken from her.",
+  "model": "claude-opus-5",
+  "source_sha256": "93b4bd5e6b6ae93443d757c86d2d82d70f586fb48f901fbec97a973380024b14"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-rite-a-passion-2002",
+  "field": "lead",
+  "film_id": "8545a26f-d420-4aed-a9c2-7c1dc3505c37",
+  "lang": "en",
+  "text": "Subbaiah Sastry accepts the sins of the dead in exchange for coins and the food of the deceased, and this is how he eats. The rite is called Tiladaanam, and taking it has cost him the regard of his Hyderabad neighbours, who know exactly what he was: a vedic scholar in his prime, consulted rather than pitied. K.N.T. Sastry films the descent in Telugu, in 89 minutes, and sets the son against it. Raghuram is wanted by the police, having chosen extremism over an order his father is, at the bottom of everything, still serving. Neither can concede. The father's degradation is voluntary, which makes it harder to watch; the son's repudiation cannot be spoken aloud at home. Against the argument the film sets the texture of the work itself - corpses, coins, and a meal handed across to a man who used to be consulted on scripture.",
+  "model": "claude-opus-5",
+  "source_sha256": "8e01faf5879c0b61f5f53e7d3e5216454fd017b22fc65761cc494e53f9b89068"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "timeless-melody-1999",
+  "field": "lead",
+  "film_id": "d3ace59f-c062-4caa-95d5-3bf85ec88592",
+  "lang": "en",
+  "text": "The pool hall is falling apart, and it is also where Kawamoto lives, works, and rehearses music with his friend Chikako. Japan, 1999, ninety-five minutes, and for a long stretch nothing is required of anybody. Hiroshi Okuhara builds a room that serves as three things at once and lets the people in it be as unproductive as they like. Then the past of an old pool shark walks in, in the shape of people he would rather not see again. The design is modest - a shelter, and a knock at the door - and the modesty is the point, because the tension is not whether the visitors do damage but whether a place assembled out of habit can absorb anyone who remembers an earlier version of it. Songs get rehearsed with no stated destination. Games get played on a table nobody maintains.",
+  "model": "claude-opus-5",
+  "source_sha256": "192c54a44090e5d6f01654315debc21a4858057ed7732871f5fc2f64f00c3dc5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "kayan-2012",
+  "field": "lead",
+  "film_id": "afe885b5-33d5-4372-9ef9-6dd7c3ccb667",
+  "lang": "en",
+  "text": "The restaurant is losing money, and the woman who owns it is raising two children on her own in Vancouver. Hanin is Lebanese, the place is called Kayan, and Maryam Najafi keeps most of her 85 minutes inside it - a shrewd container, since employees, customers and family all cross the same floor in the same shift, each carrying arrangements that do not survive being looked at. The film is in English, which is information in itself: a Middle Eastern community filmed at the point where the second country has begun to set the terms. Revelations arrive in Hanin's private life while the staff have complications of their own, and the tables need service throughout. The pressure stays ordinary - rent, payroll, children who have to be fed either way - and it does not pause for anybody's news.",
+  "model": "claude-opus-5",
+  "source_sha256": "e2a190a1db1fbbd50d7f9d4d1cc01d1f1d520ace87401aeb88e05105e5a92c02"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "naked-of-defenses-2008",
+  "field": "lead",
+  "film_id": "bc1fccea-c179-4566-a9f7-4ccf58df587e",
+  "lang": "en",
+  "text": "A plastics factory out in the countryside, where the work repeats often enough that two women on the same line will end up talking. Ritsuko knows the job. Chinatsu is new, part-time, and pregnant. Masahide Ichii builds eighty-eight minutes out of that adjacency, and the machinery does something a script would struggle to arrange on its own: it holds the two of them side by side for hours, hands busy, faces available. Kindness at work has rules. Ritsuko helps because helping the new one is what an experienced worker does, and because the person being helped is carrying the thing a car accident took from Ritsuko several years ago, which is not a subject that can be raised on a factory floor. What ends up on screen is shifts, breaks, and the small courtesies the situation permits.",
+  "model": "claude-opus-5",
+  "source_sha256": "cbdc3a70ce1cf8a4e4ae1bf9b81314a7e2d2fd14243f2c700f40711ad0d63233"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "life-track-2007",
+  "field": "lead",
+  "film_id": "08b77c97-f767-4c20-8b1a-94281b1bf9d0",
+  "lang": "en",
+  "text": "A girl the police are looking for takes refuge on Xiangshu's land, and neither of them is in a position to explain that to anyone. She is deaf and mute; he is disabled. Ninety-nine minutes, Korean, a plot of ground and nothing else on it. Jin Guanghao has arranged a fugitive story with none of the usual machinery available: the negotiation, the explanation, the deal struck in words. Proximity is what remains - feeding someone, finding them somewhere to sleep, deciding again each morning whether to keep doing it while the search goes on outside. Both have been sorted into categories that spare the world the trouble of consulting them. What passes between the two of them has to be built out of gesture and repetition, and shelter offered long enough turns into a commitment neither one agreed to in advance.",
+  "model": "claude-opus-5",
+  "source_sha256": "06d7025f7a6c5c0e33d424a65b9f4438a262000ea61aa3f8f7d83e407de7d784"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "shivamma-2022",
+  "field": "lead",
+  "film_id": "a08d1325-6ac6-45a1-8bc5-6247b6669b97",
+  "lang": "en",
+  "text": "The energy drink is called Nuracle, it is sold by recruiting other sellers, and its slogan, I will do it, is the nearest thing Shivamma has to a creed. At home, in a poor town on the edge of a city, there is a husband who cannot leave his bed, a daughter's wedding to pay for, and a son with no interest in any of it. Multilevel marketing runs on converting need into confidence, and Shivamma supplies the need. Jaishankar Aryar spends 104 minutes, in Kannada, on what that confidence costs when it is the only asset in the house, and keeps the scale domestic: stock to be moved, small sums, neighbours who have to be approached, a private ledger of who has said yes. Her belief is not stupidity. It is the only structure on offer that promises her effort will be repaid, and she works it the way other people work faith.",
+  "model": "claude-opus-5",
+  "source_sha256": "851a74f2673e5109530b07a6bdc612122f58b5b8fa5896b8505bf4dcd898de01"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "nino-2011",
+  "field": "lead",
+  "film_id": "7f2b7e12-ce9b-4dbc-8a82-38801a6e5976",
+  "lang": "en",
+  "text": "Celia sold her share of the house to Gaspar and stayed on rent-free by nursing him; he is bedridden, and he likes to hear her sing. She was the darling of Philippine opera once and he was a congressman, and the arrangement holds precisely because neither of them will name it out loud: arias against a roof. Then his condition worsens, and his daughter Raquel arrives from the United States with debts of her own and a plan to sell. Loy Arcenas keeps the arithmetic in view - what a share of a house is worth, what a caregiver is owed, how few heirlooms are left to convert. Against that runs the fiesta calendar, and Celia dressing her grandson Antony in the robes of the Sto. Niño, which is where a woman with no leverage puts what she has left.",
+  "model": "claude-opus-5",
+  "source_sha256": "5fcc6bd89790a8fe46749efb1996828b28d76f5fbe02952c3a51c6b5acde8557"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-donor-2016",
+  "field": "lead",
+  "film_id": "fa804dbe-d5a3-4910-bf25-67582b6f7b08",
+  "lang": "en",
+  "text": "Every day Yang Ba rides his moped from the cramped apartment he shares with his wife and son to the ramshackle workshop where he repairs tyres. A child of school age costs money. Then the municipality announces that the neighbourhood is to be demolished, and a man named Li Daguo turns up, looking for a kidney for his sister. Zang Xichuan does not have to say what the offer is. Most of the 105 minutes are the space between a proposal and an answer, which is where a person finds out what has already been priced and what has not. The tyre shop is the right setting for it: a trade in worn parts, swapped out when they fail, at rates the customer names. Around it a district is being cleared, which alters the terms for everyone inside it and consults none of them.",
+  "model": "claude-opus-5",
+  "source_sha256": "41e4ffbd7ecb3e172699e98db508897f4ca5085f623848e0b28302ae3e9a02e6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "room-salon-college-girls-3-2020",
+  "field": "lead",
+  "film_id": "0981722e-0119-4459-8ac3-06cfd5990893",
+  "lang": "en",
+  "text": "Hee-jung loses money on Bitcoin, cannot repay her friend Joo-yeong, and takes work at a room salon until the debt is cleared. Seventy minutes, 2020, the third entry in a series: a commercial category with fixed obligations, met. The Bitcoin detail dates it exactly - a debt of the kind that moment manufactured, contracted between friends, settled by work neither would list anywhere. The stated arc is upward. Two students go from owing money to being called aces, with the end of vacation as the deadline, while the only subject that stays consistent underneath the packaging is money: borrowed, owed, and earned in a room where the customer sets the price. It is filed under romance and action, which is information of its own about how such films are sold.",
+  "model": "claude-opus-5",
+  "source_sha256": "9efafcfad957040bdc86316c8398439f9a265679997b73bda12f384751c60a67"
+ }
+]

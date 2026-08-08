@@ -1,0 +1,322 @@
+[
+ {
+  "entity_type": "director_pick",
+  "entity_key": "joel-coen#o-brother-where-art-thou-2000",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《오 브라더, 웨어 아트 다우?》는 오디세이아를 대공황기 사슬에 묶인 죄수들의 소동극으로 바꿔 놓는다. 블루그래스 노래와 황금빛 화면. 코엔 형제의 가장 들뜬 얼굴, 음악이 앞장서는 쪽이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "john-carney#sing-street-2016",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《싱 스트리트》부터 들어가면 즐겁다. 1980년대 더블린, 한 소년이 여자애에게 잘 보이려고 밴드를 만든다. 음악을 탈출구로 삼는 카니 특유의 주제가 누구나 좋아할 성장담 안에 알차게 들어 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "john-carney#once-2007",
+  "field": "reason",
+  "lang": "ko",
+  "text": "카니가 가장 순수하게 도달한 지점은 《원스》다. 더블린의 거리 악사와 체코 이민자가 함께 곡을 쓴다. 적은 예산에 핸드헬드로 찍었고, 대사가 끝내 말하지 않는 감정을 음악이 대신 짊어진다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "john-carney#begin-again-2013",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《비긴 어게인》은 같은 공식을 뉴욕으로 옮겼다. 몰락한 프로듀서와 실연당한 작곡가가 길거리에서 앨범을 녹음한다. 《원스》에 막 빠진 사람에게 권할 만한, 좀 더 매끈한 스튜디오판 짝이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "john-carpenter#halloween-1978",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《할로윈》(1978)이 카펜터의 설계도다. 떠도는 주관 시점, 와이드스크린을 천천히 훑는 배회, 그가 직접 친 미니멀한 피아노 박동. 공포가 유혈이 아니라 교외의 텅 빈 공간에서 지어진다는 것을 여기서 배운다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "john-carpenter#the-thing-1982",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《괴물》(1982)은 롭 보틴의 그로테스크한 실물 특수효과를 남극의 숨 막히는 편집증과 결합시킨다. 무서운 것은 괴물이 아니라 누가 인간인지 모른다는 사실이다. 카펜터의 기술이 가장 타협 없이 밀어붙인 순간.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "john-carpenter#they-live-1988",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《화성인 지구 정복》(1988)은 순수한 공포 대신 소비주의와 미디어 지배를 향한 무딘 SF 풍자를 택했다. 그 유명한 골목 난투극까지 포함해서. 카펜터의 장르물에 분노한 정치가 흐른다는 증거다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "john-carpenter#the-fog-1980",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《안개》(1980)는 분위기로 갚는 영화다. 해안 마을의 유령 이야기가 스멀거리는 무드와 빛나는 안개 벽, 에이드리엔 바보의 외로운 라디오 목소리로 굴러간다. 덜 알려졌지만 오직 위협과 안개만으로 버틴다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "john-ford#stagecoach-1939",
+  "field": "reason",
+  "lang": "ko",
+  "text": "포드에게 가장 쉽게 다가서는 길은 《역마차》다. 낯선 이들이 위험한 땅을 가로지르는 단단한 앙상블. 모뉴먼트 밸리의 전경과 그가 즐긴 민주적인 군상화를 한 번의 빠른 여정 안에서 다 볼 수 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "john-ford#the-searchers-1956",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《수색자》에는 포드가 만든 가장 복잡한 주인공이 있다. 존 웨인이 연기한 집착의 사내 이선. 인종주의와 복수가, 쫓는 인간들을 왜소하게 만드는 풍경 앞에 놓인다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "john-ford#the-man-who-shot-liberty-valance-1962",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《리버티 밸런스를 쏜 사나이》에서 포드는 자기 신화를 심문한다. 전설과 사실 사이의 틈을 다룬, 스튜디오 안에 갇힌 삭막한 서부극. 그가 지금 의심하는 그 장엄함을 먼저 겪은 뒤에 보면 좋다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "john-ford#the-grapes-of-wrath-1940",
+  "field": "reason",
+  "lang": "ko",
+  "text": "포드가 서부 바깥에서도 통한다는 증거는 《분노의 포도》다. 스타인벡의 더스트볼 이주가 그레그 톨런드의 헐벗은 화면과 빼앗긴 자들을 향한 민중적 통증으로 옮겨졌다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "john-ford#how-green-was-my-valley-1941",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《내 계곡은 푸르렀다》는 기억에 젖은 포드의 다정한 면이다. 웨일스 탄광촌 가족을 한 소년의 눈으로 되불러 온다. 그의 공동체적 온기에 이미 마음을 뺏긴 사람이라면 충분히 보답받는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "john-hughes#ferris-bueller-s-day-off-1986",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 가볍게 시작하려면 《페리스의 해방》이다. 카메라를 향한 곁말, 시카고를 누비는 신나는 하루, 십 대의 자유를 향한 휴즈식 소원 성취. 매력은 최대, 숙제는 최소.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "john-hughes#the-breakfast-club-1985",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《조찬 클럽》은 휴즈를 토요일 벌칙 교실 하나로 압축한다. 다섯 개의 전형이 딱지가 갈라질 때까지 떠든다. 십 대의 상처를 다룬 그의 가장 농밀한 연구이자 이 장르의 최고 수위.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "john-hughes#sixteen-candles-1984",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《핑크빛 연인》은 거칠었던 데뷔작이고, 휴즈가 몰리 링월드와 교외 십 대의 목소리를 처음 찾아낸 자리다. 공식이 만들어지는 과정을 보라. 낡아 버린 구석까지 포함해서.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "john-huston#the-treasure-of-the-sierra-madre-1948",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《시에라 마드레의 황금》이 휴스턴의 도덕극 가운데 가장 접근하기 쉽다. 금을 좇던 탐광꾼들이 탐욕과 의심에 갉아먹힌다. 자기 욕망에 무너지는 남자들, 그 평생의 관심사로 들어가는 깔끔한 입구다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "john-huston#the-asphalt-jungle-1950",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《아스팔트 정글》은 휴스턴의 강도극 설계도를 완성한 작품이다. 보석 털이 일당을 결함 있는 직업인들로 다루면서, 치밀한 계획이 인간의 약점 하나로 풀려 나가는 과정을 보여 준다. 이후 수많은 케이퍼 영화가 베낀 원형.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "john-huston#persona-1966",
+  "field": "reason",
+  "lang": "ko",
+  "text": "여기서 《페르소나》는 실험적인 이탈이다. 여배우와 간호사 사이에서 정체성이 녹아내리는 삭막한 2인 실내극. 휴스턴의 거친 리얼리즘을 잠시 떠나 더 낯설고 더 내면적인 곳으로 갈 준비가 된 관객을 위한 것이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "john-mctiernan#die-hard-1988",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《다이 하드》(1988)만큼 맥티어넌의 명제가 선명한 영화는 없다. 갇힌 지형, 층층이 올라가는 공간의 논리, 상처 입는 보통 사람 영웅. 수직으로 선 나카토미 타워가 그의 공간 연출과 긴장 배분을 가르친다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "john-mctiernan#predator-1987",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《프레데터》(1987)에서는 정글의 공포를 다루는 솜씨가 드러난다. 근육질 특수부대 영화가 보이지 않는 사냥꾼에게 쫓기는 생존 호러로 바뀐다. 괴물을 감추고 드러내는 그 리듬이 곧 서스펜스 공학의 교본이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "john-mctiernan#the-hunt-for-red-october",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《붉은 10월》(1990)은 조용한 보상이다. 인내와 두 개의 지휘실로 쌓아 올린 두뇌형 잠수함 스릴러. 총성 없이 체스 같은 절제만으로도 같은 긴장을 만들어 낸다는 것을 증명한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "john-woo#face-off-1997",
+  "field": "reason",
+  "lang": "ko",
+  "text": "할리우드 시기 중 가장 들어가기 쉬운 것은 《페이스 오프》다. 발레처럼 짜인 총격과 오페라 같은 멜로드라마가 얼굴을 맞바꾼다는 고안과 맞물리고, 트라볼타와 케이지가 마음껏 화면을 씹어 삼킨다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "john-woo#hard-boiled-1992",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《첩혈쌍웅》 계열의 영웅본색적 미학이 가장 순수하게 응축된 것은 《하드 보일드》다. 끝의 병원 총격전은 긴장이 한 번도 풀리지 않는 안무로 액션 장르의 기준이 되었다. 그가 왜 중요한지는 여기서 드러난다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "john-woo#red-cliff-2008",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《적벽대전》은 권총을 고대의 전쟁으로 바꾼다. 형제애와 대규모 전술이라는 오우삼의 감각이 대군에 적용된 장대한 역사극. 이미 빠져든 관객에게 다른 규모의 즐거움을 준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jon-watts#spider-man-homecoming-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《스파이더맨: 홈커밍》은 피터 파커를 숙제와 영웅 노릇 사이에서 허둥대는 어수룩한 십 대로 다시 소개한다. 왓츠는 스펙터클을 교외 고등학교 코미디의 실감 위에 앉힌다. 가장 친절한 입구.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jon-watts#spider-man-no-way-home-2021",
+  "field": "reason",
+  "lang": "ko",
+  "text": "왓츠가 가장 크게 저울질한 작품은 《스파이더맨: 노 웨이 홈》이다. 여러 악당과 여러 시간선을 엮어 감정적 결산에 이르면서도, 피터 개인이 걸고 있는 것을 끝까지 화면 앞쪽에 둔다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jon-watts#spider-man-far-from-home-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "저평가된 중간 장이 《스파이더맨: 파 프롬 홈》이다. 유럽을 돌아다니는 소동극 속에서 왓츠는 환영과 지각을 가지고 논다. 슈트 바깥에서 피터의 슬픔과 신뢰가 시험받는다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jordan-peele#get-out-2017",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《겟 아웃》은 사회적 공포와 새카만 코미디를 뒤섞는 필의 서명을 처음 보여 준다. 스릴러 구조가 단단해서, 인종과 연기, 위협받는 몸이라는 그의 관심사로 들어가는 가장 쉬운 문이 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jordan-peele#us-2019",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《어스》에서 야심은 넓게 퍼진 도플갱어 악몽으로 뻗는다. 루피타 뇽오의 1인 2역이 중심을 잡고, 하층과 특권, 우리가 묻어 둔 또 다른 자아를 둘러싼 알레고리가 빽빽하다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "jordan-peele#nope-2022",
+  "field": "reason",
+  "lang": "ko",
+  "text": "가장 기이하고 가장 영화적인 도약은 《놉》이다. 와이드스크린으로 찍은 하늘의 공포이자, 스펙터클과 헤아릴 수 없는 것을 기어이 포착하려는 욕망에 대한 사유. 그의 층진 설계에 이미 감각이 열린 관객에게 값을 한다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "joshua-oppenheimer#the-act-of-killing-2012",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《액트 오브 킬링》(2012)은 인도네시아 학살의 처벌받지 않은 가해자들에게 카메라를 쥐여 주고 자기 살인을 영화 장면으로 재연하게 한다. 기억과 자부심과 부인이 초현실적 구경거리로 상해 가는 과정이 드러난다. 오펜하이머의 방법으로 들어가는 필수 관문이다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "joshua-oppenheimer#the-look-of-silence-2014",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《침묵의 시선》(2014)은 렌즈를 반대로 돌려 희생자의 동생을 따라간다. 안경사인 그가 가족을 죽인 자들을 조용히 마주 앉아 대면한다. 가깝고 견디기 힘들 만큼 팽팽하다. 앞 영화가 깔아 둔 감정과 윤리의 정점.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "justin-kurzel#the-order-2024",
+  "field": "reason",
+  "lang": "ko",
+  "text": "커젤에게 가장 쉽게 다가가려면 《디 오더》다. FBI와 백인우월주의 조직이 맞붙는 팽팽한 수사물이고, 주드 로가 있다. 장르의 긴장을 채우면서 급진화와 조용한 위협을 향한 그의 관심을 미리 보여 준다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "justin-kurzel#nitram-2021",
+  "field": "reason",
+  "lang": "ko",
+  "text": "정점은 《니트람》이다. 포트아서 총기 난사에 이르는 시간을 절제된 화면으로, 불안이 배어들도록 그렸다. 선정성은 끝까지 거부한다. 케일럽 랜드리 존스의 서늘한 연기가 중심을 지킨다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "justin-kurzel#snowtown-2011",
+  "field": "reason",
+  "lang": "ko",
+  "text": "데뷔작 《스노우타운》은 이미 빠져든 관객에게 주어지는 참혹한 보상이다. 호주의 연쇄살인 속으로 다큐멘터리에 가깝게 내려간다. 황량한 풍경과 남성 폭력, 그리고 그 폭력이 사람에게 스며드는 방식이 여기서 자리를 잡았다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kaneto-shindo#onibaba-1964",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《오니바바》는 바람 부는 갈대밭 한가운데로 관객을 떨어뜨린다. 두 여자, 도깨비 가면, 날것의 욕망. 신도의 가장 붙잡는 입구이며, 민속 공포와 흙 묻은 생존이 뒤엉켜 즉각적이고 원시적인 무언가가 된다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kaneto-shindo#kuroneko-1968",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《구로네코》는 같은 유령의 풀밭을 형식적 완성으로 다듬는다. 그림자놀이 같은 무사들, 허공을 떠도는 고양이, 복수하는 혼령. 극명한 흑백의 우아함으로 찍혔고, 분위기와 이미지를 다루는 신도의 솜씨가 절정에 있다.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kaneto-shindo#the-naked-island-1960",
+  "field": "reason",
+  "lang": "ko",
+  "text": "《벌거벗은 섬》은 말이 거의 없다. 메마른 섬으로 물을 길어 올리는 가족을 지켜볼 뿐이다. 엄격하고 리듬적이며 거의 다큐멘터리에 가깝다. 노동과 견딤을 향한 신도의 참을성 있는 관찰 안에 앉을 준비가 된 사람에게 주는 보상.",
+  "model": "claude-opus-5"
+ },
+ {
+  "entity_type": "director_pick",
+  "entity_key": "kaouther-ben-hania#the-man-who-sold-his-skin-2021",
+  "field": "reason",
+  "lang": "ko",
+  "text": "벤 하니아의 영화 중 가장 접근하기 쉬운 것은 《더 맨 후 솔드 히즈 스킨》이다. 시리아 난민이 예술가에게 등을 내주어 문신을 새기게 하는 매끈한 풍자 우화. 이주와 비자의 위기가 갤러리의 도발로 옮겨 간다.",
+  "model": "claude-opus-5"
+ }
+]

@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "van-gogh-1991",
+  "field": "lead",
+  "film_id": "0381a367-de1d-45b1-9d1c-b6bdb95f980c",
+  "lang": "en",
+  "text": "The painter arrives at his doctor's house as a lodger, and the lodging is most of what the film attends to. Meals, riverbanks, the friction of living where another man sets the hours. Vincent has just left the asylum. There is an affair with Gachet's daughter, who works out soon enough where his attention actually sits, which is not with her and not wholly with anyone. Pialat spends 158 minutes on a few weeks precisely so that nothing has to be decisive; the hours a biography would cut, when a man is simply working and nothing is being chosen, are the hours he keeps. Cahiers du Cinéma holds it among the hundred most beautiful films in the world. The canvases get almost no commentary. What returns instead is labour, paint hauled outdoors, sitters left waiting, an appetite for company that never converts into what the people around him want from it.",
+  "model": "claude-opus-5",
+  "source_sha256": "1519c021542e2891cdd50d72792b1e77f7f9305c67318b274677a9deb244f724"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "wavelength-1967",
+  "field": "lead",
+  "film_id": "8d251370-d3e8-4018-8200-0cf4e3cc150b",
+  "lang": "en",
+  "text": "Forty-five minutes in a single room, and the only thing that develops is a zoom. The camera starts at the back of an industrial loft in Lower Manhattan and travels toward a photograph on the far wall at a rate closer to a tide than to a gesture, while people come in, do something, leave again, and the lens declines to follow any of them. Their business stays theirs. Snow asks instead for a shift in what counts as an event: the light changing, the stock changing, a person's entrance registering as weather rather than as plot. Fixing the destination in advance and then taking three quarters of an hour to reach it turns a room into a measured distance. It sits on TSPDT's 1,000 Greatest Films. The zoom is not a metaphor for anything. It is the clock, and it runs one way only.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf6eb03d3e75d317f0558a6226596d7df7d36482adc104e7d9a4c3d05ea70ceb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bright-future-2003",
+  "field": "lead",
+  "film_id": "79226861-5711-468d-9d1e-9520570b6f1e",
+  "lang": "en",
+  "text": "Two men fold hot towels for a living and keep a jellyfish as a pet. The factory fills a day without occupying a mind, and the rage the two friends share, which neither can control and neither can account for, has nowhere to be spent: not on the work, not on the boss, not on each other, whom they mostly like. Kurosawa lets the mystery arrive sideways, in aquarium light and rooms that hum, so that the strangeness is ambient long before it is ever an event. The animal is the one thing in the film both men tend to carefully, and the one thing that can be neither reasoned with nor dismissed. What stays afterwards is a temperature rather than a plot: the flat, humid patience of people waiting for a life to begin.",
+  "model": "claude-opus-5",
+  "source_sha256": "bc58566126addc486f31e451589d2c823fa669424e8e9fb5af2293ccb9a042da"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "cruel-story-of-youth-1960",
+  "field": "lead",
+  "film_id": "ca213349-7ec5-4a6b-bdc2-c3bf269d9bac",
+  "lang": "en",
+  "text": "The arrangement takes one sentence to describe: she accepts a ride from a stranger, he arrives, the man pays. Ōshima made it in 1960, and the couple at the centre have no program and no politics, only the discovery that respectable men will hand over money rather than be seen. The film is filed as romance and it is one, in the odd sense that these two keep choosing each other while doing steady damage neither will name aloud. He is cruel to her early and often. She stays, and nothing in the picture arranges itself to explain her in the terms a moral drama would need. Kinema Junpo's all-time Japanese list keeps it. Ninety-seven minutes, and nearly every exchange in it is a transaction, the tender ones included.",
+  "model": "claude-opus-5",
+  "source_sha256": "d1257117cff11172b046c3b98955d89ef66b4639397e9b66d4b2bd26e4d87208"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "yearning-1964",
+  "field": "lead",
+  "film_id": "96e81c29-5836-4e81-8490-a641be355ff2",
+  "lang": "en",
+  "text": "The woman who saved the shop is the one the family can most easily do without. Reiko married into the house, lost her husband in the war, rebuilt the grocery and has stood behind its counter ever since; now a supermarket has opened nearby and her in-laws have settled on a plan for survival, become one too, with no clear place in it for her. Naruse stages the argument as household traffic. Who passes whom in a narrow corridor, who is addressed first, who does the accounts. Nobody is a villain and everybody is reasonable, which is what makes the arithmetic so hard to interrupt. Ninety-eight minutes is enough because the pressure is continuous rather than rising. What Reiko is owed and what she is able to ask for are two different sizes, and she knows the difference better than anyone else in the room.",
+  "model": "claude-opus-5",
+  "source_sha256": "7f4ba99945c6c1e266e90c273c0cb1cde911267c7340590c6c2927f3fd6f6025"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "humanity-and-paper-balloons-1937",
+  "field": "lead",
+  "film_id": "3088c791-1839-49e9-a337-868610cde85f",
+  "lang": "en",
+  "text": "Two men on the same Edo alley want their standing back, and neither has a lawful way to get it. One is a ronin waiting on a hire from his dead father's former master, who has no particular reason to see him. The other is a hairdresser, disgraced, who decides to take a rich pawnbroker's daughter off the street before her wedding, as though another family's distress could be converted into his own worth. Yamanaka films Edo as a crowded, damp, mostly indoor place where a sword is a possession that may have to be sold and dignity is a household expense like rent. Eighty-six minutes, and the period costume does almost no work; the plot runs on patronage, debt, and who owes whom a favour. The kidnapping is less a plan than a gesture borrowed from men who outrank him.",
+  "model": "claude-opus-5",
+  "source_sha256": "bdb5bae0d92f1f6842fdf1cf18152db31b696f56ec9b583752d29b396b60ad28"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "tokyo-olympiad-1965",
+  "field": "lead",
+  "film_id": "ae53625f-6b37-4e3b-92ff-5cd7109d4c8c",
+  "lang": "en",
+  "text": "Ahamed Isa ran for Chad, a country that was younger than he was. Ichikawa's record of the 1964 Games in Tokyo finds room for him, and nearly as much room for the crowds in the stands and the workers around the edges of the event. Almost three hours, and a great deal of it is not competition at all: faces before the gun, water on skin, the long waiting that surrounds a few seconds of sport. Where a newsreel wants outcomes, this keeps stopping on the body doing the work, with lenses long enough to flatten a runner into a shape and sound pared back until one footfall carries. Kinema Junpo's all-time Japanese list includes it, which is odd company for a sports picture. The marathon leaves the stadium and goes out through the city, and the city is filmed as attentively as the runners.",
+  "model": "claude-opus-5",
+  "source_sha256": "710826134a4b6560fb1cb0e9a1c2eb1aba6768f164c5e791ff706427df668bdf"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "summer-days-with-coo-2007",
+  "field": "lead",
+  "film_id": "54eacd8c-5172-416c-8afc-bb511c24b663",
+  "lang": "en",
+  "text": "A boy and a kappa go looking for places with no people in them. Coo has come through more than two hundred years into modern Japan and is now a household secret, taken in quietly by the family of the child who found him, which is the comic half of the picture. The other half is the search, and it carries no guarantee. Hara keeps the house ordinary, meals and school and the logistics of hiding something alive, and lets the trips out of town hold the strangeness. Two hours and eighteen minutes is a long time for a family animation, and the length is where the terms get set: a creature this old is not a pet, his need is for territory rather than affection, and whether any such territory is left gets treated as a question of geography instead of feeling.",
+  "model": "claude-opus-5",
+  "source_sha256": "df09c785523e5c93dc9d15c0dbb0494191ff281b4a186738b6356e20a43324d7"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "intentions-of-murder-1964",
+  "field": "lead",
+  "film_id": "fac66d97-5d86-4653-b03c-4649f46efc26",
+  "lang": "en",
+  "text": "The intruder has a heart condition, and he keeps coming back to the house. He forces his way into a home where a woman lives with a librarian who has not married her and barely attends to her, and what he offers, folded in with the threat, is the prospect of some other life elsewhere. Imamura gives her a hundred and fifty minutes and refuses to make her light or quick. She eats, she hauls, she sleeps, she stays. The neglect is established before the intrusion and the ordering is never allowed to slip, because the question the film is actually working on is not what the young man wants but what she is worth to each man who assumes she has nowhere else to go. It is a long film about a woman being underestimated, patiently, by everyone including her own household.",
+  "model": "claude-opus-5",
+  "source_sha256": "1eb5d403e6ae79019bc05d0c5acc8ed808fe84a9a1acadc35ffa91c9fd74006d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "battles-without-honor-and-humanity-proxy-war-1973",
+  "field": "lead",
+  "film_id": "69b92e66-29af-4c1e-9985-1b719550035e",
+  "lang": "en",
+  "text": "The men who order the violence are never in the room when it lands. Hirono has broken from the Yamamori house and set up small, and the friends he has made since include a powerful underboss of the Muraoka family, which in this trade means a claim somebody will call in later, at a moment of their choosing. The gangs are less empires than subcontractors: the grievance belongs upstairs, the injury belongs to whoever stands nearest. A hundred and two minutes, no scene held past its information, and a cast large enough that keeping the alliances straight becomes work, which is closer to how it feels from inside than any clean chart would be. Fukasaku builds the whole thing out of obligations nobody remembers agreeing to.",
+  "model": "claude-opus-5",
+  "source_sha256": "952c32b4069ee3386af8f51fb259b708b60e8f725b4a249f0855ad11d37829f2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "fighting-elegy-1966",
+  "field": "lead",
+  "film_id": "20ac3eb5-b04d-4811-b991-348455350706",
+  "lang": "en",
+  "text": "Kiroku is in love with the daughter of the house where he lodges, so he goes out and hits people. Suzuki treats that sentence as a working engine. Michiko belongs to a Roman Catholic household, which places her in the boy's head somewhere nearer to sacrament than to a girl he might simply speak to, and the surplus has to go somewhere: gangs, schoolyard armies, private training regimes conducted with the seriousness of a vocation. Eighty-six minutes, played largely as comedy, and the comedy keeps its edge because nothing on offer to him, religious or military or romantic, suggests a use for his own body that is not discipline or a fist. Radical politics stand at the edge of the story throughout, uncommented on and entirely available.",
+  "model": "claude-opus-5",
+  "source_sha256": "4ca80c26a8e1493593332ce205b2f576b859e71c7c7c7ec23de275933a2aaa4b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "crayon-shin-chan-the-adult-empire-strikes-back-2001",
+  "field": "lead",
+  "film_id": "c7876008-9ed2-4825-8368-36c72edc3ce1",
+  "lang": "en",
+  "text": "An exposition sells the twentieth century back to the adults of Kasukabe, and they go, and they stop coming home. Their children are left holding the houses, the meals and a town that answers to nobody, which is the setup for ninety minutes of slapstick and also a real question about what a parent's nostalgia costs the person living downstairs from it. Hara runs the gags at full speed and still makes the trap attractive, an afternoon spent inside a childhood remembered better than it was lived. Kinema Junpo's all-time list of Japanese films carries this one, which is unusual company for a children's comedy. What the kids are asking the adults to come back to is dishes, homework, a job, and a Tuesday.",
+  "model": "claude-opus-5",
+  "source_sha256": "df6666bb637a26ebf340faf1b7963f0e7275d7d347faf06cded3d40e5b8f3a30"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-castle-of-sand-1974",
+  "field": "lead",
+  "film_id": "47187815-4908-40a4-b461-1b26cc288dd8",
+  "lang": "en",
+  "text": "A Tokyo rail yard, an old man beaten to death, two detectives with a file and very little in it. Nomura takes a hundred and forty-three minutes over this, and the length is the method: a murder worked from the outside in, by rail, by ledger, by the same questions asked in one more town. The pleasure is accumulation rather than deduction, an obscure life filled in slowly by two men who are paid to be curious about a stranger. The film assumes an audience willing to sit through wrong leads and repeated journeys, and it spends that patience deliberately, keeping its explanation at arm's length while the country between the cities gets looked at properly. By the time the case has a shape, so does a person.",
+  "model": "claude-opus-5",
+  "source_sha256": "c6d686478c94e7ff56cb369677ee85031e2f759922f3dfc53f46cd72dc0c4f5c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "typhoon-club-1985",
+  "field": "lead",
+  "film_id": "5e1a2edb-aaa4-4110-b059-2cb502109cc3",
+  "lang": "en",
+  "text": "A storm needs five days to arrive, sit over the town and go, and a junior high school is emptied into it. Six students spend the worst of it shut inside the building, which for one night removes every adult who might assess what they do. Sōmai is not sentimental about the result. Thirteen and fourteen-year-olds handed a suspension of consequence are not sweet, and the film is caustic rather than fond about the freedom the weather hands them. A hundred and fifteen minutes, and the storm is less a metaphor supplied by the picture than an excuse supplied to the characters, who use it. The days after the sky clears get as much attention as the night itself: the school reopens, the corridors are unchanged, and what the children learned about themselves has to come back inside with them.",
+  "model": "claude-opus-5",
+  "source_sha256": "8404e3a90672f9e08355c57a8ef162550c6ee26904555ca5a6dc1c8bf4cb5815"
+ }
+]

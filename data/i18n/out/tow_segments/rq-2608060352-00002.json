@@ -1,0 +1,119 @@
+[
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "72bb0a7b9cd55e09",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품으로, TSPDT 1,000 Greatest Films와 키네마준포 역대 일본영화 베스트에 올랐고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "72bb0a7b9cd55e092f453553683eb02cae5c680c45cb2af3f3983a348e1c2520"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "87e5d8f470c3d2e4",
+  "field": "text",
+  "lang": "ko",
+  "text": "조지 A.",
+  "model": "claude-opus-5",
+  "source_sha256": "87e5d8f470c3d2e420a717156c9046c45d0a51bf8aa8109713574cba52022133"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ac3b1c0f17d4f061",
+  "field": "text",
+  "lang": "ko",
+  "text": "로메로 감독의 작가 계보를 통해 다시 평가받는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac3b1c0f17d4f061ee747da0219d6a04ecb8988af47eccee0f76206f1d159414"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "7c9c684958e6df4f",
+  "field": "text",
+  "lang": "ko",
+  "text": "장원 감독의 작가 계보를 통해 다시 평가받는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c9c684958e6df4f0d37b82fdaa207f46edb6d6b7f3e79c87c5e544b79b35e9c"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "9da7f03450f1063d",
+  "field": "text",
+  "lang": "ko",
+  "text": "각본상과 전미비평가위원회 올해의 10대 영화가 예우한 작품이고, 대중에게 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "9da7f03450f1063d7edbaa3d28b9a0cd4543e6735fd56bda04239bf1ee5817f0"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "b29d186ac65a069a",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품으로, TSPDT 1,000 Greatest Films와 각색상에 이름을 올렸고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "b29d186ac65a069ab9b0fe0f28cc83d45813215892c967b3f0dbee5af5beaa29"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "e87fe9a22062d4d1",
+  "field": "text",
+  "lang": "ko",
+  "text": "정전의 핵심에 놓인 작품으로, TSPDT 1,000 Greatest Films와 각본상에 이름을 올렸고, 대중에게 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "e87fe9a22062d4d127a71c3b06167a985cb849a9e4e281b2c3202ed5b37ac244"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "da38a899ce9176e4",
+  "field": "text",
+  "lang": "ko",
+  "text": "프랑수아 오종 감독의 정전에 오른 작업이 떠받치는 작품이고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "da38a899ce9176e417ad334ae6e3b133cf7502b6fa70a2cbe539671832204e5b"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "36106014b9a386c4",
+  "field": "text",
+  "lang": "ko",
+  "text": "전미비평가위원회 올해의 10대 영화에 이름을 올린 작품이고, 대중에게 대단히 유명하다",
+  "model": "claude-opus-5",
+  "source_sha256": "36106014b9a386c47a39d57647d582f794f5ebe9f6ad6cf3b3d356f39e858d81"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "c27319a908dad43e",
+  "field": "text",
+  "lang": "ko",
+  "text": "국제장편영화상과 각본상에 이름을 올린 작품이고, 널리 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "c27319a908dad43e7b633c7fc4212e22b8786b23b4612e09d46868bd250c576e"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "ed46882f42580ea3",
+  "field": "text",
+  "lang": "ko",
+  "text": "키네마준포 올해의 영화상에 이름을 올린 작품이고, 어느 정도 알려져 있다",
+  "model": "claude-opus-5",
+  "source_sha256": "ed46882f42580ea33a3486f34738bba468c33372eee473b15df186d8dbfaf7f6"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "50184bfba5d8a27a",
+  "field": "text",
+  "lang": "ko",
+  "text": "팀 버튼 감독의 작가 계보를 통해 다시 평가받는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "50184bfba5d8a27a269d249a8c750985601a5a0f1e6475b5500e45f9c44855be"
+ },
+ {
+  "entity_type": "tow_segment",
+  "entity_key": "cc75bc6af79be6a6",
+  "field": "text",
+  "lang": "ko",
+  "text": "사조: 독일 표현주의.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc75bc6af79be6a6a5c8485c8c6315610a58c8a0ad18a000a4c04f0f11080745"
+ }
+]

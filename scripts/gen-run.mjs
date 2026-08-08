@@ -66,6 +66,11 @@ const FORMULA = [
   [/\ba landmark of\b/i, "'a landmark of'"],
   [/cast in the (mold|mould) of/i, "'cast in the mold of'"],
   [/^[A-Z][^,]{2,40} \(b\. \d{4}\)/, "'Director (b. YEAR)' 정형 도입"],
+  // Measured at 1,291 items: the charter's own §5 wording came back 38 times as
+  // "what stands to be lost is". The instructions are the only text every writer in
+  // the corpus shares, so a phrase borrowed from them becomes the house tic at once.
+  [/stands? to be lost/i, "헌장 문구 차용 'stands to be lost'"],
+  [/\b(what|which) is at stake is\b/i, "'what is at stake is'"],
 ];
 const NEGATIVE = /\b(no (awards|record|reception|information|documentation)|little is known|not much is known|remains obscure|may not be for everyone)\b/i;
 /** "Sembène" folded to ASCII is "Sembene" — used to tell a dropped accent apart from
@@ -107,6 +112,13 @@ const SPECS = {
         if (!blob.includes(y)) errs.push(`근거 없는 연도 ${y}`);
       // Diacritics survive the trip or the name is simply wrong. Measured on the
       // first smoke batch: Sembène came back as Sembene, Hänsel as Hansel.
+      // A trophy shelf reads the same on every film that has one. Naming a single
+      // honour is evidence; reciting the block's list back is filler, and at corpus
+      // scale it turned "an international submission to the academy awards" into one
+      // of the most repeated phrases we had.
+      const record = [...(item.facts?.honors ?? []), ...(item.facts?.canon_lists ?? [])];
+      const named = record.filter((h) => h && s.toLowerCase().includes(String(h).toLowerCase()));
+      if (named.length > 1) errs.push(`수상·목록 ${named.length}개 나열`);
       for (const name of [item.facts?.director, item.facts?.title].filter(Boolean)) {
         if (name === fold(name)) continue;          // nothing to lose
         if (s.includes(name)) continue;
@@ -177,9 +189,15 @@ if (!spec) { console.error(`unknown corpus: ${CORPUS}`); process.exit(2); }
 const CALL_TIMEOUT_MS = Number(arg("--call-timeout", 12 * 60_000));
 
 function callClaude(system, user, tools) {
+  // The CLI takes tool names as separate arguments, not one comma-joined string —
+  // `--allowed-tools WebSearch WebFetch`, the way hourly/pipeline/common.py does it.
+  // Passing "WebSearch,WebFetch" yields a tool named "WebSearch,WebFetch", which does
+  // not exist, so the research corpus would quietly write from memory instead of
+  // from sources. An empty string still means "no tools at all".
+  const toolArgs = Array.isArray(tools) ? tools : (tools ? String(tools).split(",") : [""]);
   return new Promise((resolve, reject) => {
     const p = spawn("claude", ["-p", "--model", MODEL, "--system-prompt", system,
-      "--allowed-tools", tools, "--output-format", "json"], { stdio: ["pipe", "pipe", "pipe"] });
+      "--allowed-tools", ...toolArgs, "--output-format", "json"], { stdio: ["pipe", "pipe", "pipe"] });
     let out = "", err = "", timedOut = false;
     const timer = setTimeout(() => {
       timedOut = true;

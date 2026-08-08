@@ -1,0 +1,542 @@
+[
+ {
+  "entity_type": "trope",
+  "entity_key": "the-visitant-sublime-pierces-a-disenchanted-world",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "비행접시와 우주인이 신적인 크기를 밀수한다. 세속으로 납작해진 풍경 속으로.",
+  "model": "claude-opus-5",
+  "source_sha256": "2bb722bb2ab710c1055047268cb03a79d17716edfdd35c1bd513ea76f4fd62ff"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-as-disavowed-origin",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "목소리가 권력자의 출신을 판다. 묻어둔 그 시작을.",
+  "model": "claude-opus-5",
+  "source_sha256": "ca0cd32b13216f8cea3877f9dc447ee430ccb01582aef6ed21e0a73e7c63c0d8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-as-migrant-s-confiscated-asset",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "노래에 소유권이 붙는다. 사고팔리고, 부른 사람에게서 떨어져 나간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "02cfac0fd137972d30a1719420c0f8fd7f552c119cacbe52c32a850b66739339"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-as-the-film-s-buried-speaker",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "허구가 끝내 말하지 못하는 것을, 끼어든 목소리가 대신 말한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "08c047b51ebc0ea36ee4d8e0ce9dd3a07eca6fd5d4b39d610ac2b9003c343b7e"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-bleached-white-to-survive",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살아남기 위해 백인처럼 연기하는 흑인 주체.",
+  "model": "claude-opus-5",
+  "source_sha256": "c1fb8ea38872014311ffbf21593dfda210c60f695c32af1ebaef2c51089c25ae"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-borrowed-from-the-other",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "남의 것인 말. 증상이거나 전치이거나, 저주의 전달이거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "a6824b21d7be3e2998e1f5d8f97ea16a3acfa3426ced50866c92671e783980ba"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-granted-to-the-refused-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "질서가 자리를 내주지 않은 자들에게 주어진 말.",
+  "model": "claude-opus-5",
+  "source_sha256": "c3e8ad5b83d8761c382b94623e28306fc958fda554bb1a53a90837b0603a9e4c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-is-the-true-monster",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "호러의 진짜 공포는 목소리다. 전자음이거나, 자기를 아는 무엇이거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "97b1ce8efa81373419e4dadba672ac59d7d7a500e8fbaf1427d237c390f62c3c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-over-forged-against-the-film-s-time",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "망명지에서, 혹은 혼란 속에서 만들어진 내레이션. 작품의 시간 순서를 거꾸로 돌린다.",
+  "model": "claude-opus-5",
+  "source_sha256": "bf36637fb7cddf8cb0588095bf57a64240db2a90f32dd7a4a69db43d74d64d9d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-over-that-overrules-the-image",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "화면이 반박할 수 없는 주권으로 군림하는 내레이션.",
+  "model": "claude-opus-5",
+  "source_sha256": "977eff149eb35cce6c9e31a32c7eec43eade2d7dd45dbe1a670ac3ef7cb6be33"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-severed-from-its-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아쿠스메트르(acousmêtre). 들리되 결코 보이지 않는 권력이자 현존.",
+  "model": "claude-opus-5",
+  "source_sha256": "47358c4e5113b374bea20e7f4d7a335038a23d6ed29b55c1692dfbaeb6c2eeea"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-stolen-to-keep-the-star",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "더빙이 진짜 목소리를 지운다. 그래야 그 얼굴이 산다.",
+  "model": "claude-opus-5",
+  "source_sha256": "640d5ce543f9163618b01c989b71e0bcc5a712c76e62e029f73bc9c1e7d4f3c0"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-that-betrays-its-image",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "의미를 쓰는 자가 누구인가. 내레이션과 이미지의 전쟁.",
+  "model": "claude-opus-5",
+  "source_sha256": "f72a9e60b8dc74e5503eb94a0b8b2e222321791f4ccf7e97b36bddd500ac60d2"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-that-can-only-quote",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 말이 금지되었거나 아예 없어서 남의 말만 빌려 쓰는 화자.",
+  "model": "claude-opus-5",
+  "source_sha256": "9cc80be4f4feb926020837fa7c0986b900cec8221b312614d6b7960cf65a724d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-that-cannot-hide-what-it-feels",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감추려는 사랑, 감추려는 상처. 말이 먼저 새어 나간다.",
+  "model": "claude-opus-5",
+  "source_sha256": "237ae3d3c4cb6e9e2a06e938eee66be04fa6815014e8b688121f37828f07f24c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-that-has-not-yet-arrived",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "보이지 않는 목소리는 미래이거나, 아직 구원받지 못한 자다. 이미 노래하고 있다.",
+  "model": "claude-opus-5",
+  "source_sha256": "850f71dec485e9b19d7d2edf63de99d80cdd5ba6486a2e9f5c5fd846ed68ee36"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-that-judges-from-within",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "형체 없는 권위가 바깥으로 나온다. 벌하고, 결코 만족하지 않는 초자아(超自我)로.",
+  "model": "claude-opus-5",
+  "source_sha256": "cd3ea7749091303c068940eef7de66fda83a368107f73c42bce45d5cf27797ce"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-that-narrates-from-beyond-its-grave",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "아직 태어나지 않은 이에게 건네는 사후의 증언. 죽음보다 먼저 도착한 만가.",
+  "model": "claude-opus-5",
+  "source_sha256": "c662ca2f1e541ab96ae1f5b8238d8c205d52494beb0ea9665c691001b5fed458"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-that-outlives-its-owner",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "녹음된 목소리만 남는다. 그것을 낸 가수도, 그때의 자아도 없이.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f918ccd3bfaaa986000c31a3fe964a311cd1e43b38c56e329c4013faf9facf4"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-that-outlives-its-singer",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제 목소리에 먹히고, 결국 그 목소리로 살아남는 디바.",
+  "model": "claude-opus-5",
+  "source_sha256": "60f933d829618dc69e739165e9ddd492c698092ce67a36cc49721f830cacda15"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-that-outlives-the-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "증언으로서의 목소리, 잔여로서의 목소리. 끝내 남는 쪽은 이것이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "2f942e0bff48dab4d70ce8ede0d571cb1de9888396dfcf9a995d9cc8f57d5736"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-that-severed-from-its-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몸 없는 보이스오버. 육신을 벗거나 육신보다 오래 사는 영혼.",
+  "model": "claude-opus-5",
+  "source_sha256": "81411ef406a6e0aa39ea2919b51f38220e4df91ecfdd22fc1ce441ad4a6b03ab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-that-speaks-from-the-dead",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "속삭임과 비명으로 죽은 자가 산 자를 부르고, 산 자의 부름을 받는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "79c2e41610ca780d30e8d8c4acf571ae3dcbff1add897ba97f5c9a1575f20fc8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-that-speaks-without-a-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "몸 없이 울리는 목소리. 주권이거나 귀환이거나, 몸 밑에 깔린 주체이거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "49082acce75bc015aa12ae6548f0158aca7425d67f0ca3a95aa6e8e82f1491bb"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-traded-for-belonging",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "변신에는 값이 있다. 목소리를 잘라 내는 값.",
+  "model": "claude-opus-5",
+  "source_sha256": "a3dafaf61014b37e1f5e6d2c244c5679f695b4cfdc9af8a1ba4f14e2ae46df5b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voice-you-cannot-trust",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제가 못 믿을 존재임을 스스로 고백하는 내레이션.",
+  "model": "claude-opus-5",
+  "source_sha256": "741e14b8adf19dabda5318ab43f3998335378f1601200a04fb6de8c144352099"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-voiceless-heroine-cast-as-a-body",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "말을 주지 않는다. 의미는 캐스팅과 몸이 진다.",
+  "model": "claude-opus-5",
+  "source_sha256": "c7f2af53c1ce58c5a7033af00fe8c42bba3b1c9f111a9ae0fa55135acc87503b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-void-as-named-annihilation-of-possibility",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "존재론적 무. 죽음과는 다른 무엇이라고 진단된 무.",
+  "model": "claude-opus-5",
+  "source_sha256": "880def8af37adc4d8cfa2979ffceede5df79c19a52f6a843a8d00f8b20cbe70b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-volcanic-island-as-exhausted-earth",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "메마른 용암 지대가 의미의 지질학적 잔해를 대신한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d73fe1d06f572fa7d9b4646bc9387e50e700bf8ebc863ad1b5ec9abd6dede91c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wager-made-without-proof-as-faith",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "확실한 것이 오기 전에 먼저 거는 내기. 그것이 믿음이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "a4daed5955bf51922017ea393da1b5157c4fa8f4456c84edbb559590b3724898"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wager-staked-on-a-soul",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "판돈이 구원이거나 파멸이거나, 사람 하나인 내기.",
+  "model": "claude-opus-5",
+  "source_sha256": "c10543d732e13a35dd1ada4c15e65d76bfe4efaf0479f8276b5de9340f102f2f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wager-to-show-the-beast",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감춰야 한다는 규칙을 어기고 괴물을 빛 아래 세운다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b7dec898ce52aee79d61f39557388e4c89ca4631f2a4f2e2f9626fe479f4e5d5"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wagnerian-bride-who-welcomes-annihilation",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "낭만의 갈망이 뒤집힌다. 여주인공은 그토록 기다린 끝을 껴안는다.",
+  "model": "claude-opus-5",
+  "source_sha256": "8466346a49756f98ecb34c5f88f4f205cf401c8e1dcbb688be2306cd449e381f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-walk-toward-death-as-sovereign-drive",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽음을 향해 또박또박 걸어가는 발걸음. 죽음 충동의 승리로 읽힌다.",
+  "model": "claude-opus-5",
+  "source_sha256": "e4f2eb7f314a5327553d4d192121b1ca252b9e59b199038404bd9d0cfb06e82f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-walkout-as-the-film-completing-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자리를 뜨는 관객. 작품이 계획한 마지막 막.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae41b2d3062bca9a57fb9f53363032aacfee0342159392e43ae6749c910853ab"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wall-as-border-regime",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "장벽은 누가 건널 수 있는지를 정하는 폭력의 기하학이다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7c7f5edc5bc90f33c36ba756911211457a33570461cac73bed8b60cd1a962b5f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wall-as-the-skin-of-comfort",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "벽 하나가 막이 된다. 안온한 쪽과 바깥의 참상을 가르는 막.",
+  "model": "claude-opus-5",
+  "source_sha256": "d33d054c15bde0ed2d86271c9d457f6cf6e762ef93f98cc6983e8b2842b3be6d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wall-falling-in-reverse",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "망명, 그리고 국적 없는 자의 공포. 냉전이 끝난 뒤를 채점한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "6ed86f5a10abb5118600bfd8189feb7432eaceecc80fe44d2d3b4b628d120644"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wall-hidden-in-the-name",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "제목 속 '벽'을 은유가 아니라 묻힌 주장으로 읽어내기.",
+  "model": "claude-opus-5",
+  "source_sha256": "d6af1a52b9468a72bd1412f0d90754533c6be110d149f03428488c410c419683"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-war-america-cannot-speak",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "베트남은 묻히고 부인된다. 약으로 다스려지거나, 훗날의 스펙터클로 복권되거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "f3635a60e12365d4672b337f4f84104bb0aa1f9cfc74449970d622eb92d9c76f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-war-as-continuation-by-other-means",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전쟁을 다시 짠다. 영혼의 날씨로, 형제애로, 관료 문서의 각주로.",
+  "model": "claude-opus-5",
+  "source_sha256": "ac34ac399ac58333cfa8f5e7d0fcb1ee8bb2826e2070f3924ea3f5faa11d0ed1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-war-conscience-painted-into-anime",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "애니메이션의 반전 의식. 붓으로 그린 직설, 전시의 파국을 향한 꾸짖음.",
+  "model": "claude-opus-5",
+  "source_sha256": "0275fef8155a10f63e0349191b6cd75ef6c9cd56338d2e10156054c9be94c181"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-war-film-emptied-of-its-war",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "진짜 주제가 부재이거나 보이지 않는 목격자인 전쟁 영화.",
+  "model": "claude-opus-5",
+  "source_sha256": "1951b2d929b6bf6ec6f4cfa5a399bf89479a055d3b621e5706fdffbd03c1fa97"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-war-fought-at-a-remote-console",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "드론 시대의 거리. 영웅주의가 화면 너머 조이스틱 전쟁으로 바뀐다.",
+  "model": "claude-opus-5",
+  "source_sha256": "04822090c5212c58a16c2a8ce4517b80a16d3e81961a16d16b6e94f5ad60a347"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-war-he-carried-home-inside-him",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전장을 두고 오지 못한 참전 군인.",
+  "model": "claude-opus-5",
+  "source_sha256": "306641bc65cb2208930750ef6f57c85e490e8e4e5bf34ac2cd715417ba5bc32a"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-war-pushed-off-screen-is-the-subject",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "전쟁의 진짜 무대는 프레임 바깥, 감춰진 가장자리다.",
+  "model": "claude-opus-5",
+  "source_sha256": "de7b43cec9e0de06640c9a17f81d9bba4427b9bb071104265b30f8b3d1bfba2c"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-war-s-atrocity-survives-as-music",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "폭력이 말하지 못한 것을 악기와 노래가 받아 삼킨다.",
+  "model": "claude-opus-5",
+  "source_sha256": "12279c15e22592496d0a49b8482fd0e73cafe488c67f136040ac6cf1b70ee32f"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-war-that-cannot-be-named",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "자리를 옮기거��� 눌리거나 대리인을 세워 치른 전쟁.",
+  "model": "claude-opus-5",
+  "source_sha256": "e9b020212546936f19ea5b17d5c528f750828532a974398528255b70ed6f8bad"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-war-that-outlives-its-own-purpose",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "대의도 의미도 잘려 나간 채 순수한 행위로만 이어지는 전투.",
+  "model": "claude-opus-5",
+  "source_sha256": "3300d491f740eefc6400fccc8e167dcf30814430602af8e553ae866a266949b1"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-war-whose-country-is-never-shown",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "적의 땅은 부재로만 나타난다. 그림으로 그려지거나, 딴 데서 꾸며지거나.",
+  "model": "claude-opus-5",
+  "source_sha256": "9bffe3f68f5b37acaac343e13aba7d3bc45d17f43704bd834e11e6de1a19eefc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-war-wound-that-cannot-be-absolved",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "살아남은 병사는 순례자다. 속죄되지 않는 죄를 지나가는.",
+  "model": "claude-opus-5",
+  "source_sha256": "f0911a7edac792528ebaf37edde291671f7fa9ca588a8479b1798843b87120e8"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wardrobe-as-colonized-self",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "옷이 기록한다. 강요된 정체성, 빌려 입은 정체성, 거부한 정체성과 몸이 벌인 협상을",
+  "model": "claude-opus-5",
+  "source_sha256": "8fa44cb6e21e2e94fed44c05abe7991492a609bb7cfbeb0d98189e4ee5408b52"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-warning-disguised-as-delight",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "너무 능란한 오락이었던 탓에 그 진지함이 시시한 것으로 밀려났다.",
+  "model": "claude-opus-5",
+  "source_sha256": "d277e37cdf50e639771c9c44fd6327f68fbbde6e49dd860f79669b9c3342203b"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-warrior-who-cannot-lay-down-arms",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "죽이는 일이 곧 정체성이다. 평화는 고를 수 없는 선택지.",
+  "model": "claude-opus-5",
+  "source_sha256": "10654ec5ca90c4198b154db3787ea2d71fc65e2d5a224954745a5bb49f575104"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wartime-broadcast-that-commands-nothing",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "지직대는 송신이 대변하는 권위는 이미 알지도 통제하지도 못한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "23f006c45b7624bf31d194d08f6aa4df6a5e9427e8de2590f121014c93b8521d"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-washed-out-image-as-dictatorship-forensics",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "바랜 화질 자체가 증거다. 파묻힌 잔학의.",
+  "model": "claude-opus-5",
+  "source_sha256": "e6d06cf03e35cf1b7d06724f359ddbb93b59c28b2bcd32ef61bde14d054fbcbf"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wasteland-as-a-productive-engine",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "붕괴 뒤의 폐허는 부수기만 하지 않는다. 신화를, 역사를, 시간을 찍어낸다.",
+  "model": "claude-opus-5",
+  "source_sha256": "54ae8a48673a6e8945fa597457bf4129689c3d15ac653da99db79f5519f00696"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-wasteland-stitched-from-two-lands",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "멀리 떨어진 두 대륙을 이어 붙여 한 지평선으로 만든 가짜 사막.",
+  "model": "claude-opus-5",
+  "source_sha256": "bde2a798101708b240b31a93230da69b2c4a2a01a436db124d7db38cfec87218"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-watch-as-stolen-time-itself",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "시계 하나가 박탈을 나른다. 기억의, 근대의, 재어진 자아의 박탈.",
+  "model": "claude-opus-5",
+  "source_sha256": "09c02fcb2850c73a341242b978be99f67946cb707993ef97c02e7fce236d0fcc"
+ },
+ {
+  "entity_type": "trope",
+  "entity_key": "the-watcher-bound-to-the-looking",
+  "field": "laconic",
+  "lang": "ko",
+  "text": "감시가 강박으로 굳는다. 눈은 대상을 삼키기를 멈추지 못한다.",
+  "model": "claude-opus-5",
+  "source_sha256": "b4c9f923f86bf3bd89183bd6a9e0ccfd5abf07567a442e134ebfb1872916f716"
+ }
+]

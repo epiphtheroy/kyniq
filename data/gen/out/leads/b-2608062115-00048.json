@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "aren-t-we-wonderful-1958",
+  "field": "lead",
+  "film_id": "24b69ac7-51aa-4a2b-bcd5-3674bbdcfd27",
+  "lang": "en",
+  "text": "In 1958 a German comedy took on the first half of its own century, in front of an audience that had lived through all of it. The device is two schoolmates, tracked from the same classroom outward. Hans is ambitious and has to work for every step; Bruno seems to require none of that, and worries about correspondingly less. Kurt Hoffmann runs the pair through the same decades and keeps score, which is a colder operation than the light tone lets on: the joke has to keep landing while the years underneath stay legible, and 108 minutes is a long time to hold both. What makes it hold is the refusal to nominate a villain. Diligence and drift are two ways of getting through a period, and the film is patient about showing which one the period rewards.",
+  "model": "claude-opus-5",
+  "source_sha256": "45efa191f5cffdb750abc4323da60585678d69fd5322a7df0293faf08296f81e"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-woman-of-the-port-1933",
+  "field": "lead",
+  "film_id": "2c1ac612-e4de-461d-a478-d0ad2e24d158",
+  "lang": "en",
+  "text": "Her father dies, her fiancé leaves, no one will hire her, and after that there is the waterfront: the studio described the entire descent in four clauses and trailed off. Seventy-six minutes is all Arkady Boytler needs, and the compression carries the meaning: the misfortunes arrive like items on a bill, none survivable alone and all of them close together. What the summary cannot carry is the port itself, a place organised around people who are leaving, where the woman who stays becomes something the town has a use for. It sits on a Mexican hundred-best list, and the 1933 date belongs in the same sentence: a national cinema deciding early, and in public, how plainly it was prepared to say who ends up on the docks and why.",
+  "model": "claude-opus-5",
+  "source_sha256": "e1b4cebe5a504587869b3b341ae362c934f47cc97149b4870df0e34fd202df3d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "wintergartenprogramm-1895",
+  "field": "lead",
+  "film_id": "82609681-b6ba-4c96-aa4b-f492320886f5",
+  "lang": "en",
+  "text": "On 1 November 1895 a Berlin variety theatre put a projector on its bill, and what it threw on the screen were the same kind of turns the house already sold tickets for. A juggler, a serpentine dancer, a wrestling match, a boxing kangaroo. Max and Emil Skladanowsky's Bioscop programme lasts about seven minutes in total, played that evening with live musical accompaniment, and every item in it is a stage act relocated in front of a lens: Italienischer Bauerntanz, Komisches Reck, Akrobatisches Potpourri, one after another. The interest now is less in the images than in the arrangement. A machine was slotted in among human performers and asked to compete with them at their own repertoire, in their own house, at a length measured in seconds per act. The crowd had bought tickets for vaudeville, and vaudeville is what arrived, with something else folded in.",
+  "model": "claude-opus-5",
+  "source_sha256": "cc88f6cb4cf97dc853c0ad6b1193b559169b6985da1a4864cfa91d0e4855bd50"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-street-1923",
+  "field": "lead",
+  "film_id": "dcb7b10b-99cf-440a-b013-c44e5d9731a1",
+  "lang": "en",
+  "text": "Nobody in this film is given a name; the people in it are listed as the man, the boy, the blind man. Karl Grune's city obliges by being equally unspecific and considerably more dangerous: not a place photographed but a place built, angled and lit for menace, waiting for a bored husband to come downstairs and see what the evening holds. Two lines run in parallel for most of the 79 minutes. A middle-aged man, sick of his rooms, goes out looking for something to happen. A blind man and his grandson cross the same streets in complete dependence on each other, which is an entirely different way of being outdoors. One of them has an evening to kill. The other has someone to keep hold of, and the street does not distinguish between them.",
+  "model": "claude-opus-5",
+  "source_sha256": "7e5b1494b520458921f9be844505ce9222a1e0c922f06346b3003120afcf3418"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-black-sheep-1949",
+  "field": "lead",
+  "film_id": "4e662af1-b197-48d0-a415-3accc49f6637",
+  "lang": "en",
+  "text": "Don Cruz is an erratic man with a long inventory of faults, and his son Silvano will not say so out loud. That refusal is the engine: 104 minutes of a household absorbing a father because the alternative, sitting in judgment on him, is something the boy has been raised past the possibility of. Ismael Rodríguez keeps it domestic. The pressure stays between a man who does as he likes and a son whose loyalty has been given no exit, and the Trevino family pays the difference in private, week by week. Mexico's hundred-best list has held onto the picture, and the choice reads as recognition rather than sentiment: obedience of this kind costs everyone in the house and gets discussed by nobody, which is why the son's silence lands harder than the father's behaviour.",
+  "model": "claude-opus-5",
+  "source_sha256": "12d6874294f4258d4bae034195c8811e190cce11451edd68fcd89f62f2ee652d"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "divided-heaven-1964",
+  "field": "lead",
+  "film_id": "0c5fd5e4-7260-4d50-9f89-d96f4bd428ac",
+  "lang": "en",
+  "text": "Rita is already back in her childhood village and recovering when the film starts, so the two years it works through are years she has survived rather than years she is living. The reconstruction is patient. Manfred is a chemist, ten years older, in love with her and with a process of his own devising; the process is refused by people with the authority to refuse it, and something in him shuts. Then Berlin is divided, and he is on the far side of it, expecting her. Konrad Wolf gives 116 minutes to the inside of a decision that everywhere else was being described in headlines, and he does not hurry Rita towards it. Made in 1964, three years after the Wall went up, with the question still live in the rooms it ran through.",
+  "model": "claude-opus-5",
+  "source_sha256": "f1504f6af691759645d86890561383abd08a06bc9fad78d7af38c98ab9e96cda"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "national-mechanics-1971",
+  "field": "lead",
+  "film_id": "208c1458-eb9e-47b9-a613-81bff4d313e8",
+  "lang": "en",
+  "text": "The motor race is only the day's excuse; the film belongs to the family that drove out to watch it and to the crowd parked alongside them. Luis Alcoriza lets the outing run its full length, and 105 minutes is exactly long enough for an occasion like that to turn: quarrels that stop being small, betrayals among people who see each other every day, an afternoon that ends in a register nobody set out for. It is filed as a comedy and it is one, in the sense that everybody in it is recognisable and nobody is protected, the mechanic's own family least of all. 1971, and the country is looked at through the spectators rather than the drivers or the machines: people behaving in public exactly as they behave at home, with the whole roadside for a witness.",
+  "model": "claude-opus-5",
+  "source_sha256": "b18ebb81737803ad72f3691913c1ca5a286f93f4415cde1e953dff9aee14064b"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "berlin-ecke-schonhauser-1957",
+  "field": "lead",
+  "film_id": "ddbd8fad-0a96-420e-95b3-9c2229ffb64b",
+  "lang": "en",
+  "text": "The corner of Schönhauser Allee is where the evening goes when home is not an option. Angela gets out while her mother is occupied with a new man; Kohle stays away from a father who drinks; the others simply turn up. Gerhard Klein follows Dieter, who works construction and is in love, and Karl-Heinz, who is sliding towards small-time crime while the adults are busy filing the whole group under rowdies, a verdict resting mainly on their taste for western music. Eighty-one minutes, East Berlin, 1957. The unusual thing is the attention paid: the film takes the hours between the end of a shift and the middle of the night as a real part of a life, and treats standing on a corner as something young people do rather than a condition to be corrected.",
+  "model": "claude-opus-5",
+  "source_sha256": "6be4d6cefd42c342a54bbf8ee04179eb922fe282ea55b7a58bc38a78c66ebde6"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "rotation-1949",
+  "field": "lead",
+  "film_id": "fd25d31f-1a9e-48d3-b23f-00e5a5a54e18",
+  "lang": "en",
+  "text": "A mechanic calls himself \"a non-political man,\" and he settles on the phrase only after his Jewish neighbours have been taken away. Behnke joined the party the way people take a better-paying job: a household needed the money, and membership was the shortest route to it. What follows the disappearance next door is not resistance. It is withdrawal, into the work, into the phrase, into a version of neutrality that Wolfgang Staudte declines to accept as neutral, since somebody still turns up for the shift. Seventy-nine minutes, made in Germany in 1949, for an audience standing in the same relation to the same decade. The severity is in how unremarkable the sequence is allowed to look from inside it: a job, a signature, a landing gone quiet, a man being careful not to ask.",
+  "model": "claude-opus-5",
+  "source_sha256": "645207bbeac9d2b5d8911d0a692daa8a79dfa2ae87286fab15ca9de7d452c2ca"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-rabbit-is-me-1965",
+  "field": "lead",
+  "film_id": "dc9f1993-f7f0-4cab-bbb4-66a0753a34b9",
+  "lang": "en",
+  "text": "Maria's brother is in prison for sedition, and the man she has fallen for turns out to be the judge who put him there. She learns this afterwards, which leaves her holding a grievance the court has already answered and an attachment she has no intention of ending. Kurt Maetzig lets the arrangement stand for 110 minutes instead of resolving it. Paul's authority is the specific, local kind exercised in a room with a bench and a docket; Maria is a student with none of it. What the film watches is how much a person will tolerate from someone they want, and everything political in it comes through that one channel: the case is never argued in the abstract, it is conducted between two people who keep choosing each other's company.",
+  "model": "claude-opus-5",
+  "source_sha256": "37293648528db70cad9b558285d7816e8572ca7582490a6e19a64f2b0e52fdad"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "romance-in-a-minor-key-1943",
+  "field": "lead",
+  "film_id": "dd4ad14d-667a-4122-8a45-e42d5c3e31f6",
+  "lang": "en",
+  "text": "The marriage arrives secondhand, assembled after the fact by the one man who believed he knew it from inside. Helmut Käutner builds the picture as a reconstruction: a husband setting out to learn what his wife had been doing, and a portrait of her that will not stay still while he learns it. The discoveries are arranged so that sympathy drifts away from the man asking the questions, which inside 98 minutes is a considerable piece of engineering. It was made in Germany in 1943, and its subject is a wife's unfaithfulness: the smallest available register, held at close range, at the loudest possible moment. Käutner takes her side without announcing that he has. Grief settles nothing here. It only buys the husband time to ask.",
+  "model": "claude-opus-5",
+  "source_sha256": "abdedd3f4b6b0331fc269c3144eb86ec5b79396cae46d2a052abef996e3d7edf"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "dona-barbara-1943",
+  "field": "lead",
+  "film_id": "2eaa5779-3af1-470c-b3f0-2887050635e4",
+  "lang": "en",
+  "text": "The rancher with the deeds and the bought signatures is a woman, and the film treats that as a fact of business rather than a curiosity. Doña Bárbara holds her land the way land gets held in a western: pressure, payment to the right officials, outlasting whoever objects. Fernando de Fuentes gives her 138 minutes, long enough to cover the daily administration of ownership and not only the seizing of it. Something in her past accounts for the hardness; the film knows what that something is and refuses to spend it as an apology, so the history explains her without excusing a single acre. What holds attention across those two hours and change is procedural: who signs, who is paid, and who is still standing on the land when the paperwork is done.",
+  "model": "claude-opus-5",
+  "source_sha256": "54f6b1dc8fafafb7899b4d9a5b0b038b429296439741cd8ad61f93ff650c8903"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-kneeling-goddess-1947",
+  "field": "lead",
+  "film_id": "0b79db11-6756-4300-b0a6-f79ddb668dfb",
+  "lang": "en",
+  "text": "For their wedding anniversary a rich man gives his wife a statue: a naked woman, kneeling. The gift is the film. Roberto Gavaldón spends 99 minutes on what an object of that kind does once it is standing in a marriage: who it flatters, who it accuses, how briskly a present turns into evidence. Antonio has money enough to buy whatever he likes and no way at all to govern what the thing says about him once the wrapping is off. It travels from domestic drama into romance and then into something closer to a thriller, and that sequence is the descent: a private matter that hardens. What carries it is the bluntness of the premise, which requires a wife to go on living beside her husband's idea of a woman, in her own house, on display.",
+  "model": "claude-opus-5",
+  "source_sha256": "e1493b5aa7f8096a56d676fd6c7b4d87157ceff401acc050af03b41b30cf924a"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "in-those-days-1947",
+  "field": "lead",
+  "film_id": "627f33ac-b0c3-4204-9e38-765f8417e84a",
+  "lang": "en",
+  "text": "The narrator is a car, and its seven owners take it through the years of the Third Reich. The device sounds whimsical and does not behave that way: a vehicle has no stake in anyone's conduct, so seven lives can be set down one after another without a case being made for or against them. Helmut Käutner made this in Germany in 1947, when a film about the previous decade needed a vantage point no living person could honestly occupy, and a chassis turned out to be available. The arithmetic allows each owner about a quarter of an hour of the 111 minutes, enough for a household, a job, a decision, and then the car changes hands again. What accumulates is not a verdict but a record of who was riding in it, and in which year.",
+  "model": "claude-opus-5",
+  "source_sha256": "c8c95840bb2f0d7edbce08c0b0e71b4c99d8bcd2185b02b9323c7f4dbf21331e"
+ }
+]

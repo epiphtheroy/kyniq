@@ -1,0 +1,142 @@
+[
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-history-boys-2006",
+  "field": "lead",
+  "film_id": "5787911e-e766-4332-8a5f-d03e55d5d5c3",
+  "lang": "en",
+  "text": "An entrance exam makes an odd engine for a film: nothing explodes, and the deadline is a letter from an admissions office. Eight clever boys at a Yorkshire grammar school are being readied for Oxford and Cambridge by adults who cannot agree on what readiness means. One master teaches poetry and jokes as though a furnished mind were payment enough. A younger man, hired to lift the scores, teaches the essay as performance with an examiner for audience. The history teacher is outnumbered before the first lesson; the headmaster wants a result he can print. Which method wins the boys and which wins the exam are not the same question, and Nicholas Hytner lets both men be partly right. The boys are seventeen; they are funnier than the argument being conducted over their heads, and they know it.",
+  "model": "claude-opus-5",
+  "source_sha256": "3800bc4ff11d3a2d3eb56de88a833fe80c1c5f32f87ca8440ba29a7f89b0fb61"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "lord-of-the-flies-1963",
+  "field": "lead",
+  "film_id": "bbfcc3a0-c4e9-42c0-92d2-21b1405c9c78",
+  "lang": "en",
+  "text": "The adults are gone before the story starts, and what comes ashore is not innocence but a school. Peter Brook drops English boys onto an island after a plane crash, and they do the thing they have been trained to do: elect a leader, set rules, assign duties, call meetings when the rules fail. Ninety-two minutes is not room enough for a novel's whole argument, so Brook keeps faces instead — the boredom between crises, the way an agreement made by children lasts exactly as long as their attention. The political vocabulary comes out slightly wrong-sized in those voices, chanted where it ought to be reasoned. Order thins by degrees, and the film is unhurried about it. Long before anything turns, it has shown what actually holds a group together on a beach with no clock.",
+  "model": "claude-opus-5",
+  "source_sha256": "08b57cc4f34dbbf57e946246e2271019151e1ef788ab07ab4a6601fef8fbe8cd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-three-musketeers-1973",
+  "field": "lead",
+  "film_id": "4fb5f9c0-fa61-4b07-a8f6-0424549a7a33",
+  "lang": "en",
+  "text": "Seventeenth-century France, assembled in Spain and spoken in English. D'Artagnan arrives wanting a commission in the King's Musketeers and instead acquires three friends, a demotion he does not appear to notice; from there the story belongs to Louis XIII, Cardinal Richelieu and the narrow ground between them, where men who are good with swords become useful to both sides at once. Richard Lester has 107 minutes for a novel's worth of intrigue, which forces the plot into errands, ambushes and abrupt exits. The musketeers are employees. They have patrons, wages, debts and no standing to refuse an order, so the courtly business reaches them as instructions from people who will not be anywhere near the fighting — and the romance, billed here beside the action, runs on the same terms of service.",
+  "model": "claude-opus-5",
+  "source_sha256": "b283895a0542b0e45813f56c62a14126dee181b66ff0ecda26f76b93b4ac3a3f"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-last-waltz-1978",
+  "field": "lead",
+  "film_id": "361fcb94-870a-402b-b1c9-bcdbfbc97934",
+  "lang": "en",
+  "text": "A working band decides to stop, and then arranges to have the stopping filmed. Martin Scorsese cuts between the farewell performances and the talk backstage, where men who have spent years in vans and dressing rooms are asked, mid-goodbye, what the years were like. Guests keep arriving — Eric Clapton, Bob Dylan, Joni Mitchell, Van Morrison — and every arrival makes the night bigger and the ending more definite. The interviews are the odd part. Nobody is a reliable witness to his own last week at a job; they josh, they drift, they answer some other question, and the camera waits them out. The songs run to their ends. What holds the film together is not the bill of guests but the arithmetic behind the decision: 117 minutes on quitting while the work is still good.",
+  "model": "claude-opus-5",
+  "source_sha256": "ae2b8cb88a2407f2c904f07cf89d9329626f8dc4fc2d455470e09ded34b633a2"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "shadowlands-1993",
+  "field": "lead",
+  "film_id": "c11daec7-ccc9-4666-89ee-4ba6663195f3",
+  "lang": "en",
+  "text": "A man who writes about love for a living has arranged his days so that none of it can reach him. C.S. Lewis lectures, dines with colleagues, answers his post, and keeps appetite and grief alike at a courteous distance. Then an American poet named Joy Gresham writes to him, and eventually turns up, and says what she thinks in rooms where nobody does. Richard Attenborough takes 131 minutes over a story whose largest event is a conversation, and the length is the method: the film measures a friendship in visits, in tea, in a timetable slowly surrendered. Its closest attention goes to the vocabulary of a man who has explained suffering in print, at length, to strangers who found it useful, and who has never had occasion to check the explanation against anything in his own house.",
+  "model": "claude-opus-5",
+  "source_sha256": "60ab54442b9eb194af8b8f7b2a954f9bdafc72caa48182622ca254abf286f3bf"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-train-1965",
+  "field": "lead",
+  "film_id": "e52309e0-d007-44e6-89fe-4b9fc0224a8b",
+  "lang": "en",
+  "text": "The order from London carries its own trap: stop the train, and do not damage what is on it. August 1944, the Germans are leaving Paris, and a colonel has requisitioned rolling stock to move France's paintings east before the Allies arrive. Against him stands a station master. Labiche's weapons are timetables, signals, chalked destinations and the ordinary friction of a railway that can be made to fail slowly, and the film's pleasure is procedural: 133 minutes of men calculating how much delay a schedule will absorb before anyone upstairs asks why. For the crews on the line the pictures are freight, crated weight in a wagon, nothing to look at. Frankenheimer keeps the physics honest — a locomotive takes time to stop — and the men doing this are a dwindling group with jobs to keep.",
+  "model": "claude-opus-5",
+  "source_sha256": "55b04c1278e60748a7f07196ec4da9eb1182d3afab743bf44972efeb1a6ee175"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "buena-vista-social-club-1999",
+  "field": "lead",
+  "film_id": "618d99f4-de91-416b-9a6a-2b2cc3891f8a",
+  "lang": "en",
+  "text": "Some of these musicians are in their nineties, which changes what a close-up of a hand on a fretboard is for. Ry Cooder gathers them in Havana to record; Wim Wenders films the sessions and then asks the men about the decades between their first audiences and this one, so that a neighbourhood, an old job, a name half-forgotten turns out to be part of how a song is played. Then the group travels — Amsterdam, and Carnegie Hall — and the film's two textures rub against each other, a room in Havana and a proscenium with programmes. Wenders lets performances run long. He lets the talk wander too, which means the interviews sound like company rather than research, and the biography arrives in whatever order the men feel like giving it.",
+  "model": "claude-opus-5",
+  "source_sha256": "eebf0183a660a85dcca1980de9517833aa41bbec7fe295c1c4fca9e8cc88d6c5"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-incredible-shrinking-man-1957",
+  "field": "lead",
+  "film_id": "0568a9bd-ee99-4896-bc8a-16d59882e8e9",
+  "lang": "en",
+  "text": "Nothing in the house changes; the man measuring himself against the doorframe does. The horror is arithmetic: each week Scott Carey is smaller, and the chair, the stairs, the wife are precisely where they were. Jack Arnold spends eighty-one minutes on a premise a serial would have played for laughs, and the early stretch is domestic rather than fantastic — a marriage renegotiated by inches, doctors who can chart the problem and not halt it, a man who can still speak but has to be listened to differently. Later the scale tips far enough that a cellar becomes country, a cat a predator, a spider a rival with reach and patience. Radiation and insecticide are dispensed with early, as causes. The subject is what a person amounts to when the world stops being built to his size.",
+  "model": "claude-opus-5",
+  "source_sha256": "2edbc24c054ced12c457c206945e881be2018615b4e3c9cfdbffb4a3c3b283c3"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "bud-abbott-and-lou-costello-meet-frankenstein-1948",
+  "field": "lead",
+  "film_id": "fbafc540-bce0-4692-8fb1-eafc02ade193",
+  "lang": "en",
+  "text": "The joke is one-sided, and that is the design: the monsters are not in on it. Dracula has a plan that requires a compliant brain, the Wolf Man is trying to deliver a warning to a man constitutionally incapable of taking one, and the Frankenstein monster is exactly what it was in the pictures it came from, a body waiting for a tenant. Meanwhile the porter and his partner bicker in the foreground. Eighty-three minutes leaves no room for satire, so Charles Barton simply lets two registers share a set — a horror scene played straight behind a comic who has not turned round yet — and what comes out is farce rather than parody. The frightened one does the real work: he sees everything first, describes it accurately, and is believed by no one.",
+  "model": "claude-opus-5",
+  "source_sha256": "a32111fe5675bbe089c70ac5dc76e45c3017976e4a2fb8d28096a1b0143743fb"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-nutty-professor-1963",
+  "field": "lead",
+  "film_id": "8fb7f910-cb8c-42f4-8b0d-98ff6eaaf51b",
+  "lang": "en",
+  "text": "A potion with a timer in it is a better comic engine than a potion that simply works. The chemistry teacher shrinks from every room he enters; the drink turns him into a man who fills one, and Jerry Lewis is careful to make that man hard to like — loud, assured, wholly at ease in a way the teacher never will be. Two performances, one body, and no clean way to prefer either. Lewis directs the thing as a machine for embarrassment, since the interest is never in the transformation but in the slippage back: a voice sliding down mid-sentence in front of precisely the wrong witnesses. At 107 minutes there is time to hold a gag past comfort. The science fiction is a pretext for a man who believes he needs a different body before anyone will speak to him.",
+  "model": "claude-opus-5",
+  "source_sha256": "84fd80e204744e3e80b97c5ee04f7c5d514645feb5402604c46bf5a630fe98bd"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "topaz-1943",
+  "field": "lead",
+  "film_id": "8881caaa-e387-4c41-97d5-a1af9be9da8e",
+  "lang": "en",
+  "text": "A defection begins as a domestic arrangement: a senior official decides to change sides, and the people he lives with have to be moved as well. Copenhagen, 1962. The work is handed to a French intelligence officer, and what follows is largely errands — a document photographed, a room entered on a pretext, a courier standing somewhere he has no reason to be. The war here is a silent one, so weight falls on watching: who looks at whom, how long a man takes to cross a lobby, what an ordinary corridor costs. Hitchcock puts the agent's own household inside the case rather than beside it, which is where the cruelty is. The job does not stop at his front door, and nobody involved can be told the truth about anyone else.",
+  "model": "claude-opus-5",
+  "source_sha256": "0d0cf2f95512fdb01a1f946e286164865a232108dec2c3ef884a195cc56a80ed"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-spy-who-came-in-from-the-cold-1965",
+  "field": "lead",
+  "film_id": "ab08b44f-fc80-4394-9bf1-5a980e5b7733",
+  "lang": "en",
+  "text": "A man declines to be brought home: offered the end of his working life, Alec Leamas takes one more assignment instead. It is designed in London, by people who will not be within a hundred miles of it when it fails. Martin Ritt shoots in black and white and treats espionage as employment — a salary, a cover job, a section head choosing his words, drink taken at hours when it registers as a symptom. Nothing is explained to the audience ahead of the characters. The film asks for patience and repays it in texture rather than reversal: borders, waiting rooms, the long tedium of being watched. Leamas is competent and not at all clever about himself, which is the useful combination. What his service wants is not courage but a man willing to be used and to know it.",
+  "model": "claude-opus-5",
+  "source_sha256": "6f801d5a78b83deec5b52099c1afa852977f87aac823fa730138dbe2713ab154"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "now-voyager-1942",
+  "field": "lead",
+  "film_id": "5678ef5e-bffe-471d-b672-332c541854c6",
+  "lang": "en",
+  "text": "A cruise is a device: some weeks among strangers who have not been told what a woman is supposed to be. Before it there is a house run entirely on the mother's terms, where an unmarried daughter has been kept indoors, useful and corrected long enough to break under it. The first movement is a case history and the second a shipboard romance, and Irving Rapper joins them by insisting that the romance is treatment rather than escape. The score does a good deal of the arguing, as a 1942 melodrama permits, and so does the wardrobe, which marks each stage of a self in the only currency this world reads. What keeps the film clear of sentiment is the mother — not a monster but a woman with a grievance and a system, and still at home when the ship docks.",
+  "model": "claude-opus-5",
+  "source_sha256": "617020d338a64f41e40c2792e6f3fd6e1cb637e85fc40bdebd9ea59bb7abdb2c"
+ },
+ {
+  "entity_type": "film_lead",
+  "entity_key": "the-music-man-1962",
+  "field": "lead",
+  "film_id": "4e15f6ee-bbc3-4eaa-b0bf-682b6e488a92",
+  "lang": "en",
+  "text": "The salesman arrives with nothing to sell but a conviction that the town has a problem. Harold Hill's product is a boys' band — instruments, uniforms, a method of instruction — and the method does not exist; what he actually deals in is a rhythm of talk that gets a half-step ahead of the listener and stays there. Iowa, the 1910s, 151 minutes of it, and the craft goes into surfaces: streets and parlours built to be looked at, costumes that fix a summer to its exact year, cutting that keeps a crowd number legible while it moves. Romance is billed beside the comedy and runs on the same fuel as the con. The man cannot stop performing long enough to be believed, and the town, bored for years, would rather be worked on than left alone.",
+  "model": "claude-opus-5",
+  "source_sha256": "0742887bc498e3c133132ebb9bb6b3e856ef13bb1648695718056f293ca8537a"
+ }
+]
