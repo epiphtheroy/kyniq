@@ -149,23 +149,14 @@ export async function GET(req: Request, { params }: Params) {
       invitation = ((leadRes.data ?? []) as { lead: string }[])[0]?.lead ?? null;
     }
 
-    // Fantasia fallback lead — EN only (locale projection owner decision)
-    let leadFallback: string[] = [];
-    if (!invitation && locale === "en") {
-      try {
-        const { data: sent } = await db.rpc("film_sentences_for", {
-          p_slug: slug,
-          p_limit: 4,
-          p_per_pattern: 1,
-        });
-        leadFallback = ((sent ?? []) as { sentence: string }[])
-          .map((s) => s.sentence)
-          .filter(Boolean)
-          .slice(0, 2);
-      } catch {
-        /* optional */
-      }
-    }
+    // The Embedding Fantasia fallback that used to fill this slot is gone. It
+    // stitched two corpus sentences together for films with no invitation, which
+    // was the best available answer when nothing had been written for them. Now
+    // something has: film_leads covers every catalogue film whose record could
+    // support a paragraph. The 198 that remain are the ones the writer read and
+    // declined — the record was too thin to say anything true — and answering that
+    // judgement with assembled sentences is exactly the overclaim it avoided.
+    // No lead, no section: the same rule the rest of this brief follows.
 
     type AvailRow = { kind: string; pid: number; name: string; logo: string | null; cc: string };
     const availability =
@@ -405,7 +396,11 @@ export async function GET(req: Request, { params }: Params) {
         ts,
         analyzed: !!film.is_analyzed,
         invitation,
-        lead_fallback: leadFallback,
+        // lead_fallback is retired but still emitted empty: the shipped app reads
+        // `invitation || lead_fallback.join(" ")`, and a version that has not been
+        // updated would join undefined. An empty array is falsy in that expression
+        // and costs nothing; drop the field once no build in the wild reads it.
+        lead_fallback: [] as string[],
         availability,
         lineage,
         locations,
