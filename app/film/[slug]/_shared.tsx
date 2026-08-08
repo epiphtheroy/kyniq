@@ -26,7 +26,7 @@ import AccessSummary from "@/components/AccessSummary";
 import accessEnrichment from "@/lib/access_enrichment.json";
 import FilmLineageSection from "@/components/FilmLineageSection";
 import TalkSection from "@/components/talk/TalkSection";
-import { talkEnabledForFilm } from "@/lib/talk/config";
+import { talkOpenForFilm } from "@/lib/talk/server";
 import "@/app/talk.css";
 import FilmReceptionSection from "@/components/FilmReceptionSection";
 import EntityNews from "@/components/EntityNews";
@@ -770,8 +770,10 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
   // Maker panels share the credits page's daily cache — fire before the main
   // load so a cold day costs no extra wall-clock.
   const creditsP = filmCreditsData(slug).catch(() => null);
+  const talkOpenP = talkOpenForFilm(slug);
   const data = await load(slug);
   const creditsPayload = await creditsP;
+  const talkOpen = await talkOpenP;
   if (!data) {
     const alias = await resolveAlias(`/film/${slug}`);
     if (alias) permanentRedirect(alias);
@@ -2116,7 +2118,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
           />
         ) : null}
 
-        {talkEnabledForFilm(film.slug) ? (
+        {talkOpen ? (
           <TalkSection addrType="film" addrKey={film.slug} title={film.title} />
         ) : null}
 
