@@ -52,15 +52,33 @@ export function parseCrawler(ua: string): CrawlerId {
 
 /**
  * Is this UA an identifiable crawler worth observing? True when it either
- * declares a "+http…" URL or matches the search/citation bots we track.
- * Ordinary human browser UAs return false (they carry neither signal).
+ * declares a "+http…" URL, matches a bot we already know by name, or simply
+ * calls itself a bot in the UA string.
+ *
+ * That last clause was added 2026-08-09, and it is the whole point of this
+ * edit. ShapBot/0.1.0 (Parallel.ai) spent four hours on 2026-08-08 fetching
+ * 29,511 distinct pages — the largest crawler this site has ever seen in a day
+ * — and left ZERO rows in mt_crawler_visits, because its UA declares no
+ * "+http…" URL and its name was in no list we kept. It also runs no JavaScript,
+ * so the beacon-fed detector (mt_detect_bots) could not see it either. A new
+ * crawler is exactly the one we most need on the record, and "names itself a
+ * bot" is the one signal that does not require having heard of it first.
+ *
+ * Observation only — nothing here blocks. False positives cost a row.
+ * Ordinary human browser UAs still return false: no "bot"/"crawler"/"spider"
+ * token appears in Chrome, Safari, Firefox, or Edge UA strings.
  */
 const KNOWN_BOT =
   /googlebot|bingbot|duckduckbot|yandex|baiduspider|applebot|slurp|Claude-|ChatGPT-User|OAI-SearchBot|PerplexityBot|Amzn-SearchBot|GPTBot|ClaudeBot|CCBot|Bytespider|Diffbot|AhrefsBot|SemrushBot|Amazonbot|cohere-ai|YouBot|facebookexternalhit|metatakebot/i;
+// Self-declared automation, whatever its name. Anchored on a word boundary so
+// "robot"/"Cubot"-style substrings inside ordinary tokens do not match.
+const SELF_DECLARED_BOT = /\b(?:bot|crawler|spider|scraper|fetcher)\b|\w+bot\/[\d.]/i;
 
 export function isObservableCrawler(ua: string): boolean {
   if (!ua) return false;
-  return /\+\s*https?:\/\//i.test(ua) || KNOWN_BOT.test(ua);
+  return (
+    /\+\s*https?:\/\//i.test(ua) || KNOWN_BOT.test(ua) || SELF_DECLARED_BOT.test(ua)
+  );
 }
 
 /**

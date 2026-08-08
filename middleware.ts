@@ -20,8 +20,14 @@ const GOOD_BOT =
 // OAI-SearchBot, PerplexityBot, Baiduspider, NaverBot, and facebookexternalhit —
 // that last one is Meta's LINK-PREVIEW fetcher (69.171.x), a different UA from
 // meta-webindexer, and blocking it would break shared-link cards.
+//
+// 2026-08-09: added ShapBot (Parallel.ai). 35,000 requests in four hours across
+// 29,511 distinct paths — the catalogue copied once — from four Google Cloud VMs
+// (AS396982). It never touched /api/mcp or /api/pack, i.e. it scraped the HTML
+// instead of using the licensed surface, and it referred no visitors. Already
+// denied at the WAF; kept here so the block survives a WAF rule edit.
 const BAD_UA =
-  /GPTBot|ClaudeBot|anthropic-ai|CCBot|Bytespider|Meta-ExternalAgent|meta-webindexer|FacebookBot|Amazonbot|Diffbot|Omgilibot|ImagesiftBot|PetalBot|cohere-ai|Timpibot|YouBot|MJ12bot|AhrefsBot|SemrushBot|DotBot|BLEXBot|DataForSeo|serpstatbot|SERanking|SleepBot|AwarioBot|AgenstryBot/i;
+  /GPTBot|ClaudeBot|anthropic-ai|CCBot|Bytespider|Meta-ExternalAgent|meta-webindexer|FacebookBot|Amazonbot|Diffbot|Omgilibot|ImagesiftBot|PetalBot|cohere-ai|Timpibot|YouBot|MJ12bot|AhrefsBot|SemrushBot|DotBot|BLEXBot|DataForSeo|serpstatbot|SERanking|SleepBot|AwarioBot|AgenstryBot|ShapBot/i;
 
 // Module-scoped blocklist cache.
 //

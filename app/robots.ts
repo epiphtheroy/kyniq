@@ -55,13 +55,29 @@ export default function robots(): MetadataRoute.Robots {
   // Baiduspider, NaverBot, Yandex, OAI-SearchBot, PerplexityBot, and
   // facebookexternalhit (Meta's link-PREVIEW fetcher — distinct from
   // meta-webindexer; blocking it would break shared-link cards).
+  // 2026-08-09 — ShapBot added after the sweep described below. It sits here
+  // rather than in TRAINING_BOTS because the objection is not "training": it
+  // resells our criticism as commercial "web context", which CC BY-NC 4.0 does
+  // not permit, and it referred no visitors. Stating the Disallow explicitly
+  // also matters evidentially — until today robots.txt ALLOWED it under
+  // "User-agent: *", so no one could say we had refused.
   const LOAD_PARASITES = [
     "meta-webindexer",       // 9,844 hits — the largest crawler on the site, walking /credits/*
+    "ShapBot",               // 35,000 hits in ONE 4-hour window (2026-08-08), see below
     "SleepBot",              // 1,097
     "SERankingBacklinksBot", // 142 — SEO backlink harvester
     "AwarioBot",             // 112 — social listening
     "AgenstryBot",           // 39
   ];
+
+  // ShapBot/0.1.0 (Parallel.ai), measured 2026-08-08 in Vercel Firewall > Traffic:
+  // 35,000 requests in four hours across 29,511 DISTINCT paths — the whole
+  // catalogue, copied once — from four Google Cloud VMs (AS396982:
+  // 23.251.146.115, 34.31.203.120, 34.44.142.114, 34.44.196.215). The same hosts
+  // sent 6,700 more as bare headless Chrome on Linux, which no UA rule can catch;
+  // that is what showed up in Vercel Analytics as "GNU/Linux 32%".
+  // Enforced for real at the Vercel WAF (UA deny, published 2026-08-09) and in
+  // middleware.ts BAD_UA — robots.txt only asks.
 
   // Paths no crawler should index: admin, APIs, the infinite internal-search
   // query space (/search itself — the landing — stays crawlable), and the

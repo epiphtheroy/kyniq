@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: "Metatake terms of service and contribution content license.",
+  description:
+    "Metatake terms of service: contribution license, and the rules for automated access and reuse of our criticism.",
   alternates: { canonical: "/terms" },
 };
 
@@ -49,6 +51,44 @@ export default function TermsPage() {
 
       <hr className="rule" />
 
+      {/*
+        Automated access and reuse — added 2026-08-09.
+
+        Why this section exists: on 2026-08-08 a commercial AI crawler
+        (ShapBot/0.1.0, Parallel.ai) fetched 29,511 distinct pages in four hours
+        from four Google Cloud VMs — effectively the whole catalogue — to feed a
+        paid "web context" API. Nothing was breached: every page is public, and
+        robots.txt still said "allow". That is exactly the gap this clause
+        closes. robots.txt is a request; terms are a contract, and a stated
+        prohibition is what makes later bulk collection a breach rather than a
+        surprise. Keep the licence split here consistent with /partners and
+        /data: criticism CC BY-NC 4.0, geodata CC BY 4.0, commercial by licence.
+      */}
+      <div className="seclbl">Automated access and reuse</div>
+      <div className="tick" />
+      <p className="body reading" style={{ fontSize: 17, margin: 0 }}>
+        Our criticism — readings, TakeScores, essays, and editorial text — is published under{" "}
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="license noopener noreferrer" target="_blank">
+          CC BY-NC 4.0
+        </a>
+        : reuse it with attribution, non-commercially. The filming-location geodata is CC BY 4.0.
+        Commercial use requires a separate license — see <Link href="/partners">Partners</Link>.
+      </p>
+      <p className="body reading" style={{ fontSize: 17, margin: "14px 0 0" }}>
+        Machines are welcome within those terms, and we publish routes built for them: a read-only
+        REST API at <Link href="/api">/api</Link>, an MCP server at <Link href="/mcp">/mcp</Link>, and
+        dataset downloads at <Link href="/data">/data</Link>. What is not permitted is bulk or
+        systematic collection of this site — crawling the catalogue in sequence, or copying a
+        substantial part of it — in order to redistribute, resell, or supply a commercial product,
+        including AI training corpora and paid retrieval, search, or &ldquo;web context&rdquo;
+        services. Automated clients must honor our{" "}
+        <a href="/robots.txt" rel="noopener noreferrer" target="_blank">robots.txt</a>, identify
+        themselves in a stable User-Agent, and stay within our published rate limits. We may block
+        any client that does not, and blocking waives no claim.
+      </p>
+
+      <hr className="rule" />
+
       <div className="seclbl">Moderation</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 17, margin: 0 }}>
@@ -77,7 +117,7 @@ export default function TermsPage() {
       </p>
 
       <hr className="rule" />
-      <p className="ui muted" style={{ fontSize: 12 }}>Last updated: July 2026</p>
+      <p className="ui muted" style={{ fontSize: 12 }}>Last updated: 9 August 2026</p>
     </main>
   );
 }
