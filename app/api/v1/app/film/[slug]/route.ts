@@ -79,7 +79,8 @@ export async function GET(req: Request, { params }: Params) {
       8,
     ).catch(() => [] as string[]);
 
-    const [tsRes, figRes, availRes, linRes, geoRes, cardRes, affRes, tvRes] = await Promise.all([
+    const [tsRes, figRes, availRes, linRes, geoRes, cardRes, affRes, tvRes, leadRes] =
+      await Promise.all([
       db.rpc("takescore_for_slugs", { p_slugs: [slug] }),
       db.from("figures").select("id").eq("film_id", film.id).eq("status", "approved"),
       db.rpc("film_availability", {
@@ -106,6 +107,10 @@ export async function GET(req: Request, { params }: Params) {
         .eq("film_id", film.id)
         .eq("status", "published")
         .limit(1),
+      // App-parity lead: written prose for films that never got an invitation take.
+      // Fetched unconditionally so it costs no extra round trip — it is a primary-key
+      // lookup, and whether we use it is decided below.
+      db.from("film_leads").select("lead").eq("film_id", film.id).limit(1),
     ]);
 
     type TvProgramRow = {
@@ -133,6 +138,15 @@ export async function GET(req: Request, { params }: Params) {
         .eq("is_invitation", true)
         .limit(1);
       invitation = (inv?.[0]?.rationale as string | undefined) ?? null;
+    }
+
+    // Tier-2 films have no invitation take, so the section used to disappear. The
+    // lead is an additive layer (migration 0140): written for exactly these films,
+    // and shadowed automatically the day one of them is promoted and earns a real
+    // take. It sits ABOVE the Fantasia fallback deliberately — sentences stitched
+    // from the corpus are a last resort, prose written for the film is not.
+    if (!invitation) {
+      invitation = ((leadRes.data ?? []) as { lead: string }[])[0]?.lead ?? null;
     }
 
     // Fantasia fallback lead — EN only (locale projection owner decision)

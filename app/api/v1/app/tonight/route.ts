@@ -381,6 +381,22 @@ export async function GET(req: Request) {
             }
           }
         }
+        // Cards still without a line: the app-parity lead (migration 0140), written
+        // for films that have no invitation take. firstSentence() applies here for
+        // the same reason it does above — under a poster the reader sees one
+        // sentence, which is why the charter requires the opening to stand alone.
+        const needLead = slugs.filter((s) => !leadMap.has(s) && idMap.has(s));
+        if (needLead.length) {
+          const idToSlug = new Map([...idMap].map(([s, id]) => [id, s]));
+          const { data: leadRows } = await db
+            .from("film_leads")
+            .select("film_id, lead")
+            .in("film_id", needLead.map((s) => idMap.get(s)!));
+          for (const r of (leadRows ?? []) as { film_id: string; lead: string | null }[]) {
+            const slug = idToSlug.get(r.film_id);
+            if (slug && r.lead) leadMap.set(slug, firstSentence(r.lead));
+          }
+        }
         // Tonight is the first screen a reader sees, and its lead is the only
         // prose on it. Projecting here is what makes the deck speak Korean —
         // the film page alone was not enough. One batched content_i18n read.
