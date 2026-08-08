@@ -18,8 +18,12 @@ export function talkEnabledForDirector(slug: string): boolean {
   return TALK_FOCUS_DIRECTORS.has(slug);
 }
 
-/** Resident cast (P0.5) — display metadata shared by web + admin surfaces. */
+/** Resident cast — display metadata shared by web + admin surfaces.
+ *  Live: tray (delivery replies to humans), gazette (extra-filmic opening
+ *  comments, pre-generated + owner-skimmed), prism (seed-set replies only).
+ *  Shelved: draft, jab. */
 export const TALK_APPS: Record<string, { name: string; color: string }> = {
+  gazette: { name: "Gazette", color: "#5A5348" },
   draft: { name: "Draft", color: "#8A93A6" },
   prism: { name: "Prism", color: "#6B4FA3" },
   tray: { name: "Tray", color: "#A8742F" },
