@@ -30,8 +30,25 @@ type Prefs = { user_id: string; country_code: string; provider_ids: number[] | n
 type Fpi = { film_id: string; provider_id: number; provider_name: string; kind: string };
 
 export async function GET(req: Request) {
+  // Fail CLOSED — `!secret ||`, not `secret &&`.
+  //
+  // This read `if (secret && …)` until 2026-08-09, which meant an unset or
+  // renamed CRON_SECRET did not weaken the guard, it removed it: the condition
+  // went false and the check was skipped entirely, leaving a public URL that
+  // sends push notifications to real phones. The Monday nudge below writes no
+  // push_sent rows by design, so it has no ledger to dedupe against — anyone
+  // could have called this in a loop and pushed every opted-in user repeatedly.
+  //
+  // Nothing was exposed (the secret has been set on Production and Preview since
+  // 2026-08-03, and push_enabled was 0 when this was found), and that is exactly
+  // why it was worth fixing now: the failure had no symptom. Vercel's cron would
+  // have kept succeeding, so a deleted or rotated variable would have opened this
+  // silently — the same shape as the Sentry DSN that was present in the bundle
+  // and never reached the server.
+  //
+  // The four sibling crons all fail closed. This one was the odd one out.
   const secret = process.env.CRON_SECRET;
-  if (secret && req.headers.get("authorization") !== `Bearer ${secret}`) {
+  if (!secret || req.headers.get("authorization") !== `Bearer ${secret}`) {
     return NextResponse.json({ error: "auth" }, { status: 401 });
   }
 

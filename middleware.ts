@@ -151,6 +151,63 @@ const FIGURE_MAX_PER_MIN = 10; // a reader opens one figure and stays; a sweep o
 const BURST_MAX_PER_MIN = 60; // sitewide backstop — one page a second, sustained, is a machine
 const THROTTLE_KEYS_MAX = 5000; // XFF is client-influencable — cap the key space
 
+// ── Private-surface ceiling, keyed on the SESSION rather than the IP ─────────
+//
+// /admin, /crm and /me are the only pages here that render one person's own
+// data, and until now they were the only ones with no working ceiling at all:
+// the WAF rate-limit rule covers three public path families and nothing else.
+// An AI agent driving a signed-in browser — which is how this repository is
+// worked on — could walk every one of them at machine speed, and the server
+// would see nothing but the owner reading quickly.
+//
+// The key is the auth cookie, NOT the IP, because the IP is the attribute the
+// human and their agent SHARE. On 2026-08-06 an agent's requests from the
+// owner's machine got the owner 403'd sitewide and he reported the site as
+// down; keying on the session is what stops one from banning the other.
+//
+// Forging the cookie buys nothing HERE: these paths return a login redirect
+// without a real session, so the cookie is only a bucket label, never treated
+// as a credential. That is also why this ceiling is scoped to those paths and
+// not reused on public ones, where a fresh fake cookie per request would be a
+// free way around the IP ceiling.
+//
+// Read from the cookie header directly — resolving the session properly costs
+// an auth-server round trip, and a guard has to be cheaper than what it guards
+// (an unguarded getUser() in this file was the /admin 504 cause on 2026-07-16).
+//
+// ⚠️ Honest limit: hitLog below is per-isolate memory, so this is a speed bump,
+// not a wall — a sweep spread across warm isolates dilutes the count, measured
+// on 2026-08-06. It still catches the common case (one agent, keep-alive, one
+// isolate) and it is fail-open, so it can only help. The durable version needs
+// shared state: a WAF rule, or a counter in Postgres/KV.
+const PRIVATE_PREFIXES = ["/admin", "/crm", "/me"];
+const SESSION_MAX_PER_MIN = 40; // a person clicks through a dashboard; a sweep walks it
+
+// Segment-exact, matching the authRequired test further down, so /meta-takes is
+// not caught by /me.
+const isPrivatePath = (pathname: string) =>
+  PRIVATE_PREFIXES.some((p) => pathname === p || pathname.startsWith(p + "/"));
+
+function sessionKey(request: NextRequest): string | null {
+  // Supabase chunks large auth cookies into `.0`, `.1`, … — sort so the same
+  // session always produces the same key.
+  const raw = request.cookies
+    .getAll()
+    .filter((c) => /^sb-.+-auth-token(\.\d+)?$/.test(c.name))
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map((c) => c.value)
+    .join("");
+  if (!raw) return null;
+  // Cheap non-crypto digest (FNV-1a). This is a bucket label: never logged,
+  // never stored, never compared against anything.
+  let h = 2166136261;
+  for (let i = 0; i < raw.length; i++) {
+    h ^= raw.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return (h >>> 0).toString(36);
+}
+
 function throttled(bucket: string, key: string, max: number): boolean {
   const now = Date.now();
   const k = `${bucket}:${key}`;
@@ -245,6 +302,14 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
     const wantsSearch = !isPrefetch && pathname === "/search" && !!request.nextUrl.searchParams.get("q");
     const wantsPerson = !isPrefetch && pathname.startsWith("/credits/");
     const wantsFigure = !isPrefetch && FIGURE_PATH.test(pathname);
+
+    // Private surfaces are keyed on the session, so they are checked on their
+    // own and before the auth round trip the page would otherwise pay for.
+    if (!isPrefetch && isPrivatePath(pathname)) {
+      const sk = sessionKey(request);
+      if (sk && throttled("session", sk, SESSION_MAX_PER_MIN)) return tooMany("session");
+    }
+
     if (wantsSearch || wantsPerson || wantsFigure) {
       const prefix =
         ipToPrefix(request.headers.get("x-forwarded-for") ?? request.headers.get("x-real-ip")) ??
