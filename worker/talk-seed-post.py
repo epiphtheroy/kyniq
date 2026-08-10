@@ -111,6 +111,11 @@ def main():
     if hour < 9 or hour > 23:
         print("outside posting hours")
         return
+    stamp = datetime.datetime.now().strftime("%Y-%m-%d-%H")
+    if st.get("last_hour") == stamp:
+        print("already posted this hour")
+        return
+    st["last_hour"] = stamp
     posted = st.setdefault("posted", {})
     todo = [s for s in days[day]["slugs"] if s not in posted]
     if not todo:
