@@ -371,11 +371,54 @@ export async function loadCountryGeo(countrySlugValue: string): Promise<GeoPin[]
   return Array.isArray(data) ? (data as GeoPin[]) : [];
 }
 
-/** Country pin dump, shared through the Data Cache — every city page in a
+/**
+ * Country pin dump, shared through the Data Cache — every city page in a
  * country filters the same dump, so it must not cost one RPC per city.
- * Key bumped (2) when director fields joined the RPC payload. */
+ * Key bumped (2) when director fields joined the RPC payload.
+ *
+ * The Data Cache is the second line here, not the only one, because for the
+ * country that matters most it has never held at all. country_geo('united-states')
+ * returns 5.1 MB of JSON — 8,000 pins, each repeating all 24 key names — and
+ * Vercel's Data Cache silently discards any entry over 2 MB. So every render of
+ * every US city page ran the RPC again, and under a crawl that is what turned a
+ * 275 ms query into 595 statement timeouts and a 500 on each one. Same failure
+ * as the roster in lib/filmGate.ts, same fix as cachedLocationsEligibility
+ * above: a module-scope memo in front, so a warm instance pays once an hour per
+ * country no matter how many cities it renders or what the cache layer decides.
+ *
+ * The in-flight promise is shared before it resolves, so a burst of concurrent
+ * city renders collapses to one query. A rejection is not memoised. The map is
+ * capped because these entries are megabytes, not pointers: a crawler walking
+ * every country would otherwise pin all of them in the instance at once.
+ */
+const COUNTRY_GEO_TTL_MS = 60 * 60 * 1000;
+const COUNTRY_GEO_MEMO_MAX = 4;
+const countryGeoMemo = new Map<string, { at: number; value: Promise<GeoPin[]> }>();
+
 export function cachedCountryGeo(countrySlugValue: string): Promise<GeoPin[]> {
-  return unstable_cache(() => loadCountryGeo(countrySlugValue), ["country-pins2", countrySlugValue], {
+  const now = Date.now();
+  const hit = countryGeoMemo.get(countrySlugValue);
+  if (hit && now - hit.at < COUNTRY_GEO_TTL_MS) return hit.value;
+
+  const value = unstable_cache(() => loadCountryGeo(countrySlugValue), ["country-pins2", countrySlugValue], {
     revalidate: 86400,
-  })();
+  })().catch((e) => {
+    countryGeoMemo.delete(countrySlugValue); // never hold a failure for an hour
+    throw e;
+  });
+  // delete before set: Map.set keeps an existing key's original position, so a
+  // refreshed country would otherwise still look like the oldest entry below.
+  countryGeoMemo.delete(countrySlugValue);
+  countryGeoMemo.set(countrySlugValue, { at: now, value });
+
+  for (const [slug, entry] of countryGeoMemo) {
+    if (now - entry.at >= COUNTRY_GEO_TTL_MS) countryGeoMemo.delete(slug);
+  }
+  // Map iterates in insertion order, so the front of it is the oldest entry.
+  while (countryGeoMemo.size > COUNTRY_GEO_MEMO_MAX) {
+    const oldest = countryGeoMemo.keys().next();
+    if (oldest.done) break;
+    countryGeoMemo.delete(oldest.value);
+  }
+  return value;
 }
