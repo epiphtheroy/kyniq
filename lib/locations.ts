@@ -349,10 +349,15 @@ export function kmBetween(aLat: number, aLng: number, bLat: number, bLng: number
 
 // A stray same-named place on another coast (Hollywood FL vs Hollywood CA)
 // must not leak into a city page — membership needs the name AND proximity.
-const CITY_MEMBER_KM = 250;
+// Exported because city_geo applies the same radius in SQL: one number, two
+// implementations, and they have to agree.
+export const CITY_MEMBER_KM = 250;
 
 /** Pins belonging to a city/region hub: same country, a matching locality
- * term, and within ~250 km of the roster centroid. */
+ * term, and within ~250 km of the roster centroid.
+ *
+ * The city hubs get this from city_geo now (see cachedCityGeo); what is left
+ * here is the film-page caller, which runs it over one film's own pins. */
 export function cityMemberPins<T extends GeoPin>(pins: T[], city: LocationCity): T[] {
   const terms = new Set(city.terms);
   return pins.filter((p) => {
@@ -363,62 +368,70 @@ export function cityMemberPins<T extends GeoPin>(pins: T[], city: LocationCity):
   });
 }
 
-export async function loadCountryGeo(countrySlugValue: string): Promise<GeoPin[]> {
+export async function loadCityGeo(city: LocationCity): Promise<GeoPin[]> {
   // Empty pins drop the city hubs below their own gate, so a swallowed error here
   // 404s a whole tier of live pages.
-  const { data, error } = await db().rpc("country_geo", { p_slug: countrySlugValue });
-  if (error) throw new Error(`country_geo(${countrySlugValue}): ${error.message}`);
+  const { data, error } = await db().rpc("city_geo", {
+    p_country: city.country,
+    p_lat: city.lat,
+    p_lng: city.lng,
+    p_terms: city.terms,
+    p_km: CITY_MEMBER_KM,
+  });
+  if (error) throw new Error(`city_geo(${city.countrySlug}/${city.slug}): ${error.message}`);
   return Array.isArray(data) ? (data as GeoPin[]) : [];
 }
 
 /**
- * Country pin dump, shared through the Data Cache — every city page in a
- * country filters the same dump, so it must not cost one RPC per city.
- * Key bumped (2) when director fields joined the RPC payload.
+ * A city hub's own pins — membership decided in SQL (migration 0142) rather than
+ * by filtering a dump of the whole country in this process.
  *
- * The Data Cache is the second line here, not the only one, because for the
- * country that matters most it has never held at all. country_geo('united-states')
- * returns 5.1 MB of JSON — 8,000 pins, each repeating all 24 key names — and
- * Vercel's Data Cache silently discards any entry over 2 MB. So every render of
- * every US city page ran the RPC again, and under a crawl that is what turned a
- * 275 ms query into 595 statement timeouts and a 500 on each one. Same failure
- * as the roster in lib/filmGate.ts, same fix as cachedLocationsEligibility
- * above: a module-scope memo in front, so a warm instance pays once an hour per
- * country no matter how many cities it renders or what the cache layer decides.
+ * The country dump this replaces was 5.1 MB for the United States, which is over
+ * Vercel's 2 MB Data Cache ceiling, so it was silently never cached: every render
+ * of every US city page re-ran the query, and under a crawl that is what produced
+ * 595 statement timeouts and a 500 on each. It also arrived capped at `limit
+ * 8000` with no ORDER BY, so 1,981 of the country's 9,981 pins were dropped in
+ * whatever order the scan happened to produce.
  *
- * The in-flight promise is shared before it resolves, so a burst of concurrent
- * city renders collapses to one query. A rejection is not memoised. The map is
- * capped because these entries are megabytes, not pointers: a crawler walking
- * every country would otherwise pin all of them in the instance at once.
+ * city_geo applies the same three predicates in the same order — country, then
+ * the 250 km radius, then the locality-term match — and returns 930 kB for the
+ * widest city in the roster. Checked against the old path for all 511 cities:
+ * 378 identical down to pin order, 133 US cities recovered pins the cap had been
+ * dropping, none lost one.
+ *
+ * No unstable_cache wrap. Its only caller is already inside the page's own
+ * `locations-city2` entry, and Next deliberately skips the cache READ of an
+ * unstable_cache nested inside another one — the wrap would write an entry that
+ * nothing ever reads, and drag the page's revalidate down to its own. The memo
+ * is what actually bounds the RPC, to once an hour per city per warm instance.
  */
-const COUNTRY_GEO_TTL_MS = 60 * 60 * 1000;
-const COUNTRY_GEO_MEMO_MAX = 4;
-const countryGeoMemo = new Map<string, { at: number; value: Promise<GeoPin[]> }>();
+const CITY_GEO_TTL_MS = 60 * 60 * 1000;
+const CITY_GEO_MEMO_MAX = 16;
+const cityGeoMemo = new Map<string, { at: number; value: Promise<GeoPin[]> }>();
 
-export function cachedCountryGeo(countrySlugValue: string): Promise<GeoPin[]> {
+export function cachedCityGeo(city: LocationCity): Promise<GeoPin[]> {
+  const key = `${city.countrySlug}/${city.slug}`;
   const now = Date.now();
-  const hit = countryGeoMemo.get(countrySlugValue);
-  if (hit && now - hit.at < COUNTRY_GEO_TTL_MS) return hit.value;
+  const hit = cityGeoMemo.get(key);
+  if (hit && now - hit.at < CITY_GEO_TTL_MS) return hit.value;
 
-  const value = unstable_cache(() => loadCountryGeo(countrySlugValue), ["country-pins2", countrySlugValue], {
-    revalidate: 86400,
-  })().catch((e) => {
-    countryGeoMemo.delete(countrySlugValue); // never hold a failure for an hour
+  const value = loadCityGeo(city).catch((e) => {
+    cityGeoMemo.delete(key); // never hold a failure for an hour
     throw e;
   });
   // delete before set: Map.set keeps an existing key's original position, so a
-  // refreshed country would otherwise still look like the oldest entry below.
-  countryGeoMemo.delete(countrySlugValue);
-  countryGeoMemo.set(countrySlugValue, { at: now, value });
+  // refreshed city would otherwise still look like the oldest entry below.
+  cityGeoMemo.delete(key);
+  cityGeoMemo.set(key, { at: now, value });
 
-  for (const [slug, entry] of countryGeoMemo) {
-    if (now - entry.at >= COUNTRY_GEO_TTL_MS) countryGeoMemo.delete(slug);
+  for (const [k, entry] of cityGeoMemo) {
+    if (now - entry.at >= CITY_GEO_TTL_MS) cityGeoMemo.delete(k);
   }
   // Map iterates in insertion order, so the front of it is the oldest entry.
-  while (countryGeoMemo.size > COUNTRY_GEO_MEMO_MAX) {
-    const oldest = countryGeoMemo.keys().next();
+  while (cityGeoMemo.size > CITY_GEO_MEMO_MAX) {
+    const oldest = cityGeoMemo.keys().next();
     if (oldest.done) break;
-    countryGeoMemo.delete(oldest.value);
+    cityGeoMemo.delete(oldest.value);
   }
   return value;
 }
