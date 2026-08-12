@@ -27,6 +27,8 @@ export type SurpriseCard = {
 };
 
 const IMG = "https://image.tmdb.org/t/p";
+// auto-advances allowed before an untouched (but visible) stage goes quiet — 60 × 14s ≈ 14 minutes
+const IDLE_TICKS = 60;
 const isMap = (m?: string) => m === "film_map" || m === "director_map" || m === "figure_links";
 const isChips = (m?: string) => m === "film_tropes" || m === "film_ideas" || m === "director_ideas";
 
@@ -69,10 +71,32 @@ export default function SurpriseStage({ auto = false }: { auto?: boolean }) {
   }, [draw]);
 
   const paused = useRef(false);
+  const idleTicks = useRef(0);
   useEffect(() => {
     if (!auto) return;
-    const t = setInterval(() => { if (!paused.current && !busy.current) draw(); }, 14000);
-    return () => clearInterval(t);
+    // A tab nobody is watching must not keep drawing. /api/surprise/home is
+    // force-dynamic and cache-busted, so every tick is an origin invocation plus
+    // a surprise_home round trip — a tab left open overnight bills ~250 of them
+    // an hour for cards no one sees. Two gates: hidden tabs never draw, and a
+    // visible tab that goes IDLE_TICKS advances untouched stops until someone
+    // comes back to it. Any pointer, key, or return to the tab resumes it.
+    const woken = () => { idleTicks.current = 0; };
+    const onVisible = () => { if (!document.hidden) woken(); };
+    const t = setInterval(() => {
+      if (document.hidden || paused.current || busy.current) return;
+      if (idleTicks.current >= IDLE_TICKS) return;
+      idleTicks.current += 1;
+      draw();
+    }, 14000);
+    document.addEventListener("visibilitychange", onVisible);
+    window.addEventListener("pointerdown", woken);
+    window.addEventListener("keydown", woken);
+    return () => {
+      clearInterval(t);
+      document.removeEventListener("visibilitychange", onVisible);
+      window.removeEventListener("pointerdown", woken);
+      window.removeEventListener("keydown", woken);
+    };
   }, [draw, auto]);
 
   const clipSrc = card?.clip
