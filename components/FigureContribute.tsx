@@ -11,6 +11,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { createBrowserClient } from "@supabase/ssr";
+import { getUserSafe } from "@/lib/supabase/safeAuth";
 
 function getSupabase() {
   return createBrowserClient(
@@ -72,7 +73,7 @@ export default function FigureContribute({
   useEffect(() => {
     (async () => {
       const supabase = getSupabase();
-      const { data: { user } } = await supabase.auth.getUser();
+      const user = await getUserSafe(supabase);
       if (user) { setUserId(user.id); await fetchMine(user.id); }
       setAuthChecked(true);
     })();

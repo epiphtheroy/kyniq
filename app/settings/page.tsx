@@ -15,6 +15,7 @@
 
 import { useState, useEffect } from "react";
 import { createBrowserClient } from "@supabase/ssr";
+import { getUserSafe } from "@/lib/supabase/safeAuth";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { clearLocalTakeDrafts } from "@/lib/room/drafts";
@@ -43,7 +44,7 @@ export default function SettingsPage() {
   useEffect(() => {
     async function load() {
       const supabase = getSupabase();
-      const { data: { user: u } } = await supabase.auth.getUser();
+      const u = await getUserSafe(supabase);
       // No redirect: the two preference blocks below belong to the browser, not
       // to an account. Everything that needs a session is gated on `user`.
       if (!u) { setLoading(false); return; }

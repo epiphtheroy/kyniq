@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { createBrowserClient } from "@supabase/ssr";
+import { getUserSafe } from "@/lib/supabase/safeAuth";
 import LensToggle from "@/components/LensToggle";
 import LocaleSwitcher from "@/components/i18n/LocaleSwitcher";
 import { useLocale } from "@/components/i18n/LocaleProvider";
@@ -124,8 +125,7 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
     let alive = true;
     const c = sb();
     async function refresh() {
-      const { data } = await c.auth.getUser();
-      const user = data?.user;
+      const user = await getUserSafe(c);
       if (!alive) return;
       if (!user) { setAcct({ state: "out" }); return; }
       const { data: p } = await c.from("profiles").select("username, display_name").eq("id", user.id).maybeSingle();

@@ -8,6 +8,7 @@
  */
 import { useCallback, useEffect, useState } from "react";
 import { createBrowserClient } from "@supabase/ssr";
+import { getUserSafe } from "@/lib/supabase/safeAuth";
 import { requireAuthEvent } from "@/lib/conversion/bus";
 
 function sb() {
@@ -25,8 +26,7 @@ export default function MovieListActions({ filmId }: { filmId: string }) {
     let alive = true;
     const c = sb();
     (async () => {
-      const { data: auth } = await c.auth.getUser();
-      const user = auth?.user;
+      const user = await getUserSafe(c);
       if (alive && user) {
         setUid(user.id);
         const { data } = await c.from("user_movies").select("seen, watchlist, rating").eq("user_id", user.id).eq("film_id", filmId).maybeSingle();

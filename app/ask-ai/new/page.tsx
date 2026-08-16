@@ -2,6 +2,7 @@
 
 import { useState, useEffect, Suspense } from "react";
 import { createBrowserClient } from "@supabase/ssr";
+import { getUserSafe } from "@/lib/supabase/safeAuth";
 import { useRouter, useSearchParams } from "next/navigation";
 
 function getSupabase() {
@@ -103,7 +104,7 @@ function AskForm() {
     setError(null);
 
     const supabase = getSupabase();
-    const { data: { user } } = await supabase.auth.getUser();
+    const user = await getUserSafe(supabase);
 
     if (!user) {
       setError("You must be signed in to post.");

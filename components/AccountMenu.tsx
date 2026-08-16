@@ -11,6 +11,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { createBrowserClient } from "@supabase/ssr";
+import { getUserSafe } from "@/lib/supabase/safeAuth";
 import { clearLocalTakeDrafts } from "@/lib/room/drafts";
 
 function sb() {
@@ -29,8 +30,7 @@ export default function AccountMenu() {
     let alive = true;
     const c = sb();
     (async () => {
-      const { data: auth } = await c.auth.getUser();
-      const user = auth?.user;
+      const user = await getUserSafe(c);
       if (!alive) return;
       if (user) {
         const { data: p } = await c.from("profiles").select("username, display_name").eq("id", user.id).maybeSingle();

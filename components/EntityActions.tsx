@@ -9,6 +9,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { createBrowserClient } from "@supabase/ssr";
+import { getUserSafe } from "@/lib/supabase/safeAuth";
 import { requireAuthEvent } from "@/lib/conversion/bus";
 
 function sb() {
@@ -27,13 +28,12 @@ export default function EntityActions({ entityType, entityId }: { entityType: "f
     let alive = true;
     const c = sb();
     (async () => {
-      const [{ data: lc }, { data: auth }] = await Promise.all([
+      const [{ data: lc }, user] = await Promise.all([
         c.from("like_counts").select("likes").eq("entity_type", entityType).eq("entity_id", entityId).maybeSingle(),
-        c.auth.getUser(),
+        getUserSafe(c),
       ]);
       if (!alive) return;
       setLikes((lc?.likes as number) ?? 0);
-      const user = auth?.user;
       if (user) {
         setUid(user.id);
         const { data: pins } = await c.from("user_pins").select("kind")
