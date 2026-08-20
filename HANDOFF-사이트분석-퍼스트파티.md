@@ -58,6 +58,14 @@ Supabase public.mt_events  ←  mt_gsc_daily (worker/gsc-pull.py, Search Console
 - 시계열(페이지뷰+방문자, 호버 크로스헤어) · Top pages(체류·스크롤 병기) · 유입 도메인 · 진입/이탈 페이지 · 국가 · 기기/브라우저 · **사이트 내 검색어** · 클릭(data-mt) · 세션 흐름(페이지→페이지) · vitals p75.
 - **페이지 행 클릭 = 드릴다운**: 그 페이지의 시계열·유입·전/다음 페이지·**GSC 쿼리**(클릭·노출·평균 순위) 한 화면.
 
+## 4.5 📱 앱 패널 — mt_app_activity_json (마이그 0144, 2026-08-20)
+
+- **왜**: 네이티브 앱은 웹 비콘도 Vercel Analytics 스크립트도 없다 → 실방문자·Pageviews 어디에도 안 잡히고, Vercel 로그의 함수 호출로만 보인다("호출은 많은데 페이지뷰는 적다" 착시의 정체 중 하나). 유일한 흔적 = `/api/v1/app/*` 전 라우트가 쓰는 `api_calls` 레저(0100, guardAndLog).
+- **패널**(실방문자 박스 바로 아래, 초록 테두리): 14일 일별 요청(iOS/Android)·활성 네트워크(/24)·신규 네트워크(설치 추정)·ASC 다운로드 + 화면별 분해(Tonight 덱·영화 상세·Navigator…) + 푸시 등록 기기.
+- **정직성**: BFF 대부분이 CDN 캐시(film 1h·tonight 15m·director 5m·countries/services 24h)라 **캐시 미스만 기록된 하한선**. `app_navigator`·`app_handoff`는 no-store라 정확. 기기 판별=fetch UA(iOS `Metatake/빌드 CFNetwork`·Android `okhttp`), 브라우저·curl 프로브 제외. "신규 네트워크"는 90일 지평의 첫 등장 /24 — 설치의 근사일 뿐.
+- **다운로드 실수치** = `worker/asc-sales-pull.mjs`(오너 실행, node) → `mt_app_downloads`. ASC .p8 키는 로컬 전용(리포·Vercel 미탑재). 최초 1회 `ASC_VENDOR_NUMBER`(ASC → Payments and Financial Reports의 Vendor #)를 .env.local에. 안드로이드 다운로드는 Play Console에 API가 없어 미수집(수동 확인).
+- **탭(클릭) 계측은 아직 없음**: 네이티브 탭을 보려면 앱에 비콘을 넣고 OTA를 내보내야 한다(후속 후보 — /api/metrics에 `platform:'app'` 수용 + 앱 mtEvent 쌍둥이).
+
 ## 5. GSC 커넥터 — worker/gsc-pull.py (✅ 가동 중 2026-07-10)
 
 - 서비스계정 `metatake@epiph-test-bot.iam.gserviceaccount.com` = GSC siteFullUser, 키는 `worker/gsc-sa.json`(gitignore).

@@ -64,6 +64,33 @@ interface AiReferrals {
   landings: Row[]; // { path, n }
 }
 
+/** Migration 0144 — the native app leaves no beacon and no Vercel pageview;
+ *  its only trace is the api_calls ledger every /api/v1/app/* route writes.
+ *  Counts are a floor (most BFF responses are CDN-cached; only misses ledger). */
+interface AppActivity {
+  days: {
+    day: string; calls: number; ios: number; android: number;
+    networks: number; new_networks: number; downloads: number | null;
+  }[];
+  endpoints: { endpoint: string; n: number; networks: number }[];
+  totals: {
+    calls: number; networks: number; ios: number; android: number;
+    new_networks: number; downloads: number; push_devices: number; push_seen_7d: number;
+  };
+}
+
+const APP_ENDPOINT_LABELS: Record<string, string> = {
+  app_tonight: "Tonight 덱",
+  app_film: "영화 상세",
+  app_navigator: "Navigator 드라이브 (정확)",
+  app_director: "감독 화면",
+  app_tmdb_search: "검색 · TMDB 폴백",
+  app_countries: "온보딩 · 국가",
+  app_services: "온보딩 · 스트리밍 서비스",
+  app_handoff: "웹뷰 SSO 핸드오프 (정확)",
+  app_account_delete: "계정 삭제",
+};
+
 interface GscOverview {
   totals: {
     impressions_7d: number; clicks_7d: number; pos_7d: number | null;
@@ -111,7 +138,7 @@ export default async function MetricsPage({
   await refreshInsightsIfStale(supabase);
   const args = { p_from: from.toISOString(), p_to: to.toISOString(), p_tz: "Asia/Seoul", p_bucket: bucket };
 
-  const [ovRes, liveRes, pageRes, insightsRes, gscRes, aiRes, wrRes, rvRes] = await Promise.all([
+  const [ovRes, liveRes, pageRes, insightsRes, gscRes, aiRes, wrRes, rvRes, appRes] = await Promise.all([
     supabase.rpc("mt_overview_json", args),
     supabase.rpc("mt_live_json"),
     drillPath ? supabase.rpc("mt_page_json", { p_path: drillPath, ...args }) : Promise.resolve({ data: null, error: null }),
@@ -122,6 +149,8 @@ export default async function MetricsPage({
     supabase.rpc("mt_weekly_return_json", { p_weeks: 8 }),
     // Real visitors (0120): every other count on this page includes bots.
     supabase.rpc("mt_real_visitors_json", { p_days: 14 }),
+    // Mobile app (0144): fails soft until the migration is applied.
+    supabase.rpc("mt_app_activity_json", { p_days: 14 }),
   ]);
 
   const ov = (ovRes.data ?? null) as Overview | null;
@@ -132,6 +161,7 @@ export default async function MetricsPage({
   const ai = (aiRes.data ?? null) as AiReferrals | null;
   const wr = (wrRes.data ?? null) as { week: string; visitors: number; returning: number }[] | null;
   const rv = (rvRes.data ?? null) as RealVisitors | null;
+  const appAct = (appRes.data ?? null) as AppActivity | null;
 
   if (ovRes.error) {
     return <div style={{ color: "#e66767" }}>Failed to load metrics: {ovRes.error.message}</div>;
@@ -265,6 +295,88 @@ export default async function MetricsPage({
         ) : (
           <div style={{ fontSize: 12.5, color: "#64748b", lineHeight: 1.6 }}>
             아직 데이터 없음 — 마이그레이션 0120 적용 후 나타납니다.
+          </div>
+        )}
+      </div>
+
+      {/* 📱 Mobile app — the traffic every other number on this page misses.
+          Native screens run no beacon and no Vercel analytics script; their
+          only trace is the api_calls ledger written by /api/v1/app/*. */}
+      <div style={{
+        background: "linear-gradient(180deg, rgba(52,211,153,0.08), rgba(15,23,42,0))",
+        border: "1px solid rgba(52,211,153,0.30)", borderRadius: 10,
+        padding: "16px 18px", marginBottom: 20,
+      }}>
+        <div style={{ fontSize: 14, fontWeight: 700, color: "#e2e8f0", marginBottom: 3 }}>
+          📱 모바일 앱 <span style={{ fontWeight: 400, color: "#6ee7b7" }}>— 다운로드 · 활동 (위 방문자 수에 안 잡히는 트래픽)</span>
+        </div>
+        <div style={{ fontSize: 11.5, color: "#94a3b8", marginBottom: 12 }}>
+          네이티브 앱 화면에는 웹 비콘이 없어 위 실방문자·Pageviews 어디에도 포함되지 않습니다.
+          아래는 앱 BFF 호출 레저 기준 — 대부분 CDN 캐시라 <b>미스만 기록된 하한선</b>입니다 (Navigator·핸드오프는 no-store라 정확).
+        </div>
+        {appAct && appAct.totals ? (
+          <>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 10, marginBottom: 14 }}>
+              <Kpi label="14일 앱 요청 (캐시미스)" value={fmt(appAct.totals.calls)} />
+              <Kpi label="14일 활성 네트워크" value={fmt(appAct.totals.networks)} />
+              <Kpi label="신규 네트워크 (설치 추정)" value={fmt(appAct.totals.new_networks)} />
+              <Kpi label="App Store 다운로드 (누적)" value={appAct.totals.downloads > 0 ? fmt(appAct.totals.downloads) : "—"} />
+              <Kpi label="푸시 등록 기기" value={fmt(appAct.totals.push_devices)} />
+            </div>
+            <div style={grid2}>
+              <div style={{ overflowX: "auto" }}>
+                <table style={{ fontSize: 12.5, width: "100%", borderCollapse: "collapse" }}>
+                  <thead>
+                    <tr style={{ textAlign: "left", color: "#94a3b8" }}>
+                      <th style={{ paddingRight: 16, fontWeight: 500 }}>날짜</th>
+                      <th style={{ ...num, fontWeight: 500 }}>요청</th>
+                      <th style={{ ...num, fontWeight: 500 }}>iOS</th>
+                      <th style={{ ...num, fontWeight: 500 }}>Android</th>
+                      <th style={{ ...num, fontWeight: 500 }}>네트워크</th>
+                      <th style={{ ...num, fontWeight: 500 }}>신규</th>
+                      <th style={{ ...num, fontWeight: 500 }}>다운로드</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {appAct.days.map((r, i) => (
+                      <tr key={r.day} style={i === 0 ? { color: "#6ee7b7" } : undefined}>
+                        <td style={{ paddingRight: 16, color: i === 0 ? "#6ee7b7" : "#cbd5e1" }}>
+                          {r.day}{i === 0 ? " ·" : ""}
+                        </td>
+                        <td style={num}><b style={{ color: i === 0 ? "#6ee7b7" : "#f1f5f9" }}>{fmt(r.calls)}</b></td>
+                        <td style={num}>{fmt(r.ios)}</td>
+                        <td style={num}>{fmt(r.android)}</td>
+                        <td style={num}>{fmt(r.networks)}</td>
+                        <td style={num}>{r.new_networks ? fmt(r.new_networks) : "–"}</td>
+                        <td style={num}>{r.downloads != null ? fmt(r.downloads) : "–"}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <BarList
+                title="화면별 (14일, 캐시미스 기준)"
+                rows={appAct.endpoints.map((e) => ({
+                  label: APP_ENDPOINT_LABELS[e.endpoint] ?? e.endpoint, n: e.n, networks: e.networks,
+                }))}
+                labelKey="label"
+                extra={(r) => `${r.networks}망`}
+              />
+            </div>
+            <div style={{ fontSize: 11, color: "#64748b", lineHeight: 1.65, marginTop: 12 }}>
+              기기 판별은 fetch UA입니다 — iOS는 <code>Metatake/빌드 CFNetwork</code>, Android는 <code>okhttp</code>.
+              같은 엔드포인트를 찌르는 브라우저·curl은 제외했습니다. <b>네트워크</b>=고유 /24 대역(기기 수의 근사 상한),
+              <b> 신규</b>=90일 내 처음 보인 대역(설치 추정치). 앱 안의 웹뷰(리더·Where to watch)는 웹 페이지라
+              위 실방문자 쪽에 집계됩니다.
+              {appAct.totals.downloads === 0 && (
+                <> <b style={{ color: "#94a3b8" }}>다운로드 실수치</b>는 오너가 <code>node worker/asc-sales-pull.mjs</code>를
+                실행하면 App Store Connect에서 채워집니다 (ASC .p8 키 필요 · 최초 1회 <code>ASC_VENDOR_NUMBER</code> 설정).</>
+              )}
+            </div>
+          </>
+        ) : (
+          <div style={{ fontSize: 12.5, color: "#64748b", lineHeight: 1.6 }}>
+            아직 데이터 없음 — 마이그레이션 0144 적용 후 나타납니다.
           </div>
         )}
       </div>
