@@ -21,7 +21,7 @@
  * 3* = redownload, 7* = update. A 404 on a day at least 2 days old means zero
  * transactions — recorded as 0 so the panel can tell "0" from "not fetched".
  */
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { dirname, join, isAbsolute } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createSign, createPrivateKey } from "node:crypto";
@@ -64,7 +64,15 @@ try {
 } catch { /* eas.json optional when env is set */ }
 const KEY_ID = process.env.ASC_KEY_ID || eas.ascApiKeyId;
 const ISSUER = process.env.ASC_ISSUER_ID || eas.ascApiKeyIssuerId;
-const P8_RAW = process.env.ASC_KEY_P8 || eas.ascApiKeyPath;
+// Key path order: env → Apple's conventional location → eas.json. The eas.json
+// path points into ~/Downloads, which macOS blocks for sandboxed sessions (and
+// which gets cleaned) — ~/.appstoreconnect/private_keys is where altool and
+// Transporter look, safely outside any repo.
+const CONVENTIONAL = KEY_ID
+  ? join(process.env.HOME ?? "", ".appstoreconnect", "private_keys", `AuthKey_${KEY_ID}.p8`)
+  : null;
+const P8_RAW = process.env.ASC_KEY_P8
+  || (CONVENTIONAL && existsSync(CONVENTIONAL) ? CONVENTIONAL : eas.ascApiKeyPath);
 const VENDOR = process.env.ASC_VENDOR_NUMBER;
 if (!KEY_ID || !ISSUER || !P8_RAW) {
   console.error("Missing ASC_KEY_ID / ASC_ISSUER_ID / ASC_KEY_P8 (and no mobile/eas.json defaults).");
