@@ -29,15 +29,25 @@ import { gunzipSync } from "node:zlib";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = dirname(HERE);
+// When run from a session worktree (<repo>/.claude/worktrees/<name>), the
+// .env.local lives in the enclosing checkout — fall back to it.
+const WT = ROOT.match(/^(.*)\/\.claude\/worktrees\/[^/]+$/);
+const ENV_ROOTS = WT ? [ROOT, WT[1]] : [ROOT];
 const APPLE_APP_ID = "6792487455"; // Metatake (iOS)
 
 // ── env: .env.local (same loader shape as apply-sql.py) ─────────────────────
-for (const line of readFileSync(join(ROOT, ".env.local"), "utf8").split("\n")) {
-  const t = line.trim();
-  if (!t || t.startsWith("#") || !t.includes("=")) continue;
-  const [k, ...rest] = t.split("=");
-  const v = rest.join("=").trim().replace(/^["']|["']$/g, "");
-  if (!(k.trim() in process.env)) process.env[k.trim()] = v;
+// Optional: a worktree has no .env.local — everything can arrive as env vars.
+for (const root of ENV_ROOTS) {
+  try {
+    for (const line of readFileSync(join(root, ".env.local"), "utf8").split("\n")) {
+      const t = line.trim();
+      if (!t || t.startsWith("#") || !t.includes("=")) continue;
+      const [k, ...rest] = t.split("=");
+      const v = rest.join("=").trim().replace(/^["']|["']$/g, "");
+      if (!(k.trim() in process.env)) process.env[k.trim()] = v;
+    }
+    break; // first .env.local found wins
+  } catch { /* try the next root, else rely on process env */ }
 }
 const SB_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const SB_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
