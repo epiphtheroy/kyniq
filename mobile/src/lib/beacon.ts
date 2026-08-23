@@ -17,8 +17,9 @@
  * must never retry its way into the user's data plan, and never surface.
  */
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { AppState, Platform } from "react-native";
+import { AppState } from "react-native";
 import { METATAKE_BASE, APP_VERSION } from "../config";
+import { isIOS } from "../platform/env";
 
 type EventType = "screen" | "tap" | "action";
 type QueuedEvent = { t: EventType; name: string; arg?: string; props?: Record<string, unknown>; ts: number };
@@ -77,7 +78,7 @@ async function flush(): Promise<void> {
       body: JSON.stringify({
         vid,
         sid: sessionId,
-        platform: Platform.OS === "ios" ? "ios" : "android",
+        platform: isIOS ? "ios" : "android",
         app_v: APP_VERSION,
         events: batch,
       }),

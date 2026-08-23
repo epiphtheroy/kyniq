@@ -73,9 +73,9 @@ export async function POST(req: NextRequest) {
     };
 
     const rows = [];
-    for (const raw of list) {
-      if (!raw || typeof raw !== "object") continue;
-      const e = raw as Record<string, unknown>;
+    for (const item of list) {
+      if (!item || typeof item !== "object") continue;
+      const e = item as Record<string, unknown>;
       const t = String(e.t ?? "");
       if (!TYPES.has(t)) continue;
       const name = str(e.name, 120);
