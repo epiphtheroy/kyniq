@@ -9,6 +9,7 @@ import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { t } from "../i18n";
+import { trackTap } from "../lib/beacon";
 import { toggleSave, useSaves } from "../state/saves";
 import { brand, fs, radius, sp, usePalette } from "../theme";
 import { Tactile, Ui } from "./ui";
@@ -34,6 +35,7 @@ export default function SaveListBtn({
       return;
     }
     setBusy(true);
+    trackTap(on ? "list:unsave" : "list:save", slug);
     await toggleSave("lineage", slug);
     setBusy(false);
   };

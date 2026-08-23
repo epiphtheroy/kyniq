@@ -71,13 +71,31 @@ interface AppActivity {
   days: {
     day: string; calls: number; ios: number; android: number;
     networks: number; new_networks: number; downloads: number | null;
+    devices: number; screens: number; taps: number;
   }[];
   endpoints: { endpoint: string; n: number; networks: number }[];
+  /** 0145 beacon — exact counts, unlike the cache-miss ledger above. */
+  screens_top: { name: string; n: number; devices: number }[];
+  taps_top: { name: string; n: number; devices: number }[];
   totals: {
     calls: number; networks: number; ios: number; android: number;
     new_networks: number; downloads: number; push_devices: number; push_seen_7d: number;
+    devices: number; screens: number; taps: number;
   };
 }
+
+const APP_TAP_LABELS: Record<string, string> = {
+  "watchlist:add": "♥ 볼래 담기",
+  "watchlist:remove": "볼래 해제",
+  seen: "봤어 표시",
+  rate: "별점 매김",
+  pass: "✕ 패스",
+  "pass:restore": "패스 복구",
+  "judgment:undo": "실행취소",
+  "list:save": "★ 리스트 저장",
+  "list:unsave": "리스트 저장 해제",
+  "reader:open": "리더·웹뷰 열기",
+};
 
 const APP_ENDPOINT_LABELS: Record<string, string> = {
   app_tonight: "Tonight 덱",
@@ -311,30 +329,63 @@ export default async function MetricsPage({
           📱 모바일 앱 <span style={{ fontWeight: 400, color: "#6ee7b7" }}>— 다운로드 · 활동 (위 방문자 수에 안 잡히는 트래픽)</span>
         </div>
         <div style={{ fontSize: 11.5, color: "#94a3b8", marginBottom: 12 }}>
-          네이티브 앱 화면에는 웹 비콘이 없어 위 실방문자·Pageviews 어디에도 포함되지 않습니다.
-          아래는 앱 BFF 호출 레저 기준 — 대부분 CDN 캐시라 <b>미스만 기록된 하한선</b>입니다 (Navigator·핸드오프는 no-store라 정확).
+          앱은 웹 비콘도 Vercel 페이지뷰도 남기지 않아 위 실방문자 수치 어디에도 포함되지 않습니다.
+          <b style={{ color: "#6ee7b7" }}> 초록 숫자(기기·화면·탭)는 앱 비콘 실측</b>이고,
+          회색(요청·망)은 BFF 레저 기반 추정 — 대부분 CDN 캐시라 <b>미스만 기록된 하한선</b>입니다.
         </div>
         {appAct && appAct.totals ? (
           <>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 10, marginBottom: 14 }}>
-              <Kpi label="14일 앱 요청 (캐시미스)" value={fmt(appAct.totals.calls)} />
-              <Kpi label="14일 활성 네트워크" value={fmt(appAct.totals.networks)} />
-              <Kpi label="신규 네트워크 (설치 추정)" value={fmt(appAct.totals.new_networks)} />
+              <Kpi label="14일 활성 기기 (실측)" value={fmt(appAct.totals.devices)} />
+              <Kpi label="화면 열람 (실측)" value={fmt(appAct.totals.screens)} />
+              <Kpi label="탭·판단 액션 (실측)" value={fmt(appAct.totals.taps)} />
               <Kpi label="App Store 다운로드 (누적)" value={appAct.totals.downloads > 0 ? fmt(appAct.totals.downloads) : "—"} />
+              <Kpi label="14일 앱 요청 (캐시미스)" value={fmt(appAct.totals.calls)} />
+              <Kpi label="신규 네트워크 (설치 추정)" value={fmt(appAct.totals.new_networks)} />
               <Kpi label="푸시 등록 기기" value={fmt(appAct.totals.push_devices)} />
             </div>
+            {appAct.totals.screens + appAct.totals.taps > 0 ? (
+              <div style={{ ...grid2, marginBottom: 4 }}>
+                <BarList
+                  title="화면 열람 (비콘 실측 · 기기수 병기)"
+                  rows={appAct.screens_top.map((s) => ({ label: s.name, n: s.n, devices: s.devices }))}
+                  labelKey="label"
+                  extra={(r) => `${r.devices}대`}
+                />
+                <BarList
+                  title="⭐ 앱 내 탭 — 판단 액션 (비콘 실측)"
+                  rows={appAct.taps_top.map((t2) => ({
+                    label: APP_TAP_LABELS[t2.name] ?? t2.name, n: t2.n, devices: t2.devices,
+                  }))}
+                  labelKey="label"
+                  extra={(r) => `${r.devices}대`}
+                />
+              </div>
+            ) : (
+              <div style={{
+                fontSize: 12, color: "#94a3b8", lineHeight: 1.6, marginBottom: 12,
+                background: "rgba(148,163,184,0.08)", borderRadius: 8, padding: "10px 12px",
+              }}>
+                <b style={{ color: "#cbd5e1" }}>비콘 대기 중</b> — 앱 내 탭(볼래·봤어·별점·패스)과 화면 열람은
+                마이그레이션 0145 + 앱 OTA가 나간 뒤부터 여기에 <b>정확한 실측</b>으로 쌓입니다.
+                그때까지 위 숫자는 BFF 레저 기반 추정치입니다.
+              </div>
+            )}
             <div style={grid2}>
               <div style={{ overflowX: "auto" }}>
                 <table style={{ fontSize: 12.5, width: "100%", borderCollapse: "collapse" }}>
                   <thead>
                     <tr style={{ textAlign: "left", color: "#94a3b8" }}>
                       <th style={{ paddingRight: 16, fontWeight: 500 }}>날짜</th>
-                      <th style={{ ...num, fontWeight: 500 }}>요청</th>
-                      <th style={{ ...num, fontWeight: 500 }}>iOS</th>
-                      <th style={{ ...num, fontWeight: 500 }}>Android</th>
-                      <th style={{ ...num, fontWeight: 500 }}>네트워크</th>
-                      <th style={{ ...num, fontWeight: 500 }}>신규</th>
+                      <th style={{ ...num, fontWeight: 500, color: "#6ee7b7" }}>기기</th>
+                      <th style={{ ...num, fontWeight: 500, color: "#6ee7b7" }}>화면</th>
+                      <th style={{ ...num, fontWeight: 500, color: "#6ee7b7" }}>탭</th>
                       <th style={{ ...num, fontWeight: 500 }}>다운로드</th>
+                      <th style={{ ...num, fontWeight: 500, color: "#64748b" }}>요청</th>
+                      <th style={{ ...num, fontWeight: 500, color: "#64748b" }}>iOS</th>
+                      <th style={{ ...num, fontWeight: 500, color: "#64748b" }}>Android</th>
+                      <th style={{ ...num, fontWeight: 500, color: "#64748b" }}>망</th>
+                      <th style={{ ...num, fontWeight: 500, color: "#64748b" }}>신규망</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -343,12 +394,15 @@ export default async function MetricsPage({
                         <td style={{ paddingRight: 16, color: i === 0 ? "#6ee7b7" : "#cbd5e1" }}>
                           {r.day}{i === 0 ? " ·" : ""}
                         </td>
-                        <td style={num}><b style={{ color: i === 0 ? "#6ee7b7" : "#f1f5f9" }}>{fmt(r.calls)}</b></td>
-                        <td style={num}>{fmt(r.ios)}</td>
-                        <td style={num}>{fmt(r.android)}</td>
-                        <td style={num}>{fmt(r.networks)}</td>
-                        <td style={num}>{r.new_networks ? fmt(r.new_networks) : "–"}</td>
+                        <td style={num}><b style={{ color: i === 0 ? "#6ee7b7" : "#f1f5f9" }}>{r.devices ? fmt(r.devices) : "–"}</b></td>
+                        <td style={num}>{r.screens ? fmt(r.screens) : "–"}</td>
+                        <td style={num}>{r.taps ? fmt(r.taps) : "–"}</td>
                         <td style={num}>{r.downloads != null ? fmt(r.downloads) : "–"}</td>
+                        <td style={{ ...num, color: "#64748b" }}>{fmt(r.calls)}</td>
+                        <td style={{ ...num, color: "#64748b" }}>{fmt(r.ios)}</td>
+                        <td style={{ ...num, color: "#64748b" }}>{fmt(r.android)}</td>
+                        <td style={{ ...num, color: "#64748b" }}>{fmt(r.networks)}</td>
+                        <td style={{ ...num, color: "#64748b" }}>{r.new_networks ? fmt(r.new_networks) : "–"}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -364,10 +418,11 @@ export default async function MetricsPage({
               />
             </div>
             <div style={{ fontSize: 11, color: "#64748b", lineHeight: 1.65, marginTop: 12 }}>
-              기기 판별은 fetch UA입니다 — iOS는 <code>Metatake/빌드 CFNetwork</code>, Android는 <code>okhttp</code>.
-              같은 엔드포인트를 찌르는 브라우저·curl은 제외했습니다. <b>네트워크</b>=고유 /24 대역(기기 수의 근사 상한),
-              <b> 신규</b>=90일 내 처음 보인 대역(설치 추정치). 앱 안의 웹뷰(리더·Where to watch)는 웹 페이지라
-              위 실방문자 쪽에 집계됩니다.
+              <b style={{ color: "#6ee7b7" }}>실측(기기·화면·탭)</b>은 앱 비콘 → <code>/api/metrics/app</code> → <code>mt_app_events</code>.
+              기기 ID는 폰에서 만들고 <b>매일 새로 발급</b>되어 날짜를 넘겨 사람을 잇지 않으며 IP는 저장하지 않습니다
+              (개발 빌드는 수집 제외). <b>추정(회색)</b>은 fetch UA 기준 — iOS <code>CFNetwork</code>·Android <code>okhttp</code>,
+              <b> 망</b>=고유 /24, <b>신규망</b>=90일 내 첫 등장. 앱 안의 웹뷰(리더·Where to watch)는 웹 페이지라
+              위 실방문자 쪽에도 집계되며, 앱에서 넘어간 지점은 "리더·웹뷰 열기" 탭으로 표시됩니다.
               {appAct.totals.downloads === 0 && (
                 <> <b style={{ color: "#94a3b8" }}>다운로드 실수치</b>는 오너가 <code>node worker/asc-sales-pull.mjs</code>를
                 실행하면 App Store Connect에서 채워집니다 (ASC .p8 키 필요 · 최초 1회 <code>ASC_VENDOR_NUMBER</code> 설정).</>

@@ -15,6 +15,7 @@
 import type { Session } from "@supabase/supabase-js";
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { me } from "../lib/api";
+import { trackTap } from "../lib/beacon";
 import { supabase } from "../lib/supabase";
 
 export type LedgerEntry = {
@@ -178,41 +179,54 @@ export function FilmsProvider({ children }: { children: React.ReactNode }) {
     [session?.user?.id],
   );
 
+  // Judgment taps are the app's whole point, and they never touch Vercel —
+  // these five calls are the only place they can be counted (beacon, 0145).
   const setWatchlist = useCallback(
-    (slug: string, on: boolean) =>
-      transition(
+    (slug: string, on: boolean) => {
+      trackTap(on ? "watchlist:add" : "watchlist:remove", slug);
+      return transition(
         slug,
         on ? { watchlist: true, dismissed: false } : { watchlist: false },
         () => supabase.rpc("me_set_watchlist", { p_slug: slug, p_on: on }),
-      ),
+      );
+    },
     [transition],
   );
 
   const dismiss = useCallback(
-    (slug: string) =>
-      transition(slug, { dismissed: true, watchlist: false }, () =>
+    (slug: string) => {
+      trackTap("pass", slug);
+      return transition(slug, { dismissed: true, watchlist: false }, () =>
         supabase.rpc("me_dismiss", { p_slug: slug }),
-      ),
+      );
+    },
     [transition],
   );
 
   const undismiss = useCallback(
-    (slug: string) =>
-      transition(slug, { dismissed: false }, () => supabase.rpc("me_undismiss", { p_slug: slug })),
+    (slug: string) => {
+      trackTap("pass:restore", slug);
+      return transition(slug, { dismissed: false }, () =>
+        supabase.rpc("me_undismiss", { p_slug: slug }),
+      );
+    },
     [transition],
   );
 
   const markSeen = useCallback(
-    (slug: string) =>
-      transition(slug, { seen: true, dismissed: false }, () =>
+    (slug: string) => {
+      trackTap("seen", slug);
+      return transition(slug, { seen: true, dismissed: false }, () =>
         supabase.rpc("me_mark_seen", { p_slug: slug }),
-      ),
+      );
+    },
     [transition],
   );
 
   const rate = useCallback(
     (slug: string, rating: number) => {
       const clamped = Math.round(Math.min(5, Math.max(0.5, rating)) * 2) / 2;
+      trackTap("rate", slug, { rating: clamped });
       return transition(slug, { rating: clamped, seen: true, dismissed: false }, () =>
         supabase.rpc("rate_film", { p_slug: slug, p_rating: clamped }),
       );
@@ -231,6 +245,7 @@ export function FilmsProvider({ children }: { children: React.ReactNode }) {
       if (!uid) return;
       const { slug, prev } = token;
       const cur = ledgerRef.current.get(slug) ?? EMPTY;
+      trackTap("judgment:undo", slug);
       setLedger((m) => new Map(m).set(slug, prev)); // optimistic full restore
       try {
         if (cur.dismissed && !prev.dismissed) await supabase.rpc("me_undismiss", { p_slug: slug });

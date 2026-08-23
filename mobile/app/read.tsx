@@ -14,6 +14,7 @@ import { WebView } from "react-native-webview";
 import { useAndroidBack } from "../src/platform/back";
 import { Btn, Hairline, Screen, Tactile, Ui } from "../src/components/ui";
 import { METATAKE_BASE } from "../src/config";
+import { trackTap } from "../src/lib/beacon";
 import { SkeletonText } from "../src/components/motion";
 import { t } from "../src/i18n";
 import { api } from "../src/lib/api";
@@ -99,6 +100,9 @@ export default function ReadScreen() {
     let alive = true;
     setUri(null);
     setWebLoading(true);
+    // The webview screens are web pages and land in the web numbers; this marks
+    // where the app handed off, which the web side cannot tell apart.
+    trackTap("reader:open", path);
     // SSO handoff (§13-12) — handoffUrl already falls back to the plain URL
     // when signed out or when the mint fails; the catch is pure defense.
     api

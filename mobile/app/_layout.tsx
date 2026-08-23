@@ -13,13 +13,14 @@ import { useFonts } from "expo-font";
 // Navigation themes come from @react-navigation/native — expo-router only
 // re-exports them on some majors, and the direct import is stable either way.
 import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
-import { Stack } from "expo-router";
+import { Stack, usePathname, useSegments } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import React, { useEffect } from "react";
 import { useColorScheme } from "react-native";
 import "react-native-reanimated";
 
+import { startBeacon, trackScreen } from "../src/lib/beacon";
 import { RateProvider } from "../src/components/RateSheet";
 import { FilmsProvider } from "../src/state/films";
 import { PrefsProvider } from "../src/state/prefs";
@@ -57,7 +58,23 @@ export default function RootLayout() {
   return <RootLayoutNav />;
 }
 
+/**
+ * Screen views for the app beacon. The pattern (useSegments) is what the
+ * dashboard groups by — "/film/[slug]" rather than 6,978 one-off paths — and
+ * the concrete path rides along as the arg.
+ */
+function useScreenBeacon() {
+  const pathname = usePathname();
+  const segments = useSegments();
+  const pattern = "/" + (segments as string[]).join("/");
+  useEffect(() => startBeacon(), []);
+  useEffect(() => {
+    trackScreen(pattern === "/" ? "/" : pattern, pathname);
+  }, [pattern, pathname]);
+}
+
 function RootLayoutNav() {
+  useScreenBeacon();
   const scheme = useColorScheme();
   const pal = scheme === "dark" ? dark : light;
   const base = scheme === "dark" ? DarkTheme : DefaultTheme;
