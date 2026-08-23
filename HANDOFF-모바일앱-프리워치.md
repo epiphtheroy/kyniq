@@ -114,6 +114,14 @@
 
 **남은 것:** ① Apple 로그인 = Supabase Apple provider 활성 + authorized client `net.metatake.app`(공개심사 4.8 요건, TestFlight엔 불필요) ② Connect OAuth 3종 서버 env(`connect-env-template.txt`) ③ /privacy 법무 검토 후 App Store 공개 제출(§15 그대로) ④ 밸류(V)점수 정렬 축 — 랭킹 RPC 마이그레이션 1개 필요(기획만 됨) ⑤ 안드로이드 → `HANDOFF-안드로이드-출시.md`.
 
+### §−1.5 📱 앱 계측 = 비콘 (2026-08-23, 마이그 0144·0145) — AS-BUILT
+
+**오너 질문("앱 활동이 Vercel/admin에 잡히나?")의 답: 안 잡혔다.** 앱은 웹 비콘도 Vercel 페이지뷰도 남기지 않고, **판단 탭은 Supabase RPC 직행이라 Vercel을 아예 안 거친다.** 두 층으로 해결.
+- **0144(추정)**: `/api/v1/app/*`의 `api_calls` 레저 → 📱 패널. 캐시미스 하한(navigator·handoff만 정확)·/24를 기기로 근사. + `mt_app_downloads`(ASC 일별 다운로드, `worker/asc-sales-pull.mjs`).
+- **0145(실측)**: `src/lib/beacon.ts` → `POST /api/metrics/app` → `mt_app_events`. 화면=`useSegments()` 패턴, 탭=`state/films.tsx` 판단 5종+undo·SaveListBtn·리더 진입. **방문자 ID는 폰에서 매일 새로 발급**(설치 ID 미전송·IP 미저장·`__DEV__` 제외).
+- 🔑 **네이티브 의존성 0으로 설계**(expo-crypto 안 씀) → **OTA만으로 배포**. 🚨**순서: 웹 릴리즈 → 그 다음 OTA**(반대면 이벤트가 404로 버려짐).
+- ⚠️ 새 계측을 붙일 때 **`Platform.*` 직접 사용 금지**(모바일 CI R1) — `src/platform/env.ts`의 `isIOS`/`isAndroid`를 쓸 것. 정본: `HANDOFF-사이트분석-퍼스트파티.md` §4.5·§4.6.
+
 ---
 
 ## §0 v3.1 → v4.0 개정 요약 (오너 확정 2026-07-17)

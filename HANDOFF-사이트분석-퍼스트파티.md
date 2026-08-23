@@ -64,7 +64,16 @@ Supabase public.mt_events  ←  mt_gsc_daily (worker/gsc-pull.py, Search Console
 - **패널**(실방문자 박스 바로 아래, 초록 테두리): 14일 일별 요청(iOS/Android)·활성 네트워크(/24)·신규 네트워크(설치 추정)·ASC 다운로드 + 화면별 분해(Tonight 덱·영화 상세·Navigator…) + 푸시 등록 기기.
 - **정직성**: BFF 대부분이 CDN 캐시(film 1h·tonight 15m·director 5m·countries/services 24h)라 **캐시 미스만 기록된 하한선**. `app_navigator`·`app_handoff`는 no-store라 정확. 기기 판별=fetch UA(iOS `Metatake/빌드 CFNetwork`·Android `okhttp`), 브라우저·curl 프로브 제외. "신규 네트워크"는 90일 지평의 첫 등장 /24 — 설치의 근사일 뿐.
 - **다운로드 실수치** = `worker/asc-sales-pull.mjs`(오너 실행, node) → `mt_app_downloads`. ASC .p8 키는 로컬 전용(리포·Vercel 미탑재). 최초 1회 `ASC_VENDOR_NUMBER`(ASC → Payments and Financial Reports의 Vendor #)를 .env.local에. 안드로이드 다운로드는 Play Console에 API가 없어 미수집(수동 확인).
-- **탭(클릭) 계측은 아직 없음**: 네이티브 탭을 보려면 앱에 비콘을 넣고 OTA를 내보내야 한다(후속 후보 — /api/metrics에 `platform:'app'` 수용 + 앱 mtEvent 쌍둥이).
+## 4.6 📱 앱 비콘 — 실측 계측 (마이그 0145, 2026-08-23)
+
+- **왜**: 0144는 전부 추정이었다(캐시미스 하한·/24를 기기로 근사). 그리고 **판단 탭(볼래·봤어·별점·패스)은 앱→Supabase RPC 직행이라 Vercel을 아예 안 거쳐** 어떤 서버 로그에도 없었다.
+- **파이프라인**: `mobile/src/lib/beacon.ts` → `POST /api/metrics/app` → `mt_app_events`(0145, RLS 무정책=service-role 전용) → 같은 📱 패널의 **초록 숫자**(기기·화면·탭)+화면/탭 Top 리스트. 추정치(회색)는 나란히 유지 — 둘의 대조 자체가 정보다.
+- **⭐ 별도 테이블인 이유**: `mt_events`에 섞으면 웹 전 지표(overview·real_visitors·insights)가 오염되고, **0120 봇 분류기가 앱 세션을 농장으로 읽는다**. 웹 RPC는 한 줄도 안 바뀜.
+- **프라이버시**: 방문자 ID를 **폰에서 만들고 매일 새로 발급**(설치 ID 미전송·해시 불필요) → 날짜를 넘겨 사람을 잇지 못함. IP 미저장, 지오는 Vercel 헤더. `__DEV__` 빌드는 수집 안 함. 옵트아웃 `setBeaconOptOut()`.
+- **네이티브 의존성 0** → 새 네이티브 빌드 없이 **`eas update`(OTA)만으로 배포**. expo-crypto를 안 쓴 이유가 이것.
+- **계측 지점**: 화면=루트 레이아웃의 `useSegments()` 패턴(`/film/[slug]` 단위로 묶임·구체 경로는 arg) / 탭=`state/films.tsx`의 판단 5종+undo(단일 관문이라 전 화면 커버)·`SaveListBtn`·리더 웹뷰 진입.
+- 🚨 **배포 순서**: 서버 라우트가 프로덕션에 먼저 나간 뒤 OTA. 반대로 하면 이벤트가 404로 버려진다(무해하지만 무의미).
+- ⚠️ 모바일 CI(`.github/workflows/mobile.yml`)의 **R1 containment**: `Platform.*`는 `src/platform/`에서만. 비콘도 여기 걸렸고 `platform/env.ts`의 `isIOS`를 쓰도록 고쳤다.
 
 ## 5. GSC 커넥터 — worker/gsc-pull.py (✅ 가동 중 2026-07-10)
 
