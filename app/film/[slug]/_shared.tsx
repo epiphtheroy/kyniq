@@ -49,6 +49,7 @@ import SeqNav from "@/components/SeqNav";
 import Provenance from "@/components/Provenance";
 import Byline from "@/components/Byline";
 import JoinCard from "@/components/conversion/JoinCard";
+import NextFilm from "@/components/read/NextFilm";
 import { fw, fwOrder, FAMILIES } from "@/lib/frameworks";
 import { CRAFTS, personSlug } from "@/app/credits/credits-logic";
 import { filmKeyCrew } from "@/lib/filmCrew";
@@ -1439,6 +1440,10 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
     whyWatch.length ? { id: "df-whywatch", label: "Why watch", badge: whyWatch.length, zone: "free" as const } : null,
     codex ? { id: "df-codex", label: "TakeScore", badge: tsScore ?? undefined, badgeTone: "score" as const, zone: "free" as const } : null,
     { id: "df-watch", label: "Where to watch", badge: nWatchRegions || undefined, zone: "free" as const },
+    // Promoted out of the tail (2026-08-23): "Watch next" is the film page's own
+    // second-page lever, and tab clicks measured 3–5 per THREE WEEKS down there.
+    // "where to watch this" → "what to watch next" is also the honest adjacency.
+    watchNext.length ? { id: "df-watchnext", label: "Watch next", badge: watchNext.length, zone: "free" as const } : null,
     hasLineage ? { id: "df-lineage", label: "Lineage", badge: lineage.length, zone: "free" as const } : null,
     nPlaces > 0 ? { id: "df-atlas", label: "Locations", badge: nPlaces, zone: "free" as const } : null,
     { id: "df-network", label: "Connections", zone: "free" as const },
@@ -1447,7 +1452,6 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
     newsCount > 0 ? { id: "df-in-the-news", label: "In the news", badge: newsCount, zone: "free" as const } : null,
     dailyRefs.length ? { id: "df-daily", label: "The Daily", badge: dailyRefs.length, zone: "free" as const } : null,
     recommendedBy.length ? { id: "df-recby", label: "Recommended by", badge: recommendedBy.length, zone: "free" as const } : null,
-    watchNext.length ? { id: "df-watchnext", label: "Watch next", badge: watchNext.length, zone: "free" as const } : null,
     recs.length ? { id: "df-connected", label: "Films like", badge: recs.length, zone: "free" as const } : null,
     crew.length
       ? { id: "df-crew", label: "Credits", badge: crew.length, zone: "free" as const }
@@ -1972,12 +1976,12 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                     <div className="wn-pos">{i + 1}</div>
                     {poster ? (
                       href
-                        ? <Link href={href} className="wn-pl">{/* eslint-disable-next-line @next/next/no-img-element */}<img className="wn-pi" src={`${IMG}/w185${poster}`} alt="" loading="lazy" />{w.target_slug ? <PosterActions slug={w.target_slug} compact /> : null}</Link>
+                        ? <Link href={href} className="wn-pl" data-mt={`wn:${i + 1}`}>{/* eslint-disable-next-line @next/next/no-img-element */}<img className="wn-pi" src={`${IMG}/w185${poster}`} alt="" loading="lazy" />{w.target_slug ? <PosterActions slug={w.target_slug} compact /> : null}</Link>
                         // eslint-disable-next-line @next/next/no-img-element
                         : <img className="wn-pi" src={`${IMG}/w185${poster}`} alt="" loading="lazy" />
                     ) : <div className="wn-pi wn-pi--empty" aria-hidden="true" />}
                     <div className="wn-tx">
-                      <div className="wn-h">{href ? <Link href={href}>{title}</Link> : title} <span className="wn-yr">({year ?? "?"})</span></div>
+                      <div className="wn-h">{href ? <Link href={href} data-mt={`wn:${i + 1}`}>{title}</Link> : title} <span className="wn-yr">({year ?? "?"})</span></div>
                       {w.rec_director ? <div className="wn-dir">{w.rec_director}</div> : null}
                       {w.reason ? <p className="wn-why">{w.reason}</p> : null}
                       {!href && w.tmdb_id ? (
@@ -2002,13 +2006,13 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                 <div key={r.slug} className="df-crow" style={{ display: "flex", gap: 12, alignItems: "center", padding: "7px 0" }}>
                   <span style={{ flex: "0 0 26px", textAlign: "right", fontWeight: 800, fontSize: 15, opacity: i === 0 ? .95 : .45, fontVariantNumeric: "tabular-nums" }}><span style={{ fontSize: "0.65em", opacity: .7 }}>#</span>{i + 1}</span>
                   {r.poster_path ? (
-                    <Link href={`/film/${r.slug}`} aria-label={filmTitle(filmTitles, locale, r.slug, r.title) ?? undefined} style={{ flex: "0 0 40px" }}>
+                    <Link href={`/film/${r.slug}`} aria-label={filmTitle(filmTitles, locale, r.slug, r.title) ?? undefined} data-mt={`conn:${i + 1}`} style={{ flex: "0 0 40px" }}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={`${IMG}/w92${r.poster_path}`} alt="" width={40} height={60} loading="lazy" style={{ width: 40, height: 60, objectFit: "cover", borderRadius: 5, display: "block" }} />
                     </Link>
                   ) : <span style={{ flex: "0 0 40px", height: 60, borderRadius: 5, background: "rgba(0,0,0,.06)" }} aria-hidden="true" />}
                   <span style={{ minWidth: 0 }}>
-                    <Link className="df-ti" href={`/film/${r.slug}`}>{filmTitle(filmTitles, locale, r.slug, r.title)}</Link>{" "}
+                    <Link className="df-ti" href={`/film/${r.slug}`} data-mt={`conn:${i + 1}`}>{filmTitle(filmTitles, locale, r.slug, r.title)}</Link>{" "}
                     <span className="df-cyr">({r.year ?? "?"})</span>
                     <span style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 4 }}>
                       {r.cos != null ? (
@@ -2148,6 +2152,12 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
         {talkOpen ? (
           <TalkSection addrType="film" addrKey={film.slug} title={film.title} />
         ) : null}
+
+        {/* Watch next, bare (posters + titles only): the reason prose already lives
+            in the #df-watchnext section above, so this repeats no sentence — it
+            just puts a door to another FILM at the true bottom of the read, ahead
+            of the ask. (HANDOFF-두번째페이지-P0-설계.md §5.2) */}
+        <NextFilm slug={film.slug} title={film.title} surface="film-main" variant="bare" tone="light" locale={locale} />
 
         <JoinCard variant="film" source="film-main" />
 

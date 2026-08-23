@@ -13,6 +13,7 @@ import {
 import { Card, SectionHead } from "@/components/curious/ui";
 import BroadcastCard from "@/components/BroadcastCard";
 import JoinCard from "@/components/conversion/JoinCard";
+import NextFilm from "./NextFilm";
 
 /**
  * "Keep exploring {film}" — the dark bottom plate block shared by every
@@ -266,11 +267,12 @@ export default async function ReadPlates({
           </div>
         </div>
 
-        {/* ── Join invitation — a distinct light card on the dark band, set in its
-            own row so it reads as an intentional invitation, not a broken plate ── */}
-        <div style={{ margin: "28px 0" }}>
-          <JoinCard variant="film" source="readplates" />
-        </div>
+        {/* ── Watch next — the ONE block here that leads to a different film.
+            It takes the slot the join card used to hold, because this is the
+            moment the reader decides where to go, and the ask that used to sit
+            here converted at 0.12% while 90% of sessions ended on this page.
+            (HANDOFF-두번째페이지-P0-설계.md §5.1 — the order is the point.) ── */}
+        <NextFilm slug={film.slug} title={film.title} surface={exclude ?? "read"} tone="dark" />
 
         {/* ── Keep exploring: every other surface the film has ── */}
         {shown.length >= 1 ? (
@@ -284,11 +286,18 @@ export default async function ReadPlates({
                   film={{ slug: film.slug, title: film.title, year: film.year, poster_path: film.poster_path, backdrop_path: art.length ? art[i % art.length] : film.backdrop_path }}
                   title={p.title}
                   tag={p.tag}
+                  mt={`plate:${exclude ?? "read"}:${p.key}`}
                 />
               ))}
             </div>
           </>
         ) : null}
+
+        {/* ── Join invitation, LAST. The ask never precedes the offer of a next
+            read: that inversion is what §5.1 exists to prevent. ── */}
+        <div style={{ margin: "34px 0 0" }}>
+          <JoinCard variant="film" source="readplates" />
+        </div>
       </div>
     </div>
     </>
