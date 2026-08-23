@@ -127,10 +127,6 @@ export default async function DirectorPlates({ slug, exclude }: { slug: string; 
           </div>
         </div>
 
-        <div style={{ margin: "28px 0" }}>
-          <JoinCard variant="director" source="directorplates" />
-        </div>
-
         {shown.length + filmCards.length >= 1 ? (
           <>
             <SectionHead title={`More on ${director}`} count={`${shown.length + filmCards.length} places to go next`} />
@@ -142,6 +138,7 @@ export default async function DirectorPlates({ slug, exclude }: { slug: string; 
                   film={{ slug, title: director, year: null, poster_path: films[0]?.poster_path ?? null, backdrop_path: art.length ? art[i % art.length] : null }}
                   title={p.title}
                   tag={p.tag}
+                  mt={`plate:director:${p.key}`}
                 />
               ))}
               {filmCards.map((f) => (
@@ -151,11 +148,18 @@ export default async function DirectorPlates({ slug, exclude }: { slug: string; 
                   film={{ slug: f.slug, title: f.title, year: f.year, poster_path: f.poster_path, backdrop_path: f.backdrop_path }}
                   title={`${f.title}${f.year ? ` (${f.year})` : ""} — everything on the film`}
                   tag="The film"
+                  mt="plate:director:film"
                 />
               ))}
             </div>
           </>
         ) : null}
+
+        {/* Join invitation, LAST — the ask never precedes the exploring rows.
+            (HANDOFF-두번째페이지-P0-설계.md §5.4; a director-side NextFilm is P1.) */}
+        <div style={{ margin: "34px 0 0" }}>
+          <JoinCard variant="director" source="directorplates" />
+        </div>
       </div>
     </div>
     </>

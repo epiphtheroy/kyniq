@@ -73,6 +73,7 @@ export function Card({
   tag,
   date,
   spoilerNote,
+  mt,
 }: {
   href: string;
   film: FilmArt;
@@ -80,11 +81,15 @@ export function Card({
   tag: string;
   date?: string | null;
   spoilerNote?: boolean;
+  /** first-party analytics label — the global beacon counts clicks on data-mt.
+   *  Internal link clicks were invisible until this existed, which is why the
+   *  plate rows could not be judged. (HANDOFF-두번째페이지-P0-설계.md §7) */
+  mt?: string;
 }) {
   const img = thumbUrl(film);
   return (
     <div className="cur-card">
-      <Link href={href}>
+      <Link href={href} data-mt={mt}>
         <div className="th">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           {img ? <img src={img} alt={`${film.title}${film.year ? ` (${film.year})` : ""} — still`} loading="lazy" width={342} height={192} /> : null}
