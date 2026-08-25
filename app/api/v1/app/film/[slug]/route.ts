@@ -316,22 +316,41 @@ export async function GET(req: Request, { params }: Params) {
     let kindred: { slug: string; title: string; year: number | null; shared: number }[] | null =
       null;
     if (aff.length) {
+      const relIds = aff.map((a) => a.related_film_id);
       const { data: rel } = await db
         .from("films")
         .select("id, slug, title, year")
-        .in("id", aff.map((a) => a.related_film_id));
+        .in("id", relIds);
       const relMap = new Map(
         ((rel ?? []) as { id: string; slug: string; title: string; year: number | null }[]).map(
           (f) => [f.id, f],
         ),
       );
+      // Kindred films are named on the `content` axis like every other film on
+      // this screen — the app renders these titles straight from the payload, so
+      // English here meant a Korean brief with an English shelf under it.
+      //
+      // Its own failure-tolerant read, for the same reason the poster above has
+      // one: naming a `_<loc>` column on the query that CARRIES the shelf trades
+      // the whole shelf for a translation the moment a column is missing.
+      const kinTitle = new Map<string, string>();
+      if (isProjected(content)) {
+        const { data: loc } = await db
+          .from("films")
+          .select("id, title, title_ko, title_es, title_ja, title_zh, title_fr, title_hi")
+          .in("id", relIds);
+        for (const r of (loc ?? []) as unknown as Record<string, unknown>[]) {
+          const v = locVal(r, "title", content);
+          if (v && typeof r.id === "string") kinTitle.set(r.id, v);
+        }
+      }
       const rows = aff.flatMap((a) => {
         const f = relMap.get(a.related_film_id);
         return f
           ? [
               {
                 slug: f.slug,
-                title: f.title,
+                title: kinTitle.get(a.related_film_id) ?? f.title,
                 year: f.year ?? null,
                 shared: a.shared_meta_take_ids?.length ?? 0,
               },
