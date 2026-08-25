@@ -174,6 +174,8 @@ export const en = {
   "common.soon": "Soon",
   "common.showAll": "Show all {n}",
   "common.showFewer": "Show fewer",
+  "common.readMore": "Read more",
+  "common.readLess": "Show less",
   "notfound.title": "Not found",
   "notfound.body": "This page doesn't exist.",
   "notfound.back": "Back to Tonight",

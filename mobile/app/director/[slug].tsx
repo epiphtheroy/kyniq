@@ -70,6 +70,9 @@ function Disc({
   );
 }
 
+/** Lines of the portrait shown before the reader asks for the rest. */
+const PORTRAIT_LINES = 6;
+
 export default function DirectorScreen() {
   const { slug } = useLocalSearchParams<{ slug: string }>();
   const router = useRouter();
@@ -81,6 +84,8 @@ export default function DirectorScreen() {
   const [card, setCard] = useState<DirectorCardT | null>(null);
   const [err, setErr] = useState(false);
   const [showAllFacts, setShowAllFacts] = useState(false);
+  const [portraitOpen, setPortraitOpen] = useState(false);
+  const [portraitClipped, setPortraitClipped] = useState(false);
 
   useEffect(() => {
     let alive = true;
@@ -202,7 +207,10 @@ export default function DirectorScreen() {
       </Screen>
     );
 
-  const portraitLead = card.portrait ? (card.portrait.split(/\n{2,}/)[0]?.trim() ?? null) : null;
+  // The whole portrait, not its first paragraph. Slicing at the first blank line
+  // was a no-op anyway — 211 of the 219 portraits are written as a single
+  // paragraph — so all it ever did was hand the clamp below something to cut.
+  const portraitText = card.portrait?.trim() || null;
   const meta = [card.birthday, card.place_of_birth ? birthplaceLabel(card.place_of_birth) : null]
     .filter(Boolean)
     .join(" · ");
@@ -238,11 +246,37 @@ export default function DirectorScreen() {
             ) : null}
           </View>
         </View>
-        {portraitLead ? (
+        {portraitText ? (
           <View style={{ paddingHorizontal: sp.s4, paddingTop: sp.s4 }}>
-            <Ui size={fs.base} color={pal.inkSoft} numberOfLines={6}>
-              {portraitLead}
+            <Ui
+              size={fs.base}
+              color={pal.inkSoft}
+              numberOfLines={portraitOpen ? undefined : PORTRAIT_LINES}
+              // Whether the clamp hid anything is a question about pixels, not
+              // characters: a portrait runs ~1,200 characters in English and
+              // ~640 in Korean, and six lines holds a different count in each —
+              // and a different one again at another font scale or screen width.
+              // The text engine has already measured it, so ask it. Latching on
+              // (never cleared) keeps the control in place once expanded, where
+              // the same callback would otherwise report the full height and
+              // conclude nothing was ever hidden.
+              onTextLayout={(e) => {
+                if (!portraitOpen && e.nativeEvent.lines.length >= PORTRAIT_LINES) setPortraitClipped(true);
+              }}
+            >
+              {portraitText}
             </Ui>
+            {portraitClipped ? (
+              <Tactile onPress={() => setPortraitOpen((v) => !v)} hitSlop={8}>
+                <Ui
+                  size={fs.sm}
+                  weight="500"
+                  style={{ textDecorationLine: "underline", paddingTop: sp.s2 }}
+                >
+                  {t(portraitOpen ? "common.readLess" : "common.readMore")}
+                </Ui>
+              </Tactile>
+            ) : null}
           </View>
         ) : null}
 

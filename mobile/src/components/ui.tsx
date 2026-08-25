@@ -14,6 +14,7 @@ import {
   View,
   type GestureResponderEvent,
   type StyleProp,
+  type TextProps,
   type TextStyle,
   type ViewStyle,
   type ImageStyle,
@@ -145,6 +146,7 @@ export function Ui({
   color,
   style,
   numberOfLines,
+  onTextLayout,
 }: {
   children: React.ReactNode;
   size?: number;
@@ -152,6 +154,10 @@ export function Ui({
   color?: string;
   style?: StyleProp<TextStyle>;
   numberOfLines?: number;
+  /** Fires with the laid-out lines. A caller that clamps with `numberOfLines`
+   *  uses it to learn whether the clamp actually hid anything — the only answer
+   *  that survives a change of language, font scale or screen width. */
+  onTextLayout?: TextProps["onTextLayout"];
 }) {
   const pal = usePalette();
   const fam =
@@ -159,6 +165,7 @@ export function Ui({
   return (
     <Text
       numberOfLines={numberOfLines}
+      onTextLayout={onTextLayout}
       style={[{ fontFamily: fam, fontSize: size, color: color ?? pal.ink, lineHeight: size * 1.45 }, style]}
     >
       {children}

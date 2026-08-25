@@ -158,6 +158,8 @@ export const ja: Record<keyof typeof en, string> = {
   "common.soon": "近日対応",
   "common.showAll": "{n}件すべて表示",
   "common.showFewer": "折りたたむ",
+  "common.readMore": "続きを読む",
+  "common.readLess": "折りたたむ",
   "notfound.title": "ページが見つかりません",
   "notfound.body": "このページは存在しません。",
   "notfound.back": "今夜に戻る",

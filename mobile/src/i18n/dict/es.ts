@@ -158,6 +158,8 @@ export const es: Record<keyof typeof en, string> = {
   "common.soon": "Próximamente",
   "common.showAll": "Ver los {n}",
   "common.showFewer": "Ver menos",
+  "common.readMore": "Leer más",
+  "common.readLess": "Mostrar menos",
   "notfound.title": "No encontrado",
   "notfound.body": "Esta página no existe.",
   "notfound.back": "Volver a Esta noche",

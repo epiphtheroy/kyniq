@@ -159,6 +159,8 @@ export const ko: Record<keyof typeof en, string> = {
   "common.soon": "준비 중",
   "common.showAll": "전체 {n}개 보기",
   "common.showFewer": "접기",
+  "common.readMore": "더보기",
+  "common.readLess": "접기",
   "notfound.title": "페이지 없음",
   "notfound.body": "존재하지 않는 페이지입니다.",
   "notfound.back": "오늘 밤으로 돌아가기",
