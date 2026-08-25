@@ -1202,7 +1202,10 @@ export default function FilmScreen() {
           {card.the_life ? (
             <>
               <SectionTitle>
-                {t("film.theLife")} — {card.the_life.name}
+                {/* The same person the byline above names, so the same lookup —
+                    the BFF sends `the_life.name` in English (films.director) and
+                    this header was the one place on the screen still saying it. */}
+                {t("film.theLife")} — {directorOf(String(slug), card.the_life.name)}
               </SectionTitle>
               <Group>
                 <Tactile

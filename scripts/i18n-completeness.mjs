@@ -35,6 +35,10 @@ const CORPORA = [
   ["dfacts_meaning", "dfacts_meaning"],
   ["portrait", "portrait"],
   ["repolish_invitation", "repolish_invitation"],
+  // The invitation layer's untranslated tail (2026-08-23) — film_leads and the
+  // take invitations that had no ko row. Same content_i18n key as the two above.
+  ["leads", "leads"],
+  ["invitation_new", "invitation_new"],
 ];
 
 let anyMissing = false;

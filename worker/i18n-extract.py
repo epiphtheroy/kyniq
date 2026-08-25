@@ -103,6 +103,56 @@ CORPORA = {
         where p.reason is not null and length(p.reason) > 0
         order by p.director_slug, p.pos"""),
 
+    # ── the invitation layer's untranslated tail ───────────────────────
+    # Both corpora write the SAME key the app already reads —
+    # `invitation|<film-slug>|rationale` — because the film and tonight routes
+    # ask for one key per film and take whichever English prose they chose.
+    #
+    # The guard is the SOURCE HASH, not mere absence: it catches the rows that
+    # were never translated AND the ones whose English has since been rewritten.
+    # That matters here — a Tier-2 film promoted to a real take keeps its old
+    # lead's Korean under the same key until the hash stops matching.
+
+    # film_leads (migration 0140): the Tier-2 invitation. 5,002 of them were
+    # written in August, AFTER the Korean run — so this prose had never been
+    # offered to the translator at all, and the app read the English through.
+    "leads": dict(entity_type="invitation", field="rationale", sql="""
+        select f.slug as entity_key, l.lead as en,
+               f.title as title, f.year as year, f.director as director
+        from public.film_leads l
+        join public.films f on f.id = l.film_id
+        where l.lead is not null and length(l.lead) > 0
+          and not exists (
+            select 1 from public.content_i18n c
+            where c.entity_type = 'invitation' and c.field = 'rationale'
+              and c.lang = 'ko' and c.entity_key = f.slug
+              and c.source_sha256 = encode(sha256(convert_to(l.lead, 'UTF8')), 'hex'))
+        order by f.slug"""),
+
+    # Take invitations with no Korean row yet — the tail `repolish_invitation`
+    # cannot see, because that corpus starts FROM content_i18n and these have
+    # never been in it.
+    "invitation_new": dict(entity_type="invitation", field="rationale", sql="""
+        select t.slug as entity_key, t.en as en, t.title as title,
+               t.year as year, t.director as director
+        from (
+          select f.slug, f.title, f.year, f.director,
+                 (select tk.rationale
+                    from public.takes tk
+                    join public.figures fg on fg.id = tk.figure_id
+                   where fg.film_id = f.id and tk.is_invitation
+                     and tk.status = 'published' and tk.rationale is not null
+                   order by tk.id limit 1) as en
+          from public.films f
+        ) t
+        where t.en is not null and length(t.en) > 0
+          and not exists (
+            select 1 from public.content_i18n c
+            where c.entity_type = 'invitation' and c.field = 'rationale'
+              and c.lang = 'ko' and c.entity_key = t.slug
+              and c.source_sha256 = encode(sha256(convert_to(t.en, 'UTF8')), 'hex'))
+        order by t.slug"""),
+
     # ── re-polish (R1): existing ko rewritten in the new voice ─────────
     "repolish_invitation": dict(entity_type="invitation", field="rationale", sql="""
         select c.entity_key, t.rationale as en, c.text as ko, f.title as title

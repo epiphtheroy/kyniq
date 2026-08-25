@@ -1999,6 +1999,87 @@
  },
  {
   "entity_type": "tow_comment",
+  "entity_key": "tmdb-10137",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-10138",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-10191",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-10192",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-10195",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-10196",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-10200",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-10228",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-102382",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
   "entity_key": "tmdb-1025169",
   "field": "rationale",
   "lang": "ko",
@@ -2008,7 +2089,88 @@
  },
  {
   "entity_type": "tow_comment",
+  "entity_key": "tmdb-102899",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-10357",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-10527",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-10545",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-10555",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-1061474",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-10661",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-10679",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
   "entity_key": "tmdb-1072790",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-107846",
   "field": "rationale",
   "lang": "ko",
   "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
@@ -2023,6 +2185,42 @@
   "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
   "model": "claude-opus-5",
   "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-1084242",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-109414",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-10982",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-10996",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
  },
  {
   "entity_type": "tow_comment",
@@ -2044,12 +2242,48 @@
  },
  {
   "entity_type": "tow_comment",
+  "entity_key": "tmdb-1131759",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-11459",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
   "entity_key": "tmdb-1151534",
   "field": "rationale",
   "lang": "ko",
   "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
   "model": "claude-opus-5",
   "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-11619",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-11688",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
  },
  {
   "entity_type": "tow_comment",
@@ -2062,6 +2296,51 @@
  },
  {
   "entity_type": "tow_comment",
+  "entity_key": "tmdb-117251",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-117263",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-118",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-11836",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-11852",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
   "entity_key": "tmdb-11901",
   "field": "rationale",
   "lang": "ko",
@@ -2071,7 +2350,25 @@
  },
  {
   "entity_type": "tow_comment",
+  "entity_key": "tmdb-119450",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
   "entity_key": "tmdb-1194963",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-119569",
   "field": "rationale",
   "lang": "ko",
   "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
@@ -2089,7 +2386,61 @@
  },
  {
   "entity_type": "tow_comment",
+  "entity_key": "tmdb-121491",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-12153",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-12155",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
   "entity_key": "tmdb-122126",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-1226863",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-1234821",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-124157",
   "field": "rationale",
   "lang": "ko",
   "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
@@ -2107,7 +2458,70 @@
  },
  {
   "entity_type": "tow_comment",
+  "entity_key": "tmdb-124905",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-12599",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
   "entity_key": "tmdb-12650",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-1267",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-1267319",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-1269208",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-127585",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-128246",
   "field": "rationale",
   "lang": "ko",
   "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
@@ -2125,6 +2539,15 @@
  },
  {
   "entity_type": "tow_comment",
+  "entity_key": "tmdb-13053",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
   "entity_key": "tmdb-1316092",
   "field": "rationale",
   "lang": "ko",
@@ -2134,7 +2557,106 @@
  },
  {
   "entity_type": "tow_comment",
+  "entity_key": "tmdb-13448",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-13523",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-1376434",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-13811",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-140212",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-140300",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-140420",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-14069",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-141052",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-14164",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
   "entity_key": "tmdb-1418522",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-14451",
   "field": "rationale",
   "lang": "ko",
   "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
@@ -2152,12 +2674,264 @@
  },
  {
   "entity_type": "tow_comment",
+  "entity_key": "tmdb-14968",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-154030",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-15512",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-1575337",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-1584",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-158445",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-1593",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-16007",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-16140",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-165",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-1685",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-1687",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-1724",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-1734",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-1735",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-176983",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-1771",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-181533",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-18162",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-18360",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-18384",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-18438",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-1858",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-188161",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-18823",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
   "entity_key": "tmdb-1907",
   "field": "rationale",
   "lang": "ko",
   "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
   "model": "claude-opus-5",
   "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-1930",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-195589",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-196",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
  },
  {
   "entity_type": "tow_comment",
@@ -2170,7 +2944,241 @@
  },
  {
   "entity_type": "tow_comment",
+  "entity_key": "tmdb-198663",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-19908",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-19912",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-199584",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-200085",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-20352",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-2048",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
   "entity_key": "tmdb-205775",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-209112",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-209764",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-211672",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-212778",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-2135",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-214756",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-215",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-216282",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-222935",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-223702",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-227159",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-22794",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-228967",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-23398",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-23483",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-235704",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-241259",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-246655",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-251516",
   "field": "rationale",
   "lang": "ko",
   "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
@@ -2188,12 +3196,219 @@
  },
  {
   "entity_type": "tow_comment",
+  "entity_key": "tmdb-2539",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-253980",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-254",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-254128",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-254302",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-257445",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-258230",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-25961",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-261392",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
   "entity_key": "tmdb-26275",
   "field": "rationale",
   "lang": "ko",
   "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
   "model": "claude-opus-5",
   "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-267193",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-267860",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-268896",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-269494",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-2698",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-27022",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-270946",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-271969",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-273477",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-274855",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-274870",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-278154",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-280217",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-281338",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
  },
  {
   "entity_type": "tow_comment",
@@ -2206,7 +3421,43 @@
  },
  {
   "entity_type": "tow_comment",
+  "entity_key": "tmdb-282035",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
   "entity_key": "tmdb-283552",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-287947",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-291805",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-291870",
   "field": "rationale",
   "lang": "ko",
   "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
@@ -2224,7 +3475,61 @@
  },
  {
   "entity_type": "tow_comment",
+  "entity_key": "tmdb-293167",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-294254",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-296",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
   "entity_key": "tmdb-297",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-297761",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-298618",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-299687",
   "field": "rationale",
   "lang": "ko",
   "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
@@ -2239,6 +3544,24 @@
   "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
   "model": "claude-opus-5",
   "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-300669",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-301875",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
  },
  {
   "entity_type": "tow_comment",
@@ -2260,6 +3583,33 @@
  },
  {
   "entity_type": "tow_comment",
+  "entity_key": "tmdb-308531",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-310307",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-315439",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
   "entity_key": "tmdb-318256",
   "field": "rationale",
   "lang": "ko",
@@ -2269,7 +3619,196 @@
  },
  {
   "entity_type": "tow_comment",
+  "entity_key": "tmdb-321612",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
   "entity_key": "tmdb-324668",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-324849",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-324852",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-325133",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-326",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-32657",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-328111",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-328387",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-331",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-33196",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-333371",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-333484",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-335797",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-335983",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-335988",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-336843",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-337339",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-337703",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-338967",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-339988",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-340102",
   "field": "rationale",
   "lang": "ko",
   "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
@@ -2287,12 +3826,120 @@
  },
  {
   "entity_type": "tow_comment",
+  "entity_key": "tmdb-34067",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-341013",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-343668",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-34544",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-345940",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-346910",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-34851",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-35",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-353486",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
   "entity_key": "tmdb-3558",
   "field": "rationale",
   "lang": "ko",
   "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
   "model": "claude-opus-5",
   "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-35791",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-361292",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-363088",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
  },
  {
   "entity_type": "tow_comment",
@@ -2305,6 +3952,69 @@
  },
  {
   "entity_type": "tow_comment",
+  "entity_key": "tmdb-37169",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-373571",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-374205",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-37686",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-378348",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-38055",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-381288",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
   "entity_key": "tmdb-382217",
   "field": "rationale",
   "lang": "ko",
@@ -2314,7 +4024,79 @@
  },
  {
   "entity_type": "tow_comment",
+  "entity_key": "tmdb-38319",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-383498",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-38356",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-384521",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-38745",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-390043",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-390062",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
   "entity_key": "tmdb-390520",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-39057",
   "field": "rationale",
   "lang": "ko",
   "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
@@ -2332,7 +4114,70 @@
  },
  {
   "entity_type": "tow_comment",
+  "entity_key": "tmdb-39254",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
   "entity_key": "tmdb-393",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-395",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-39513",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-395990",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-395992",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-396461",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-399566",
   "field": "rationale",
   "lang": "ko",
   "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
@@ -2347,6 +4192,33 @@
   "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
   "model": "claude-opus-5",
   "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-40171",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-403119",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-404368",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
  },
  {
   "entity_type": "tow_comment",
@@ -2368,12 +4240,192 @@
  },
  {
   "entity_type": "tow_comment",
+  "entity_key": "tmdb-406759",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-406761",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-406994",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-406997",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-407448",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-408620",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
   "entity_key": "tmdb-411088",
   "field": "rationale",
   "lang": "ko",
   "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
   "model": "claude-opus-5",
   "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-41154",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-412117",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-41498",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-41513",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-417859",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-419479",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-420818",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-4247",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-424783",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-425",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-42684",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-427641",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-429415",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
+  "model": "claude-opus-5",
+  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
+ },
+ {
+  "entity_type": "tow_comment",
+  "entity_key": "tmdb-43074",
+  "field": "rationale",
+  "lang": "ko",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "model": "claude-opus-5",
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
  },
  {
   "entity_type": "tow_comment",
@@ -2386,529 +4438,7 @@
  },
  {
   "entity_type": "tow_comment",
-  "entity_key": "tmdb-448491",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-45202",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-457136",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-483297",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-4836",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-483906",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-500682",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-502350",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-502416",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-504253",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-50456",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-504949",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-508747",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-514847",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-523561",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-544627",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-569547",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-571785",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-593691",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-602302",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-610120",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-619930",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-637534",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-660360",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-725201",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-76285",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-80184",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-826740",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-8461",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-848791",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-872954",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-881462",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-89501",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-901121",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-933131",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-950445",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-978",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tmdb-9820",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "to-be-a-millionaire-1980",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "to-be-and-to-have-2002",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "The Guardian: 100 Best Films of the 21st Century에 이름을 올렸지만, 일반 관객에게는 거의 알려지지 않은 작품 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "88b4a65439a55c107c8d80fe41a6bbf3180acaa45988c01dcd27e67a003811ca"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "to-be-number-one-1991",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "to-be-or-not-to-be-1942",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 Cahiers du Cinéma: 100 plus beaux films du monde에 이름을 올렸고, 어느 정도 알려져 있다 · 국가 정전: US · 감독 에른스트 루비치의 작가 계보로 다시 매겨진 값. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "39e4dc2f89b523603a5b38ce584fa034cbc90650085176b4dbf9e1f33125f78a"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "to-bed-or-not-to-bed-1963",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "Golden Bear가 인정한 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: IT. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "47d783dc62461e4c46f64149822422fc366825309ba9ef8d36aecde0e1177631"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "to-begin-the-world-over-again-the-life-of-thomas-paine-1982",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "to-catch-a-killer-2023",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "감독 Damián Szifron의 정전에 오른 작업이 떠받치는 작품. 널리 알려져 있다 · 국가 정전: US. 출발점으로 좋다. 정전에 들면서도 다가가기 쉽다.",
-  "model": "claude-opus-5",
-  "source_sha256": "fa37ef8145a9c2a3fcca1d7551f1273afc7e9c478cd70334f9a8616ff01c3dfd"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "to-catch-a-thief-1955",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전 기록은 뚜렷하지 않지만 널리 알려진 작품 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
-  "model": "claude-opus-5",
-  "source_sha256": "24d8fc19b7df05145d1b3212583d5ce20d0d2f4863d35c04aa705e648cc58259"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "to-die-for-1995",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 62/100). 널리 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: GB · 사조: 뉴 퀴어 시네마. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
-  "model": "claude-opus-5",
-  "source_sha256": "83230cbeb13e59b8e9d720e578432462d7934b0ca95156cc08157e36cade1d6d"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "to-die-like-a-man-2009",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "감독 João Pedro Rodrigues의 정전에 오른 작업이 떠받치는 작품이며 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: PT. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "e595b6bb8f1f2e2dbb8adea310a51675e473b016ad41091731e47f4735825793"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "to-each-his-own-1946",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "to-fly-1976",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "to-have-and-have-not-1944",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films에 이름을 올렸고 어느 정도 알려져 있다 · 국가 정전: US · 감독 하워드 혹스의 작가 계보를 통해 값이 다시 매겨진다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "01ac1afe30f057e359421976e1f81ab6c385098fa831591dabd72666b92e7c4f"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "to-kill-a-mockingbird-1962",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 AFI 100 Years…100 Movies에 올랐고, 일반 관객에게도 대단히 유명하다 · 국가 정전: US. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "b3748d620e7114df21dea4e1547f2bd1362181928e00f6c3c917ac63dc62df65"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "to-live-1994",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "심사위원대상과 금마장 100대 중국어 영화에 이름을 올린 작품이며, 어느 정도 알려져 있다 · 국가 정전: CN · 사조: Chinese Fifth Generation · 감독 장이머우의 작가 계보로 다시 매겨진 값. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "c7152b878037bb0cb0e47826dd0d047e482147d4cee75e7b28a7fdc42b5de591"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "to-live-in-peace-1947",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "to-love-1964",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "to-love-the-damned-1980",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "to-my-nineteen-year-old-self-2022",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "to-realize-1984",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "to-rome-with-love-2012",
+  "entity_key": "tmdb-435",
   "field": "rationale",
   "lang": "ko",
   "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
@@ -2917,25 +4447,7 @@
  },
  {
   "entity_type": "tow_comment",
-  "entity_key": "to-sleep-with-anger-1990",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 71/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "e29326958b38c02f0fc6b2511756a7c300520e7ec25de8e68d028fd3b3c7bde5"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "to-the-left-of-the-father-2001",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 74/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: BR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "8fdc9213ffd33229f0d3a19cf6d2cec28faedd2c9253ad66c7004d7b402b80aa"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "to-the-sea-2010",
+  "entity_key": "tmdb-435841",
   "field": "rationale",
   "lang": "ko",
   "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
@@ -2944,16 +4456,7 @@
  },
  {
   "entity_type": "tow_comment",
-  "entity_key": "tobruk-2008",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "바츨라프 마르호울 감독의 정전에 오른 작품 세계가 떠받치는 영화이며, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: CZ. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "6402562ee22e33dbb032daf8408c5d5b58f185fcc692f6bce39e4a3331309b52"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tokyo-drifter-1966",
+  "entity_key": "tmdb-43593",
   "field": "rationale",
   "lang": "ko",
   "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
@@ -2962,43 +4465,16 @@
  },
  {
   "entity_type": "tow_comment",
-  "entity_key": "tokyo-godfathers-2003",
+  "entity_key": "tmdb-436270",
   "field": "rationale",
   "lang": "ko",
-  "text": "TakeScore가 지속되는 가치를 높게 매긴 작품(Value 64/100), 널리 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: JP. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
+  "text": "뚜렷한 정전 이력은 없지만 널리 알려진 작품. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
   "model": "claude-opus-5",
-  "source_sha256": "d08a98810e835a5e14066c07371f8f86153bb7db97dd60e799cf2cd6479f7de3"
+  "source_sha256": "7bbb2851671beaca1316b6ebfd7624d570e01a1a6a9f8f0b2f92a4bfd38a23b9"
  },
  {
   "entity_type": "tow_comment",
-  "entity_key": "tokyo-olympiad-1965",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "Kinema Junpo All-Time Best Japanese Films에 오른 작품, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: JP · 감독 이치카와 곤의 작가 계보로 다시 값을 매긴다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "3cd9bf298f77a390bad2a76549ead100d805776b1a6a6ce62d0b19e1843c6374"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tokyo-sonata-2008",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "아시안 필름 어워드 작품상에 이름을 올린 작품이며, 어느 정도 알려져 있다 · 국가 정전: JP · 감독 구로사와 기요시의 작가 계보를 통해 다시 평가된다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "5df1617e86e0a4f19070cc68da81d5c2cf64c4f2f2591d3f305bd4904c8a1464"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tokyo-story-1953",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. Sight & Sound 비평가 투표와 감독 투표에 올랐고 널리 알려져 있다 · 국가 정전: JP · 사조: Japanese Golden Age · 감독 오즈 야스지로의 작가 계보로 다시 매겨진 값. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "8fd15061998eb5e41608fee5a6e58a2268dc603b39f9e41bc3778e61217bd58a"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tokyo-towers-mom-and-me-and-sometimes-dad-2007",
+  "entity_key": "tmdb-436391",
   "field": "rationale",
   "lang": "ko",
   "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
@@ -3007,187 +4483,7 @@
  },
  {
   "entity_type": "tow_comment",
-  "entity_key": "tokyo-twilight-1957",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "감독 오즈 야스지로의 정전화된 작품 세계가 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: JP · 사조: 일본 황금기. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "a2eb534cc1cd28757ef5a192cd01deb05d21b5c142c3ec9b07ce8891b594f015"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tol-able-david-1921",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tol-able-david-1930",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "toll-2023",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tom-dick-and-harry-1941",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tom-jones-1963",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 60/100). 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: GB. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "c8a538019a4762f2e3f58567d8bc0cd8400883f9b61513747fda6ac4d2509a2f"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tom-tom-the-piper-s-son-1969",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 63/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "a6baf74f389a836246d0f76061cdc583085018e5ffb110991272f0a9df4667cb"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tom-viv-1994",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tomboy-2011",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "BBC 선정 여성 감독의 위대한 영화 100편에 이름을 올린 작품, 어느 정도 알려져 있다 · 국가 정전: FR · 감독 Celine Sciamma의 작가 계보를 통해 다시 값이 매겨진 작품. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "8125f7ebc2812637d9a1b16b2519e7c39ca7b325b1dde61bf6ff87431d9e54bd"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tomorrow-is-my-turn-1960",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "Golden Lion에 오른 작품, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "80e9a4fefb6f6ff8bdfd69f4865d57820399ddc17715d349fd00da2be4bb00fb"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tongues-untied-1989",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 National Film Registry에 이름을 올렸으나, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: US. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "418ab6f58442e8f0ce06725350516cd3afe8d09281229399887cac16f53c97f1"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "toni-erdmann-2016",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 독일영화상 최우수 장편상에 올랐고, 널리 알려져 있다 · 국가 정전: AT · 사조: 베를린 학파 · 감독 Maren Ade의 작가 계보를 통해 다시 평가된다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "bd1133ed227464a3dda48636e0521df91bb13341b96c5bb058a5789e34c00f1f"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "too-beautiful-for-you-1989",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 67/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "3a730b9b6c9d8afd209da0efa31e9e9f09509671d8a45ae921f7449a17acdbfc"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "too-early-too-late-1981",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films에 이름을 올렸으나 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: EG. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "1c9818fde842c292c4fb0aeb181fb0fa999a6aebb23e6e15b054b2b58fb3cdc0"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tootsie-1982",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 AFI's 100 Years…100 Movies에 올랐고 널리 알려져 있다 · 국가 정전: US. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "f9a295f73fb77cae2b3aa0b30cc0c3babe91c536857ac1e70100802b8c6f96d4"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "top-gun-1986",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "National Film Registry에 등재된 영화, 일반 관객에게도 대단히 유명하다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
-  "model": "claude-opus-5",
-  "source_sha256": "ea2313acd5e795df069dd246cc48c467097bd66b289c57b57ee2bde3338d407e"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "top-gun-maverick-2022",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "National Board of Review Best Film과 National Board of Review Top Ten Films가 상을 준 영화. 일반 관객에게도 대단히 유명하다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
-  "model": "claude-opus-5",
-  "source_sha256": "c7539e8d937c6498df3d6e0bb3191cc403d2a3c6bee04b6e03afa8d613582189"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "top-hat-1935",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 1001 Movies to See Before You Die에 이름을 올렸고, 어느 정도 알려져 있다 · 국가 정전: US. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "88ebcb913b3ae670c7bc77cd90f298a76eb37d080fcc9a2b78de024ca6e121e6"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "topaz-1943",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "National Film Registry에 오른 작품, 어느 정도 알려져 있다 · 국가 정전: US · 감독 Alfred Hitchcock의 작가 계보를 통해 값이 다시 매겨졌다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "8c48533289392d07c664e9894ae3f9be031f77acc0effcf37d4b3366f97340ec"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "topaze-1933",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "topkapi-1964",
+  "entity_key": "tmdb-438148",
   "field": "rationale",
   "lang": "ko",
   "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
@@ -3196,1307 +4492,11 @@
  },
  {
   "entity_type": "tow_comment",
-  "entity_key": "topsy-turvy-1999",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 69/100). 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: GB. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "afd979c47dded06f87ccc8d81f449998c5f579403826947efbf467cf28cf3070"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tora-san-our-lovable-tramp-1969",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tora-tora-tora-1970",
+  "entity_key": "tmdb-440",
   "field": "rationale",
   "lang": "ko",
   "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
   "model": "claude-opus-5",
   "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "torero-1956",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 62/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: MX. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "b7e5166b04816c7970f02db64a172199a79216c0eb650b0c798c38c82fa25f47"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tori-and-lokita-2022",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 74/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: BE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "19473ba02b9f7ffd7d89abf6fc2a08fa863904a39035e8af2bf95d330da8ad2c"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "torment-1944",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "Palme d'Or에 오른 작품, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: SE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "8963d14aa4a6a5b59bd1b79fa030e1c82b0cd15f0bd01d065dc9642ea5c39f97"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "toss-me-a-dime-1960",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "total-recall-1990",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "Saturn Award Best Film을 받은 작품, 일반 관객에게 대단히 유명하다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
-  "model": "claude-opus-5",
-  "source_sha256": "2b80407b6138acf88bde59c833bd32f02f65f8fb405f4902531f4a67d5d7dfe3"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "totem-2023",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 67/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: DK. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "36bb49482ac17a71e899d4e83f42c19c57824e317a351d19f4a2905260dea48f"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "toto-in-color-1952",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "toto-the-hero-1991",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 67/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: BE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "cab52a5771fbf3308b3f46afb14a848c47d0868ceb64197687218de18c2538ee"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "touch-me-not-2018",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "Golden Bear로 인정받았으나, 일반 관객에게는 거의 알려지지 않은 작품. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "290bfb96ac5b3a088fff6ae71eed9a11633b3f5f0a2cb8fdcb845ae4e645c1bf"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "touch-of-evil-1958",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품으로, TSPDT's 1,000 Greatest Films와 Cahiers du Cinéma: 100 plus beaux films du monde에 올랐으며, 널리 알려져 있다 · 국가 정전: US · 감독 오슨 웰스의 작가 계보로 다시 매겨진 값. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "23241cfa624121847264acef2c6eb14e22781c59883998acd70952a97e6fd77f"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "touchez-pas-au-grisbi-1954",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "Volpi Cup for Best Actor에 이름을 올렸지만 일반 관객에게는 거의 알려지지 않은 작품 · 국가 정전: FR · 감독 Jacques Becker의 작가 계보 안에서 다시 값이 매겨진다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "dd8a37e3c2279375a32415ebc0da6a4d3e44d8dfedd280e0f43f36f33bac3034"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "touki-bouki-1973",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품으로, Sight & Sound 비평가 투표와 감독 투표에 올랐고, 일반 관객에게는 거의 알려지지 않았다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "50b3173d6126e4e2870eaaa4a6b88ed510b437c5c7a40b0647fef902929c0516"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "toxic-2024",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "toy-story-1995",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 AFI 100 Years…100 Movies에 올랐고, 일반 관객에게도 대단히 유명하다 · 국가 정전: US. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "b3748d620e7114df21dea4e1547f2bd1362181928e00f6c3c917ac63dc62df65"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "toy-story-2-1999",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 값어치를 높게 매긴 영화이며(Value 60/100), 일반 관객에게 대단히 유명하다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
-  "model": "claude-opus-5",
-  "source_sha256": "c94c49948296af2df6667d2a17cc59d0fc2db91d68d471196e8645b2d00da88d"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "toy-story-3-2010",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 지속 가치를 높게 매긴 작품(Value 66/100), 일반 관객에게도 대단히 유명하다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
-  "model": "claude-opus-5",
-  "source_sha256": "5483884ab5e21309e37fb723430209fbfa4e82f7f755a87caf6c355027cf19d2"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "toy-story-4-2019",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전 기록은 뚜렷하지 않지만 일반 관객에게는 대단히 유명한 작품 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
-  "model": "claude-opus-5",
-  "source_sha256": "f1674e75aa89563af30dc883feb3180312dc6e0152f5b6b816597b92f649074d"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "trace-of-stones-1966",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 69/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "5439ef07c9cc95e2d9eb75870feb405060d07636b0bf44966f53ab549d8842a0"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "traffic-2000",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 61/100). 널리 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
-  "model": "claude-opus-5",
-  "source_sha256": "022e6934eb588cff1f7e5ca8a2a4eaf61554019a3ef69bd67f3a50318ac85a33"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "traffic-in-souls-1913",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "trafic-1971",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "자크 타티 감독의 정전에 오른 작품 세계가 떠받치는 영화이며, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "da58a787ab9a9017b91be5d538b8440f471c7d19d72a37415fb9e8e363462510"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tragedy-of-a-ridiculous-man-1981",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "Best Actor로 인정받은 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: IT · 감독 Bernardo Bertolucci의 작가 계보 안에서 다시 값이 매겨진다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "ed948277572a560eeea3872d58cec9b84bd173a12dbfecd3fa7ef8f485bd6cf4"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "train-dreams-2025",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 지속되는 가치를 높게 매긴 작품(Value 65/100), 널리 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
-  "model": "claude-opus-5",
-  "source_sha256": "9eda8588d8fe9e2fa0583f96edc8ec1ca1a45f22e66c2a90358f0ce142d8a461"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "train-of-shadows-1997",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 64/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: ES. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "5d009f35349ca111647c3d97b571844d3118b4b0751997b8e5963399642b778d"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "train-to-busan-2016",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "KOFA 한국영화 100선에 오른 영화, 대중적으로도 널리 알려진 작품 · 국가 정전: KR. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
-  "model": "claude-opus-5",
-  "source_sha256": "6b1a0128015937c8975691720d922b8b9e6122a91349a36d1445862fadf74847"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "training-day-2001",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "Best Actor를 받은 영화이며, 일반 관객에게 대단히 유명한 작품 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
-  "model": "claude-opus-5",
-  "source_sha256": "097c1c17833af0ccb04e4b0e33fa03b08c766706098a1e0c6fb77449ba818243"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "trains-2024",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "trainspotting-1996",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 BFI Top 100 British Films에 올랐고, 대중에게도 대단히 유명하다 · 국가 정전: GB · 감독 대니 보일의 작가 계보 속에서 다시 값을 얻는다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "dda3b63e523bc3d8df0a0772b9d8cbf0ec4a14df59f784de4295f5097f9fb069"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "trance-and-dance-in-bali-1936",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "transit-2018",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "감독 Christian Petzold의 정전화된 작업 전체가 떠받치는 작품. 어느 정도 알려져 있다 · 국가 정전: FR · 사조: 베를린 학파. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "8a1cabf53a225006f0e03ccafa53793b11847b1e67c01c52d3def93f862713a6"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "transport-from-paradise-1963",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 66/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: XC. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "2717a5d5865e385a1f776ed2e9228b8ae525c6dee0b5be6cf9dffc150e15949b"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "trapeze-1956",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "trash-humpers-2009",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "traveller-1999",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tremors-2019",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "감독 Jayro Bustamante의 정전화된 작품 세계가 떠받치는 영화. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "1b6779d7838aea1efed620e0ec25a0710551d0fc861070e08eaca4e06edc5383"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "triangle-of-sadness-2022",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "황금종려상과 유럽영화상 작품상이 인정한 작품. 널리 알려져 있다 · 국가 정전: DK · 감독 Ruben Östlund의 작가 계보 속에서 값이 다시 매겨진 작품. 출발점으로 좋다. 정전에 들면서도 다가가기 쉽다.",
-  "model": "claude-opus-5",
-  "source_sha256": "81287b8cf1ed18c615999d24bb363b8144b635b22046094a8bd9fe6b1acbb6b7"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tribute-1980",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tricks-2007",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 61/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: PL. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "7f792fb41c512051ba4482becdfd16b636e7febe94213afd2948dadb2084874e"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tristana-1970",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품으로, TSPDT 1,000 Greatest Films와 Caimán: 100 mejores películas del cine español에 올랐고, 어느 정도 알려져 있다 · 국가 정전: ES · 사조: 초현실주의 영화 · 감독 루이스 부뉴엘의 작가 계보를 통해 다시 평가된다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "938f4c8ed243fd181fdc1bbc51f111c207e8043ebbcf5eeca4b7984ad4a83be6"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "triumph-of-the-will-1935",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 Die wichtigsten deutschen Filme에 올랐고, 어느 정도 알려져 있다 · 국가 정전: DE. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "0587fad0a6d912c48e46b6025b42753d6f914f13f70e85c9a663cf22bfcc023f"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "trivisa-2016",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 60/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: HK. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "01f64babf53f3a598b6cc768e03eb89a7346d3527d1d2f1f68cfa499a24741fe"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "trojan-eddie-1996",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tron-1982",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전 기록은 뚜렷하지 않지만 널리 알려진 작품 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
-  "model": "claude-opus-5",
-  "source_sha256": "24d8fc19b7df05145d1b3212583d5ce20d0d2f4863d35c04aa705e648cc58259"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tropic-thunder-2008",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전 기록은 뚜렷하지 않지만 일반 관객에게는 대단히 유명한 작품 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
-  "model": "claude-opus-5",
-  "source_sha256": "f1674e75aa89563af30dc883feb3180312dc6e0152f5b6b816597b92f649074d"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tropical-malady-2004",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "Sight & Sound 비평가 투표와 Sight & Sound 감독 투표에 오른 정전의 핵심이지만 일반 관객에게는 거의 알려지지 않은 작품 · 국가 정전: TH · 사조: Slow Cinema · 감독 Apichatpong Weerasethakul의 작가 계보 안에서 다시 값이 매겨진다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "8dfebc0a18e5ebd522b66e91cea35371556523ee001eda81fc45ebb43e1d0dc3"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "trotta-1971",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "trouble-every-day-2001",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films에 이름을 올렸으나 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: FR · 감독 클레르 드니의 작가 계보를 통해 다시 평가된다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "db98ce1b9d2059ae63d7ae8672a3ac4912332cf7e0a653a5ae087942c755c854"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "trouble-in-paradise-1932",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. TSPDT's 1,000 Greatest Films와 1001 Movies to See Before You Die에 이름을 올렸고, 어느 정도 알려져 있다 · 국가 정전: US · 감독 에른스트 루비치의 작가 계보로 다시 매겨진 값. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "db47616788e43b9eb2f2176ea34d28dd3487fd9552e217e5ebdf1802d5c0486c"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "trout-1978",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "Golden Bear가 인정한 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: ES. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "78f0c8bb16cf1c45a01983702352a674a38e221c2cd59846e2e1276e120d9029"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "true-friends-1954",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "true-grit-1969",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "Best Actor를 받은 영화이며, 널리 알려진 작품 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
-  "model": "claude-opus-5",
-  "source_sha256": "de424ed5b2699b4434af566498be5589ef4772a1809685c94cdb3286e35bad56"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "true-grit-2010",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래 남을 값으로 높게 본 영화(Value 69/100), 대중적으로도 널리 알려진 작품. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
-  "model": "claude-opus-5",
-  "source_sha256": "f20b7db84714c4de004f7e4e30f0dba252f73b7502cce6f83eb00355eb947e50"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "true-heart-susie-1919",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films에 이름을 올렸으나 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: US. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "de9f54a89794a5a5cad01398ca99957c507a9c1e8b03153d54d4e4a0e3429ce2"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "true-love-1989",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "truman-2014",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tsatsiki-1999",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tsotsi-2005",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tucker-and-dale-vs-evil-2010",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전 기록은 뚜렷하지 않지만 널리 알려진 작품 · 국가 정전: CA. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
-  "model": "claude-opus-5",
-  "source_sha256": "49ccd92b7226e0aa49874eaa59e8ded01ddbc5f2e5beb659b900722965d92a29"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tucker-the-man-and-his-dream-1988",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "National Board of Review Top Ten Films가 인정한 작품. 어느 정도 알려져 있다 · 국가 정전: US · 감독 프랜시스 포드 코폴라의 작가 계보로 다시 매겨진 값. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "43a9de9d9efea0cfb27112580bc00c984feb08902f095e8bca0c883f62e4b31f"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tulips-shall-grow-1942",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 67/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "8c901c5f8b3f5822eae07e4729e88934f590a6983d88f8f7eb191b9110d26144"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tumbbad-2018",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 값어치를 높게 매긴 영화이며(Value 68/100), 널리 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: IN. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
-  "model": "claude-opus-5",
-  "source_sha256": "818bc405ff00c514c9193855fa761d6e97de4d4ad74025423b7f08021e4877ff"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tunes-of-glory-1960",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 67/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: GB. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "7068218791fec3f107c1e68ae098563f17b62068ef2d6fab02ed5bbc89909749"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "turkish-delight-1973",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "감독 Paul Verhoeven의 정전에 오른 작업이 떠받치는 작품. 어느 정도 알려져 있다 · 국가 정전: NL. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "c7abcf5934f56973ca82a1e1b1ddc9f06e8f4cbc3fd9a570fa017be522c0ccab"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "turtles-can-fly-2004",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래 남을 가치를 높게 본 영화(Value 79/100), 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: IR · 사조: 이란 뉴웨이브. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "1cab26f17337ea28f0117c466473c7feb1228c35589f4c9b8fbf16c3082474c4"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "tuya-s-marriage-2006",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "Golden Bear가 인정한 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: CN. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "95c01382f54269f10cb98e8390a5acc13b917f08b2ee95943d33038fef69989a"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "twelve-monkeys-1995",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래 남을 가치를 높게 본 영화(Value 64/100), 일반 관객에게도 대단히 유명하다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
-  "model": "claude-opus-5",
-  "source_sha256": "9bd95df48f7422b42a98a26fa463e3fba77d82e2998de416f0d06d674e412afb"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "twelve-o-clock-high-1950",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 60/100). 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "e039e4beb20e1d5682eac6b7a710d26832a4f0388be286db0297d13947b9143b"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "twentieth-century-1934",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "National Film Registry에 오른 작품, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: US · 감독 하워드 혹스의 작가 계보를 통해 값이 다시 매겨진다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "5c5d49540ea74bdfab3c8bebb516c634e3078665f82f7cacac017a2b323151c7"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "twenty-four-eyes-1954",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 75/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: JP. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "2a84878960e8f7e238ede41e84a947621708dad46ab4cc44c93ada4c6a17f173"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "twenty-six-days-in-the-life-of-dostoevsky-1981",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "twenty-years-later-1984",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TSPDT's 1,000 Greatest Films와 Abraccine: 100 melhores filmes brasileiros에 오른 정전의 핵심, 대중에게는 거의 알려지지 않은 작품 · 국가 정전: BR. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "a8bd1597300eed692677f0b63064a48a204391a0e804422a40f3f35765b97315"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "twilight-2008",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전 기록은 뚜렷하지 않지만 일반 관객에게는 대단히 유명한 작품 · 국가 정전: GB. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
-  "model": "claude-opus-5",
-  "source_sha256": "63c39017cee5b103f159eedcdd2565a37510dcccd80e93d395ed9a5d01ff525f"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "twilight-of-the-warriors-walled-in-2024",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "twin-peaks-fire-walk-with-me-1992",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films에 오른 데다 널리 알려져 있다 · 국가 정전: US · 감독 데이비드 린치의 작가 계보로 다시 매겨진 값. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "89f56ff13e1a9bcfb5047cf2370704880ec53adb6181226018c63fa687b8a285"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "twisted-obsession-1988",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "two-arabian-knights-1927",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "two-brothers-my-sister-1994",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "two-cents-worth-of-hope-1952",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "칸 황금종려상과 베를린 황금곰상이 알아본 작품, 일반 관객에게는 낯설다 · 국가 정전: IT. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "f6f70cd7eb46705bf9b938b5f4d3b617749a111702854415b434d14b39bb801d"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "two-cops-1993",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "two-days-one-night-2014",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 값어치로 높이 평가한 영화(Value 75/100), 널리 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: BE. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
-  "model": "claude-opus-5",
-  "source_sha256": "e08d18418687e3d840d1c9359e3a8be85548c350679327ac6bbb663d792b1921"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "two-doors-2011",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "two-english-girls-1971",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films에 이름을 올렸으나 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: FR · 감독 프랑수아 트뤼포의 작가 계보로 다시 값을 매긴다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "a4edfa22126df14530c75080c56a7e46f5bc7a9d84e6b095eaa4cab91e5e368b"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "two-for-the-road-1967",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 60/100). 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: GB. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "c8a538019a4762f2e3f58567d8bc0cd8400883f9b61513747fda6ac4d2509a2f"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "two-hands-1999",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "two-lane-blacktop-1971",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 National Film Registry에 올랐고 어느 정도 알려져 있다 · 국가 정전: US. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "5c149855921659d9f39e273e08b79c689f9b7bae16a10e3732edcfd480a8e069"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "two-lovers-2008",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "감독 제임스 그레이의 정전에 든 작업이 떠받치는, 어느 정도 알려진 작품 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "2a116f44a3003041ecb8c17bb5db577186848bc6cef44da7e1c12dc565ab7112"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "two-monks-1934",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래 남을 값어치를 높게 매긴 영화(Value 72/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: MX. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "f5402bde0ed86695cfbc5ef2d15194964e4ea35239255fa41d6efc420d071ca1"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "two-seasons-two-strangers-2025",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "two-seconds-1932",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "two-stage-sisters-1964",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 68/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: CN. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "7c33d74870766054dd970cb559c1965023964efbba89cea35d3027dbb2a51cf0"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "two-streams-1999",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "two-times-lotte-1950",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "two-women-1961",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래 남을 가치를 높게 본 영화(Value 75/100), 어느 정도 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "da0c0168db71b9e0b93884e13d28988275e088169f096844aba82bb2d0a94af1"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "two-years-at-sea-2011",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 61/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: GB. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "0ab07e7a389fa127c26537dbe86d25820c0f54a8b5a43fc55dd85d1d10e6d6c3"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "typhoon-club-1985",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 69/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: JP. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "9c39f259942a1f7ced0a6e13d65217402e33d57df9796fee3068eba95e1c954b"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "u-carmen-ekhayelitsha-2005",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "Golden Bear로 인정받았으나, 일반 관객에게는 거의 알려지지 않은 작품. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "290bfb96ac5b3a088fff6ae71eed9a11633b3f5f0a2cb8fdcb845ae4e645c1bf"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "ugetsu-1953",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "Sight & Sound 비평가 투표와 TSPDT's 1,000 Greatest Films에 오른 정전의 핵심, 어느 정도 알려진 작품 · 국가 정전: JP · 사조: Japanese Golden Age · 감독 미조구치 겐지의 작가 계보로 다시 값을 매긴다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "e08baad1bfc7b94b54f3dad4ca033fa926fb95902ce2698fc366b2c0de0d32c9"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "uksuum-cauyai-the-drums-of-winter-1988",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 69/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "5439ef07c9cc95e2d9eb75870feb405060d07636b0bf44966f53ab549d8842a0"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "ultra-1991",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 60/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: IT. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "811aefbf8115d9172b25240fd00604ec34db20e52f4c7eb7112df5041a56e895"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "ulysses-1967",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "ulysses-gaze-1995",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "Grand Prix와 TIME All-Time 100이 알아본 작품, 일반 관객에게는 낯설다 · 국가 정전: GR · 감독 Theo Angelopoulos의 작가 계보 안에서 다시 값이 매겨진다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "6daff14475253c37b834a3b647c0cde9b65ee912b070cbe0274337171ff9dc2e"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "umberto-d-1952",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TSPDT's 1,000 Greatest Films와 100 film italiani da salvare에 오른 정전의 핵심, 어느 정도 알려진 작품 · 국가 정전: IT. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "f6bd005ac1229f71347dfc8fa60a457902c40850e52ac1bb2c97e96945894479"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "umbracle-1972",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "un-chien-andalou-1929",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. TSPDT 1,000 Greatest Films와 Caimán 스페인 영화 100선에 올랐고, 널리 알려져 있다 · 국가 정전: FR · 감독 루이스 부뉴엘의 작가 계보로 다시 값을 매긴다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "616dfbe5bd27c8213bcb1c3aaa5bc652e5ead3c7f4821568911df159b8afac59"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "unbowed-2011",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "unbreakable-2000",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래 남을 가치로 높이 평가한 영화(Value 62/100), 일반 관객에게도 대단히 유명하다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
-  "model": "claude-opus-5",
-  "source_sha256": "af98960e41bfd5741da62b9f0525e96c926d46f039d9bff8677273cb30564310"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "unbroken-2014",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "National Board of Review Top Ten Films에 오른 영화이며 널리 알려져 있다 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
-  "model": "claude-opus-5",
-  "source_sha256": "f566f7fe0556fa147211f20be4032287a1350d1a3667a7f7dde5f07d7b2fa0e4"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "uncle-boonmee-who-can-recall-his-past-lives-2010",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. 황금종려상과 TSPDT 1,000 Greatest Films에 올랐고, 어느 정도 알려져 있다 · 국가 정전: TH · 사조: Slow Cinema · 감독 Apichatpong Weerasethakul의 작가 계보 안에서 다시 값이 매겨진다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "84d2d48905ecad5e0cd19105243c299173c73afd7b02daa3fa35805a1aacf6b6"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "uncle-hyacynth-1956",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "uncle-tom-s-cabin-1914",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "uncut-gems-2019",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "뉴욕타임스 21세기 최고작에 이름을 올린 작품, 일반 관객에게도 대단히 유명하다 · 국가 정전: US. 출발점으로 좋다. 정전에 들면서도 다가가기 쉽다.",
-  "model": "claude-opus-5",
-  "source_sha256": "c41b60a2ca3aa892757b304359a68fed3dd1917930a20a1f48a729a7a41ff6c3"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "under-california-the-limit-of-time-1998",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "under-the-bridges-1944",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 60/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: DE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "39d8549c0d72b8af73d335faef5d8e1d34577320971b4bb445ddf7c81f581e73"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "under-the-sand-2001",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "감독 프랑수아 오종의 정전화된 작품 세계가 떠받치는 작품, 어느 정도 알려져 있다 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "df239f8617c395dd084ac9539d9506c1fbb9447570c58ce9c4d195d10e217c99"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "under-the-shrapnel-1982",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "under-the-skin-2013",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. TSPDT 위대한 영화 1,000편과 BBC 선정 21세기 위대한 영화 100편에 올랐고, 널리 알려져 있다 · 국가 정전: GB · 감독 Jonathan Glazer의 작가 계보로 다시 값을 매긴다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "3ba9f7a3b13f52e5ab4e058b5b0cb8ff50bebc27d8165420e47f104c3da9ba09"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "under-the-sun-of-satan-1987",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "Palme d'Or에 오른 작품, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: FR. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "7559a939c930f2dfeab5b3f2ac47878dc918c20e0ec9f8a12406f48dcfae522f"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "under-the-volcano-1984",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "National Board of Review Top Ten Films가 인정한 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: US · 감독 존 휴스턴의 작가 계보를 통해 값이 다시 매겨진다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "0d6fbca4e8f30012f9842a5d3ecc986697b99b98241c0d4212a891a78950c028"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "under-western-stars-1938",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "underground-1995",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. 칸 황금종려상과 TSPDT 1,000 Greatest Films에 올랐고, 널리 알려져 있다. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "646585e9a96bffa087ecca3cffd40eb7293f246b899ae048b7fca47f7f6badaf"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "undine-2020",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "Silver Bear for Best Leading Performance가 인정한 작품, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: FR · 사조: 베를린 학파 · 감독 Christian Petzold의 작가 계보 안에서 다시 값이 매겨진다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "43219e9710326eb900846db911ca0150c0cd53a9b118e4e7ea9094760bc09d3d"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "une-femme-est-une-femme-1961",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "베를린 은곰상 주연연기상이 알아본 작품, 어느 정도 알려져 있다 · 국가 정전: FR · 사조: French New Wave · 감독 장뤽 고다르의 작가 계보를 통해 값이 다시 매겨진다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "cedc853225a91d4d4575b5718e0d4099e52e8754818bae69df55e291beb84906"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "unforgiven-1992",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "정전의 핵심에 놓인 작품. Best Picture Oscar와 TSPDT's 1,000 Greatest Films에 이름을 올렸고, 일반 관객에게도 대단히 유명하다 · 국가 정전: US · 감독 Clint Eastwood의 작가 계보 속에서 값이 다시 매겨진 작품. 스스로를 시네필이라 부른다면 반드시 볼 것.",
-  "model": "claude-opus-5",
-  "source_sha256": "20e303a722b5a06cce1a6f8344e0dca4953a68f996bb56eab5db353b59a4b705"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "union-maids-1976",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 61/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "35f353bca2ee323db66c1558a8a7919f618e3b9e83099d4d350b5ad713e7d531"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "union-pacific-1939",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "Palme d'Or에 오른 작품, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: US. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "b8f03dc12529d2e87a33a6387c97fba9e5a31a222e3dd4b286e32ac2e75adcc7"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "unishe-april-1993",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 71/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: IN. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "537949c58fe8168406d4865810274381681584e1028adde141efcaf20ebb661b"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "united-93-2006",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 값어치를 높게 매긴 영화이며(Value 68/100), 널리 알려져 있다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: FR. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
-  "model": "claude-opus-5",
-  "source_sha256": "c13933c7ed11815b0a82cb1ab04857ecb2079799841f1b10a60ff92fe786c028"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "universal-language-2024",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 69/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: CA. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "13201d16f9e4be0bd05d9b57fc388d7b2ff21f8be328e5c78c6a868e5f5fba1d"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "universe-1960",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 62/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: CA. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "400160ff265406661f448243386a2325a1a1a77310f57855f2dbf7771712709a"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "unknown-pleasures-2002",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "감독 Jia Zhangke의 정전에 오른 작업이 떠받치는 작품이며, 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: CN · 사조: Chinese Sixth Generation. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "98da490582d23abaffce2cbd91a3f5ba243b702b913face0943f9622442fc9ad"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "unrelated-2007",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "The Guardian: 100 Best Films of the 21st Century에 이름을 올렸지만, 일반 관객에게는 거의 알려지지 않은 작품 · 국가 정전: GB. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "615e9dc284c0d10e9591a5dcf9e48297255ad33a801bfd57dd7e5d65638195a3"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "unrest-2022",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "감독 Cyril Schäublin의 정전에 오른 작업이 떠받치는 작품. 일반 관객에게는 거의 알려지지 않았다 · 국가 정전: CH. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "b0a7f79fe7fe411093b7f58c73cc3fa165e08e267e35ea22ce367cb7393f60b1"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "until-the-birds-return-2017",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "감독 카림 무사우이의 정전화된 작업이 떠받치는 작품, 일반 관객에게는 낯설다. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "8f74ffa7270be925d4b5d0f80cc77925d771acefdfea608722f0fc86b69b945c"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "until-the-end-of-the-world-1991",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "감독 빔 벤더스의 정전화된 작업이 떠받치는 작품, 어느 정도 알려져 있다 · 국가 정전: DE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "a11efb23ce95c85aed3991b1bebbaf4579921bc67159c42006e74394eefc0c5c"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "until-we-meet-again-1950",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "up-2009",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "뉴욕타임스 21세기 최고작에 이름을 올린 작품, 일반 관객에게도 대단히 유명하다 · 국가 정전: US · 감독 Pete Docter의 작가 계보를 통해 다시 평가된다. 출발점으로 좋다. 정전에 들면서도 다가가기 쉽다.",
-  "model": "claude-opus-5",
-  "source_sha256": "7cc4626cd540165b79ced361f2cc397399e0a1dbc68388654a180098a7c483a8"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "up-in-smoke-1978",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 누구나 아는 이름에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "936d673d03eee35a38ac55c3384f0b9173b3aed9945f492b4c056f7588d24995"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "up-in-the-air-2009",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "National Board of Review 작품상과 WGA 각색상이 인정한 영화, 대중적으로도 널리 알려진 작품 · 국가 정전: US. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
-  "model": "claude-opus-5",
-  "source_sha256": "8be2d19379d6e2cd12deaac91f61fdae29944e41037943ba13d0348e23a58a91"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "upkar-1967",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "uptown-saturday-night-1974",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "선택 관람(비평 정전에도, 영화제 화제작에도, 널리 본 축에도 들지 않는다).",
-  "model": "claude-opus-5",
-  "source_sha256": "1dd7019e3485b82ce9e9bf6ae1b7629682af0464b336086fb1e544d421dad396"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "us-2019",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래 남을 가치로 높이 평가한 영화(Value 62/100), 일반 관객에게도 대단히 유명하다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: US · 사조: Elevated Horror. 유명하긴 하다. 다만 시네필이 반드시 볼 것은 아니다.",
-  "model": "claude-opus-5",
-  "source_sha256": "3814ae1f6658ef2564fa52c444c1d6795da7bcccaa2fc9b475b021187ed7d97f"
- },
- {
-  "entity_type": "tow_comment",
-  "entity_key": "utz-1992",
-  "field": "rationale",
-  "lang": "ko",
-  "text": "TakeScore가 오래가는 가치를 높이 매긴 영화(Value 60/100). 일반 관객에게는 거의 알려지지 않았다. 목록에 이름을 올려서가 아니라 예술적 성취로 제 자리를 얻는다 · 국가 정전: DE. 숨은 카드. 더 깊이 파고들 준비가 됐다면 값어치를 한다.",
-  "model": "claude-opus-5",
-  "source_sha256": "39d8549c0d72b8af73d335faef5d8e1d34577320971b4bb445ddf7c81f581e73"
  }
 ]

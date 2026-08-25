@@ -467,3 +467,64 @@ Tonight 덱이 한국어 제목 밑에 "Bong Joon Ho"를 찍고 있었다. `dire
 
 🚨**캐시된 `data`를 절대 변형하지 마라.** 영어 페이지와 공유하는 캐시 객체라 한국어가 새어 나가고,
 같은 인스턴스에서 `/ko/film` 다음에 `/film`을 열기 전까지 드러나지 않는다. 새 객체로 투영할 것.
+
+---
+
+## 9. 2026-08-23 감사 — 앱 한국어의 남은 구멍
+
+오너 보고("iOS 콘텐츠 언어를 한국어로 두어도 제목·초대문이 아직 영어인 것이 있다")로 전 표면을 훑었다.
+UI 사전(413키)은 완전하고, 감독 층(초상·intro·이름의 유래·팩트·"어디서 시작") 은 **100% 번역돼 있다.**
+구멍은 두 종류였다 — **배선 2건**과 **데이터 3건**.
+
+### 9.1 배선 (수정함)
+
+| 자리 | 증상 | 원인 | 고친 곳 |
+|---|---|---|---|
+| 영화 화면 "함께 읽히는 영화" | 목록 제목이 항상 영어 | BFF가 `films.title`을 날것으로 실어 보내고 앱은 그대로 그림 | `app/api/v1/app/film/[slug]/route.ts` — kindred에 `locVal(…, "title", content)` |
+| 영화 화면 "The Life — 이름" | 감독 이름만 영어 | 라우트가 `theLife.name = films.director`(영어)를 실음. 바로 위 바이라인은 `useLocalDirectors`로 한국어라 **한 화면에서 같은 사람이 두 언어** | `mobile/app/film/[slug].tsx` — 그 헤더도 `directorOf()` 경유 |
+
+kindred 번역 조회는 **별도의 실패허용 쿼리**로 뒀다. 목록 자체를 싣는 쿼리에 `_<loc>` 컬럼을 얹으면
+컬럼 하나가 없을 때 PostgREST가 **행 전체를 버려** 번역이 아니라 선반 전체를 잃는다(포스터가 이미 같은 이유로 분리돼 있다).
+
+### 9.2 데이터 — `film_leads`가 파이프라인에 등록된 적이 없다
+
+**초대문 6,960편 중 5,062편(73%)이 영어였다.**
+
+| 출처 | 영어 | 한국어 | 빠진 것 |
+|---|---|---|---|
+| takes(is_invitation) | 1,958 | 1,898 | 60 |
+| **film_leads(마이그 0140, Tier-2)** | **5,002** | **0** | **5,002** |
+| tow_comment | 7,263 | 6,837 | 426 |
+
+🚨**원인이 중요하다.** `film_leads` 5,002편은 8월 앱-패리티 레인이 **한국어 런이 끝난 뒤** 쓴 산문이다.
+`worker/i18n-extract.py`의 `CORPORA`에 등록된 적이 없으므로 **번역기에 제시된 적이 아예 없다.**
+원장에는 "invitation 완료"로 남아 있고, 화면은 영어 폴백이라 **멀쩡하게 렌더된다** — [[content-i18n-key-shapes]]와
+같은 실패 양식이다. **새 산문 레인을 만들면 `CORPORA` 등록이 마지막 단계다. 등록 안 하면 조용히 영원히 영어다.**
+
+**추가한 코퍼스 2개** (둘 다 앱이 이미 읽는 같은 키 `invitation|<film-slug>|rationale`에 쓴다):
+- `leads` — `film_leads` 5,002
+- `invitation_new` — ko 행이 없는 take 초대문 60 (`repolish_invitation`은 content_i18n에서 **출발**하므로 이들을 볼 수 없다)
+
+가드는 "행 없음"이 아니라 **`source_sha256` 불일치**다. 미번역분과 **원문이 다시 쓰인 분**을 함께 잡는다 —
+Tier-2 영화가 승격돼 진짜 take를 얻으면 옛 lead의 한국어가 같은 키에 남아 있게 되는데, 해시가 그때 어긋난다.
+
+### 9.3 실행 순서 (오너)
+
+```
+# ① 제목 861편 — TMDB에 한국어 제목이 있는데 안 물어본 것 (드라이런 실측: 875편 중 861편)
+! python3 worker/tmdb-i18n-backfill.py --locale ko --missing --persist
+
+# ② to.W 426편 — 번역 비용 0. 세그먼트 1,507개가 그대로라 재조립만 하면 된다 (이미 조립해 뒀다)
+! zsh scripts/i18n-load-all.sh --gentle      # tow_assembled 7,263행이 들어간다
+
+# ③ 초대문 5,062편 — 유일하게 LLM이 필요한 단계. 밤샘 런. 정액제 CLI(현금 0원)
+nohup node scripts/i18n-translate-run.mjs --corpus invitation_new --chunk 6 --concurrency 4 &
+nohup node scripts/i18n-translate-run.mjs --corpus leads --chunk 6 --concurrency 4 &
+node scripts/i18n-completeness.mjs          # 🚨원장 말고 디스크의 실제 키를 세라
+! zsh scripts/i18n-load-all.sh --gentle
+```
+
+**②는 ③을 기다릴 필요가 없다.** 적재는 PK upsert라 멱등이고, 나중 코퍼스가 번역 중이어도 안전하다.
+
+**제목의 남은 1,949편은 고칠 것이 아니다.** TMDB에 물어봤고 한국어 제목이 없다(미개봉이거나 개봉명이
+영어 그대로). `title_ko`를 NULL로 두고 영어로 떨어지는 것이 설계대로의 정답이다.

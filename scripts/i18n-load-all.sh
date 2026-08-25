@@ -29,6 +29,8 @@ CORPORA=(
   dfacts_meaning
   portrait
   repolish_invitation
+  leads
+  invitation_new
 )
 
 for c in $CORPORA; do
