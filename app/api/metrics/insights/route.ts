@@ -9,6 +9,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAdminUser } from "@/lib/admin";
 import { createAdminClient } from "@/lib/supabase/admin";
+import * as Sentry from "@sentry/nextjs";
 import { runHandshakes } from "@/lib/bots/handshake";
 
 export const runtime = "nodejs";
@@ -46,12 +47,29 @@ export async function GET(req: NextRequest) {
   // Same cadence, same guard: run the autonomous bot detector. It flags stealth
   // scrapers, auto-blocks them (middleware enforces bot_blocks), and lets 24h-
   // quiet blocks expire. Isolated so a failure never affects the insight feed.
+  //
+  // ⚠️ The catch below is not the safety net it looks like. A Supabase RPC
+  // reports a SQL fault in `error`; it does not throw. Dropping `error` — as this
+  // call did — means a detector that raises on every run reports botBlocks: 0 and
+  // looks like a quiet week. That is exactly how the harvest guard stayed dead for
+  // 24 days (see the docblock in lib/apiGuard.ts). Read `error`, say so out loud.
   let botBlocks = 0;
+  let botDetectError: string | null = null;
   try {
-    const { data: bb } = await supabase.rpc("mt_detect_bots");
-    botBlocks = bb ?? 0;
-  } catch {
-    /* best-effort */
+    const { data: bb, error: bbErr } = await supabase.rpc("mt_detect_bots");
+    if (bbErr) {
+      botDetectError = bbErr.message;
+      Sentry.captureException(new Error(`mt_detect_bots failed: ${bbErr.message}`), {
+        level: "error",
+        tags: { subsystem: "bot-sentinel" },
+        extra: { hint: "auto bot detection is OFF until fixed — no new prefixes will be blocked" },
+      });
+    } else {
+      botBlocks = bb ?? 0;
+    }
+  } catch (e) {
+    botDetectError = e instanceof Error ? e.message : "unknown throw";
+    Sentry.captureException(e, { level: "error", tags: { subsystem: "bot-sentinel" } });
   }
 
   // Same cadence again: the layer-1 uncovered-intent detector (0079,
@@ -94,6 +112,7 @@ export async function GET(req: NextRequest) {
   return NextResponse.json({
     inserted: inserted ?? 0,
     bot_blocks: botBlocks,
+    bot_detect_error: botDetectError,
     intent_new: intentNew,
     handshakes,
     error: error?.message ?? null,
