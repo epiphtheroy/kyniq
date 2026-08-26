@@ -395,7 +395,22 @@ export async function POST(req: Request) {
         // is exempt from BLOCKING — their aggregate traffic is many users behind
         // few /24s — but still ledgered. The shared helper reports a malfunction
         // to Sentry; the inline copy this replaces swallowed one for 24 days.
-        const blocked = await harvestBlocked(db, prefix, trusted);
+        // Four of the six tools hand over a film body; those feed the corpus
+        // meter (0147). `search` and `search_films` do not — they return titles
+        // and slugs, which sitemaps/films.xml already publishes in full, so
+        // metering them would meter something we give away for free. `fetch`
+        // takes the slug under the name `id` (it is the document id).
+        const CORPUS_TOOLS: Record<string, "slug" | "id"> = {
+          get_film_criticism: "slug",
+          get_takescore: "slug",
+          find_connected_films: "slug",
+          fetch: "id",
+        };
+        const corpusKey = CORPUS_TOOLS[name];
+        const corpusSlug =
+          corpusKey && typeof args[corpusKey] === "string" ? (args[corpusKey] as string).trim().slice(0, 200) : null;
+
+        const blocked = await harvestBlocked(db, prefix, trusted, corpusSlug || null);
         if (blocked) {
           // Ledger the blocked call too (0093) — otherwise 429'd tool calls leave no
           // trace. Tool name/args are already parsed above, so record the real tool.

@@ -38,6 +38,13 @@
 -- non-fleet /8 scored 2 (and one of those two was the owner's own ISP, which the
 -- allowlist now protects outright).
 --
+-- ⚠️ Every upsert below also refreshes `reason`. 0078 refreshed `evidence` but not
+-- `reason`, so a prefix re-caught by a different detector kept the first
+-- detector's sentence forever — the row said "8 one-shot deep hits" while its
+-- evidence said {detector: sweep}. Nothing reads `reason` (enforcement goes
+-- through bot_blocklist_json, which only serves prefixes), but a ledger that
+-- contradicts itself is the thing you least want to meet while diagnosing.
+--
 -- 🚨 BLAST RADIUS IS UNCHANGED. We never write a /8 or a /16 into bot_blocks. The
 -- rollup only decides WHETHER to block; what gets blocked is the individual /24s
 -- that took part, on the same 24h TTL and the same strike ladder as before.
@@ -109,6 +116,7 @@ begin
            hits       = excluded.hits,
            strikes    = bot_blocks.strikes + 1,
            evidence   = excluded.evidence,
+           reason     = excluded.reason,
            expires_at = now() + (case
              when bot_blocks.strikes + 1 >= 4 then interval '30 days'
              when bot_blocks.strikes + 1 = 3 then interval '7 days'
@@ -149,6 +157,7 @@ begin
        set last_seen  = now(),
            active     = true,
            strikes    = bot_blocks.strikes + 1,
+           reason     = excluded.reason,
            expires_at = now() + (case
              when bot_blocks.strikes + 1 >= 4 then interval '30 days'
              when bot_blocks.strikes + 1 = 3 then interval '7 days'
@@ -242,6 +251,7 @@ begin
            hits       = excluded.hits,
            strikes    = bot_blocks.strikes + 1,
            evidence   = excluded.evidence,
+           reason     = excluded.reason,
            expires_at = now() + (case
              when bot_blocks.strikes + 1 >= 4 then interval '30 days'
              when bot_blocks.strikes + 1 = 3 then interval '7 days'
