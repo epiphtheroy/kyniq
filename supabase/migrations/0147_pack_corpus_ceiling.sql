@@ -202,16 +202,17 @@ begin
        set last_seen  = now(),
            active     = true,
            hits       = excluded.hits,
-           strikes    = bot_blocks.strikes + 1,
+           strikes    = bot_blocks.strikes + bot_strike_inc(bot_blocks.last_seen),
            evidence   = excluded.evidence,
            reason     = excluded.reason,
+           -- Same daily strike rule as mt_detect_bots (helpers defined in 0146).
+           -- It matters more here: this function runs per REQUEST, not per cron
+           -- tick, so the old `+ 1` handed a prefix four strikes in four calls —
+           -- and greatest() means the resulting thirty days could never come back
+           -- down. Seconds of traffic bought a month of blocking.
            expires_at = greatest(
              bot_blocks.expires_at,
-             now() + (case
-               when bot_blocks.strikes + 1 >= 4 then interval '30 days'
-               when bot_blocks.strikes + 1 = 3 then interval '7 days'
-               when bot_blocks.strikes + 1 = 2 then interval '3 days'
-               else interval '24 hours' end),
+             now() + bot_block_ttl(bot_blocks.strikes + bot_strike_inc(bot_blocks.last_seen)),
              now() + v_ttl);
 
     insert into mt_insights (kind, key, line, data)

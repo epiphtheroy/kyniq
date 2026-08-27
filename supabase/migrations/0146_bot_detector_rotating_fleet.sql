@@ -49,6 +49,59 @@
 -- rollup only decides WHETHER to block; what gets blocked is the individual /24s
 -- that took part, on the same 24h TTL and the same strike ladder as before.
 
+-- ── The strike ladder, made to mean what it says ────────────────────────────
+--
+-- 0078 wrote the ladder inline in every upsert and incremented `strikes` on every
+-- firing. But the detector fires on a 30-minute cron, so a strike counted ticks of
+-- the clock, not offences: run 1 → 24h, run 2 → 3d, run 3 → 7d, run 4 → 30 days.
+-- Two hours from first sighting to the maximum sentence, for everyone. Measured
+-- 2026-08-27, 116.179.33.0/24 stood at 300 strikes and 205.188.184.0/24 reached 41
+-- in eleven hours. A number that only tells you how long the cron has been running
+-- is not evidence of anything.
+--
+-- 🔑 THE TIER REACHED IN THOSE TWO HOURS IS THE ACTUAL SENTENCE, not a floor.
+-- A blocked prefix gets 403, so it never runs our JS, so it never reaches
+-- mt_visitor_ip, so the detector never sees it again and never re-dates the block.
+-- (116.179.33.0/24 keeps climbing only because the middleware's fail-open lets a
+-- trickle past on cold isolates.)
+--
+-- Which makes the asymmetry stark. A true positive costs us a crawler returning a
+-- day earlier and being re-blocked within thirty minutes. A false positive costs a
+-- real network thirty days of sitewide 403 — and costs it SILENTLY, because the
+-- party best placed to tell us is the one party that cannot reach the site. That
+-- is the shape of the 2026-07-20 incident, where the owner's own phone looked like
+-- an app bug for as long as nobody thought to read bot_blocks.
+--
+-- So: one strike per calendar day, Seoul time. Four separate days to earn thirty
+-- days. Strikes never decay — a prefix that returns monthly still escalates — and
+-- expires_at is still re-dated on every firing, so an active offender stays blocked
+-- for as long as it keeps being caught plus its current tier.
+create or replace function public.bot_block_ttl(p_strikes integer)
+returns interval language sql immutable as $$
+  select case
+    when p_strikes >= 4 then interval '30 days'
+    when p_strikes  = 3 then interval '7 days'
+    when p_strikes  = 2 then interval '3 days'
+    else interval '24 hours' end;
+$$;
+
+-- STABLE, not IMMUTABLE: it reads now(). Called from an ON CONFLICT DO UPDATE SET,
+-- where every bot_blocks.* reference is the pre-update row, so it sees the previous
+-- last_seen even though the same SET clause is overwriting it.
+create or replace function public.bot_strike_inc(p_last_seen timestamptz)
+returns integer language sql stable as $$
+  select case
+    when p_last_seen is null then 1
+    when (p_last_seen at time zone 'Asia/Seoul')::date
+       < (now()       at time zone 'Asia/Seoul')::date then 1
+    else 0 end;
+$$;
+
+revoke execute on function public.bot_block_ttl(integer)      from public, anon, authenticated;
+revoke execute on function public.bot_strike_inc(timestamptz) from public, anon, authenticated;
+grant  execute on function public.bot_block_ttl(integer)      to service_role;
+grant  execute on function public.bot_strike_inc(timestamptz) to service_role;
+
 create or replace function public.mt_detect_bots()
 returns integer
 language plpgsql
@@ -114,14 +167,11 @@ begin
        set last_seen  = now(),
            active     = true,
            hits       = excluded.hits,
-           strikes    = bot_blocks.strikes + 1,
+           strikes    = bot_blocks.strikes + bot_strike_inc(bot_blocks.last_seen),
            evidence   = excluded.evidence,
            reason     = excluded.reason,
-           expires_at = now() + (case
-             when bot_blocks.strikes + 1 >= 4 then interval '30 days'
-             when bot_blocks.strikes + 1 = 3 then interval '7 days'
-             when bot_blocks.strikes + 1 = 2 then interval '3 days'
-             else interval '24 hours' end)
+           expires_at = now() + bot_block_ttl(
+             bot_blocks.strikes + bot_strike_inc(bot_blocks.last_seen))
     returning value, (xmax = 0) as is_new
   )
   insert into mt_insights (kind, key, line, data)
@@ -163,14 +213,11 @@ begin
     on conflict (kind, value) do update
        set last_seen  = now(),
            active     = true,
-           strikes    = bot_blocks.strikes + 1,
+           strikes    = bot_blocks.strikes + bot_strike_inc(bot_blocks.last_seen),
            reason     = excluded.reason,
            evidence   = excluded.evidence,
-           expires_at = now() + (case
-             when bot_blocks.strikes + 1 >= 4 then interval '30 days'
-             when bot_blocks.strikes + 1 = 3 then interval '7 days'
-             when bot_blocks.strikes + 1 = 2 then interval '3 days'
-             else interval '24 hours' end)
+           expires_at = now() + bot_block_ttl(
+             bot_blocks.strikes + bot_strike_inc(bot_blocks.last_seen))
     returning value, (xmax = 0) as is_new
   )
   insert into mt_insights (kind, key, line, data)
@@ -257,14 +304,11 @@ begin
        set last_seen  = now(),
            active     = true,
            hits       = excluded.hits,
-           strikes    = bot_blocks.strikes + 1,
+           strikes    = bot_blocks.strikes + bot_strike_inc(bot_blocks.last_seen),
            evidence   = excluded.evidence,
            reason     = excluded.reason,
-           expires_at = now() + (case
-             when bot_blocks.strikes + 1 >= 4 then interval '30 days'
-             when bot_blocks.strikes + 1 = 3 then interval '7 days'
-             when bot_blocks.strikes + 1 = 2 then interval '3 days'
-             else interval '24 hours' end)
+           expires_at = now() + bot_block_ttl(
+             bot_blocks.strikes + bot_strike_inc(bot_blocks.last_seen))
     returning value, (xmax = 0) as is_new
   )
   insert into mt_insights (kind, key, line, data)
