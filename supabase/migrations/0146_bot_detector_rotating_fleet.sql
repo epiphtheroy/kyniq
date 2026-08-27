@@ -153,11 +153,19 @@ begin
            jsonb_build_object('detector', 'fingerprint'),
            'auto', now() + interval '24 hours', 3
     from contrib c
+    -- `evidence` is refreshed here too, and `hits` deliberately is not. This
+    -- branch has no hit count of its own — it inserts the constant 3 — so
+    -- carrying that into an update would overwrite a real figure from detector A
+    -- or C with a placeholder. Caught 2026-08-27 on 205.188.184.0/24, which read
+    -- reason="fingerprint-cluster scraper" beside evidence={detector: sweep}:
+    -- the mirror image of the stale-reason bug this same migration fixes, and
+    -- proof that whichever of the two fields you forget, the row ends up lying.
     on conflict (kind, value) do update
        set last_seen  = now(),
            active     = true,
            strikes    = bot_blocks.strikes + 1,
            reason     = excluded.reason,
+           evidence   = excluded.evidence,
            expires_at = now() + (case
              when bot_blocks.strikes + 1 >= 4 then interval '30 days'
              when bot_blocks.strikes + 1 = 3 then interval '7 days'
