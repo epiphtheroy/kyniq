@@ -559,9 +559,15 @@ export const KO: Record<string, string> = {
   "Formal radicalism": "형식적 급진성",
   "Extratextual": "텍스트 외적",
   "Auteur oeuvre": "작가 전작",
+  // Same dimension as "Hollowness" below (registry key `bank`); CinecodexPanel
+  // keeps "Bankruptcy" as its historical label. The identical Korean is correct.
   "Bankruptcy": "공허함",
   "Insincerity": "불성실",
-  "Cowardice": "비겁",
+  // NOT "비겁". The registry defines this dimension as "Which films pander —
+  // commercial compromise, emotional exploitation?", scaling to "cynical,
+  // manipulative, soulless" (lib/cinecodex_dims.ts, key `coward`). That is
+  // pandering, not timidity; "비겁" read as a moral slur about the filmmakers.
+  "Cowardice": "영합",
   "Polarization": "양극화",
   "Hollowness": "공허함",
   "Faint traces": "희미한 흔적",
@@ -612,18 +618,18 @@ export const KO: Record<string, string> = {
   "{title} sits at mid value, mid risk — approach with care.": "{title}은(는) 중간 가치, 중간 위험 — 신중히 접근.",
   "how it works →": "작동 방식 →",
   "{title}’s strongest value is": "{title}의 가장 강한 가치는",
-  "its sharpest risk is": "가장 날카로운 위험은",
+  "its sharpest risk is": "가장 큰 위험은",
   "What TakeScore measures": "TakeScore가 측정하는 것",
-  "Our own estimate of the": "우리 자체의 추정:",
+  // One sentence, one key. These were seven fragments concatenated in English
+  // order, which Korean (SOV) cannot follow — see slot() in CinecodexPanel.
+  "Our own estimate of the {value} a serious viewer gains from {title}, the {cost} to unlock it, and the {risk} it disappoints — not popularity.":
+    "진지한 관람자가 {title}에서 얻는 {value}, 그것을 여는 데 드는 {cost}, 그리고 실망하게 될 {risk}에 대한 우리 자체의 추정입니다 — 인기가 아닙니다.",
+  "Scored on the thirteen {dimensions} against a fixed anchor ruler.":
+    "고정된 기준자에 맞춰 {dimensions} 13개로 채점합니다.",
   "durable value": "지속가치",
-  "a serious viewer gains from {title}, the": "진지한 관람자가 {title}에서 얻는,",
   "cost": "비용",
-  "to unlock it, and the": "그것을 여는, 그리고 그것이 실망시킬",
   "risk": "위험",
-  "it disappoints — not popularity.": "— 인기가 아님.",
-  "Scored on the thirteen": "고정 기준자에 맞춰 다음 13개",
   "TakeScore dimensions": "TakeScore 차원",
-  "against a fixed anchor ruler.": "으로 채점.",
   "How {title} scores": "{title}의 점수",
   "Value − Risk": "가치 − 위험",
   "Efficiency (value per risk)": "효율 (위험 대비 가치)",
