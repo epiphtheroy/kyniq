@@ -112,6 +112,11 @@ function RootLayoutNav() {
               }}
             >
               <Stack.Screen name="(tabs)" options={{ headerShown: false, animation: "fade" }} />
+              {/* OAuth returns. Chromeless and animation-free: on Android these
+                  are a real navigation the user did not ask for, and they last
+                  as long as a code exchange. */}
+              <Stack.Screen name="auth-callback" options={{ headerShown: false, animation: "none" }} />
+              <Stack.Screen name="connect-callback" options={{ headerShown: false, animation: "none" }} />
               <Stack.Screen name="navigator/drive" options={{ headerShown: false }} />
               <Stack.Screen name="film/[slug]" options={{ title: "" }} />
               <Stack.Screen name="director/[slug]" options={{ title: "" }} />
