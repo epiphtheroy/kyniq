@@ -156,19 +156,22 @@ export default async function MetricsPage({
   await refreshInsightsIfStale(supabase);
   const args = { p_from: from.toISOString(), p_to: to.toISOString(), p_tz: "Asia/Seoul", p_bucket: bucket };
 
-  const [ovRes, liveRes, pageRes, insightsRes, gscRes, aiRes, wrRes, rvRes, appRes] = await Promise.all([
+  const [ovRes, liveRes, pageRes, insightsRes, gscRes, aiRes, wrRes, rvRes, appRes, waRes] = await Promise.all([
     supabase.rpc("mt_overview_json", args),
     supabase.rpc("mt_live_json"),
     drillPath ? supabase.rpc("mt_page_json", { p_path: drillPath, ...args }) : Promise.resolve({ data: null, error: null }),
     supabase.from("mt_insights").select("ts, kind, line").neq("kind", "_run").order("ts", { ascending: false }).limit(24),
     supabase.rpc("mt_gsc_overview_json", { p_days: 28 }),
     supabase.rpc("mt_ai_referrals_json", { p_from: from.toISOString(), p_to: to.toISOString() }),
-    // North star (전환마스터 §8): fails soft until migration 0111 is applied.
+    // North star (전환마스터 §8). 0149 rewrote this to apply the 0120 bot
+    // classifier — until then the headline number counted machines.
     supabase.rpc("mt_weekly_return_json", { p_weeks: 8 }),
     // Real visitors (0120): every other count on this page includes bots.
     supabase.rpc("mt_real_visitors_json", { p_days: 14 }),
     // Mobile app (0144): fails soft until the migration is applied.
     supabase.rpc("mt_app_activity_json", { p_days: 14 }),
+    // The bot-proof floor (0149): authenticated users who actually wrote something.
+    supabase.rpc("mt_weekly_auth_active_json", { p_weeks: 8 }),
   ]);
 
   const ov = (ovRes.data ?? null) as Overview | null;
@@ -177,9 +180,14 @@ export default async function MetricsPage({
   const insights = (insightsRes.data ?? []) as { ts: string; kind: string; line: string }[];
   const gsc = (gscRes.data ?? null) as GscOverview | null;
   const ai = (aiRes.data ?? null) as AiReferrals | null;
-  const wr = (wrRes.data ?? null) as { week: string; visitors: number; returning: number }[] | null;
+  const wr = (wrRes.data ?? null) as {
+    week: string; visitors: number; visitors_raw: number;
+    returning: number; returning_raw: number; returning_engaged: number; removed: number;
+  }[] | null;
   const rv = (rvRes.data ?? null) as RealVisitors | null;
   const appAct = (appRes.data ?? null) as AppActivity | null;
+  const wa = (waRes.data ?? null) as { week: string; active: number; multi_day: number }[] | null;
+  const waBy = new Map((wa ?? []).map((r) => [r.week, r]));
 
   if (ovRes.error) {
     return <div style={{ color: "#e66767" }}>Failed to load metrics: {ovRes.error.message}</div>;
@@ -472,12 +480,16 @@ export default async function MetricsPage({
       {/* ⭐ North star — weekly returning visitors (동반자 전환의 성적표) */}
       <Panel title="⭐ 주간 재방문자 (북극성)">
         {wr && wr.length > 0 ? (
+          <>
           <table style={{ fontSize: 12.5 }}>
             <thead>
               <tr style={{ textAlign: "left" }}>
                 <th style={{ paddingRight: 16 }}>ISO week</th>
                 <th style={num}>visitors</th>
                 <th style={num}>returning (≥2일)</th>
+                <th style={num}>그중 클릭·체류</th>
+                <th style={num}>봇 제거</th>
+                <th style={num}>인증 활동</th>
                 <th style={num}>rate</th>
               </tr>
             </thead>
@@ -487,11 +499,28 @@ export default async function MetricsPage({
                   <td style={{ paddingRight: 16, color: "#cbd5e1" }}>{r.week}</td>
                   <td style={num}>{fmt(r.visitors)}</td>
                   <td style={num}><b style={{ color: "#f1f5f9" }}>{fmt(r.returning)}</b></td>
+                  <td style={num}>{fmt(r.returning_engaged)}</td>
+                  <td style={{ ...num, color: r.removed ? "#e0a458" : "#64748b" }}>
+                    {r.removed ? `−${fmt(r.removed)}` : "—"}
+                  </td>
+                  <td style={{ ...num, color: "#94a3b8" }}>{fmt(waBy.get(r.week)?.active ?? 0)}</td>
                   <td style={num}>{r.visitors ? Math.round((r.returning / r.visitors) * 100) : 0}%</td>
                 </tr>
               ))}
             </tbody>
           </table>
+          <div style={{ fontSize: 11.5, color: "#64748b", lineHeight: 1.65, marginTop: 10 }}>
+            <b style={{ color: "#94a3b8" }}>이 숫자를 읽는 법 (0149).</b> <b>returning</b> = 0120 봇 분류기를
+            통과한 추정치, <b>그중 클릭·체류</b> = 브라우저가 실제로 JS를 돌린 증거가 있는 하한,
+            <b>인증 활동</b> = 로그인 사용자가 저장·기록·핀을 남긴 수(봇이 위조 불가한 바닥).
+            셋을 같이 보십시오 — 하나만 보면 8/31처럼 틀립니다.
+            <br />
+            <b style={{ color: "#e0a458" }}>한계:</b> 주간 신원은 <code>sha256(ISO주|IP|UA)</code>라 사람이 아니라
+            <b> 네트워크</b>입니다. IP가 도는 모바일 독자는 재방문으로 <b>영영 안 잡히고</b>(과소), 같은 NAT
+            뒤 두 사람은 <b>한 명</b>이 됩니다(과대). 해시가 매주 회전하므로 &ldquo;2주 연속&rdquo;은 구조상 측정 불가 —
+            이 표는 <b>추세선이지 인원수가 아닙니다.</b>
+          </div>
+          </>
         ) : (
           <div style={{ fontSize: 12.5, color: "#64748b", lineHeight: 1.6 }}>
             아직 데이터 없음 — ①마이그레이션 0111 적용(오너 <code>!</code>) ②비콘이 props.wv를 쌓기 시작한

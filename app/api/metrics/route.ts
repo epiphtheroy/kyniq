@@ -120,12 +120,13 @@ export async function POST(req: NextRequest) {
       browser: browserOf(ua),
       lang: typeof b.lang === "string" ? b.lang.slice(0, 12) : null,
       screen_w: typeof b.sw === "number" && b.sw > 0 && b.sw < 20000 ? Math.round(b.sw) : null,
-      props:
-        t === "pageview"
-          ? { ...(b.props && typeof b.props === "object" ? (b.props as Record<string, unknown>) : {}), wv }
-          : b.props && typeof b.props === "object"
-            ? b.props
-            : null,
+      // wv rides EVERY event, not just pageviews. The weekly-return metric only
+      // needs pageviews, but any behavioural check of those visitors — did they
+      // click, did they dwell — then has to detour through `visitor`, and on
+      // 2026-08-31 that detour made 41 real returning readers read as fetchers
+      // (their events/session came out at 1.16 because only pageviews carried wv).
+      // An extra 24-char hash per row is cheaper than a wrong north star.
+      props: { ...(b.props && typeof b.props === "object" ? (b.props as Record<string, unknown>) : {}), wv },
     };
 
     const sb = createAdminClient();
