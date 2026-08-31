@@ -15,6 +15,7 @@ import {
   INDEX_COHORT_ESSAYS_KO,
   INDEX_COHORT_FILMS_T2,
   INDEX_COHORT_FILMS_KO,
+  INDEX_COHORT_FILMS_KO_T2,
   INDEX_COHORT_WHERETO,
   whereToIndexBar,
   filmIndexBar,
@@ -655,7 +656,6 @@ export async function filmsKoEntries(): Promise<SitemapEntry[]> {
         supabase
           .from("films")
           .select("slug, is_analyzed, created_at, last_processed_at")
-          .eq("visible", true)
           .not("title_ko", "is", null)
           .not("overview_ko", "is", null)
           .order("slug")
@@ -664,8 +664,11 @@ export async function filmsKoEntries(): Promise<SitemapEntry[]> {
   } catch {
     return []; // columns absent (pre-0105) or read failed — empty shard, not a broken build
   }
-  // A ko page is only advertised when its English twin also clears the gate
-  // (the ko robots inherits it): intersect with the roster.
+  // A ko page is only advertised when its English twin also clears the gate (the
+  // ko robots inherits it), so every row goes through filmIndexBar — which is
+  // also what keeps the 22 editorially hidden is_analyzed films out now that the
+  // query no longer filters on `visible`. No roster ⇒ advertise nothing, rather
+  // than fall back to a bar this function does not own.
   let roster: Record<string, FilmIndexSignals> = {};
   try {
     roster = await filmIndexRoster();
@@ -674,17 +677,21 @@ export async function filmsKoEntries(): Promise<SitemapEntry[]> {
   }
   const eligible = rows.filter((r) => {
     const sig = roster[r.slug];
-    // Tier-1 visible films are always gate-passing; Tier-2 must clear filmIndexBar.
-    return r.is_analyzed ? true : sig ? filmIndexBar(sig) : false;
+    return sig ? filmIndexBar(sig) : false;
   });
-  // §6.5 ordering: Tier-2 catalog records (digest-first, least mixed-language)
-  // ahead of Tier-1, then oldest-first within each so the cohort is deterministic
-  // and append-only.
+  // §6.5 ordering, live at last: Tier-2 catalogue records (digest-first, so the
+  // least mixed-language) ahead of Tier-1, oldest-first within each so both
+  // slices are deterministic and append-only.
   eligible.sort((a, b) => {
     if (a.is_analyzed !== b.is_analyzed) return a.is_analyzed ? 1 : -1;
     return (a.created_at ?? "").localeCompare(b.created_at ?? "");
   });
-  return eligible.slice(0, INDEX_COHORT_FILMS_KO).map((f) => ({
+  // Two slices, not one cap: Tier-2 growth must never push Tier-1 URLs out of
+  // the sitemap. See INDEX_COHORT_FILMS_KO_T2 for the Hangul-share measurement
+  // that puts the catalogue ahead of the read films here.
+  const t2 = eligible.filter((r) => !r.is_analyzed).slice(0, INDEX_COHORT_FILMS_KO_T2);
+  const t1 = eligible.filter((r) => r.is_analyzed).slice(0, INDEX_COHORT_FILMS_KO);
+  return [...t2, ...t1].map((f) => ({
     url: `${siteUrl}/ko/film/${f.slug}`,
     lastmod: isoDate(f.last_processed_at && f.last_processed_at > f.created_at ? f.last_processed_at : f.created_at),
   }));

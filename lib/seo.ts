@@ -283,9 +283,42 @@ export const INDEX_COHORT_CATALOG = 500; // /catalog/{seg}/{slug} archetype node
 export const INDEX_COHORT_FILM_LOCATIONS = 3400; // /film/*/locations pages in sitemap (added 2026-07-04; raised 2026-08-31 to cover Tier-2: measured roster 3,312 = 1,709 visible + 1,603 catalogue, at ≥3 cells)
 export const INDEX_COHORT_FILM_HONORS = 500; // /film/*/honors pages in sitemap (added 2026-07-05; 895 eligible incl. Tier-2)
 export const INDEX_COHORT_ESSAYS = 300; // /film/*/{desk} Engine Room essays cohort 1 (added 2026-07-07; ~1,650 eligible EN)
-export const INDEX_COHORT_ESSAYS_KO = 300; // /film/*/{desk}/ko Korean essays cohort 1 (added 2026-07-08; ~1,613 eligible KO)
+export const INDEX_COHORT_ESSAYS_KO = 1610; // /film/*/{desk}/ko Korean essays (added 2026-07-08; raised 2026-08-31 to the full verified set — bodies are fully Korean long-form)
 export const INDEX_COHORT_FILMS_T2 = 300; // consolidated Tier-2 film mains in sitemap (added 2026-07-14; 1,105 eligible via filmIndexBar). Raise on the standard weekly GSC-evidence rule.
-export const INDEX_COHORT_FILMS_KO = 300; // /ko/film/* mains (added 2026-07-16). Selected for Korean substance, not row age — see §6.5: Tier-2 digest-first + overview_ko first. Raise on the standard weekly GSC-evidence rule.
+export const INDEX_COHORT_FILMS_KO = 300; // /ko/film/* Tier-1 mains (added 2026-07-16). HELD at 300 — see INDEX_COHORT_FILMS_KO_T2 for why.
+
+/**
+ * /ko/film/* catalogue (Tier-2) cohort — added 2026-08-31.
+ *
+ * §6.5 always intended the Korean cohort to be "Tier-2 digest-first, least
+ * mixed-language" and filmsKoEntries even sorts that way, but the query filtered
+ * `.eq("visible", true)`, so no Tier-2 row could ever reach the sort. The
+ * ordering has been dead code since 2026-07-16. This opens it.
+ *
+ * MEASURED 2026-08-31, Hangul share of on-page text:
+ *   Tier-2 /ko  20.3% · 19.7% · 24.1%   (latin is almost entirely nav chrome)
+ *   Tier-1 /ko  13.9% · 14.5% · 17.4%
+ * The gap is structural, not incidental. A Tier-2 page is a digest — its prose is
+ * the invitation, which IS translated (content_i18n holds 6,960 Korean
+ * invitations, verified fluent on jaws-1975 and house-of-sand-and-fog-2003). A
+ * Tier-1 page adds three lanes that were never registered for translation: the
+ * eight why-watch lenses, the readings, and Strong Misreadings. Those dominate
+ * the page, which is why raising the Tier-1 cohort would advertise ~1,600 mostly
+ * English pages at Korean URLs — the mixed-language canonical-folding risk §6.5
+ * named. So Tier-1 stays at 300 until those lanes are translated.
+ *
+ * ⚠️ Known defect on BOTH tiers, tracked, not fixed here: filmLead() (lib/lead.ts)
+ * emits its BLUF sentence in English ("Metatake rates House of Sand and Fog
+ * (2003), directed by …") because its verdict clause comes from the rule-based
+ * English band vocabulary in lib/takescore_prose. Localising it means localising
+ * that vocabulary AND deciding what byte-identical-across-surfaces means per
+ * locale (the pack / MCP / REST digest all reuse the string), so it is its own
+ * piece of work, not a rider on a cohort raise.
+ *
+ * Separate slice rather than a shared cap: growth in the Tier-2 roster must never
+ * silently de-advertise Tier-1 URLs the way one shared cap would.
+ */
+export const INDEX_COHORT_FILMS_KO_T2 = 1200; // 951 eligible at time of writing
 
 /**
  * WHERE-TO-WATCH bar (2026-08-31). /whereto/[slug] used to inherit the film main's
