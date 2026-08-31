@@ -612,6 +612,23 @@ export const KO: Record<string, string> = {
   "no written-criticism corpus yet on this film": "이 영화에 대한 비평 코퍼스는 아직 없음",
   "top {pct}%": "상위 {pct}%",
   "bottom {pct}%": "하위 {pct}%",
+  // BLUF lead (lib/lead.ts) — whole sentences, because Korean is SOV and the
+  // English clause order cannot be preserved. "…에 TakeScore를 매깁니다" is used
+  // instead of an object particle so no 을/를 choice has to be faked at runtime.
+  "Metatake rates {name}, directed by {director}, at a TakeScore of {score}: {clause}.":
+    "Metatake는 {director} 감독의 {name}에 TakeScore {score}를 매깁니다: {clause}.",
+  "Metatake rates {name} at a TakeScore of {score}: {clause}.":
+    "Metatake는 {name}에 TakeScore {score}를 매깁니다: {clause}.",
+  "Metatake reads {name}, directed by {director}, closely — its figures, canon standing, filming locations, and the films it connects to by meaning.":
+    "Metatake는 {director} 감독의 {name}을(를) 깊이 읽습니다 — 피겨, 정전에서의 위치, 촬영지, 그리고 의미로 연결되는 영화들.",
+  "Metatake reads {name} closely — its figures, canon standing, filming locations, and the films it connects to by meaning.":
+    "Metatake는 {name}을(를) 깊이 읽습니다 — 피겨, 정전에서의 위치, 촬영지, 그리고 의미로 연결되는 영화들.",
+  // verdictShort without a title — the clause the lead folds in. The titled
+  // variants below are the same verdicts as full sentences.
+  "High value · low risk — a safe masterpiece.": "높은 가치 · 낮은 위험 — 안전한 걸작.",
+  "High value · high risk — ambitious but divisive.": "높은 가치 · 높은 위험 — 야심차지만 논쟁적.",
+  "Solid but not peak — a stable choice.": "견고하나 정점은 아님 — 안정적 선택.",
+  "Mid value, mid risk — approach with care.": "중간 가치, 중간 위험 — 신중히 접근.",
   "{title} sits at high value · low risk — a safe masterpiece.": "{title}은(는) 높은 가치 · 낮은 위험 — 안전한 걸작.",
   "{title} sits at high value · high risk — ambitious but divisive.": "{title}은(는) 높은 가치 · 높은 위험 — 야심차지만 논쟁적.",
   "{title} is solid but not peak — a stable choice.": "{title}은(는) 견고하나 정점은 아님 — 안정적 선택.",

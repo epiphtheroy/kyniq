@@ -1059,9 +1059,9 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                   <Link href={`/film/${f.slug}`} target="_top" className="df-h1link">{loc(f, "title") ?? f.title}</Link> <span className="df-yr">({f.year ?? "?"})</span>
                   {nativeTitle ? <span style={{ fontWeight: 400, opacity: 0.72, fontSize: "0.72em" }}> ({nativeTitle})</span> : null}
                 </h1>
-                {/* BLUF lead (§1.1) — answer-first dek; same string as the pack + API digest. */}
+                {/* BLUF lead (§1.1) — answer-first dek; byte-identical to the pack + API digest on the source locale. */}
                 <p className="df-lead" style={{ margin: "8px 0 2px", fontSize: "1.02rem", lineHeight: 1.5, maxWidth: "64ch" }}>
-                  {filmLead({ title: f.title, year: f.year, director: f.director, takescore: _cx ? { value: _cx.v, cost: _cx.c, risk: _cx.r, net: _cx.v - _cx.r } : null })}
+                  {filmLead({ title: loc(f, "title") ?? f.title, year: f.year, director: f.director, takescore: _cx ? { value: _cx.v, cost: _cx.c, risk: _cx.r, net: _cx.v - _cx.r } : null }, locale)}
                 </p>
                 {f.director && dirSlug ? (
                   <Link className="df-dircard" href={`/director/${dirSlug}`}>
@@ -1583,9 +1583,9 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
             ) : <div className="df-poster df-poster--empty" aria-hidden="true" />}
             <div className="df-htxt">
               <h1><Link href={`/film/${film.slug}`} target="_top" className="df-h1link">{loc(film, "title") ?? film.title}</Link> <span className="df-yr">({film.year ?? "?"})</span></h1>
-              {/* BLUF lead (§1.1) — answer-first dek; same string as the pack + API digest. */}
+              {/* BLUF lead (§1.1) — answer-first dek; byte-identical to the pack + API digest on the source locale. */}
               <p className="df-lead" style={{ margin: "8px 0 2px", fontSize: "1.02rem", lineHeight: 1.5, maxWidth: "64ch" }}>
-                {filmLead({ title: film.title, year: film.year, director: film.director, takescore: _cx ? { value: _cx.v, cost: _cx.c, risk: _cx.r, net: _cx.v - _cx.r } : null })}
+                {filmLead({ title: loc(film, "title") ?? film.title, year: film.year, director: film.director, takescore: _cx ? { value: _cx.v, cost: _cx.c, risk: _cx.r, net: _cx.v - _cx.r } : null }, locale)}
               </p>
               {film.director && film.director_slug ? (
                 <Link className="df-dircard" href={`/director/${film.director_slug}`}>
