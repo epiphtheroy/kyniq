@@ -326,11 +326,12 @@ export const INDEX_COHORT_FILMS_KO = 300; // /ko/film/* Tier-1 mains (added 2026
  * Separate slice rather than a shared cap: growth in the Tier-2 roster must never
  * silently de-advertise Tier-1 URLs the way one shared cap would.
  */
-export const INDEX_COHORT_FILMS_KO_T2 = 0; // eligible 934 — HELD AT ZERO, see below
+export const INDEX_COHORT_FILMS_KO_T2 = 1200; // 934 eligible — opened 2026-08-31, see below
 
 /*
- * Why the catalogue slice above ships at 0 (owner instruction, 2026-08-31):
- * Korean must not be allowed to cost the English site anything.
+ * OPENED 2026-08-31, after the two defects below were fixed and the pages
+ * re-read on production. The bar was the owner's: Korean must not be allowed to
+ * cost the English site anything.
  *
  * hreflang is wired correctly and reciprocally (verified live on
  * house-of-sand-and-fog-2003: self-canonical each side, en/ko/x-default on
@@ -339,18 +340,31 @@ export const INDEX_COHORT_FILMS_KO_T2 = 0; // eligible 934 — HELD AT ZERO, see
  * evidence against the English pages too, and that is the exact pattern the
  * 2026-07-14 consolidation was built to avoid.
  *
- * Two defects sit on 100% of the 934 pages this slice would advertise:
- *   1. filmLead() emits its opening sentence in English — "Metatake rates House
- *      of Sand and Fog (2003), directed by Vadim Perelman, at a TakeScore of
- *      35: mid value, mid risk" — first line of the page, on every one.
- *   2. The TakeScore block's Korean is machine-literal to the point of being
- *      wrong: "비용 그것을 여는" (word-for-word "the cost that opens it"),
- *      "가장 날카로운 위험은 비겁" (renders risk as "cowardice"). These are
- *      content_i18n ui rows — fixable as DATA, no deploy.
+ * What was fixed to get here, all verified on production:
+ *   · filmLead() opened every page in English; now localised, with the machine
+ *     surfaces (pack / MCP / REST digest) still emitting byte-identical English.
+ *   · The TakeScore block's Korean was machine-literal to the point of being
+ *     wrong ("비용 그것을 여는", "비겁" for a dimension that means pandering).
+ *   · The synopsis rendered English under a Korean heading — overview_ko is half
+ *     of this cohort's own gate and the page dropped it.
+ *   · 2,730 Korean invitations existed and this render branch never asked.
+ *   · The Editor's Digest — the catalogue page's factual body — was English.
  *
- * The prose underneath is genuinely good (invitations are fluent, 6,960 of
- * them), which is why this is a hold and not an abandonment. Clear those two
- * and this is one number.
+ * MEASURED after, 8 random films from this slice: Korean 18–25 content blocks
+ * against 11–26 English, Hangul share 20% → 26.4%. The English that remains is
+ * mostly scholarship citations (paper titles, journals, quoted abstracts) and
+ * institution names, which SHOULD stay in the original — §1.1 ② says so — plus
+ * chrome that is English in every locale. The page's own voice is Korean.
+ *
+ * Tier-1 stays at 300. There the gap is not wiring but three prose lanes that
+ * were never translated (why-watch lenses, readings, Strong Misreadings), and
+ * they dominate the page: 37 Korean blocks against 94 English on jaws-1975.
+ *
+ * Known residuals, none of them load-bearing: geoCountries carries display
+ * names rather than region codes so the geography line still says "(United
+ * States)"; one assembled sentence ("A canon-core work, ranked on …") is still
+ * English; and the scholarship citations lack the lang="en" + "영어 원문"
+ * treatment Tier-1 quotes get.
  */
 
 /**
