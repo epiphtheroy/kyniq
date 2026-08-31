@@ -636,6 +636,66 @@ export const KO: Record<string, string> = {
   "how it works →": "작동 방식 →",
   "{title}’s strongest value is": "{title}의 가장 강한 가치는",
   "its sharpest risk is": "가장 큰 위험은",
+  // ── Tier-2 Editor's Digest (app/film/[slug]/_shared.tsx) ──────────────────
+  // Rule-assembled, LLM-free sentences. Whole sentences, never fragments: the
+  // English clause order is not Korean's to keep. Counts carry no plural form
+  // in Korean, so the "{n} x" / "{n} xs" pairs deliberately share one value.
+  "{head} and {last}": "{head} 및 {last}",
+  " and ##film list": " 및 ",
+  "a {label} win": "{label} 수상",
+  "a {label} nomination": "{label} 후보",
+  "{label} #{rank}": "{label} {rank}위",
+  // C1 — canon standing
+  "In the canon, {title} holds {listings}{scope} tracked by Metatake — including {honors}.":
+    "{title}은(는) Metatake가 추적하는 정전 기록에 {listings}{scope} 올라 있습니다 — {honors} 포함.",
+  "{n} listing": "{n}건", "{n} listings": "{n}건",
+  "across {n} list": "({n}개 리스트에 걸쳐)", "across {n} lists": "({n}개 리스트에 걸쳐)",
+  "See the full lineage record →": "전체 계보 기록 보기 →",
+  "On the aggregators it holds {bits}.": "집계 사이트 기준으로는 {bits}을 기록합니다.",
+  "an IMDb rating of {r} from {votes} votes": "IMDb 평점 {r}({votes}명 투표)",
+  "an IMDb rating of {r}": "IMDb 평점 {r}",
+  "a Metascore of {n}": "메타스코어 {n}",
+  "{article} {n}% Tomatometer": "토마토미터 {n}%",
+  // C2 — Wikidata award record
+  "Wikidata’s award record holds {honors} for {title} — {breakdown}{including}.":
+    "Wikidata 수상 기록에는 {title}의 {honors}이 있습니다 — {breakdown}{including}.",
+  "{n} honor": "{n}건의 영예", "{n} honors": "{n}건의 영예",
+  // Plurals already live above (line ~516) with the same Korean — Korean has no
+  // plural form, so only the singulars are new here.
+  "{n} win": "{n}회 수상",
+  "{n} nomination": "{n}회 후보",
+  ", including the {labels}": ", 대표적으로 {labels}",
+  "The year-by-year record →": "연도별 기록 →",
+  // C2 — TMDB release ledger
+  "TMDB’s ledger dates {events}{scope}, {from} to {to} in {year}.":
+    "TMDB 기록에는 {events}{scope}이 있으며, {from}부터 {year}년 {to}까지 이어집니다.",
+  "{n} release event": "{n}건의 개봉 이벤트", "{n} release events": "{n}건의 개봉 이벤트",
+  "across {n} countries and territories": "({n}개 국가·지역에 걸쳐)",
+  "in one country": "(1개국)",
+  "from its {country} premiere ({date})": "{country} 프리미어({date})",
+  "from its premiere ({date})": "프리미어({date})",
+  "from its first release in {country} ({date})": "{country} 최초 개봉({date})",
+  "from its first release ({date})": "최초 개봉({date})",
+  "a {type} release": "{type} 개봉",
+  "a festival premiere": "영화제 프리미어",
+  "a limited theatrical opening": "제한 개봉",
+  "a theatrical opening": "극장 개봉",
+  "a digital release": "디지털 공개",
+  "a home-video release": "홈비디오 출시",
+  "a television broadcast": "TV 방영",
+  // C4 — what this film follows
+  "Within Metatake, it is the next step after {films}{more}.":
+    "Metatake 안에서 이 영화는 {films}{more} 다음 단계입니다.",
+  " and {n} more film": " 외 {n}편", " and {n} more films": " 외 {n}편",
+  // C5 — geography + availability
+  "Its geography is charted on {map} — {places}{where}.":
+    "촬영지는 {map}에 표시돼 있습니다 — {places}{where}.",
+  "{n} located place": "{n}곳", "{n} located places": "{n}곳",
+  "in {country}": "({country})",
+  "across {n} countries": "({n}개국에 걸쳐)",
+  "the map below": "아래 지도",
+  "Streaming availability is {tracked}.": "스트리밍 가용성은 {tracked}.",
+  "tracked in {n} region": "{n}개 지역에서 추적 중", "tracked in {n} regions": "{n}개 지역에서 추적 중",
   "What TakeScore measures": "TakeScore가 측정하는 것",
   // One sentence, one key. These were seven fragments concatenated in English
   // order, which Korean (SOV) cannot follow — see slot() in CinecodexPanel.
