@@ -15,6 +15,8 @@ import {
   INDEX_COHORT_ESSAYS_KO,
   INDEX_COHORT_FILMS_T2,
   INDEX_COHORT_FILMS_KO,
+  INDEX_COHORT_WHERETO,
+  whereToIndexBar,
   filmIndexBar,
   type FilmIndexSignals,
 } from "@/lib/seo";
@@ -713,25 +715,44 @@ export async function moviesLikeEntries(): Promise<SitemapEntry[]> {
 
 /**
  * /whereto/* availability pages — only films that actually HAVE watch data,
- * so the sitemap never advertises an empty page. A film qualifies if it has a
- * film_watch_providers row (TMDB/JustWatch) OR a MetaTake access-enrichment
- * record (lib/access_enrichment.json, keyed by tmdb_id). No lastmod: provider
- * data refreshes wholesale, which would just churn the field.
+ * so the sitemap never advertises an empty page. No lastmod: provider data
+ * refreshes wholesale, which would just churn the field.
+ *
+ * Two populations, two rules (2026-08-31):
+ *  · Tier-1 (visible) — unchanged: a film_watch_providers row (TMDB/JustWatch)
+ *    OR a MetaTake access-enrichment record (lib/access_enrichment.json, keyed
+ *    by tmdb_id). Its indexability comes from the film main, so no extra bar.
+ *  · Tier-2 (catalogue) — enters under whereToIndexBar (≥3 countries), which is
+ *    the page's OWN robots bar, so the sitemap cannot advertise a noindex URL.
+ *    Capped by INDEX_COHORT_WHERETO and ordered by slug: raising only appends.
+ *
+ * ⚠️ The count here reads film_watch_providers.countries; the page falls back to
+ * Object.keys(results) when that column is null, so this can only ever
+ * UNDER-advertise — the safe direction. Keep the two predicates in step.
  */
 export async function whereToEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
   const supabase = db();
-  const films = await fetchAll<{ id: string; slug: string; tmdb_id: number | null }>((from, to) =>
-    supabase.from("films").select("id, slug, tmdb_id").eq("visible", true).order("slug").range(from, to)
+  const films = await fetchAll<{ id: string; slug: string; tmdb_id: number | null; visible: boolean | null }>(
+    (from, to) =>
+      supabase.from("films").select("id, slug, tmdb_id, visible").order("slug").range(from, to)
   );
-  const providerRows = await fetchAll<{ film_id: string }>((from, to) =>
-    supabase.from("film_watch_providers").select("film_id").order("film_id").range(from, to)
+  const providerRows = await fetchAll<{ film_id: string; countries: string[] | null }>((from, to) =>
+    supabase.from("film_watch_providers").select("film_id, countries").order("film_id").range(from, to)
   );
-  const hasProviders = new Set(providerRows.map((r) => r.film_id));
+  const countriesByFilm = new Map(providerRows.map((r) => [r.film_id, r.countries?.length ?? 0]));
   const enriched = (accessEnrichment as unknown as { films: Record<string, unknown> }).films;
-  return films
-    .filter((f) => hasProviders.has(f.id) || (f.tmdb_id != null && String(f.tmdb_id) in enriched))
-    .map((f) => ({ url: `${siteUrl}${whereToUrl(f.slug)}` }));
+
+  const tier1 = films
+    .filter((f) => f.visible === true)
+    .filter((f) => countriesByFilm.has(f.id) || (f.tmdb_id != null && String(f.tmdb_id) in enriched));
+
+  const tier2 = films
+    .filter((f) => f.visible !== true && !f.slug.startsWith("tmdb-"))
+    .filter((f) => whereToIndexBar(countriesByFilm.get(f.id) ?? 0))
+    .slice(0, INDEX_COHORT_WHERETO);
+
+  return [...tier1, ...tier2].map((f) => ({ url: `${siteUrl}${whereToUrl(f.slug)}` }));
 }
 
 // Genre slugs are derived from films.genres labels exactly the way

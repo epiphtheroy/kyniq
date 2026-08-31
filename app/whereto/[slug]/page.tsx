@@ -15,7 +15,7 @@ import ReadPlates from "@/components/read/ReadPlates";
 import { filmBackdropPaths, pickStills } from "@/lib/read-media";
 import accessEnrichment from "@/lib/access_enrichment.json";
 import { resolveAlias } from "@/lib/aliases";
-import { pageRobots } from "@/lib/seo";
+import { pageRobots, whereToIndexBar } from "@/lib/seo";
 import { filmMainIndexable } from "@/lib/filmGate";
 import "@/app/curious/curious.css";
 import "@/app/film/[slug]/read.css";
@@ -206,9 +206,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: { title, description },
     twitter: { card: "summary", title, description },
     alternates: { canonical: `/whereto/${slug}` },
-    // Same gate as the film page: hidden (Tier-2) films' watch pages stay
-    // crawlable but out of the index.
-    robots: pageRobots(await filmMainIndexable(slug, { visible: film.visible !== false })),
+    // Tier-1 inherits the film main's gate. Tier-2 no longer does (2026-08-31):
+    // a catalogue film with a multi-country availability map answers "where to
+    // watch X" as well as a read film does — the availability record is TMDB/
+    // JustWatch fact-keeping, not our criticism, so it does not depend on whether
+    // we have read the film closely. ⚠️ whereToEntries() mirrors whereToIndexBar;
+    // keep the two predicates identical or the sitemap will advertise a noindex.
+    robots: pageRobots(
+      (await filmMainIndexable(slug, { visible: film.visible !== false })) ||
+        whereToIndexBar(report.nCountries),
+    ),
   };
 }
 

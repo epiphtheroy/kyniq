@@ -66,8 +66,13 @@ async function loadUncached(slug: string) {
     .eq("slug", slug)
     .maybeSingle();
   if (error) throw new Error(`films(${slug}): ${error.message}`);
-  // film_geo does not filter on visibility, so the read page must.
-  if (!film || (film as FilmRow).visible === false) return null;
+  // Existence is decided by the pin count alone (2026-08-31). This used to 404
+  // every catalogue film, which hid 1,641 films that carry ≥3 merged location
+  // cells — on the route the referrer log shows earning the most from Bing and
+  // DuckDuckGo ("where was X filmed"). A shooting location is a sourced fact
+  // about the production, not a claim that we have read the film; withholding it
+  // because our criticism has not reached that title yet served no one.
+  if (!film) return null;
   const raw = await loadFilmGeo(slug);
   // Gate on the coordinate-cell count (mirrors the sitemap's SQL rule exactly,
   // so an advertised URL can never 404); render the fully fused list.

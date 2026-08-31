@@ -189,6 +189,28 @@ export function filmIndexBar(s: FilmIndexSignals): boolean {
  *    lib/directorGate.ts directorIndexBar (858 → 678 indexed / 180 noindex),
  *    mirrored by directorEntries. No new INDEX_COHORT (director gate is robots-
  *    based; all 678 passers advertised).
+ *  - 2026-08-31 (channel correction — the cohorts were Google tax, and Google left):
+ *    measured over 30 days, Google referred 15 visitors and the Bing family
+ *    (DuckDuckGo 392, Bing 323, Yahoo/Ecosia/Startpage ~120) referred ~840 — and
+ *    the weekly series is monotonic: Bing family 2 → 269 since 07-06 while Google
+ *    went 15 → 1. GSC over the same window: impressions moved 15 → 60/day but
+ *    average position collapsed 11 → 65, and every July winner
+ *    (/film/locations, /movies-like, /director/[slug]/locations) left the report.
+ *    A `noindex` is not a Google-only directive — Bing, DDG, Yahoo and Ecosia all
+ *    honour it, and the AI answer engines lean on Bing's index — so cohorts sized
+ *    for Google's scaled-content detector were suppressing the only channel that
+ *    still pays. Three raises, all on routes the referrer log shows earning:
+ *      · TROPES 1,500 → 4,710 (every published figure_type; pages already
+ *        indexable, they were simply unadvertised — zero new page surface).
+ *      · FILM_LOCATIONS 1,000 → 3,400 and the Tier-2 404 gate lifted (below).
+ *      · WHERETO: new cohort — Tier-2 watch pages leave noindex at ≥3 countries.
+ *    NOT raised, deliberately: /tv/[slug] stays noindex (it re-cuts the SAME readings
+ *    as /film/meaning/[slug], so opening it starts an internal canonical fight
+ *    rather than a thinness question), and /movies-like stays Tier-1 (film_affinities has zero
+ *    rows for the catalogue — there is nothing to render).
+ *    WATCH: this adds ~9k sitemap URLs while a headless fleet is already copying
+ *    the corpus (crawler-fleet-surge-2026-08-31) — every raise here is one
+ *    constant, so dial back if Vercel ISR writes or function hours move.
  */
 // Feeds Organization.sameAs in app/layout.tsx (owner fills in profile URLs as they go live).
 export const SOCIAL_PROFILES: string[] = [
@@ -248,7 +270,7 @@ export const KNOWS_ABOUT: string[] = [
 export const INDEX_COHORT_READINGS = 2000; // /take/* pages in sitemap
 export const INDEX_COHORT_MISREADINGS = 2000; // /film/*/misreadings articles in sitemap (added 2026-07-07)
 export const INDEX_COHORT_FILM_CREDITS = 1000; // /film/*/credits pages in sitemap (added 2026-07-08)
-export const INDEX_COHORT_TROPES = 1500; // /trope/* pages in sitemap
+export const INDEX_COHORT_TROPES = 4710; // /trope/* pages in sitemap (raised 2026-08-31: all published figure_type meta_takes)
 export const INDEX_COHORT_FIGURES = 2000; // /film/*/figure/* pages in sitemap (added 2026-07-03)
 export const INDEX_COHORT_CREW = 1500; // /credits/* person pages in sitemap (added 2026-07-03)
 // 2026-07-04 (surface expansion, docs/PLAN-seo-surface-expansion.md): sitemap
@@ -258,12 +280,34 @@ export const INDEX_COHORT_CREW = 1500; // /credits/* person pages in sitemap (ad
 // (917 eligible); Phase B (tier taxonomies, ≥5 members, ~+590) waits on GSC
 // evidence. Raise on the standard weekly evidence rule.
 export const INDEX_COHORT_CATALOG = 500; // /catalog/{seg}/{slug} archetype nodes in sitemap (added 2026-07-04)
-export const INDEX_COHORT_FILM_LOCATIONS = 1000; // /film/*/locations pages in sitemap (added 2026-07-04; 1,707 eligible)
+export const INDEX_COHORT_FILM_LOCATIONS = 3400; // /film/*/locations pages in sitemap (added 2026-07-04; raised 2026-08-31 to cover Tier-2: measured roster 3,312 = 1,709 visible + 1,603 catalogue, at ≥3 cells)
 export const INDEX_COHORT_FILM_HONORS = 500; // /film/*/honors pages in sitemap (added 2026-07-05; 895 eligible incl. Tier-2)
 export const INDEX_COHORT_ESSAYS = 300; // /film/*/{desk} Engine Room essays cohort 1 (added 2026-07-07; ~1,650 eligible EN)
 export const INDEX_COHORT_ESSAYS_KO = 300; // /film/*/{desk}/ko Korean essays cohort 1 (added 2026-07-08; ~1,613 eligible KO)
 export const INDEX_COHORT_FILMS_T2 = 300; // consolidated Tier-2 film mains in sitemap (added 2026-07-14; 1,105 eligible via filmIndexBar). Raise on the standard weekly GSC-evidence rule.
 export const INDEX_COHORT_FILMS_KO = 300; // /ko/film/* mains (added 2026-07-16). Selected for Korean substance, not row age — see §6.5: Tier-2 digest-first + overview_ko first. Raise on the standard weekly GSC-evidence rule.
+
+/**
+ * WHERE-TO-WATCH bar (2026-08-31). /whereto/[slug] used to inherit the film main's
+ * indexability wholesale, so a catalogue film's watch page was noindex even when it
+ * carried a full multi-country availability map — the exact page shape the referrer
+ * log shows Bing and DuckDuckGo sending people to ("where to watch X").
+ *
+ * The page's own substance is the map: how many countries we hold an answer for.
+ * At ≥3 the page states something no aggregator page states as precisely, and the
+ * measured Tier-2 population is 3,221 films.
+ *
+ * ⚠️ INVARIANT: whereToEntries() in lib/sitemap-data.ts mirrors this predicate, so
+ * an advertised /whereto URL can never carry noindex. The sitemap reads
+ * film_watch_providers.countries; the page falls back to Object.keys(results) when
+ * that column is null, so the sitemap can only ever under-advertise — the safe
+ * direction. Change one, change the other.
+ */
+export const WHERETO_MIN_COUNTRIES = 3;
+export function whereToIndexBar(nCountries: number): boolean {
+  return SITE_INDEXABLE && nCountries >= WHERETO_MIN_COUNTRIES;
+}
+export const INDEX_COHORT_WHERETO = 5200; // /whereto/* Tier-2 entries (added 2026-08-31; 3,221 eligible)
 
 
 
