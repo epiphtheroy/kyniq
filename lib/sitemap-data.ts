@@ -676,14 +676,14 @@ export async function filmEntries(): Promise<SitemapEntry[]> {
 export async function filmsKoEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
   const supabase = db();
-  type Row = { slug: string; is_analyzed: boolean; created_at: string; last_processed_at: string | null };
+  type Row = { slug: string; is_analyzed: boolean; visible: boolean | null; created_at: string; last_processed_at: string | null };
   let rows: Row[];
   try {
     rows = await fetchAll<Row>(
       (from, to) =>
         supabase
           .from("films")
-          .select("slug, is_analyzed, created_at, last_processed_at")
+          .select("slug, is_analyzed, visible, created_at, last_processed_at")
           .not("title_ko", "is", null)
           .not("overview_ko", "is", null)
           .order("slug")
@@ -703,9 +703,20 @@ export async function filmsKoEntries(): Promise<SitemapEntry[]> {
   } catch {
     roster = {};
   }
+  // With the roster: filmIndexBar is the single source of truth for both tiers,
+  // and it is also what now keeps the 22 editorially hidden is_analyzed films out
+  // since the query no longer filters on `visible`.
+  //
+  // WITHOUT it (RPC down): fall back to `visible`, which is exactly the rule this
+  // shard used before the catalogue slice existed. Returning nothing would let a
+  // transient RPC failure silently empty a live sitemap shard — errors must not
+  // decide whether a URL is advertised. Tier-2 needs the roster to be judged at
+  // all, so it simply does not enter on the fallback path.
+  const haveRoster = Object.keys(roster).length > 0;
   const eligible = rows.filter((r) => {
     const sig = roster[r.slug];
-    return sig ? filmIndexBar(sig) : false;
+    if (haveRoster) return sig ? filmIndexBar(sig) : false;
+    return r.visible === true;
   });
   // §6.5 ordering, live at last: Tier-2 catalogue records (digest-first, so the
   // least mixed-language) ahead of Tier-1, oldest-first within each so both

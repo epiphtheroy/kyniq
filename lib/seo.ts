@@ -326,7 +326,32 @@ export const INDEX_COHORT_FILMS_KO = 300; // /ko/film/* Tier-1 mains (added 2026
  * Separate slice rather than a shared cap: growth in the Tier-2 roster must never
  * silently de-advertise Tier-1 URLs the way one shared cap would.
  */
-export const INDEX_COHORT_FILMS_KO_T2 = 1200; // 951 eligible at time of writing
+export const INDEX_COHORT_FILMS_KO_T2 = 0; // eligible 934 — HELD AT ZERO, see below
+
+/*
+ * Why the catalogue slice above ships at 0 (owner instruction, 2026-08-31):
+ * Korean must not be allowed to cost the English site anything.
+ *
+ * hreflang is wired correctly and reciprocally (verified live on
+ * house-of-sand-and-fog-2003: self-canonical each side, en/ko/x-default on
+ * both), so folding is not the danger. Domain-level quality judgement is: /ko
+ * lives on metatake.net, so a scaled batch of visibly defective Korean is
+ * evidence against the English pages too, and that is the exact pattern the
+ * 2026-07-14 consolidation was built to avoid.
+ *
+ * Two defects sit on 100% of the 934 pages this slice would advertise:
+ *   1. filmLead() emits its opening sentence in English — "Metatake rates House
+ *      of Sand and Fog (2003), directed by Vadim Perelman, at a TakeScore of
+ *      35: mid value, mid risk" — first line of the page, on every one.
+ *   2. The TakeScore block's Korean is machine-literal to the point of being
+ *      wrong: "비용 그것을 여는" (word-for-word "the cost that opens it"),
+ *      "가장 날카로운 위험은 비겁" (renders risk as "cowardice"). These are
+ *      content_i18n ui rows — fixable as DATA, no deploy.
+ *
+ * The prose underneath is genuinely good (invitations are fluent, 6,960 of
+ * them), which is why this is a hold and not an abandonment. Clear those two
+ * and this is one number.
+ */
 
 /**
  * WHERE-TO-WATCH bar (2026-08-31). /whereto/[slug] used to inherit the film main's
