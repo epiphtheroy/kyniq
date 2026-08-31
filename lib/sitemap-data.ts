@@ -49,7 +49,7 @@ import crewIndex from "@/lib/crew_index.json";
 import accessEnrichment from "@/lib/access_enrichment.json";
 import { whereToUrl, genreUrl, theoristUrl } from "@/lib/urls";
 import { CODEX_DIMS, takescoreDimUrl } from "@/lib/cinecodex_dims";
-import { DESKS, DESK_KEYS, deskByMode } from "@/lib/desks";
+import { DESKS, DESK_KEYS, deskByMode, readingMinutes } from "@/lib/desks";
 import { DOCS as METHOD_DOCS, docHref } from "@/lib/docs/registry";
 import { DOC_BODIES } from "@/lib/docs/content";
 import { POE_ESSAYS, poeHref } from "@/lib/poetics/registry";
@@ -206,15 +206,41 @@ export async function poeticsEntries(): Promise<SitemapEntry[]> {
  * Oldest-first + cap so raising INDEX_COHORT_ESSAYS only appends URLs; waves
  * were commissioned strongest-films-first, so oldest ≈ highest-value pages.
  */
+/**
+ * The desk-essay robots bar, mirrored (2026-08-31).
+ *
+ * Both essay pages gate on `readingMinutes(body_md) >= 3`
+ * (app/film/[slug]/[desk]/page.tsx and .../ko/page.tsx), but neither sitemap
+ * checked it, so essays.xml and essays-ko.xml were advertising URLs that serve
+ * `noindex, follow` — caught on /film/vice-2018/decoder/ko. Measured: only 412
+ * of 1,652 verified EN essays and 230 of 1,610 KO essays clear the bar.
+ *
+ * This reads body_md because `minutes` is computed at render, not stored. That
+ * is ~4 MB (EN) / ~2.3 MB (KO) per rebuild, which is affordable only because
+ * cachedEntries() holds the RESULT for an hour — the markdown itself is never
+ * cached, only the URL list built from it. Do not call this per-render.
+ *
+ * ⚠️ readingMinutes is a 220-words-per-minute ENGLISH heuristic applied to
+ * whitespace-split tokens, so it systematically under-counts Korean, which packs
+ * more meaning into fewer tokens (measured average: KO 341 tokens / 1,496 chars
+ * vs EN 405 / 2,568 for the same essay pairs). The bar therefore rejects Korean
+ * essays that are every bit as substantial as their English twins. Mirroring it
+ * here is correct — the sitemap must never contradict the page — but the bar
+ * itself wants a per-locale calibration. Tracked, not fixed here.
+ */
+function essayClearsRobotsBar(bodyMd: string | null): boolean {
+  return !!bodyMd && readingMinutes(bodyMd) >= 3;
+}
+
 export async function essaysEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
   const supabase = db();
-  type Row = { mode: string; published_at: string | null; created_at: string; film: { slug: string } };
+  type Row = { mode: string; published_at: string | null; created_at: string; body_md: string | null; film: { slug: string } };
   const rows = await fetchAll<Row>(
     (from, to) =>
       supabase
         .from("essays")
-        .select("mode, published_at, created_at, film:films!inner(slug, visible)")
+        .select("mode, published_at, created_at, body_md, film:films!inner(slug, visible)")
         .eq("lang", "en")
         .eq("status", "verified")
         .eq("film.visible", true)
@@ -227,6 +253,7 @@ export async function essaysEntries(): Promise<SitemapEntry[]> {
   for (const r of rows) {
     const desk = deskByMode(r.mode);
     if (!desk || !r.film?.slug) continue;
+    if (!essayClearsRobotsBar(r.body_md)) continue;
     const url = `${siteUrl}/film/${r.film.slug}/${desk.key}`;
     if (seen.has(url)) continue;
     seen.add(url);
@@ -243,12 +270,12 @@ export async function essaysEntries(): Promise<SitemapEntry[]> {
 export async function essaysKoEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
   const supabase = db();
-  type Row = { mode: string; published_at: string | null; created_at: string; film: { slug: string } };
+  type Row = { mode: string; published_at: string | null; created_at: string; body_md: string | null; film: { slug: string } };
   const rows = await fetchAll<Row>(
     (from, to) =>
       supabase
         .from("essays")
-        .select("mode, published_at, created_at, film:films!inner(slug, visible)")
+        .select("mode, published_at, created_at, body_md, film:films!inner(slug, visible)")
         .eq("lang", "ko")
         .eq("status", "verified")
         .eq("film.visible", true)
@@ -261,6 +288,7 @@ export async function essaysKoEntries(): Promise<SitemapEntry[]> {
   for (const r of rows) {
     const desk = deskByMode(r.mode);
     if (!desk || !r.film?.slug) continue;
+    if (!essayClearsRobotsBar(r.body_md)) continue;
     const url = `${siteUrl}/film/${r.film.slug}/${desk.key}/ko`;
     if (seen.has(url)) continue;
     seen.add(url);

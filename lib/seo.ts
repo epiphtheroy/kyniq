@@ -283,7 +283,15 @@ export const INDEX_COHORT_CATALOG = 500; // /catalog/{seg}/{slug} archetype node
 export const INDEX_COHORT_FILM_LOCATIONS = 3400; // /film/*/locations pages in sitemap (added 2026-07-04; raised 2026-08-31 to cover Tier-2: measured roster 3,312 = 1,709 visible + 1,603 catalogue, at ≥3 cells)
 export const INDEX_COHORT_FILM_HONORS = 500; // /film/*/honors pages in sitemap (added 2026-07-05; 895 eligible incl. Tier-2)
 export const INDEX_COHORT_ESSAYS = 300; // /film/*/{desk} Engine Room essays cohort 1 (added 2026-07-07; ~1,650 eligible EN)
-export const INDEX_COHORT_ESSAYS_KO = 1610; // /film/*/{desk}/ko Korean essays (added 2026-07-08; raised 2026-08-31 to the full verified set — bodies are fully Korean long-form)
+/**
+ * /film/[slug]/[desk]/ko — raised 2026-08-31 from 300 to the full verified set.
+ * The cap no longer binds: essaysKoEntries now mirrors the page's own
+ * readingMinutes(body_md) >= 3 robots bar, and only 230 of the 1,610 verified
+ * Korean essays clear it. The cap is left high so that fixing the bar's
+ * English-words-per-minute calibration releases the rest without a second edit.
+ * See essayClearsRobotsBar() in lib/sitemap-data.ts for the measurement.
+ */
+export const INDEX_COHORT_ESSAYS_KO = 1610;
 export const INDEX_COHORT_FILMS_T2 = 300; // consolidated Tier-2 film mains in sitemap (added 2026-07-14; 1,105 eligible via filmIndexBar). Raise on the standard weekly GSC-evidence rule.
 export const INDEX_COHORT_FILMS_KO = 300; // /ko/film/* Tier-1 mains (added 2026-07-16). HELD at 300 — see INDEX_COHORT_FILMS_KO_T2 for why.
 
