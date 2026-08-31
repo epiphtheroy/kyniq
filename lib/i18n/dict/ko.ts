@@ -646,19 +646,22 @@ export const KO: Record<string, string> = {
   "a {label} nomination": "{label} 후보",
   "{label} #{rank}": "{label} {rank}위",
   // C1 — canon standing
+  // {title} is deliberately unused: the section heading directly above already
+  // names the film, and dropping it removes a 은/는 choice that cannot be made
+  // correctly without knowing the title's final syllable.
   "In the canon, {title} holds {listings}{scope} tracked by Metatake — including {honors}.":
-    "{title}은(는) Metatake가 추적하는 정전 기록에 {listings}{scope} 올라 있습니다 — {honors} 포함.",
+    "Metatake가 추적하는 정전 기록에 {listings}{scope} 올라 있습니다 — {honors} 포함.",
   "{n} listing": "{n}건", "{n} listings": "{n}건",
   "across {n} list": "({n}개 리스트에 걸쳐)", "across {n} lists": "({n}개 리스트에 걸쳐)",
   "See the full lineage record →": "전체 계보 기록 보기 →",
-  "On the aggregators it holds {bits}.": "집계 사이트 기준으로는 {bits}을 기록합니다.",
+  "On the aggregators it holds {bits}.": "집계 사이트 기준: {bits}.",
   "an IMDb rating of {r} from {votes} votes": "IMDb 평점 {r}({votes}명 투표)",
   "an IMDb rating of {r}": "IMDb 평점 {r}",
   "a Metascore of {n}": "메타스코어 {n}",
   "{article} {n}% Tomatometer": "토마토미터 {n}%",
   // C2 — Wikidata award record
   "Wikidata’s award record holds {honors} for {title} — {breakdown}{including}.":
-    "Wikidata 수상 기록에는 {title}의 {honors}이 있습니다 — {breakdown}{including}.",
+    "Wikidata 수상 기록 기준 {title}의 영예는 {honors} — {breakdown}{including}.",
   "{n} honor": "{n}건의 영예", "{n} honors": "{n}건의 영예",
   // Plurals already live above (line ~516) with the same Korean — Korean has no
   // plural form, so only the singulars are new here.
@@ -666,9 +669,10 @@ export const KO: Record<string, string> = {
   "{n} nomination": "{n}회 후보",
   ", including the {labels}": ", 대표적으로 {labels}",
   "The year-by-year record →": "연도별 기록 →",
+  "See the release timeline →": "개봉 타임라인 보기 →",
   // C2 — TMDB release ledger
   "TMDB’s ledger dates {events}{scope}, {from} to {to} in {year}.":
-    "TMDB 기록에는 {events}{scope}이 있으며, {from}부터 {year}년 {to}까지 이어집니다.",
+    "TMDB 기록 기준 {events}{scope}, {from}부터 {year}년 {to}까지 이어집니다.",
   "{n} release event": "{n}건의 개봉 이벤트", "{n} release events": "{n}건의 개봉 이벤트",
   "across {n} countries and territories": "({n}개 국가·지역에 걸쳐)",
   "in one country": "(1개국)",
@@ -694,7 +698,7 @@ export const KO: Record<string, string> = {
   "in {country}": "({country})",
   "across {n} countries": "({n}개국에 걸쳐)",
   "the map below": "아래 지도",
-  "Streaming availability is {tracked}.": "스트리밍 가용성은 {tracked}.",
+  "Streaming availability is {tracked}.": "스트리밍 가용성은 {tracked}입니다.",
   "tracked in {n} region": "{n}개 지역에서 추적 중", "tracked in {n} regions": "{n}개 지역에서 추적 중",
   "What TakeScore measures": "TakeScore가 측정하는 것",
   // One sentence, one key. These were seven fragments concatenated in English

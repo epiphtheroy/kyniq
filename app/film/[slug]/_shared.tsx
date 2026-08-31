@@ -1230,7 +1230,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                       : t(locale, "a {type} release", { type: relLatest.event_type }),
                     year: relLatest.event_date.slice(0, 4),
                   })}
-                  {afterlifeTab ? <> <Link href={`/film/${f.slug}/reception`}>See the release timeline →</Link></> : null}
+                  {afterlifeTab ? <> <Link href={`/film/${f.slug}/reception`}>{t(locale, "See the release timeline →")}</Link></> : null}
                 </p>
               ) : null}
               {recSources.length > 0 ? (
