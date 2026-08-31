@@ -18,6 +18,7 @@ import { readerUrl } from "../src/lib/webUrl";
 import { SkeletonText } from "../src/components/motion";
 import { t } from "../src/i18n";
 import { api } from "../src/lib/api";
+import { trackTap } from "../src/lib/beacon";
 import { fs, radius, sp, usePalette } from "../src/theme";
 
 /** Exact hub patterns that must open natively (webview contract §2-③). */
@@ -103,6 +104,9 @@ export default function ReadScreen() {
     let alive = true;
     setUri(null);
     setWebLoading(true);
+    // The webview screens are web pages and land in the web numbers; this marks
+    // where the app handed off, which the web side cannot tell apart.
+    trackTap("reader:open", path);
     // SSO handoff (§13-12) — handoffUrl already falls back to the plain URL
     // when signed out or when the mint fails; the catch is pure defense.
     api
