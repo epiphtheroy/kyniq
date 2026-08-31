@@ -843,6 +843,15 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
       tmdb_extra: { cast?: { name: string; character: string }[]; writers?: string[]; country?: string[]; original_language?: string | null; collection?: string | null } | null;
     };
     const { lead, lineage, lnListMeta, recommendedBy, ratings, watch, geoCount, geoCountries, scores, recordUpdated, afterlifeTab, afterlifeHonors, wdHonors, reception, releases } = data;
+    // Tier-2 read the invitation straight off the row and hard-coded lang="en",
+    // so the 2,730 Korean invitations that already exist in content_i18n were
+    // never asked for — a translated page showing untranslated prose it owns.
+    // Tier-1 has done this lookup since the projection shipped; this is the
+    // back-port the consolidation work order requires ("두 블록은 크롬 패리티 유지").
+    // loadLabels returns an empty Map on the source locale without querying, so
+    // the English page is unchanged and pays nothing.
+    const t2InvLabels = await loadLabels(locale, "invitation", [f.slug]);
+    const leadLoc = lead ? dbLabel(t2InvLabels, locale, "invitation", f.slug, "rationale", lead) : null;
     const mAccessRec = accessRecordFor(f.tmdb_id);
     // "Keep reading" modules + the director-hub slug: a Tier-2 row often lacks
     // director_slug even when the hub exists on a visible sibling — the recipe
@@ -1116,10 +1125,10 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
             <section className="df-invite" id="df-invitation">
               <div className="df-invite__txt">
                 <div className="df-invite__head">
-                  <h2 className="df-invite__k">{t(locale, "An invitation to {title}", { title: f.title })}</h2>
+                  <h2 className="df-invite__k">{t(locale, "An invitation to {title}", { title: loc(f, "title") ?? f.title })}</h2>
                   <span className="df-invite__badge">{t(locale, "Spoiler-free")}</span>
                 </div>
-                <p className="df-invite__p" lang={enOrig}>{lead}</p>
+                <p className="df-invite__p" lang={leadLoc && locale !== DEFAULT_LOCALE ? locale : enOrig}>{leadLoc ?? lead}</p>
                 <div className="df-invite__foot">
                   <div className="df-invite__by">{t(locale, "Written by Metatake AI · to a framework by")} <Link href="/editor">Wonwoo Yoon</Link></div>
                 </div>
@@ -1132,7 +1141,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
               renders no digest and About leads instead. */}
           {hasDigest ? (
             <section className="df-sec df-digest" id="df-digest">
-              <h2 className="df-h2">{t(locale, "The Metatake record on {title}", { title: f.title })}</h2>
+              <h2 className="df-h2">{t(locale, "The Metatake record on {title}", { title: loc(f, "title") ?? f.title })}</h2>
               {lineage.length > 0 || ratingBits.length > 0 ? (
                 <p className="df-digest__p">
                   {lineage.length > 0 ? (
