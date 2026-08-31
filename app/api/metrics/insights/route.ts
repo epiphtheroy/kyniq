@@ -2,9 +2,10 @@
  * /api/metrics/insights — runs the rule-based insight generator
  * (mt_generate_insights, migration 0060) and stamps a '_run' marker.
  *
- * Called by: Vercel cron every 30 min (vercel.json), the /admin/metrics page
+ * Called by: Vercel cron every 5 min (vercel.json), the /admin/metrics page
  * when the feed is stale, or manually (?key=REVALIDATION_SECRET).
- * A 20-minute guard makes stray triggers harmless.
+ * A 20-minute guard makes stray triggers harmless — for the insight feed. The bot
+ * detector sits ahead of that guard and runs on every invocation; see below.
  */
 import { NextRequest, NextResponse } from "next/server";
 import { getAdminUser } from "@/lib/admin";
@@ -31,22 +32,17 @@ export async function GET(req: NextRequest) {
 
   const supabase = createAdminClient();
 
-  const { data: last } = await supabase
-    .from("mt_insights")
-    .select("ts")
-    .eq("kind", "_run")
-    .order("ts", { ascending: false })
-    .limit(1);
-  const lastTs = last?.[0]?.ts ? new Date(last[0].ts).getTime() : 0;
-  if (Date.now() - lastTs < MIN_INTERVAL_MS && !req.nextUrl.searchParams.get("force")) {
-    return NextResponse.json({ skipped: true, last_run: last?.[0]?.ts });
-  }
-
-  const { data: inserted, error } = await supabase.rpc("mt_generate_insights");
-
-  // Same cadence, same guard: run the autonomous bot detector. It flags stealth
-  // scrapers, auto-blocks them (middleware enforces bot_blocks), and lets 24h-
-  // quiet blocks expire. Isolated so a failure never affects the insight feed.
+  // The detector runs on EVERY invocation, deliberately ahead of the interval guard
+  // below. The guard is right for the insight feed: the same lines regenerated five
+  // times an hour are noise. It is wrong for the detector, which is a race. The fleet
+  // that arrived 2026-08-30 spends a fresh /24 every handful of pageviews, so a
+  // 30-minute cadence handed each prefix half an hour to read for free — measured
+  // that morning, 184 prefixes in three hours and 33 of them blocked. The cron is now
+  // every 5 minutes (vercel.json); everything past the guard still keeps its own
+  // 20-minute floor, so this costs one RPC per run and nothing else.
+  //
+  // It flags stealth scrapers, auto-blocks them (middleware enforces bot_blocks), and
+  // lets 24h-quiet blocks expire. Isolated so a failure never affects the feed.
   //
   // ⚠️ The catch below is not the safety net it looks like. A Supabase RPC
   // reports a SQL fault in `error`; it does not throw. Dropping `error` — as this
@@ -71,6 +67,25 @@ export async function GET(req: NextRequest) {
     botDetectError = e instanceof Error ? e.message : "unknown throw";
     Sentry.captureException(e, { level: "error", tags: { subsystem: "bot-sentinel" } });
   }
+
+  const { data: last } = await supabase
+    .from("mt_insights")
+    .select("ts")
+    .eq("kind", "_run")
+    .order("ts", { ascending: false })
+    .limit(1);
+  const lastTs = last?.[0]?.ts ? new Date(last[0].ts).getTime() : 0;
+  if (Date.now() - lastTs < MIN_INTERVAL_MS && !req.nextUrl.searchParams.get("force")) {
+    // The detector above already ran; report it, or a 5-minute cron looks idle.
+    return NextResponse.json({
+      skipped: true,
+      bot_blocks: botBlocks,
+      bot_detect_error: botDetectError,
+      last_run: last?.[0]?.ts,
+    });
+  }
+
+  const { data: inserted, error } = await supabase.rpc("mt_generate_insights");
 
   // Same cadence again: the layer-1 uncovered-intent detector (0079,
   // docs/PLAN-intent-coverage.md §1). Folds fresh GSC (page, query) demand
