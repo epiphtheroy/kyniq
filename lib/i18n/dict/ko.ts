@@ -662,7 +662,9 @@ export const KO: Record<string, string> = {
   // C2 — Wikidata award record
   "Wikidata’s award record holds {honors} for {title} — {breakdown}{including}.":
     "Wikidata 수상 기록 기준 {title}의 영예는 {honors} — {breakdown}{including}.",
-  "{n} honor": "{n}건의 영예", "{n} honors": "{n}건의 영예",
+  // Bare count: the sentence that carries it already says 영예, and "영예는 4건의
+  // 영예" said it twice.
+  "{n} honor": "{n}건", "{n} honors": "{n}건",
   // Plurals already live above (line ~516) with the same Korean — Korean has no
   // plural form, so only the singulars are new here.
   "{n} win": "{n}회 수상",
