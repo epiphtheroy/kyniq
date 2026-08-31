@@ -1002,10 +1002,15 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
     // under the hero. The old "About" tab and its metadata list were removed: the
     // facts (director/genre/runtime/cert) duplicate the hero, and cast/writing now
     // live in the Credits tab.
+    // The summary label went through t() but the body did not, so a Korean page
+    // showed "줄거리 (TMDB)" over English prose — the localised label made it look
+    // translated. overview_ko is not incidental here: together with title_ko it
+    // is the gate that admits a film to the /ko cohort at all, so this was the
+    // one field the page was required to show and the one it dropped.
     const synopsis = f.overview ? (
       <details className="df-synopsis-fold">
         <summary>{t(locale, "Plot overview (TMDB)")}</summary>
-        <p className="df-synopsis">{f.overview}</p>
+        <p className="df-synopsis">{loc(f, "overview") ?? f.overview}</p>
       </details>
     ) : null;
     // C4 — image parity with Tier-1: an image-first StillHero (up to 4) + an
@@ -1192,7 +1197,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
               visible (still demoted, below the tab bar) rather than dropping it. */}
           {!hasDigest ? synopsis : null}
 
-          <CinecodexPanel locale={locale} data={codex as Codex | null} title={f.title} subscores={subscores} slug={f.slug} />
+          <CinecodexPanel locale={locale} data={codex as Codex | null} title={loc(f, "title") ?? f.title} subscores={subscores} slug={f.slug} />
           <TowCard locale={locale} tow={tow} filmTitle={f.title} variant="short" slug={f.slug} />
           <FilmLineageSection locale={locale} lineage={lineage} title={f.title} slug={f.slug} listMeta={lnListMeta} movements={movements} recordUpdated={recordUpdated} />
           <FilmRecommendedBy locale={locale} rows={recommendedBy} title={f.title} titles={ctFilmTitles} />
@@ -1686,7 +1691,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
           </section>
         ) : null}
 
-        <CinecodexPanel locale={locale} data={codex as Codex | null} title={film.title} subscores={subscores} slug={film.slug}
+        <CinecodexPanel locale={locale} data={codex as Codex | null} title={loc(film, "title") ?? film.title} subscores={subscores} slug={film.slug}
           headerAccessory={packVisible ? <DownloadPackModal slug={film.slug} sections={[{ key: "takescore", label: "TakeScore" }]} variant="section" /> : null} />
         <TowCard locale={locale} tow={towLoc} filmTitle={film.title} variant="short" slug={film.slug} />
 
