@@ -78,10 +78,30 @@ export function precisionRank(p: string | null | undefined): number {
 const longer = (a: string | null | undefined, b: string | null | undefined) =>
   (b ?? "").length > (a ?? "").length ? (b ?? null) : (a ?? null);
 
+/** Does this pin actually carry citation URLs? */
+export function hasSources(p: GeoPin): boolean {
+  return Array.isArray(p.sources)
+    && (p.sources as unknown[]).some((s) => typeof s === "string" && s.startsWith("http"));
+}
+
+// verified (2+ independent domains) beats probable (one trusted domain) beats
+// weak; a pin with no citations at all ranks last.
+const TIER_RANK: Record<string, number> = { verified: 0, probable: 1, weak: 2 };
+function citationRank(p: GeoPin): number {
+  return hasSources(p) ? (TIER_RANK[p.tier ?? ""] ?? 3) : 9;
+}
+
 function mergeTwo<T extends GeoPin>(cur: T, p: T): T {
   const winner = precisionRank(p.precision) < precisionRank(cur.precision) ? p : cur;
+  // Receipts must survive the fuse. `winner` is picked on precision alone, so a
+  // sourceless duplicate can outrank the row that actually carries the citations
+  // and silently strip them off a cited pin (and with them its Verified mark).
+  // Carry tier + sources from whichever row is better evidenced.
+  const cited = citationRank(p) < citationRank(cur) ? p : cur;
   return {
     ...winner,
+    tier: cited.tier,
+    sources: cited.sources,
     narrative_setting: longer(cur.narrative_setting, p.narrative_setting),
     scene_role: longer(cur.scene_role, p.scene_role),
     fig_slug: cur.fig_slug ?? p.fig_slug,

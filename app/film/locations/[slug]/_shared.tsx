@@ -282,6 +282,27 @@ function sourceHost(u: string): string {
   try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return "source"; }
 }
 
+// Only tier "verified" cleared the two-independent-source bar. "probable" (a
+// single trusted domain) and "weak" keep their links but earn no mark — a badge
+// on every cited pin would stop being a signal. Pins with no citations get
+// nothing at all rather than a scarlet letter: most of them passed the July
+// check and merely lost their URLs before they reached the database.
+function VerifiedMark() {
+  return (
+    <span
+      title="Two or more independent sources on file"
+      style={{
+        marginLeft: 7, fontSize: 11, fontWeight: 600, letterSpacing: ".02em",
+        color: "#1c6b45", background: "rgba(28,107,69,.09)",
+        border: "1px solid rgba(28,107,69,.22)", borderRadius: 999,
+        padding: "1.5px 7px", verticalAlign: "middle", whiteSpace: "nowrap",
+      }}
+    >
+      ✓ Verified
+    </span>
+  );
+}
+
 function gmaps(p: GeoPin): string {
   // A point, not a search: the query pins the exact geocode we hold.
   return `https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}`;
@@ -291,11 +312,15 @@ function LocationItem({ p, n }: { p: GeoPin; n: number }) {
   const prose = pinProse(p);
   const badge = p.precision ? PRECISION_LABEL[p.precision] ?? p.precision : null;
   const srcs = sourceUrls(p.sources);
+  const verified = p.tier === "verified" && srcs.length > 0;
   return (
     <div style={{ padding: "14px 0", borderBottom: "1px solid rgba(22,35,63,.1)", display: "grid", gridTemplateColumns: "34px 1fr", gap: 12 }}>
       <div aria-hidden style={{ fontSize: 19, fontWeight: 700, color: "#c0392b", lineHeight: 1.3 }}>{n}.</div>
       <div>
-        <h3 style={{ margin: "0 0 3px", fontSize: 16.5, lineHeight: 1.35 }}>{p.name}</h3>
+        <h3 style={{ margin: "0 0 3px", fontSize: 16.5, lineHeight: 1.35 }}>
+          {p.name}
+          {verified ? <VerifiedMark /> : null}
+        </h3>
         <div style={{ fontSize: 12.5, opacity: 0.6, marginBottom: prose ? 5 : 0 }}>
           {[p.country, badge, p.built_set ? (p.set_host ? `built set — ${p.set_host}` : "built set") : null]
             .filter(Boolean).join(" · ")}
