@@ -19,7 +19,7 @@ export default function Footer() {
       <div className="site-footer__inner">
         {/* Brand block — the stacked wordmark + motto */}
         <Link href="/" className="brandlink" aria-label="Metatake home">
-          <BrandStack height={60} label="" />
+          <BrandStack height={80} label="" />
         </Link>
         <div className="tagline" style={{ marginTop: 10 }}>
           {t(locale, "Read films closely — a critical map of cinema that links films through the meanings they share.")}

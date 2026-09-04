@@ -4,7 +4,7 @@ import { useState } from "react";
 import { createBrowserClient } from "@supabase/ssr";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { BrandLockup } from "@/components/Brand";
+import { BrandStack } from "@/components/Brand";
 
 function getSupabase() {
   return createBrowserClient(
@@ -76,7 +76,7 @@ export default function SignupPage() {
     <main className="shell" style={{ maxWidth: 420 }}>
       <div style={{ textAlign: "center", margin: "24px 0 26px" }}>
         <Link href="/" className="brandlink" aria-label="Metatake home">
-          <BrandLockup size={30} />
+          <BrandStack height={80} label="" />
         </Link>
         <div className="tagline" style={{ marginTop: 6 }}>Read films closely.</div>
       </div>
