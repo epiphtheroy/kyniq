@@ -183,12 +183,48 @@ function dekText(title: string, r: Report): string {
   return `${lead} The full ${r.nCountries}-country map, verified beyond the JustWatch matrix — archives checked, MUBI compared by country, disc editions on file.`;
 }
 
+// Search engines cut titles past ~70 characters, and Bing flagged eight of our
+// best-placed /whereto pages for it (2026-09-04) — pages that were earning
+// impressions at 0% CTR with 100+ character titles. The layout template
+// appends " · Metatake", so the body has 59 characters to work with. Each
+// branch lists its wordings longest-first and the first one that fits wins;
+// the bare "Where to Watch <film>" is the floor (a very long film title can
+// still overrun, and that is the film's name, not ours to shorten).
+const TITLE_BODY_MAX = 70 - " · Metatake".length;
+
+function fitTitle(variants: string[]): string {
+  return variants.find((v) => v.length <= TITLE_BODY_MAX) ?? variants[variants.length - 1];
+}
+
 function titleText(film: { title: string; year: number | null }, r: Report): string {
   const ty = `${film.title}${film.year ? ` (${film.year})` : ""}`;
-  if (r.freeSources.length) return `Where to Watch ${ty} Free — Verified Archives + Streaming in ${r.nCountries} Countries`;
-  if (r.mubiYes.length >= 3) return `Where to Watch ${ty} — MUBI in ${r.mubiYes.length} Countries, Full Streaming Map`;
-  if (r.topProviders[0]) return `Where to Watch ${ty} — ${r.topProviders[0].name} & Every Service, ${r.nCountries} Countries`;
-  return `Where to Watch ${ty} — Streaming, Free Archives, Disc & Subtitles`;
+  const base = `Where to Watch ${ty}`;
+  const n = r.nCountries;
+  if (r.freeSources.length) {
+    return fitTitle([
+      `${base} Free — Verified Archives + Streaming in ${n} Countries`,
+      `${base} Free — ${n} Countries`,
+      `${base} Free`,
+      base,
+    ]);
+  }
+  if (r.mubiYes.length >= 3) {
+    return fitTitle([
+      `${base} — MUBI in ${r.mubiYes.length} Countries, Full Streaming Map`,
+      `${base} — MUBI, ${n} Countries`,
+      `${base} — ${n} Countries`,
+      base,
+    ]);
+  }
+  if (r.topProviders[0]) {
+    return fitTitle([
+      `${base} — ${r.topProviders[0].name} & Every Service, ${n} Countries`,
+      `${base} — ${r.topProviders[0].name}, ${n} Countries`,
+      `${base} — ${n} Countries`,
+      base,
+    ]);
+  }
+  return fitTitle([`${base} — Streaming, Free Archives, Disc & Subtitles`, `${base} — Streaming & Disc`, base]);
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
