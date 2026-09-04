@@ -125,27 +125,15 @@ html[lang="ko"], html[lang="ko-KR"] {
 
 img { max-width: 100%; }
 
-/* the red box wordmark — two stacked lines, white serif on red (Footer) */
-.logobox {
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  background: var(--accent);
-  color: #FFFFFF;
-  text-decoration: none;
-  padding: 6px 9px 7px;
-  line-height: 1.02;
-  flex: none;
-}
-.logobox__line {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 15.5px;
-  letter-spacing: 0.01em;
-  color: #FFFFFF;
-  display: block;
-}
-.logobox:hover { background: var(--accent-hover); }
+/* Brand marks (components/Brand.tsx). The lockup — symbol + wordtext — is sized by
+   --brand-size (the symbol height): text at .65 of it, gap 0.3em of that text,
+   so one variable shrinks the whole thing in a media query. */
+.brand-lockup { display: inline-flex; align-items: center; gap: calc(var(--brand-size, 22px) * .27); color: inherit; line-height: 0; }
+.brand-lockup svg { display: block; width: auto; }
+.brand-lockup__symbol { height: var(--brand-size, 22px); }
+.brand-lockup__text { height: calc(var(--brand-size, 22px) * .65); }
+.brandlink { display: inline-flex; align-items: center; color: var(--ink); text-decoration: none; line-height: 0; }
+.brandlink:hover { color: var(--ink-soft); }
 
 /* circular/blank icon buttons — thin line icons (RoomShell) */
 .iconbtn {

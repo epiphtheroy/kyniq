@@ -20,7 +20,8 @@
    so the sticky nav anchors to the page (.mt), not its own nav-tall container. */
 .mthome--bare{display:contents}
 .mthome .navrow{display:flex;align-items:center;gap:16px;height:60px}
-.mthome .logo{display:flex;align-items:center;background:var(--red);color:#fff;font-family:var(--serif);font-weight:700;font-size:17px;line-height:1;padding:7px 12px;letter-spacing:-.01em;border-radius:5px}
+.mthome .logo{display:flex;align-items:center;color:#fff;text-decoration:none;padding:4px 0;line-height:0;flex:none}
+.mthome .logo:hover{color:#EFEADD}
 .mthome .menubtn{display:flex;align-items:center;gap:8px;font-family:var(--ui);font-size:14px;font-weight:600;color:#EFEADD;cursor:pointer;padding:8px 6px;border-radius:6px}
 .mthome .menubtn:hover{background:rgba(255,255,255,.08)}
 .mthome .menubtn .bars{display:inline-flex;flex-direction:column;gap:3px}
@@ -565,7 +566,7 @@
 }
 @media(max-width:400px){
   .mthome .navrow{gap:8px}
-  .mthome .logo{font-size:15px;padding:6px 9px}
+  .mthome .logo{--brand-size:19px}
   .mthome .menubtn{padding:8px 2px;gap:6px}
   .mthome .signin-pill{padding:0 11px}
 }

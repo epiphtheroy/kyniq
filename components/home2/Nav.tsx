@@ -10,6 +10,7 @@ import LocaleSwitcher from "@/components/i18n/LocaleSwitcher";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { t as tr, type Locale } from "@/lib/i18n";
 import { clearLocalTakeDrafts } from "@/lib/room/drafts";
+import { BrandLockup } from "@/components/Brand";
 
 export type NavCounts = {
   films?: number; directors?: number; tropes?: number; concepts?: number;
@@ -158,8 +159,8 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
   return (
     <header className="nav" ref={rootRef}>
       <div className="wrap navrow">
-        <Link className="logo" href="/">
-          Metatake
+        <Link className="logo" href="/" aria-label="Metatake home">
+          <BrandLockup size={22} />
         </Link>
 
         {/* Narrow / overflow: single Menu → full mega */}

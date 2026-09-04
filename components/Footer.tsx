@@ -4,6 +4,7 @@ import Link from "next/link";
 import SubscribeForm from "@/components/SubscribeForm";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { t } from "@/lib/i18n";
+import { BrandStack } from "@/components/Brand";
 
 /** Site footer. Client so it can read the locale from the path (it renders in the
  *  root layout, outside {children}, so no provider prop reaches it). Labels project
@@ -16,15 +17,9 @@ export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="site-footer__inner">
-        {/* Brand block — red box wordmark + motto */}
-        <Link
-          href="/"
-          className="logobox"
-          aria-label="Metatake home"
-          style={{ padding: "7px 10px 8px" }}
-        >
-          <span className="logobox__line">Meta</span>
-          <span className="logobox__line">take</span>
+        {/* Brand block — the stacked wordmark + motto */}
+        <Link href="/" className="brandlink" aria-label="Metatake home">
+          <BrandStack height={60} label="" />
         </Link>
         <div className="tagline" style={{ marginTop: 10 }}>
           {t(locale, "Read films closely — a critical map of cinema that links films through the meanings they share.")}
