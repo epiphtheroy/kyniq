@@ -20,6 +20,7 @@ import {
   type ImageStyle,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import Svg, { Path } from "react-native-svg";
 import Animated, {
   Easing,
   useAnimatedStyle,
@@ -971,19 +972,51 @@ export function JudgeBar({
 
 /** Brand wordmark — the serif M lineage in text form, with the Lava tick.
     The ONE place the editorial serif carries chrome (brand thread, §3). */
+/* The brand symbol — the boxed M with its t and red dot — traced from the designer's
+   vector set (brand/metatake-logo-set.ai, 2026-09-04). Ink follows the palette; the
+   dot is the fixed brand red, which is not the app's accent. */
+const LOGO_RED = "#E3120B";
+const SYMBOL_VIEWBOX = "0 0 1000.0 932.8";
+const SYMBOL_RATIO = 1.07204;
+const SYMBOL_INK = [
+  "M 653.62 673.76 L 57.65 673.76 L 57.65 57.65 L 653.62 57.65Z M 883.94 860.33 C 854.30 860.33 839.48 843.93 839.48 814.92 L 839.48 669.89 L 920.03 669.89 L 920.03 600.52 L 839.48 600.52 L 839.48 514.13 L 751.19 514.13 L 751.19 600.52 L 711.26 600.52 L 711.26 0.00 L 0.00 0.00 L 0.00 731.41 L 711.26 731.41 L 711.26 669.89 L 751.19 669.89 L 751.19 817.44 C 751.19 893.75 787.92 932.85 858.81 932.85 C 883.30 932.85 907.14 929.69 920.67 924.65 L 920.67 854.65 C 912.30 857.81 899.41 860.33 883.94 860.33",
+  "M 192.07 238.40 L 319.02 565.05 L 386.68 565.05 L 512.99 238.40 L 512.99 565.05 L 596.76 565.05 L 596.76 123.63 L 481.42 123.63 L 352.53 453.44 L 223.65 123.63 L 108.30 123.63 L 108.30 565.05 L 192.07 565.05Z"
+];
+const SYMBOL_DOT =
+  "M 1000.00 489.61 C 1000.00 520.63 974.85 545.78 943.82 545.78 C 912.80 545.78 887.65 520.63 887.65 489.61 C 887.65 458.58 912.80 433.43 943.82 433.43 C 974.85 433.43 1000.00 458.58 1000.00 489.61";
+
+export function BrandSymbol({ height = 24, color }: { height?: number; color?: string }) {
+  const pal = usePalette();
+  const ink = color ?? pal.ink;
+  return (
+    <Svg width={Math.round(height * SYMBOL_RATIO)} height={height} viewBox={SYMBOL_VIEWBOX}>
+      {SYMBOL_INK.map((d, i) => (
+        <Path key={i} d={d} fill={ink} />
+      ))}
+      <Path d={SYMBOL_DOT} fill={LOGO_RED} />
+    </Svg>
+  );
+}
+
+/** Header form per the brand guide: symbol + plain-text "Metatake", vertically centred,
+    gap 0.3em. The guide's face is Indivisible SemiBold with tracking 26; the app ships
+    no such font, so the UI bold stands in with the same tracking. `size` = text size. */
 export function Wordmark({ size = fs.xl }: { size?: number }) {
   const pal = usePalette();
   return (
-    <View style={{ flexDirection: "row", alignItems: "baseline", gap: 3 }}>
-      <Text style={{ fontFamily: font.serifBold, fontSize: size, color: pal.ink }}>Metatake</Text>
-      <View
+    <View style={{ flexDirection: "row", alignItems: "center", gap: Math.round(size * 0.3) }}>
+      <BrandSymbol height={Math.round(size * 1.1)} />
+      <Text
         style={{
-          width: Math.max(5, Math.round(size * 0.24)),
-          height: Math.max(5, Math.round(size * 0.24)),
-          borderRadius: 999,
-          backgroundColor: brand.accent,
+          fontFamily: font.uiBold,
+          fontSize: size,
+          letterSpacing: size * 0.026,
+          color: pal.ink,
+          includeFontPadding: false,
         }}
-      />
+      >
+        Metatake
+      </Text>
     </View>
   );
 }
