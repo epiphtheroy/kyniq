@@ -8,6 +8,11 @@ import { isObservableCrawler } from "@/lib/bots/identify";
 // never block these, even if a blocked prefix happened to overlap.
 const GOOD_BOT =
   /googlebot|bingbot|duckduckbot|yandex|baiduspider|applebot(?!-extended)|slurp|Yeti|Daum|NaverBot|Claude-SearchBot|Claude-User|ChatGPT-User|OAI-SearchBot|PerplexityBot|Amzn-SearchBot|vercel/i;
+// The two engines whose serving we actually live on — Bing (and the Bing index
+// behind DuckDuckGo, Yahoo and Ecosia) and Google. They get a higher burst
+// ceiling than the rest of GOOD_BOT, not an exemption: the UA is claimable, so
+// a spoofer still meets a limit. See the backstop below for why this is narrow.
+const SERVING_ENGINE = /googlebot|bingbot|adidxbot/i;
 // Scrapers / AI-training / SEO-harvest bots — the same set our Vercel WAF rule
 // and app/robots.ts disallow. Enforced here too so it holds even if the WAF
 // rule is edited. (Citation bots above are matched first and exempted.)
@@ -149,6 +154,7 @@ const SEARCH_MAX_PER_MIN = 20; // a person types a handful of searches a minute
 const CREDITS_MAX_PER_MIN = 30; // a person opens a few crew pages; a sweep opens hundreds
 const FIGURE_MAX_PER_MIN = 10; // a reader opens one figure and stays; a sweep opens the catalogue
 const BURST_MAX_PER_MIN = 60; // sitewide backstop — one page a second, sustained, is a machine
+const SERVING_ENGINE_MAX_PER_MIN = 300; // the two engines that serve us: room to sweep, still capped
 const THROTTLE_KEYS_MAX = 5000; // XFF is client-influencable — cap the key space
 
 // ── Private-surface ceiling, keyed on the SESSION rather than the IP ─────────
@@ -336,11 +342,22 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
     // Being on the good list means we never 403 you. It does not mean you may
     // take the site down: 429 + Retry-After asks a crawler to slow down and,
     // unlike a 404 or a noindex, never drops a URL from the index.
+    //
+    // 2026-09-06: that last sentence is true of the index and false of the
+    // serving. Bing impressions went 1,001 → 508 → 0 over 09-01…09-03 while its
+    // indexed count kept climbing (11,010 → 15,258), and the days in between are
+    // the days Bing logged crawl errors that were neither HTTP codes nor DNS
+    // failures — 1,545 of them on 09-02 alone, the 429 shape. The WAF rule that
+    // did most of it now excepts AS 8075/15169; this is the same exception one
+    // layer down. Bing and Google keep a ceiling because the UA is claimable —
+    // just one 5× above the 6,858 pages/day Bingbot took at its heaviest.
+    // Applebot and Yandex, who actually took us down, still meet the old one.
     if (request.headers.get("next-router-prefetch") !== "1") {
       const burstPrefix = ipToPrefix(
         request.headers.get("x-forwarded-for") ?? request.headers.get("x-real-ip")
       );
-      if (burstPrefix && throttled("burst", burstPrefix, BURST_MAX_PER_MIN)) {
+      const burstMax = SERVING_ENGINE.test(ua) ? SERVING_ENGINE_MAX_PER_MIN : BURST_MAX_PER_MIN;
+      if (burstPrefix && throttled("burst", burstPrefix, burstMax)) {
         return tooMany("burst");
       }
     }
