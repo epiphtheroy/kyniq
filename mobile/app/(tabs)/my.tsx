@@ -60,6 +60,7 @@ import { isWeb } from "../../src/platform/env";
 import type { DictKey } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
 import { registerPush } from "../../src/lib/push";
+import { openReviewListing } from "../../src/lib/review";
 import { PUSH_CREDENTIALS_CONFIGURED } from "../../src/platform/notifications";
 import { useLocalPosters, useLocalTitles } from "../../src/lib/titles";
 import { supabase } from "../../src/lib/supabase";
@@ -1342,6 +1343,39 @@ function SettingsModal({ visible, onClose }: { visible: boolean; onClose: () => 
               overflow: "hidden",
             }}
           >
+            {/* The store door. This is a LINK, not a prompt: the system rating
+                sheet may only be fired by the app's own judgement of the moment
+                (src/lib/review.ts), never by a button we labelled — that is what
+                guideline 1.1.7 prohibits. A reader who came looking for it, on
+                the other hand, is entitled to a way through. */}
+            <Tactile
+              feedback="tap"
+              onPress={() => {
+                void openReviewListing();
+              }}
+            >
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  gap: sp.s3,
+                  paddingHorizontal: sp.s4,
+                  paddingVertical: sp.s3,
+                }}
+              >
+                <IconDisc name="star-outline" />
+                <View style={{ flex: 1 }}>
+                  <Ui size={fs.md} weight="500">
+                    {t("my.rate")}
+                  </Ui>
+                  <Ui size={fs.xs} color={pal.muted} style={{ marginTop: 2 }}>
+                    {t("my.rateSub")}
+                  </Ui>
+                </View>
+                <Ionicons name="open-outline" size={16} color={pal.subtle} />
+              </View>
+            </Tactile>
+            <Hairline style={{ marginLeft: ROW_INSET }} />
             <Tactile
               feedback="tap"
               onPress={() => {

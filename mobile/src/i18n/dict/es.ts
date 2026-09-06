@@ -57,6 +57,8 @@ export const es: Record<keyof typeof en, string> = {
   "kind.buy": "Compra",
   "attribution.justwatch": "Datos de streaming por JustWatch",
   "attribution.tmdb": "Metadatos e imágenes de TMDB",
+  "my.rate": "Valorar Metatake",
+  "my.rateSub": "Un minuto en la tienda la pone ante el próximo lector",
   "my.credits": "Créditos y fuentes de datos",
   "my.creditsSub": "TMDB · JustWatch · Wikidata — de dónde vienen los datos",
   "director.whereToStart": "Where to Start",

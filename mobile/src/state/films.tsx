@@ -16,6 +16,7 @@ import type { Session } from "@supabase/supabase-js";
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { me } from "../lib/api";
 import { trackTap } from "../lib/beacon";
+import { noteJudgment } from "../lib/review";
 import { supabase } from "../lib/supabase";
 
 export type LedgerEntry = {
@@ -158,6 +159,9 @@ export function FilmsProvider({ children }: { children: React.ReactNode }) {
         setLedger((m) => new Map(m).set(slug, prev)); // roll back
         return null;
       }
+      // Every judgment in the app lands here, which makes this the one place
+      // that can count them for the store-review budget (src/lib/review.ts).
+      noteJudgment();
       if (!prev.filmId) {
         // The RPC just created the row — learn films.id so undo can address it.
         supabase

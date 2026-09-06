@@ -61,6 +61,8 @@ export const en = {
   // attribution (invariant §13-8)
   "attribution.justwatch": "Streaming data powered by JustWatch",
   "attribution.tmdb": "Film metadata and images from TMDB",
+  "my.rate": "Rate Metatake",
+  "my.rateSub": "A minute in the store puts it in front of the next reader",
   "my.credits": "Credits & data sources",
   "my.creditsSub": "TMDB · JustWatch · Wikidata — where the data comes from",
   // director card

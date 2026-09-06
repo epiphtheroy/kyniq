@@ -58,6 +58,8 @@ export const ko: Record<keyof typeof en, string> = {
   "kind.buy": "구매",
   "attribution.justwatch": "스트리밍 데이터 제공: JustWatch",
   "attribution.tmdb": "영화 메타데이터·이미지 출처: TMDB",
+  "my.rate": "메타테이크 평가하기",
+  "my.rateSub": "스토어에 남긴 한 줄이 다음 독자에게 닿습니다",
   "my.credits": "출처 및 데이터 제공",
   "my.creditsSub": "TMDB · JustWatch · Wikidata — 데이터가 오는 곳",
   "director.whereToStart": "어디서 시작할까",

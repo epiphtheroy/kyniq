@@ -24,6 +24,7 @@ import "react-native-reanimated";
 import { startBeacon, trackScreen } from "../src/lib/beacon";
 import PreviewBadge from "../src/components/PreviewBadge";
 import { RateProvider } from "../src/components/RateSheet";
+import { noteLaunch } from "../src/lib/review";
 import { FilmsProvider } from "../src/state/films";
 import { PrefsProvider } from "../src/state/prefs";
 import { brand, dark, font, light } from "../src/theme";
@@ -75,6 +76,11 @@ function useScreenBeacon() {
   const segments = useSegments();
   const pattern = "/" + (segments as string[]).join("/");
   useEffect(() => startBeacon(), []);
+  // A launch is a day of use — the store-review budget counts days, not sessions,
+  // so one long evening cannot buy its way to a prompt (src/lib/review.ts).
+  useEffect(() => {
+    void noteLaunch();
+  }, []);
   useEffect(() => {
     trackScreen(pattern === "/" ? "/" : pattern, pathname);
   }, [pattern, pathname]);

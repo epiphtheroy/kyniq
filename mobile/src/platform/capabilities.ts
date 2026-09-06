@@ -163,6 +163,25 @@ export const DIVERGENCE = {
       "Once google-services.json + an FCM V1 key exist, the switch returns and must stay ON across " +
       "a relaunch — DEVELOPMENT BUILD ONLY, since remote push was removed from Expo Go in SDK 53.",
   },
+  storeReviewPrompt: {
+    ios: "SKStoreReviewController — the system sheet, at most three per user per 365 days, and deliberately dead in TestFlight",
+    android: "Play In-App Review — the same sheet on an undisclosed Play quota, and a silent no-op for any build the device did not receive from Play",
+    why:
+      "Neither store lets an app author its own rating dialog, so both platforms ask the OS for the " +
+      "same favour and neither one answers: the API cannot say whether the sheet appeared or what " +
+      "was tapped. What actually differs is what we can VERIFY. An iOS sheet can be seen on a " +
+      "development build; an Android sheet cannot be seen on any build we hand out ourselves — a " +
+      "sideloaded APK gets nothing, with no error and no log. So the Android prompt is unobservable " +
+      "until it is live from Play, and the QA line below is the only honest test of it.",
+    parity: "acceptable",
+    files: ["src/platform/review.ts", "src/lib/review.ts"],
+    qa:
+      "Both: My → Rate Metatake opens the store on its write-a-review form (iOS the App Store " +
+      "review page, Android the Play listing). The automatic prompt cannot be forced — it needs " +
+      "three separate days of use, eight judgments and a film rated 4+ — and on Android it appears " +
+      "only on a build installed from Play.",
+  },
+
 } as const satisfies Record<string, Divergence>;
 
 export type DivergenceKey = keyof typeof DIVERGENCE;

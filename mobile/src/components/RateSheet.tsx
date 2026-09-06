@@ -46,6 +46,7 @@ import Animated, {
 import { t } from "../i18n";
 import { me } from "../lib/api";
 import { verdictColor, verdictKey, verdictOf } from "../lib/verdict";
+import { maybeAskAfterRating } from "../lib/review";
 import { useFilms } from "../state/films";
 import { brand, fs, motion, radius, shadow, sp, usePalette } from "../theme";
 import { Sparkle, haptic } from "./motion";
@@ -91,6 +92,10 @@ export function RateProvider({ children }: { children: React.ReactNode }) {
     doneRef.current = undefined;
     setTarget(null);
     done?.(rating);
+    // A saved rating is the app's own evidence that the evening worked, and the
+    // sheet is already gone — the only moment we are willing to spend a store
+    // prompt on. The policy decides whether this one qualifies.
+    if (rating != null) maybeAskAfterRating(rating);
   }, []);
 
   return (

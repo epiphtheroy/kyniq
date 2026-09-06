@@ -57,6 +57,8 @@ export const ja: Record<keyof typeof en, string> = {
   "kind.buy": "購入",
   "attribution.justwatch": "配信データ提供: JustWatch",
   "attribution.tmdb": "映画メタデータ・画像: TMDB",
+  "my.rate": "Metatake を評価する",
+  "my.rateSub": "ストアに残す一言が次の読者に届きます",
   "my.credits": "クレジットとデータ提供",
   "my.creditsSub": "TMDB · JustWatch · Wikidata — データの出どころ",
   "director.whereToStart": "Where to Start",
