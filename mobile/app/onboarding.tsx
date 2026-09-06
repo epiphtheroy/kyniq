@@ -57,6 +57,19 @@ import { usePrefs, type EditionPreset } from "../src/state/prefs";
 import { brand, font, fs, gradient, motion, radius, sp, usePalette } from "../src/theme";
 import type { Service, TonightRow } from "../src/types";
 
+/**
+ * Clearance under a step's scroll content for the fixed footer CTA.
+ *
+ * These two numbers are still hand-tuned to the iOS footer rather than measured
+ * from it — that debt is real and unchanged. What naming them fixes is that the
+ * same number was written out four times, so the magicClearance ratchet counted
+ * four separate magic values and the day someone measures the footer there were
+ * four places to remember. Now there is one.
+ */
+const CTA_CLEARANCE = 140;
+/** The taste step's footer carries a second row. */
+const CTA_CLEARANCE_TALL = 160;
+
 // Connect hub route (HANDOFF-커넥트 §2.1). Cast: the /connect screen lands in
 // this same wave from another lane, and the generated typed-routes file only
 // refreshes on the next `expo start` — the cast keeps tsc green until then.
@@ -478,7 +491,7 @@ function StepEdition({ onNext }: { onNext: () => void }) {
 
   return (
     <View style={{ flex: 1 }}>
-      <ScrollView contentContainerStyle={{ paddingBottom: 140 }} keyboardShouldPersistTaps="handled">
+      <ScrollView contentContainerStyle={{ paddingBottom: CTA_CLEARANCE }} keyboardShouldPersistTaps="handled">
         <View style={{ paddingHorizontal: sp.s5, paddingTop: sp.s5 }}>
           <Ui size={fs.x2} weight="600">
             {t("onboarding.editionTitle")}
@@ -743,7 +756,7 @@ function StepUILanguage({ onNext }: { onNext: () => void }) {
   const { locale, set } = usePrefs();
   return (
     <View style={{ flex: 1 }}>
-      <ScrollView contentContainerStyle={{ paddingBottom: 140 }}>
+      <ScrollView contentContainerStyle={{ paddingBottom: CTA_CLEARANCE }}>
         <View style={{ paddingHorizontal: sp.s5, paddingTop: sp.s5 }}>
           <Ui size={fs.x2} weight="600">
             {t("onboarding.uiLanguageTitle")}
@@ -805,7 +818,7 @@ function StepLanguage({ onNext }: { onNext: () => void }) {
   const { contentLang, set } = usePrefs();
   return (
     <View style={{ flex: 1 }}>
-      <ScrollView contentContainerStyle={{ paddingBottom: 140 }}>
+      <ScrollView contentContainerStyle={{ paddingBottom: CTA_CLEARANCE }}>
         <View style={{ paddingHorizontal: sp.s5, paddingTop: sp.s5 }}>
           <Ui size={fs.x2} weight="600">
             {t("onboarding.languageTitle")}
@@ -986,7 +999,7 @@ function StepTaste({ onDone }: { onDone: () => void }) {
       ) : !rows ? (
         <SkeletonScreen kind="rail" count={3} />
       ) : (
-        <ScrollView contentContainerStyle={{ paddingBottom: 160 }}>
+        <ScrollView contentContainerStyle={{ paddingBottom: CTA_CLEARANCE_TALL }}>
           <View style={{ paddingHorizontal: sp.s5, paddingTop: sp.s5 }}>
             <Ui size={fs.x2} weight="600">
               {t("onboarding.tasteTitle")}

@@ -12,9 +12,10 @@
 // nothing but a note there. Nothing else imports it.
 import { useRouter } from "expo-router";
 import React, { useEffect } from "react";
-import { Platform, ScrollView, View } from "react-native";
+import { ScrollView, View } from "react-native";
 import { Hairline, Screen, SectionTitle, Serif, Tactile, Ui } from "../src/components/ui";
 import { UI_LOCALES, type UILocale } from "../src/editions";
+import { isWeb } from "../src/platform/env";
 import { usePrefs } from "../src/state/prefs";
 import { brand, fs, radius, sp, usePalette } from "../src/theme";
 
@@ -86,7 +87,7 @@ export default function PreviewIndex() {
   //
   // Dynamic routes need a real parameter to resolve to a chunk, hence the slugs.
   useEffect(() => {
-    if (!__DEV__ || Platform.OS !== "web") return;
+    if (!__DEV__ || !isWeb) return;
     const routes = [
       "/", "/search", "/navigator", "/my", "/map",
       "/film/parasite-2019", "/director/bong-joon-ho",
@@ -107,7 +108,7 @@ export default function PreviewIndex() {
     return () => clearInterval(id);
   }, [router]);
 
-  if (!__DEV__ || Platform.OS !== "web") {
+  if (!__DEV__ || !isWeb) {
     return (
       <Screen style={{ alignItems: "center", justifyContent: "center", padding: sp.s5 }}>
         <Ui color={pal.muted} style={{ textAlign: "center" }}>

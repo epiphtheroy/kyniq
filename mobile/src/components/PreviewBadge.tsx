@@ -10,11 +10,12 @@
 // never in a store screenshot.
 import { useRouter } from "expo-router";
 import React from "react";
-import { Platform, Pressable, Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
+import { isWeb } from "../platform/env";
 
 export default function PreviewBadge() {
   const router = useRouter();
-  if (!__DEV__ || Platform.OS !== "web") return null;
+  if (!__DEV__ || !isWeb) return null;
   return (
     <View
       // Bottom-LEFT: the tab bar owns the bottom centre, and the right side is

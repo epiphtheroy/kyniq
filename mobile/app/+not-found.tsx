@@ -3,9 +3,9 @@
 // dead screen — the whole site stays reachable from the app.
 import { Redirect, Stack, usePathname, useRouter } from "expo-router";
 import React from "react";
-import { Platform } from "react-native";
 import { GradientBtn, Screen, Ui } from "../src/components/ui";
 import { t } from "../src/i18n";
+import { isWeb } from "../src/platform/env";
 import { fs, sp, usePalette } from "../src/theme";
 
 // Paths the OS may deep-link into the app that are ours, not the website's.
@@ -19,7 +19,7 @@ export default function NotFoundScreen() {
   // In a web dev build this fallback is a trap: mistype a route and the app
   // silently shows you metatake.net inside a WebView, which looks like the
   // native screen rendered wrong. Say what happened, and offer the index.
-  if (__DEV__ && Platform.OS === "web") {
+  if (__DEV__ && isWeb) {
     return (
       <Screen style={{ alignItems: "center", justifyContent: "center", gap: sp.s3, padding: sp.s5 }}>
         <Stack.Screen options={{ title: "" }} />
