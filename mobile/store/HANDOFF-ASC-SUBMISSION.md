@@ -1,5 +1,21 @@
 # HANDOFF — App Store Connect 1.0 제출 (실행 지시서)
 
+> ## 🔴 2026-09-08 현재 상태 (ASC API 실측) — 여기부터 읽을 것
+> | | |
+> |---|---|
+> | **1.0.1** | `PENDING_DEVELOPER_RELEASE` · 빌드 **20**(09-04 새 마크) · **Apple 승인 완료, 출시 버튼만 대기** · 키워드는 옛 값 · releaseType MANUAL |
+> | 빌드 21 | 1.0.1 · VALID · 평점 프롬프트 포함 · **어디에도 안 붙음**(승인된 버전엔 빌드 교체 불가, 1.0.2엔 마케팅 버전 불일치로 못 붙음) → TestFlight 전용 |
+> | **1.0.2** | app.json 올림(`b8c704dd`) · EAS 빌드 iOS `5536eb24…`/Android `74a6b72c…` 진행 중 → **빌드 22 = 평점 프롬프트 + 새 키워드 + 한국어 현지화** |
+> | `ko` 현지화 | **한 번도 존재한 적 없음**(앱 정보·버전 현지화 모두 en-US뿐). §7이 "미완·대기"였던 이유 |
+> | API 키 `65Y5238S83` | 읽기 ✅ · **쓰기 403** (`FORBIDDEN_ERROR: The API key in use does not allow this request`) — Developer 역할. 역할 상향 불가 → **App Manager 키 신규 발급 필요** |
+>
+> **도구:** `mobile/scripts/asc-release.mjs` — `status` / `release --version 1.0.1` / `prepare --version 1.0.2 --build 22` / `submit --version 1.0.2`.
+> `prepare`는 listing-en/ko.md·RELEASE-NOTES-1.0.2.md에서 키워드·새 기능·한국어 리스팅(이름·부제·설명·프로모션)을 읽어 **ko를 신설**하고 en-US를 패치한다. 읽고-비교하고-차이만 쓴다(재실행 안전).
+> **App Manager 키가 생기면** `ASC_KEY_ID=… ASC_ISSUER_ID=… ASC_KEY_P8=… node scripts/asc-release.mjs release --version 1.0.1` → (빌드 22 업로드·처리 후) `prepare` → `submit`. 세 명령이면 끝.
+>
+> ⚠️ 순서 강제: 1.0.1을 **먼저 출시**해야 1.0.2를 만들 수 있다(파이프라인엔 한 버전만).
+
+
 > ✅ **2026-08-05 제출 완료.** 상태 `PREPARE_FOR_SUBMISSION` → **`WAITING_FOR_REVIEW`** (빌드 17, 승인 후 **수동 출시**).
 > 실행 내역: 심사 연락처(Yoon Wonwoo·+821099024259·wonwoo@metatake.net) · 데모 계정 §5.7 그대로 · 메모=REVIEW-NOTES 축약본 3,691자(4,000 한도 때문에 서문·Technical notes 절 제거) · 연령 등급 신형 7단계 설문 → **12+**(한국 12+·베트남 16+·브라질 A14) · 콘텐츠 권한=타사 콘텐츠 권리 보유 · App Privacy 라벨 §6.2 그대로 게시 · privacyUrl `/privacy` · 가격 무료 · 출시 국가 175개 전체.
 > 스크린샷은 오너가 당일 새로 찍은 다크 테마 6.5″ 6장(`shots-65/`)으로 교체돼 있었음(§3의 "은퇴 탭 구판" 경고는 해소됨).

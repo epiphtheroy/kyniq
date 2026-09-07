@@ -25,6 +25,11 @@
  * everything below but Apple rejects its writes with 403 — that error is
  * surfaced verbatim so the fix (an App Manager key) is obvious.
  *
+ * A locale the store has never had (ko, as of 1.0.1) is CREATED from
+ * store/listing-ko.md — name and subtitle on the app record, description,
+ * promotional text and keywords on the version — the first time `prepare`
+ * runs for a version. After that it is patched like en-US.
+ *
  * Copy comes from the listing files, never from flags: keywords from
  * store/listing-en.md and store/listing-ko.md (the first fenced block under
  * "### Keywords" / "### 키워드"), "What's New" from store/RELEASE-NOTES-<v>.md
@@ -138,6 +143,24 @@ function listingCopy(version) {
   return copy;
 }
 
+/** Everything a NEW Korean localization needs, from store/listing-ko.md. URLs
+ *  are not in the file as fields — they are copied from en-US at write time,
+ *  which is also what the ASC form does. */
+function koreanListing() {
+  const ko = readFileSync(join(MOBILE, "store", "listing-ko.md"), "utf8");
+  const out = {
+    name: fenced(ko, "### 이름"),
+    subtitle: fenced(ko, "### 부제"),
+    promotionalText: fenced(ko, "### 프로모션 텍스트"),
+    description: fenced(ko, "### 설명"),
+  };
+  const lim = { name: 30, subtitle: 30, promotionalText: 170, description: 4000 };
+  for (const [k, v] of Object.entries(out)) {
+    if (v.length > lim[k]) throw new Error(`ko ${k} is ${v.length} chars (max ${lim[k]})`);
+  }
+  return out;
+}
+
 // ── reads ───────────────────────────────────────────────────────────────────
 async function versions() {
   const j = await asc("GET", `/apps/${APP_ID}/appStoreVersions?filter[platform]=IOS&limit=10`);
@@ -168,7 +191,25 @@ async function localizations(vid) {
     id: l.id,
     keywords: l.attributes.keywords ?? "",
     whatsNew: l.attributes.whatsNew ?? "",
+    description: l.attributes.description ?? "",
+    promotionalText: l.attributes.promotionalText ?? "",
+    supportUrl: l.attributes.supportUrl ?? "",
+    marketingUrl: l.attributes.marketingUrl ?? "",
   }]));
+}
+/** The app-level record (name, subtitle, privacy URL) that the version under
+ *  preparation edits — the one not yet READY_FOR_SALE. */
+async function editableAppInfo() {
+  const j = await asc("GET", `/apps/${APP_ID}/appInfos`);
+  const pick = j.data.find((i) => i.attributes.appStoreState === "PREPARE_FOR_SUBMISSION")
+    ?? j.data.find((i) => i.attributes.appStoreState !== "READY_FOR_SALE")
+    ?? j.data[0];
+  const locs = await asc("GET", `/appInfos/${pick.id}/appInfoLocalizations`);
+  return {
+    id: pick.id,
+    state: pick.attributes.appStoreState,
+    locales: Object.fromEntries(locs.data.map((l) => [l.attributes.locale, { id: l.id, ...l.attributes }])),
+  };
 }
 async function reviewDetail(vid) {
   try {
@@ -186,6 +227,8 @@ const show = (o) => console.log(JSON.stringify(o, null, 2));
 async function status() {
   const vs = await versions();
   const bs = await builds();
+  const info = await editableAppInfo();
+  console.log(`app info (${info.state}): locales ${Object.keys(info.locales).join(", ") || "none"}`);
   console.log("versions:"); show(vs);
   console.log("builds (newest first):"); show(bs);
   for (const v of vs.slice(0, 2)) {
@@ -253,11 +296,48 @@ async function prepare() {
     const have = locs[loc];
     const attrs = {};
     if (!have) {
-      // A locale the previous version did not carry. Creating one needs the
-      // full description set; that is a listing decision, not a script's, so
-      // say so and stop rather than invent a description.
-      console.error(`  ${loc}: no localization on ${VERSION} — add it in ASC once (description etc.), then re-run`);
-      process.exit(1);
+      if (loc !== "ko") {
+        console.error(`  ${loc}: no localization on ${VERSION} and no listing file to build one from`);
+        process.exit(1);
+      }
+      // The Korean storefront has never had its own listing (1.0 shipped en-US
+      // only). Build it from listing-ko.md at both levels: the app record
+      // (name, subtitle, privacy URL) and this version (description, keywords,
+      // promotional text, What's New, support/marketing URLs). Screenshots are
+      // not required per locale — the primary language's set is shown.
+      const k = koreanListing();
+      const en = locs["en-US"];
+      const info = await editableAppInfo();
+      if (!info.locales.ko) {
+        await asc("POST", "/appInfoLocalizations", {
+          data: {
+            type: "appInfoLocalizations",
+            attributes: {
+              locale: "ko", name: k.name, subtitle: k.subtitle,
+              privacyPolicyUrl: info.locales["en-US"]?.privacyPolicyUrl ?? "https://metatake.net/privacy",
+            },
+            relationships: { appInfo: { data: { type: "appInfos", id: info.id } } },
+          },
+        });
+        console.log(`  ko: app info created (name="${k.name}", subtitle="${k.subtitle}")`);
+      }
+      const made = await asc("POST", "/appStoreVersionLocalizations", {
+        data: {
+          type: "appStoreVersionLocalizations",
+          attributes: {
+            locale: "ko",
+            description: k.description,
+            keywords: want.keywords,
+            promotionalText: k.promotionalText,
+            whatsNew: want.whatsNew ?? undefined,
+            supportUrl: en?.supportUrl || "https://metatake.net/about",
+            marketingUrl: en?.marketingUrl || "https://metatake.net/app",
+          },
+          relationships: { appStoreVersion: { data: { type: "appStoreVersions", id: v.id } } },
+        },
+      });
+      console.log(`  ko: version localization created (${made.data.id}) — description ${k.description.length} chars, keywords ${want.keywords.length}`);
+      continue;
     }
     if (have.keywords !== want.keywords) attrs.keywords = want.keywords;
     if (want.whatsNew && have.whatsNew !== want.whatsNew) attrs.whatsNew = want.whatsNew;
