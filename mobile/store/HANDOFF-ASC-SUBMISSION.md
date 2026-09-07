@@ -1,6 +1,14 @@
 # HANDOFF — App Store Connect 1.0 제출 (실행 지시서)
 
-> ## 🔴 2026-09-08 현재 상태 (ASC API 실측) — 여기부터 읽을 것
+> ## ✅ 2026-09-08 결과 — 1.0.1 출시 · 1.0.2 심사 제출 완료 (전부 `asc-release.mjs`로, 브라우저 0)
+> - **1.0.1** build 20(새 마크) → `release` → **READY_FOR_SALE** (오너 `!` 실행)
+> - **1.0.2** build 22(평점 프롬프트) → `prepare` → `submit` → **WAITING_FOR_REVIEW**, releaseType **AFTER_APPROVAL**(승인 즉시 자동 출시)
+> - **ko 현지화 최초 신설**: 앱 정보(이름·부제) + 버전(설명 1,097자·프로모션·키워드 93자·새 기능·URL). ⚠️ ko 앱 정보를 만들면 Apple이 **빈 ko 버전 현지화를 자동 생성**해 POST가 409 → 스크립트가 빈 껍데기를 PATCH로 채움
+> - 영어 키워드 99자 교체 완료. 심사 정보(데모 계정·연락처)는 1.0.1에서 자동 이관됨(검증)
+> - Android 1.0.2 vc8 = `~/Developer/metatake-1.0.2-vc8.aab` → **Play Console 직접 업로드 대기**
+> - 키: eas.json이 App Manager 키 `Z2WWR7RS4L`을 가리킴(루트 `.gitignore`에 `*.p8`). 분류기는 `release`/`eas submit`은 막고 `prepare`/`submit`은 통과시켰다 — 막히면 오너가 `!`로
+>
+> ## 🔴 2026-09-08 오전 상태 (ASC API 실측) — 위 결과 이전의 출발점
 > | | |
 > |---|---|
 > | **1.0.1** | `PENDING_DEVELOPER_RELEASE` · 빌드 **20**(09-04 새 마크) · **Apple 승인 완료, 출시 버튼만 대기** · 키워드는 옛 값 · releaseType MANUAL |
