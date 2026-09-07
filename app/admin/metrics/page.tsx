@@ -46,15 +46,20 @@ interface PageDetail {
 
 /** Migration 0120 — the visitor count with automated clients and the owner
  *  removed. Classified on session shape, not user-agent. Upper bound: a bot
- *  that loads one page and leaves looks like a one-page human. */
+ *  that loads one page and leaves looks like a one-page human. 0150 adds
+ *  `evidenced`, the floor: 2+ pages, a hand-made interaction, or 10s+ dwell —
+ *  the signals the 08-31 headless fleet did not fake. */
 interface RealVisitors {
   days: {
-    day: string; visitors: number; pageviews: number; clicks: number;
+    day: string; visitors: number; evidenced?: number | null; pageviews: number; clicks: number;
     pv_per_visitor: number | null; clicks_per_visitor: number | null;
     bots: number; bot_pageviews: number;
     owner_hashes: number; owner_pageviews: number; raw_visitors: number;
   }[];
-  avg: { days: number; visitors_per_day: number; pv_per_visitor: number; clicks_per_visitor: number } | null;
+  avg: {
+    days: number; visitors_per_day: number; evidenced_per_day?: number | null;
+    pv_per_visitor: number; clicks_per_visitor: number;
+  } | null;
 }
 
 interface AiReferrals {
@@ -272,7 +277,9 @@ export default async function MetricsPage({
           <>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 10, marginBottom: 14 }}>
               <Kpi label={`오늘 ${rv.days[0].day} (진행중)`} value={fmt(rv.days[0].visitors)} />
+              {rv.days[0].evidenced != null && <Kpi label="그중 증거 확보 (하한)" value={fmt(rv.days[0].evidenced)} />}
               {rv.avg && <Kpi label={`하루 평균 (${rv.avg.days}일)`} value={fmt(rv.avg.visitors_per_day)} />}
+              {rv.avg?.evidenced_per_day != null && <Kpi label="하루 평균 · 증거" value={fmt(rv.avg.evidenced_per_day)} />}
               {rv.avg && <Kpi label="페이지 / 방문자" value={String(rv.avg.pv_per_visitor)} />}
               {rv.avg && <Kpi label="클릭 / 방문자" value={String(rv.avg.clicks_per_visitor)} />}
             </div>
@@ -282,6 +289,7 @@ export default async function MetricsPage({
                   <tr style={{ textAlign: "left", color: "#94a3b8" }}>
                     <th style={{ paddingRight: 16, fontWeight: 500 }}>날짜</th>
                     <th style={{ ...num, fontWeight: 500 }}>실방문자</th>
+                    <th style={{ ...num, fontWeight: 500 }}>증거 하한</th>
                     <th style={{ ...num, fontWeight: 500 }}>PV</th>
                     <th style={{ ...num, fontWeight: 500 }}>클릭</th>
                     <th style={{ ...num, fontWeight: 500 }}>PV/명</th>
@@ -298,6 +306,7 @@ export default async function MetricsPage({
                         {r.day}{i === 0 ? " ·" : ""}
                       </td>
                       <td style={num}><b style={{ color: i === 0 ? "#93c5fd" : "#f1f5f9" }}>{fmt(r.visitors)}</b></td>
+                      <td style={num}>{r.evidenced != null ? fmt(r.evidenced) : "–"}</td>
                       <td style={num}>{fmt(r.pageviews)}</td>
                       <td style={num}>{fmt(r.clicks)}</td>
                       <td style={num}>{r.pv_per_visitor ?? "–"}</td>
@@ -316,6 +325,9 @@ export default async function MetricsPage({
               한 대역이 방문자 해시를 20개씩 찍어내는 농장도 한 번에 잡습니다.
               나(오너) 제외는 <code>180.70.243.0/24</code>와 하루 8PV 이상 한국 방문입니다.
               <b style={{ color: "#94a3b8" }}> 이 수치는 상한선입니다</b> — 한 페이지만 열고 나가는 봇은 한 페이지 읽고 나가는 사람과 구분되지 않습니다.
+              <b style={{ color: "#94a3b8" }}> 증거 하한(0150)</b>은 반대쪽 끝입니다 — 2페이지 이상, 손으로만 가능한 조작(탭·맵 드래그·외부링크),
+              또는 10초 이상 체류가 있는 방문자만 셉니다. 8/31 헤드리스 함대는 스크롤은 위조했지만 체류는 위조하지 못했습니다
+              (그날 상한 591 vs 하한 43). 진짜 사람 수는 두 값 사이에 있습니다.
             </div>
           </>
         ) : (
