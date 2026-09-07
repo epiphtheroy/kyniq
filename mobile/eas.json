@@ -43,7 +43,9 @@
         "ascApiKeyIssuerId": "c8e610f8-b12a-47e9-ade5-b193a2e84d01"
       },
       "android": {
-        "track": "internal"
+        "serviceAccountKeyPath": "/Users/jerryje/Developer/MetaTake/worker/gsc-sa.json",
+        "track": "production",
+        "releaseStatus": "completed"
       }
     }
   }
