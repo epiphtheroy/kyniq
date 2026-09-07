@@ -341,6 +341,17 @@ async function prepare() {
     }
     if (have.keywords !== want.keywords) attrs.keywords = want.keywords;
     if (want.whatsNew && have.whatsNew !== want.whatsNew) attrs.whatsNew = want.whatsNew;
+    if (loc === "ko" && !have.description) {
+      // Apple creates an EMPTY ko version localization the moment the ko
+      // app-info localization exists (the POST above then answers 409). An
+      // empty description cannot be submitted, so fill the full set here.
+      const k = koreanListing();
+      const en = locs["en-US"];
+      attrs.description = k.description;
+      attrs.promotionalText = k.promotionalText;
+      attrs.supportUrl = en?.supportUrl || "https://metatake.net/about";
+      attrs.marketingUrl = en?.marketingUrl || "https://metatake.net/app";
+    }
     if (Object.keys(attrs).length) {
       await asc("PATCH", `/appStoreVersionLocalizations/${have.id}`, {
         data: { type: "appStoreVersionLocalizations", id: have.id, attributes: attrs },
