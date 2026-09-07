@@ -12,6 +12,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { createBrowserClient } from "@supabase/ssr";
+import { getUserSafe } from "@/lib/supabase/safeAuth";
 import { requireAuthEvent } from "@/lib/conversion/bus";
 import { avatarColor, TALK_APPS } from "@/lib/talk/config";
 
@@ -155,9 +156,8 @@ export default function TalkSection({
     (async () => {
       const c = sb();
       await load();
-      const { data: auth } = await c.auth.getUser();
+      const user = await getUserSafe(c);
       if (!alive) return;
-      const user = auth?.user ?? null;
       if (user) {
         setUid(user.id);
         const { data: ml } = await c.from("talk_likes").select("post_id").eq("user_id", user.id);

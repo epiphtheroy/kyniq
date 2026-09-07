@@ -8,6 +8,7 @@
 import { useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
 import { createBrowserClient } from "@supabase/ssr";
+import { getUserSafe } from "@/lib/supabase/safeAuth";
 import SaveButton from "@/components/SaveButton";
 
 function sb() {
@@ -21,8 +22,8 @@ export default function LineageActions({ slug }: { slug: string }) {
 
   const addAll = useCallback(async () => {
     const c = sb();
-    const { data: auth } = await c.auth.getUser();
-    if (!auth?.user) { router.push(`/login?next=${encodeURIComponent(window.location.pathname)}`); return; }
+    const user = await getUserSafe(c);
+    if (!user) { router.push(`/login?next=${encodeURIComponent(window.location.pathname)}`); return; }
     setBusy(true);
     const { data, error } = await c.rpc("lineage_add_watchlist", { p_slug: slug });
     setBusy(false);

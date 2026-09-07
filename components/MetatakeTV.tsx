@@ -155,7 +155,10 @@ export default function MetatakeTV({ embed = false, onCard }: { embed?: boolean;
     busy.current = true;
     try {
       let c: SurpriseCard | null = null;
-      for (let t = 0; t < 4; t++) {
+      // Each pass is a full origin invocation (force-dynamic, cache-busted) spent
+      // fishing for a card that carries a clip. Two draws already take most of the
+      // odds; four quadrupled the channel's cost for the last slice of them.
+      for (let t = 0; t < 2; t++) {
         const r = await fetch(`/api/surprise/home?_=${Date.now()}-${t}`, { cache: "no-store" });
         const j = (await r.json()) as SurpriseCard;
         c = c ?? j;
@@ -192,14 +195,24 @@ export default function MetatakeTV({ embed = false, onCard }: { embed?: boolean;
     return () => { document.body.style.overflow = prevOv; };
   }, [embed]);
 
+  // A hidden tab stops the beat chain, and with it the draws it ends each card
+  // with — nobody is reading the beats, but the timers would keep billing for them.
+  const [visible, setVisible] = useState(true);
   useEffect(() => {
-    if (!playing || !beat) return;
+    const onVisible = () => setVisible(!document.hidden);
+    onVisible();
+    document.addEventListener("visibilitychange", onVisible);
+    return () => document.removeEventListener("visibilitychange", onVisible);
+  }, []);
+
+  useEffect(() => {
+    if (!playing || !visible || !beat) return;
     const t = setTimeout(() => {
       if (beatIdx < beats.length - 1) setBeatIdx((i) => i + 1);
       else nextRef.current();
     }, holdMs);
     return () => clearTimeout(t);
-  }, [playing, beat, beatIdx, beats.length, nonce, holdMs]);
+  }, [playing, visible, beat, beatIdx, beats.length, nonce, holdMs]);
 
   const postYT = useCallback((func: string) => {
     iframeRef.current?.contentWindow?.postMessage(JSON.stringify({ event: "command", func, args: [] }), "*");

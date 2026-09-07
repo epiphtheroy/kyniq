@@ -559,9 +559,15 @@ export const KO: Record<string, string> = {
   "Formal radicalism": "형식적 급진성",
   "Extratextual": "텍스트 외적",
   "Auteur oeuvre": "작가 전작",
+  // Same dimension as "Hollowness" below (registry key `bank`); CinecodexPanel
+  // keeps "Bankruptcy" as its historical label. The identical Korean is correct.
   "Bankruptcy": "공허함",
   "Insincerity": "불성실",
-  "Cowardice": "비겁",
+  // NOT "비겁". The registry defines this dimension as "Which films pander —
+  // commercial compromise, emotional exploitation?", scaling to "cynical,
+  // manipulative, soulless" (lib/cinecodex_dims.ts, key `coward`). That is
+  // pandering, not timidity; "비겁" read as a moral slur about the filmmakers.
+  "Cowardice": "영합",
   "Polarization": "양극화",
   "Hollowness": "공허함",
   "Faint traces": "희미한 흔적",
@@ -606,24 +612,107 @@ export const KO: Record<string, string> = {
   "no written-criticism corpus yet on this film": "이 영화에 대한 비평 코퍼스는 아직 없음",
   "top {pct}%": "상위 {pct}%",
   "bottom {pct}%": "하위 {pct}%",
+  // BLUF lead (lib/lead.ts) — whole sentences, because Korean is SOV and the
+  // English clause order cannot be preserved. "…에 TakeScore를 매깁니다" is used
+  // instead of an object particle so no 을/를 choice has to be faked at runtime.
+  "Metatake rates {name}, directed by {director}, at a TakeScore of {score}: {clause}.":
+    "Metatake는 {director} 감독의 {name}에 TakeScore {score}를 매깁니다: {clause}.",
+  "Metatake rates {name} at a TakeScore of {score}: {clause}.":
+    "Metatake는 {name}에 TakeScore {score}를 매깁니다: {clause}.",
+  "Metatake reads {name}, directed by {director}, closely — its figures, canon standing, filming locations, and the films it connects to by meaning.":
+    "Metatake는 {director} 감독의 {name}을(를) 깊이 읽습니다 — 피겨, 정전에서의 위치, 촬영지, 그리고 의미로 연결되는 영화들.",
+  "Metatake reads {name} closely — its figures, canon standing, filming locations, and the films it connects to by meaning.":
+    "Metatake는 {name}을(를) 깊이 읽습니다 — 피겨, 정전에서의 위치, 촬영지, 그리고 의미로 연결되는 영화들.",
+  // verdictShort without a title — the clause the lead folds in. The titled
+  // variants below are the same verdicts as full sentences.
+  "High value · low risk — a safe masterpiece.": "높은 가치 · 낮은 위험 — 안전한 걸작.",
+  "High value · high risk — ambitious but divisive.": "높은 가치 · 높은 위험 — 야심차지만 논쟁적.",
+  "Solid but not peak — a stable choice.": "견고하나 정점은 아님 — 안정적 선택.",
+  "Mid value, mid risk — approach with care.": "중간 가치, 중간 위험 — 신중히 접근.",
   "{title} sits at high value · low risk — a safe masterpiece.": "{title}은(는) 높은 가치 · 낮은 위험 — 안전한 걸작.",
   "{title} sits at high value · high risk — ambitious but divisive.": "{title}은(는) 높은 가치 · 높은 위험 — 야심차지만 논쟁적.",
   "{title} is solid but not peak — a stable choice.": "{title}은(는) 견고하나 정점은 아님 — 안정적 선택.",
   "{title} sits at mid value, mid risk — approach with care.": "{title}은(는) 중간 가치, 중간 위험 — 신중히 접근.",
   "how it works →": "작동 방식 →",
   "{title}’s strongest value is": "{title}의 가장 강한 가치는",
-  "its sharpest risk is": "가장 날카로운 위험은",
+  "its sharpest risk is": "가장 큰 위험은",
+  // ── Tier-2 Editor's Digest (app/film/[slug]/_shared.tsx) ──────────────────
+  // Rule-assembled, LLM-free sentences. Whole sentences, never fragments: the
+  // English clause order is not Korean's to keep. Counts carry no plural form
+  // in Korean, so the "{n} x" / "{n} xs" pairs deliberately share one value.
+  "{head} and {last}": "{head} 및 {last}",
+  " and ##film list": " 및 ",
+  "a {label} win": "{label} 수상",
+  "a {label} nomination": "{label} 후보",
+  "{label} #{rank}": "{label} {rank}위",
+  // C1 — canon standing
+  // {title} is deliberately unused: the section heading directly above already
+  // names the film, and dropping it removes a 은/는 choice that cannot be made
+  // correctly without knowing the title's final syllable.
+  "In the canon, {title} holds {listings}{scope} tracked by Metatake — including {honors}.":
+    "Metatake가 추적하는 정전 기록에 {listings}{scope} 올라 있습니다 — {honors} 포함.",
+  "{n} listing": "{n}건", "{n} listings": "{n}건",
+  "across {n} list": "({n}개 리스트에 걸쳐)", "across {n} lists": "({n}개 리스트에 걸쳐)",
+  "See the full lineage record →": "전체 계보 기록 보기 →",
+  "On the aggregators it holds {bits}.": "집계 사이트 기준: {bits}.",
+  "an IMDb rating of {r} from {votes} votes": "IMDb 평점 {r}({votes}명 투표)",
+  "an IMDb rating of {r}": "IMDb 평점 {r}",
+  "a Metascore of {n}": "메타스코어 {n}",
+  "{article} {n}% Tomatometer": "토마토미터 {n}%",
+  // C2 — Wikidata award record
+  "Wikidata’s award record holds {honors} for {title} — {breakdown}{including}.":
+    "Wikidata 수상 기록 기준 {title}의 영예는 {honors} — {breakdown}{including}.",
+  // Bare count: the sentence that carries it already says 영예, and "영예는 4건의
+  // 영예" said it twice.
+  "{n} honor": "{n}건", "{n} honors": "{n}건",
+  // Plurals already live above (line ~516) with the same Korean — Korean has no
+  // plural form, so only the singulars are new here.
+  "{n} win": "{n}회 수상",
+  "{n} nomination": "{n}회 후보",
+  ", including the {labels}": ", 대표적으로 {labels}",
+  "The year-by-year record →": "연도별 기록 →",
+  "See the release timeline →": "개봉 타임라인 보기 →",
+  // C2 — TMDB release ledger
+  "TMDB’s ledger dates {events}{scope}, {from} to {to} in {year}.":
+    "TMDB 기록 기준 {events}{scope}, {from}부터 {year}년 {to}까지 이어집니다.",
+  "{n} release event": "{n}건의 개봉 이벤트", "{n} release events": "{n}건의 개봉 이벤트",
+  "across {n} countries and territories": "({n}개 국가·지역에 걸쳐)",
+  "in one country": "(1개국)",
+  "from its {country} premiere ({date})": "{country} 프리미어({date})",
+  "from its premiere ({date})": "프리미어({date})",
+  "from its first release in {country} ({date})": "{country} 최초 개봉({date})",
+  "from its first release ({date})": "최초 개봉({date})",
+  "a {type} release": "{type} 개봉",
+  "a festival premiere": "영화제 프리미어",
+  "a limited theatrical opening": "제한 개봉",
+  "a theatrical opening": "극장 개봉",
+  "a digital release": "디지털 공개",
+  "a home-video release": "홈비디오 출시",
+  "a television broadcast": "TV 방영",
+  // C4 — what this film follows
+  "Within Metatake, it is the next step after {films}{more}.":
+    "Metatake 안에서 이 영화는 {films}{more} 다음 단계입니다.",
+  " and {n} more film": " 외 {n}편", " and {n} more films": " 외 {n}편",
+  // C5 — geography + availability
+  "Its geography is charted on {map} — {places}{where}.":
+    "촬영지는 {map}에 표시돼 있습니다 — {places}{where}.",
+  "{n} located place": "{n}곳", "{n} located places": "{n}곳",
+  "in {country}": "({country})",
+  "across {n} countries": "({n}개국에 걸쳐)",
+  "the map below": "아래 지도",
+  "Streaming availability is {tracked}.": "스트리밍 가용성은 {tracked}입니다.",
+  "tracked in {n} region": "{n}개 지역에서 추적 중", "tracked in {n} regions": "{n}개 지역에서 추적 중",
   "What TakeScore measures": "TakeScore가 측정하는 것",
-  "Our own estimate of the": "우리 자체의 추정:",
+  // One sentence, one key. These were seven fragments concatenated in English
+  // order, which Korean (SOV) cannot follow — see slot() in CinecodexPanel.
+  "Our own estimate of the {value} a serious viewer gains from {title}, the {cost} to unlock it, and the {risk} it disappoints — not popularity.":
+    "진지한 관람자가 {title}에서 얻는 {value}, 그것을 여는 데 드는 {cost}, 그리고 실망하게 될 {risk}에 대한 우리 자체의 추정입니다 — 인기가 아닙니다.",
+  "Scored on the thirteen {dimensions} against a fixed anchor ruler.":
+    "고정된 기준자에 맞춰 {dimensions} 13개로 채점합니다.",
   "durable value": "지속가치",
-  "a serious viewer gains from {title}, the": "진지한 관람자가 {title}에서 얻는,",
   "cost": "비용",
-  "to unlock it, and the": "그것을 여는, 그리고 그것이 실망시킬",
   "risk": "위험",
-  "it disappoints — not popularity.": "— 인기가 아님.",
-  "Scored on the thirteen": "고정 기준자에 맞춰 다음 13개",
   "TakeScore dimensions": "TakeScore 차원",
-  "against a fixed anchor ruler.": "으로 채점.",
   "How {title} scores": "{title}의 점수",
   "Value − Risk": "가치 − 위험",
   "Efficiency (value per risk)": "효율 (위험 대비 가치)",

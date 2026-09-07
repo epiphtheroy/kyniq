@@ -189,6 +189,28 @@ export function filmIndexBar(s: FilmIndexSignals): boolean {
  *    lib/directorGate.ts directorIndexBar (858 → 678 indexed / 180 noindex),
  *    mirrored by directorEntries. No new INDEX_COHORT (director gate is robots-
  *    based; all 678 passers advertised).
+ *  - 2026-08-31 (channel correction — the cohorts were Google tax, and Google left):
+ *    measured over 30 days, Google referred 15 visitors and the Bing family
+ *    (DuckDuckGo 392, Bing 323, Yahoo/Ecosia/Startpage ~120) referred ~840 — and
+ *    the weekly series is monotonic: Bing family 2 → 269 since 07-06 while Google
+ *    went 15 → 1. GSC over the same window: impressions moved 15 → 60/day but
+ *    average position collapsed 11 → 65, and every July winner
+ *    (/film/locations, /movies-like, /director/[slug]/locations) left the report.
+ *    A `noindex` is not a Google-only directive — Bing, DDG, Yahoo and Ecosia all
+ *    honour it, and the AI answer engines lean on Bing's index — so cohorts sized
+ *    for Google's scaled-content detector were suppressing the only channel that
+ *    still pays. Three raises, all on routes the referrer log shows earning:
+ *      · TROPES 1,500 → 4,710 (every published figure_type; pages already
+ *        indexable, they were simply unadvertised — zero new page surface).
+ *      · FILM_LOCATIONS 1,000 → 3,400 and the Tier-2 404 gate lifted (below).
+ *      · WHERETO: new cohort — Tier-2 watch pages leave noindex at ≥3 countries.
+ *    NOT raised, deliberately: /tv/[slug] stays noindex (it re-cuts the SAME readings
+ *    as /film/meaning/[slug], so opening it starts an internal canonical fight
+ *    rather than a thinness question), and /movies-like stays Tier-1 (film_affinities has zero
+ *    rows for the catalogue — there is nothing to render).
+ *    WATCH: this adds ~9k sitemap URLs while a headless fleet is already copying
+ *    the corpus (crawler-fleet-surge-2026-08-31) — every raise here is one
+ *    constant, so dial back if Vercel ISR writes or function hours move.
  */
 // Feeds Organization.sameAs in app/layout.tsx (owner fills in profile URLs as they go live).
 export const SOCIAL_PROFILES: string[] = [
@@ -248,7 +270,7 @@ export const KNOWS_ABOUT: string[] = [
 export const INDEX_COHORT_READINGS = 2000; // /take/* pages in sitemap
 export const INDEX_COHORT_MISREADINGS = 2000; // /film/*/misreadings articles in sitemap (added 2026-07-07)
 export const INDEX_COHORT_FILM_CREDITS = 1000; // /film/*/credits pages in sitemap (added 2026-07-08)
-export const INDEX_COHORT_TROPES = 1500; // /trope/* pages in sitemap
+export const INDEX_COHORT_TROPES = 4710; // /trope/* pages in sitemap (raised 2026-08-31: all published figure_type meta_takes)
 export const INDEX_COHORT_FIGURES = 2000; // /film/*/figure/* pages in sitemap (added 2026-07-03)
 export const INDEX_COHORT_CREW = 1500; // /credits/* person pages in sitemap (added 2026-07-03)
 // 2026-07-04 (surface expansion, docs/PLAN-seo-surface-expansion.md): sitemap
@@ -258,12 +280,114 @@ export const INDEX_COHORT_CREW = 1500; // /credits/* person pages in sitemap (ad
 // (917 eligible); Phase B (tier taxonomies, ≥5 members, ~+590) waits on GSC
 // evidence. Raise on the standard weekly evidence rule.
 export const INDEX_COHORT_CATALOG = 500; // /catalog/{seg}/{slug} archetype nodes in sitemap (added 2026-07-04)
-export const INDEX_COHORT_FILM_LOCATIONS = 1000; // /film/*/locations pages in sitemap (added 2026-07-04; 1,707 eligible)
+export const INDEX_COHORT_FILM_LOCATIONS = 3400; // /film/*/locations pages in sitemap (added 2026-07-04; raised 2026-08-31 to cover Tier-2: measured roster 3,312 = 1,709 visible + 1,603 catalogue, at ≥3 cells)
 export const INDEX_COHORT_FILM_HONORS = 500; // /film/*/honors pages in sitemap (added 2026-07-05; 895 eligible incl. Tier-2)
 export const INDEX_COHORT_ESSAYS = 300; // /film/*/{desk} Engine Room essays cohort 1 (added 2026-07-07; ~1,650 eligible EN)
-export const INDEX_COHORT_ESSAYS_KO = 300; // /film/*/{desk}/ko Korean essays cohort 1 (added 2026-07-08; ~1,613 eligible KO)
+/**
+ * /film/[slug]/[desk]/ko — raised 2026-08-31 from 300 to the full verified set.
+ * The cap no longer binds: essaysKoEntries now mirrors the page's own
+ * readingMinutes(body_md) >= 3 robots bar, and only 230 of the 1,610 verified
+ * Korean essays clear it. The cap is left high so that fixing the bar's
+ * English-words-per-minute calibration releases the rest without a second edit.
+ * See essayClearsRobotsBar() in lib/sitemap-data.ts for the measurement.
+ */
+export const INDEX_COHORT_ESSAYS_KO = 1610;
 export const INDEX_COHORT_FILMS_T2 = 300; // consolidated Tier-2 film mains in sitemap (added 2026-07-14; 1,105 eligible via filmIndexBar). Raise on the standard weekly GSC-evidence rule.
-export const INDEX_COHORT_FILMS_KO = 300; // /ko/film/* mains (added 2026-07-16). Selected for Korean substance, not row age — see §6.5: Tier-2 digest-first + overview_ko first. Raise on the standard weekly GSC-evidence rule.
+export const INDEX_COHORT_FILMS_KO = 300; // /ko/film/* Tier-1 mains (added 2026-07-16). HELD at 300 — see INDEX_COHORT_FILMS_KO_T2 for why.
+
+/**
+ * /ko/film/* catalogue (Tier-2) cohort — added 2026-08-31.
+ *
+ * §6.5 always intended the Korean cohort to be "Tier-2 digest-first, least
+ * mixed-language" and filmsKoEntries even sorts that way, but the query filtered
+ * `.eq("visible", true)`, so no Tier-2 row could ever reach the sort. The
+ * ordering has been dead code since 2026-07-16. This opens it.
+ *
+ * MEASURED 2026-08-31, Hangul share of on-page text:
+ *   Tier-2 /ko  20.3% · 19.7% · 24.1%   (latin is almost entirely nav chrome)
+ *   Tier-1 /ko  13.9% · 14.5% · 17.4%
+ * The gap is structural, not incidental. A Tier-2 page is a digest — its prose is
+ * the invitation, which IS translated (content_i18n holds 6,960 Korean
+ * invitations, verified fluent on jaws-1975 and house-of-sand-and-fog-2003). A
+ * Tier-1 page adds three lanes that were never registered for translation: the
+ * eight why-watch lenses, the readings, and Strong Misreadings. Those dominate
+ * the page, which is why raising the Tier-1 cohort would advertise ~1,600 mostly
+ * English pages at Korean URLs — the mixed-language canonical-folding risk §6.5
+ * named. So Tier-1 stays at 300 until those lanes are translated.
+ *
+ * ⚠️ Known defect on BOTH tiers, tracked, not fixed here: filmLead() (lib/lead.ts)
+ * emits its BLUF sentence in English ("Metatake rates House of Sand and Fog
+ * (2003), directed by …") because its verdict clause comes from the rule-based
+ * English band vocabulary in lib/takescore_prose. Localising it means localising
+ * that vocabulary AND deciding what byte-identical-across-surfaces means per
+ * locale (the pack / MCP / REST digest all reuse the string), so it is its own
+ * piece of work, not a rider on a cohort raise.
+ *
+ * Separate slice rather than a shared cap: growth in the Tier-2 roster must never
+ * silently de-advertise Tier-1 URLs the way one shared cap would.
+ */
+export const INDEX_COHORT_FILMS_KO_T2 = 1200; // 934 eligible — opened 2026-08-31, see below
+
+/*
+ * OPENED 2026-08-31, after the two defects below were fixed and the pages
+ * re-read on production. The bar was the owner's: Korean must not be allowed to
+ * cost the English site anything.
+ *
+ * hreflang is wired correctly and reciprocally (verified live on
+ * house-of-sand-and-fog-2003: self-canonical each side, en/ko/x-default on
+ * both), so folding is not the danger. Domain-level quality judgement is: /ko
+ * lives on metatake.net, so a scaled batch of visibly defective Korean is
+ * evidence against the English pages too, and that is the exact pattern the
+ * 2026-07-14 consolidation was built to avoid.
+ *
+ * What was fixed to get here, all verified on production:
+ *   · filmLead() opened every page in English; now localised, with the machine
+ *     surfaces (pack / MCP / REST digest) still emitting byte-identical English.
+ *   · The TakeScore block's Korean was machine-literal to the point of being
+ *     wrong ("비용 그것을 여는", "비겁" for a dimension that means pandering).
+ *   · The synopsis rendered English under a Korean heading — overview_ko is half
+ *     of this cohort's own gate and the page dropped it.
+ *   · 2,730 Korean invitations existed and this render branch never asked.
+ *   · The Editor's Digest — the catalogue page's factual body — was English.
+ *
+ * MEASURED after, 8 random films from this slice: Korean 18–25 content blocks
+ * against 11–26 English, Hangul share 20% → 26.4%. The English that remains is
+ * mostly scholarship citations (paper titles, journals, quoted abstracts) and
+ * institution names, which SHOULD stay in the original — §1.1 ② says so — plus
+ * chrome that is English in every locale. The page's own voice is Korean.
+ *
+ * Tier-1 stays at 300. There the gap is not wiring but three prose lanes that
+ * were never translated (why-watch lenses, readings, Strong Misreadings), and
+ * they dominate the page: 37 Korean blocks against 94 English on jaws-1975.
+ *
+ * Known residuals, none of them load-bearing: geoCountries carries display
+ * names rather than region codes so the geography line still says "(United
+ * States)"; one assembled sentence ("A canon-core work, ranked on …") is still
+ * English; and the scholarship citations lack the lang="en" + "영어 원문"
+ * treatment Tier-1 quotes get.
+ */
+
+/**
+ * WHERE-TO-WATCH bar (2026-08-31). /whereto/[slug] used to inherit the film main's
+ * indexability wholesale, so a catalogue film's watch page was noindex even when it
+ * carried a full multi-country availability map — the exact page shape the referrer
+ * log shows Bing and DuckDuckGo sending people to ("where to watch X").
+ *
+ * The page's own substance is the map: how many countries we hold an answer for.
+ * At ≥3 the page states something no aggregator page states as precisely, and the
+ * measured Tier-2 population is 3,221 films.
+ *
+ * ⚠️ INVARIANT: whereToEntries() in lib/sitemap-data.ts mirrors this predicate, so
+ * an advertised /whereto URL can never carry noindex. The sitemap reads
+ * film_watch_providers.countries; the page falls back to Object.keys(results) when
+ * that column is null, so the sitemap can only ever under-advertise — the safe
+ * direction. Change one, change the other.
+ */
+export const WHERETO_MIN_COUNTRIES = 3;
+export function whereToIndexBar(nCountries: number): boolean {
+  return SITE_INDEXABLE && nCountries >= WHERETO_MIN_COUNTRIES;
+}
+export const INDEX_COHORT_WHERETO = 5200; // /whereto/* Tier-2 entries (added 2026-08-31; 3,221 eligible)
 
 
 

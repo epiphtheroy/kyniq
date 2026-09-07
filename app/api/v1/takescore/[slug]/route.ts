@@ -21,7 +21,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ slug: st
   const { slug } = await params;
   const db = createAdminClient();
 
-  if (await guardAndLog(db, req, "takescore", slug)) {
+  if (await guardAndLog(db, req, "takescore", slug, slug)) {
     return NextResponse.json(TOO_MANY, { status: 429, headers: API_CORS });
   }
 

@@ -10,6 +10,13 @@
 > - **⚠️ 스크롤 함정 2건**(수정에 3커밋): ① globals.css `html{scroll-behavior:smooth}` 전역 탓에 프로그래매틱 **smooth** scrollIntoView/scrollTo가 먼 타겟에서 무음 드롭 → 반드시 `behavior:'instant' as ScrollBehavior`. ② setState(setPage) 후 스크롤은 **requestAnimationFrame이 아니라 useEffect**에서(rAF는 React 커밋 전 실행 → 타겟 미존재). 해시 타겟은 `pendingHashRef`로 DOM 등장까지 유지하고 `[safePage,cat]` 이펙트에서 스크롤.
 > - 라이브검증: 페이저 하단→상단 착지(6112→242)·페이지2 딥링크 자동 노출+포스트 top=70·필터 POLICY 5건·SSR 페이지1 30개·feed/sitemap 불변.
 
+
+> **AS-BUILT 보충 (2026-09-05) — 6주 공백을 메움.** 피드가 **07-27에서 멈춰 있었고**, 그 사이 **iOS 앱스토어 출시(08-18)·Google Play 출시(09-01)**라는 최대 뉴스가 통째로 미발표였다. 13건을 §6 계약대로 prepend해 **총 53건**(staging `a0f5148f`).
+> - 실은 것: 09-01 Google Play 177개국 · 09-01 촬영지 핀 교차검증 마크 · 08-31 색인 ~10,200 URL 개방+IndexNow 33,732 · 08-31 한국어 카탈로그 1,234편 · 08-31 `/account-delete` · 08-27 대량수집 미터링(보유량 기준) · 08-23 Watch next · 08-18 App Store 175개국 · 08-09 약관 draft 해제 · 08-07 한국어 film/director · 08-06 홈 시네마 지도 복귀 · 08-04 `/settings` 시청국가·서비스·제목언어 · 08-03 Google-Extended/Applebot-Extended 허용.
+> - **뺀 것과 이유**: Talk(댓글)·Odyssey/Journey/Board = 프로덕션 미노출(라이브 HTML로 확인) · 발견 피드 = 오너 중단 · For Developers 독스 = 보류 · 뉴스레터 Tonight = 초안만 · 앱 내부 기능(TakeScore 축별 판정 등) = `mobile/` 전용이라 앱 출시 글에 흡수.
+> - **⏳ 미발행(오너 대기)**: **로고 크레딧 글**. 디자이너에게 약속한 "과정·의도 글 + 성함 + 원하는 링크"라 **디자이너 회신 전에는 쓸 수 없다**(`BRIEF-로고-최종회신.md` §4, 톤은 오너 지침 = 감사·공식 인정, 무보수 언급 금지).
+> - **교훈**: 이 피드는 방치된다. §7의 "SHIPPED 세션 끝에 문안 제안" 습관이 실제로는 지켜지지 않았다. 다음 릴리즈부터는 출시일 당일에 쓰는 것이 유일하게 작동하는 방법이다.
+
 ---
 
 ## §0. 왜 만드는가 (의도 — 반드시 읽고 시작)

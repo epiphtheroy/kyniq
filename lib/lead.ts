@@ -14,9 +14,22 @@
  * exact same net value the on-page TakeScore badge shows. It depends only on the
  * TakeScore (a single source), NOT on reading order, so the string cannot drift
  * between surfaces.
+ *
+ * LOCALE (2026-08-31). `locale` is optional and defaults to English, so the
+ * machine-readable surfaces — lib/pack.ts (MCP / download) and lib/apiv1.ts
+ * (`digest`) — keep emitting byte-identical English without being touched. Only
+ * the rendered film page passes a locale. The byte-identical contract therefore
+ * holds PER LOCALE, which is the only reading of it that survives translation:
+ * one string per (film, locale), the same wherever that locale is served.
+ *
+ * The sentence is assembled from whole templates rather than concatenated
+ * fragments. A previous attempt at localised prose in CinecodexPanel glued six
+ * t() calls together and produced word salad in Korean, which is SOV; word order
+ * is the translator's to choose, so the whole sentence has to be theirs.
  */
 import { verdictShort } from "@/lib/takescore_prose";
 import { displayTs } from "@/lib/cinecodex_dims";
+import { t, DEFAULT_LOCALE, type Locale } from "@/lib/i18n";
 
 export type FilmLeadInput = {
   title: string;
@@ -26,16 +39,24 @@ export type FilmLeadInput = {
   takescore?: { value: number; cost: number; risk: number; net: number } | null;
 };
 
-export function filmLead(x: FilmLeadInput): string {
+export function filmLead(x: FilmLeadInput, locale: Locale = DEFAULT_LOCALE): string {
   const name = `${x.title}${x.year ? ` (${x.year})` : ""}`;
-  const who = x.director ? `, directed by ${x.director},` : "";
   if (x.takescore) {
     const { value, cost, risk, net } = x.takescore;
     // verdictShort → e.g. "High value · high risk — ambitious but divisive."
-    // Fold it into the sentence: lowercase the first letter, drop the period.
-    const verdict = verdictShort(value, cost, risk, net);
-    const clause = (verdict.charAt(0).toLowerCase() + verdict.slice(1)).replace(/\.\s*$/, "");
-    return `Metatake rates ${name}${who} at a TakeScore of ${displayTs(net)}: ${clause}.`;
+    const verdict = t(locale, verdictShort(value, cost, risk, net));
+    // Fold it into the sentence: drop the full stop, and — in English only —
+    // lower-case the opening letter. Hangul has no case, so running that on
+    // Korean is a no-op dressed up as a rule; better to say so than to imply
+    // every language cases its sentences the way English does.
+    const bare = verdict.replace(/\.\s*$/, "");
+    const clause = locale === DEFAULT_LOCALE ? bare.charAt(0).toLowerCase() + bare.slice(1) : bare;
+    const score = String(displayTs(net));
+    return x.director
+      ? t(locale, "Metatake rates {name}, directed by {director}, at a TakeScore of {score}: {clause}.", { name, director: x.director, score, clause })
+      : t(locale, "Metatake rates {name} at a TakeScore of {score}: {clause}.", { name, score, clause });
   }
-  return `Metatake reads ${name}${who} closely — its figures, canon standing, filming locations, and the films it connects to by meaning.`;
+  return x.director
+    ? t(locale, "Metatake reads {name}, directed by {director}, closely — its figures, canon standing, filming locations, and the films it connects to by meaning.", { name, director: x.director })
+    : t(locale, "Metatake reads {name} closely — its figures, canon standing, filming locations, and the films it connects to by meaning.", { name });
 }

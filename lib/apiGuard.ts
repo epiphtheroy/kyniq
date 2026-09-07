@@ -57,11 +57,20 @@ function reportGuardFailure(detail: string, prefix: string | null) {
 export async function harvestBlocked(
   db: ReturnType<typeof createAdminClient>,
   prefix: string | null,
-  trusted: boolean
+  trusted: boolean,
+  corpusSlug?: string | null
 ): Promise<boolean> {
   if (!prefix || trusted) return false;
   try {
-    const { data, error } = await db.rpc("pack_note_hit", { p_prefix: prefix });
+    const { data, error } = await db.rpc("pack_note_hit", {
+      p_prefix: prefix,
+      // Only surfaces that hand over a film BODY pass a slug (0147). Search does
+      // not: every slug is already in sitemaps/films.xml, so metering title
+      // lookups would meter something we give away. Nor does /api/v1/app/* — the
+      // mobile BFF is our own client behind carrier NAT, and a per-/24 corpus
+      // ceiling there would eventually punish one busy network for our success.
+      p_slug: corpusSlug ?? null,
+    });
     // A SQL fault arrives here, not as a throw. This is the branch that hid the
     // 0091 format() bug — it must never be dropped again.
     if (error) {
@@ -89,9 +98,14 @@ export async function guardAndLog(
   req: Request,
   endpoint: string,
   arg: string | null,
+  // Pass the film slug ONLY from routes that return the criticism body, so the
+  // corpus meter (0147) counts copies rather than curiosity. `arg` is not reused
+  // for this on purpose: it carries search queries and country codes too, and
+  // silently metering those is how a guard starts blocking the wrong callers.
+  corpusSlug?: string | null,
 ): Promise<boolean> {
   const { prefix, trusted } = callerPrefix(req);
-  const blocked = await harvestBlocked(db, prefix, trusted);
+  const blocked = await harvestBlocked(db, prefix, trusted, corpusSlug);
   // Ledger the call — ALWAYS, incl. trusted (Anthropic) callers, so Claude
   // traffic is not invisible. OUTSIDE the trusted short-circuit by design.
   // Fail-open: a logging error must never break the API response.

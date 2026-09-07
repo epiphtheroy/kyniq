@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createClient as createServerClient } from "@/lib/supabase/server";
-import { ipToPrefix } from "@/lib/ip-prefix";
+import { callerPrefix, harvestBlocked } from "@/lib/apiGuard";
 import {
   renderPackMarkdown,
   renderPackSection,
@@ -70,28 +70,30 @@ export async function GET(req: Request, { params }: { params: Promise<{ slug: st
     }
   }
 
-  // ── B: durable per-/24 velocity guard (survives across serverless isolates,
+  // ── B: durable per-/24 harvest guard (survives across serverless isolates,
   // unlike the in-memory soft limit above). Only cache-MISSES reach here, which
   // is exactly the unique-slug enumeration pattern of a harvester. Fail-open:
   // any error here must never break the free copy path. When the prefix crosses
-  // the 10-min threshold, pack_note_hit auto-adds it to bot_blocks and the edge
-  // middleware then 403s it fleet-wide; we also 429 immediately.
-  // Trusted AI-platform egress is exempt: Anthropic 160.79.104.0/21 (Claude-User
-  // fetching packs to CITE us is the whole point — many users share few /24s).
-  try {
-    const rawIp = (req.headers.get("x-forwarded-for") ?? req.headers.get("x-real-ip") ?? "").split(",")[0].trim();
-    const prefix = ipToPrefix(rawIp || null);
-    if (prefix && !/^160\.79\.(10[4-9]|11[01])\./.test(rawIp)) {
-      const { data: hit } = await db.rpc("pack_note_hit", { p_prefix: prefix });
-      if (hit && typeof hit === "object" && (hit as { blocked?: boolean }).blocked) {
-        return NextResponse.json(
-          { error: "Automated bulk access detected. This is public content — please slow down or contact us for a data license." },
-          { status: 429, headers: NOINDEX }
-        );
-      }
+  // a threshold, pack_note_hit auto-adds it to bot_blocks and the edge middleware
+  // then 403s it fleet-wide; we also 429 immediately.
+  //
+  // This route used to carry its own copy of the guard — its own Anthropic regex,
+  // its own RPC call, and `const { data: hit }` with the error dropped, which is
+  // the precise shape that hid the broken guard for 24 days. It now goes through
+  // the shared helper, which reads `error` and reports a malfunction to Sentry.
+  // Trusted AI-platform egress stays exempt: Claude-User fetching packs to CITE
+  // us is the whole point — many users share few /24s.
+  //
+  // The slug is passed, so this route feeds the corpus meter (0147): whole-film
+  // bodies are exactly what that ceiling exists to count.
+  {
+    const { prefix, trusted } = callerPrefix(req);
+    if (await harvestBlocked(db, prefix, trusted, slug)) {
+      return NextResponse.json(
+        { error: "Automated bulk access detected. This is public content — please slow down or contact us for a data license." },
+        { status: 429, headers: NOINDEX }
+      );
     }
-  } catch {
-    // fail-open — never let the guard break a legitimate copy
   }
 
   const { data, error } = await db.rpc("film_context_pack", { p_slug: slug, p_tier: "full" });

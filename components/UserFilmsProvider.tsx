@@ -8,6 +8,7 @@
  */
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { createBrowserClient } from "@supabase/ssr";
+import { getUserSafe } from "@/lib/supabase/safeAuth";
 import { requireAuthEvent } from "@/lib/conversion/bus";
 import type { IntentVerb } from "@/lib/conversion/intent";
 
@@ -40,8 +41,7 @@ export function UserFilmsProvider({ children }: { children: React.ReactNode }) {
     let alive = true;
     (async () => {
       const c = sb();
-      const { data: auth } = await c.auth.getUser();
-      const user = auth?.user;
+      const user = await getUserSafe(c);
       if (alive && user) {
         setUid(user.id);
         // Page through user_movies: PostgREST caps any single response at 1000

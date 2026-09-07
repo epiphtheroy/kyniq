@@ -13,8 +13,7 @@ import {
   FILM_LOCATIONS_MIN,
   softLocationsEligibility,
   cachedLocationsMeta,
-  cachedCountryGeo,
-  cityMemberPins,
+  cachedCityGeo,
   countryPhrase,
   findLocationCity,
   listWords,
@@ -29,9 +28,9 @@ import {
  * "movies filmed in Paris / Manhattan / Hertfordshire"
  * (docs/PLAN-atlas-seo.md Phase 3). The roster is frozen in
  * lib/atlas_cities.json (≥3 films, geographically coherent, variants merged);
- * membership = locality-term match + proximity, computed live from the
- * country's pin dump. robots gate re-checks the ≥3-film bar as a belt against
- * roster/data drift.
+ * membership = locality-term match + proximity, decided in SQL by city_geo
+ * (it used to be this process filtering a dump of the entire country). robots
+ * gate re-checks the ≥3-film bar as a belt against roster/data drift.
  */
 export const revalidate = 86400;
 export async function generateStaticParams() { return []; }
@@ -41,7 +40,7 @@ type FilmGroup = { slug: string; title: string; year: number | null; pins: GeoPi
 async function loadUncached(countrySlug: string, citySlug: string) {
   const city = findLocationCity(countrySlug, citySlug);
   if (!city) return null;
-  const members = cityMemberPins(await cachedCountryGeo(countrySlug), city);
+  const members = await cachedCityGeo(city);
   const pins = mergePins(members);
   const byFilm = new Map<string, FilmGroup>();
   for (const p of pins) {

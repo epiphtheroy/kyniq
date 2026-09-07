@@ -31,10 +31,10 @@ export default function MyCinemaTeaser() {
             </div>
           </div>
           <div className="mct-card">
-            <h3>The app <span className="mct-tag">iOS beta</span></h3>
+            <h3>The app <span className="mct-tag">iOS &amp; Android</span></h3>
             <p>
               Metatake in your pocket — decide tonight&rsquo;s film from the couch,
-              the train, the video store. Android is next.
+              the train, the video store. On the App Store and Google Play.
             </p>
             <div className="mct-ctas">
               <Link className="mct-cta mct-cta--primary" href="/app">About the app →</Link>

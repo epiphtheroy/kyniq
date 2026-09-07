@@ -8,6 +8,11 @@ import { isObservableCrawler } from "@/lib/bots/identify";
 // never block these, even if a blocked prefix happened to overlap.
 const GOOD_BOT =
   /googlebot|bingbot|duckduckbot|yandex|baiduspider|applebot(?!-extended)|slurp|Yeti|Daum|NaverBot|Claude-SearchBot|Claude-User|ChatGPT-User|OAI-SearchBot|PerplexityBot|Amzn-SearchBot|vercel/i;
+// The two engines whose serving we actually live on — Bing (and the Bing index
+// behind DuckDuckGo, Yahoo and Ecosia) and Google. They get a higher burst
+// ceiling than the rest of GOOD_BOT, not an exemption: the UA is claimable, so
+// a spoofer still meets a limit. See the backstop below for why this is narrow.
+const SERVING_ENGINE = /googlebot|bingbot|adidxbot/i;
 // Scrapers / AI-training / SEO-harvest bots — the same set our Vercel WAF rule
 // and app/robots.ts disallow. Enforced here too so it holds even if the WAF
 // rule is edited. (Citation bots above are matched first and exempted.)
@@ -20,8 +25,14 @@ const GOOD_BOT =
 // OAI-SearchBot, PerplexityBot, Baiduspider, NaverBot, and facebookexternalhit —
 // that last one is Meta's LINK-PREVIEW fetcher (69.171.x), a different UA from
 // meta-webindexer, and blocking it would break shared-link cards.
+//
+// 2026-08-09: added ShapBot (Parallel.ai). 35,000 requests in four hours across
+// 29,511 distinct paths — the catalogue copied once — from four Google Cloud VMs
+// (AS396982). It never touched /api/mcp or /api/pack, i.e. it scraped the HTML
+// instead of using the licensed surface, and it referred no visitors. Already
+// denied at the WAF; kept here so the block survives a WAF rule edit.
 const BAD_UA =
-  /GPTBot|ClaudeBot|anthropic-ai|CCBot|Bytespider|Meta-ExternalAgent|meta-webindexer|FacebookBot|Amazonbot|Diffbot|Omgilibot|ImagesiftBot|PetalBot|cohere-ai|Timpibot|YouBot|MJ12bot|AhrefsBot|SemrushBot|DotBot|BLEXBot|DataForSeo|serpstatbot|SERanking|SleepBot|AwarioBot|AgenstryBot/i;
+  /GPTBot|ClaudeBot|anthropic-ai|CCBot|Bytespider|Meta-ExternalAgent|meta-webindexer|FacebookBot|Amazonbot|Diffbot|Omgilibot|ImagesiftBot|PetalBot|cohere-ai|Timpibot|YouBot|MJ12bot|AhrefsBot|SemrushBot|DotBot|BLEXBot|DataForSeo|serpstatbot|SERanking|SleepBot|AwarioBot|AgenstryBot|ShapBot/i;
 
 // Module-scoped blocklist cache.
 //
@@ -143,7 +154,65 @@ const SEARCH_MAX_PER_MIN = 20; // a person types a handful of searches a minute
 const CREDITS_MAX_PER_MIN = 30; // a person opens a few crew pages; a sweep opens hundreds
 const FIGURE_MAX_PER_MIN = 10; // a reader opens one figure and stays; a sweep opens the catalogue
 const BURST_MAX_PER_MIN = 60; // sitewide backstop — one page a second, sustained, is a machine
+const SERVING_ENGINE_MAX_PER_MIN = 300; // the two engines that serve us: room to sweep, still capped
 const THROTTLE_KEYS_MAX = 5000; // XFF is client-influencable — cap the key space
+
+// ── Private-surface ceiling, keyed on the SESSION rather than the IP ─────────
+//
+// /admin, /crm and /me are the only pages here that render one person's own
+// data, and until now they were the only ones with no working ceiling at all:
+// the WAF rate-limit rule covers three public path families and nothing else.
+// An AI agent driving a signed-in browser — which is how this repository is
+// worked on — could walk every one of them at machine speed, and the server
+// would see nothing but the owner reading quickly.
+//
+// The key is the auth cookie, NOT the IP, because the IP is the attribute the
+// human and their agent SHARE. On 2026-08-06 an agent's requests from the
+// owner's machine got the owner 403'd sitewide and he reported the site as
+// down; keying on the session is what stops one from banning the other.
+//
+// Forging the cookie buys nothing HERE: these paths return a login redirect
+// without a real session, so the cookie is only a bucket label, never treated
+// as a credential. That is also why this ceiling is scoped to those paths and
+// not reused on public ones, where a fresh fake cookie per request would be a
+// free way around the IP ceiling.
+//
+// Read from the cookie header directly — resolving the session properly costs
+// an auth-server round trip, and a guard has to be cheaper than what it guards
+// (an unguarded getUser() in this file was the /admin 504 cause on 2026-07-16).
+//
+// ⚠️ Honest limit: hitLog below is per-isolate memory, so this is a speed bump,
+// not a wall — a sweep spread across warm isolates dilutes the count, measured
+// on 2026-08-06. It still catches the common case (one agent, keep-alive, one
+// isolate) and it is fail-open, so it can only help. The durable version needs
+// shared state: a WAF rule, or a counter in Postgres/KV.
+const PRIVATE_PREFIXES = ["/admin", "/crm", "/me"];
+const SESSION_MAX_PER_MIN = 40; // a person clicks through a dashboard; a sweep walks it
+
+// Segment-exact, matching the authRequired test further down, so /meta-takes is
+// not caught by /me.
+const isPrivatePath = (pathname: string) =>
+  PRIVATE_PREFIXES.some((p) => pathname === p || pathname.startsWith(p + "/"));
+
+function sessionKey(request: NextRequest): string | null {
+  // Supabase chunks large auth cookies into `.0`, `.1`, … — sort so the same
+  // session always produces the same key.
+  const raw = request.cookies
+    .getAll()
+    .filter((c) => /^sb-.+-auth-token(\.\d+)?$/.test(c.name))
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map((c) => c.value)
+    .join("");
+  if (!raw) return null;
+  // Cheap non-crypto digest (FNV-1a). This is a bucket label: never logged,
+  // never stored, never compared against anything.
+  let h = 2166136261;
+  for (let i = 0; i < raw.length; i++) {
+    h ^= raw.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return (h >>> 0).toString(36);
+}
 
 function throttled(bucket: string, key: string, max: number): boolean {
   const now = Date.now();
@@ -239,6 +308,14 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
     const wantsSearch = !isPrefetch && pathname === "/search" && !!request.nextUrl.searchParams.get("q");
     const wantsPerson = !isPrefetch && pathname.startsWith("/credits/");
     const wantsFigure = !isPrefetch && FIGURE_PATH.test(pathname);
+
+    // Private surfaces are keyed on the session, so they are checked on their
+    // own and before the auth round trip the page would otherwise pay for.
+    if (!isPrefetch && isPrivatePath(pathname)) {
+      const sk = sessionKey(request);
+      if (sk && throttled("session", sk, SESSION_MAX_PER_MIN)) return tooMany("session");
+    }
+
     if (wantsSearch || wantsPerson || wantsFigure) {
       const prefix =
         ipToPrefix(request.headers.get("x-forwarded-for") ?? request.headers.get("x-real-ip")) ??
@@ -265,11 +342,22 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
     // Being on the good list means we never 403 you. It does not mean you may
     // take the site down: 429 + Retry-After asks a crawler to slow down and,
     // unlike a 404 or a noindex, never drops a URL from the index.
+    //
+    // 2026-09-06: that last sentence is true of the index and false of the
+    // serving. Bing impressions went 1,001 → 508 → 0 over 09-01…09-03 while its
+    // indexed count kept climbing (11,010 → 15,258), and the days in between are
+    // the days Bing logged crawl errors that were neither HTTP codes nor DNS
+    // failures — 1,545 of them on 09-02 alone, the 429 shape. The WAF rule that
+    // did most of it now excepts AS 8075/15169; this is the same exception one
+    // layer down. Bing and Google keep a ceiling because the UA is claimable —
+    // just one 5× above the 6,858 pages/day Bingbot took at its heaviest.
+    // Applebot and Yandex, who actually took us down, still meet the old one.
     if (request.headers.get("next-router-prefetch") !== "1") {
       const burstPrefix = ipToPrefix(
         request.headers.get("x-forwarded-for") ?? request.headers.get("x-real-ip")
       );
-      if (burstPrefix && throttled("burst", burstPrefix, BURST_MAX_PER_MIN)) {
+      const burstMax = SERVING_ENGINE.test(ua) ? SERVING_ENGINE_MAX_PER_MIN : BURST_MAX_PER_MIN;
+      if (burstPrefix && throttled("burst", burstPrefix, burstMax)) {
         return tooMany("burst");
       }
     }

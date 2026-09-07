@@ -15,6 +15,9 @@ import {
   INDEX_COHORT_ESSAYS_KO,
   INDEX_COHORT_FILMS_T2,
   INDEX_COHORT_FILMS_KO,
+  INDEX_COHORT_FILMS_KO_T2,
+  INDEX_COHORT_WHERETO,
+  whereToIndexBar,
   filmIndexBar,
   type FilmIndexSignals,
 } from "@/lib/seo";
@@ -46,7 +49,7 @@ import crewIndex from "@/lib/crew_index.json";
 import accessEnrichment from "@/lib/access_enrichment.json";
 import { whereToUrl, genreUrl, theoristUrl } from "@/lib/urls";
 import { CODEX_DIMS, takescoreDimUrl } from "@/lib/cinecodex_dims";
-import { DESKS, DESK_KEYS, deskByMode } from "@/lib/desks";
+import { DESKS, DESK_KEYS, deskByMode, readingMinutes } from "@/lib/desks";
 import { DOCS as METHOD_DOCS, docHref } from "@/lib/docs/registry";
 import { DOC_BODIES } from "@/lib/docs/content";
 import { POE_ESSAYS, poeHref } from "@/lib/poetics/registry";
@@ -203,15 +206,41 @@ export async function poeticsEntries(): Promise<SitemapEntry[]> {
  * Oldest-first + cap so raising INDEX_COHORT_ESSAYS only appends URLs; waves
  * were commissioned strongest-films-first, so oldest ≈ highest-value pages.
  */
+/**
+ * The desk-essay robots bar, mirrored (2026-08-31).
+ *
+ * Both essay pages gate on `readingMinutes(body_md) >= 3`
+ * (app/film/[slug]/[desk]/page.tsx and .../ko/page.tsx), but neither sitemap
+ * checked it, so essays.xml and essays-ko.xml were advertising URLs that serve
+ * `noindex, follow` — caught on /film/vice-2018/decoder/ko. Measured: only 412
+ * of 1,652 verified EN essays and 230 of 1,610 KO essays clear the bar.
+ *
+ * This reads body_md because `minutes` is computed at render, not stored. That
+ * is ~4 MB (EN) / ~2.3 MB (KO) per rebuild, which is affordable only because
+ * cachedEntries() holds the RESULT for an hour — the markdown itself is never
+ * cached, only the URL list built from it. Do not call this per-render.
+ *
+ * ⚠️ readingMinutes is a 220-words-per-minute ENGLISH heuristic applied to
+ * whitespace-split tokens, so it systematically under-counts Korean, which packs
+ * more meaning into fewer tokens (measured average: KO 341 tokens / 1,496 chars
+ * vs EN 405 / 2,568 for the same essay pairs). The bar therefore rejects Korean
+ * essays that are every bit as substantial as their English twins. Mirroring it
+ * here is correct — the sitemap must never contradict the page — but the bar
+ * itself wants a per-locale calibration. Tracked, not fixed here.
+ */
+function essayClearsRobotsBar(bodyMd: string | null): boolean {
+  return !!bodyMd && readingMinutes(bodyMd) >= 3;
+}
+
 export async function essaysEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
   const supabase = db();
-  type Row = { mode: string; published_at: string | null; created_at: string; film: { slug: string } };
+  type Row = { mode: string; published_at: string | null; created_at: string; body_md: string | null; film: { slug: string } };
   const rows = await fetchAll<Row>(
     (from, to) =>
       supabase
         .from("essays")
-        .select("mode, published_at, created_at, film:films!inner(slug, visible)")
+        .select("mode, published_at, created_at, body_md, film:films!inner(slug, visible)")
         .eq("lang", "en")
         .eq("status", "verified")
         .eq("film.visible", true)
@@ -224,6 +253,7 @@ export async function essaysEntries(): Promise<SitemapEntry[]> {
   for (const r of rows) {
     const desk = deskByMode(r.mode);
     if (!desk || !r.film?.slug) continue;
+    if (!essayClearsRobotsBar(r.body_md)) continue;
     const url = `${siteUrl}/film/${r.film.slug}/${desk.key}`;
     if (seen.has(url)) continue;
     seen.add(url);
@@ -240,12 +270,12 @@ export async function essaysEntries(): Promise<SitemapEntry[]> {
 export async function essaysKoEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
   const supabase = db();
-  type Row = { mode: string; published_at: string | null; created_at: string; film: { slug: string } };
+  type Row = { mode: string; published_at: string | null; created_at: string; body_md: string | null; film: { slug: string } };
   const rows = await fetchAll<Row>(
     (from, to) =>
       supabase
         .from("essays")
-        .select("mode, published_at, created_at, film:films!inner(slug, visible)")
+        .select("mode, published_at, created_at, body_md, film:films!inner(slug, visible)")
         .eq("lang", "ko")
         .eq("status", "verified")
         .eq("film.visible", true)
@@ -258,6 +288,7 @@ export async function essaysKoEntries(): Promise<SitemapEntry[]> {
   for (const r of rows) {
     const desk = deskByMode(r.mode);
     if (!desk || !r.film?.slug) continue;
+    if (!essayClearsRobotsBar(r.body_md)) continue;
     const url = `${siteUrl}/film/${r.film.slug}/${desk.key}/ko`;
     if (seen.has(url)) continue;
     seen.add(url);
@@ -645,15 +676,14 @@ export async function filmEntries(): Promise<SitemapEntry[]> {
 export async function filmsKoEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
   const supabase = db();
-  type Row = { slug: string; is_analyzed: boolean; created_at: string; last_processed_at: string | null };
+  type Row = { slug: string; is_analyzed: boolean; visible: boolean | null; created_at: string; last_processed_at: string | null };
   let rows: Row[];
   try {
     rows = await fetchAll<Row>(
       (from, to) =>
         supabase
           .from("films")
-          .select("slug, is_analyzed, created_at, last_processed_at")
-          .eq("visible", true)
+          .select("slug, is_analyzed, visible, created_at, last_processed_at")
           .not("title_ko", "is", null)
           .not("overview_ko", "is", null)
           .order("slug")
@@ -662,27 +692,45 @@ export async function filmsKoEntries(): Promise<SitemapEntry[]> {
   } catch {
     return []; // columns absent (pre-0105) or read failed — empty shard, not a broken build
   }
-  // A ko page is only advertised when its English twin also clears the gate
-  // (the ko robots inherits it): intersect with the roster.
+  // A ko page is only advertised when its English twin also clears the gate (the
+  // ko robots inherits it), so every row goes through filmIndexBar — which is
+  // also what keeps the 22 editorially hidden is_analyzed films out now that the
+  // query no longer filters on `visible`. No roster ⇒ advertise nothing, rather
+  // than fall back to a bar this function does not own.
   let roster: Record<string, FilmIndexSignals> = {};
   try {
     roster = await filmIndexRoster();
   } catch {
     roster = {};
   }
+  // With the roster: filmIndexBar is the single source of truth for both tiers,
+  // and it is also what now keeps the 22 editorially hidden is_analyzed films out
+  // since the query no longer filters on `visible`.
+  //
+  // WITHOUT it (RPC down): fall back to `visible`, which is exactly the rule this
+  // shard used before the catalogue slice existed. Returning nothing would let a
+  // transient RPC failure silently empty a live sitemap shard — errors must not
+  // decide whether a URL is advertised. Tier-2 needs the roster to be judged at
+  // all, so it simply does not enter on the fallback path.
+  const haveRoster = Object.keys(roster).length > 0;
   const eligible = rows.filter((r) => {
     const sig = roster[r.slug];
-    // Tier-1 visible films are always gate-passing; Tier-2 must clear filmIndexBar.
-    return r.is_analyzed ? true : sig ? filmIndexBar(sig) : false;
+    if (haveRoster) return sig ? filmIndexBar(sig) : false;
+    return r.visible === true;
   });
-  // §6.5 ordering: Tier-2 catalog records (digest-first, least mixed-language)
-  // ahead of Tier-1, then oldest-first within each so the cohort is deterministic
-  // and append-only.
+  // §6.5 ordering, live at last: Tier-2 catalogue records (digest-first, so the
+  // least mixed-language) ahead of Tier-1, oldest-first within each so both
+  // slices are deterministic and append-only.
   eligible.sort((a, b) => {
     if (a.is_analyzed !== b.is_analyzed) return a.is_analyzed ? 1 : -1;
     return (a.created_at ?? "").localeCompare(b.created_at ?? "");
   });
-  return eligible.slice(0, INDEX_COHORT_FILMS_KO).map((f) => ({
+  // Two slices, not one cap: Tier-2 growth must never push Tier-1 URLs out of
+  // the sitemap. See INDEX_COHORT_FILMS_KO_T2 for the Hangul-share measurement
+  // that puts the catalogue ahead of the read films here.
+  const t2 = eligible.filter((r) => !r.is_analyzed).slice(0, INDEX_COHORT_FILMS_KO_T2);
+  const t1 = eligible.filter((r) => r.is_analyzed).slice(0, INDEX_COHORT_FILMS_KO);
+  return [...t2, ...t1].map((f) => ({
     url: `${siteUrl}/ko/film/${f.slug}`,
     lastmod: isoDate(f.last_processed_at && f.last_processed_at > f.created_at ? f.last_processed_at : f.created_at),
   }));
@@ -713,25 +761,44 @@ export async function moviesLikeEntries(): Promise<SitemapEntry[]> {
 
 /**
  * /whereto/* availability pages — only films that actually HAVE watch data,
- * so the sitemap never advertises an empty page. A film qualifies if it has a
- * film_watch_providers row (TMDB/JustWatch) OR a MetaTake access-enrichment
- * record (lib/access_enrichment.json, keyed by tmdb_id). No lastmod: provider
- * data refreshes wholesale, which would just churn the field.
+ * so the sitemap never advertises an empty page. No lastmod: provider data
+ * refreshes wholesale, which would just churn the field.
+ *
+ * Two populations, two rules (2026-08-31):
+ *  · Tier-1 (visible) — unchanged: a film_watch_providers row (TMDB/JustWatch)
+ *    OR a MetaTake access-enrichment record (lib/access_enrichment.json, keyed
+ *    by tmdb_id). Its indexability comes from the film main, so no extra bar.
+ *  · Tier-2 (catalogue) — enters under whereToIndexBar (≥3 countries), which is
+ *    the page's OWN robots bar, so the sitemap cannot advertise a noindex URL.
+ *    Capped by INDEX_COHORT_WHERETO and ordered by slug: raising only appends.
+ *
+ * ⚠️ The count here reads film_watch_providers.countries; the page falls back to
+ * Object.keys(results) when that column is null, so this can only ever
+ * UNDER-advertise — the safe direction. Keep the two predicates in step.
  */
 export async function whereToEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
   const supabase = db();
-  const films = await fetchAll<{ id: string; slug: string; tmdb_id: number | null }>((from, to) =>
-    supabase.from("films").select("id, slug, tmdb_id").eq("visible", true).order("slug").range(from, to)
+  const films = await fetchAll<{ id: string; slug: string; tmdb_id: number | null; visible: boolean | null }>(
+    (from, to) =>
+      supabase.from("films").select("id, slug, tmdb_id, visible").order("slug").range(from, to)
   );
-  const providerRows = await fetchAll<{ film_id: string }>((from, to) =>
-    supabase.from("film_watch_providers").select("film_id").order("film_id").range(from, to)
+  const providerRows = await fetchAll<{ film_id: string; countries: string[] | null }>((from, to) =>
+    supabase.from("film_watch_providers").select("film_id, countries").order("film_id").range(from, to)
   );
-  const hasProviders = new Set(providerRows.map((r) => r.film_id));
+  const countriesByFilm = new Map(providerRows.map((r) => [r.film_id, r.countries?.length ?? 0]));
   const enriched = (accessEnrichment as unknown as { films: Record<string, unknown> }).films;
-  return films
-    .filter((f) => hasProviders.has(f.id) || (f.tmdb_id != null && String(f.tmdb_id) in enriched))
-    .map((f) => ({ url: `${siteUrl}${whereToUrl(f.slug)}` }));
+
+  const tier1 = films
+    .filter((f) => f.visible === true)
+    .filter((f) => countriesByFilm.has(f.id) || (f.tmdb_id != null && String(f.tmdb_id) in enriched));
+
+  const tier2 = films
+    .filter((f) => f.visible !== true && !f.slug.startsWith("tmdb-"))
+    .filter((f) => whereToIndexBar(countriesByFilm.get(f.id) ?? 0))
+    .slice(0, INDEX_COHORT_WHERETO);
+
+  return [...tier1, ...tier2].map((f) => ({ url: `${siteUrl}${whereToUrl(f.slug)}` }));
 }
 
 // Genre slugs are derived from films.genres labels exactly the way

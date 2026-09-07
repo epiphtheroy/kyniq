@@ -4,7 +4,10 @@
     "target": {
       "namespace": "android_app",
       "package_name": "net.metatake.app",
-      "sha256_cert_fingerprints": ["REPLACE_WITH_PLAY_SIGNING_SHA256"]
+      "sha256_cert_fingerprints": [
+        "16:98:A8:C7:A1:76:7F:AC:2F:3C:5F:F9:49:15:D7:82:F5:D6:EE:E4:9D:49:39:2A:C1:C7:58:FD:D9:F0:BC:B8",
+        "B8:F0:23:BF:6C:34:E8:5A:4D:55:46:27:42:3C:AD:E1:7E:9B:F9:AB:EA:BC:01:2A:C9:8A:10:F1:20:AB:DF:2B"
+      ]
     }
   }
 ]

@@ -239,6 +239,28 @@ const GAUGE_CSS = `
 }
 `;
 
+/**
+ * slot — render ONE translated sentence that carries inline markup.
+ *
+ * The sentences below used to be assembled from six or seven separate t()
+ * calls with <strong> and <a> spliced between them. That silently assumes every
+ * language keeps English word order. Korean does not — it is SOV — so the
+ * fragments concatenated into word salad: "우리 자체의 추정: 지속가치 진지한
+ * 관람자가 Jaws에서 얻는, 비용 그것을 여는, 그리고 그것이 실망시킬 위험".
+ * Grammatical nonsense, on every /ko film page.
+ *
+ * One sentence is one translation unit. The emphasised terms become {slots} the
+ * translator may move anywhere in the sentence; t() leaves unknown placeholders
+ * untouched, so they survive interpolation and are replaced with nodes here.
+ */
+function slot(s: string, slots: Record<string, ReactNode>): ReactNode[] {
+  return s.split(/(\{\w+\})/g).map((part, i) => {
+    const m = /^\{(\w+)\}$/.exec(part);
+    const node = m && Object.prototype.hasOwnProperty.call(slots, m[1]) ? slots[m[1]] : part;
+    return <span key={i}>{node}</span>;
+  });
+}
+
 export default function CinecodexPanel({ data, title, subscores, slug, headerAccessory, locale = DEFAULT_LOCALE }: { data: Codex | null; title: string; subscores?: FilmSubscores | null; slug?: string | null; headerAccessory?: ReactNode; locale?: Locale }) {
   if (!data) return null;
   const { ext } = data;
@@ -306,8 +328,22 @@ export default function CinecodexPanel({ data, title, subscores, slug, headerAcc
       <details className="df-sub" style={{ margin: "0 0 12px" }}>
         <summary style={{ cursor: "pointer" }}>{t(locale, "What TakeScore measures")}</summary>
         <span style={{ display: "block", marginTop: 6 }}>
-          {t(locale, "Our own estimate of the")}{" "}<strong>{t(locale, "durable value")}</strong>{" "}{t(locale, "a serious viewer gains from {title}, the", { title })}{" "}<strong>{t(locale, "cost")}</strong>{" "}{t(locale, "to unlock it, and the")}{" "}<strong>{t(locale, "risk")}</strong>{" "}{t(locale, "it disappoints — not popularity.")}
-          {subscores ? <>{" "}{t(locale, "Scored on the thirteen")}{" "}<a href="/takescore">{t(locale, "TakeScore dimensions")}</a>{" "}{t(locale, "against a fixed anchor ruler.")}</> : null}
+          {slot(
+            t(locale, "Our own estimate of the {value} a serious viewer gains from {title}, the {cost} to unlock it, and the {risk} it disappoints — not popularity.", { title }),
+            {
+              value: <strong>{t(locale, "durable value")}</strong>,
+              cost: <strong>{t(locale, "cost")}</strong>,
+              risk: <strong>{t(locale, "risk")}</strong>,
+            },
+          )}
+          {subscores ? (
+            <>
+              {" "}
+              {slot(t(locale, "Scored on the thirteen {dimensions} against a fixed anchor ruler."), {
+                dimensions: <a href="/takescore">{t(locale, "TakeScore dimensions")}</a>,
+              })}
+            </>
+          ) : null}
         </span>
       </details>
 

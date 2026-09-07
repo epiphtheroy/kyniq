@@ -12,10 +12,11 @@ import SiteNav from "@/components/home2/SiteNav";
 //    not endorsed or certified).
 //  - no "human-curated" / "not AI" claims anywhere (credit overhaul pending);
 //    TakeScore/Invitations are "by Metatake Editorial", nothing more.
-//  - honest store status (owner 08-05 evening): BOTH stores submitted. iOS build 17
-//    WAITING_FOR_REVIEW (~2–3 days) with the public TestFlight link live — link it.
-//    Android submitted to Google Play, closed test running (14 testers, Play's
-//    testing gate ≈ two weeks to the listing) — no Play link until it's real.
+//  - honest store status (owner 09-01): iOS 1.0 RELEASED on the App Store —
+//    175 countries/regions, iOS 15.1+, apps.apple.com/app/metatake/id6792487455.
+//    Android 1.0 RELEASED on Google Play — 177 countries/regions,
+//    play.google.com/store/apps/details?id=net.metatake.app. Both badges link
+//    somewhere real, which was always the condition for either one being here.
 //
 // Screenshots in public/app/ are 560px JPEG derivatives of the ASC set
 // (mobile/store/shots-65, real app + real data) — regenerate them together.
@@ -23,7 +24,7 @@ import SiteNav from "@/components/home2/SiteNav";
 export const metadata: Metadata = {
   title: { absolute: "Metatake — the app" },
   description:
-    "The cinephile judgment navigator for iOS and Android. Judge films before you watch: TakeScore and spoiler-free Invitations, a living watchlist crossed with your streaming services, and 17,000 filming locations on a map.",
+    "The cinephile judgment navigator for iOS and Android — on the App Store and on Google Play. Judge films before you watch: TakeScore and spoiler-free Invitations, a living watchlist crossed with your streaming services, and 17,000 filming locations on a map.",
   alternates: { canonical: "/app" },
   robots: { index: true, follow: true },
 };
@@ -34,7 +35,27 @@ const A = ({ href, children }: { href: string; children: React.ReactNode }) => (
   </Link>
 );
 
-const TESTFLIGHT = "https://testflight.apple.com/join/8jKKV3Eu";
+const APPSTORE = "https://apps.apple.com/app/metatake/id6792487455";
+const PLAY = "https://play.google.com/store/apps/details?id=net.metatake.app";
+
+// Both stores get the same treatment: a text CTA and a QR, because the page is
+// read at a desk as often as on the phone it is asking you to install on.
+const STORES = [
+  {
+    href: APPSTORE,
+    cta: "Download on the App Store",
+    qr: "/app/appstore-qr.svg",
+    qrAlt: "QR code that opens Metatake on the App Store",
+    cap: "Reading at a desk? Point your iPhone camera here.",
+  },
+  {
+    href: PLAY,
+    cta: "Get it on Google Play",
+    qr: "/app/play-qr.svg",
+    qrAlt: "QR code that opens Metatake on Google Play",
+    cap: "Or your Android camera, for the Play listing.",
+  },
+];
 
 // 560px derivatives of the store screenshot sets — the real app, real data.
 // iOS frames are 560×1211 (dark); the Android frame is 560×995 (light, 9:16),
@@ -82,8 +103,8 @@ const SHOTS = [
   },
   {
     src: "/app/beta-android-tonight.jpg",
-    alt: "The same Tonight deck on Android, in the light theme — the closed test is running",
-    cap: "And on Android — same app, light theme, in closed test",
+    alt: "The same Tonight deck on Android, in the light theme",
+    cap: "And on Android — same app, light theme",
     iw: 560,
     ih: 995,
     fw: 253,
@@ -113,40 +134,68 @@ export default function AppLandingPage() {
             padding: "22px 24px 24px",
           }}
         >
-          <div className="seclbl">iOS &amp; Android — submitted</div>
+          <div className="seclbl">iOS and Android — on both stores</div>
           <div className="tick" />
           <h2 className="disp" style={{ fontSize: 22, margin: 0 }}>
-            Try it on your iPhone today.
+            On the App Store and Google Play.
           </h2>
           <p className="body reading" style={{ fontSize: 17, margin: "10px 0 0", maxWidth: "58ch" }}>
-            Metatake 1.0 is submitted to both stores. The App Store review should clear within
-            2–3 days; on Google Play the closed test is already running — fourteen testers in —
-            and the listing is about two weeks out. You don&apos;t have to wait: the TestFlight
-            beta is open to everyone, no invitation needed.
+            Metatake 1.0 is live on the App Store in 175 countries and regions and on Google
+            Play in 177 — free, no ads, no in-app purchases. Installing is the whole setup:
+            search &ldquo;Metatake&rdquo; or take a link below, sign in, and the first deck of
+            films is already waiting on the Tonight tab.
           </p>
-          <p style={{ margin: "18px 0 0" }}>
-            <a
-              className="btn-cta"
-              style={{ fontSize: 15, padding: "12px 20px" }}
-              href={TESTFLIGHT}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Join the iOS beta on TestFlight&nbsp;→
-            </a>
+          <p className="body reading" style={{ fontSize: 17, margin: "10px 0 0", maxWidth: "58ch" }}>
+            If you read metatake.net, the app is this site in your pocket — same account, one
+            ledger, everything syncing both ways: judgments, watchlist, saved reading. Judge a
+            film on the sofa and your desk already knows.
           </p>
-          <p className="ui muted" style={{ fontSize: 12.5, margin: "12px 0 0", lineHeight: 1.55 }}>
-            Open the link on your iPhone — it installs through Apple&apos;s free TestFlight app.
-            On Android? Write{" "}
-            <a
-              href="mailto:wonwoo@metatake.net?subject=Android%20closed%20test"
-              className="accent"
-              style={{ textDecoration: "none" }}
-            >
-              wonwoo@metatake.net
-            </a>{" "}
-            and we&apos;ll add you to the Play closed test.
-          </p>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(268px, 1fr))",
+              gap: "20px 26px",
+              alignItems: "center",
+              margin: "20px 0 0",
+            }}
+          >
+            {STORES.map((st) => (
+              <div
+                key={st.href}
+                style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}
+              >
+                <a
+                  className="btn-cta"
+                  style={{ fontSize: 15, padding: "12px 20px" }}
+                  href={st.href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {st.cta}&nbsp;→
+                </a>
+                <figure style={{ margin: 0, display: "flex", alignItems: "center", gap: 10 }}>
+                  <img
+                    src={st.qr}
+                    alt={st.qrAlt}
+                    width={104}
+                    height={104}
+                    loading="lazy"
+                    style={{
+                      display: "block",
+                      border: "1px solid var(--hairline)",
+                      borderRadius: 6,
+                    }}
+                  />
+                  <figcaption
+                    className="ui muted"
+                    style={{ fontSize: 12, maxWidth: "16ch", lineHeight: 1.45 }}
+                  >
+                    {st.cap}
+                  </figcaption>
+                </figure>
+              </div>
+            ))}
+          </div>
         </section>
 
         <div
@@ -259,26 +308,20 @@ export default function AppLandingPage() {
         <div className="seclbl">Availability</div>
         <div className="tick" />
         <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-          <strong>iOS</strong> — submitted and in App Store review; we expect the listing to go
-          live within 2–3 days. Until then, the{" "}
-          <a href={TESTFLIGHT} className="accent" style={{ textDecoration: "none" }} target="_blank" rel="noreferrer">
-            TestFlight beta
+          <strong>iOS</strong> — on the{" "}
+          <a href={APPSTORE} className="accent" style={{ textDecoration: "none" }} target="_blank" rel="noreferrer">
+            App Store
           </a>{" "}
-          is open to everyone.
+          in 175 countries and regions, for iPhone on iOS 15.1 or later. Free, no ads, no
+          in-app purchases.
         </p>
         <p className="body reading" style={{ fontSize: 18, margin: "12px 0 0" }}>
-          <strong>Android</strong> — submitted to Google Play, and the closed test is already
-          running with fourteen testers. Play&apos;s testing gate puts the public listing about
-          two weeks out. Want in now? Write{" "}
-          <a
-            href="mailto:wonwoo@metatake.net?subject=Android%20closed%20test"
-            className="accent"
-            style={{ textDecoration: "none" }}
-          >
-            wonwoo@metatake.net
+          <strong>Android</strong> — on{" "}
+          <a href={PLAY} className="accent" style={{ textDecoration: "none" }} target="_blank" rel="noreferrer">
+            Google Play
           </a>{" "}
-          and we&apos;ll add you to the test list. Store badges appear here the day they link
-          somewhere real.
+          in 177 countries and regions, for phones, tablets and Chrome OS. Free, no ads, no
+          in-app purchases.
         </p>
         <p style={{ margin: "18px 0 0" }}>
           <img

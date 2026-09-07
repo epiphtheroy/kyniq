@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import type { ReactNode } from "react";
 import { t, intlTag, LOCALES, DEFAULT_LOCALE, PROJECTED_LOCALES, type Locale } from "@/lib/i18n";
 import { locVal, hasLocVal } from "@/lib/i18n/values";
 import { genreName } from "@/lib/i18n/genres";
@@ -145,9 +146,26 @@ type CpRow = {
 };
 
 // "A, B and C" — prose list join for the Tier-2 digest's composed sentences.
-function joinProse(xs: string[]): string {
+/**
+ * slot — render one translated sentence that carries inline markup (a link, a
+ * list of links). Splitting a sentence across several t() calls and gluing the
+ * results assumes every language keeps English word order; Korean is SOV and
+ * does not. The whole sentence is one key, and the markup arrives as {slots}
+ * the translator may put anywhere. t() leaves unknown placeholders alone, so
+ * they survive interpolation and are replaced with nodes here.
+ */
+function slot(s: string, slots: Record<string, ReactNode>): ReactNode[] {
+  return s.split(/(\{\w+\})/g).map((part, i) => {
+    const m = /^\{(\w+)\}$/.exec(part);
+    const node = m && Object.prototype.hasOwnProperty.call(slots, m[1]) ? slots[m[1]] : part;
+    return <span key={i}>{node}</span>;
+  });
+}
+
+function joinProse(xs: string[], locale: Locale = DEFAULT_LOCALE): string {
   if (xs.length <= 1) return xs[0] ?? "";
-  return `${xs.slice(0, -1).join(", ")} and ${xs[xs.length - 1]}`;
+  // The conjunction is the translator's, not English's — ko joins with 및.
+  return t(locale, "{head} and {last}", { head: xs.slice(0, -1).join(", "), last: xs[xs.length - 1] });
 }
 
 // #11 — real filming-place names parsed from the already-loaded J_location
@@ -178,11 +196,12 @@ function filmedPlaceNames(rows: { pattern: string; sentence: string; salience: n
 
 // One calm phrase per honour for the digest: "a Best Picture win",
 // "They Shoot Pictures Don't They? 1,000 Greatest Films #314".
-function digestHonorLabel(l: LinRow): string {
+function digestHonorLabel(l: LinRow, locale: Locale = DEFAULT_LOCALE): string {
   const body = l.parent_label && l.parent_label !== l.list_label ? `${l.parent_label} — ` : "";
-  if (l.result === "won") return `a ${body}${l.list_label} win`;
-  if (l.result === "nominated") return `a ${body}${l.list_label} nomination`;
-  return `${body}${l.list_label}${l.rank != null ? ` #${l.rank}` : ""}`;
+  const label = `${body}${l.list_label}`;
+  if (l.result === "won") return t(locale, "a {label} win", { label });
+  if (l.result === "nominated") return t(locale, "a {label} nomination", { label });
+  return l.rank != null ? t(locale, "{label} #{rank}", { label, rank: l.rank }) : label;
 }
 
 // The digest cites up to 3 honours, one per list, fully deterministic:
@@ -221,12 +240,29 @@ const normWords = (s: string) => new Set(s.toLowerCase().replace(/[^a-z0-9 ]/g, 
 // Deterministic date/country formatting for the release-ledger sentence, parsed
 // from the "YYYY-MM-DD" string (no Date()/timezone drift), matching the subpage.
 const DIGEST_MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-function fmtDigestDate(d: string): string {
+function fmtDigestDate(d: string, locale: Locale = DEFAULT_LOCALE): string {
   const [y, m, day] = d.split("-").map(Number);
-  return `${DIGEST_MONTHS[(m ?? 1) - 1]} ${day}, ${y}`;
+  const en = `${DIGEST_MONTHS[(m ?? 1) - 1]} ${day}, ${y}`;
+  if (locale === DEFAULT_LOCALE) return en;
+  // "January 5, 2003" is an English date, not a universal one. Intl gives the
+  // locale its own order and its own month names (ko: 2003년 1월 5일).
+  try {
+    return new Intl.DateTimeFormat(locale, { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" })
+      .format(new Date(Date.UTC(y ?? 1970, (m ?? 1) - 1, day ?? 1)));
+  } catch { return en; }
 }
+// Region names follow the reader's locale; the English instance is memoised
+// because it is the hot path and Intl.DisplayNames is not cheap to construct.
 const DIGEST_REGION = new Intl.DisplayNames(["en"], { type: "region" });
-function digestCountry(cc: string): string { try { return DIGEST_REGION.of(cc) ?? cc; } catch { return cc; } }
+const DIGEST_REGION_LOC = new Map<string, Intl.DisplayNames>();
+function digestCountry(cc: string, locale: Locale = DEFAULT_LOCALE): string {
+  try {
+    if (locale === DEFAULT_LOCALE) return DIGEST_REGION.of(cc) ?? cc;
+    let dn = DIGEST_REGION_LOC.get(locale);
+    if (!dn) { dn = new Intl.DisplayNames([locale], { type: "region" }); DIGEST_REGION_LOC.set(locale, dn); }
+    return dn.of(cc) ?? cc;
+  } catch { return cc; }
+}
 // Readable phrase per release-event type for the "…to {phrase} in {year}" tail.
 const REL_TYPE_PHRASE: Record<string, string> = {
   premiere: "a festival premiere", theatrical_limited: "a limited theatrical opening",
@@ -843,6 +879,15 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
       tmdb_extra: { cast?: { name: string; character: string }[]; writers?: string[]; country?: string[]; original_language?: string | null; collection?: string | null } | null;
     };
     const { lead, lineage, lnListMeta, recommendedBy, ratings, watch, geoCount, geoCountries, scores, recordUpdated, afterlifeTab, afterlifeHonors, wdHonors, reception, releases } = data;
+    // Tier-2 read the invitation straight off the row and hard-coded lang="en",
+    // so the 2,730 Korean invitations that already exist in content_i18n were
+    // never asked for — a translated page showing untranslated prose it owns.
+    // Tier-1 has done this lookup since the projection shipped; this is the
+    // back-port the consolidation work order requires ("두 블록은 크롬 패리티 유지").
+    // loadLabels returns an empty Map on the source locale without querying, so
+    // the English page is unchanged and pays nothing.
+    const t2InvLabels = await loadLabels(locale, "invitation", [f.slug]);
+    const leadLoc = lead ? dbLabel(t2InvLabels, locale, "invitation", f.slug, "rationale", lead) : null;
     const mAccessRec = accessRecordFor(f.tmdb_id);
     // "Keep reading" modules + the director-hub slug: a Tier-2 row often lacks
     // director_slug even when the hub exists on a visible sibling — the recipe
@@ -873,13 +918,17 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
     const prestigeN = scores?.prestige_score != null && Number.isFinite(Number(scores.prestige_score)) ? Math.round(Number(scores.prestige_score)) : null;
     const discoveryN = scores?.discovery_score != null && Number.isFinite(Number(scores.discovery_score)) ? Math.round(Number(scores.discovery_score)) : null;
     const ratingBits: string[] = [];
-    if (ratings?.imdb_rating != null) ratingBits.push(`an IMDb rating of ${ratings.imdb_rating}${ratings.imdb_votes != null ? ` from ${Number(ratings.imdb_votes).toLocaleString("en-US")} votes` : ""}`);
-    if (ratings?.metascore != null) ratingBits.push(`a Metascore of ${ratings.metascore}`);
+    if (ratings?.imdb_rating != null) ratingBits.push(
+      ratings.imdb_votes != null
+        ? t(locale, "an IMDb rating of {r} from {votes} votes", { r: ratings.imdb_rating, votes: Number(ratings.imdb_votes).toLocaleString("en-US") })
+        : t(locale, "an IMDb rating of {r}", { r: ratings.imdb_rating }));
+    if (ratings?.metascore != null) ratingBits.push(t(locale, "a Metascore of {n}", { n: ratings.metascore }));
     if (ratings?.rt_tomatometer != null) {
       const rt = ratings.rt_tomatometer;
       // "an 89% / an 8% / an 11% / an 18%" — every other 0-100 reading takes "a".
+      // The article is passed as a slot so a language without articles can drop it.
       const art = rt === 8 || rt === 11 || rt === 18 || (rt >= 80 && rt <= 89) ? "an" : "a";
-      ratingBits.push(`${art} ${rt}% Tomatometer`);
+      ratingBits.push(t(locale, "{article} {n}% Tomatometer", { article: art, n: rt }));
     }
     const notableHonors = digestNotableHonors(lineage);
     const lineageListN = new Set(lineage.map((l) => l.list_slug)).size;
@@ -901,8 +950,8 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
     const wdNomN = wdHonors.length - wdWinN;
     const wdLabels = digestWdHonorLabels(wdHonors, notableHonorWords);
     const wdBreakdown: string[] = [];
-    if (wdWinN > 0) wdBreakdown.push(`${wdWinN} win${wdWinN === 1 ? "" : "s"}`);
-    if (wdNomN > 0) wdBreakdown.push(`${wdNomN} nomination${wdNomN === 1 ? "" : "s"}`);
+    if (wdWinN > 0) wdBreakdown.push(t(locale, wdWinN === 1 ? "{n} win" : "{n} wins", { n: wdWinN }));
+    if (wdNomN > 0) wdBreakdown.push(t(locale, wdNomN === 1 ? "{n} nomination" : "{n} nominations", { n: wdNomN }));
     // ── C2: release-ledger digest — first premiere (else first theatrical), then a
     // single aggregate arc to the latest event (a shape the subpage never states). ──
     const relByDate = [...releases].sort((a, b) => a.event_date.localeCompare(b.event_date));
@@ -1002,10 +1051,15 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
     // under the hero. The old "About" tab and its metadata list were removed: the
     // facts (director/genre/runtime/cert) duplicate the hero, and cast/writing now
     // live in the Credits tab.
+    // The summary label went through t() but the body did not, so a Korean page
+    // showed "줄거리 (TMDB)" over English prose — the localised label made it look
+    // translated. overview_ko is not incidental here: together with title_ko it
+    // is the gate that admits a film to the /ko cohort at all, so this was the
+    // one field the page was required to show and the one it dropped.
     const synopsis = f.overview ? (
       <details className="df-synopsis-fold">
         <summary>{t(locale, "Plot overview (TMDB)")}</summary>
-        <p className="df-synopsis">{f.overview}</p>
+        <p className="df-synopsis">{loc(f, "overview") ?? f.overview}</p>
       </details>
     ) : null;
     // C4 — image parity with Tier-1: an image-first StillHero (up to 4) + an
@@ -1059,9 +1113,9 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                   <Link href={`/film/${f.slug}`} target="_top" className="df-h1link">{loc(f, "title") ?? f.title}</Link> <span className="df-yr">({f.year ?? "?"})</span>
                   {nativeTitle ? <span style={{ fontWeight: 400, opacity: 0.72, fontSize: "0.72em" }}> ({nativeTitle})</span> : null}
                 </h1>
-                {/* BLUF lead (§1.1) — answer-first dek; same string as the pack + API digest. */}
+                {/* BLUF lead (§1.1) — answer-first dek; byte-identical to the pack + API digest on the source locale. */}
                 <p className="df-lead" style={{ margin: "8px 0 2px", fontSize: "1.02rem", lineHeight: 1.5, maxWidth: "64ch" }}>
-                  {filmLead({ title: f.title, year: f.year, director: f.director, takescore: _cx ? { value: _cx.v, cost: _cx.c, risk: _cx.r, net: _cx.v - _cx.r } : null })}
+                  {filmLead({ title: loc(f, "title") ?? f.title, year: f.year, director: f.director, takescore: _cx ? { value: _cx.v, cost: _cx.c, risk: _cx.r, net: _cx.v - _cx.r } : null }, locale)}
                 </p>
                 {f.director && dirSlug ? (
                   <Link className="df-dircard" href={`/director/${dirSlug}`}>
@@ -1111,10 +1165,10 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
             <section className="df-invite" id="df-invitation">
               <div className="df-invite__txt">
                 <div className="df-invite__head">
-                  <h2 className="df-invite__k">{t(locale, "An invitation to {title}", { title: f.title })}</h2>
+                  <h2 className="df-invite__k">{t(locale, "An invitation to {title}", { title: loc(f, "title") ?? f.title })}</h2>
                   <span className="df-invite__badge">{t(locale, "Spoiler-free")}</span>
                 </div>
-                <p className="df-invite__p" lang={enOrig}>{lead}</p>
+                <p className="df-invite__p" lang={leadLoc && locale !== DEFAULT_LOCALE ? locale : enOrig}>{leadLoc ?? lead}</p>
                 <div className="df-invite__foot">
                   <div className="df-invite__by">{t(locale, "Written by Metatake AI · to a framework by")} <Link href="/editor">Wonwoo Yoon</Link></div>
                 </div>
@@ -1127,52 +1181,97 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
               renders no digest and About leads instead. */}
           {hasDigest ? (
             <section className="df-sec df-digest" id="df-digest">
-              <h2 className="df-h2">{t(locale, "The Metatake record on {title}", { title: f.title })}</h2>
+              <h2 className="df-h2">{t(locale, "The Metatake record on {title}", { title: loc(f, "title") ?? f.title })}</h2>
               {lineage.length > 0 || ratingBits.length > 0 ? (
                 <p className="df-digest__p">
                   {lineage.length > 0 ? (
                     <>
-                      In the canon, {f.title} holds {lineage.length} listing{lineage.length === 1 ? "" : "s"}{lineageListN < lineage.length ? ` across ${lineageListN} list${lineageListN === 1 ? "" : "s"}` : ""} tracked by Metatake — including {joinProse(notableHonors.map(digestHonorLabel))}.
-                      {hasLineageRecord ? <> <Link href={`/film/lineage/${f.slug}`}>See the full lineage record →</Link></> : null}{" "}
+                      {t(locale, "In the canon, {title} holds {listings}{scope} tracked by Metatake — including {honors}.", {
+                        title: loc(f, "title") ?? f.title,
+                        listings: t(locale, lineage.length === 1 ? "{n} listing" : "{n} listings", { n: lineage.length }),
+                        scope: lineageListN < lineage.length
+                          ? " " + t(locale, lineageListN === 1 ? "across {n} list" : "across {n} lists", { n: lineageListN })
+                          : "",
+                        honors: joinProse(notableHonors.map((l) => digestHonorLabel(l, locale)), locale),
+                      })}
+                      {hasLineageRecord ? <> <Link href={`/film/lineage/${f.slug}`}>{t(locale, "See the full lineage record →")}</Link></> : null}{" "}
                     </>
                   ) : null}
-                  {ratingBits.length > 0 ? <>On the aggregators it holds {joinProse(ratingBits)}.</> : null}
+                  {ratingBits.length > 0 ? <>{t(locale, "On the aggregators it holds {bits}.", { bits: joinProse(ratingBits, locale) })}</> : null}
                 </p>
               ) : null}
               {wdHonors.length > 0 ? (
                 <p className="df-digest__p">
-                  Wikidata&rsquo;s award record holds {wdHonors.length} honor{wdHonors.length === 1 ? "" : "s"} for {f.title} — {joinProse(wdBreakdown)}{wdLabels.length ? <>, including the {joinProse(wdLabels)}</> : null}.{" "}
-                  <Link href={`/film/${f.slug}/reception`}>The year-by-year record →</Link>
+                  {t(locale, "Wikidata\u2019s award record holds {honors} for {title} \u2014 {breakdown}{including}.", {
+                    honors: t(locale, wdHonors.length === 1 ? "{n} honor" : "{n} honors", { n: wdHonors.length }),
+                    title: loc(f, "title") ?? f.title,
+                    breakdown: joinProse(wdBreakdown, locale),
+                    including: wdLabels.length ? t(locale, ", including the {labels}", { labels: joinProse(wdLabels, locale) }) : "",
+                  })}{" "}
+                  <Link href={`/film/${f.slug}/reception`}>{t(locale, "The year-by-year record →")}</Link>
                 </p>
               ) : null}
               {relFirst && relLatest ? (
                 <p className="df-digest__p">
-                  TMDB&rsquo;s ledger dates {releases.length} release event{releases.length === 1 ? "" : "s"}{relCountryN > 1 ? ` across ${relCountryN} countries and territories` : relCountryN === 1 ? " in one country" : ""}, {relFirst.event_type === "premiere"
-                    ? <>from its {relFirst.country ? `${digestCountry(relFirst.country)} ` : ""}premiere ({fmtDigestDate(relFirst.event_date)})</>
-                    : <>from its first release{relFirst.country ? ` in ${digestCountry(relFirst.country)}` : ""} ({fmtDigestDate(relFirst.event_date)})</>} to {REL_TYPE_PHRASE[relLatest.event_type] ?? `a ${relLatest.event_type} release`} in {relLatest.event_date.slice(0, 4)}.
-                  {afterlifeTab ? <> <Link href={`/film/${f.slug}/reception`}>See the release timeline →</Link></> : null}
+                  {t(locale, "TMDB\u2019s ledger dates {events}{scope}, {from} to {to} in {year}.", {
+                    events: t(locale, releases.length === 1 ? "{n} release event" : "{n} release events", { n: releases.length }),
+                    scope: relCountryN > 1
+                      ? " " + t(locale, "across {n} countries and territories", { n: relCountryN })
+                      : relCountryN === 1 ? " " + t(locale, "in one country") : "",
+                    from: relFirst.event_type === "premiere"
+                      ? (relFirst.country
+                          ? t(locale, "from its {country} premiere ({date})", { country: digestCountry(relFirst.country, locale), date: fmtDigestDate(relFirst.event_date, locale) })
+                          : t(locale, "from its premiere ({date})", { date: fmtDigestDate(relFirst.event_date, locale) }))
+                      : (relFirst.country
+                          ? t(locale, "from its first release in {country} ({date})", { country: digestCountry(relFirst.country, locale), date: fmtDigestDate(relFirst.event_date, locale) })
+                          : t(locale, "from its first release ({date})", { date: fmtDigestDate(relFirst.event_date, locale) })),
+                    to: REL_TYPE_PHRASE[relLatest.event_type]
+                      ? t(locale, REL_TYPE_PHRASE[relLatest.event_type])
+                      : t(locale, "a {type} release", { type: relLatest.event_type }),
+                    year: relLatest.event_date.slice(0, 4),
+                  })}
+                  {afterlifeTab ? <> <Link href={`/film/${f.slug}/reception`}>{t(locale, "See the release timeline →")}</Link></> : null}
                 </p>
               ) : null}
               {recSources.length > 0 ? (
                 <p className="df-digest__p">
-                  Within Metatake, it is the next step after{" "}
-                  {recSources.map((r, i) => (
-                    <span key={`${r.source_slug}-${i}`}>
-                      {i > 0 ? (i === recSources.length - 1 ? " and " : ", ") : ""}
-                      <Link href={`/film/${r.source_slug}`}>{filmTitle(ctFilmTitles, locale, r.source_slug, r.source_title)}</Link>
-                      {r.source_year ? ` (${r.source_year})` : ""}
-                    </span>
-                  ))}
-                  {recommendedBy.length > recSources.length ? ` and ${recommendedBy.length - recSources.length} more film${recommendedBy.length - recSources.length === 1 ? "" : "s"}` : ""}.
+                  {slot(
+                    t(locale, "Within Metatake, it is the next step after {films}{more}.", {
+                      more: recommendedBy.length > recSources.length
+                        ? t(locale, recommendedBy.length - recSources.length === 1 ? " and {n} more film" : " and {n} more films", { n: recommendedBy.length - recSources.length })
+                        : "",
+                    }),
+                    {
+                      films: recSources.map((r, i) => (
+                        <span key={`${r.source_slug}-${i}`}>
+                          {i > 0 ? (i === recSources.length - 1 ? t(locale, " and ", undefined, "film list") : ", ") : ""}
+                          <Link href={`/film/${r.source_slug}`}>{filmTitle(ctFilmTitles, locale, r.source_slug, r.source_title)}</Link>
+                          {r.source_year ? ` (${r.source_year})` : ""}
+                        </span>
+                      )),
+                    },
+                  )}
                   {digestQuote ? <> <span className="df-digest__q">&ldquo;{digestQuote}&rdquo;</span> <span className="df-digest__att">— Metatake AI</span></> : null}
                 </p>
               ) : null}
               {geoCount > 0 || watchRegionN > 0 ? (
                 <p className="df-digest__p">
                   {geoCount > 0 ? (
-                    <>Its geography is charted on <a href="#df-atlas">the map below</a> — {geoCount} located place{geoCount === 1 ? "" : "s"}{geoCountries.length === 1 ? ` in ${geoCountries[0]}` : geoCountries.length > 1 ? ` across ${geoCountries.length} countries` : ""}.{" "}</>
+                    <>
+                      {slot(
+                        t(locale, "Its geography is charted on {map} — {places}{where}.", {
+                          places: t(locale, geoCount === 1 ? "{n} located place" : "{n} located places", { n: geoCount }),
+                          where: geoCountries.length === 1
+                            ? " " + t(locale, "in {country}", { country: geoCountries[0] })
+                            : geoCountries.length > 1 ? " " + t(locale, "across {n} countries", { n: geoCountries.length }) : "",
+                        }),
+                        { map: <a href="#df-atlas">{t(locale, "the map below")}</a> },
+                      )}{" "}
+                    </>
                   ) : null}
-                  {watchRegionN > 0 ? <>Streaming availability is <a href="#df-watch">tracked in {watchRegionN} region{watchRegionN === 1 ? "" : "s"}</a>.</> : null}
+                  {watchRegionN > 0 ? slot(t(locale, "Streaming availability is {tracked}."), {
+                    tracked: <a href="#df-watch">{t(locale, watchRegionN === 1 ? "tracked in {n} region" : "tracked in {n} regions", { n: watchRegionN })}</a>,
+                  }) : null}
                 </p>
               ) : null}
               {prestigeN != null || discoveryN != null ? (
@@ -1192,7 +1291,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
               visible (still demoted, below the tab bar) rather than dropping it. */}
           {!hasDigest ? synopsis : null}
 
-          <CinecodexPanel locale={locale} data={codex as Codex | null} title={f.title} subscores={subscores} slug={f.slug} />
+          <CinecodexPanel locale={locale} data={codex as Codex | null} title={loc(f, "title") ?? f.title} subscores={subscores} slug={f.slug} />
           <TowCard locale={locale} tow={tow} filmTitle={f.title} variant="short" slug={f.slug} />
           <FilmLineageSection locale={locale} lineage={lineage} title={f.title} slug={f.slug} listMeta={lnListMeta} movements={movements} recordUpdated={recordUpdated} />
           <FilmRecommendedBy locale={locale} rows={recommendedBy} title={f.title} titles={ctFilmTitles} />
@@ -1583,9 +1682,9 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
             ) : <div className="df-poster df-poster--empty" aria-hidden="true" />}
             <div className="df-htxt">
               <h1><Link href={`/film/${film.slug}`} target="_top" className="df-h1link">{loc(film, "title") ?? film.title}</Link> <span className="df-yr">({film.year ?? "?"})</span></h1>
-              {/* BLUF lead (§1.1) — answer-first dek; same string as the pack + API digest. */}
+              {/* BLUF lead (§1.1) — answer-first dek; byte-identical to the pack + API digest on the source locale. */}
               <p className="df-lead" style={{ margin: "8px 0 2px", fontSize: "1.02rem", lineHeight: 1.5, maxWidth: "64ch" }}>
-                {filmLead({ title: film.title, year: film.year, director: film.director, takescore: _cx ? { value: _cx.v, cost: _cx.c, risk: _cx.r, net: _cx.v - _cx.r } : null })}
+                {filmLead({ title: loc(film, "title") ?? film.title, year: film.year, director: film.director, takescore: _cx ? { value: _cx.v, cost: _cx.c, risk: _cx.r, net: _cx.v - _cx.r } : null }, locale)}
               </p>
               {film.director && film.director_slug ? (
                 <Link className="df-dircard" href={`/director/${film.director_slug}`}>
@@ -1686,7 +1785,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
           </section>
         ) : null}
 
-        <CinecodexPanel locale={locale} data={codex as Codex | null} title={film.title} subscores={subscores} slug={film.slug}
+        <CinecodexPanel locale={locale} data={codex as Codex | null} title={loc(film, "title") ?? film.title} subscores={subscores} slug={film.slug}
           headerAccessory={packVisible ? <DownloadPackModal slug={film.slug} sections={[{ key: "takescore", label: "TakeScore" }]} variant="section" /> : null} />
         <TowCard locale={locale} tow={towLoc} filmTitle={film.title} variant="short" slug={film.slug} />
 
