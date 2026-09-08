@@ -8,7 +8,7 @@
 > - Android 1.0.2 vc8 = `~/Developer/metatake-1.0.2-vc8.aab` → **Play Console 직접 업로드 대기**
 > - 키: eas.json이 App Manager 키 `Z2WWR7RS4L`을 가리킴(루트 `.gitignore`에 `*.p8`). 분류기는 `release`/`eas submit`은 막고 `prepare`/`submit`은 통과시켰다 — 막히면 오너가 `!`로
 >
-> ## 🤖 Android `eas submit` 배선 (2026-09-08) — 오너 콘솔 2단계 남음
+> ## ✅ Android `eas submit` 배선 (2026-09-08) — 가동 확인: vc8이 이 경로로 프로덕션 검토 제출됨(제출 `015f8e00…`). 아래 1·2는 완료됨 — 다음 릴리즈는 3번 한 줄
 > eas.json `submit.production.android` = `serviceAccountKeyPath` **`worker/gsc-sa.json`**(기존 GSC 서비스계정 `metatake@epiph-test-bot.iam.gserviceaccount.com` 재사용, gitignore 됨) · `track: production` · `releaseStatus: completed`(업로드 즉시 검토 제출).
 > 서비스계정은 GCP 프로젝트와 무관하게 **Play Console에 이메일로 초대**하면 된다. 남은 것(브라우저, 오너):
 > 1. [Play Console → 사용자 및 권한](https://play.google.com/console/users-and-permissions) → **새 사용자 초대** → 이메일 `metatake@epiph-test-bot.iam.gserviceaccount.com` → 앱 권한: Metatake → **출시 관리(프로덕션 출시 포함)** + **앱 정보 보기** → 초대
