@@ -15,6 +15,7 @@ import SaveListBtn from "../../src/components/SaveListBtn";
 import { t, type DictKey } from "../../src/i18n";
 import { useDbLabels } from "../../src/lib/dbLabels";
 import { api, me } from "../../src/lib/api";
+import { trackTap } from "../../src/lib/beacon";
 import type { NavActive, NavCatalog, NavDestinations, NavPickDest } from "../../src/types";
 import { brand, font, fs, radius, shadow, sp, usePalette } from "../../src/theme";
 
@@ -203,15 +204,20 @@ export default function NavigatorTab() {
     };
   }, [gen]);
 
-  const openDir = (slug: string) => router.push({ pathname: "/navigator/drive", params: { dir: slug } });
-  const openDest = (d: NavPickDest) =>
-    d.kind === "dir"
-      ? router.push({ pathname: "/navigator/drive", params: { dir: d.key } })
-      : router.push({ pathname: "/navigator/drive", params: { lineage: d.key, label: d.label } });
-  const openResume = (r: NavActive) =>
-    r.dest_kind === "dir"
-      ? router.push({ pathname: "/navigator/drive", params: { dir: r.dest_key } })
-      : router.push({ pathname: "/navigator/drive", params: { lineage: r.dest_key, label: r.dest_label ?? r.dest_key } });
+  const openDir = (slug: string) => {
+    trackTap("navigator:open", slug, { kind: "dir" });
+    router.push({ pathname: "/navigator/drive", params: { dir: slug } });
+  };
+  const openDest = (d: NavPickDest) => {
+    trackTap("navigator:open", d.key, { kind: d.kind });
+    if (d.kind === "dir") router.push({ pathname: "/navigator/drive", params: { dir: d.key } });
+    else router.push({ pathname: "/navigator/drive", params: { lineage: d.key, label: d.label } });
+  };
+  const openResume = (r: NavActive) => {
+    trackTap("navigator:resume", r.dest_key, { kind: r.dest_kind });
+    if (r.dest_kind === "dir") router.push({ pathname: "/navigator/drive", params: { dir: r.dest_key } });
+    else router.push({ pathname: "/navigator/drive", params: { lineage: r.dest_key, label: r.dest_label ?? r.dest_key } });
+  };
 
   // Lazy-load the browse catalog the first time the user searches (never on tab open —
   // it's a large payload). Failure falls back to an empty catalog (search shows nothing).

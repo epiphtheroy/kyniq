@@ -123,3 +123,27 @@ Supabase public.mt_events  ←  mt_gsc_daily (worker/gsc-pull.py, Search Console
 - [ ] 원우(선택): Vercel env `METRICS_SALT` 임의 문자열 추가
 - [ ] 데이터가 쌓이면: 핵심 CTA에 `data-mt` 속성 부착(Save/Seen/Watchlist/Follow/TV 재생 등), 주간 자동 리포트, 일별 롤업, "노출 많고 클릭 없는 페이지"(GSC×행동) 자동 리스트
 - [ ] Vercel Analytics는 당분간 병행(무해) — 자체 수치와 교차 검증 후 제거 판단
+
+## 10. 📱 앱 전용 페이지 `/admin/app` + 어드민 18초 로딩 수리 (2026-09-10, 마이그 0151)
+
+오너 요청: "안드로이드별·iOS별 접속자수·다운로드수를 하루 단위로, 앱 내 클릭도 면밀히". 그리고 "어드민이 느린데 서버 과부하 아닌가".
+
+- **느림의 정체 = `mt_weekly_return_json` 하나.** pg_stat_statements(09-10): 125회 호출·평균 **18.6초**·최대 235초·누적 2,328초. mt_events는 4.2만 행뿐인데
+  0149의 `cls`에 있는 `exists (select 1 from bot_pref b where b.wk = per.wk and b.pfx = per.pfx)`가 원인 — 단일 참조 CTE라 인라인되고, 상관 EXISTS가 **행마다
+  집계 전체를 재실행**하는 SubPlan이 됐다. 0120/0150의 `pfx in (select …)`는 비상관이라 해시되어 90ms였던 것과 대비. 0151 = `materialized` CTE + LEFT JOIN, 같은 숫자, **326ms**.
+  → 답: 어드민 한 번 열 때마다 DB CPU를 18초씩 점유했으니 "과부하"라기보다 **매 로드가 프로덕션 쿼리와 CPU를 다투는 스파이크**였다. 0151 적용 후엔 페이지 전체가 1초 안쪽.
+- **`/admin/app`** (사이드바 📱 App, `app/admin/app/page.tsx`) — 단일 RPC `mt_app_panel_json(p_days)`(14/30/90d):
+  - 헤드라인 7일: 접속 기기(전주 대비)·iOS·Android·오늘·세션·첫 실행(설치 실측)·다운로드 iOS/Android(리포트 최신일 병기)·누적·세션 평균/중앙값·화면/세션·탭.
+  - **일별 표**: iOS 접속 / And 접속 / 합계 / 세션(iOS/And) / 첫실행 iOS·And / 다운로드 iOS·And / 화면 / 탭 / 평균 세션 / (회색) BFF 요청. 다운로드 `–`=리포트 미수집(0 아님).
+  - 활동: 화면별·탭별(iOS/And 기기수 병기)·영화 Top·검색어·리더 핸드오프 경로·버전·국가·시간대(KST)·세션 길이 분포·퍼널 4종(온보딩/영화→판단/Navigator/탐색→검색→열기)·로그인.
+- **앱 비콘 확장(OTA만으로 배포, 네이티브 의존성 0)** `mobile/src/lib/beacon.ts`:
+  - `action first_launch` — 설치 후 첫 구동 1회. 기존 설치자는 `mt.review.v1`의 `first`가 오늘보다 앞이면 제외(OTA 순간 전원이 신규로 잡히는 것 방지).
+  - `session:start`(cold 여부)/`session:end`(props `dur_s`·`screens`) — 백그라운드마다 누적 길이로 보고(강제종료 대비), 30분 이상 떠나면 새 세션. 서버는 세션당 max.
+  - 탭 이름 추가: `home:filter/refresh`, `search:query/open/browse`, `navigator:open/resume/pref/seen/skip`, `film:director/score/map/maps_outbound/kindred/invitation/rating_edit`, `share`,
+    `onboarding:step/finish/close`, `auth:apple/google/password/signup/otp/signout`, `settings:open/push`, `my:face/sort`, `account:delete_prompt`, `connect:*`, `director:film`, `list:add_all`.
+    라벨 사전은 페이지의 `TAP_LABELS`. 리더 진입(`/whereto`·`/takescore`·`/tv`…)은 기존 `reader:open`의 경로로 분류.
+- **다운로드 자동화** `worker/app-stores-daily-watch.sh`(restart-watchers.command 등록): 하루 1회 `asc-sales-pull.mjs --days 3` + `play-installs-pull.mjs`.
+  Android는 Play 콘솔에 API가 없어 **Cloud Storage 내보내기**(`gs://pubsite_prod_rev_…/stats/installs/installs_net.metatake.app_YYYYMM_overview.csv`, UTF-16LE)를
+  기존 서비스계정(`worker/gsc-sa.json`)으로 읽는다. 오너 1회 설정: ①콘솔 → 보고서 다운로드 → 통계 → "Cloud Storage URI 복사" → `.env.local`에 `PLAY_REPORTS_BUCKET=…`
+  ②사용자 및 권한 → 서비스계정에 "앱 정보 보기 및 대량 보고서 다운로드(읽기 전용)" 계정 권한. 설정 전엔 워처가 Android를 건너뛴다(로그에 표시).
+- 검증: 0151 RPC 본문을 실데이터로 실행(30일·정상 JSON), 웹 tsc 래칫 20 유지, 모바일 tsc 0·플랫폼 규칙 통과. 기존 `/admin/metrics` 앱 박스는 유지 + 새 페이지 링크.

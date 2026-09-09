@@ -64,6 +64,7 @@ import {
   type ConnectorStatus,
 } from "../src/lib/connect";
 import { verdictOf } from "../src/lib/verdict";
+import { trackTap } from "../src/lib/beacon";
 import { useFilms } from "../src/state/films";
 import { brand, font, fs, gradient, motion, radius, shadow, sp, usePalette } from "../src/theme";
 
@@ -549,6 +550,7 @@ export default function ConnectScreen() {
     async (c: Connector, input: { file?: { uri: string; name: string; mimeType?: string }; text?: string }) => {
       if (runRef.current) return; // one import at a time — IMDb waits merge later
       runRef.current = c.id;
+      trackTap("connect:import", String(c.id));
       setSheet(null);
       setBanner(null);
       setLeaving(false);
@@ -741,6 +743,7 @@ export default function ConnectScreen() {
     async (c: Connector, provider: ConnectProvider) => {
       try {
         setRun((s) => (s && s.id === c.id ? { ...s, stage: "syncing" } : s));
+        trackTap("connect:sync", provider);
         const out = await connectApi.sync(provider);
         const films = out.films ?? 0;
 
@@ -818,6 +821,7 @@ export default function ConnectScreen() {
 
       let started: { url: string; pending: string | null };
       try {
+        trackTap("connect:start", provider);
         started = await connectApi.start(provider, redirectUri);
       } catch (e) {
         if (e instanceof Error && e.message === NOT_CONFIGURED) {
@@ -881,6 +885,7 @@ export default function ConnectScreen() {
 
   const disconnectOAuth = useCallback(async (c: Connector) => {
     setSheet(null);
+    trackTap("connect:disconnect", String(c.id));
     try {
       await connectApi.disconnect(c.id as ConnectProvider);
     } catch {
@@ -917,6 +922,7 @@ export default function ConnectScreen() {
 
   const openExport = useCallback((c: Connector) => {
     if (!c.exportUrl) return;
+    trackTap("connect:export", String(c.id));
     Linking.openURL(c.exportUrl).catch(() => undefined);
     if (c.kind === "file") {
       void setConnectState(c.id, {
@@ -927,6 +933,7 @@ export default function ConnectScreen() {
 
   const openCollect = useCallback((c: Connector) => {
     if (!c.collectUrl) return;
+    trackTap("connect:collect", String(c.id));
     Linking.openURL(c.collectUrl).catch(() => undefined);
     void setConnectState(c.id, { status: "awaiting_file" });
   }, []);

@@ -49,6 +49,7 @@ import SignInPanel from "../src/components/SignInPanel";
 import { SkeletonScreen } from "../src/components/motion";
 import { t } from "../src/i18n";
 import { api, me } from "../src/lib/api";
+import { trackTap } from "../src/lib/beacon";
 import { signInWithGoogle } from "../src/lib/auth";
 import { noteJudged } from "../src/lib/considering";
 import { supabase } from "../src/lib/supabase";
@@ -151,6 +152,10 @@ export default function OnboardingScreen() {
   const [step, setStep] = useState<AnyStep>(
     () => normalizeStep(params.step) ?? (onboarded ? "account" : "welcome"),
   );
+  // Every step the funnel shows — /admin/app reads these as the onboarding funnel.
+  useEffect(() => {
+    trackTap("onboarding:step", step);
+  }, [step]);
 
   // Entered from settings to edit ONE step: Continue returns to the caller
   // instead of walking the rest of the funnel.
@@ -188,6 +193,7 @@ export default function OnboardingScreen() {
   // reader who dismisses it has never seen country, services or taste, and
   // marking them onboarded here means they never will be.
   const finish = () => {
+    trackTap("onboarding:finish", step);
     set({ onboarded: true });
     close();
   };
@@ -258,7 +264,7 @@ export default function OnboardingScreen() {
                 signed-out first-timer who tapped "Sign in" is otherwise
                 trapped with no back/close until the account step's Skip. */}
             {onboarded || dismissible ? (
-              <Tactile onPress={close} hitSlop={10}>
+              <Tactile onPress={() => { trackTap("onboarding:close", step); close(); }} hitSlop={10}>
                 <Ionicons name="close" size={22} color={pal.ink} />
               </Tactile>
             ) : null}

@@ -347,6 +347,7 @@ export default async function MetricsPage({
       }}>
         <div style={{ fontSize: 14, fontWeight: 700, color: "#e2e8f0", marginBottom: 3 }}>
           📱 모바일 앱 <span style={{ fontWeight: 400, color: "#6ee7b7" }}>— 다운로드 · 활동 (위 방문자 수에 안 잡히는 트래픽)</span>
+          <Link href="/admin/app" style={{ marginLeft: 10, fontSize: 12, fontWeight: 500, color: "#6ee7b7" }}>→ 앱 전용 페이지: 일별 iOS·Android 접속자·다운로드·탭 상세</Link>
         </div>
         <div style={{ fontSize: 11.5, color: "#94a3b8", marginBottom: 12 }}>
           앱은 웹 비콘도 Vercel 페이지뷰도 남기지 않아 위 실방문자 수치 어디에도 포함되지 않습니다.

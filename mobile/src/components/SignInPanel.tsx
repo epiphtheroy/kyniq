@@ -16,6 +16,7 @@ import { t } from "../i18n";
 import { signInWithGoogle } from "../lib/auth";
 import { hasAuthProvider } from "../platform/auth-providers";
 import { supabase } from "../lib/supabase";
+import { trackTap } from "../lib/beacon";
 import { brand, font, fs, radius, sp, usePalette } from "../theme";
 import { Btn, GradientBtn, Hairline, Tactile, Ui } from "./ui";
 
@@ -94,6 +95,7 @@ export default function SignInPanel({ onDone }: { onDone: () => void }) {
           token: cred.identityToken,
         });
         if (error) throw error;
+        trackTap("auth:apple");
         onDone();
       } catch (e) {
         // A cancelled sheet is not a failure — stay silent.
@@ -105,7 +107,10 @@ export default function SignInPanel({ onDone }: { onDone: () => void }) {
   const signInGoogle = () =>
     run(async () => {
       const out = await signInWithGoogle();
-      if (out === "ok") onDone();
+      if (out === "ok") {
+        trackTap("auth:google");
+        onDone();
+      }
       else if (out === "error") throw new Error("google");
     });
 
@@ -118,6 +123,7 @@ export default function SignInPanel({ onDone }: { onDone: () => void }) {
         password,
       });
       if (!error) {
+        trackTap("auth:password");
         onDone();
         return;
       }
@@ -135,8 +141,10 @@ export default function SignInPanel({ onDone }: { onDone: () => void }) {
           ? new Error("invalid login credentials")
           : signUpErr;
       }
-      if (data.session) onDone();
-      else setNotice(t("auth.confirmSent", { email: email.trim() }));
+      if (data.session) {
+        trackTap("auth:signup");
+        onDone();
+      } else setNotice(t("auth.confirmSent", { email: email.trim() }));
     });
 
   const sendCode = () =>
@@ -161,6 +169,7 @@ export default function SignInPanel({ onDone }: { onDone: () => void }) {
         type: "email",
       });
       if (error) throw error;
+      trackTap("auth:otp");
       onDone();
     });
 

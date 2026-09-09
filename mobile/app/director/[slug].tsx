@@ -25,6 +25,7 @@ import { METATAKE_BASE, TMDB_IMG } from "../../src/config";
 import { Appear, Shimmer, SkeletonRows, SkeletonText } from "../../src/components/motion";
 import { t } from "../../src/i18n";
 import { api } from "../../src/lib/api";
+import { trackTap } from "../../src/lib/beacon";
 import { birthplaceLabel } from "../../src/i18n/tokens";
 import { useDbLabels } from "../../src/lib/dbLabels";
 import { useLocalPosters, useLocalTitles } from "../../src/lib/titles";
@@ -103,8 +104,10 @@ export default function DirectorScreen() {
 
   const webUrl = `${METATAKE_BASE}/director/${slug}`;
 
-  const goFilm = (filmSlug: string) =>
+  const goFilm = (filmSlug: string) => {
+    trackTap("director:film", filmSlug, { director: String(slug) });
     router.push({ pathname: "/film/[slug]", params: { slug: filmSlug } });
+  };
 
   // slug → film (poster lookup for picks)
   const filmBySlug = useMemo(() => {
@@ -505,7 +508,7 @@ export default function DirectorScreen() {
         pointerEvents="box-none"
       >
         <Disc icon={glyphs.back} onPress={() => (router.canGoBack() ? router.back() : router.replace("/(tabs)"))} />
-        <Disc icon={glyphs.share} onPress={() => Share.share({ message: webUrl })} />
+        <Disc icon={glyphs.share} onPress={() => { trackTap("share", "director", { slug: String(slug) }); void Share.share({ message: webUrl }); }} />
       </View>
     </Screen>
   );

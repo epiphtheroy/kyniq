@@ -32,6 +32,7 @@ import { Btn, Loading, PosterImg, Screen, Serif, Tactile, Ui } from "../../src/c
 import { METATAKE_BASE } from "../../src/config";
 import { t } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
+import { trackTap } from "../../src/lib/beacon";
 import { useFilms } from "../../src/state/films";
 import { useDbLabels } from "../../src/lib/dbLabels";
 import { useLocalPosters, useLocalTitles } from "../../src/lib/titles";
@@ -696,6 +697,7 @@ export default function NavigatorDriveScreen() {
       }
       const token = await markSeen(stop.slug);
       if (token) {
+        trackTap("navigator:seen", stop.slug);
         showToast(t("nav.rerouting"));
         setGen((g) => g + 1); // reroute: refetch → chevron advances
         // Same promise as everywhere else: marking it seen asks for the stars.
@@ -712,6 +714,7 @@ export default function NavigatorDriveScreen() {
   );
 
   const onSkip = useCallback((slug: string) => {
+    trackTap("navigator:skip", slug);
     setSkipped((prev) => new Set(prev).add(slug));
   }, []);
 
@@ -1631,7 +1634,7 @@ export default function NavigatorDriveScreen() {
                 const label = p === "fewest" ? t("nav.prefFewest") : p === "fastest" ? t("nav.prefFastest") : t("nav.prefNoTolls");
                 const tolls = data.routes[p]?.tollCount ?? 0;
                 return (
-                  <Tactile key={p} onPress={() => setPref(p)} style={{ flex: 1 }}>
+                  <Tactile key={p} onPress={() => { trackTap("navigator:pref", p); setPref(p); }} style={{ flex: 1 }}>
                     <View
                       style={{
                         borderRadius: radius.sm,
@@ -1787,7 +1790,7 @@ export default function NavigatorDriveScreen() {
             {roadLabel}
           </Ui>
         </View>
-        <Disc icon={glyphs.share} onPress={() => Share.share({ message: shareMsg })} label={t("nav.share")} />
+        <Disc icon={glyphs.share} onPress={() => { trackTap("share", "navigator"); void Share.share({ message: shareMsg }); }} label={t("nav.share")} />
       </View>
 
       {/* reroute toast */}

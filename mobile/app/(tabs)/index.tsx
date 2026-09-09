@@ -45,6 +45,7 @@ import { Appear, Dots, Pop, SkeletonScreen, Sparkle, haptic } from "../../src/co
 import { t, type DictKey } from "../../src/i18n";
 import { countryLabel } from "../../src/i18n/tokens";
 import { api, me } from "../../src/lib/api";
+import { trackTap } from "../../src/lib/beacon";
 import { noteJudged } from "../../src/lib/considering";
 import { useLocalDirectors, useLocalPosters, useLocalTitles } from "../../src/lib/titles";
 import { useFilms, type JudgmentUndo } from "../../src/state/films";
@@ -272,6 +273,7 @@ export default function TonightScreen() {
   }, [ready, onboarded, needsServices, fetchDeck, gen]);
 
   const onRefresh = useCallback(() => {
+    trackTap("home:refresh");
     setRefreshing(true);
     if (bold) me.invalidateRecommend(); // fresh λ=0.6 pull
     fetchDeck()
@@ -401,6 +403,7 @@ export default function TonightScreen() {
   }, [undoItem, undo]);
 
   const togglePreset = useCallback((k: DeckPreset) => {
+    trackTap("home:filter", `preset:${k}`);
     setPresets((prev) => {
       const next = new Set(prev);
       if (next.has(k)) next.delete(k);
@@ -412,6 +415,7 @@ export default function TonightScreen() {
   /** Taste opt-in: swaps the deck to the personal ranking, and remembers it. */
   const toggleTaste = useCallback(() => {
     const next = !taste;
+    trackTap("home:filter", next ? "taste:on" : "taste:off");
     if (next) setPresets(new Set()); // the personal source can't intersect server presets
     set({ taste: next });
   }, [taste, set]);
@@ -513,20 +517,20 @@ export default function TonightScreen() {
           value={t(SORT_COPY[sortKey])}
           icon="swap-vertical"
           active={sortKey !== "ts"}
-          onPress={() => setPicker("sort")}
+          onPress={() => { trackTap("home:filter", "sort"); setPicker("sort"); }}
         />
         <PickerChip
           label={t("era.label")}
           value={eraKey === "all" ? t("era.all") : t("era.sinceShort", { y: eraKey })}
           icon="calendar-outline"
           active={eraKey !== "all"}
-          onPress={() => setPicker("era")}
+          onPress={() => { trackTap("home:filter", "era"); setPicker("era"); }}
         />
         <View style={{ width: StyleSheet.hairlineWidth, height: 18, backgroundColor: pal.hairline2 }} />
         <Chip
           label={t("preset.onMyServices")}
           active={servicesOn}
-          onPress={() => setServicesOn((v) => !v)}
+          onPress={() => { trackTap("home:filter", servicesOn ? "services:off" : "services:on"); setServicesOn((v) => !v); }}
         />
         {session ? (
           <Chip
@@ -544,7 +548,7 @@ export default function TonightScreen() {
             label={t("tonight.hideSeen")}
             icon="eye-off-outline"
             active={hideSeen}
-            onPress={() => set({ hideSeen: !hideSeen })}
+            onPress={() => { trackTap("home:filter", hideSeen ? "hideSeen:off" : "hideSeen:on"); set({ hideSeen: !hideSeen }); }}
           />
         ) : null}
         {originCatalog.length ? (
@@ -559,7 +563,7 @@ export default function TonightScreen() {
             }
             icon="earth-outline"
             active={origins.size > 0}
-            onPress={() => setPicker("origin")}
+            onPress={() => { trackTap("home:filter", "origin"); setPicker("origin"); }}
           />
         ) : null}
         {/* Mood presets filter the shared engine, so they're meaningless while the

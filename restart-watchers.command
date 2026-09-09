@@ -11,7 +11,7 @@
 # this repeatedly is safe — it only starts what is not already alive.
 # ============================================================
 set -uo pipefail
-REPO="/Users/jerryje/Documents/MetaTake"
+REPO="/Users/jerryje/Developer/MetaTake"
 cd "$REPO" || exit 1
 echo "▶ Repo: $(pwd)"
 echo
@@ -36,6 +36,7 @@ start() {
 start "auto-deploy"      "auto-deploy-watch.sh"
 start "now-playing"      "hourly/now-playing-watch.sh"
 start "gsc-daily"        "worker/gsc-daily-watch.sh"
+start "app-stores-daily" "worker/app-stores-daily-watch.sh"
 start "film-clips-daily" "worker/film-clips-daily.sh"
 start "factory-watch"    "factory-watch.sh"
 start "factory-sentinel" "factory-sentinel.sh"

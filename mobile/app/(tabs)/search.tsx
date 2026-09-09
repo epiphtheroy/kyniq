@@ -34,6 +34,7 @@ import SaveListBtn from "../../src/components/SaveListBtn";
 import { t, type DictKey } from "../../src/i18n";
 import { birthplaceLabel, decadeLabel, genreLabel } from "../../src/i18n/tokens";
 import { api } from "../../src/lib/api";
+import { trackTap } from "../../src/lib/beacon";
 import { useLocalDirectors, useLocalPosters, useLocalTitles } from "../../src/lib/titles";
 import { DECADES, GENRES, type Decade } from "../../src/lib/browse";
 import { useDbLabels } from "../../src/lib/dbLabels";
@@ -251,6 +252,7 @@ export default function SearchScreen() {
       }
       setRows(kept);
       setSearched(true);
+      trackTap("search:query", query, { n: kept.length });
 
       // 2) Best-effort decoration for film rows (each leg fails soft).
       const filmSlugs = kept.filter((r) => r.kind === "film").map((r) => r.slug);
@@ -339,20 +341,24 @@ export default function SearchScreen() {
     };
   }, [selActive, genresKey, decadesKey, browseSort, minTs, country]);
 
-  const pickGenre = (g: string) =>
+  const pickGenre = (g: string) => {
+    trackTap("search:browse", `genre:${g}`);
     setSel((prev) => {
       const genres = new Set(prev.genres);
       if (genres.has(g)) genres.delete(g);
       else genres.add(g);
       return { ...prev, genres };
     });
-  const pickDecade = (d: Decade) =>
+  };
+  const pickDecade = (d: Decade) => {
+    trackTap("search:browse", `decade:${d.label}`);
     setSel((prev) => {
       const decades = new Set(prev.decades);
       if (decades.has(d.label)) decades.delete(d.label);
       else decades.add(d.label);
       return { ...prev, decades };
     });
+  };
 
   /** Lists matching the query — every token must appear somewhere in the entry's
    *  searchable blob, the same rule the Navigator's list search uses. */
@@ -972,7 +978,7 @@ function DealCard({ f, w, ts }: { f: OdyStationLite; w: number; ts: number | nul
   const router = useRouter();
   const pal = usePalette();
   return (
-    <Tactile onPress={() => router.push({ pathname: "/film/[slug]", params: { slug: f.s } })} style={{ width: w }}>
+    <Tactile onPress={() => { trackTap("search:open", f.s, { from: "deal" }); router.push({ pathname: "/film/[slug]", params: { slug: f.s } }); }} style={{ width: w }}>
       <PosterImg path={f.p ?? null} width={w} height={Math.round(w * 1.5)} rounded={radius.sm} />
       <Ui size={fs.xs} weight="600" numberOfLines={1} style={{ marginTop: 6 }}>
         {f.t ?? f.s}
@@ -1008,7 +1014,7 @@ function FilmResultRow({
   const pal = usePalette();
   const router = useRouter();
   return (
-    <Tactile onPress={() => router.push({ pathname: "/film/[slug]", params: { slug } })}>
+    <Tactile onPress={() => { trackTap("search:open", slug); router.push({ pathname: "/film/[slug]", params: { slug } }); }}>
       <View
         style={{
           flexDirection: "row",
@@ -1041,7 +1047,7 @@ function DirectorRow({ row }: { row: SearchRow }) {
   const pal = usePalette();
   const router = useRouter();
   return (
-    <Tactile onPress={() => router.push({ pathname: "/director/[slug]", params: { slug: row.slug } })}>
+    <Tactile onPress={() => { trackTap("search:open", row.slug, { kind: "director" }); router.push({ pathname: "/director/[slug]", params: { slug: row.slug } }); }}>
       <View
         style={{
           flexDirection: "row",

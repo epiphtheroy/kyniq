@@ -29,6 +29,7 @@ import {
 } from "../../src/components/ui";
 import { t } from "../../src/i18n";
 import { api } from "../../src/lib/api";
+import { trackTap } from "../../src/lib/beacon";
 import { supabase } from "../../src/lib/supabase";
 import { trueSizeOf } from "../../src/lib/lineage";
 import { useDbLabels } from "../../src/lib/dbLabels";
@@ -116,6 +117,7 @@ export default function ListScreen() {
       router.push({ pathname: "/onboarding", params: { step: "account" } });
       return;
     }
+    trackTap("list:add_all", String(slug));
     setAdding(true);
     setAddErr(false);
     // Bound the write, for the same reason getJSON bounds every read: a socket

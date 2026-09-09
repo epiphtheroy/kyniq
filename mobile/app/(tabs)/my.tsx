@@ -59,6 +59,7 @@ import { t } from "../../src/i18n";
 import { isWeb } from "../../src/platform/env";
 import type { DictKey } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
+import { trackTap } from "../../src/lib/beacon";
 import { registerPush } from "../../src/lib/push";
 import { openReviewListing } from "../../src/lib/review";
 import { PUSH_CREDENTIALS_CONFIGURED } from "../../src/platform/notifications";
@@ -449,6 +450,7 @@ export default function YouScreen() {
 
   const pickFace = (next: Face) => {
     if (next === face) return;
+    trackTap("my:face", String(next));
     setFace(next);
     // Lists carry no sort switches — leave the film faces' key alone.
     if (SORTS[next].length) setSortKey(SORTS[next][0]);
@@ -457,6 +459,7 @@ export default function YouScreen() {
   };
 
   const pickSort = (key: SortKey) => {
+    trackTap("my:sort", String(key));
     // Tapping the live switch flips it — that is the whole direction control,
     // and it keeps the strip to one row of very small labels.
     if (key === sortKey) setFlipped((f) => !f);
@@ -541,7 +544,7 @@ export default function YouScreen() {
         </Ui>
         <HeaderSearch onPress={() => router.push("/search")} />
         <View style={{ width: sp.s2 }} />
-        <Tactile onPress={() => setShowSettings(true)} hitSlop={8}>
+        <Tactile onPress={() => { trackTap("settings:open"); setShowSettings(true); }} hitSlop={8}>
           <View
             style={{
               width: 36,
@@ -698,7 +701,7 @@ export default function YouScreen() {
           <Ui size={fs.x2} weight="600" style={{ flex: 1 }}>
             {t("shelf.title")}
           </Ui>
-          <Tactile onPress={() => setShowSettings(true)} hitSlop={8}>
+          <Tactile onPress={() => { trackTap("settings:open"); setShowSettings(true); }} hitSlop={8}>
             <View
               style={{
                 width: 36,
@@ -1121,6 +1124,7 @@ function SettingsModal({ visible, onClose }: { visible: boolean; onClose: () => 
   }, [authOpen]);
 
   const onTogglePush = async (on: boolean) => {
+    trackTap("settings:push", on ? "on" : "off");
     // Without an FCM credential registerPush() cannot succeed, so the optimistic
     // write below would be two syncPrefs round trips whose answer we already
     // know. Refuse the write rather than perform a failure.
@@ -1506,6 +1510,7 @@ function SignedIn() {
   };
 
   const confirmDelete = () => {
+    trackTap("account:delete_prompt");
     // Web preview: Alert has no browser implementation and the delete POST needs
     // the authorization header the public API's CORS deliberately blocks — so the
     // browser delegates account management to the website. Native does it in-app
@@ -1522,7 +1527,7 @@ function SignedIn() {
 
   return (
     <View style={{ paddingHorizontal: sp.s4, gap: sp.s3 }}>
-      <Btn kind="ghost" label={t("my.signOut")} onPress={() => void supabase.auth.signOut()} />
+      <Btn kind="ghost" label={t("my.signOut")} onPress={() => { trackTap("auth:signout"); void supabase.auth.signOut(); }} />
       <Tactile
         onPress={confirmDelete}
         disabled={busy}

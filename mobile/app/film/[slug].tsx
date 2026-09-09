@@ -45,6 +45,7 @@ import Animated, {
 import { Appear, Pulse, Shimmer, SkeletonText } from "../../src/components/motion";
 import { t } from "../../src/i18n";
 import { api, me } from "../../src/lib/api";
+import { trackTap } from "../../src/lib/beacon";
 import { noteJudged, noteOpened } from "../../src/lib/considering";
 import { bandWord, verdictShort } from "../../src/lib/takescore";
 import { useDbLabels } from "../../src/lib/dbLabels";
@@ -517,11 +518,15 @@ export default function FilmScreen() {
   // throw you out of the app into Google Maps — a place with none of our pins,
   // no other films, and no way back. The Locations tab route survives exactly for
   // this (href:null in the tab layout) and already knows ?film=<slug>.
-  const openOurMap = () => router.push({ pathname: "/map", params: { film: card.slug } });
+  const openOurMap = () => {
+    trackTap("film:map", card.slug);
+    router.push({ pathname: "/map", params: { film: card.slug } });
+  };
   // The outlink survives as one explicitly LABELLED button, for turn-by-turn —
   // never as what happens when you tap a place name.
   const openPinInMaps = (pin?: { lat: number; lng: number }) => {
     if (!pin) return;
+    trackTap("film:maps_outbound", card.slug);
     Linking.openURL(`https://www.google.com/maps/search/?api=1&query=${pin.lat},${pin.lng}`).catch(() => {});
   };
   const availKinds = [...new Set(availability.map((a) => a.kind))];
@@ -638,7 +643,7 @@ export default function FilmScreen() {
         >
           <IconDisc icon={glyphs.back} onPress={() => (router.canGoBack() ? router.back() : router.replace("/(tabs)"))} />
           <View style={{ flexDirection: "row", gap: sp.s2 }}>
-            <IconDisc icon={glyphs.share} onPress={() => Share.share({ message: webUrl })} />
+            <IconDisc icon={glyphs.share} onPress={() => { trackTap("share", "film", { slug: card.slug }); void Share.share({ message: webUrl }); }} />
             <IconDisc
               icon={entry?.watchlist ? "heart" : "heart-outline"}
               color={entry?.watchlist ? brand.accent : pal.ink}
@@ -669,10 +674,11 @@ export default function FilmScreen() {
               {card.director ? (
                 <Tactile
                   disabled={!card.director_slug}
-                  onPress={() =>
-                    card.director_slug &&
-                    router.push({ pathname: "/director/[slug]", params: { slug: card.director_slug } })
-                  }
+                  onPress={() => {
+                    if (!card.director_slug) return;
+                    trackTap("film:director", card.director_slug);
+                    router.push({ pathname: "/director/[slug]", params: { slug: card.director_slug } });
+                  }}
                 >
                   <Ui
                     size={fs.sm}
@@ -686,7 +692,7 @@ export default function FilmScreen() {
               ) : null}
             </View>
             {card.ts != null ? (
-              <Tactile onPress={() => setScoreOpen((o) => !o)} hitSlop={8} feedback="tap">
+              <Tactile onPress={() => { trackTap("film:score", card.slug); setScoreOpen((o) => !o); }} hitSlop={8} feedback="tap">
                 <TSDonut val={card.ts} size={64} label="TakeScore" />
               </Tactile>
             ) : null}
@@ -758,7 +764,7 @@ export default function FilmScreen() {
                   {lead}
                 </Serif>
                 {leadLong ? (
-                  <Tactile feedback="tap" onPress={() => setLeadOpen((v) => !v)} hitSlop={8}>
+                  <Tactile feedback="tap" onPress={() => { trackTap("film:invitation", leadOpen ? "less" : "more"); setLeadOpen((v) => !v); }} hitSlop={8}>
                     <View style={{ flexDirection: "row", alignItems: "center", gap: 4, paddingTop: sp.s2 }}>
                       <Ui size={fs.sm} weight="600" color={brand.accent}>
                         {t(leadOpen ? "film.showLess" : "film.readOn")}
@@ -842,9 +848,10 @@ export default function FilmScreen() {
                         <View key={k.slug}>
                           {i > 0 ? <Hairline style={{ marginLeft: sp.s4 }} /> : null}
                           <Tactile
-                            onPress={() =>
-                              router.push({ pathname: "/film/[slug]", params: { slug: k.slug } })
-                            }
+                            onPress={() => {
+                              trackTap("film:kindred", k.slug, { from: card.slug });
+                              router.push({ pathname: "/film/[slug]", params: { slug: k.slug } });
+                            }}
                             style={{
                               flexDirection: "row",
                               alignItems: "baseline",
@@ -1209,9 +1216,10 @@ export default function FilmScreen() {
               </SectionTitle>
               <Group>
                 <Tactile
-                  onPress={() =>
-                    router.push({ pathname: "/director/[slug]", params: { slug: card.the_life!.slug } })
-                  }
+                  onPress={() => {
+                    trackTap("film:director", card.the_life!.slug, { from: "life" });
+                    router.push({ pathname: "/director/[slug]", params: { slug: card.the_life!.slug } });
+                  }}
                   style={{ flexDirection: "row", gap: sp.s3, padding: sp.s4 }}
                 >
                   {card.the_life.profile_path ? (
@@ -1449,7 +1457,7 @@ export default function FilmScreen() {
         {/* Once seen, the rating is a standing line rather than a panel that has
             to be toggled open — one tap reopens the sheet to change it. */}
         {entry?.seen ? (
-          <Tactile onPress={askRating} feedback="tap">
+          <Tactile onPress={() => { trackTap("film:rating_edit", card.slug); askRating(); }} feedback="tap">
             <View
               style={[
                 {
