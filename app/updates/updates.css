@@ -195,6 +195,20 @@
 }
 .upd-body a { color: var(--accent-text); text-decoration: none; }
 .upd-body a:hover { text-decoration: underline; text-underline-offset: 2px; }
+.upd-body + .upd-body { margin-top: 12px; }
+
+/* Plate: a still set on white paper inside a hairline, so ink-on-white art
+   reads the same whatever the page ground is. */
+.upd-figure {
+  display: flex;
+  justify-content: center;
+  max-width: var(--measure);
+  margin: 14px 0 0;
+  padding: 30px 24px;
+  background: #fff;
+  border: 1px solid var(--hairline);
+}
+.upd-figure img { display: block; width: 100%; max-width: 220px; height: auto; }
 
 /* --- pager --- */
 .upd-pager {

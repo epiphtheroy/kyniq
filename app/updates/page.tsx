@@ -38,6 +38,7 @@ const jsonLd = {
     url: `${siteUrl}/updates#${p.id}`,
     articleSection: CATEGORY_LABEL[p.cat],
     author: { "@type": "Organization", name: "Metatake", url: siteUrl },
+    ...(p.image ? { image: `${siteUrl}${p.image.src}` } : {}),
   })),
 };
 

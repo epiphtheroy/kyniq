@@ -176,7 +176,21 @@ export default function UpdatesThread({ posts }: { posts: UpdatePost[] }) {
                     </a>
                   </div>
                   <h2 className="upd-title">{p.title}</h2>
-                  <p className="upd-body">{renderBody(p.body)}</p>
+                  {p.image && (
+                    <figure className="upd-figure">
+                      <img
+                        src={p.image.src}
+                        alt={p.image.alt}
+                        width={p.image.width}
+                        height={p.image.height}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </figure>
+                  )}
+                  {p.body.split(/\n\n+/).map((para, i) => (
+                    <p key={i} className="upd-body">{renderBody(para)}</p>
+                  ))}
                 </article>
               </li>
             </Fragment>

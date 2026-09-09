@@ -30,11 +30,27 @@ export type UpdatePost = {
   cat: UpdateCategory;
   /** short factual headline, sentence case */
   title: string;
-  /** 1–4 sentences, one paragraph. [text](href) links only. */
+  /** 1–4 sentences, one paragraph. [text](href) links only. A blank line
+   *  (\n\n) splits paragraphs — reserved for the rare long-form note. */
   body: string;
+  /** Optional plate above the body — a still, never decoration. src under /public. */
+  image?: { src: string; alt: string; width: number; height: number };
 };
 
 export const UPDATES: UpdatePost[] = [
+  {
+    id: "2026-09-09-mark",
+    date: "2026-09-09",
+    cat: "milestone",
+    title: "A mark of our own: the seam between meta and take",
+    image: {
+      src: "/brand/wordmark.svg",
+      alt: "The Metatake mark: Meta over take, the M inside a square, the t hanging from the square's corner, a red dot at the seam between the two words.",
+      width: 220,
+      height: 152,
+    },
+    body: "From the day it opened, Metatake wore a placeholder: a red square, a white serif M. It was honest about being temporary, and it looked, uncomfortably, like a newspaper we admire. The placeholder is gone. The mark that replaces it — on the site, in the [iPhone and Android apps](/app), on every icon and favicon — was designed by Ashley Kim Sim, and this note is our thanks, put on the record.\n\nThe brief we sent in August was short. No symbol — the site is white paper, black ink and hairlines, and anything pictorial would fight the page. Type only. And one rule: the name is two units, meta and take, so if anything in the mark was going to move, it should move at the seam between them.\n\nWhat came back kept the rule and read it more closely than we had. The M sits inside a square — a frame, a screen, the box a reading takes place in. The t of take hangs from the square's corner instead of standing beside it, so the two words share a wall. And the seam is a single red dot, the only colour, the site's one accent, placed where the name breaks. Nothing else is decorated. The letters are Indivisible SemiBold, set straight.\n\nThe second round was about survival at small sizes: a flat icon in light, dark and tinted for iOS; an adaptive set for Android; a 16-pixel favicon that drops the t so the M and the dot still read in a browser tab; white knockouts for dark ground. One red, fixed at #E3120B, the value the site already used.\n\nThe mark is the work of Ashley Kim Sim (심승현), who studies design at the School of Visual Arts in New York and is on [Instagram](https://www.instagram.com/1.tla.0/). We are grateful beyond the brief: Metatake asked for restraint and received precision, and a small publication now has a face it can stand behind. Thank you.",
+  },
   {
     id: "2026-09-01-google-play",
     date: "2026-09-01",

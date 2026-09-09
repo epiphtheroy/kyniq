@@ -180,6 +180,14 @@ export default function AboutPage() {
         As of July 2026: nearly 7,000 films in the index, 6,704 of them scored; close to 2,000 close-read;
         more than 70,000 readings; hundreds of theorists cited by name.
       </p>
+      {/* Colophon. The mark's designer is credited here and in the Updates
+          note this links to — the record of who drew the face of the site. */}
+      <div className="seclbl" style={{ marginTop: 26 }}>Colophon</div>
+      <p className="ui muted" style={{ fontSize: 13, lineHeight: 1.7, margin: "8px 0 0" }}>
+        The Metatake mark — the boxed M, the hanging t, the red dot at the seam of meta and take — was
+        designed by Ashley Kim Sim. <A href="/updates#2026-09-09-mark">How it was made</A>.
+        The site is set in PT Serif and Inter; the mark in Indivisible.
+      </p>
       {/* Data sources. Consolidated here on 2026-07-31 so the app can stop
           scattering source lines across its settings screens and point at one
           stated place — but TMDB's and JustWatch's terms both REQUIRE

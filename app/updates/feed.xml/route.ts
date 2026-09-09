@@ -15,7 +15,7 @@ function escapeXml(s: string): string {
 
 // [text](href) → text; feeds get plain prose (relative links can't travel).
 function plain(body: string): string {
-  return body.replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1");
+  return body.replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1").replace(/\n\n+/g, " ");
 }
 
 export async function GET() {
