@@ -25,6 +25,7 @@ import { filmIndexRoster } from "@/lib/filmGate";
 import { directorIndexBar } from "@/lib/directorGate";
 import odysseyMap from "@/public/odyssey/map.v1.json";
 import { allLocationCities, cachedLocationsEligibility } from "@/lib/locations";
+import { filmLocationNote } from "@/lib/film-location-notes";
 import { cachedLineageEligibility } from "@/lib/lineage";
 
 // SEO consolidation gate (HANDOFF §2.6): the set of slugs whose MAIN page is
@@ -1097,14 +1098,18 @@ export async function catalogEntries(): Promise<SitemapEntry[]> {
  * /film/x/locations read pages (docs/PLAN-atlas-seo.md Phase 1) — films with
  * ≥3 merged pins (same bar as the page's own 404 gate; lib/locations.ts). The
  * eligibility RPC returns slug-ascending order, so the cohort cap only ever
- * appends. No lastmod: location data refreshes wholesale.
+ * appends. Only individually revised guides carry lastmod: the general
+ * location dataset refreshes wholesale and is not a per-page revision date.
  */
 export async function filmLocationsEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
   const { films } = await cachedLocationsEligibility();
   return films
     .slice(0, INDEX_COHORT_FILM_LOCATIONS)
-    .map((f) => ({ url: `${siteUrl}/film/locations/${f.slug}` }));
+    .map((f) => {
+      const note = filmLocationNote(f.slug);
+      return { url: `${siteUrl}/film/locations/${f.slug}`, ...(note ? { lastmod: note.updated } : {}) };
+    });
 }
 
 /**

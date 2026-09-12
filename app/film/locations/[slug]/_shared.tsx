@@ -12,6 +12,7 @@ import ReadHero from "@/components/read/ReadHero";
 import ReadPlates from "@/components/read/ReadPlates";
 import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 import { pageRobots } from "@/lib/seo";
+import { filmLocationNote } from "@/lib/film-location-notes";
 import "@/app/curious/curious.css";
 import "@/app/film/[slug]/read.css";
 import {
@@ -256,10 +257,11 @@ export async function filmLocationsMetadata(slug: string, locale: Locale): Promi
   const setting = pins.filter((p) => p.layer === "setting");
   const year = film.year ? ` (${film.year})` : "";
   // No brand suffix — the root layout template appends "· Metatake".
-  const title = `${t(locale, "Where Was {title} Filmed?", { title: `${film.title}${year}` })} — ${t(locale, "{n} Locations, Mapped", { n: pins.length })}`;
+  const note = locale === DEFAULT_LOCALE ? filmLocationNote(slug) : undefined;
+  const title = `${t(locale, "Where Was {title} Filmed?", { title: `${film.title}${year}` })} — ${note ? "Filming Locations & Sources" : t(locale, "{n} Locations, Mapped", { n: pins.length })}`;
   // Description is assembled geographic prose over English place names (the pins
   // are DB data, and the 26k name_ko batch isn't loaded), so it stays English.
-  const description = leadText(film, filmed, setting);
+  const description = note?.summary ?? leadText(film, filmed, setting);
   return {
     title,
     description,
@@ -354,8 +356,19 @@ export async function FilmLocationsPage({ slug, locale }: { slug: string; locale
   const countries = pinCountries(filmed);
   const groupByCountry = countries.length > 1;
   // The dataset's real last-change date — not the render date.
-  const updated = (await cachedLocationsMeta()).updated || new Date().toISOString().slice(0, 10);
-  const lead = leadText(film, filmed, setting);
+  const dataUpdated = (await cachedLocationsMeta()).updated || new Date().toISOString().slice(0, 10);
+  const note = locale === DEFAULT_LOCALE ? filmLocationNote(slug) : undefined;
+  const updated = note && note.updated > dataUpdated ? note.updated : dataUpdated;
+  const lead = note?.summary ?? leadText(film, filmed, setting);
+  const quickAnswers = quickAnswerItems(film, filmed, setting);
+  // Revised guides use a source-backed answer instead of promoting a
+  // generated pin description or treating the record count as unique sites.
+  if (note) {
+    quickAnswers.splice(0, quickAnswers.length, {
+      q: note.question,
+      a: <>{note.answer}{" "}Source: <a className="link-curio" href={note.source.url}>{note.source.title}</a>.</>,
+    });
+  }
   const yearLabel = film.year ? ` (${film.year})` : "";
 
   const placeLd = (p: GeoPin) => ({
@@ -417,25 +430,25 @@ export async function FilmLocationsPage({ slug, locale }: { slug: string; locale
         shareHook={lead}
         crumbTail={t(locale, "On Location")}
         chip={<><Link href="/curious/locations" style={{ color: "inherit", textDecoration: "none" }}>{t(locale, "On Location")}</Link>{" · "}{t(locale, "fact-checked & mapped")}</>}
-        meta={<>{t(locale, "{n} places", { n: pins.length })} · <a href="#map" style={{ color: "inherit", textDecoration: "underline" }}>{t(locale, "see the map ↓")}</a> · {t(locale, "data updated {date}", { date: updated })}</>}
+        meta={<>{note ? `${pins.length} map entries` : t(locale, "{n} places", { n: pins.length })} · <a href="#map" style={{ color: "inherit", textDecoration: "underline" }}>{t(locale, "see the map ↓")}</a> · {t(locale, "data updated {date}", { date: dataUpdated })}</>}
         title={<>{t(locale, "Where was {title} filmed?", { title: `${film.title}${yearLabel}` })}</>}
         dek={lead}
         videos={videos}
         backdropPath={film.backdrop_path}
       />
       <div className="mt-wrap" style={{ maxWidth: 880, padding: "28px 20px 40px" }}>
-        <Byline locale={locale} created={updated} />
+        <Byline locale={locale} updated={updated} />
 
         {/* Q&A is assembled over English place names (26k pin names not localized) —
             keep it English on ko, marked, per §1.1. */}
         <div lang={locale === DEFAULT_LOCALE ? undefined : "en"}>
-          <QuickAnswers locale={locale} items={quickAnswerItems(film, filmed, setting)} />
+          <QuickAnswers locale={locale} items={quickAnswers} />
         </div>
 
         {filmed.length > 0 && (
           <section style={{ margin: "28px 0" }}>
-            <h2 className="df-h2">{t(locale, "Filmed locations — {n} places", { n: filmed.length })}</h2>
-            <p className="df-sub">{t(locale, "Where the cameras actually stood, from exact addresses down to city level.")}</p>
+            <h2 className="df-h2">{note ? `Filming records — ${filmed.length} map entries` : t(locale, "Filmed locations — {n} places", { n: filmed.length })}</h2>
+            <p className="df-sub">{note ? "The records below range from exact addresses to wider areas. Different entries can describe the same venue; the entry count is not a count of distinct filming sites. Sources for individual records are linked where available." : t(locale, "Where the cameras actually stood, from exact addresses down to city level.")}</p>
             {groupByCountry ? (
               (() => {
                 let n = 0;
@@ -468,7 +481,7 @@ export async function FilmLocationsPage({ slug, locale }: { slug: string; locale
 
         <section id="map" style={{ margin: "44px 0 0", borderTop: "2px solid #16233F", paddingTop: 6 }}>
           <h2 className="df-h2" style={{ marginTop: 18 }}>{t(locale, "{title} — every location on the map", { title: film.title })}</h2>
-          <p className="df-sub">{t(locale, "The same {n} places, live. Click a pin to read what it means in the film.", { n: pins.length })}</p>
+          <p className="df-sub">{note ? `The same ${pins.length} records on the map. Click a pin for its location details.` : t(locale, "The same {n} places, live. Click a pin to read what it means in the film.", { n: pins.length })}</p>
           <FilmMap endpoint={`/api/geo?film=${film.slug}`} filmSlug={film.slug} height={520} />
         </section>
 
@@ -495,7 +508,7 @@ export async function FilmLocationsPage({ slug, locale }: { slug: string; locale
             an ongoing basis. <Link href="/methodology#locations">{t(locale, "Read the full methodology →")}</Link>
           </p>
         </aside>
-        <Provenance locale={locale} created={updated} />
+        {note ? <Provenance locale={locale} updated={updated} /> : <Provenance locale={locale} created={updated} />}
       </div>
 
       <ReadPlates slug={film.slug} exclude="locations" />
