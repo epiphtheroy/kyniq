@@ -7,7 +7,8 @@ import { FilmPage, filmMetadata } from "@/app/film/[slug]/_shared";
 
 interface Props { params: Promise<{ slug: string }>; }
 
-export const revalidate = 300;
+// Matches the EN shell; see the note there for why this is an hour.
+export const revalidate = 3600;
 export async function generateStaticParams() { return []; }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

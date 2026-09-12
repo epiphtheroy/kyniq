@@ -8,7 +8,14 @@ import { FilmPage, filmMetadata } from "./_shared";
 
 interface Props { params: Promise<{ slug: string }>; }
 
-export const revalidate = 300;
+// 300s until 2026-09-12 — the same mistake 2281585a fixed on the figure page,
+// left behind here. On 2026-09-11 this route wrote 30,086 ISR write units, more
+// than any other and a third of the site's total, on a day of 28,950 requests:
+// the crawler sweep revisits a film faster than the window expires, so nearly
+// every visit was a MISS that re-rendered and re-wrote. The body only moves when
+// the factory ingests, and the factory purges the path itself (worker/factory.py
+// -> /api/revalidate), so the window is a floor, not the freshness guarantee.
+export const revalidate = 3600;
 export async function generateStaticParams() { return []; }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

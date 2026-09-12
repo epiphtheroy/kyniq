@@ -16,7 +16,10 @@ import ShareDock from "@/components/ShareDock";
 import "@/app/curious/curious.css";
 import "@/app/film/[slug]/read.css";
 
-export const revalidate = 300;
+// Browse surface over the same corpus, and swept like one: 2,105 ISR write
+// units on 2026-09-11. Same reasoning as the film shell — an hour, not five
+// minutes, with the factory purging on ingest.
+export const revalidate = 3600;
 export async function generateStaticParams() { return []; }
 
 function db() {
